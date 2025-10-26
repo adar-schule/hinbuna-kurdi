@@ -12,9 +12,10 @@
                 style="width:24px; height:24px;">
         </a>
 
-        <a href="../auth/auth.html" data-nav="auth" style="display:inline-block; margin-right:10px;">
+        <a href="#" data-nav="auth" style="display:inline-block; margin-right:10px;"
+            onclick="location.href = (location.pathname.includes('/modules/') ? '../auth/auth.html' : 'modules/auth/auth.html')">
             <img src="https://img.icons8.com/?size=100&id=23380&format=png&color=000000" alt="Login"
-                style="width: 24px; height: 24px;">
+                style="width:24px; height:24px;">
         </a>
 
         <div id="appsIcon" style="cursor:pointer; display:inline-block; margin-right:10px;" onclick="toggleApps()">
