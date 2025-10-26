@@ -20,7 +20,7 @@ async function includePartials() {
   const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const map = {
     'index.html': 'home',
-    'course.html': 'courses',
+    '/modules/courses/course.html': 'courses',
     'lesson.html': 'lessons',
     'runner.html': 'lessons',
     'dashboard.html': 'dashboard',
