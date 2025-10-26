@@ -1,17 +1,11 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Dashboard | Hinbuna Kurdî</title>
+    <link rel="stylesheet" href="assets/site.css">
     <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-            background: #f0f0f0;
-        }
-
         h2 {
             margin-bottom: 10px;
         }
@@ -44,31 +38,32 @@
 </head>
 
 <body>
-
+    <div data-include="partials/header.html"></div>
     <h2>Hello, Delal!</h2>
     <div class="xp">XP: 120 • Streak: 🔥3</div>
-    <a href="unit-greetings-intro.html"><button>▶ Continue Lesson 2, Unit 1</button></a>
+    <a href="runner.html"><button>▶ Continue Lesson 2, Unit 1</button></a>
 
     <h3>Your Lessons</h3>
     <div class="lessons">
         <div class="lesson">
             <div class="lesson-title">Lesson 1: Slav! Çawa yî?</div>
-            Progress: 60% <a href="unit-runner.html">[▶ Resume]</a>
+            Progress: 60% <a href="runner.html">[▶ Resume]</a>
         </div>
         <div class="lesson">
             <div class="lesson-title">Lesson 2: Mal û Ez</div>
-            Progress: 0% <a href="lesson-overview.html">[▶ Start]</a>
+            Progress: 0% <a href="lesson.html">[▶ Start]</a>
         </div>
         <div class="lesson">
             <div class="lesson-title">Lesson 3: Kurd û Welat</div>
-            Progress: 0% <a href="lesson-overview.html">[▶ Start]</a>
+            Progress: 0% <a href="lesson.html">[▶ Start]</a>
         </div>
     </div>
 
     <div class="profile-link">
         <a href="profile.html">[Profile Settings]</a>
     </div>
-
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 </body>
 
 </html>

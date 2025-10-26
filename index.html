@@ -4,58 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Hinbuna Kurdî – Learn Kurdish</title>
+    <link rel="stylesheet" href="assets/site.css">
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f9f9f9;
-        }
-
-        header,
-        footer {
-            background: #eee;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #333;
-        }
-
         main {
             padding: 30px;
             text-align: center;
-        }
-
-        .apps-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            width: 280px;
-            padding: 15px;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            z-index: 1000;
-        }
-
-        .app-item {
-            text-align: center;
-            font-size: 13px;
-        }
-
-        .app-item img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
         }
 
         .card-container {
@@ -71,11 +24,6 @@
             background: white;
         }
 
-        footer {
-            font-size: 12px;
-            justify-content: center;
-        }
-
         button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -88,102 +36,18 @@
                 justify-content: center;
             }
         }
-
-        .lang-selector {
-            display: inline-block;
-            margin-right: 10px;
-            text-align: right;
-            position: relative;
-            /* key to make dropdown position absolutely inside */
-
-        }
-
-        .lang-icon {
-            background: #eee;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        .lang-menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 70px;
-            z-index: 1000;
-        }
-
-        .lang-menu li {
-            padding: 8px 12px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .lang-menu li:hover {
-            background-color: #f0f0f0;
-        }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div><strong>Hinbuna Kurdî</strong></div>
-        <nav>
-            <a href="courses.html" style="display:inline-block; margin-right:10px;">
-                <img src="https://img.icons8.com/?size=100&id=60436&format=png&color=000000" alt="Courses"
-                    style="width: 24px; height: 24px;">
-            </a>
-
-            <a href="auth.html" style="display:inline-block; margin-right:10px;">
-                <img src="https://img.icons8.com/?size=100&id=23380&format=png&color=000000" alt="About"
-                    style="width: 24px; height: 24px;">
-            </a>
-
-            <div id="appsIcon" style="cursor:pointer; display:inline-block; margin-right:10px;" onclick="toggleApps()">
-                <img src="https://img.icons8.com/?size=100&id=21438&format=png&color=000000" alt="Products"
-                    style="width: 24px; height: 24px;">
-            </div>
-
-            <div class="lang-selector">
-                <button onclick="toggleLangMenu()" class="lang-icon" title="Select Language">
-                    <img src="https://img.icons8.com/?size=100&id=3685&format=png&color=000000" alt="Language"
-                        style="width: 24px; height: 24px;">
-                </button>
-                <ul id="langMenu" class="lang-menu">
-                    <li>🇩🇪 DE</li>
-                    <li>🇬🇧 EN</li>
-                    <li>🇫🇷 FR</li>
-                    <li>🇸🇪 SV</li>
-                    <li>🇳🇱 NL</li>
-                    <li>🇹🇷 TR</li>
-                    <li>🇮🇷 FA</li>
-                    <li>🇸🇦 AR</li>
-                </ul>
-            </div>
-
-
-            <a href="#" style="display:inline-block; margin-right:10px;">
-                <img src="https://img.icons8.com/?size=100&id=82450&format=png&color=000000" alt="About"
-                    style="width: 24px; height: 24px;">
-            </a>
-
-
-        </nav>
-    </header>
+    <div data-include="partials/header.html"></div>
 
     <main style="text-align: center; margin-top: 60px;">
         <h1>Learn Kurdish (Kurmanji)</h1>
         <p>Clear, simple lessons. A1–A2 to start.</p>
 
-        <button onclick="window.location.href='courses.html'">Start Learning ▶</button>
+        <button onclick="window.location.href='course.html'">Start Learning ▶</button>
 
         <div style="margin-top: 20px;">
             <button>Simple UI</button>
@@ -247,9 +111,8 @@
         </div>
     </div>
 
-    <footer>
-        © 2025 Adar Schule | <a href="#">Privacy</a> | <a href="#">Contact</a>
-    </footer>
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 
     <script>
         function toggleApps() {

@@ -1,16 +1,11 @@
-<!-- unit-runner.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Lesson 1 • Unit 1</title>
+    <link rel="stylesheet" href="assets/site.css">
     <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-        }
-
         .topbar {
             font-weight: bold;
             margin-bottom: 20px;
@@ -36,6 +31,7 @@
 
 <body>
 
+    <div data-include="partials/header.html"></div>
     <div class="topbar">Lesson 1 • Unit 1 — 2/5 🔖</div>
 
     <div class="block">
@@ -65,10 +61,12 @@
     </div>
 
     <div class="nav">
-        <a href="#">← Prev</a>
-        <a href="#">Next →</a>
+        <a href="lesson.html">← Back to Lesson</a>
+        <a href="dashboard.html">Finish Unit →</a>
     </div>
 
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 </body>
 
 </html>
