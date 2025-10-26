@@ -1,0 +1,72 @@
+<!-- auth.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Hinbuna Kurdî</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 30px;
+            background: #f9f9f9;
+        }
+
+        .card {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .link {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>Login</h2>
+
+        <div class="toggle">
+            <a href="#">Login</a> | <a href="#">Register</a>
+        </div>
+
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button onclick="window.location.href='dashboard.html'">Login</button>
+
+        <div class="link"><a href="#">Forgot password?</a></div>
+        <div class="link"><a href="#">Switch to Register</a></div>
+    </div>
+
+</body>
+
+</html>

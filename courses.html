@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Courses | Hinbuna Kurdî</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .courses-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .course-card {
+            width: 300px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 15px;
+        }
+
+        .course-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .course-meta {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .course-content button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .course-content button:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Available Courses</h2>
+
+    <div class="courses-container">
+        <div class="course-card">
+            <img src="images/lesson01.jpeg" alt="Course 1">
+            <div class="course-content">
+                <div class="course-title">Slav! – Greetings in Kurmancî</div>
+                <div class="course-meta">Level: A1 • 5 Units</div>
+                <button onclick="location.href='course-detail.html'">Start ▶</button>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="images/lesson02.jpeg" alt="Course 2">
+            <div class="course-content">
+                <div class="course-title">Mal û Ez – Family & Self</div>
+                <div class="course-meta">Level: A1–A2 • 4 Units</div>
+                <button onclick="location.href='course-detail.html'">Start ▶</button>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="images/lesson03.jpeg" alt="Course 3">
+            <div class="course-content">
+                <div class="course-title">Welat & Nav – Places & Names</div>
+                <div class="course-meta">Level: A2 • 6 Units</div>
+                <button onclick="location.href='course-detail.html'">Start ▶</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
