@@ -1,0 +1,2 @@
+# hinbuna-kurdi
+Hînbuna Kurdî
