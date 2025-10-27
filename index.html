@@ -3,156 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hinbuna Kurdî – Learn Kurdish</title>
     <link rel="stylesheet" href="assets/site.css">
-    <style>
-        main {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .card-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            background: white;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-
-        .features {
-            margin: 30px auto 10px;
-            max-width: 1000px;
-            display: grid;
-            gap: 16px;
-            grid-template-columns: 1fr;
-            padding: 0 16px;
-        }
-
-        .feature-box {
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 18px;
-            text-align: left;
-            display: grid;
-            grid-template-columns: 56px 1fr;
-            grid-template-areas:
-                "icon title"
-                "icon text"
-                "icon link";
-            column-gap: 14px;
-            row-gap: 6px;
-            align-items: start;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, .06);
-        }
-
-        .feature-box img {
-            grid-area: icon;
-            width: 40px;
-            height: 40px;
-        }
-
-        .feature-box h3 {
-            grid-area: title;
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .feature-box p {
-            grid-area: text;
-            margin: 4px 0 8px;
-            color: #444;
-        }
-
-        .feature-box a {
-            grid-area: link;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .info-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 16px;
-        }
-
-        .info-box {
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            text-align: left;
-        }
-
-        .info-box h3 {
-            margin-top: 0;
-        }
-
-        .info-box a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .info-box a:hover {
-            text-decoration: underline;
-        }
-
-        .info-image {
-            width: 120px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-        }
-
-        @media (min-width: 768px) {
-            .info-section {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 720px) {
-            .features {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .card-container {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
     <div data-include="partials/header.html"></div>
 
-    <main style="text-align: center; margin-top: 60px;">
+    <main>
         <h1>Learn Kurdish (Kurmanji)</h1>
         <p>Clear, simple lessons. A1–A2 to start.</p>
 
         <button onclick="window.location.href='modules/courses/course.html'">Start Learning ▶</button>
 
         <p style="margin-top: 20px;">
-            💰 Interested in joining our live or online classes?<br>
             <a href="modules/pricing/pricing.html">See Course Pricing →</a>
         </p>
 
@@ -174,10 +40,25 @@
             </article>
 
             <article class="feature-box">
-                <img src="https://img.icons8.com/?size=100&id=60054&format=png&color=000000" alt="Track Progress">
+                <img src="https://img.icons8.com/?size=100&id=24875&format=png&color=000000" alt="Track Progress">
                 <h3>Track Progress</h3>
                 <p>XP, streaks, and unit completion — pick up where you left off.</p>
                 <a href="modules/dashboard/dashboard.html">View Dashboard →</a>
+            </article>
+
+            <article class="feature-box">
+                <div class="feature-emoji" aria-hidden="true">🤖</div>
+                <h3>AI Tutor in Lesson</h3>
+                <p>Ask questions to an AI tutor while you study. The chat is context-aware and attached to each
+                    activity.</p>
+                <a href="modules/lessons/lesson.html">Try the AI Tutor →</a>
+            </article>
+
+            <article class="feature-box">
+                <div class="feature-emoji" aria-hidden="true">🔊</div>
+                <h3>Text-to-Speech Everywhere</h3>
+                <p>Play high-quality audio for every sentence — including your own texts and notes.</p>
+                <a href="modules/runner/runner.html">Hear it spoken →</a>
             </article>
         </section>
 
@@ -186,11 +67,11 @@
         <section class="info-section">
             <div class="info-box">
                 <h3>This platform uses the official textbook:</h3>
-                <p><em>“Ez ji te hez dikim, kurdî hîn dibim”</em></p>
                 <p>You can buy the book here:</p>
                 <a href="https://www.kurdisch-lernen.de/product/kurdisch-lehrbuch-zusatzbuch/" target="_blank">
-                    📘 kurdisch-lernen.de/product/kurdisch-lehrbuch-zusatzbuch/
+                    📘 ez ji te hez dikim, ez kurdi hin dibim
                 </a>
+                <br />
                 <img src="https://www.kurdisch-lernen.de/wp-content/uploads/2020/08/Lehr-und-Zusatzbuch.webp"
                     alt="Kurdish Book" class="info-image">
             </div>
