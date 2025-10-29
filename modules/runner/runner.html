@@ -313,6 +313,31 @@
                     `Unit ${unitSlug.toUpperCase()} • Lesson ${lessonCode.toUpperCase()}`;
                 document.getElementById('lesson-title').textContent = lessonTitle;
 
+                const PROGRESS_KEY = "hk.progress.v1";
+                const RECENTS_KEY = "hk.recentLessons.v1";
+
+                function bumpProgress({ book, unitSlug, lessonCode, lessonTitle }) {
+                    // update last, xp, streak (very naive demo)
+                    const p = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{"xp":0,"streak":0}');
+                    p.xp = Number(p.xp || 0) + 10;
+                    p.streak = Number(p.streak || 0); // add real streak logic later
+                    p.last = {
+                        book, unitSlug, lessonCode,
+                        lessonId: `LESSON:${book}:${unitSlug}:${lessonCode}`
+                    };
+                    localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+
+                    // recent list
+                    const recent = JSON.parse(localStorage.getItem(RECENTS_KEY) || "[]");
+                    recent.unshift({
+                        book, unitSlug, lessonCode,
+                        lessonId: `LESSON:${book}:${unitSlug}:${lessonCode}`,
+                        title: lessonTitle,
+                        ts: Date.now()
+                    });
+                    localStorage.setItem(RECENTS_KEY, JSON.stringify(recent.slice(0, 20)));
+                }
+
                 const parts = [
                     bookMeta.title,
                     `Unit ${unitSlug.toUpperCase()}` + (unitLevel ? ` (Level ${unitLevel})` : ''),

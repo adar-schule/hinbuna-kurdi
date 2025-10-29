@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lessons | Hinbuna Kurdî</title>
+    <title>Units | Hinbuna Kurdî</title>
     <link rel="stylesheet" href="../../assets/site.css" />
     <style>
         .header {
@@ -12,7 +12,7 @@
             margin: 24px auto 8px
         }
 
-        .list {
+        .units {
             max-width: 1100px;
             margin: 24px auto;
             display: grid;
@@ -21,7 +21,7 @@
         }
 
         @media (max-width:640px) {
-            .list {
+            .units {
                 grid-template-columns: 1fr
             }
         }
@@ -36,6 +36,9 @@
         }
 
         .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 14px 16px;
             background: #f6f6f6
         }
@@ -54,18 +57,6 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap
-        }
-
-        .details {
-            padding: 0 16px 14px
-        }
-
-        .details h4 {
-            margin: 10px 0 6px
-        }
-
-        .details p {
-            margin: 0 0 8px
         }
 
         .btn {
@@ -95,14 +86,14 @@
     <div data-include="../../partials/header.html"></div>
 
     <div class="header">
-        <h1>📘 Lessons</h1>
-        <p id="crumbs">Loading…</p>
+        <h1>📦 Units</h1>
+        <p id="bookLabel">Loading…</p>
     </div>
 
-    <section id="list" class="list" aria-live="polite"></section>
+    <section id="units" class="units" aria-live="polite"></section>
 
     <div class="back">
-        <a class="btn" id="backToUnits" href="../units/units.html">← Back to Units</a>
+        <a class="btn" href="../courses/course.html">← Back to Courses</a>
     </div>
 
     <div data-include="../../partials/footer.html"></div>
@@ -111,12 +102,12 @@
         (async function () {
             const qs = new URLSearchParams(location.search);
             const book = qs.get('book') || 'a1-kurmanci';
-            let unitSlug = (qs.get('unit') || '').toLowerCase(); // e.g., 'u01'
-            const levelFilter = (qs.get('level') || '').toLowerCase();
+            const levelFilter = (qs.get('level') || '').toLowerCase(); // optional: 'a1'|'a2'|'b1'
 
             const ROOT = location.pathname.split('/modules/')[0] || '';
             const ORIGIN = location.origin;
             const url = p => `${ORIGIN}${ROOT}/assets/data/${p}`;
+
             const BOOK_FILE_MAP = { 'a1-kurmanci': 'book-a1.json' };
 
             async function loadJSON(href) {
@@ -124,73 +115,66 @@
                 if (!r.ok) throw new Error(`HTTP ${r.status} ${href}`);
                 return r.json();
             }
-            function makeLessonId(code) { // e.g., 'l01'
+
+            function makeLessonId(unitSlug, code) { // code like 'l01'
                 return `LESSON:${book}:${unitSlug}:${code}`;
             }
-            function runnerLink(lessonId) {
+
+            function lessonsLink(unitSlug) {
+                return `../lessons/lesson.html?book=${encodeURIComponent(book)}&unit=${encodeURIComponent(unitSlug)}${levelFilter ? `&level=${levelFilter}` : ''}`;
+            }
+
+            function runnerLink(unitSlug, lessonId) {
                 const unitParam = `UNIT:${book}:${unitSlug}`;
-                const lessonParam = lessonId || makeLessonId('l01');
+                const lessonParam = lessonId || makeLessonId(unitSlug, 'l01');
                 return `../runner/runner.html?book=${encodeURIComponent(book)}&unit=${encodeURIComponent(unitParam)}&lesson=${encodeURIComponent(lessonParam)}`;
             }
 
-            // Resolve unit if missing
-            const bookMeta = await loadJSON(url(BOOK_FILE_MAP[book] || `book-${book}.json`));
-            if (!unitSlug) {
-                const first = (bookMeta.units || [])[0]?.unit_id?.split(':').pop();
-                unitSlug = first || 'u01';
-            }
+            const bookFile = BOOK_FILE_MAP[book] || `book-${book}.json`;
+            const bookMeta = await loadJSON(url(bookFile));
+            document.getElementById('bookLabel').textContent = `${bookMeta.title}${bookMeta.level ? ' • ' + bookMeta.level : ''}`;
 
-            // Load unit meta
-            const unitJson = await loadJSON(url(`units/${unitSlug}.json`));
-            const unitLevel = unitJson.level || '';
-            const unitTitleDe = unitJson.title?.de || '';
-            const unitTitleKu = unitJson.title?.['ku-KMR'] || unitJson.title?.ku || unitTitleDe;
-            document.getElementById('crumbs').textContent =
-                `${bookMeta.title} · Unit ${unitSlug.toUpperCase()} — ${unitTitleKu}${unitLevel ? ' • Level ' + unitLevel : ''}`;
+            const $wrap = document.getElementById('units');
 
-            const backToUnits = document.getElementById('backToUnits');
-            backToUnits.href = `../units/units.html?book=${encodeURIComponent(book)}${levelFilter ? `&level=${levelFilter}` : ''}`;
+            for (const u of (bookMeta.units || []).sort((a, b) => a.order - b.order)) {
+                const unitSlug = (u.unit_id.includes(':') ? u.unit_id.split(':').pop() : u.unit_id); // "u01"
+                const unitTitleKu = u.title?.['ku-KMR'] || u.title?.ku || '';
+                const unitTitleDe = u.title?.de || '';
 
-            const list = document.getElementById('list');
-            const lessonIds = unitJson.lesson_ids?.length ? unitJson.lesson_ids : [makeLessonId('l01')];
+                // Load unit meta
+                let unitLevel = '', lessonIds = [];
+                try {
+                    const uj = await loadJSON(url(`units/${unitSlug}.json`));
+                    unitLevel = uj.level || '';
+                    lessonIds = uj.lesson_ids || [];
+                } catch (e) {/* optional */ }
 
-            for (const fullId of lessonIds) {
-                // map to file
-                const parts = fullId.split(':');
-                const code = parts[parts.length - 1]; // l01
-                const file = `lessons/${unitSlug}-${code}.json`;
+                // Filter by level if provided (e.g., 'a1.2' -> 'a1')
+                const prefix = (unitLevel || '').toLowerCase().split('.')[0];
+                if (levelFilter && prefix !== levelFilter) continue;
 
-                // load lesson
-                let lessonJson = {};
-                try { lessonJson = await loadJSON(url(file)); } catch (e) { lessonJson = {}; }
-
-                const lTitle = lessonJson.title?.['ku-KMR'] || lessonJson.title?.ku || `Lesson ${code.toUpperCase()}`;
-                const lLevel = lessonJson.level || unitLevel || 'n/a';
-                const sections = Array.isArray(lessonJson.sections) ? lessonJson.sections : [];
+                const lessonCount = lessonIds.length || 1;
+                const firstLessonId = lessonIds[0] || makeLessonId(unitSlug, 'l01');
 
                 const $card = document.createElement('article');
                 $card.className = 'card';
                 $card.innerHTML = `
           <div class="head">
-            <div class="title">${unitSlug.toUpperCase()} — ${lTitle}</div>
-            <div class="meta">Level: ${lLevel}</div>
-          </div>
-          ${sections.length ? `
-            <div class="details">
-              ${sections.map(s => `
-                <h4>${s.title || ''}</h4>
-                <div>${s.html || ''}</div>
-              `).join('')}
+            <div>
+              <div class="title">${String(u.order).padStart(2, '0')}. ${unitTitleKu || unitTitleDe}</div>
+              <div class="meta">${unitTitleDe}${unitLevel ? ' • Level ' + unitLevel : ''}</div>
             </div>
-          `: ''}
+            <div class="meta">${lessonCount} ${lessonCount === 1 ? 'lesson' : 'lessons'}</div>
+          </div>
           <div class="body">
-            <a class="btn" href="${runnerLink(fullId)}">Practice ▶</a>
+            <a class="btn" href="${lessonsLink(unitSlug)}">Open Lessons ▶</a>
+            <a class="btn" href="${runnerLink(unitSlug, firstLessonId)}">Practice ▶</a>
           </div>
         `;
-                list.appendChild($card);
+                $wrap.appendChild($card);
             }
         })().catch(err => {
-            document.getElementById('list').innerHTML =
+            document.getElementById('units').innerHTML =
                 `<div class="card"><div class="head"><div class="title">Error</div></div><div class="body"><code>${String(err)}</code></div></div>`;
         });
     </script>

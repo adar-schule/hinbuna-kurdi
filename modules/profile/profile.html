@@ -2,58 +2,387 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Profile | Hinbuna Kurdî</title>
-    <link rel="stylesheet" href="../../assets/site.css">
+    <link rel="stylesheet" href="../../assets/site.css" />
     <style>
-        .form {
-            max-width: 400px;
-            margin: auto;
+        .wrap {
+            max-width: 980px;
+            margin: 24px auto;
+            padding: 0 12px;
+        }
+
+        .page-title {
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin: 0 0 24px;
+        }
+
+        .card {
             background: #fff;
-            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 16px;
         }
 
-        input,
-        select {
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
+        .card-hd {
+            padding: 12px 16px;
+            background: #f6f6f6;
+            font-weight: 700;
         }
 
-        button {
+        .card-bd {
+            padding: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
+            gap: 12px 16px;
+        }
+
+        @media (max-width: 720px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #444;
+            margin: 0 0 6px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
             width: 100%;
-            padding: 10px;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            border: 0;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn.secondary {
+            background: #efefef;
+            color: #111;
+        }
+
+        .btn.danger {
+            background: #b00020;
+        }
+
+        .btn:hover {
+            opacity: .92;
+        }
+
+        .switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: #fafafa;
+            user-select: none;
+        }
+
+        .switch input {
+            accent-color: #111;
+        }
+
+        .help {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .hr {
+            height: 1px;
+            background: #eee;
+            margin: 14px 0;
+        }
+
+        .toast {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            background: #111;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all .25s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
     <div data-include="../../partials/header.html"></div>
-    <div class="form">
-        <h2>Profile</h2>
-        <label>Name</label>
-        <input type="text" value="Delal">
 
-        <label>Email</label>
-        <input type="email" value="delal@example.com">
+    <main class="wrap">
+        <h1 class="page-title">Profile</h1>
+        <p class="subtitle">Update your account info, interface language, and learning preferences.</p>
 
-        <label>Preferred UI Language</label>
-        <select>
-            <option>EN</option>
-            <option selected>DE</option>
-            <option>KUR</option>
-        </select>
+        <!-- Account -->
+        <section class="card" aria-labelledby="hd-account">
+            <div class="card-hd" id="hd-account">Account</div>
+            <div class="card-bd">
+                <div class="grid">
+                    <div>
+                        <label for="name">Display name</label>
+                        <input id="name" type="text" autocomplete="name" placeholder="Your name" />
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" autocomplete="email" placeholder="you@example.com" />
+                        <div class="help">Used for sign-in and notifications.</div>
+                    </div>
+                    <div>
+                        <label for="pwd">New password</label>
+                        <input id="pwd" type="password" autocomplete="new-password" placeholder="••••••••" />
+                        <div class="help">Leave blank to keep your current password.</div>
+                    </div>
+                    <div>
+                        <label for="pwd2">Confirm new password</label>
+                        <input id="pwd2" type="password" autocomplete="new-password" placeholder="••••••••" />
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <label>Change Password</label>
-        <input type="password">
+        <!-- Interface -->
+        <section class="card" aria-labelledby="hd-interface">
+            <div class="card-hd" id="hd-interface">Interface</div>
+            <div class="card-bd">
+                <div class="grid">
+                    <div>
+                        <label for="uiLang">UI language</label>
+                        <select id="uiLang">
+                            <option value="EN">English</option>
+                            <option value="DE">Deutsch</option>
+                            <option value="KUR">Kurdî</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="theme">Theme</label>
+                        <select id="theme">
+                            <option value="system">System default</option>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="ttsRate">Audio speed</label>
+                        <select id="ttsRate">
+                            <option value="0.9">Slow</option>
+                            <option value="1.0" selected>Normal</option>
+                            <option value="1.1">Fast</option>
+                        </select>
+                        <div class="help">Applies to in-lesson text-to-speech (if enabled).</div>
+                    </div>
+                    <div>
+                        <label>Reminders</label>
+                        <span class="switch">
+                            <input id="reminders" type="checkbox" />
+                            <span>Practice notifications</span>
+                        </span>
+                        <div class="help">Simple local reminders (no emails sent from this app).</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <button>Save</button>
-        <button>Logout</button>
-    </div>
+        <!-- Learning -->
+        <section class="card" aria-labelledby="hd-learning">
+            <div class="card-hd" id="hd-learning">Learning preferences</div>
+            <div class="card-bd">
+                <div class="grid">
+                    <div>
+                        <label for="dialect">Dialect</label>
+                        <select id="dialect">
+                            <option value="ku-KMR" selected>Kurmanji (ku-KMR)</option>
+                            <option value="ku-SOR">Sorani (ku-SOR)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="level">Current level</label>
+                        <select id="level">
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="weeklyGoal">Weekly goal (minutes)</label>
+                        <input id="weeklyGoal" type="text" inputmode="numeric" placeholder="90" />
+                        <div class="help">How much focused study you aim for each week.</div>
+                    </div>
+                    <div>
+                        <label for="notes">Notes</label>
+                        <textarea id="notes"
+                            placeholder="Anything your teacher should know (e.g., pronunciation focus)."></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy & actions -->
+        <section class="card" aria-labelledby="hd-privacy">
+            <div class="card-hd" id="hd-privacy">Privacy & actions</div>
+            <div class="card-bd">
+                <div class="row">
+                    <button class="btn" id="saveBtn">Save changes</button>
+                    <button class="btn secondary" id="resetBtn" type="button">Reset form</button>
+                    <button class="btn danger" id="wipeBtn" type="button"
+                        title="Clear locally stored profile data">Clear local data</button>
+                </div>
+                <div class="help" style="margin-top:10px">
+                    This page stores your settings in your browser (localStorage). No data is sent to a server.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Saved</div>
 
     <div data-include="../../partials/footer.html"></div>
     <script src="../../assets/include.js"></script>
+    <script>
+        (function () {
+            const $ = (id) => document.getElementById(id);
+            const fields = [
+                "name", "email", "uiLang", "theme", "ttsRate", "reminders",
+                "dialect", "level", "weeklyGoal", "notes"
+            ];
+            const KEY = "hk.profile.v1";
+
+            // Load from localStorage
+            function loadProfile() {
+                try {
+                    const raw = localStorage.getItem(KEY);
+                    if (!raw) return;
+                    const p = JSON.parse(raw);
+                    fields.forEach(f => {
+                        if (!(f in p)) return;
+                        const el = $(f);
+                        if (!el) return;
+                        if (el.type === "checkbox") el.checked = !!p[f];
+                        else el.value = String(p[f]);
+                    });
+
+                    // apply theme immediately
+                    applyTheme(p.theme || "system");
+                } catch (e) { /* ignore */ }
+            }
+
+            // Save to localStorage
+            function saveProfile() {
+                // basic password check (no backend change here)
+                const pwd = $("pwd").value.trim();
+                const pwd2 = $("pwd2").value.trim();
+                if (pwd || pwd2) {
+                    if (pwd.length < 8) return toast("Password must be at least 8 chars");
+                    if (pwd !== pwd2) return toast("Passwords do not match");
+                }
+
+                const obj = {};
+                fields.forEach(f => {
+                    const el = $(f);
+                    if (!el) return;
+                    obj[f] = (el.type === "checkbox") ? el.checked : el.value.trim();
+                });
+
+                // We do not persist new password here (no backend) — wipe the inputs.
+                $("pwd").value = "";
+                $("pwd2").value = "";
+
+                localStorage.setItem(KEY, JSON.stringify(obj));
+                applyTheme(obj.theme || "system");
+                toast("Saved");
+            }
+
+            function resetForm() {
+                document.querySelectorAll("input[type=text], input[type=email], input[type=password], textarea").forEach(el => el.value = "");
+                document.querySelectorAll("select").forEach(el => el.selectedIndex = 0);
+                document.querySelectorAll("input[type=checkbox]").forEach(el => el.checked = false);
+                toast("Form reset (not saved)");
+            }
+
+            function wipeLocal() {
+                localStorage.removeItem(KEY);
+                resetForm();
+                toast("Local profile data cleared");
+            }
+
+            function toast(msg) {
+                const t = $("toast");
+                t.textContent = msg;
+                t.classList.add("show");
+                setTimeout(() => t.classList.remove("show"), 1400);
+            }
+
+            function applyTheme(mode) {
+                const root = document.documentElement;
+                if (mode === "dark") {
+                    root.setAttribute("data-theme", "dark");
+                } else if (mode === "light") {
+                    root.setAttribute("data-theme", "light");
+                } else {
+                    root.removeAttribute("data-theme"); // system/default
+                }
+            }
+
+            // Hook buttons
+            $("saveBtn").addEventListener("click", saveProfile);
+            $("resetBtn").addEventListener("click", resetForm);
+            $("wipeBtn").addEventListener("click", wipeLocal);
+
+            // Update theme instantly when changed
+            $("theme").addEventListener("change", (e) => applyTheme(e.target.value));
+
+            // Prefill with anything we have
+            loadProfile();
+        })();
+    </script>
 </body>
 
 </html>

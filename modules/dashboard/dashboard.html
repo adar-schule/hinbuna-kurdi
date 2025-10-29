@@ -2,69 +2,305 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dashboard | Hinbuna Kurdî</title>
-    <link rel="stylesheet" href="../../assets/site.css">
+    <link rel="stylesheet" href="../../assets/site.css" />
     <style>
-        h2 {
-            margin-bottom: 10px;
+        .wrap {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 0 12px;
         }
 
-        .xp {
+        .hello {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .hello h2 {
+            margin: 0;
+        }
+
+        .stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
             font-size: 14px;
-            margin-bottom: 20px;
+            color: #333;
+            margin-bottom: 16px;
         }
 
-        .lessons {
+        .xp-bar {
+            background: #eee;
+            border-radius: 999px;
+            overflow: hidden;
+            width: 120px;
+            height: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
+        #xpFill {
+            background: linear-gradient(90deg, #ff7e00, #ffd000);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .chip {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
+        .cta {
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            border: 0;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card-hd {
+            padding: 12px 14px;
+            background: #f6f6f6;
+            font-weight: 700;
+        }
+
+        .card-bd {
+            padding: 14px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .meta {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .list {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .lesson {
-            background: #fff;
+        .item {
+            border: 1px solid #eee;
+            border-radius: 8px;
             padding: 10px;
-            border: 1px solid #ccc;
+            background: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
         }
 
-        .lesson-title {
-            font-weight: bold;
-        }
-
-        .profile-link {
-            margin-top: 20px;
+        .item h4 {
+            margin: 0 0 2px;
+            font-size: 15px;
         }
     </style>
 </head>
 
 <body>
     <div data-include="../../partials/header.html"></div>
-    <h2>Hello, Delal!</h2>
-    <div class="xp">XP: 120 • Streak: 🔥3</div>
-    <a href="../runner/runner.html"><button>▶ Continue Lesson 2, Unit 1</button></a>
 
-    <h3>Your Lessons</h3>
-    <div class="lessons">
-        <div class="lesson">
-            <div class="lesson-title">Lesson 1: Slav! Çawa yî?</div>
-            Progress: 60% <a href="../runner/runner.html">[▶ Resume]</a>
+    <main class="wrap" aria-live="polite">
+        <div class="hello">
+            <h2 id="hello">Hello!</h2>
+            <a class="btn" href="../profile/profile.html">Edit Profile</a>
         </div>
-        <div class="lesson">
-            <div class="lesson-title">Lesson 2: Mal û Ez</div>
-            Progress: 0% <a href="../lessons/lesson.html">[▶ Start]</a>
+        <div class="stats">
+            <span class="chip" id="xpChip">
+                💪 XP: <span id="xpValue">4</span>
+                <div class="xp-bar">
+                    <div id="xpFill"></div>
+                </div>
+            </span>
+            <span class="chip" id="streakChip">
+                🔥 Streak: <span id="streakValue">10</span> days
+            </span>
         </div>
-        <div class="lesson">
-            <div class="lesson-title">Lesson 3: Kurd û Welat</div>
-            Progress: 0% <a href="../lessons/lesson.html">[▶ Start]</a>
-        </div>
-    </div>
 
-    <div class="profile-link">
-        <a href="../profile/profile.html">[Profile Settings]</a>
-    </div>
+        <div class="cta" id="continueBox">
+            <a id="continueBtn" class="btn" href="#">▶ Continue</a>
+            <div class="meta" id="continueMeta"></div>
+        </div>
+
+        <section class="grid">
+            <article class="card">
+                <div class="card-hd">Your Course</div>
+                <div class="card-bd row">
+                    <a class="btn" href="../units/units.html?book=a1-kurmanci&level=a1">A1 Units →</a>
+                    <a class="btn" href="../units/units.html?book=a1-kurmanci&level=a2">A2 Units →</a>
+                    <a class="btn" href="../units/units.html?book=a1-kurmanci&level=b1">B1 Units →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-hd">Recent Lessons</div>
+                <div class="card-bd">
+                    <div id="recentList" class="list">
+                        <!-- filled by script -->
+                    </div>
+                    <div class="meta" id="recentEmpty" style="display:none">No recent lessons yet — start with A1 Unit
+                        1.</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-hd">Shortcuts</div>
+                <div class="card-bd row">
+                    <a class="btn" href="../courses/course.html">Browse Courses</a>
+                    <a class="btn" href="../lessons/lesson.html?book=a1-kurmanci&unit=u01">Open Unit 1 Lessons</a>
+                    <a class="btn"
+                        href="../runner/runner.html?book=a1-kurmanci&unit=UNIT:a1-kurmanci:u01&lesson=LESSON:a1-kurmanci:u01:l01">Try
+                        a Practice</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
     <div data-include="../../partials/footer.html"></div>
     <script src="../../assets/include.js"></script>
+    <script>
+        (function () {
+            const $ = (id) => document.getElementById(id);
+
+            // keys we use elsewhere
+            const PROFILE_KEY = "hk.profile.v1";
+            const PROGRESS_KEY = "hk.progress.v1"; // { xp, streak, last: { book, unitSlug, lessonCode, lessonId } }
+            const RECENTS_KEY = "hk.recentLessons.v1"; // [ { book, unitSlug, lessonCode, lessonId, title, ts } ]
+
+            // read helpers
+            function readJSON(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; } }
+
+            // profile greeting
+            const profile = readJSON(PROFILE_KEY, {});
+            $("hello").textContent = profile.name ? `Hello, ${profile.name}!` : "Hello!";
+
+            // progress chips
+            const progress = readJSON(PROGRESS_KEY, { xp: 5, streak: 10, last: null });
+            const xpVal = Number(progress.xp || 0);
+            const streakVal = Number(progress.streak || 0);
+            $("xpValue").textContent = xpVal;
+            $("streakValue").textContent = streakVal;
+            $("xpFill").style.width = Math.min((xpVal % 100) + 10, 100) + "%"; // progress bar cycles per 100 XP
+
+            // Add fire glow if streak > 0
+            if (streakVal > 0) {
+                $("streakChip").style.background = "linear-gradient(90deg,#ffb300,#ff7b00)";
+                $("streakChip").style.color = "#fff";
+            } else {
+                $("streakChip").style.background = "#fff";
+                $("streakChip").style.color = "#111";
+            }
+
+            // build continue link
+            const last = progress.last || { book: "a1-kurmanci", unitSlug: "u01", lessonCode: "l01" };
+            // Open the LESSONS page for that unit (reading + Practice button inside)
+            const continueHref = `../lessons/lesson.html?book=${encodeURIComponent(last.book)}&unit=${encodeURIComponent(last.unitSlug)}`;
+            $("continueBtn").textContent = "Contine to last lesson ▶";
+            $("continueBtn").href = continueHref;
+            $("continueMeta").textContent = `Continue: ${last.book} · ${String(last.unitSlug || "").toUpperCase()} · ${String(last.lessonCode || "").toUpperCase()} (opens lesson page)`;
+
+            // recent lessons (if you start storing them)
+            const list = $("recentList");
+            const empty = $("recentEmpty");
+            // Fake fallback recent activity
+            let recents = readJSON(RECENTS_KEY, []);
+            if (!recents.length) {
+                recents = [
+                    {
+                        book: "a1-kurmanci",
+                        unitSlug: "u01",
+                        lessonCode: "l01",
+                        lessonId: "LESSON:a1-kurmanci:u01:l01",
+                        title: "Ji bo hinbûna kurdî – Navdêran",
+                        ts: Date.now() - 86400000 * 2 // 2 days ago
+                    },
+                    {
+                        book: "a1-kurmanci",
+                        unitSlug: "u01",
+                        lessonCode: "l02",
+                        lessonId: "LESSON:a1-kurmanci:u01:l02",
+                        title: "Ji bo hinbûna kurdî – Lêkeran",
+                        ts: Date.now() - 86400000 * 4 // 4 days ago
+                    },
+                    {
+                        book: "a1-kurmanci",
+                        unitSlug: "u02",
+                        lessonCode: "l01",
+                        lessonId: "LESSON:a1-kurmanci:u02:l01",
+                        title: "Ev / Ew – Nîşanker",
+                        ts: Date.now() - 86400000 * 6 // 6 days ago
+                    }
+                ];
+            }
+
+            if (!recents.length) {
+                empty.style.display = "block";
+            } else {
+                recents
+                    .sort((a, b) => (b.ts || 0) - (a.ts || 0))
+                    .slice(0, 5)
+                    .forEach(r => {
+                        const unitParam = `UNIT:${r.book}:${r.unitSlug}`;
+                        const lessonId = r.lessonId || `LESSON:${r.book}:${r.unitSlug}:${r.lessonCode}`;
+                        const lessonHref = `../lessons/lesson.html?book=${encodeURIComponent(r.book)}&unit=${encodeURIComponent(r.unitSlug)}`;
+                        const practiceHref = `../runner/runner.html?book=${encodeURIComponent(r.book)}&unit=${encodeURIComponent(unitParam)}&lesson=${encodeURIComponent(lessonId)}`;
+
+                        const div = document.createElement("div");
+                        div.className = "item";
+                        div.innerHTML = `
+  <div>
+    <h4>${r.title || (`${String(r.unitSlug).toUpperCase()} • ${String(r.lessonCode).toUpperCase()}`)}</h4>
+    <div class="meta">${r.book} · ${String(r.unitSlug).toUpperCase()} · ${String(r.lessonCode).toUpperCase()}</div>
+  </div>
+  <div class="row">
+    <a class="btn" href="${lessonHref}">Open Lesson ▶</a>
+    <a class="btn" href="${practiceHref}">Practice ▶</a>
+  </div>
+`;
+                        list.appendChild(div);
+                    });
+            }
+        })();
+    </script>
 </body>
 
 </html>
