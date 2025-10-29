@@ -1,0 +1,22 @@
+{
+    "_id": "LESSON:a1-kurmanci:u03:l01",
+    "unit_id": "UNIT:a1-kurmanci:u03",
+    "order": 1,
+    "title": {
+        "ku-KMR": "Verb Tables"
+    },
+    "activity_refs": [
+        {
+            "activity_id": "ACT:verb:cun",
+            "order": 1
+        },
+        {
+            "activity_id": "ACT:verb:xwarin",
+            "order": 2
+        },
+        {
+            "activity_id": "ACT:gap:em-nan",
+            "order": 3
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "_id": "COURSE:a1-kurmanci",
+    "slug": "a1-kurmanci",
+    "title": "Ez ji te hez dikim – A1 Kurmancî",
+    "level": "A1",
+    "dialects": [
+        "ku-KMR"
+    ],
+    "teaching_languages": [
+        "de"
+    ],
+    "units": [
+        {
+            "unit_id": "UNIT:a1-kurmanci:u01",
+            "order": 1,
+            "title": {
+                "ku-KMR": "Roj baş!",
+                "de": "Guten Tag!"
+            }
+        },
+        {
+            "unit_id": "UNIT:a1-kurmanci:u02",
+            "order": 2,
+            "title": {
+                "ku-KMR": "Ev / Ew – Nîşanker",
+                "de": "Demonstrativa"
+            }
+        },
+        {
+            "unit_id": "UNIT:a1-kurmanci:u03",
+            "order": 3,
+            "title": {
+                "ku-KMR": "bûn (sein) – tablo",
+                "de": "Verbtabellen"
+            }
+        },
+        {
+            "unit_id": "UNIT:a1-kurmanci:u04",
+            "order": 4,
+            "title": {
+                "ku-KMR": "Raweya fermanî – Imperatîv",
+                "de": "Imperativ"
+            }
+        }
+    ]
+}

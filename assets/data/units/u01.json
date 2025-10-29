@@ -1,0 +1,13 @@
+{
+    "_id": "UNIT:a1-kurmanci:u01",
+    "course_id": "COURSE:a1-kurmanci",
+    "slug": "u01",
+    "order": 1,
+    "title": {
+        "ku-KMR": "Roj baş!",
+        "de": "Guten Tag!"
+    },
+    "lesson_ids": [
+        "LESSON:a1-kurmanci:u01:l01"
+    ]
+}

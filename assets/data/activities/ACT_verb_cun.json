@@ -1,0 +1,34 @@
+{
+    "_id": "ACT:verb:cun",
+    "type": "VERB_TABLE",
+    "content": {
+        "verb": "çûn (gehen)",
+        "rows": [
+            [
+                "ez",
+                "diçe(m)"
+            ],
+            [
+                "tu",
+                "diçî"
+            ],
+            [
+                "ew",
+                "diçe"
+            ],
+            [
+                "em",
+                "diçin"
+            ],
+            [
+                "hûn",
+                "diçin"
+            ],
+            [
+                "ew",
+                "diçin"
+            ]
+        ]
+    },
+    "status": "published"
+}

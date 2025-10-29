@@ -1,0 +1,13 @@
+{
+    "_id": "UNIT:a1-kurmanci:u02",
+    "course_id": "COURSE:a1-kurmanci",
+    "slug": "u02",
+    "order": 2,
+    "title": {
+        "ku-KMR": "Ev / Ew – Nîşanker",
+        "de": "Demonstrativa"
+    },
+    "lesson_ids": [
+        "LESSON:a1-kurmanci:u02:l01"
+    ]
+}

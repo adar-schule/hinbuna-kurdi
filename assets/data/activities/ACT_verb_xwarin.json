@@ -1,0 +1,34 @@
+{
+    "_id": "ACT:verb:xwarin",
+    "type": "VERB_TABLE",
+    "content": {
+        "verb": "xwarin (essen)",
+        "rows": [
+            [
+                "ez",
+                "dixwim"
+            ],
+            [
+                "tu",
+                "dixwî"
+            ],
+            [
+                "ew",
+                "dixwe"
+            ],
+            [
+                "em",
+                "dixwin"
+            ],
+            [
+                "hûn",
+                "dixwin"
+            ],
+            [
+                "ew",
+                "dixwin"
+            ]
+        ]
+    },
+    "status": "published"
+}

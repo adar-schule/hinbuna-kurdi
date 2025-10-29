@@ -1,0 +1,22 @@
+{
+    "_id": "LESSON:a1-kurmanci:u04:l01",
+    "unit_id": "UNIT:a1-kurmanci:u04",
+    "order": 1,
+    "title": {
+        "ku-KMR": "Imperative Basics"
+    },
+    "activity_refs": [
+        {
+            "activity_id": "ACT:imp:xwarin",
+            "order": 1
+        },
+        {
+            "activity_id": "ACT:gap:imp-pl",
+            "order": 2
+        },
+        {
+            "activity_id": "ACT:text:imp-note",
+            "order": 3
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "_id": "ACT:gap:001",
+    "type": "QUIZ_GAP",
+    "content": {
+        "prompt": "“Navê min [____] e.”",
+        "choices": [
+            "Ronî",
+            "Şîlan",
+            "Azad"
+        ],
+        "answer": "Azad"
+    },
+    "status": "published"
+}

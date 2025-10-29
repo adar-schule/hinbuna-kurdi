@@ -1,0 +1,17 @@
+{
+    "_id": "ACT:imp:xwarin",
+    "type": "IMPERATIVE",
+    "content": {
+        "verb": "xwarin",
+        "positive": [
+            "Bixwe!",
+            "Bixwin!"
+        ],
+        "negative": [
+            "Nexewe!",
+            "Nexwin!"
+        ],
+        "note": "Herêmî guhertoyên -n/-m hene."
+    },
+    "status": "published"
+}

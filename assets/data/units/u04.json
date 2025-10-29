@@ -1,0 +1,13 @@
+{
+    "_id": "UNIT:a1-kurmanci:u04",
+    "course_id": "COURSE:a1-kurmanci",
+    "slug": "u04",
+    "order": 4,
+    "title": {
+        "ku-KMR": "Raweya fermanî – Imperatîv",
+        "de": "Imperativ"
+    },
+    "lesson_ids": [
+        "LESSON:a1-kurmanci:u04:l01"
+    ]
+}

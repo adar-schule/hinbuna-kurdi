@@ -1,0 +1,14 @@
+{
+    "_id": "ACT:gap:em-nan",
+    "type": "QUIZ_GAP",
+    "content": {
+        "prompt": "“Em nan [__].” (xwarin)",
+        "choices": [
+            "dixwin",
+            "diçin",
+            "dikin"
+        ],
+        "answer": "dixwin"
+    },
+    "status": "published"
+}

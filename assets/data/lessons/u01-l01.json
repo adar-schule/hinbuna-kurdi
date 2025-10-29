@@ -1,0 +1,22 @@
+{
+    "_id": "LESSON:a1-kurmanci:u01:l01",
+    "unit_id": "UNIT:a1-kurmanci:u01",
+    "order": 1,
+    "title": {
+        "ku-KMR": "First Dialog"
+    },
+    "activity_refs": [
+        {
+            "activity_id": "ACT:dialog:001",
+            "order": 1
+        },
+        {
+            "activity_id": "ACT:gap:001",
+            "order": 2
+        },
+        {
+            "activity_id": "ACT:verb:bun",
+            "order": 3
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "_id": "ACT:table:ev-ew",
+    "type": "TABLE",
+    "content": {
+        "headers": [
+            "Kurdî",
+            "Deutsch"
+        ],
+        "rows": [
+            [
+                "Ev sêv e.",
+                "Dieser Apfel."
+            ],
+            [
+                "Ew sêv e.",
+                "Jener Apfel."
+            ],
+            [
+                "Ev sêv in.",
+                "Diese sind Äpfel."
+            ],
+            [
+                "Ew sêv in.",
+                "Jene sind Äpfel."
+            ]
+        ]
+    },
+    "status": "published"
+}

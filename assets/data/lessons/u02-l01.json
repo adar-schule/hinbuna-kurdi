@@ -1,0 +1,22 @@
+{
+    "_id": "LESSON:a1-kurmanci:u02:l01",
+    "unit_id": "UNIT:a1-kurmanci:u02",
+    "order": 1,
+    "title": {
+        "ku-KMR": "Ev/Ew Basics"
+    },
+    "activity_refs": [
+        {
+            "activity_id": "ACT:text:ev-ew",
+            "order": 1
+        },
+        {
+            "activity_id": "ACT:table:ev-ew",
+            "order": 2
+        },
+        {
+            "activity_id": "ACT:gap:ev-ew-01",
+            "order": 3
+        }
+    ]
+}

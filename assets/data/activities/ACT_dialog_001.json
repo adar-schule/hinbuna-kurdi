@@ -1,0 +1,28 @@
+{
+    "_id": "ACT:dialog:001",
+    "type": "DIALOG",
+    "dialects": [
+        "ku-KMR"
+    ],
+    "content": {
+        "ku-KMR": [
+            {
+                "A": "Roj baş!"
+            },
+            {
+                "B": "Roj baş!"
+            },
+            {
+                "A": "Navê te çi ye?"
+            },
+            {
+                "B": "Navê min Delal e."
+            }
+        ],
+        "de_note": "Basisdialog mit Vorstellen."
+    },
+    "scoring": {
+        "xp": 5
+    },
+    "status": "published"
+}

@@ -1,0 +1,38 @@
+{
+    "_id": "ACT:verb:bun",
+    "type": "VERB_TABLE",
+    "content": {
+        "verb": "bûn (sein)",
+        "rows": [
+            [
+                "ez",
+                "im"
+            ],
+            [
+                "tu",
+                "î"
+            ],
+            [
+                "ew",
+                "e"
+            ],
+            [
+                "em",
+                "in"
+            ],
+            [
+                "hûn",
+                "in"
+            ],
+            [
+                "ew",
+                "in"
+            ]
+        ],
+        "mini_quiz": {
+            "q": "Ez teşnê [__].",
+            "answer": "im"
+        }
+    },
+    "status": "published"
+}
