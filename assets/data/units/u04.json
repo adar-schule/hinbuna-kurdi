@@ -3,9 +3,10 @@
     "course_id": "COURSE:a1-kurmanci",
     "slug": "u04",
     "order": 4,
+    "level": "a2.1",
     "title": {
-        "ku-KMR": "Raweya fermanî – Imperatîv",
-        "de": "Imperativ"
+        "ku-KMR": "Zaravayên kurdî + xwe-şexsî",
+        "de": "Dialekte + Personalpronomina"
     },
     "lesson_ids": [
         "LESSON:a1-kurmanci:u04:l01"

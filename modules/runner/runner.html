@@ -136,7 +136,7 @@
             // --- Query params from lessons page links
             const qs = new URLSearchParams(location.search);
             const book = qs.get('book') || 'a1-kurmanci';
-            const unit = qs.get('unit');   // e.g., UNIT:a1-kurmanci:u01
+            const unitId = qs.get('unit');   // e.g., UNIT:a1-kurmanci:u01
             const lesson = qs.get('lesson'); // e.g., LESSON:a1-kurmanci:u01:l01
 
             // --- Paths
@@ -160,8 +160,8 @@
             }
 
             function activityIdToPath(activityId) {
-                // ACT:dialog:001 -> activities/ACT_dialog_001.json
-                return `activities/${String(activityId).replace(/:/g, '_')}.json`;
+                // Normalize: ACT:gap:ev-ew-01 -> activities/ACT_gap_ev_ew_01.json
+                return `activities/${String(activityId).replace(/:/g, '_').replace(/-/g, '_')}.json`;
             }
 
             function niceLabel(type) {
@@ -204,9 +204,7 @@
                 box.innerHTML = `
           <div class="prompt">${content?.prompt || ''}</div>
           ${(content?.choices || []).map((c, i) => `<label><input type="radio" name="gap"> ${c}</label>`).join('')}
-          <div style="margin-top:8px">
-            <button class="btn btn-check">Check</button>
-          </div>
+          <div style="margin-top:8px"><button class="btn btn-check">Check</button></div>
         `;
                 box.querySelector('.btn-check').onclick = () => {
                     alert('Answer: ' + (content?.answer ?? '—'));
@@ -253,7 +251,6 @@
             }
 
             function renderTable(node, content) {
-                // Generic 2D table (for ACT_decl_ê_basic.json etc.)
                 const wrap = document.createElement('div');
                 wrap.className = 'verb-table';
                 const tbl = document.createElement('table');
@@ -300,22 +297,36 @@
 
             // --- Load book label + lesson JSON
             try {
-                const bookMeta = await loadJSON(url('book-a1.json')); // map only A1 for now
+                const bookMeta = await loadJSON(url('book-a1.json')); // current book
                 const { unitSlug, lessonCode, file } = lessonFileFromId(lesson);
                 const lessonJson = await loadJSON(url(file));
 
+                // Optional unit level in crumbs
+                let unitLevel = '';
+                try {
+                    const unitJson = await loadJSON(url(`units/${unitSlug}.json`));
+                    unitLevel = unitJson.level || '';
+                } catch (e) { /* optional */ }
+
                 // Header / crumbs
-                document.getElementById('lesson-title').textContent =
-                    lessonJson.title?.['ku-KMR'] || lessonJson.title?.ku || `Unit ${unitSlug.toUpperCase()} • Lesson ${lessonCode.toUpperCase()}`;
-                document.getElementById('crumbs').textContent =
-                    `${bookMeta.title} · Unit ${unitSlug.toUpperCase()} · Lesson ${lessonCode.toUpperCase()}`;
+                const lessonTitle = lessonJson.title?.['ku-KMR'] || lessonJson.title?.ku ||
+                    `Unit ${unitSlug.toUpperCase()} • Lesson ${lessonCode.toUpperCase()}`;
+                document.getElementById('lesson-title').textContent = lessonTitle;
+
+                const parts = [
+                    bookMeta.title,
+                    `Unit ${unitSlug.toUpperCase()}` + (unitLevel ? ` (Level ${unitLevel})` : ''),
+                    `Lesson ${lessonCode.toUpperCase()}` + (lessonJson.level ? ` (Level ${lessonJson.level})` : '')
+                ];
+                document.getElementById('crumbs').textContent = parts.join(' · ');
 
                 // Back link should preserve book so the lessons page knows which course
                 document.getElementById('backLink').href = `../lessons/lesson.html?book=${encodeURIComponent(book)}`;
 
-                // Render activities
+                // Render activities – PRACTICE ONLY
                 const $activities = document.getElementById('activities');
-                const refs = (lessonJson.activity_refs || []).sort((a, b) => (a.order || 0) - (b.order || 0));
+                let refs = lessonJson.practice_refs || lessonJson.activity_refs || [];
+                refs = refs.sort((a, b) => (a.order || 0) - (b.order || 0));
 
                 for (const ref of refs) {
                     const path = activityIdToPath(ref.activity_id);
@@ -346,6 +357,30 @@
 
                     $activities.appendChild(card);
                 }
+
+                // Optional: simple "More Practice" suggestion block
+                const more = document.createElement('section');
+                more.className = 'activity-card';
+                more.innerHTML = `
+          <div class="activity-head">More Practice</div>
+          <div class="activity-body">
+            <p>Want extra drills? Try these after finishing this lesson:</p>
+            <ul class="more-list"></ul>
+          </div>
+        `;
+                const pool = [
+                    "ACT:gap:001", "ACT:gap:ev-ew-01", "ACT:gap:em-nan",
+                    "ACT:test:letters:001", "ACT:svo:001", "ACT:riddle:001", "ACT:reading:sosin"
+                ];
+                const picks = pool.sort(() => Math.random() - 0.5).slice(0, 3);
+                const ul = more.querySelector('.more-list');
+                picks.forEach(id => {
+                    const li = document.createElement('li');
+                    li.textContent = id;
+                    ul.appendChild(li);
+                });
+                $activities.appendChild(more);
+
             } catch (err) {
                 console.error(err);
                 const $activities = document.getElementById('activities');

@@ -3,12 +3,12 @@
     "course_id": "COURSE:a1-kurmanci",
     "slug": "u02",
     "order": 2,
+    "level": "a1.1",
     "title": {
-        "ku-KMR": "Ev / Ew – Nîşanker",
-        "de": "Demonstrativa"
+        "ku-KMR": "Bikaranîna dengdêr û dengdaran",
+        "de": "Vokale und Konsonanten"
     },
     "lesson_ids": [
-        "LESSON:a1-kurmanci:u02:l01",
-        "LESSON:a1-kurmanci:u02:l02"
+        "LESSON:a1-kurmanci:u02:l01"
     ]
 }

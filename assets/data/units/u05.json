@@ -1,0 +1,14 @@
+{
+    "_id": "UNIT:a1-kurmanci:u05",
+    "course_id": "COURSE:a1-kurmanci",
+    "slug": "u05",
+    "order": 5,
+    "level": "a2.2",
+    "title": {
+        "ku-KMR": "Hin rengdêr + hevpeyvên wekhev",
+        "de": "Adjektive + Beispielsätze"
+    },
+    "lesson_ids": [
+        "LESSON:a1-kurmanci:u05:l01"
+    ]
+}

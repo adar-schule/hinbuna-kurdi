@@ -7,6 +7,11 @@
     <title>Lessons | Hinbuna Kurdî</title>
     <link rel="stylesheet" href="../../assets/site.css" />
     <style>
+        .header {
+            max-width: 1100px;
+            margin: 24px auto 8px;
+        }
+
         .units-container {
             max-width: 1100px;
             margin: 24px auto;
@@ -37,19 +42,18 @@
             justify-content: space-between;
             align-items: center;
             padding: 14px 16px;
-            background: #f6f6f6
+            background: #f6f6f6;
         }
 
         .unit-title {
-            font-weight: 700
+            font-weight: 700;
         }
 
         .unit-meta {
             font-size: 12px;
-            color: #666
+            color: #666;
         }
 
-        /* inner lessons appear only when a unit actually has >1 lessons */
         .lessons {
             display: grid;
             grid-template-columns: 1fr;
@@ -64,16 +68,28 @@
             background: #fafafa;
             display: flex;
             flex-direction: column;
-            gap: 8px
+            gap: 8px;
         }
 
         .lesson-title {
-            font-weight: 600
+            font-weight: 600;
         }
 
         .lesson-desc {
             font-size: 13px;
-            color: #444
+            color: #444;
+        }
+
+        .lesson-sections h4 {
+            margin: 10px 0 6px;
+        }
+
+        .lesson-sections p {
+            margin: 0 0 8px;
+        }
+
+        details>summary {
+            cursor: pointer;
         }
 
         .btn {
@@ -83,17 +99,18 @@
             border: 0;
             padding: 8px 12px;
             cursor: pointer;
-            border-radius: 4px
+            border-radius: 4px;
+            align-self: flex-start;
         }
 
         .btn:hover {
-            background: #333
+            background: #333;
         }
 
         .back-link {
             max-width: 1100px;
             margin: 24px auto;
-            text-align: center
+            text-align: center;
         }
     </style>
 </head>
@@ -118,6 +135,7 @@
         (function () {
             const params = new URLSearchParams(location.search);
             const book = params.get('book') || 'a1-kurmanci';
+            const levelFilter = (params.get('level') || '').toLowerCase(); // 'a1' | 'a2' | 'b1' | ''
 
             const $units = document.getElementById('units');
             const $bookLabel = document.getElementById('book-label');
@@ -150,7 +168,6 @@
 
             // Turn a full lesson id -> lesson file path and short code
             function lessonFileFromId(fullId, unitSlug) {
-                // fullId example: 'LESSON:a1-kurmanci:u01:l01'
                 const parts = String(fullId).split(':');
                 const lessonCode = parts[parts.length - 1]; // l01
                 const file = `${unitSlug}-${lessonCode}.json`; // e.g., u01-l01.json
@@ -161,7 +178,7 @@
                 // 1) book meta
                 const bookFile = BOOK_FILE_MAP[book] || `book-${book}.json`;
                 const bookMeta = await loadJSON(url(bookFile));
-                $bookLabel.textContent = `${bookMeta.title} • Level ${bookMeta.level || ''}`.trim();
+                $bookLabel.textContent = `${bookMeta.title}${bookMeta.level ? ' • Level ' + bookMeta.level : ''}`;
 
                 // 2) per-unit
                 for (const u of (bookMeta.units || []).sort((a, b) => a.order - b.order)) {
@@ -169,13 +186,20 @@
                     const unitTitleKurd = u.title?.["ku-KMR"] || u.title?.ku || '';
                     const unitTitleDe = u.title?.de || '';
 
-                    // Try to load unit file to see if it contains 'lesson_ids'
+                    // Try to load unit file to see if it contains 'lesson_ids' and 'level'
                     let lessonIds = [];
+                    let unitLevel = '';
                     try {
                         const unitJson = await loadJSON(url(`units/${unitSlug}.json`));
                         lessonIds = unitJson.lesson_ids || [];
+                        unitLevel = unitJson.level || '';
+
+                        const unitLevelPrefix = (unitLevel || '').toLowerCase().split('.')[0];
+                        if (levelFilter && unitLevelPrefix !== levelFilter) {
+                            continue; // skip this unit on the grid
+                        }
                     } catch (e) {
-                        // silently ignore (unit file optional); we'll default to single lesson
+                        /* optional file */
                     }
 
                     const lessonCount = (lessonIds && lessonIds.length) ? lessonIds.length : 1;
@@ -184,40 +208,56 @@
                     const unitCard = document.createElement('section');
                     unitCard.className = 'unit-card';
                     unitCard.innerHTML = `
-        <div class="unit-head">
-          <div>
-            <div class="unit-title">${String(u.order).padStart(2, '0')}. ${unitTitleKurd || unitTitleDe}</div>
-            <div class="unit-meta">${unitTitleDe}</div>
-          </div>
-          <div class="unit-meta">${lessonCount} ${lessonCount === 1 ? 'lesson' : 'lessons'}</div>
-        </div>
-        <div class="lessons"></div>
-      `;
+            <div class="unit-head">
+              <div>
+                <div class="unit-title">${String(u.order).padStart(2, '0')}. ${unitTitleKurd || unitTitleDe}</div>
+                <div class="unit-meta">${unitTitleDe}${unitLevel ? ' • Level ' + unitLevel : ''}</div>
+              </div>
+              <div class="unit-meta">${lessonCount} ${lessonCount === 1 ? 'lesson' : 'lessons'}</div>
+            </div>
+            <div class="lessons"></div>
+          `;
 
                     // Always render inner lesson items; if none configured, default to l01
                     const list = unitCard.querySelector('.lessons');
-                    const ids = (lessonIds && lessonIds.length) ? lessonIds : [ makeLessonId(unitSlug, 'l01') ];
+                    const ids = (lessonIds && lessonIds.length) ? lessonIds : [makeLessonId(unitSlug, 'l01')];
 
                     for (const fullId of ids) {
-                      const { file, lessonCode } = lessonFileFromId(fullId, unitSlug);
+                        const { file, lessonCode } = lessonFileFromId(fullId, unitSlug);
 
-                      // Try to read lesson title from lesson file (optional)
-                      let lTitle = `Lesson ${String(lessonCode).replace('l', '')}`;
-                      let lSummary = '';
-                      try {
-                        const lessonJson = await loadJSON(url(`lessons/${file}`));
-                        lTitle = lessonJson.title?.["ku-KMR"] || lessonJson.title?.ku || lTitle;
-                      } catch (e) { /* keep defaults */ }
+                        // Try to read lesson meta (title, level, sections)
+                        let lTitle = `Lesson ${String(lessonCode).replace('l', '')}`;
+                        let lLevel = '';
+                        let sections = [];
+                        try {
+                            const lessonJson = await loadJSON(url(`lessons/${file}`));
+                            lTitle = lessonJson.title?.["ku-KMR"] || lessonJson.title?.ku || lTitle;
+                            lLevel = lessonJson.level || '';
+                            sections = Array.isArray(lessonJson.sections) ? lessonJson.sections : [];
+                        } catch (e) { /* keep defaults */ }
 
-                      const item = document.createElement('article');
-                      item.className = 'lesson-item';
-                      item.innerHTML = `
-                        <div class="lesson-title">${unitSlug.toUpperCase()} — ${lTitle}</div>
-                        ${lSummary ? `<div class="lesson-desc">${lSummary}</div>` : ''}
-                        <button type="button" class="btn">Start ▶</button>
-                      `;
-                      item.querySelector('button').onclick = () => location.href = startLink(unitSlug, fullId);
-                      list.appendChild(item);
+                        const item = document.createElement('article');
+                        item.className = 'lesson-item';
+                        const hasSections = sections.length > 0;
+
+                        item.innerHTML = `
+              <div class="lesson-title">${unitSlug.toUpperCase()} — ${lTitle}</div>
+              <div class="lesson-desc">Level: ${lLevel || unitLevel || 'n/a'}</div>
+              ${hasSections ? `
+                <details open>
+                  <summary>Read / Notes</summary>
+                  <div class="lesson-sections">
+                    ${sections.map(s => `
+                      <h4>${s.title || ''}</h4>
+                      <div>${s.html || ''}</div>
+                    `).join('')}
+                  </div>
+                </details>
+              ` : ''}
+              <button type="button" class="btn">Practice ▶</button>
+            `;
+                        item.querySelector('button').onclick = () => location.href = startLink(unitSlug, fullId);
+                        list.appendChild(item);
                     }
 
                     $units.appendChild(unitCard);
@@ -229,13 +269,13 @@
                 const tried = `${ORIGIN}${ROOT}/assets/data/${BOOK_FILE_MAP[book] || `book-${book}.json`}`;
                 $bookLabel.textContent = 'Failed to load book.';
                 $units.innerHTML = `
-      <div class="unit-card">
-        <div class="unit-head"><div class="unit-title">Error loading JSON</div></div>
-        <div class="lessons"><div class="lesson-item">
-          Could not load JSON files.<br>
-          <small>Check this URL exists:<br><code>${tried}</code></small>
-        </div></div>
-      </div>`;
+          <div class="unit-card">
+            <div class="unit-head"><div class="unit-title">Error loading JSON</div></div>
+            <div class="lessons"><div class="lesson-item">
+              Could not load JSON files.<br>
+              <small>Check this URL exists:<br><code>${tried}</code></small>
+            </div></div>
+          </div>`;
             });
         })();
     </script>

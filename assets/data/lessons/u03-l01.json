@@ -2,21 +2,25 @@
     "_id": "LESSON:a1-kurmanci:u03:l01",
     "unit_id": "UNIT:a1-kurmanci:u03",
     "order": 1,
+    "level": "a1.2",
     "title": {
-        "ku-KMR": "Verb Tables"
+        "ku-KMR": "Zimanên hind-ewropî, hejmar",
+        "de": "Indoeuropäisch, Zahlen"
     },
-    "activity_refs": [
+    "sections": [
         {
-            "activity_id": "ACT:verb:cun",
+            "title": "Hevjê tiştên peyvên kurdî + avestayî/sanskrîtî",
+            "html": "<p>Kurdî ji komek zimanên hind-ewropî ye; peyvên hevpar: <em>stêrk/star/Stern</em>, <em>nav/name/Name</em>, <em>nû/new/neu</em>.</p>"
+        },
+        {
+            "title": "Hejmar (Zahlen) li zaravayên cihêreng",
+            "html": "<p>yek/du/sê/çar/pênc/şeş/heft/heşt/neh/deh … (tablo bi zaravayan — tevdekirin paşê).</p>"
+        }
+    ],
+    "practice_refs": [
+        {
+            "activity_id": "ACT:test:letters:001",
             "order": 1
-        },
-        {
-            "activity_id": "ACT:verb:xwarin",
-            "order": 2
-        },
-        {
-            "activity_id": "ACT:gap:em-nan",
-            "order": 3
         }
     ]
 }

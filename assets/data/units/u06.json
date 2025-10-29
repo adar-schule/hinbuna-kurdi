@@ -1,0 +1,14 @@
+{
+    "_id": "UNIT:a1-kurmanci:u06",
+    "course_id": "COURSE:a1-kurmanci",
+    "slug": "u06",
+    "order": 6,
+    "level": "b1.1–b1.2",
+    "title": {
+        "ku-KMR": "Alfabeya kurdî + Nimûneyên du-deng",
+        "de": "Alphabet + zweistimmige Konsonanten"
+    },
+    "lesson_ids": [
+        "LESSON:a1-kurmanci:u06:l01"
+    ]
+}

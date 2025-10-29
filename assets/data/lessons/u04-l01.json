@@ -2,21 +2,33 @@
     "_id": "LESSON:a1-kurmanci:u04:l01",
     "unit_id": "UNIT:a1-kurmanci:u04",
     "order": 1,
+    "level": "a2.1",
     "title": {
-        "ku-KMR": "Imperative Basics"
+        "ku-KMR": "Zaravayên kurdî, koma yekem/duyem",
+        "de": "Dialekte, 1./2. Pronomengruppe"
     },
-    "activity_refs": [
+    "sections": [
         {
-            "activity_id": "ACT:imp:xwarin",
+            "title": "Koma yekem a çinavên kesîn",
+            "html": "<p>ez, tu, ew, em, hûn, ew …</p>"
+        },
+        {
+            "title": "Koma duyem a çinavên kesîn",
+            "html": "<p>min, te, wî/wê, me, we, wan … (bi têkildarî almanî: mich/dir/ihm …)</p>"
+        },
+        {
+            "title": "Hin lêker (Beispiele)",
+            "html": "<p><em>anîn</em> bringen, <em>kirin</em> machen, <em>girtin</em> nehmen, <em>hatin</em> kommen, <em>nivîsîn</em> schreiben …</p>"
+        }
+    ],
+    "practice_refs": [
+        {
+            "activity_id": "ACT:verb:xwarin",
             "order": 1
         },
         {
-            "activity_id": "ACT:gap:imp-pl",
+            "activity_id": "ACT:gap:em-nan",
             "order": 2
-        },
-        {
-            "activity_id": "ACT:text:imp-note",
-            "order": 3
         }
     ]
 }

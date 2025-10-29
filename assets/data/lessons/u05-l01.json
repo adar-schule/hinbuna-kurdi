@@ -1,0 +1,34 @@
+{
+    "_id": "LESSON:a1-kurmanci:u05:l01",
+    "unit_id": "UNIT:a1-kurmanci:u05",
+    "order": 1,
+    "level": "a2.2",
+    "title": {
+        "ku-KMR": "Hin rengdêr, hevpeyvên wekhev",
+        "de": "Adjektive, Sätze"
+    },
+    "sections": [
+        {
+            "title": "Rengdêr (Adjektive) di zaravayan de",
+            "html": "<p>baş/gut, nû/neu, mezin/groß, biçûk/klein, reş/schwarz, spî/weiß …</p>"
+        },
+        {
+            "title": "Wêneyên gotinan",
+            "html": "<p>Ez ji te hez dikim. / Ez nan dixwim. / Min to xweş dît. …</p>"
+        },
+        {
+            "title": "Hevpeyvên wekhev (Kurdî–Almanî)",
+            "html": "<p>sur–rot, bav–Vater, min–ich, çem–Fluß …</p>"
+        }
+    ],
+    "practice_refs": [
+        {
+            "activity_id": "ACT:reading:sosin",
+            "order": 1
+        },
+        {
+            "activity_id": "ACT:riddle:001",
+            "order": 2
+        }
+    ]
+}

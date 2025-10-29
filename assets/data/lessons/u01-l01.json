@@ -2,10 +2,26 @@
     "_id": "LESSON:a1-kurmanci:u01:l01",
     "unit_id": "UNIT:a1-kurmanci:u01",
     "order": 1,
+    "level": "a1.1",
     "title": {
-        "ku-KMR": "First Dialog"
+        "ku-KMR": "Pêşniyarên fêr bûnê",
+        "de": "Lerntipps"
     },
-    "activity_refs": [
+    "sections": [
+        {
+            "title": "1. Hînbûna navdêran (Erlernen von Substantiven)",
+            "html": "<p><strong>ava min</strong> (mein Wasser) ⇄ <strong>nanê min</strong> (mein Brot).<br>1) <em>av</em> ‘Wasser’, 2) <em>a</em> bestimmter Artikel, 3) <em>min</em> ‘mein’.<br><small>Not: bi hev re nav û artikl fêr bibe!</small></p>"
+        },
+        {
+            "title": "2. Hînbûna lêkeran (Erlernen von Verben)",
+            "html": "<p>Kurdi ‘zwiestämmig’ e. Stemma <em>niha</em> (Präsens) û <em>borî</em> (Vergangenheit).<br><strong>xwarin</strong> → <em>bixwe!</em> (Imp.) / <em>xwar</em> (Past-Stamm)<br><strong>kirin</strong> → <em>bikel!</em> (Imp.) / <em>kir</em> (Past-Stamm)</p>"
+        },
+        {
+            "title": "Transitiv û intransitiv",
+            "html": "<p>Transitiv: wergirtina bersivê ‘kî?/çi?’. Intransitiv: na, bersivê ‘kû?’ ango derbarê cihê dixwaze.</p><ul><li><em>Ez nan dixwim.</em> (transitiv)</li><li><em>Ez malê diçim.</em> (intransitiv)</li></ul>"
+        }
+    ],
+    "practice_refs": [
         {
             "activity_id": "ACT:dialog:001",
             "order": 1

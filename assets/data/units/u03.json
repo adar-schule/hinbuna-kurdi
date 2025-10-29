@@ -3,9 +3,10 @@
     "course_id": "COURSE:a1-kurmanci",
     "slug": "u03",
     "order": 3,
+    "level": "a1.2",
     "title": {
-        "ku-KMR": "bûn (sein) – tablo",
-        "de": "Verbtabellen"
+        "ku-KMR": "Zimanên hind-ewropî + hejmar",
+        "de": "Indoeuropäische Sprachen + Zahlen"
     },
     "lesson_ids": [
         "LESSON:a1-kurmanci:u03:l01"
