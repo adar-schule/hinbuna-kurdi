@@ -1,0 +1,14 @@
+{
+    "_id": "ACT:test:letters:001",
+    "type": "QUIZ_MC",
+    "content": {
+        "question": "Kîjan tîpên Kurmancî hene?",
+        "choices": [
+            "ê, î, û",
+            "ä, ö, ü",
+            "á, í, ú"
+        ],
+        "answer": "ê, î, û"
+    },
+    "status": "published"
+}

@@ -1,0 +1,21 @@
+{
+    "_id": "ACT:decl:e-basic",
+    "type": "TABLE",
+    "content": {
+        "headers": [
+            "Kurdî",
+            "Deutsch"
+        ],
+        "rows": [
+            [
+                "Ez pirtûka kîtabê dixwînim.",
+                "Ich lese das Buch (Objektform -ê)."
+            ],
+            [
+                "Min navê wî bûyî wî zanî.",
+                "Ich kannte seinen Namen."
+            ]
+        ]
+    },
+    "status": "published"
+}

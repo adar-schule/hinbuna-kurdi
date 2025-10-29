@@ -1,0 +1,30 @@
+{
+    "_id": "LESSON:a1-kurmanci:u02:l02",
+    "unit_id": "UNIT:a1-kurmanci:u02",
+    "order": 2,
+    "title": {
+        "ku-KMR": "Ev/Ew – Practice & Reading"
+    },
+    "activity_refs": [
+        {
+            "activity_id": "ACT:riddle:001",
+            "order": 1
+        },
+        {
+            "activity_id": "ACT:reading:sosin",
+            "order": 2
+        },
+        {
+            "activity_id": "ACT:decl:e-basic",
+            "order": 3
+        },
+        {
+            "activity_id": "ACT:svo:001",
+            "order": 4
+        },
+        {
+            "activity_id": "ACT:test:letters:001",
+            "order": 5
+        }
+    ]
+}

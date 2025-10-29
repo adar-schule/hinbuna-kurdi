@@ -1,0 +1,14 @@
+{
+    "_id": "ACT:svo:001",
+    "type": "QUIZ_MC",
+    "content": {
+        "question": "Hevokî rast yê SVO çi ye?",
+        "choices": [
+            "Ez nan dixwim.",
+            "Nan ez dixwim.",
+            "Dixwim ez nan."
+        ],
+        "answer": "Ez nan dixwim."
+    },
+    "status": "published"
+}
