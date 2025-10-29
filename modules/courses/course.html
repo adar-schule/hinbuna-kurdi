@@ -5,35 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Courses | Hinbuna Kurdî</title>
-<link rel="stylesheet" href="../../assets/site.css">
+    <link rel="stylesheet" href="../../assets/site.css">
 </head>
 
 <body>
     <div data-include="../../partials/header.html"></div>
+
     <h2>Available Courses</h2>
 
     <div class="courses-container">
+        <!-- Demo: all course cards route to the same sample book -->
+        <!-- Optional: explicit A1 Book card (same destination for demo) -->
         <div class="course-card">
             <div class="course-content">
-                <div class="course-title">Slav! – Greetings in Kurmancî</div>
-                <div class="course-meta">Level: A1 • 5 Units</div>
-                <button onclick="location.href='../lessons/lesson.html'">Start ▶</button>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <div class="course-content">
-                <div class="course-title">Mal û Ez – Family & Self</div>
-                <div class="course-meta">Level: A1–A2 • 4 Units</div>
-                <button onclick="location.href='../lessons/lesson.html'">Start ▶</button>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <div class="course-content">
-                <div class="course-title">Welat & Nav – Places & Names</div>
-                <div class="course-meta">Level: A2 • 6 Units</div>
-                <button onclick="location.href='../lessons/lesson.html'">Start ▶</button>
+                <div class="course-title">A1 Book – Ez ji te hez dikim</div>
+                <div class="course-meta">Level: A1 • JSON-driven</div>
+                <button onclick="location.href='../lessons/lesson.html?book=a1-kurmanci'">Start ▶</button>
             </div>
         </div>
     </div>

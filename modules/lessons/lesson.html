@@ -2,133 +2,243 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Course: Greetings – Hinbuna Kurdî</title>
-    <link rel="stylesheet" href="../../assets/site.css">
+    <title>Lessons | Hinbuna Kurdî</title>
+    <link rel="stylesheet" href="../../assets/site.css" />
     <style>
         .units-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
-            margin: auto;
+            max-width: 1100px;
+            margin: 24px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        @media (max-width:640px) {
+            .units-container {
+                grid-template-columns: 1fr;
+                /* stack vertically on mobile */
+            }
         }
 
         .unit-card {
-            background: white;
-            border: 1px solid #ccc;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            min-height: 180px;
+        }
+
+        .unit-head {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 14px 16px;
+            background: #f6f6f6
         }
 
-        .unit-card img {
-            width: 160px;
-            height: auto;
-            object-fit: cover;
-            border-right: 1px solid #eee;
+        .unit-title {
+            font-weight: 700
         }
 
-        .unit-info {
-            padding: 15px;
-            flex-grow: 1;
+        .unit-meta {
+            font-size: 12px;
+            color: #666
         }
 
-        .unit-info h3 {
-            margin: 0 0 10px;
+        /* inner lessons appear only when a unit actually has >1 lessons */
+        .lessons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 12px 16px;
         }
 
-        .unit-info p {
-            font-size: 14px;
-            color: #444;
-            margin-bottom: 10px;
+        .lesson-item {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 12px;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
         }
 
-        .unit-info button {
-            background-color: #000;
-            color: white;
-            border: none;
+        .lesson-title {
+            font-weight: 600
+        }
+
+        .lesson-desc {
+            font-size: 13px;
+            color: #444
+        }
+
+        .btn {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            border: 0;
             padding: 8px 12px;
             cursor: pointer;
+            border-radius: 4px
         }
 
-        .unit-info button:hover {
-            background-color: #333;
+        .btn:hover {
+            background: #333
         }
 
         .back-link {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .back-link a {
-            text-decoration: none;
-            color: #555;
-        }
-
-        .back-link a:hover {
-            text-decoration: underline;
+            max-width: 1100px;
+            margin: 24px auto;
+            text-align: center
         }
     </style>
 </head>
 
 <body>
     <div data-include="../../partials/header.html"></div>
+
     <div class="header">
-        <h1>📘 Course: Greetings – Level A1</h1>
-        <p>Explore simple greetings, names, and the verb "to be"</p>
+        <h1>📘 Lessons</h1>
+        <p id="book-label">Loading book…</p>
     </div>
 
-    <div class="units-container">
-
-        <div class="unit-card">
-            <!-- <img src="images/lesson01.jpeg" alt="Unit 1"> -->
-            <div class="unit-info">
-                <h3>Unit 1: Roj baş! – First Dialog</h3>
-                <p>Learn basic greetings and introduce yourself in Kurdish.</p>
-                <button onclick="location.href='../runner/runner.html'">▶ Start Unit</button>
-            </div>
-        </div>
-
-        <div class="unit-card">
-            <!-- <img src="images/lesson02.jpeg" alt="Unit 2"> -->
-            <div class="unit-info">
-                <h3>Unit 2: Personalpronomen</h3>
-                <p>Practice using Kurdish pronouns and sentence building.</p>
-                <button onclick="location.href='../runner/runner.html'">▶ Start Unit</button>
-            </div>
-        </div>
-
-        <div class="unit-card">
-            <!-- <img src="images/lesson03.jpeg" alt="Unit 3"> -->
-            <div class="unit-info">
-                <h3>Unit 3: Das Verb „bûn“ (sein)</h3>
-                <p>Conjugate and use “bûn” in daily structures.</p>
-                <button onclick="location.href='../runner/runner.html'">▶ Start Unit</button>
-            </div>
-        </div>
-
-        <div class="unit-card">
-            <!-- <img src="images/lesson04.jpeg" alt="Unit 4"> -->
-            <div class="unit-info">
-                <h3>Unit 4: Zahlen und Fragen</h3>
-                <p>Numbers, question building, and review exercises.</p>
-                <button onclick="location.href='../runner/runner.html'">▶ Start Unit</button>
-            </div>
-        </div>
-
-    </div>
+    <div id="units" class="units-container" aria-live="polite"></div>
 
     <div class="back-link">
-        <a href="/../courses/course.html">← Back to Course</a>
+        <a href="../courses/course.html">← Back to Courses</a>
     </div>
 
     <div data-include="../../partials/footer.html"></div>
     <script src="../../assets/include.js"></script>
+    <script>
+        (function () {
+            const params = new URLSearchParams(location.search);
+            const book = params.get('book') || 'a1-kurmanci';
+
+            const $units = document.getElementById('units');
+            const $bookLabel = document.getElementById('book-label');
+
+            const ROOT = location.pathname.split('/modules/')[0] || '';
+            const ORIGIN = location.origin;
+
+            const BOOK_FILE_MAP = {
+                'a1-kurmanci': 'book-a1.json',
+            };
+
+            const url = (p) => `${ORIGIN}${ROOT}/assets/data/${p}`;
+
+            async function loadJSON(absUrl) {
+                const res = await fetch(absUrl, { cache: 'no-cache' });
+                if (!res.ok) throw new Error(`HTTP ${res.status} for ${absUrl}`);
+                return res.json();
+            }
+
+            function makeLessonId(unitSlug, lessonCode /* like 'l01' */) {
+                return `LESSON:${book}:${unitSlug}:${lessonCode}`;
+            }
+
+            function startLink(unitSlug, lessonId) {
+                // lessonId is full ID (e.g. 'LESSON:a1-kurmanci:u01:l01')
+                const unitParam = `UNIT:${book}:${unitSlug}`;
+                const lessonParam = lessonId || makeLessonId(unitSlug, 'l01');
+                return `../runner/runner.html?book=${encodeURIComponent(book)}&unit=${encodeURIComponent(unitParam)}&lesson=${encodeURIComponent(lessonParam)}`;
+            }
+
+            // Turn a full lesson id -> lesson file path and short code
+            function lessonFileFromId(fullId, unitSlug) {
+                // fullId example: 'LESSON:a1-kurmanci:u01:l01'
+                const parts = String(fullId).split(':');
+                const lessonCode = parts[parts.length - 1]; // l01
+                const file = `${unitSlug}-${lessonCode}.json`; // e.g., u01-l01.json
+                return { file, lessonCode };
+            }
+
+            async function render() {
+                // 1) book meta
+                const bookFile = BOOK_FILE_MAP[book] || `book-${book}.json`;
+                const bookMeta = await loadJSON(url(bookFile));
+                $bookLabel.textContent = `${bookMeta.title} • Level ${bookMeta.level || ''}`.trim();
+
+                // 2) per-unit
+                for (const u of (bookMeta.units || []).sort((a, b) => a.order - b.order)) {
+                    const unitSlug = (u.unit_id.includes(':') ? u.unit_id.split(':').pop() : u.unit_id); // "u01"
+                    const unitTitleKurd = u.title?.["ku-KMR"] || u.title?.ku || '';
+                    const unitTitleDe = u.title?.de || '';
+
+                    // Try to load unit file to see if it contains 'lesson_ids'
+                    let lessonIds = [];
+                    try {
+                        const unitJson = await loadJSON(url(`units/${unitSlug}.json`));
+                        lessonIds = unitJson.lesson_ids || [];
+                    } catch (e) {
+                        // silently ignore (unit file optional); we'll default to single lesson
+                    }
+
+                    const lessonCount = (lessonIds && lessonIds.length) ? lessonIds.length : 1;
+
+                    // Unit card
+                    const unitCard = document.createElement('section');
+                    unitCard.className = 'unit-card';
+                    unitCard.innerHTML = `
+        <div class="unit-head">
+          <div>
+            <div class="unit-title">${String(u.order).padStart(2, '0')}. ${unitTitleKurd || unitTitleDe}</div>
+            <div class="unit-meta">${unitTitleDe}</div>
+          </div>
+          <div class="unit-meta">${lessonCount} ${lessonCount === 1 ? 'lesson' : 'lessons'}</div>
+        </div>
+        <div class="lessons"></div>
+      `;
+
+                    // Always render inner lesson items; if none configured, default to l01
+                    const list = unitCard.querySelector('.lessons');
+                    const ids = (lessonIds && lessonIds.length) ? lessonIds : [ makeLessonId(unitSlug, 'l01') ];
+
+                    for (const fullId of ids) {
+                      const { file, lessonCode } = lessonFileFromId(fullId, unitSlug);
+
+                      // Try to read lesson title from lesson file (optional)
+                      let lTitle = `Lesson ${String(lessonCode).replace('l', '')}`;
+                      let lSummary = '';
+                      try {
+                        const lessonJson = await loadJSON(url(`lessons/${file}`));
+                        lTitle = lessonJson.title?.["ku-KMR"] || lessonJson.title?.ku || lTitle;
+                      } catch (e) { /* keep defaults */ }
+
+                      const item = document.createElement('article');
+                      item.className = 'lesson-item';
+                      item.innerHTML = `
+                        <div class="lesson-title">${unitSlug.toUpperCase()} — ${lTitle}</div>
+                        ${lSummary ? `<div class="lesson-desc">${lSummary}</div>` : ''}
+                        <button type="button" class="btn">Start ▶</button>
+                      `;
+                      item.querySelector('button').onclick = () => location.href = startLink(unitSlug, fullId);
+                      list.appendChild(item);
+                    }
+
+                    $units.appendChild(unitCard);
+                }
+            }
+
+            render().catch(err => {
+                console.error(err);
+                const tried = `${ORIGIN}${ROOT}/assets/data/${BOOK_FILE_MAP[book] || `book-${book}.json`}`;
+                $bookLabel.textContent = 'Failed to load book.';
+                $units.innerHTML = `
+      <div class="unit-card">
+        <div class="unit-head"><div class="unit-title">Error loading JSON</div></div>
+        <div class="lessons"><div class="lesson-item">
+          Could not load JSON files.<br>
+          <small>Check this URL exists:<br><code>${tried}</code></small>
+        </div></div>
+      </div>`;
+            });
+        })();
+    </script>
 </body>
 
 </html>
