@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="../../assets/site.css" />
     <style>
         .wrap {
-            max-width: 1100px;
+            /* fill the screen nicely on all sizes */
+            width: min(1600px, 96vw);
             margin: 24px auto;
-            padding: 0 12px;
+            /* scale padding with viewport but keep a comfy min/max */
+            padding: 0 clamp(8px, 2vw, 24px);
         }
 
         .hello {
@@ -80,8 +82,9 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 14px;
+            /* columns expand with screen, no empty mega-gutters */
+            grid-template-columns: repeat(auto-fill, minmax(clamp(260px, 28vw, 420px), 1fr));
+            gap: clamp(10px, 1.5vw, 18px);
         }
 
         .card {
@@ -163,7 +166,7 @@
 
         <section class="grid">
             <article class="card">
-                <div class="card-hd">Your Course</div>
+                <div class="card-hd">Your Course(s)</div>
                 <div class="card-bd row">
                     <a class="btn" href="../units/units.html?book=a1-kurmanci&level=a1">A1 Units →</a>
                     <a class="btn" href="../units/units.html?book=a1-kurmanci&level=a2">A2 Units →</a>
@@ -172,7 +175,7 @@
             </article>
 
             <article class="card">
-                <div class="card-hd">Recent Lessons</div>
+                <div class="card-hd">Recent Learning: Lessons or activities</div>
                 <div class="card-bd">
                     <div id="recentList" class="list">
                         <!-- filled by script -->
