@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Google Fonts - loaded in index.html */
+/* Option A: Inter (Modern/Clean) */
+/* Option B: Nunito (Friendly/Warm) */
+/* Option C: Source Sans 3 (Balanced) */
+/* Option D: Lexend (Readability-focused) */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
