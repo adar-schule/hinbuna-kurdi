@@ -781,13 +781,22 @@ export function DesignShowcase() {
           <p style={{ color: pageMuted }}>
             Component-level preview. Kurdish chars: ç ê î ş û
           </p>
-          <Link
-            to="/home"
-            className="inline-block mt-4 text-sm font-medium px-4 py-2 rounded-lg"
-            style={{ backgroundColor: colors.secondary, color: colors.primary }}
-          >
-            ← Rûpela Serê Bibîne (Full Homepage)
-          </Link>
+          <div className="flex gap-4 flex-wrap justify-center mt-4">
+            <Link
+              to="/home"
+              className="text-sm font-medium px-4 py-2 rounded-lg"
+              style={{ backgroundColor: colors.secondary, color: colors.primary }}
+            >
+              ← Rûpela Serê (Original)
+            </Link>
+            <Link
+              to="/home-shadcn"
+              className="text-sm font-medium px-4 py-2 rounded-lg"
+              style={{ backgroundColor: colors.primary, color: '#fff' }}
+            >
+              → Biceribîne: shadcn/ui Version
+            </Link>
+          </div>
         </div>
 
         {/* Controls */}
