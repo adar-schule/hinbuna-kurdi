@@ -71,8 +71,6 @@ export function StitchShowcase() {
                     <a
                       key={`${v.device}-${v.theme}`}
                       href={getUrl(dir.id, v.device, v.theme)}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="px-4 py-2 bg-secondary hover:bg-secondary/80 rounded-md text-sm font-medium transition-colors"
                     >
                       {v.label}
