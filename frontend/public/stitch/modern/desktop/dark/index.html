@@ -1,0 +1,228 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d9488",
+            "background-light": "#f6f8f8",
+            "background-dark": "#0f172a",
+            "card-dark": "#1e293b",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary selection:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-5 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-50">
+<div class="flex items-center gap-4">
+<div class="text-primary size-8">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Hinbûna Kurdî</h2>
+</div>
+<div class="flex flex-1 justify-end gap-10">
+<nav class="flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Taybetmendî</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Bihayê</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Ders</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Têkilî</a>
+</nav>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold transition-all hover:shadow-[0_0_15px_rgba(13,148,136,0.4)]">
+            Têketin
+          </button>
+</div>
+</header>
+<main class="flex flex-col items-center">
+<!-- Hero Section -->
+<section class="max-w-[1200px] w-full px-10 py-20 flex flex-col lg:flex-row items-center gap-16">
+<div class="flex flex-col gap-8 flex-1">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-bold tracking-widest text-xs uppercase">Rêbaza Nûjen a Ziman</span>
+<h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                Hinbûna <br/><span class="text-primary">Kurdî</span> Desktop Pro
+              </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-[500px] leading-relaxed">
+                Bi teknolojiyeke nûjen û rêbazên profesyonel kurdî fêr bibe. Ji bo performansa herî bilind û hînbûna kûr hatî sêwirandin.
+              </p>
+</div>
+<div class="flex gap-4">
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-base font-bold transition-transform hover:scale-105">
+                Niha Dest Pê Bike
+              </button>
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-base font-bold transition-all">
+                Dersa Nimûne
+              </button>
+</div>
+</div>
+<div class="flex-1 w-full max-w-[600px]">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative aspect-video rounded-xl bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 overflow-hidden shadow-2xl" data-alt="Modern laptop displaying a language learning dashboard interface" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDn5wyIcXpiM1gE0ATGZy0V7oObFZxJSqr-91zqn-dD4fBaOSwnOzqnZoX_JYqcBe8aWUwQ8XcuqJma5PF9Qd8IBJJCeGjcn1j8eP4ZyfiU5EqtC9dIGFwkOJrw-fTMFJNvKNXLU6PNps9qbbe95NSnqGTpIqwsTUQta1YVNnuL7tyS6VC7U7m2obvgdoUAPQPqSL2-L6Q6uUADiswq8FHX7ceCWxY3lNo_mebA3e88Y_-k6vyB10p2A6vJPn7i8E30YdVOB2mqDiI'); background-size: cover; background-position: center;">
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bar -->
+<section class="w-full bg-slate-100 dark:bg-[#0c1221] border-y border-slate-200 dark:border-slate-800">
+<div class="max-w-[1200px] mx-auto px-10 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col items-center md:items-start gap-1">
+<p class="text-slate-500 dark:text-blue-400/60 text-sm font-bold uppercase tracking-widest">Bikarhêner</p>
+<p class="text-4xl font-bold text-slate-900 dark:text-blue-200">50,000+</p>
+</div>
+<div class="flex flex-col items-center md:items-start gap-1 border-x border-slate-200 dark:border-slate-800 md:px-12">
+<p class="text-slate-500 dark:text-blue-400/60 text-sm font-bold uppercase tracking-widest">Dersên Amade</p>
+<p class="text-4xl font-bold text-slate-900 dark:text-blue-200">1,200+</p>
+</div>
+<div class="flex flex-col items-center md:items-start gap-1">
+<p class="text-slate-500 dark:text-blue-400/60 text-sm font-bold uppercase tracking-widest">Rêjeya Serkeftinê</p>
+<p class="text-4xl font-bold text-slate-900 dark:text-blue-200">%98</p>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="max-w-[1200px] w-full px-10 py-24">
+<div class="flex flex-col items-center text-center mb-16 gap-4">
+<h2 class="text-4xl font-bold tracking-tight">Çima Hinbûna Kurdî?</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl">Platformeke profesyonel ku ji bo hînbûna ziman amûrên herî pêşketî bi kar tîne.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-card-dark transition-all hover:border-primary/50 hover:shadow-[0_0_30px_rgba(13,148,136,0.1)]">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:shadow-[0_0_15px_rgba(13,148,136,0.3)] transition-all">
+<span class="material-symbols-outlined !text-3xl">bolt</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Dersên Înteraktîf</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Dersên bi vîdyo û ceribandinên zindî hatine amadekirin ji bo têgihiştina bilez.</p>
+</div>
+<div class="group p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-card-dark transition-all hover:border-primary/50 hover:shadow-[0_0_30px_rgba(13,148,136,0.1)]">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:shadow-[0_0_15px_rgba(13,148,136,0.3)] transition-all">
+<span class="material-symbols-outlined !text-3xl">psychology</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Teknîka AI</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Zehf bi alîkariya aqilê çêkirî xwe baştir bike û şaştiyên xwe rast bike.</p>
+</div>
+<div class="group p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-card-dark transition-all hover:border-primary/50 hover:shadow-[0_0_30px_rgba(13,148,136,0.1)]">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:shadow-[0_0_15px_rgba(13,148,136,0.3)] transition-all">
+<span class="material-symbols-outlined !text-3xl">workspace_premium</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Sertîfîka</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Piştî temamkirina astan sertîfîkaya navneteweyî ya pejirandî werbigire.</p>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="max-w-[1200px] w-full px-10 py-24 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col items-center text-center mb-16 gap-4">
+<h2 class="text-4xl font-bold tracking-tight">Planên Me</h2>
+<p class="text-slate-600 dark:text-slate-400">Plana ku ji bo te guncav e hilbijêre.</p>
+</div>
+<div class="w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-card-dark">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-900/50">
+<th class="p-6 font-bold border-b border-slate-200 dark:border-slate-800">Taybetmendî</th>
+<th class="p-6 font-bold border-b border-slate-200 dark:border-slate-800 text-center">Belaş</th>
+<th class="p-6 font-bold border-b border-slate-200 dark:border-slate-800 text-center text-primary">Pro (Premium)</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50">Dersên Bingehîn</td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-green-500">check_circle</span></td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50">Alîkariya AI</td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-700">cancel</span></td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50">Daxistina Vîdyoyan</td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-700">cancel</span></td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50">Sertîfîkaya Navneteweyî</td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-700">cancel</span></td>
+<td class="p-6 border-b border-slate-100 dark:border-slate-800/50 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="bg-slate-50/50 dark:bg-slate-900/30">
+<td class="p-6 font-bold text-lg">Bihayê Mehane</td>
+<td class="p-6 text-center text-xl font-bold">$0</td>
+<td class="p-6 text-center text-2xl font-bold text-primary">$19.99</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold transition-all hover:bg-primary/90">
+              Niha Abone Bibe
+            </button>
+</div>
+</section>
+</main>
+<footer class="w-full bg-slate-100 dark:bg-[#0c1221] py-16 px-10 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-6 col-span-1 md:col-span-1">
+<div class="flex items-center gap-3">
+<div class="text-primary size-6">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold">Hinbûna Kurdî</h2>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+              Platforma herî pêşketî ji bo hînbûna zimanê kurdî bi rêbazên teknolojîk.
+            </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm uppercase tracking-wider">Berhem</h4>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary" href="#">Dersên Zindî</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary" href="#">Pirtûkxane</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary" href="#">Mobil App</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm uppercase tracking-wider">Pargîdanî</h4>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary" href="#">Derbarê Me</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary" href="#">Blog</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary" href="#">Kariyer</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm uppercase tracking-wider">Têkilî</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">support@hinbunakurdi.com</p>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary">language</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary">public</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary">share</span>
+</div>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-slate-500 dark:text-slate-400 text-xs">© 2024 Hinbûna Kurdî Pro. Hemû maf parastî ne.</p>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ku"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hinbûna Kurdî - Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5d4e37",
+                        "heritage-brown": "#3D3425",
+                        "heritage-gold": "#E6B800",
+                        "heritage-burgundy": "#722F37",
+                        "heritage-sand": "#F5E6D3",
+                        "background-light": "#f7f7f6",
+                        "background-dark": "#1c1a16",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(230, 184, 0, 0.15) 0%, rgba(61, 52, 37, 0) 70%);
+        }
+        .gold-border {
+            border: 1px solid rgba(230, 184, 0, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 flex items-center bg-background-dark/95 backdrop-blur-md p-4 justify-between border-b border-white/5">
+<div class="text-heritage-gold flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<h2 class="text-heritage-sand text-lg font-bold leading-tight tracking-tight flex-1 text-center">Hinbûna Kurdî</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-full size-10 bg-primary/20 text-heritage-gold">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative bg-heritage-brown overflow-hidden">
+<!-- Subtle Gold Sun Motif -->
+<div class="absolute inset-0 hero-glow pointer-events-none"></div>
+<div class="relative px-6 py-16 flex flex-col items-center text-center gap-8">
+<div class="space-y-4">
+<h1 class="text-heritage-sand text-5xl font-black leading-tight tracking-tight">
+                    Hinbûna Kurdî
+                </h1>
+<p class="text-heritage-sand/80 text-lg font-normal max-w-xs mx-auto">
+                    Learn the language of your ancestors with our heritage-focused curriculum.
+                </p>
+</div>
+<button class="flex w-full max-w-[280px] cursor-pointer items-center justify-center rounded-xl h-14 bg-heritage-gold text-background-dark text-lg font-bold shadow-lg shadow-heritage-gold/10">
+                Dest Pê Bike
+            </button>
+<div class="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl gold-border">
+<img alt="Kurdish landscapes" class="w-full h-48 object-cover" data-alt="Rugged mountain landscape with ancient stone architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDezTsh6ZN5qzVuFdk4kc8U66utFtvi7AOkJ9qneZjvt6R20B6pb3gOzDd9jMrxP6llmzyh-NLUar1RSBMHoX5X5PJIt5dZOB1kSAxgoO2HLNWi5eSpdFPMg1BfsTdngsoiyuTguwFD3Lrg086ZGobC0owzOqahTcuwQrhXyx1bJTVP4qRhnx-wWqcRTK695lQKrN3pHDqnevPwHMhz6-5xiWUwk8l1ccECVXo0EBh68KIfPiXqH9R_H_GqnCGnLfqxEWw54kZhk2k"/>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="px-6 py-12 @container bg-background-dark">
+<div class="flex flex-col gap-4 mb-8">
+<h2 class="text-heritage-gold text-xs font-bold uppercase tracking-[0.2em]">Taybetmendiyên Me</h2>
+<h3 class="text-heritage-sand text-3xl font-bold leading-tight">Modern tools for ancient roots</h3>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Feature Card 1 -->
+<div class="flex flex-col gap-4 rounded-xl gold-border bg-heritage-brown/30 p-6">
+<div class="text-heritage-gold bg-heritage-gold/10 size-12 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">translate</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-heritage-sand text-xl font-bold">Dialect Support</h4>
+<p class="text-heritage-sand/60 text-sm leading-relaxed">Master Kurmanji and Sorani dialects with native speakers and localized content.</p>
+</div>
+</div>
+<!-- Feature Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl gold-border bg-heritage-brown/30 p-6 border-heritage-burgundy/40">
+<div class="text-heritage-burgundy bg-heritage-burgundy/20 size-12 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">auto_stories</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-heritage-sand text-xl font-bold">Cultural Context</h4>
+<p class="text-heritage-sand/60 text-sm leading-relaxed">Dive deep into the history behind the words. Every lesson is a window into our heritage.</p>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="flex flex-col gap-4 rounded-xl gold-border bg-heritage-brown/30 p-6">
+<div class="text-heritage-gold bg-heritage-gold/10 size-12 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">groups</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-heritage-sand text-xl font-bold">Diaspora Community</h4>
+<p class="text-heritage-sand/60 text-sm leading-relaxed">Connect with Kurds worldwide. Practice conversation and share your learning journey.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Cultural Note Banner -->
+<section class="bg-heritage-burgundy px-6 py-12 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(#E6B800 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative text-center space-y-4">
+<span class="material-symbols-outlined text-heritage-gold text-4xl">format_quote</span>
+<h2 class="text-heritage-sand text-2xl font-bold leading-tight italic">
+                "Zimanê me, hebûna me ye."
+            </h2>
+<p class="text-heritage-sand/80 text-sm font-medium tracking-wide uppercase">
+                Language is our existence.
+            </p>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="px-6 py-16 bg-background-dark">
+<div class="text-center mb-10">
+<h2 class="text-heritage-sand text-3xl font-bold">Plana xwe hilbijêre</h2>
+<p class="text-heritage-sand/50 text-sm mt-2">Choose the path that fits your journey.</p>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Free Plan -->
+<div class="rounded-2xl bg-white/5 p-8 border border-white/10 flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-heritage-sand text-2xl font-bold">Belaş</h4>
+<p class="text-heritage-sand/50 text-sm italic">Standard Journey</p>
+</div>
+<div class="text-heritage-sand text-2xl font-black">$0<span class="text-xs font-normal">/mo</span></div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-sm text-heritage-sand/80">
+<span class="material-symbols-outlined text-heritage-gold text-lg">check_circle</span>
+                        Daily vocabulary drills
+                    </li>
+<li class="flex items-center gap-3 text-sm text-heritage-sand/80">
+<span class="material-symbols-outlined text-heritage-gold text-lg">check_circle</span>
+                        Access to Kurmanji Basic
+                    </li>
+<li class="flex items-center gap-3 text-sm text-heritage-sand/80">
+<span class="material-symbols-outlined text-heritage-gold text-lg">check_circle</span>
+                        Community forums
+                    </li>
+</ul>
+<button class="w-full h-12 rounded-xl border border-heritage-sand/30 text-heritage-sand font-bold">
+                    Start Learning
+                </button>
+</div>
+<!-- Premium Plan -->
+<div class="rounded-2xl bg-heritage-brown p-8 gold-border flex flex-col gap-6 relative">
+<div class="absolute -top-3 right-6 bg-heritage-gold text-background-dark text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">
+                    Most Popular
+                </div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-heritage-gold text-2xl font-bold">Zêrîn</h4>
+<p class="text-heritage-sand/50 text-sm italic">Full Immersion</p>
+</div>
+<div class="text-heritage-gold text-2xl font-black">$9.99<span class="text-xs font-normal text-heritage-sand">/mo</span></div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-sm text-heritage-sand">
+<span class="material-symbols-outlined text-heritage-gold text-lg">verified</span>
+                        Everything in Free
+                    </li>
+<li class="flex items-center gap-3 text-sm text-heritage-sand">
+<span class="material-symbols-outlined text-heritage-gold text-lg">verified</span>
+                        Offline lesson access
+                    </li>
+<li class="flex items-center gap-3 text-sm text-heritage-sand">
+<span class="material-symbols-outlined text-heritage-gold text-lg">verified</span>
+                        Advanced Sorani grammar
+                    </li>
+<li class="flex items-center gap-3 text-sm text-heritage-sand">
+<span class="material-symbols-outlined text-heritage-gold text-lg">verified</span>
+                        Cultural masterclasses
+                    </li>
+</ul>
+<button class="w-full h-12 rounded-xl bg-heritage-gold text-background-dark font-black shadow-lg shadow-heritage-gold/20">
+                    Get Premium
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black py-12 px-6 text-center">
+<div class="flex flex-col items-center gap-8">
+<div class="space-y-2">
+<h3 class="text-heritage-sand text-xl font-bold">Hinbûna Kurdî</h3>
+<p class="text-heritage-sand/40 text-sm leading-relaxed italic">
+                    "Proudly serving the Kurdish diaspora"
+                </p>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-heritage-sand/60">language</span>
+<span class="material-symbols-outlined text-heritage-sand/60">share</span>
+<span class="material-symbols-outlined text-heritage-sand/60">mail</span>
+</div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="text-xs text-heritage-sand/60 hover:text-heritage-gold" href="#">Privacy</a>
+<a class="text-xs text-heritage-sand/60 hover:text-heritage-gold" href="#">Terms</a>
+<a class="text-xs text-heritage-sand/60 hover:text-heritage-gold" href="#">Support</a>
+<a class="text-xs text-heritage-sand/60 hover:text-heritage-gold" href="#">Contact</a>
+</nav>
+<div class="pt-8 border-t border-white/5 w-full">
+<p class="text-[10px] text-heritage-sand/30 uppercase tracking-widest">
+                    © 2024 Hinbûna Kurdî Project. Built for the future.
+                </p>
+</div>
+</div>
+</footer>
+<!-- iOS Safe Area Spacer -->
+<div class="h-8 bg-black"></div>
+</body></html>

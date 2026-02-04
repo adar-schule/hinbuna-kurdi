@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ku"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#e6b800",
+              "background-light": "#f8f8f5",
+              "background-dark": "#231f0f",
+              "earth-brown": "#3D3425",
+              "burgundy": "#722F37",
+              "sand": "#cec18d",
+            },
+            fontFamily: {
+              "display": ["Lexend", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', 'Noto Sans', sans-serif;
+        }
+        .sun-glow {
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.15) 0%, rgba(61, 52, 37, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-10 py-5 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-4xl">menu_book</span>
+</div>
+<h2 class="text-white text-2xl font-bold leading-tight tracking-tight">Hinbûna Kurdî</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-sand hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Ziman</a>
+<a class="text-sand hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Çand</a>
+<a class="text-sand hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Taybetmendî</a>
+<a class="text-sand hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Bihayî</a>
+</nav>
+<div class="flex gap-4">
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 border border-sand/30 text-sand text-sm font-bold hover:bg-white/5 transition-all">
+<span>Têketin</span>
+</button>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold hover:brightness-110 transition-all">
+<span>Sign Up</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative bg-earth-brown min-h-[600px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 sun-glow"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="relative z-10 max-w-[960px] px-6 text-center">
+<div class="flex flex-col gap-6 items-center">
+<h1 class="text-primary text-6xl md:text-7xl font-black leading-tight tracking-[-0.033em]">
+                            Hinbûna Kurdî
+                        </h1>
+<h2 class="text-sand text-lg md:text-xl font-normal leading-relaxed max-w-[700px]">
+                            Zimanê xwe nas bike, çanda xwe biparêze. Kurdish language learning meticulously designed for cultural preservation and heritage growth.
+                        </h2>
+<div class="mt-4">
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-primary text-earth-brown text-lg font-bold shadow-lg hover:scale-105 transition-transform">
+<span class="truncate uppercase tracking-wider">Niha Dest Pê Bike</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="flex flex-col gap-12 px-10 py-24 bg-background-dark items-center">
+<div class="max-w-[960px] w-full flex flex-col gap-4 text-center">
+<h2 class="text-white tracking-light text-4xl font-bold leading-tight">
+                        Taybetmendiyên Me
+                    </h2>
+<p class="text-sand text-lg font-normal leading-normal mx-auto max-w-[600px]">Rêyeke hêsan û kûr ji bo hînbûna zimanê Kurdî di ronahiya dîrokê de.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1000px] w-full">
+<!-- Feature Card 1 -->
+<div class="flex flex-col gap-6 p-8 rounded-xl border border-primary/40 bg-earth-brown/30 shadow-[0_10px_30px_-10px_rgba(114,47,55,0.3)] hover:border-primary transition-all group">
+<div class="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all">
+<span class="material-symbols-outlined text-4xl">history_edu</span>
+</div>
+<div>
+<p class="text-white text-xl font-bold mb-2">Zimanê Heritage</p>
+<p class="text-sand/80 text-sm leading-relaxed">Ji bo parastina koka me ya çandî bi metodên nûjen hatiye amadekirin.</p>
+</div>
+</div>
+<!-- Feature Card 2 -->
+<div class="flex flex-col gap-6 p-8 rounded-xl border border-primary/40 bg-earth-brown/30 shadow-[0_10px_30px_-10px_rgba(114,47,55,0.3)] hover:border-primary transition-all group">
+<div class="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all">
+<span class="material-symbols-outlined text-4xl">model_training</span>
+</div>
+<div>
+<p class="text-white text-xl font-bold mb-2">Dersên Înteraktîf</p>
+<p class="text-sand/80 text-sm leading-relaxed">Bi lîstik û temrînên nûjen, peyv û rêziman di hişê we de dimîne.</p>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="flex flex-col gap-6 p-8 rounded-xl border border-primary/40 bg-earth-brown/30 shadow-[0_10px_30px_-10px_rgba(114,47,55,0.3)] hover:border-primary transition-all group">
+<div class="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all">
+<span class="material-symbols-outlined text-4xl">theater_comedy</span>
+</div>
+<div>
+<p class="text-white text-xl font-bold mb-2">Parastina Çandî</p>
+<p class="text-sand/80 text-sm leading-relaxed">Çîrok, stran û methelokên kurdî yên kevnar bi deng û reng.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Cultural Note Banner -->
+<section class="bg-burgundy py-16 px-6 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
+<span class="text-[20rem] font-serif text-white rotate-12">K</span>
+</div>
+<div class="max-w-[960px] mx-auto text-center relative z-10 flex flex-col gap-6">
+<h2 class="text-primary tracking-widest text-3xl md:text-5xl font-bold leading-tight uppercase italic" style="font-family: serif;">
+                        Dîroka Me Bi Zimanê Me Dijî
+                    </h2>
+<p class="text-white text-xl md:text-2xl font-light italic max-w-[800px] mx-auto opacity-90">
+                        "Ziman bingeha her neteweyekê ye. Bi nivîsa zêrîn û çanda kurdewarî em hebûna xwe geş dikin."
+                    </p>
+<div class="mt-6">
+<button class="px-10 py-4 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-burgundy transition-all">
+                            Zêdetir Bixwîne
+                        </button>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="px-10 py-24 bg-background-dark">
+<div class="max-w-[1000px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-white text-4xl font-bold mb-4">Planên Me</h2>
+<p class="text-sand">Ji bo her kesî vebijarkek heye.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Free Tier -->
+<div class="flex flex-col gap-6 rounded-xl border border-white/10 bg-[#2a2512] p-8">
+<div class="flex flex-col gap-1">
+<h3 class="text-sand text-lg font-bold">Belaş</h3>
+<div class="flex items-baseline gap-1 text-white">
+<span class="text-4xl font-black">$0</span>
+<span class="text-sand/60 text-sm">/heyvane</span>
+</div>
+</div>
+<button class="w-full rounded-lg h-12 border border-sand/30 text-sand font-bold hover:bg-white/5 transition-all">
+                                Dest pê bike
+                            </button>
+<ul class="flex flex-col gap-4 mt-4">
+<li class="text-sm flex gap-3 text-sand/80">
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+                                    Dersên bingehîn
+                                </li>
+<li class="text-sm flex gap-3 text-sand/80">
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+                                    Gihîştina civatê
+                                </li>
+</ul>
+</div>
+<!-- Premium Tier -->
+<div class="flex flex-col gap-6 rounded-xl border-2 border-primary bg-earth-brown p-8 relative scale-105 shadow-2xl">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-background-dark text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full">
+                                Herî populer
+                            </div>
+<div class="flex flex-col gap-1">
+<h3 class="text-primary text-lg font-bold">Premium</h3>
+<div class="flex items-baseline gap-1 text-white">
+<span class="text-4xl font-black">$9.99</span>
+<span class="text-sand/60 text-sm">/heyvane</span>
+</div>
+</div>
+<button class="w-full rounded-lg h-12 bg-primary text-background-dark font-black hover:brightness-110 transition-all">
+                                Niha bistîne
+                            </button>
+<ul class="flex flex-col gap-4 mt-4">
+<li class="text-sm flex gap-3 text-white">
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+                                    Dersên pêşketî
+                                </li>
+<li class="text-sm flex gap-3 text-white">
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+                                    Daxistina offline
+                                </li>
+<li class="text-sm flex gap-3 text-white">
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+                                    Piştgiriya taybet
+                                </li>
+</ul>
+</div>
+<!-- Team Tier -->
+<div class="flex flex-col gap-6 rounded-xl border border-white/10 bg-[#2a2512] p-8">
+<div class="flex flex-col gap-1">
+<h3 class="text-sand text-lg font-bold">Tîm</h3>
+<div class="flex items-baseline gap-1 text-white">
+<span class="text-4xl font-black">$24.99</span>
+<span class="text-sand/60 text-sm">/heyvane</span>
+</div>
+</div>
+<button class="w-full rounded-lg h-12 border border-sand/30 text-sand font-bold hover:bg-white/5 transition-all">
+                                Têkilî deyne
+                            </button>
+<ul class="flex flex-col gap-4 mt-4">
+<li class="text-sm flex gap-3 text-sand/80">
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+                                    Ji bo dibistanan
+                                </li>
+<li class="text-sm flex gap-3 text-sand/80">
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+                                    Raporên pêşkeftinê
+                                </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#1a170b] border-t border-white/5 px-10 py-16">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2 flex flex-col gap-6">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+<span class="text-2xl font-bold text-white">Hinbûna Kurdî</span>
+</div>
+<p class="text-sand/60 max-w-sm leading-relaxed">
+                            Mîsyona me parastin û pêşxistina zimanê kurdî ye ji bo nifşên nû. Em ziman wekî canê çandê dibînin.
+                        </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold">Girêdan</h4>
+<a class="text-sand/60 hover:text-primary text-sm" href="#">Ziman</a>
+<a class="text-sand/60 hover:text-primary text-sm" href="#">Dîrok</a>
+<a class="text-sand/60 hover:text-primary text-sm" href="#">Civat</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold">Têkilî</h4>
+<a class="text-sand/60 hover:text-primary text-sm" href="#">Alîkarî</a>
+<a class="text-sand/60 hover:text-primary text-sm" href="#">Email: silav@kurdihine.com</a>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-sand/60 hover:text-primary cursor-pointer">language</span>
+<span class="material-symbols-outlined text-sand/60 hover:text-primary cursor-pointer">share</span>
+</div>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-16 pt-8 border-t border-white/5 text-center text-sand/30 text-xs">
+                    © 2024 Hinbûna Kurdî. Hemû maf parastî ne.
+                </div>
+</footer>
+</div>
+</div>
+</body></html>
