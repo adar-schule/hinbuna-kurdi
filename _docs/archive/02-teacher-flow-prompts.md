@@ -16,7 +16,7 @@ Mobile teacher dashboard for Kurdish learning app CMS.
 Dark mode, [YOUR CHOSEN COLORS].
 
 Layout:
-1. Header: App logo, hamburger menu
+1. Header: "Hinbûna Kurdî" logo + leaf icon left. Right: language globe icon, sun/moon toggle icon, hamburger menu icon (3 lines). All icons clean, monochrome.
 2. Greeting: "Silav, Mamoste!" (Hello, Teacher)
 3. Content Stats row (3 boxes):
    - 8 Units

@@ -51,10 +51,22 @@ Font: Use Visily's closest match to **Nunito**, **DM Sans**, or **Plus Jakarta S
 
 ### Component Patterns (from approved screenshots)
 
-**Navigation:**
-- Top header bar: Logo left, CTA or hamburger right
-- Light mode: cream bar, green text
-- Dark mode: dark green bar, cream text
+**Navigation (Header):**
+
+Public (not logged in):
+- Left: "Hinbûna Kurdî" logo text in forest green + small leaf icon
+- Right (3 icons + link): Language globe icon (opens modal) | Sun/Moon mode toggle icon | "Têkeve" (Login) text link
+- All icons: clean, modern, monochrome (forest green on cream) — NOT colorful emoji-style
+- Cream `#FDF8F3` background bar (light mode) / dark green bar (dark mode)
+
+Logged-in (Student/Teacher/Admin):
+- Left: "Hinbûna Kurdî" logo text + leaf icon
+- Right (3 icons): Language globe icon | Sun/Moon mode toggle icon | Hamburger menu icon (3 lines)
+- All icons: clean, modern, monochrome
+
+Language Picker:
+- Globe icon in header opens a modal/dropdown listing all available languages (8+)
+- NOT inline pills — too many languages for pill buttons
 
 **Buttons:**
 - Primary: forest green bg + cream text (light mode) / gold bg + dark text (dark mode)
@@ -77,11 +89,12 @@ Font: Use Visily's closest match to **Nunito**, **DM Sans**, or **Plus Jakarta S
 - Star rating (5 stars, gold)
 - Testimonial quote with name
 
-**Footer:**
-- App name/logo centered
-- Links: About, Privacy, Support
-- Language selector: pill buttons (DE, EN, TR)
-- Copyright line
+**Footer (Public pages only):**
+- Logo centered
+- Tagline below logo
+- Link row: About | Privacy | Terms | Contact
+- Copyright: "© 2026 Adar Schule"
+- **No language selector** — language picker lives in the header (globe icon modal)
 
 ---
 
@@ -139,17 +152,19 @@ LIGHT MODE. Background: warm cream (#FDF8F3). Text: dark forest green.
 Primary button: forest green with cream text. Accent: warm gold.
 
 Sections top to bottom:
-1. HEADER BAR — Logo "Hinbûna Kurdî" left, "LOG IN" link right. Cream background.
+1. HEADER BAR — Logo "Hinbûna Kurdî" left with small leaf icon. Right side: language globe icon (opens modal), sun/moon mode toggle icon, "Têkeve" (Login) text link. All icons clean, modern, monochrome (forest green on cream). Cream background bar.
 2. HERO — Botanical illustration (plant/leaf, soft greens and beige). Large heading "Fêrbûna zimanê kurdî" below illustration. Subtext: "The free, fun, and effective way to learn Kurdish!" Green CTA button "DEST PÊ BIKE" (Start) full-width.
-3. SOCIAL PROOF — Avatar stack (3 overlapping circles + "+1k" badge). "Join 1000+ learners" text. 5 gold stars.
-4. FEATURES — Section title "Why learn with us?" Three feature cards stacked vertically. Each card: circle icon (green/gold tint) + bold title + short description.
+3. SUPPORTERS CAROUSEL — Animated horizontal strip of partner/supporter logos, auto-scrolling left-to-right. Modern, fancy look. Clean cream background. Logos are monochrome/muted.
+4. SOCIAL PROOF — Avatar stack (3 overlapping circles + "+1k" badge). "Join 1000+ learners" text. 5 gold stars.
+5. TRUSTPILOT SECTION — Trustpilot star rating badge, score (e.g. "4.8/5"), "Excellent" label, short review snippet quote. Clean, trustworthy layout.
+6. FEATURES — Section title "Why learn with us?" Three feature cards stacked vertically. Each card: circle icon (green/gold tint) + bold title + short description.
    - "Structured Lessons" — Step-by-step curriculum for beginners
    - "Audio Pronunciation" — Native speaker audio clips
    - "Track Progress" — Daily streak and achievements
-5. PRICING — Section title "Choose your path". Two plan cards side by side:
+7. PRICING — Section title "Choose your path". Two plan cards side by side:
    - Basic: "Free" badge, bullet points
    - Premium: "$4.99/mo" with gold "BEST VALUE" badge, green "TRY PREMIUM" button
-6. FOOTER — Dark green background section. App logo centered. "Make language learning a habit." Language selector: DE | EN | TR pill buttons. Links: Privacy, Terms, Contact.
+8. FOOTER — Dark green background section. App logo centered. Tagline: "Make language learning a habit." Links: About | Privacy | Terms | Contact. Copyright "© 2026 Adar Schule". No language selector (moved to header).
 
 Feel: Warm, welcoming, botanical, like Headspace meets Duolingo. Rounded corners everywhere. Friendly typography.
 ```
@@ -163,15 +178,17 @@ DARK MODE. Background: deep forest green (#1A2F23), NOT pure black. Text: warm c
 Buttons: warm gold (#D4A843) accent. Cards: slightly lighter green (#243D30).
 
 Sections top to bottom:
-1. HEADER — "Hinbûna Kurdî" in cream, small leaf/book icon. Right: "Têkeve" (Login) link.
-2. HERO — Background has subtle nature photo overlay (forest, leaves) with dark green tint. Large cream heading "Fêrbûna zimanê kurdî hêsan e" (Learning Kurdish is easy). Subtext in cream. Gold CTA button "Dest pê bike →" with arrow. Below: avatar stack "Join 10,000+ learners".
-3. FEATURES — Title "Taybetmendî" (Features). Three feature rows, each with gold/green circle icon + cream title + muted description:
+1. HEADER — "Hinbûna Kurdî" in cream + small leaf icon left. Right side: language globe icon (opens modal), sun/moon mode toggle icon, "Têkeve" (Login) text link. All icons clean, modern, monochrome (cream on dark green). Dark green background bar.
+2. HERO — Background has subtle nature photo overlay (forest, leaves) with dark green tint. Large cream heading "Fêrbûna zimanê kurdî hêsan e" (Learning Kurdish is easy). Subtext in cream. Gold CTA button "Dest pê bike →" with arrow.
+3. SUPPORTERS CAROUSEL — Animated horizontal strip of partner/supporter logos, auto-scrolling left-to-right. Modern, fancy look. Slightly darker background strip. Logos are light/cream monochrome.
+4. SOCIAL PROOF — Avatar stack "Join 10,000+ learners". Cream text, gold accent count.
+5. TRUSTPILOT SECTION — Trustpilot star rating badge (gold stars), score (e.g. "4.8/5"), "Excellent" label in cream, short review snippet. Clean, trustworthy.
+6. FEATURES — Title "Taybetmendî" (Features). Three feature rows, each with gold/green circle icon + cream title + muted description:
    - "Dersên Interaktîf" — Interactive lessons
    - "Axaftina Rojane" — Daily practice
    - "Pêşketin û Xelat" — Progress & rewards
-4. PRICING — Title "Planekê Hilbijêre" (Choose a plan). Gold "BEST VALUE" badge. Premium card highlighted with gold border: "$4.99/month". Features listed with green checkmarks. Gold button "7 rojan belaş biceribîne" (7 days free trial).
-5. REVIEWS — "Xwendevan çi dibêjin?" (What learners say). Star rating. Quote with name.
-6. FOOTER — Sticky bottom bar: "Dest pê bike" (Start) gold button.
+7. PRICING — Title "Planekê Hilbijêre" (Choose a plan). Gold "BEST VALUE" badge. Premium card highlighted with gold border: "$4.99/month". Features listed with green checkmarks. Gold button "7 rojan belaş biceribîne" (7 days free trial).
+8. FOOTER — Logo centered. Tagline below. Links: About | Privacy | Terms | Contact. Copyright "© 2026 Adar Schule". No language selector (moved to header). Slightly darker than page background.
 
 Feel: Warm forest at night, NOT matrix/neon. Gold glows against deep green. Cozy, heritage, inviting.
 ```

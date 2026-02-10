@@ -16,7 +16,7 @@ Mobile admin dashboard for Kurdish learning platform.
 Dark mode, [YOUR CHOSEN COLORS].
 
 Layout:
-1. Header: App logo, hamburger menu
+1. Header: "Hinbûna Kurdî" logo + leaf icon left. Right: language globe icon, sun/moon toggle icon, hamburger menu icon (3 lines). All icons clean, monochrome.
 2. Title: "Admin Dashboard"
 
 3. Platform Stats row (3 boxes):

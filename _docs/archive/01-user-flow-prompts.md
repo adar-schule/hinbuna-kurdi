@@ -20,11 +20,14 @@ Colors: Forest green (#2D5A3D) primary, cream (#FDF8F3) background, gold (#D4A84
 Dark mode.
 
 Sections:
-1. Hero: "Ferbuna zimane kurdi" headline, subtext about Kurmanji dialect, "Start Free" button
-2. Features: 3 cards - Structured Lessons, Audio Pronunciation, Track Progress
-3. Social proof: "Join 1000+ learners" with avatar stack
-4. Pricing preview: Free vs Premium badge
-5. Footer: Links, language selector (DE/EN/TR)
+1. Header: "Hinbûna Kurdî" logo text + leaf icon left. Right: language globe icon (opens modal), sun/moon mode toggle, "Têkeve" (Login) link. All icons clean, monochrome.
+2. Hero: "Fêrbûna zimanê kurdî" headline, botanical illustration, subtext about Kurmanji dialect, "Dest pê bike" (Start) CTA button
+3. Supporters Carousel: Animated horizontal strip of partner/supporter logos, auto-scrolling left-to-right, modern/fancy, clean background
+4. Social proof: "Join 1000+ learners" with avatar stack
+5. Trustpilot Section: Star rating, score, "Excellent" badge, short review snippet
+6. Features: 3 cards - Structured Lessons, Audio Pronunciation, Track Progress
+7. Pricing preview: Free vs Premium badge
+8. Footer: Logo centered, tagline, links (About | Privacy | Terms | Contact), copyright "© 2026 Adar Schule". No language selector.
 
 Typography: Rounded sans-serif. Support Kurdish: e, i, u, c, s with accents.
 Mobile: 375px width.
@@ -209,7 +212,7 @@ Mobile student dashboard for Kurdish learning app. Logged in view.
 Dark mode, [YOUR CHOSEN COLORS].
 
 Layout:
-1. Header: App logo left, hamburger menu right
+1. Header: "Hinbûna Kurdî" logo + leaf icon left. Right: language globe icon, sun/moon toggle icon, hamburger menu icon (3 lines). All icons clean, monochrome.
 2. Greeting: "Silav, [Name]!" with avatar
 3. Continue Learning card:
    - Current lesson thumbnail

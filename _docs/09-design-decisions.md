@@ -1,6 +1,6 @@
 # Design Decisions — Hinbûna Kurdî
 
-**Last Updated:** 2026-02-08
+**Last Updated:** 2026-02-09
 
 ---
 
@@ -95,8 +95,28 @@ All grays have a green/warm tint to match the forest palette. No cold blue-grays
 | **Desktop** | Top Header with inline links |
 | **Bottom nav** | Not used (hamburger instead) |
 
-**Header:** Logo left, action/hamburger right
-**Hamburger contents vary by role:**
+### Header — Public (not logged in)
+
+- **Left:** "Hinbûna Kurdî" logo text in forest green + small leaf icon
+- **Right (3 icons + link):** Language globe icon (opens modal) | Sun/Moon mode toggle icon | "Têkeve" (Login) text link
+- All icons: clean, modern, monochrome (forest green on cream) — NOT colorful emoji-style
+- Cream `#FDF8F3` background bar
+
+### Header — Logged-in (Student / Teacher / Admin)
+
+- **Left:** "Hinbûna Kurdî" logo text + leaf icon
+- **Right (3 icons):** Language globe icon | Sun/Moon mode toggle icon | Hamburger menu icon (3 lines)
+- All icons: clean, modern, monochrome
+
+### Language Picker
+
+- NOT inline pills — too many languages (8+)
+- Globe icon in header opens a **modal/dropdown**
+- Modal lists all available interface languages
+- Replaces the old "DE | EN | TR pill buttons" pattern everywhere (header and footer)
+
+### Hamburger Menu Contents (by role)
+
 - Student: Home, Courses, Profile, Settings, Upgrade, Help, Logout
 - Teacher: + Content, Materials, Students
 - Admin: + User Management, Subscriptions, System Settings
@@ -159,10 +179,14 @@ All grays have a green/warm tint to match the forest palette. No cold blue-grays
 - Star rating (5 stars, gold)
 - Testimonial: quote + name
 
-### Footer
+### Footer (Public pages only)
+- Logo centered
+- Tagline below logo
+- Link row: About | Privacy | Terms | Contact
+- Copyright: "© 2026 Adar Schule"
 - Light mode: dark green background section (inverted)
 - Dark mode: slightly darker than page background
-- Logo centered, links, language selector pills (DE | EN | TR)
+- **No language selector** — language picker lives in the header (globe icon modal)
 
 ---
 
