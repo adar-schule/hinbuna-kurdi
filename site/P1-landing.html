@@ -203,14 +203,40 @@
 
     .header-logo-text {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 17px;
-      color: var(--color-primary);
-      letter-spacing: -0.2px;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: 0.3px;
+      position: relative;
+      padding-bottom: 5px;
+      background: linear-gradient(
+        135deg,
+        #2D5A3D 0%,
+        #3d7a52 35%,
+        #8a7a45 60%,
+        #b8a05a 75%,
+        #2D5A3D 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 1px 2px rgba(45, 90, 61, 0.2));
+    }
+
+    /* warm golden brushstroke underline — fades on both edges */
+    .header-logo-text::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 67, 0.4) 15%, #D4A843 50%, rgba(212, 168, 67, 0.4) 85%, transparent 100%);
+      border-radius: 2px;
+      box-shadow: 0 1px 6px rgba(212, 168, 67, 0.25);
     }
 
     @media (min-width: 768px) {
-      .header-logo-text { font-size: 19px; }
+      .header-logo-text { font-size: 26px; }
     }
 
     .header-actions {
@@ -691,7 +717,13 @@
     }
 
     @media (min-width: 768px) {
-      .trustpilot-widget { padding: 28px 28px; }
+      .trustpilot-widget {
+        padding: 32px 36px;
+        max-width: 720px;
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+      }
     }
 
     .trustpilot-header {
@@ -804,6 +836,27 @@
       font-size: 12px;
       color: #6b6b76;
       font-weight: 500;
+    }
+
+    /* Trustpilot desktop: score left, reviews right */
+    @media (min-width: 768px) {
+      .trustpilot-score-side {
+        flex-shrink: 0;
+        min-width: 200px;
+      }
+      .trustpilot-divider {
+        width: 1px;
+        height: auto;
+        margin: 0 28px;
+        flex-shrink: 0;
+      }
+      .trustpilot-reviews-side {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .trustpilot-based { margin-bottom: 0; }
     }
 
     /* ============================================
@@ -1406,6 +1459,20 @@
     [data-theme="dark"] .header.scrolled {
       box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
     }
+    /* Logo text — golden shine in dark mode */
+    [data-theme="dark"] .header-logo-text {
+      background: linear-gradient(
+        135deg,
+        #8cb89a 0%,
+        #b8a05a 40%,
+        #c4ad68 70%,
+        #8cb89a 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 1px 4px rgba(212, 168, 67, 0.35));
+    }
     /* Logo sun is already gold — just ensure it stays visible */
     [data-theme="dark"] .header-icon-btn { color: var(--text-primary); }
     [data-theme="dark"] .header-icon-btn:hover {
@@ -1972,32 +2039,35 @@
      ========================================== -->
 <section class="trustpilot-section fade-up">
   <div class="trustpilot-widget">
-    <div class="trustpilot-header">
-      <div class="trustpilot-logo">
-        <svg class="trustpilot-star-icon" viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="3" fill="#00B67A"/>
-          <path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/>
-        </svg>
-        <span class="trustpilot-brand-text">Trustpilot</span>
+    <div class="trustpilot-score-side">
+      <div class="trustpilot-header">
+        <div class="trustpilot-logo">
+          <svg class="trustpilot-star-icon" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="3" fill="#00B67A"/>
+            <path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/>
+          </svg>
+          <span class="trustpilot-brand-text">Trustpilot</span>
+        </div>
       </div>
-    </div>
 
-    <div class="trustpilot-stars">
-      <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
-      <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
-      <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
-      <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
-      <div class="trustpilot-star half"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
-    </div>
+      <div class="trustpilot-stars">
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
+        <div class="trustpilot-star half"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
+      </div>
 
-    <div class="trustpilot-score-row">
-      <span class="trustpilot-rating-label">Excellent</span>
-      <span class="trustpilot-score">4.8 out of 5</span>
+      <div class="trustpilot-score-row">
+        <span class="trustpilot-rating-label">Excellent</span>
+        <span class="trustpilot-score">4.8 out of 5</span>
+      </div>
+      <p class="trustpilot-based">Based on 247 reviews</p>
     </div>
-    <p class="trustpilot-based">Based on 247 reviews</p>
 
     <div class="trustpilot-divider"></div>
 
+    <div class="trustpilot-reviews-side">
     <div class="trustpilot-review">
       <div class="trustpilot-review-stars">
         <div class="trustpilot-review-star"><svg viewBox="0 0 24 24"><path d="M12 4.5L13.77 9.86H19.4L14.82 13.14L16.58 18.5L12 15.22L7.42 18.5L9.18 13.14L4.6 9.86H10.23L12 4.5Z" fill="white"/></svg></div>
@@ -2020,6 +2090,7 @@
       </div>
       <p class="trustpilot-review-text">"The audio quality is incredible, feels like a native speaker."</p>
       <span class="trustpilot-review-author">Delal M.</span>
+    </div>
     </div>
   </div>
 </section>
