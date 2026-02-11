@@ -242,10 +242,11 @@ These rules apply to EVERY screen to maintain visual coherence:
 2. Read _docs/prompts/[screen].md — agreed layout sections
 3. Invoke frontend-design skill — ensures quality bar
 4. Discuss layout with Armanc → adjust if needed
-5. Generate LIGHT MODE → save to site/[screen]-light.html
-6. Open in browser (375px mobile view) → review → iterate
-7. Generate DARK MODE → save to site/[screen]-dark.html
-8. Run quality checklist (Part 4 above)
+5. Generate responsive HTML (light mode first) → save to site/[screen].html
+6. Armanc opens in browser → resizes manually or uses DevTools for mobile view
+7. Iterate until light mode approved
+8. Add dark mode CSS + theme toggle to SAME file
+9. Run quality checklist (Part 4 above)
 ```
 
 ### HTML File Standards
@@ -287,37 +288,31 @@ Every generated HTML file must:
 ```
 
 - Use **Nunito** for headings, **Inter** for body (via Google Fonts)
-- Target **375px** mobile width — use `max-width: 375px; margin: 0 auto;` wrapper
+- Be **fully responsive** — mobile-first, scales to desktop. Use `max-width: 1200px; margin: 0 auto;` container with responsive padding
+- Responsive breakpoints: mobile (default) → tablet (`min-width: 768px`) → desktop (`min-width: 1024px`)
 - Include the full brand system (colors, typography, spacing, components) as defined in Parts 1-3
 
-### Dark Mode HTML Approach
+### Dark Mode HTML Approach (DECIDED)
 
-Two options — discuss with Armanc per screen:
-
-**Option A: Separate files** (default)
-- `P1-landing-light.html` and `P1-landing-dark.html`
-- Each file is self-contained with the correct color scheme baked in
-- Simpler to review side-by-side
-
-**Option B: Single file with toggle**
-- One file with CSS custom properties + a theme toggle button
-- `data-theme="dark"` attribute switches colors
-- More realistic to the actual app experience
-- Better for demonstrating the full design to team
+**Single file with toggle** — each screen is ONE responsive HTML file:
+- CSS custom properties for all colors (`:root` for light, `[data-theme="dark"]` for dark)
+- Built-in theme toggle in header (sun/moon icon)
+- `data-theme="dark"` attribute on `<html>` switches all colors
+- Design light mode first → when approved, add dark mode CSS + toggle
 
 ### File Naming & Location
 
 ```
 _REPOS/hinbuna-kurdi/site/
-├── P1-landing-light.html
-├── P1-landing-dark.html
-├── P2-pricing-light.html
-├── P2-pricing-dark.html
-├── P3-login-light.html
+├── index.html              (design gallery — links to all screens)
+├── onboarding.html         (developer guide)
+├── P1-landing.html         (responsive, light+dark toggle)
+├── P2-pricing.html
+├── P3-login.html
 ├── ...
-├── S1-dashboard-light.html
+├── S1-dashboard.html
 ├── ...
-└── shared/              (optional: shared CSS if patterns emerge)
+└── shared/                 (optional: shared CSS if patterns emerge)
 ```
 
 ### frontend-design Skill — HinbunaKurdi Adaptation
