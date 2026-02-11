@@ -221,6 +221,138 @@ These rules apply to EVERY screen to maintain visual coherence:
 
 ---
 
+---
+
+## Part 6: Claude Code HTML Workflow (Added 2026-02-11)
+
+> **Primary workflow as of 2026-02-11.** Generates screen designs as pure HTML/CSS files directly in Claude Code. Visily workflow above still valid but paused.
+
+### Why HTML Instead of Visily
+
+- Everything in the codebase — version controlled, git-tracked, team-shareable
+- Instant iteration in Claude Code — no copy-pasting between tools
+- Zero setup — pure HTML, open in any browser
+- The `frontend-design` Claude Code plugin ensures production-grade design quality
+- Later these HTML designs become the blueprint for React+Tailwind implementation
+
+### Workflow Per Screen (Claude Code)
+
+```
+1. Read this file (00-base-template.md) — brand system reference
+2. Read _docs/prompts/[screen].md — agreed layout sections
+3. Invoke frontend-design skill — ensures quality bar
+4. Discuss layout with Armanc → adjust if needed
+5. Generate LIGHT MODE → save to site/[screen]-light.html
+6. Open in browser (375px mobile view) → review → iterate
+7. Generate DARK MODE → save to site/[screen]-dark.html
+8. Run quality checklist (Part 4 above)
+```
+
+### HTML File Standards
+
+Every generated HTML file must:
+
+- Be **self-contained** — single file, no external dependencies (except Google Fonts CDN for Nunito + Inter)
+- Use `<style>` block — all CSS in the file, no external stylesheets
+- Set viewport: `<meta name="viewport" content="width=device-width, initial-scale=1">`
+- Use **CSS custom properties** for all brand colors (matches Part 1 color system):
+
+```css
+:root {
+  /* Light mode (default) */
+  --bg-page: #FDF8F3;
+  --bg-surface: #F5EEE6;
+  --color-primary: #2D5A3D;
+  --color-accent: #D4A843;
+  --color-tan: #E3C79D;
+  --text-primary: #1A2A1F;
+  --text-secondary: #5A6B5E;
+  --border: #E5DDD3;
+  --color-success: #2D8A4E;
+  --color-error: #DC4545;
+  --color-warning: #EFB034;
+  --color-info: #3B7A8A;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  --bg-page: #1A2F23;
+  --bg-surface: #243D30;
+  --color-primary: #2D5A3D;
+  --color-accent: #D4A843;
+  --text-primary: #F5EEE6;
+  --text-secondary: #A8B5AC;
+  --border: #2F4F3A;
+}
+```
+
+- Use **Nunito** for headings, **Inter** for body (via Google Fonts)
+- Target **375px** mobile width — use `max-width: 375px; margin: 0 auto;` wrapper
+- Include the full brand system (colors, typography, spacing, components) as defined in Parts 1-3
+
+### Dark Mode HTML Approach
+
+Two options — discuss with Armanc per screen:
+
+**Option A: Separate files** (default)
+- `P1-landing-light.html` and `P1-landing-dark.html`
+- Each file is self-contained with the correct color scheme baked in
+- Simpler to review side-by-side
+
+**Option B: Single file with toggle**
+- One file with CSS custom properties + a theme toggle button
+- `data-theme="dark"` attribute switches colors
+- More realistic to the actual app experience
+- Better for demonstrating the full design to team
+
+### File Naming & Location
+
+```
+_REPOS/hinbuna-kurdi/site/
+├── P1-landing-light.html
+├── P1-landing-dark.html
+├── P2-pricing-light.html
+├── P2-pricing-dark.html
+├── P3-login-light.html
+├── ...
+├── S1-dashboard-light.html
+├── ...
+└── shared/              (optional: shared CSS if patterns emerge)
+```
+
+### frontend-design Skill — HinbunaKurdi Adaptation
+
+The `frontend-design` skill pushes for bold, distinctive design. When using it for HinbunaKurdi:
+
+**Use the skill's quality standards:**
+- Production-grade, functional code
+- Meticulous attention to detail
+- Intentional spatial composition
+- Meaningful motion and micro-interactions
+
+**Stay within HinbunaKurdi brand:**
+- Typography: Nunito + Inter (decided, don't experiment with fonts)
+- Colors: Forest green + cream + gold system (decided, don't change palette)
+- Vibe: Calm + SaaS, warm botanical (decided, don't go brutalist/maximalist)
+- Add: subtle CSS animations, hover effects, smooth transitions, depth textures
+- Add: intentional visual rhythm, generous whitespace, section flow
+
+**Anti-patterns (from the skill, adapted):**
+- NO generic AI aesthetics — no Inter-only, no purple gradients, no cookie-cutter layouts
+- NO over-experimentation — brand is decided, execute it beautifully
+- YES distinctive execution within the brand constraints
+- YES micro-interactions that make it feel alive (hover states, focus rings, smooth scrolls)
+
+### Available MCP Tools (Optional)
+
+| Tool | When to use |
+|------|-------------|
+| **Stitch: generate_screen_from_text** | Quick visual inspiration if stuck on a layout |
+| **Stitch: fetch_screen_image** | View previous Stitch generations for reference |
+| **Stitch: fetch_screen_code** | Grab HTML snippets from Stitch outputs as starting points |
+
+---
+
 ## References
 
 - Visily prompt guide: `_docs/archive/10-visily-prompt-guide.md`

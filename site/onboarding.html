@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hinbuna Kurdi — Developer Onboarding Guide</title>
+  <meta name="description" content="Developer onboarding guide for the Hinbuna Kurdi design system. Learn the workflow, brand rules, and how to create screens.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       HINBUNA KURDI — DEVELOPER ONBOARDING GUIDE
+       Brand: Warm & Welcoming (Calm + SaaS)
+       Fonts: Nunito (headings) + Inter (body) + JetBrains Mono (code)
+       Colors: Forest green, cream, gold
+       ============================================================ */
+
+    /* --- Custom Properties --- */
+    :root {
+      --bg:             #FDF8F3;
+      --surface:        #F5EEE6;
+      --primary:        #2D5A3D;
+      --primary-light:  #3a7450;
+      --primary-dark:   #1e3f2b;
+      --accent:         #D4A843;
+      --accent-light:   #e0bc6a;
+      --text:           #1A2A1F;
+      --text-secondary: #5A6B5E;
+      --border:         #E5DDD3;
+      --tan:            #E3C79D;
+
+      /* Code blocks */
+      --code-bg:        #2B3D33;
+      --code-text:      #E8F0EB;
+      --code-comment:   #7A9484;
+      --code-string:    #D4A843;
+      --code-keyword:   #7CC99E;
+      --code-line-num:  #5A7566;
+
+      /* Status colors */
+      --color-success:  #2D8A4E;
+      --color-error:    #DC4545;
+      --color-warning:  #EFB034;
+      --color-info:     #3B7A8A;
+
+      /* Layout */
+      --radius:         12px;
+      --radius-sm:      8px;
+      --radius-lg:      16px;
+      --max-width:      1200px;
+      --sidebar-width:  280px;
+
+      /* Font families */
+      --font-heading:   'Nunito', sans-serif;
+      --font-body:      'Inter', sans-serif;
+      --font-mono:      'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    /* --- Dark Mode (default) --- */
+    [data-theme="dark"] {
+      --bg:             #1A2F23;
+      --surface:        #243D30;
+      --primary:        #4A9B6A;
+      --primary-light:  #5ab87d;
+      --primary-dark:   #3a7f55;
+      --accent:         #D4A843;
+      --accent-light:   #e0bc6a;
+      --text:           #F5EEE6;
+      --text-secondary: #A8B5AC;
+      --border:         #2F4F3A;
+      --tan:            #E3C79D;
+
+      --code-bg:        #162B1F;
+      --code-text:      #E8F0EB;
+      --code-comment:   #6A8A74;
+      --code-string:    #D4A843;
+      --code-keyword:   #7CC99E;
+      --code-line-num:  #4A6A55;
+
+      --color-success:  #4ABA6E;
+      --color-error:    #E66A6A;
+      --color-warning:  #EFB034;
+      --color-info:     #5AA0B0;
+    }
+
+    /* --- Reset & Base --- */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+
+    /* --- Animations --- */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.08s; }
+    .fade-in-delay-2 { animation-delay: 0.16s; }
+    .fade-in-delay-3 { animation-delay: 0.24s; }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background-color: rgba(253, 248, 243, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 64px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .header-logo svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .header-logo-text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.3px;
+      color: var(--primary);
+    }
+
+    .header-breadcrumb {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-left: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .header-breadcrumb svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.5;
+    }
+
+    .header-breadcrumb span {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .header-link-gallery {
+      background-color: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .header-link-gallery:hover {
+      background-color: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .header-link-gallery svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .header-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-secondary);
+      background-color: var(--surface);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      display: none;
+    }
+
+    /* Sidebar toggle button (mobile) */
+    .sidebar-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      cursor: pointer;
+      color: var(--text);
+      transition: background-color 0.2s ease;
+    }
+
+    .sidebar-toggle:hover {
+      background-color: var(--border);
+    }
+
+    .sidebar-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ============================================================
+       LAYOUT — Sidebar + Content
+       ============================================================ */
+    .layout {
+      display: flex;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      min-height: calc(100vh - 64px);
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: var(--sidebar-width);
+      height: calc(100vh - 64px);
+      background-color: var(--bg);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 24px 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 150;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: 64px;
+      background: rgba(26, 42, 31, 0.3);
+      z-index: 140;
+    }
+
+    .sidebar-backdrop.open {
+      display: block;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-secondary);
+      padding: 0 24px 16px;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+    }
+
+    .sidebar-nav-item {
+      display: block;
+    }
+
+    .sidebar-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease, padding-left 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav-link:hover {
+      color: var(--text);
+      background-color: var(--surface);
+    }
+
+    .sidebar-nav-link.active {
+      color: var(--primary);
+      background-color: rgba(45, 90, 61, 0.06);
+      border-left-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .sidebar-nav-link .nav-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background-color: var(--surface);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .sidebar-nav-link.active .nav-number {
+      background-color: var(--primary);
+      color: var(--bg);
+    }
+
+    /* --- Main Content --- */
+    .content {
+      flex: 1;
+      min-width: 0;
+      padding: 40px 20px 80px;
+    }
+
+    .content-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       INTRO SECTION
+       ============================================================ */
+    .intro {
+      margin-bottom: 48px;
+    }
+
+    .intro-overline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .intro-overline svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .intro h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .intro-description {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .intro-description strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .intro-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .intro-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background-color: var(--surface);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .intro-meta-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--primary);
+    }
+
+    /* ============================================================
+       ACCORDION SECTIONS
+       ============================================================ */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .accordion-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .accordion-item:hover {
+      border-color: var(--tan);
+    }
+
+    .accordion-item.open {
+      border-color: var(--primary);
+      box-shadow: 0 4px 16px rgba(45, 90, 61, 0.06);
+    }
+
+    .accordion-trigger {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      transition: background-color 0.2s ease;
+    }
+
+    .accordion-trigger:hover {
+      background-color: rgba(45, 90, 61, 0.03);
+    }
+
+    .accordion-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .accordion-item.open .accordion-number {
+      background-color: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+    }
+
+    .accordion-title {
+      flex: 1;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .accordion-chevron {
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .accordion-item.open .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 5000px;
+    }
+
+    .accordion-body {
+      padding: 0 20px 24px;
+    }
+
+    /* ============================================================
+       CONTENT TYPOGRAPHY
+       ============================================================ */
+    .accordion-body h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      margin: 24px 0 10px;
+      letter-spacing: -0.2px;
+    }
+
+    .accordion-body h3:first-child {
+      margin-top: 8px;
+    }
+
+    .accordion-body p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .accordion-body p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .accordion-body ul,
+    .accordion-body ol {
+      margin: 8px 0 16px;
+      padding-left: 20px;
+    }
+
+    .accordion-body li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    .accordion-body li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* --- Inline code --- */
+    .accordion-body code:not(pre code) {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      background-color: rgba(45, 90, 61, 0.08);
+      color: var(--primary);
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+
+    /* --- Code blocks --- */
+    .code-block {
+      position: relative;
+      margin: 14px 0 18px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(45, 90, 61, 0.15);
+    }
+
+    .code-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      background-color: #243D30;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .code-block-lang {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--code-comment);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .code-block-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--code-comment);
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .code-block-copy:hover {
+      color: var(--code-text);
+      border-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .code-block-copy.copied {
+      color: var(--color-success);
+      border-color: var(--color-success);
+    }
+
+    .code-block pre {
+      padding: 16px;
+      background-color: var(--code-bg);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .code-block pre code {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--code-text);
+      white-space: pre;
+      display: block;
+    }
+
+    /* Syntax colors */
+    .code-block .cm { color: var(--code-comment); font-style: italic; }
+    .code-block .kw { color: var(--code-keyword); }
+    .code-block .st { color: var(--code-string); }
+    .code-block .fn { color: #8CC5FF; }
+
+    /* ============================================================
+       STEP LISTS
+       ============================================================ */
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 20px;
+      counter-reset: step-counter;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      counter-increment: step-counter;
+    }
+
+    .step:last-child {
+      border-bottom: none;
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: var(--bg);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .step-content p {
+      margin-bottom: 8px;
+    }
+
+    .step-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ============================================================
+       COLOR TOKENS TABLE
+       ============================================================ */
+    .color-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 13px;
+    }
+
+    .color-table th {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-secondary);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--border);
+      background-color: var(--bg);
+    }
+
+    .color-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: middle;
+    }
+
+    .color-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .color-table tr:hover td {
+      background-color: rgba(45, 90, 61, 0.02);
+    }
+
+    .color-swatch {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      vertical-align: middle;
+      margin-right: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .color-hex {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .color-table .token-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ============================================================
+       PRIORITY TABLE
+       ============================================================ */
+    .priority-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 13px;
+    }
+
+    .priority-table th {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-secondary);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--border);
+      background-color: var(--bg);
+    }
+
+    .priority-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+
+    .priority-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .badge-p0 { background-color: var(--accent); color: var(--text); }
+    .badge-p1 { background-color: var(--primary); color: var(--bg); }
+    .badge-p2 { background-color: var(--border); color: var(--text-secondary); }
+
+    /* ============================================================
+       QUALITY CHECKLIST
+       ============================================================ */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 20px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 4px;
+      transition: background-color 0.15s ease;
+    }
+
+    .checklist-item:hover {
+      background-color: rgba(45, 90, 61, 0.03);
+    }
+
+    .checklist-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--border);
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .checklist-box:hover {
+      border-color: var(--primary);
+    }
+
+    .checklist-box.checked {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .checklist-box.checked svg {
+      display: block;
+    }
+
+    .checklist-box svg {
+      display: none;
+      width: 12px;
+      height: 12px;
+      color: var(--bg);
+    }
+
+    .checklist-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .checklist-text strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       CALLOUT BOXES
+       ============================================================ */
+    .callout {
+      display: flex;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      margin: 16px 0;
+      border: 1px solid;
+    }
+
+    .callout-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .callout-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .callout-content p {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .callout-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout-warning {
+      background-color: #FFF8E7;
+      border-color: #F0D78C;
+    }
+
+    .callout-warning .callout-icon { color: var(--color-warning); }
+
+    .callout-info {
+      background-color: #EEF6F8;
+      border-color: #B8D8E0;
+    }
+
+    .callout-info .callout-icon { color: var(--color-info); }
+
+    .callout-danger {
+      background-color: #FEF0F0;
+      border-color: #F0B8B8;
+    }
+
+    .callout-danger .callout-icon { color: var(--color-error); }
+
+    .callout-success {
+      background-color: #EEF7F1;
+      border-color: #B1DAC0;
+    }
+
+    .callout-success .callout-icon { color: var(--color-success); }
+
+    /* ============================================================
+       DIVIDER
+       ============================================================ */
+    .section-divider {
+      height: 1px;
+      background-color: var(--border);
+      margin: 20px 0;
+      border: none;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY SIZE TABLE
+       ============================================================ */
+    .typo-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .typo-row:last-child {
+      border-bottom: none;
+    }
+
+    .typo-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-secondary);
+      width: 90px;
+      flex-shrink: 0;
+    }
+
+    .typo-sample-nunito {
+      font-family: var(--font-heading);
+    }
+
+    .typo-sample-inter {
+      font-family: var(--font-body);
+    }
+
+    .typo-spec {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-separator {
+      color: var(--border);
+      margin: 0 6px;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (min-width: 768px) {
+      .header-inner {
+        height: 72px;
+        padding: 0 32px;
+      }
+
+      .header-breadcrumb {
+        display: flex;
+      }
+
+      .header-label {
+        display: inline-block;
+      }
+
+      .sidebar-toggle {
+        display: none;
+      }
+
+      .content {
+        padding: 48px 40px 80px;
+      }
+
+      .intro h1 {
+        font-size: 36px;
+      }
+
+      .intro-description {
+        font-size: 17px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .sidebar {
+        position: sticky;
+        top: 72px;
+        height: calc(100vh - 72px);
+        transform: translateX(0);
+        flex-shrink: 0;
+      }
+
+      .sidebar-backdrop {
+        display: none !important;
+      }
+
+      .content {
+        padding: 48px 48px 80px 56px;
+      }
+
+      .intro h1 {
+        font-size: 40px;
+      }
+
+      .accordion-title {
+        font-size: 17px;
+      }
+    }
+
+    /* ============================================================
+       THEME TOGGLE
+       ============================================================ */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--bg);
+    }
+
+    [data-theme="dark"] .icon-moon { display: none; }
+    [data-theme="dark"] .icon-sun { display: block; }
+    :root:not([data-theme="dark"]) .icon-sun,
+    [data-theme="light"] .icon-sun { display: none; }
+    :root:not([data-theme="dark"]) .icon-moon,
+    [data-theme="light"] .icon-moon { display: block; }
+
+    body, .header, .sidebar, .accordion-title, .accordion-content, .footer, .callout {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* ============================================================
+       REDUCED MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="index.html" class="header-logo">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 22C6 22 8.5 14 16 10C16 10 12 16 12 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 10C16 10 20 6 24 4C24 4 22 10 18 14C14 18 10 20 6 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 10C12.5 12.5 10 16 8 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+          <span class="header-logo-text">Hinbuna Kurdi</span>
+        </a>
+        <div class="header-breadcrumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          <span>Developer Onboarding</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <a href="index.html" class="header-link header-link-gallery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Back to Gallery
+        </a>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle table of contents">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SIDEBAR BACKDROP (mobile)
+       ============================================================ -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+  <!-- ============================================================
+       LAYOUT
+       ============================================================ -->
+  <div class="layout">
+
+    <!-- SIDEBAR / TABLE OF CONTENTS -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-title">Table of Contents</div>
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-item">
+          <a href="#section-1" class="sidebar-nav-link active" onclick="closeSidebarMobile()">
+            <span class="nav-number">1</span>
+            Project Overview
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-2" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">2</span>
+            Clone &amp; Setup
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-3" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">3</span>
+            Design Workflow
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-4" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">4</span>
+            Brand Rules
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-5" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">5</span>
+            Tools &amp; Plugins
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-6" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">6</span>
+            Screen Priority
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-7" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">7</span>
+            Git Workflow
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-8" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">8</span>
+            Quality Checklist
+          </a>
+          <a href="#section-9" class="sidebar-nav-link" onclick="closeSidebarMobile()">
+            <span class="nav-number">9</span>
+            Using Claude Code
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <div class="content-inner">
+
+        <!-- INTRO -->
+        <section class="intro fade-in" id="top">
+          <div class="intro-overline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Developer Guide
+          </div>
+          <h1>Onboarding for<br>New Developers</h1>
+          <p class="intro-description">
+            Everything you need to understand the <strong>Hinbuna Kurdi</strong> project, set up your environment, and start designing screens following our established brand system. Read through each section before creating your first screen.
+          </p>
+          <div class="intro-meta">
+            <span class="intro-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Last updated: Feb 2026
+            </span>
+            <span class="intro-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ~15 min read
+            </span>
+            <span class="intro-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              9 sections
+            </span>
+          </div>
+        </section>
+
+        <!-- ACCORDION SECTIONS -->
+        <div class="accordion fade-in fade-in-delay-1">
+
+          <!-- ============================================================
+               SECTION 1: PROJECT OVERVIEW
+               ============================================================ -->
+          <div class="accordion-item open" id="section-1">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="true">
+              <span class="accordion-number">1</span>
+              <span class="accordion-title">Project Overview</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p><strong>Hinbuna Kurdi</strong> (Hinb&ucirc;na Kurd&icirc;) is a Kurdish language learning platform teaching the <strong>Kurmanji dialect</strong> at A1 through B1 proficiency levels. It targets the Kurdish diaspora and anyone interested in learning Kurdish through a structured, curriculum-based approach.</p>
+
+                <h3>Tech Stack</h3>
+                <ul>
+                  <li><strong>Backend:</strong> NestJS (Node.js + TypeScript)</li>
+                  <li><strong>Frontend:</strong> React + Tailwind CSS</li>
+                  <li><strong>Database:</strong> PostgreSQL (AWS RDS)</li>
+                  <li><strong>Auth:</strong> JWT + Passport.js</li>
+                  <li><strong>Hosting:</strong> AWS (ECS + RDS + S3)</li>
+                  <li><strong>TTS/STT:</strong> <a href="https://www.kurdishtts.com" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">kurdishtts.com</a> API</li>
+                </ul>
+
+                <h3>Current Phase</h3>
+                <p>We are in the <strong>Design Phase</strong> &mdash; creating screen mockups as pure, self-contained HTML/CSS files. These will later become the blueprint for the React + Tailwind implementation. No backend or frontend code is needed right now.</p>
+
+                <h3>Team</h3>
+                <ul>
+                  <li><strong>Armanc</strong> (Lead) &mdash; Backend, DevOps, Architecture, Design decisions</li>
+                  <li><strong>Gule</strong> (Frontend) &mdash; UI/UX, React implementation</li>
+                  <li><strong>Mamoste</strong> (Content) &mdash; Kurdish curriculum, lessons, activities</li>
+                </ul>
+
+                <h3>Scope</h3>
+                <p>There are <strong>32 screens</strong> total, across 4 user roles:</p>
+                <ul>
+                  <li><strong>Public (P1&ndash;P6)</strong> &mdash; Landing, Pricing, Login, Register, Forgot Password, About</li>
+                  <li><strong>Student (S1&ndash;S12)</strong> &mdash; Dashboard, Courses, Modules, Lessons, Activities, Results, Profile, etc.</li>
+                  <li><strong>Teacher (T1&ndash;T8)</strong> &mdash; Content Dashboard, Editors, Materials, Student management</li>
+                  <li><strong>Admin (A1&ndash;A6)</strong> &mdash; Platform Dashboard, User Mgmt, Subscriptions, Settings</li>
+                </ul>
+                <p>Check the <a href="index.html" style="color: var(--primary); text-decoration: underline;">Design Gallery</a> for the full list with current status.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 2: GETTING STARTED
+               ============================================================ -->
+          <div class="accordion-item" id="section-2">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">2</span>
+              <span class="accordion-title">Getting Started &mdash; Clone &amp; Setup</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <h3>Step 1: Clone the Repository</h3>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">bash</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code>git clone git@github.com:adar-schule/hinbuna-kurdi.git
+cd hinbuna-kurdi</code></pre>
+                </div>
+
+                <h3>Step 2: Understand the Folder Structure</h3>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">directory</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code>hinbuna-kurdi/
+├── site/                  <span class="cm">← HTML design files (THIS IS WHERE YOU WORK)</span>
+│   ├── index.html         <span class="cm">← Design gallery entry point</span>
+│   ├── onboarding.html    <span class="cm">← This guide</span>
+│   ├── P1-landing-light.html
+│   ├── P1-landing-dark.html
+│   └── ...
+├── _docs/                 <span class="cm">← Project documentation</span>
+│   ├── prompts/           <span class="cm">← Screen prompt files (layout decisions)</span>
+│   │   ├── 00-base-template.md  <span class="cm">← Full brand system reference</span>
+│   │   ├── P1-landing-page.md
+│   │   └── ...
+│   ├── 09-design-decisions.md   <span class="cm">← Color, typography, component rules</span>
+│   └── ...
+├── frontend/              <span class="cm">← React app (later phase, don't touch yet)</span>
+├── CLAUDE.md              <span class="cm">← AI assistant rules &amp; project config</span>
+└── .github/workflows/     <span class="cm">← Auto-deploys site/ to GitHub Pages</span></code></pre>
+                </div>
+
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Your workspace is the <code>site/</code> folder.</strong> That is where all HTML design files live. The <code>_docs/</code> folder has the brand system and layout specifications you will reference.</p>
+                  </div>
+                </div>
+
+                <h3>Step 3: Open in Your Editor</h3>
+                <p>Open the repo in VS Code, Cursor, or your preferred editor. If using Claude Code, navigate to the repo root.</p>
+
+                <h3>Step 4: Preview HTML Files</h3>
+                <p>Simply open any <code>.html</code> file directly in your browser. For mobile-accurate previews:</p>
+                <ol>
+                  <li>Open Chrome DevTools (<code>Cmd+Opt+I</code> on macOS, <code>F12</code> on Windows)</li>
+                  <li>Click the device toolbar toggle (or press <code>Cmd+Shift+M</code>)</li>
+                  <li>Set width to <strong>375px</strong> (iPhone SE)</li>
+                  <li>Review the design at mobile width first, then expand to check responsiveness</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 3: DESIGN WORKFLOW
+               ============================================================ -->
+          <div class="accordion-item" id="section-3">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">3</span>
+              <span class="accordion-title">Design Workflow &mdash; How to Create a Screen</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <p>Follow these steps for every new screen. This ensures consistency across all 32 screens.</p>
+
+                <ol class="steps">
+                  <li class="step">
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                      <p><strong>Check the Design Gallery</strong></p>
+                      <p>Open <a href="index.html" style="color: var(--primary); text-decoration: underline;">index.html</a> and find the next screen with <strong>"Pending"</strong> status. Work in priority order (P0 first, then P1, then P2).</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                      <p><strong>Read the Screen's Prompt File</strong></p>
+                      <p>Open <code>_docs/prompts/[screen].md</code> &mdash; for example, <code>_docs/prompts/P2-pricing.md</code>. This contains the agreed-upon layout sections, content structure, and screen-specific notes.</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                      <p><strong>Read the Base Template</strong></p>
+                      <p>Open <code>_docs/prompts/00-base-template.md</code>. This is the complete brand system reference: colors, fonts, component patterns, anti-patterns, and quality checklist. Every screen must follow this.</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">4</span>
+                    <div class="step-content">
+                      <p><strong>Invoke the <code>frontend-design</code> Skill</strong> (if using Claude Code)</p>
+                      <p>Before generating, invoke the <code>frontend-design</code> skill. This ensures production-grade quality, intentional spatial composition, and meaningful micro-interactions.</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">5</span>
+                    <div class="step-content">
+                      <p><strong>Generate LIGHT MODE HTML First</strong></p>
+                      <p>Create the light mode version and save it as <code>site/[screen]-light.html</code>. For example: <code>site/P2-pricing-light.html</code>.</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">6</span>
+                    <div class="step-content">
+                      <p><strong>Review in Browser at 375px</strong></p>
+                      <p>Open in Chrome at 375px width. Check colors, typography, spacing, visual rhythm. Iterate until it meets the quality bar. Refer to the checklist in Section 8.</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">7</span>
+                    <div class="step-content">
+                      <p><strong>Generate DARK MODE HTML</strong></p>
+                      <p>Create the dark mode version: <strong>same layout, same content, only colors change</strong>. Save as <code>site/[screen]-dark.html</code>. See Section 4 for the exact dark mode color mapping.</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">8</span>
+                    <div class="step-content">
+                      <p><strong>Update the Gallery</strong></p>
+                      <p>In <code>site/index.html</code>, find the screen card and change its status from "Pending" to "Done". Remove the <code>disabled</code> class from the Light/Dark links so they become clickable.</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">9</span>
+                    <div class="step-content">
+                      <p><strong>Commit &amp; Push</strong></p>
+                      <p>Follow the Git workflow in Section 7. Once pushed, the GitHub Actions workflow auto-deploys the <code>site/</code> folder to GitHub Pages.</p>
+                    </div>
+                  </li>
+                </ol>
+
+                <div class="callout callout-warning">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Every HTML file must be self-contained.</strong> Single file, all CSS in a <code>&lt;style&gt;</code> block. The only external dependency allowed is Google Fonts (Nunito + Inter).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 4: BRAND RULES
+               ============================================================ -->
+          <div class="accordion-item" id="section-4">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">4</span>
+              <span class="accordion-title">Brand Rules &mdash; CRITICAL</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <div class="callout callout-danger">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  <div class="callout-content">
+                    <p><strong>NEVER reference Duolingo</strong> &mdash; not in prompts, designs, code, comments, or comparisons. This is a <em>serious, structured</em> language learning platform. Not gamified, not playful, not cartoon-style.</p>
+                  </div>
+                </div>
+
+                <h3>Brand Vibe</h3>
+                <p><strong>Calm + SaaS</strong> &mdash; think Headspace meets Notion. Premium, sophisticated, warm botanical.</p>
+                <ul>
+                  <li><strong>YES:</strong> Professional hierarchy, trust signals, structured curriculum feel, clean typography, warm tones</li>
+                  <li><strong>NO:</strong> Gamified elements, playful animations, cartoon mascots, childish iconography, neon colors</li>
+                </ul>
+
+                <hr class="section-divider">
+
+                <h3>Color System &mdash; Light Mode</h3>
+                <table class="color-table">
+                  <thead>
+                    <tr>
+                      <th>Token</th>
+                      <th>Hex</th>
+                      <th>Usage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="token-name">Background</td>
+                      <td><span class="color-swatch" style="background:#FDF8F3"></span><span class="color-hex">#FDF8F3</span></td>
+                      <td>Page background &mdash; warm cream</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Surface</td>
+                      <td><span class="color-swatch" style="background:#F5EEE6"></span><span class="color-hex">#F5EEE6</span></td>
+                      <td>Card backgrounds, inputs &mdash; soft beige</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Primary</td>
+                      <td><span class="color-swatch" style="background:#2D5A3D"></span><span class="color-hex">#2D5A3D</span></td>
+                      <td>Buttons, links, headings &mdash; forest green</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Accent</td>
+                      <td><span class="color-swatch" style="background:#D4A843"></span><span class="color-hex">#D4A843</span></td>
+                      <td>Badges, highlights, CTAs &mdash; warm gold</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Tan</td>
+                      <td><span class="color-swatch" style="background:#E3C79D"></span><span class="color-hex">#E3C79D</span></td>
+                      <td>Secondary surface, subtle accents</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Text</td>
+                      <td><span class="color-swatch" style="background:#1A2A1F"></span><span class="color-hex">#1A2A1F</span></td>
+                      <td>Body text &mdash; dark green-black</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Text Secondary</td>
+                      <td><span class="color-swatch" style="background:#5A6B5E"></span><span class="color-hex">#5A6B5E</span></td>
+                      <td>Subtitles, hints &mdash; muted green-gray</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Border</td>
+                      <td><span class="color-swatch" style="background:#E5DDD3"></span><span class="color-hex">#E5DDD3</span></td>
+                      <td>Card borders, dividers &mdash; warm tan</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Success</td>
+                      <td><span class="color-swatch" style="background:#2D8A4E"></span><span class="color-hex">#2D8A4E</span></td>
+                      <td>Correct answers, completed items</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Error</td>
+                      <td><span class="color-swatch" style="background:#DC4545"></span><span class="color-hex">#DC4545</span></td>
+                      <td>Validation errors, wrong answers</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Warning</td>
+                      <td><span class="color-swatch" style="background:#EFB034"></span><span class="color-hex">#EFB034</span></td>
+                      <td>Caution states, expiring items</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Info</td>
+                      <td><span class="color-swatch" style="background:#3B7A8A"></span><span class="color-hex">#3B7A8A</span></td>
+                      <td>Informational banners, hints</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3>Color System &mdash; Dark Mode</h3>
+                <table class="color-table">
+                  <thead>
+                    <tr>
+                      <th>Token</th>
+                      <th>Hex</th>
+                      <th>Usage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="token-name">Background</td>
+                      <td><span class="color-swatch" style="background:#1A2F23"></span><span class="color-hex">#1A2F23</span></td>
+                      <td>Page background &mdash; deep forest green (<strong>NEVER pure black</strong>)</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Surface</td>
+                      <td><span class="color-swatch" style="background:#243D30"></span><span class="color-hex">#243D30</span></td>
+                      <td>Card backgrounds, inputs &mdash; slightly lighter green</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Primary</td>
+                      <td><span class="color-swatch" style="background:#2D5A3D"></span><span class="color-hex">#2D5A3D</span></td>
+                      <td>Links, structural elements &mdash; forest green</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Accent</td>
+                      <td><span class="color-swatch" style="background:#D4A843"></span><span class="color-hex">#D4A843</span></td>
+                      <td>Primary CTAs, badges &mdash; warm gold (brightest element)</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Text</td>
+                      <td><span class="color-swatch" style="background:#F5EEE6; border-color: rgba(0,0,0,0.2)"></span><span class="color-hex">#F5EEE6</span></td>
+                      <td>Body text &mdash; warm off-white</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Text Secondary</td>
+                      <td><span class="color-swatch" style="background:#A8B5AC"></span><span class="color-hex">#A8B5AC</span></td>
+                      <td>Subtitles, hints &mdash; soft sage</td>
+                    </tr>
+                    <tr>
+                      <td class="token-name">Border</td>
+                      <td><span class="color-swatch" style="background:#2F4F3A"></span><span class="color-hex">#2F4F3A</span></td>
+                      <td>Card borders, dividers &mdash; subtle green</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Dark mode rule:</strong> Same layout as light, only colors change. Dark background = <code>#1A2F23</code> (deep forest green). The feeling is "warm forest at night" &mdash; NOT matrix, NOT neon, NOT hacker terminal. Gold accents glow like candlelight against deep green.</p>
+                  </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <h3>Typography</h3>
+                <div class="typo-row">
+                  <span class="typo-label">Hero / H1</span>
+                  <span class="typo-sample-nunito" style="font-size: 28px; font-weight: 700; color: var(--text);">Hinb&ucirc;na Kurd&icirc;</span>
+                  <span class="typo-spec">Nunito 700 / 28&ndash;32px</span>
+                </div>
+                <div class="typo-row">
+                  <span class="typo-label">Heading / H2</span>
+                  <span class="typo-sample-nunito" style="font-size: 22px; font-weight: 600; color: var(--text);">Section Title</span>
+                  <span class="typo-spec">Nunito 600 / 22&ndash;24px</span>
+                </div>
+                <div class="typo-row">
+                  <span class="typo-label">Subhead / H3</span>
+                  <span class="typo-sample-nunito" style="font-size: 17px; font-weight: 600; color: var(--text);">Card Heading</span>
+                  <span class="typo-spec">Nunito 600 / 16&ndash;18px</span>
+                </div>
+                <div class="typo-row">
+                  <span class="typo-label">Body</span>
+                  <span class="typo-sample-inter" style="font-size: 15px; font-weight: 400; color: var(--text-secondary);">Regular body paragraph text</span>
+                  <span class="typo-spec">Inter 400 / 14&ndash;16px</span>
+                </div>
+                <div class="typo-row">
+                  <span class="typo-label">Link</span>
+                  <span class="typo-sample-inter" style="font-size: 15px; font-weight: 500; color: var(--primary); text-decoration: underline;">Clickable link text</span>
+                  <span class="typo-spec">Inter 500 / 14&ndash;16px</span>
+                </div>
+                <div class="typo-row">
+                  <span class="typo-label">Caption</span>
+                  <span class="typo-sample-inter" style="font-size: 13px; font-weight: 400; color: var(--text-secondary);">Helper text, labels, small print</span>
+                  <span class="typo-spec">Inter 400 / 12&ndash;13px</span>
+                </div>
+                <div class="typo-row">
+                  <span class="typo-label">Overline</span>
+                  <span class="typo-sample-inter" style="font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.5px;">CATEGORY LABEL</span>
+                  <span class="typo-spec">Inter 600 / 11&ndash;12px uppercase</span>
+                </div>
+
+                <hr class="section-divider">
+
+                <h3>Component Patterns</h3>
+
+                <p><strong>Buttons:</strong></p>
+                <ul>
+                  <li>Rounded corners (12px), full-width on mobile, 44&ndash;48px height</li>
+                  <li>Light mode: forest green <code>#2D5A3D</code> bg + cream text</li>
+                  <li>Dark mode: gold <code>#D4A843</code> bg + dark text</li>
+                  <li>Secondary: outlined with matching border color</li>
+                </ul>
+
+                <p><strong>Cards:</strong></p>
+                <ul>
+                  <li>Rounded corners (12&ndash;16px), subtle shadow</li>
+                  <li>1&ndash;2 shade difference from background &mdash; not harsh borders</li>
+                  <li>Light: beige <code>#F5EEE6</code> on cream / Dark: <code>#243D30</code> on dark bg</li>
+                </ul>
+
+                <p><strong>Inputs:</strong></p>
+                <ul>
+                  <li>Rounded (8&ndash;12px), icon on the left side</li>
+                  <li>Light: beige fill, green border on focus</li>
+                  <li>Dark: dark surface fill, cream border on focus</li>
+                </ul>
+
+                <hr class="section-divider">
+
+                <h3>Anti-Patterns &mdash; NEVER Do These</h3>
+                <ul>
+                  <li><strong>No pure black backgrounds</strong> &mdash; use deep forest green <code>#1A2F23</code></li>
+                  <li><strong>No neon or electric green</strong> &mdash; use forest green <code>#2D5A3D</code></li>
+                  <li><strong>No bright white text on dark</strong> &mdash; use warm cream <code>#F5EEE6</code></li>
+                  <li><strong>No harsh card borders</strong> &mdash; use subtle shade difference</li>
+                  <li><strong>No cold blue-gray neutrals</strong> &mdash; use green-tinted warm grays</li>
+                  <li><strong>No flag icons for languages</strong> &mdash; use monochrome text labels</li>
+                  <li><strong>No gamified or cartoon elements</strong> &mdash; keep professional and calm</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 5: TOOLS & PLUGINS
+               ============================================================ -->
+          <div class="accordion-item" id="section-5">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">5</span>
+              <span class="accordion-title">Tools &amp; Plugins</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <h3>Primary Tool: Claude Code</h3>
+                <p>We use <strong>Claude Code</strong> (Anthropic's CLI) with the <code>frontend-design</code> plugin to generate production-grade HTML screen designs. This is the main workflow tool.</p>
+                <ul>
+                  <li>Invoke the <code>frontend-design</code> skill before generating any screen &mdash; it ensures design quality, intentional spatial composition, and meaningful micro-interactions</li>
+                  <li>Reference the prompt file and base template for each screen</li>
+                  <li>Iterate directly in the terminal &mdash; review in browser &mdash; refine</li>
+                </ul>
+
+                <h3>Available MCP Integrations</h3>
+                <ul>
+                  <li><strong>Google Stitch MCP</strong> &mdash; Generate quick visual inspiration or reference screens. Useful if you are stuck on a layout.</li>
+                  <li><strong>Playwright MCP</strong> &mdash; Browser testing and screenshot automation</li>
+                  <li><strong>context7</strong> &mdash; Documentation lookup for libraries and APIs</li>
+                </ul>
+
+                <h3>Visily Pro</h3>
+                <p>Armanc has a Visily Pro account. The previous design workflow used Visily for AI-generated screens. That workflow is paused but existing Visily designs can be used for visual comparison. Ask Armanc if you need access.</p>
+
+                <h3>Preview Workflow</h3>
+                <p>The simplest way to preview your work:</p>
+                <ol>
+                  <li>Open the HTML file directly in Chrome</li>
+                  <li>Open DevTools &rarr; Toggle device toolbar</li>
+                  <li>Set width to <strong>375px</strong> (iPhone SE)</li>
+                  <li>Check both light and dark versions side by side</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 6: SCREEN PRIORITY ORDER
+               ============================================================ -->
+          <div class="accordion-item" id="section-6">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">6</span>
+              <span class="accordion-title">Screen Priority Order</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <p>Screens are prioritized into three tiers. Always work in order: <strong>P0 first</strong>, then P1, then P2. Within each tier, follow the listed order.</p>
+
+                <table class="priority-table">
+                  <thead>
+                    <tr>
+                      <th>Priority</th>
+                      <th>Screens</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="badge badge-p0">P0</span><br><span style="font-size: 11px; color: var(--text-secondary);">Do first</span></td>
+                      <td>
+                        <strong>Public:</strong> P1 Landing, P2 Pricing, P3 Login, P4 Register<br>
+                        <strong>Student:</strong> S1 Dashboard, S2 Course List, S3 Module View, S4 Unit View, S5 Lesson View, S6 Activity, S7 Result, S8 Complete<br>
+                        <strong>Teacher:</strong> T1 Content Dashboard, T2 Course/Module, T3 Unit Editor, T4 Lesson Editor, T5 Activity Editor
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge badge-p1">P1</span><br><span style="font-size: 11px; color: var(--text-secondary);">Then</span></td>
+                      <td>
+                        <strong>Public:</strong> P5 Forgot Password<br>
+                        <strong>Student:</strong> S9 Profile, S10 Settings<br>
+                        <strong>Teacher:</strong> T6 Materials, T7 Students Overview<br>
+                        <strong>Admin:</strong> A1 Admin Dashboard, A2 User Mgmt, A3 User Detail, A4 Content Mgmt, A5 Subscriptions
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge badge-p2">P2</span><br><span style="font-size: 11px; color: var(--text-secondary);">Later</span></td>
+                      <td>
+                        <strong>Public:</strong> P6 About<br>
+                        <strong>Student:</strong> S11 Achievements, S12 Leaderboard<br>
+                        <strong>Teacher:</strong> T8 Student Detail<br>
+                        <strong>Admin:</strong> A6 System Settings
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="callout callout-success">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Tip:</strong> Check the <a href="index.html" style="color: var(--primary); text-decoration: underline;">Design Gallery</a> for real-time status. Any screen marked "Done" has been completed and can be used as a reference for consistency.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 7: GIT WORKFLOW
+               ============================================================ -->
+          <div class="accordion-item" id="section-7">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">7</span>
+              <span class="accordion-title">Git Workflow</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <h3>Branch Naming</h3>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">format</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code>hk-XXX-feature-description
+
+<span class="cm"># Examples:</span>
+hk-001-landing-page-design
+hk-012-pricing-light-dark
+hk-045-student-dashboard-screens</code></pre>
+                </div>
+
+                <h3>Commit Format</h3>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">format</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code>type(scope): description
+
+<span class="cm"># Types: feat, fix, docs, style, refactor, test, chore</span>
+<span class="cm"># Examples:</span>
+<span class="kw">feat</span>(design): add P2 pricing light mode
+<span class="kw">feat</span>(design): add P2 pricing dark mode
+<span class="kw">fix</span>(design): correct P1 landing header alignment
+<span class="kw">docs</span>(onboarding): update quality checklist
+<span class="kw">chore</span>(gallery): update P2 status to done</code></pre>
+                </div>
+
+                <h3>PR Title Format</h3>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">format</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code>HK-XXX: feat(design): add P2 pricing screens</code></pre>
+                </div>
+
+                <h3>Workflow Rules</h3>
+                <ul>
+                  <li><strong>Always rebase, never merge</strong> &mdash; keeps history linear and clean</li>
+                  <li><strong>NEVER force push to main</strong> &mdash; this is a shared branch</li>
+                  <li>Create a feature branch for each screen or group of related screens</li>
+                  <li>Open a PR when ready &mdash; Armanc reviews before merge</li>
+                </ul>
+
+                <h3>Git Config</h3>
+                <p>This is a personal project. Use the following git identity:</p>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">bash</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code>git config user.name "Nuri Armanç Engin"
+git config user.email "dev.nuriengin@gmail.com"</code></pre>
+                </div>
+
+                <div class="callout callout-warning">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Ask Armanc first</strong> before pushing to remote or creating PRs, especially if you are new to the project. Never commit directly to <code>main</code>.</p>
+                  </div>
+                </div>
+
+                <h3>Typical Git Flow</h3>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">bash</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code><span class="cm"># Start from an updated main</span>
+git checkout main
+git pull --rebase origin main
+
+<span class="cm"># Create your feature branch</span>
+git checkout -b hk-012-pricing-screens
+
+<span class="cm"># ... do your work in site/ ...</span>
+
+<span class="cm"># Stage and commit</span>
+git add site/P2-pricing-light.html site/P2-pricing-dark.html site/index.html
+git commit -m "<span class="kw">feat</span>(design): add P2 pricing light and dark screens"
+
+<span class="cm"># Push and create PR</span>
+git push -u origin hk-012-pricing-screens</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 8: QUALITY CHECKLIST
+               ============================================================ -->
+          <div class="accordion-item" id="section-8">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">8</span>
+              <span class="accordion-title">Quality Checklist</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <p>Run through this checklist after <strong>every screen</strong> before committing. Click each item to mark it checked (for your own tracking &mdash; state is not saved).</p>
+
+                <ul class="checklist">
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Background color correct?</strong> Light: cream <code>#FDF8F3</code> / Dark: deep forest <code>#1A2F23</code></span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>NOT matrix green?</strong> Dark mode = warm forest at night, not hacker terminal</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Gold accents present?</strong> At least one gold element <code>#D4A843</code> on the screen</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Text readable?</strong> Sufficient contrast between text and background</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Buttons correct?</strong> Green + cream (light) / Gold + dark (dark)</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Cards have subtle separation?</strong> Shade difference, not harsh borders</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Typography correct?</strong> Nunito for headings, Inter for body text</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Kurdish text correct?</strong> Characters <code>&ecirc;</code>, <code>&icirc;</code>, <code>&ucirc;</code>, <code>&ccedil;</code>, <code>&#x15F;</code> display properly</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Mobile width?</strong> 375px base, responsive to wider screens</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Header consistent?</strong> Logo left, globe + toggle + action right</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>No flag icons?</strong> Language picker uses text labels, monochrome</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Sections flow naturally?</strong> Visual rhythm, not stacked blocks with equal gaps</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Touch targets 44px+?</strong> All interactive elements large enough to tap</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>CSS animations present?</strong> Hover states, fade-ins, smooth transitions</span>
+                  </li>
+                  <li class="checklist-item" onclick="toggleCheck(this)">
+                    <span class="checklist-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="checklist-text"><strong>Self-contained?</strong> Single HTML file, only Google Fonts as external dependency</span>
+                  </li>
+                </ul>
+
+                <div class="callout callout-success">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <div class="callout-content">
+                    <p><strong>If all 15 items pass, your screen is ready to commit.</strong> If any item fails, fix it before pushing. Consistency across all 32 screens is what makes the design system work.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 9: Using Claude Code
+               ============================================================ -->
+          <div class="accordion-item" id="section-9">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)">
+              <span class="accordion-number">9</span>
+              <span class="accordion-title">Using Claude Code</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <p>Claude Code is our <strong>primary development tool</strong> for this project. All screen designs, code, and documentation are created through Claude Code in the terminal.</p>
+
+                <div class="callout callout-warning">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Before your first session:</strong> Read the project's <code>CLAUDE.md</code> files. Claude Code reads these automatically and follows the rules inside. They are critical for consistency.</p>
+                  </div>
+                </div>
+
+                <h4>Install Claude Code</h4>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># Install Claude Code (requires Node.js 18+)</span>
+npm install -g @anthropic-ai/claude-code
+
+<span class="cmt"># Navigate to the repo</span>
+<span class="kw">cd</span> hinbuna-kurdi
+
+<span class="cmt"># Start Claude Code</span>
+claude</code></pre>
+                </div>
+
+                <h4>Install Required Plugins</h4>
+                <p>Run these <strong>inside Claude Code</strong> (after starting <code>claude</code>):</p>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># Design quality — ensures professional output</span>
+/plugin install frontend-design@claude-code-plugins
+
+<span class="cmt"># Browser testing</span>
+/plugin install playwright@claude-plugins-official
+
+<span class="cmt"># Up-to-date library docs</span>
+/plugin install context7@claude-plugins-official
+
+<span class="cmt"># Security scanning</span>
+/plugin install security-guidance@claude-plugins-official
+
+<span class="cmt"># Git workflow helpers</span>
+/plugin install commit-commands@claude-plugins-official</code></pre>
+                </div>
+
+                <h4>Install MCP Servers</h4>
+                <p>Run these in your <strong>regular terminal</strong> (outside Claude Code):</p>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># shadcn/ui component library</span>
+claude mcp add --transport http shadcn https://www.shadcn.io/api/mcp
+
+<span class="cmt"># SVG icons (200k+ icons, no API key needed)</span>
+claude mcp add iconify -- npx -y iconify-mcp-server@latest
+
+<span class="cmt"># Chrome DevTools debugging</span>
+claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
+
+<span class="cmt"># HTML to image conversion</span>
+claude mcp add --transport http hcti https://mcp.hcti.io</code></pre>
+                </div>
+
+                <h4>CLAUDE.md Rules (Critical)</h4>
+                <p>The repo has two <code>CLAUDE.md</code> files that Claude reads automatically:</p>
+
+                <table class="feature-table">
+                  <thead>
+                    <tr>
+                      <th>File</th>
+                      <th>Purpose</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>CLAUDE.md</code> (repo root)</td>
+                      <td>Tech stack, coding standards, git rules, commit format, branch naming, pre-commit checklist</td>
+                    </tr>
+                    <tr>
+                      <td><code>~/.claude/CLAUDE.md</code> (global)</td>
+                      <td>Personal preferences — git account, never push without confirmation, session tracking</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4>Key Rules Claude Follows</h4>
+                <ul>
+                  <li><strong>Never push without confirmation</strong> — Claude will always ask before committing or pushing</li>
+                  <li><strong>Never reference Duolingo</strong> — in any prompts, designs, code, or descriptions</li>
+                  <li><strong>Brand system enforced</strong> — colors, fonts, components from <code>_docs/prompts/00-base-template.md</code></li>
+                  <li><strong>frontend-design skill</strong> — invoke before generating any screen HTML for designer-quality output</li>
+                  <li><strong>Git scope: personal</strong> — uses personal git account (Nuri Armanç Engin)</li>
+                  <li><strong>Mobile-first always</strong> — 375px base width for all designs</li>
+                  <li><strong>Status tracking</strong> — Claude reads <code>_claude-files/status-mvp-screens-design.md</code> each session to know where we are</li>
+                </ul>
+
+                <h4>How to Start a Design Session</h4>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># Start Claude Code in the repo</span>
+<span class="kw">cd</span> hinbuna-kurdi
+claude
+
+<span class="cmt"># Then tell Claude what to do:</span>
+<span class="str">"Read the status file and let's continue designing screens"</span>
+
+<span class="cmt"># Claude will:</span>
+<span class="cmt"># 1. Read _claude-files/status-mvp-screens-design.md</span>
+<span class="cmt"># 2. Read the brand system (00-base-template.md)</span>
+<span class="cmt"># 3. Read the next screen's prompt file</span>
+<span class="cmt"># 4. Invoke frontend-design skill</span>
+<span class="cmt"># 5. Generate the HTML</span>
+<span class="cmt"># 6. Wait for your review before committing</span></code></pre>
+                </div>
+
+                <h4>Useful Commands During Sessions</h4>
+                <table class="feature-table">
+                  <thead>
+                    <tr>
+                      <th>Command</th>
+                      <th>What it does</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>/plugin</code></td>
+                      <td>View and manage installed plugins</td>
+                    </tr>
+                    <tr>
+                      <td><code>/mcp</code></td>
+                      <td>Check MCP server status</td>
+                    </tr>
+                    <tr>
+                      <td><code>/clear</code></td>
+                      <td>Clear conversation (start fresh, keeps context files)</td>
+                    </tr>
+                    <tr>
+                      <td><code>/help</code></td>
+                      <td>General help and keyboard shortcuts</td>
+                    </tr>
+                    <tr>
+                      <td><code>open site/index.html</code></td>
+                      <td>Preview the design gallery in browser</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Context limit:</strong> Claude Code sessions have a context window. When it reaches ~70%, save your work and start a new session. Claude will read the status files and pick up where you left off.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion -->
+
+      </div><!-- /content-inner -->
+    </main>
+
+  </div><!-- /layout -->
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div style="max-width: var(--max-width); margin: 0 auto; padding: 0 20px;">
+      <p>
+        &copy; 2026 Adar Schule
+        <span class="footer-separator">&middot;</span>
+        <a href="index.html">Design Gallery</a>
+        <span class="footer-separator">&middot;</span>
+        Generated with <a href="https://claude.ai" target="_blank" rel="noopener">Claude Code</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // --- Accordion ---
+    function toggleAccordion(trigger) {
+      const item = trigger.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+
+      if (isOpen) {
+        item.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+
+      updateSidebarActive();
+    }
+
+    // --- Sidebar ---
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const backdrop = document.getElementById('sidebarBackdrop');
+      sidebar.classList.toggle('open');
+      backdrop.classList.toggle('open');
+    }
+
+    function closeSidebarMobile() {
+      if (window.innerWidth < 1024) {
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebarBackdrop');
+        sidebar.classList.remove('open');
+        backdrop.classList.remove('open');
+      }
+    }
+
+    // --- Sidebar Active State ---
+    function updateSidebarActive() {
+      const sections = document.querySelectorAll('.accordion-item[id]');
+      const navLinks = document.querySelectorAll('.sidebar-nav-link');
+
+      const scrollPos = window.scrollY + 120;
+
+      let activeId = 'section-1';
+      sections.forEach(section => {
+        if (section.offsetTop <= scrollPos) {
+          activeId = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + activeId) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateSidebarActive, { passive: true });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('sidebarBackdrop').classList.remove('open');
+      }
+    });
+
+    // --- Checklist ---
+    function toggleCheck(item) {
+      const box = item.querySelector('.checklist-box');
+      box.classList.toggle('checked');
+    }
+
+    // --- Copy Code ---
+    function copyCode(button) {
+      const codeBlock = button.closest('.code-block');
+      const code = codeBlock.querySelector('pre code');
+      const text = code.textContent;
+
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('hinbuna-theme', next);
+    }
+
+    // Restore saved theme (default: dark)
+    (function() {
+      const saved = localStorage.getItem('hinbuna-theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+
+    // Initialize
+    updateSidebarActive();
+  </script>
+</body>
+</html>

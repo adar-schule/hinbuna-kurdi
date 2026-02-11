@@ -7,7 +7,7 @@
 ## Brand Direction
 
 **Chosen:** Direction A — Warm & Welcoming
-**Vibe:** Friendly, encouraging, botanical — like Headspace meets Duolingo
+**Vibe:** Friendly, encouraging, botanical — like Headspace meets Notion (Calm + SaaS)
 **Rejected:** B (Modern/Clean — too corporate), C (Heritage — too heavy), D (Fresh/Vibrant — too young)
 
 ---
@@ -232,19 +232,31 @@ Default presets (unchanged)
 
 | Tool | Role | Cost |
 |------|------|------|
-| **Google Stitch** | Inspiration/reference screens (via MCP) | Free |
-| **Visily** | Primary design tool — editing, theme, AI generation | Free tier (Pro: $14/mo) |
-| **shadcn/ui** | Code implementation | Free |
+| **Claude Code + frontend-design plugin** | **Primary** — generates HTML screen designs in terminal | Free (plugin) |
+| **Google Stitch MCP** | Quick visual inspiration, reference screens | Free |
+| **Visily** | Paused — existing designs for comparison | $11/mo (may cancel) |
+| **shadcn/ui** | Code implementation (React phase) | Free |
 
-### Workflow
+### Workflow (as of 2026-02-11)
+```
+Screen prompt (_docs/prompts/[screen].md) → Read brand system (00-base-template.md)
+    ↓
+Claude Code + frontend-design skill → Generate pure HTML/CSS
+    ↓
+Browser preview (375px) → Review & iterate in Claude Code
+    ↓
+_designs/ folder → Version controlled HTML files (light + dark)
+    ↓
+React + Tailwind + shadcn/ui → Code implementation (later)
+```
+
+### Previous Workflow (Visily — paused)
 ```
 Stitch (MCP) → Generate inspiration screens
     ↓
 Visily (browser) → AI generate with theme, edit & refine
     ↓
 Export → Screenshots for team / Figma for Gule
-    ↓
-shadcn/ui + Tailwind → Code implementation
 ```
 
 ---
