@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hinbûna Kurdî — Fêrbûna zimanê kurdî bi rêbazên nûjen</title>
   <meta name="description" content="Structured Kurmanji curriculum from A1 to B1. Professional educators. Native audio. AI-powered practice.">
+  <!-- Kurdish Sun Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%232D5A3D'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
 
   <!-- Google Fonts: Nunito (headings) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,6 +54,33 @@
       --radius-md: 12px;
       --radius-lg: 16px;
       --radius-xl: 24px;
+    }
+
+    /* ============================================
+       DARK MODE — Warm forest at night
+       ============================================ */
+    [data-theme="dark"] {
+      --bg-page: #1A2F23;
+      --bg-surface: #243D30;
+      --color-primary: #2D5A3D;
+      --color-primary-hover: #367248;
+      --color-accent: #D4A843;
+      --color-accent-hover: #e0b64e;
+      --color-tan: #3A5E45;
+      --text-primary: #F5EEE6;
+      --text-secondary: #A8B5AC;
+      --border: #2F4F3A;
+      --color-success: #3DA863;
+      --color-error: #E85858;
+      --color-warning: #EFB034;
+      --color-info: #4D9AAE;
+
+      --trustpilot-dark: #F5EEE6;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+      --shadow-xl: 0 12px 36px rgba(0, 0, 0, 0.35);
     }
 
     /* ============================================
@@ -244,27 +273,69 @@
       padding: 48px 20px 56px;
     }
 
-    /* Subtle botanical texture — decorative leaf shapes */
+    /* Kurdish Sun — moves east→west based on time of day */
     .hero::before {
       content: '';
       position: absolute;
-      top: -60px;
-      right: -80px;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(ellipse, rgba(45, 90, 61, 0.04) 0%, transparent 70%);
+      top: var(--sun-y, 20%);
+      left: var(--sun-x, 75%);
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      background:
+        radial-gradient(circle, rgba(212, 168, 67, var(--sun-core, 0.40)) 0%, transparent 40%),
+        radial-gradient(circle, rgba(212, 168, 67, var(--sun-glow, 0.22)) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
+      transition: left 60s linear, top 60s linear, opacity 60s linear;
+      opacity: var(--sun-opacity, 1);
     }
 
+    @media (min-width: 768px) {
+      .hero::before { width: 420px; height: 420px; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero::before { width: 500px; height: 500px; }
+    }
+
+    /* Kurdish Sun icon — transparent, rides on top of the glow */
+    .hero-sun-icon {
+      position: absolute;
+      top: var(--sun-y, 18%);
+      left: var(--sun-x, 75%);
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+      transition: left 60s linear, top 60s linear;
+    }
+
+    .hero-sun-icon svg { width: 100%; height: 100%; }
+
+    @media (min-width: 768px) {
+      .hero-sun-icon { width: 240px; height: 240px; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-sun-icon { width: 300px; height: 300px; }
+    }
+
+    [data-theme="dark"] .hero-sun-icon {
+      opacity: 0.08;
+    }
+
+    /* Keep a subtle secondary ambient glow */
     .hero::after {
       content: '';
       position: absolute;
       bottom: -40px;
-      left: -60px;
+      left: 10%;
       width: 200px;
       height: 200px;
-      background: radial-gradient(ellipse, rgba(212, 168, 67, 0.05) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(45, 90, 61, 0.04) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -1277,6 +1348,296 @@
       color: rgba(253, 248, 243, 0.35);
       letter-spacing: 0.2px;
     }
+
+    /* ============================================
+       DARK MODE — Component overrides
+       ============================================ */
+
+    /* Header */
+    [data-theme="dark"] .header {
+      background-color: rgba(26, 47, 35, 0.92);
+      border-bottom-color: rgba(47, 79, 58, 0.5);
+    }
+    [data-theme="dark"] .header.scrolled {
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    }
+    /* Logo sun is already gold — just ensure it stays visible */
+    [data-theme="dark"] .header-icon-btn { color: var(--text-primary); }
+    [data-theme="dark"] .header-icon-btn:hover {
+      background-color: rgba(245, 238, 230, 0.08);
+    }
+    [data-theme="dark"] .header-icon-btn:active {
+      background-color: rgba(245, 238, 230, 0.12);
+    }
+    [data-theme="dark"] .header-login {
+      color: var(--color-accent);
+      border-color: rgba(212, 168, 67, 0.35);
+    }
+    [data-theme="dark"] .header-login:hover {
+      background-color: rgba(212, 168, 67, 0.08);
+      border-color: rgba(212, 168, 67, 0.55);
+    }
+
+    /* Hero sun — more visible in dark mode, like golden hour */
+    [data-theme="dark"] .hero::before {
+      background:
+        radial-gradient(circle, rgba(212, 168, 67, var(--sun-core-dark, 0.30)) 0%, transparent 35%),
+        radial-gradient(circle, rgba(212, 168, 67, var(--sun-glow-dark, 0.15)) 0%, transparent 70%);
+    }
+    [data-theme="dark"] .hero::after {
+      background: radial-gradient(ellipse, rgba(212, 168, 67, 0.02) 0%, transparent 70%);
+    }
+    [data-theme="dark"] .hero-heading { color: var(--text-primary); }
+
+    /* Sponsors */
+    [data-theme="dark"] .sponsors { border-top-color: var(--border); }
+    [data-theme="dark"] .sponsor-item:hover { border-color: var(--border); }
+    [data-theme="dark"] .sponsor-logo-shape { filter: brightness(1.3) saturate(0.8); }
+    [data-theme="dark"] .sponsor-name { color: var(--text-secondary); }
+
+    /* Trust bar */
+    [data-theme="dark"] .trust-bar {
+      background-color: var(--bg-surface);
+      border-top-color: var(--border);
+      border-bottom-color: var(--border);
+    }
+    [data-theme="dark"] .trust-stat-icon { color: var(--color-accent); }
+    @media (min-width: 768px) {
+      [data-theme="dark"] .trust-stat-icon {
+        background-color: rgba(212, 168, 67, 0.1);
+      }
+    }
+    [data-theme="dark"] .trust-stat-value { color: var(--color-accent); }
+
+    /* Trustpilot */
+    [data-theme="dark"] .trustpilot-widget {
+      background: var(--bg-surface);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .trustpilot-brand-text { color: var(--text-primary); }
+    [data-theme="dark"] .trustpilot-rating-label { color: var(--text-primary); }
+    [data-theme="dark"] .trustpilot-score { color: var(--text-secondary); }
+    [data-theme="dark"] .trustpilot-based { color: var(--text-secondary); opacity: 0.7; }
+    [data-theme="dark"] .trustpilot-divider { background-color: var(--border); }
+    [data-theme="dark"] .trustpilot-review-text { color: var(--text-primary); }
+    [data-theme="dark"] .trustpilot-review-author { color: var(--text-secondary); }
+
+    /* Features */
+    [data-theme="dark"] .section-heading { color: var(--text-primary); }
+    [data-theme="dark"] .feature-card {
+      background-color: var(--bg-surface);
+      border-color: rgba(47, 79, 58, 0.4);
+    }
+    [data-theme="dark"] .feature-card:hover {
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .feature-card:nth-child(1) .feature-icon-circle {
+      background-color: rgba(212, 168, 67, 0.12);
+      color: var(--color-accent);
+    }
+    [data-theme="dark"] .feature-card:nth-child(2) .feature-icon-circle {
+      background-color: rgba(212, 168, 67, 0.12);
+      color: var(--color-accent);
+    }
+    [data-theme="dark"] .feature-card:nth-child(3) .feature-icon-circle {
+      background-color: rgba(77, 154, 174, 0.15);
+      color: var(--color-info);
+    }
+    [data-theme="dark"] .feature-card:nth-child(4) .feature-icon-circle {
+      background-color: rgba(61, 168, 99, 0.12);
+      color: var(--color-success);
+    }
+    [data-theme="dark"] .feature-card:nth-child(1)::before { background-color: var(--color-accent); }
+    [data-theme="dark"] .feature-card:nth-child(2)::before { background-color: var(--color-accent); }
+
+    /* Buttons — dark mode: primary becomes GOLD */
+    [data-theme="dark"] .btn-primary {
+      background-color: var(--color-accent);
+      color: #1A2A1F;
+    }
+    [data-theme="dark"] .btn-primary:hover {
+      background-color: var(--color-accent-hover);
+    }
+    [data-theme="dark"] .btn-primary::after {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    }
+
+    [data-theme="dark"] .btn-secondary {
+      color: var(--text-primary);
+      border-color: rgba(245, 238, 230, 0.2);
+    }
+    [data-theme="dark"] .btn-secondary:hover {
+      background-color: rgba(245, 238, 230, 0.06);
+      border-color: rgba(245, 238, 230, 0.35);
+    }
+
+    [data-theme="dark"] .btn-primary-pricing {
+      background-color: var(--color-accent);
+      color: #1A2A1F;
+    }
+    [data-theme="dark"] .btn-primary-pricing:hover {
+      background-color: var(--color-accent-hover);
+    }
+    [data-theme="dark"] .btn-primary-pricing::after {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    }
+
+    /* Pricing */
+    [data-theme="dark"] .pricing {
+      background-color: var(--bg-surface);
+      border-top-color: var(--border);
+      border-bottom-color: var(--border);
+      background-image: none;
+    }
+    [data-theme="dark"] .pricing-container {
+      background-color: var(--bg-page);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .pricing-plan-free {
+      border-bottom-color: var(--border);
+    }
+    @media (min-width: 768px) {
+      [data-theme="dark"] .pricing-plan-free {
+        border-right-color: var(--border);
+      }
+    }
+    [data-theme="dark"] .pricing-plan-premium {
+      background: linear-gradient(180deg, rgba(212, 168, 67, 0.06) 0%, transparent 100%);
+    }
+    [data-theme="dark"] .pricing-badge {
+      background-color: var(--color-accent);
+      color: #1A2A1F;
+    }
+    [data-theme="dark"] .pricing-check { color: var(--color-accent); }
+
+    /* Final CTA */
+    [data-theme="dark"] .final-cta {
+      background-color: #162B1F;
+    }
+    [data-theme="dark"] .final-cta::before {
+      background: radial-gradient(ellipse, rgba(212, 168, 67, 0.1) 0%, transparent 70%);
+    }
+    [data-theme="dark"] .final-cta-heading { color: var(--text-primary); }
+    [data-theme="dark"] .final-cta-subtext { color: var(--text-secondary); }
+    [data-theme="dark"] .btn-accent {
+      background-color: var(--color-accent);
+      color: #1A2A1F;
+      box-shadow: 0 0 24px rgba(212, 168, 67, 0.15);
+    }
+    [data-theme="dark"] .btn-accent:hover {
+      box-shadow: 0 4px 28px rgba(212, 168, 67, 0.3);
+    }
+
+    /* Footer — already dark, subtle adjustments */
+    [data-theme="dark"] .footer {
+      background-color: #111E17;
+    }
+
+    /* Theme toggle icon swap */
+    [data-theme="dark"] .theme-icon-sun { display: block; }
+    [data-theme="dark"] .theme-icon-moon { display: none; }
+    .theme-icon-sun { display: none; }
+    .theme-icon-moon { display: block; }
+
+    /* ============================================
+       LANGUAGE PICKER
+       ============================================ */
+    .lang-picker {
+      position: relative;
+    }
+
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xl);
+      min-width: 180px;
+      padding: 6px 0;
+      z-index: 200;
+      animation: dropdownFadeIn 0.18s ease;
+    }
+
+    .lang-dropdown.open { display: block; }
+
+    @keyframes dropdownFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 9px 16px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-primary);
+      text-align: left;
+      transition: background-color 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .lang-option:hover {
+      background-color: var(--bg-surface);
+    }
+
+    .lang-option.active {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .lang-option.active {
+      color: var(--color-accent);
+    }
+
+    .lang-option-check {
+      width: 16px;
+      height: 16px;
+      opacity: 0;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    [data-theme="dark"] .lang-option-check {
+      color: var(--color-accent);
+    }
+
+    .lang-option.active .lang-option-check {
+      opacity: 1;
+    }
+
+    .lang-option-label {
+      flex: 1;
+    }
+
+    .lang-option-native {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-left: 8px;
+    }
+
+    /* RTL language labels */
+    .lang-option[data-dir="rtl"] .lang-option-native {
+      direction: rtl;
+    }
+
+    /* Backdrop to close dropdown */
+    .lang-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 199;
+    }
+    .lang-backdrop.open { display: block; }
   </style>
 </head>
 <body>
@@ -1287,23 +1648,72 @@
 <header class="header" id="header">
   <div class="header-inner">
     <a href="#" class="header-logo">
-      <svg class="header-logo-leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22.08C7.57 17.44 9.14 13 17 11V14L22 8L17 2V8Z" fill="#2D5A3D"/>
+      <svg class="header-logo-leaf" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2" fill="#D4A843"/>
+        <circle cx="50" cy="50" r="16" fill="#D4A843"/>
       </svg>
       <span class="header-logo-text">Hinbûna Kurdî</span>
     </a>
 
     <div class="header-actions">
-      <button class="header-icon-btn" aria-label="Language" title="Language">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-      </button>
+      <!-- Language Picker -->
+      <div class="lang-picker">
+        <button class="header-icon-btn" id="lang-toggle" aria-label="Language" title="Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </button>
+        <div class="lang-backdrop" id="lang-backdrop"></div>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-option active" data-lang="ku">
+            <span class="lang-option-label">Kurdî</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="en">
+            <span class="lang-option-label">English</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="de">
+            <span class="lang-option-label">Deutsch</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="sv">
+            <span class="lang-option-label">Svenska</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="da">
+            <span class="lang-option-label">Dansk</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="it">
+            <span class="lang-option-label">Italiano</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="tr">
+            <span class="lang-option-label">Türkçe</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="fa" data-dir="rtl">
+            <span class="lang-option-label">فارسی</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="lang-option" data-lang="ar" data-dir="rtl">
+            <span class="lang-option-label">العربية</span>
+            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+        </div>
+      </div>
 
-      <button class="header-icon-btn" aria-label="Toggle theme" title="Toggle theme">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Theme Toggle -->
+      <button class="header-icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <!-- Moon icon (shown in light mode — click to go dark) -->
+        <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- Sun icon (shown in dark mode — click to go light) -->
+        <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"/>
           <line x1="12" y1="1" x2="12" y2="3"/>
           <line x1="12" y1="21" x2="12" y2="23"/>
@@ -1325,6 +1735,13 @@
      2. HERO
      ========================================== -->
 <section class="hero">
+  <!-- Kurdish 21-ray sun icon — semi-transparent, moves with the glow -->
+  <div class="hero-sun-icon" id="hero-sun-icon">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2" fill="#D4A843"/>
+      <circle cx="50" cy="50" r="16" fill="#D4A843"/>
+    </svg>
+  </div>
   <div class="hero-content fade-up">
     <h1 class="hero-heading">
       Fêrbûna zimanê kurdî — bi rêbazên nûjen
@@ -1721,8 +2138,9 @@
      ========================================== -->
 <footer class="footer">
   <div class="footer-logo">
-    <svg class="footer-logo-leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22.08C7.57 17.44 9.14 13 17 11V14L22 8L17 2V8Z" fill="#FDF8F3" opacity="0.7"/>
+    <svg class="footer-logo-leaf" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2" fill="#FDF8F3" opacity="0.7"/>
+      <circle cx="50" cy="50" r="16" fill="#FDF8F3" opacity="0.7"/>
     </svg>
     <span class="footer-logo-text">Hinbûna Kurdî</span>
   </div>
@@ -1776,6 +2194,140 @@
         header.classList.toggle('scrolled', scrolled);
       }
     }, { passive: true });
+  })();
+
+  // Theme toggle (light/dark)
+  (function() {
+    var toggle = document.getElementById('theme-toggle');
+    var html = document.documentElement;
+
+    // Check saved preference or system preference
+    var saved = localStorage.getItem('hk-theme');
+    if (saved) {
+      html.setAttribute('data-theme', saved);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      html.setAttribute('data-theme', 'dark');
+    }
+
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      if (next === 'light') {
+        html.removeAttribute('data-theme');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+      }
+      localStorage.setItem('hk-theme', next);
+    });
+  })();
+
+  // Kurdish Sun — moves right→left across the hero heading area
+  // Sunrise 6AM (right) → Sunset 8PM (left) → Night stays left → 2:30AM resets right
+  (function() {
+    var hero = document.querySelector('.hero');
+    var sunIcon = document.getElementById('hero-sun-icon');
+    if (!hero) return;
+
+    function updateSun() {
+      var now = new Date();
+      var hour = now.getHours() + now.getMinutes() / 60;
+
+      var sunrise = 6;      // sun starts moving from right
+      var sunset = 20;       // sun arrives at left
+      var resetHour = 2.5;   // 2:30 AM — sun jumps back to right
+
+      // Y is always near the top (behind heading text)
+      hero.style.setProperty('--sun-y', '18%');
+
+      // Sync the sun icon position
+      function syncIcon(x) {
+        if (sunIcon) {
+          sunIcon.style.left = x + '%';
+          sunIcon.style.top = '18%';
+        }
+      }
+
+      // Daytime: 6:00→20:00, sun moves right (85%) → left (10%)
+      if (hour >= sunrise && hour <= sunset) {
+        var progress = (hour - sunrise) / (sunset - sunrise);
+        var x = 85 - (progress * 75);
+
+        // Intensity: peaks at midday
+        var midPeak = Math.sin(progress * Math.PI);
+        var intensity = 0.6 + (midPeak * 0.4);
+
+        hero.style.setProperty('--sun-x', x + '%');
+        hero.style.setProperty('--sun-opacity', '1');
+        hero.style.setProperty('--sun-core', (0.45 * intensity).toFixed(3));
+        hero.style.setProperty('--sun-glow', (0.25 * intensity).toFixed(3));
+        hero.style.setProperty('--sun-core-dark', (0.35 * intensity).toFixed(3));
+        hero.style.setProperty('--sun-glow-dark', (0.18 * intensity).toFixed(3));
+        syncIcon(x);
+
+      // Night: sunset→2:30AM, sun stays left, dimmer
+      } else if (hour > sunset || hour < resetHour) {
+        hero.style.setProperty('--sun-x', '10%');
+        syncIcon(10);
+        hero.style.setProperty('--sun-opacity', '0.6');
+        hero.style.setProperty('--sun-core', '0.20');
+        hero.style.setProperty('--sun-glow', '0.10');
+        hero.style.setProperty('--sun-core-dark', '0.14');
+        hero.style.setProperty('--sun-glow-dark', '0.07');
+
+      // Pre-dawn: 2:30AM→6AM, sun slides back to the right
+      } else {
+        var predawnProgress = (hour - resetHour) / (sunrise - resetHour);
+        var x = 10 + (predawnProgress * 75);
+
+        hero.style.setProperty('--sun-x', x + '%');
+        hero.style.setProperty('--sun-opacity', '0.5');
+        hero.style.setProperty('--sun-core', '0.16');
+        hero.style.setProperty('--sun-glow', '0.08');
+        hero.style.setProperty('--sun-core-dark', '0.12');
+        hero.style.setProperty('--sun-glow-dark', '0.06');
+        syncIcon(x);
+      }
+    }
+
+    updateSun();
+    setInterval(updateSun, 5 * 60 * 1000);
+  })();
+
+  // Language picker
+  (function() {
+    var langToggle = document.getElementById('lang-toggle');
+    var dropdown = document.getElementById('lang-dropdown');
+    var backdrop = document.getElementById('lang-backdrop');
+    var options = dropdown.querySelectorAll('.lang-option');
+
+    function openDropdown() {
+      dropdown.classList.add('open');
+      backdrop.classList.add('open');
+    }
+
+    function closeDropdown() {
+      dropdown.classList.remove('open');
+      backdrop.classList.remove('open');
+    }
+
+    langToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (dropdown.classList.contains('open')) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    });
+
+    backdrop.addEventListener('click', closeDropdown);
+
+    options.forEach(function(opt) {
+      opt.addEventListener('click', function() {
+        options.forEach(function(o) { o.classList.remove('active'); });
+        opt.classList.add('active');
+        closeDropdown();
+      });
+    });
   })();
 </script>
 
