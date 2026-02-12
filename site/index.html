@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hinbuna Kurdi — Design Gallery</title>
+  <title>Hinbûna Kurdî — Design Gallery</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="shared/theme.js"></script>
   <style>
     /* ============================================================
        HINBUNA KURDI — DESIGN GALLERY
@@ -68,19 +70,19 @@
       --border:         #2F4F3A;
       --tan:            #E3C79D;
 
-      --badge-p0-bg:    #D4A843;
+      --badge-p0-bg:    var(--accent);
       --badge-p0-text:  #1A2A1F;
-      --badge-p1-bg:    #4A9B6A;
-      --badge-p1-text:  #F5EEE6;
-      --badge-p2-bg:    #2F4F3A;
-      --badge-p2-text:  #A8B5AC;
+      --badge-p1-bg:    var(--primary);
+      --badge-p1-text:  var(--text);
+      --badge-p2-bg:    var(--border);
+      --badge-p2-text:  var(--text-secondary);
 
-      --status-done-bg:       #1e4d2e;
-      --status-done-text:     #6ecf8a;
+      --status-done-bg:       color-mix(in srgb, var(--primary) 25%, var(--bg));
+      --status-done-text:     var(--primary-light, var(--primary));
       --status-progress-bg:   #3d3520;
-      --status-progress-text: #D4A843;
-      --status-pending-bg:    #243D30;
-      --status-pending-text:  #A8B5AC;
+      --status-progress-text: var(--accent);
+      --status-pending-bg:    var(--surface);
+      --status-pending-text:  var(--text-secondary);
     }
 
     /* --- Reset & Base --- */
@@ -138,62 +140,6 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 20px;
-    }
-
-    /* ============================================================
-       HEADER
-       ============================================================ */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: var(--bg);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      animation: fadeIn 0.5s ease-out both;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-
-    .header-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--primary);
-    }
-
-    .header-logo svg {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-
-    .header-logo-text {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: -0.3px;
-      color: var(--primary);
-    }
-
-    .header-label {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-secondary);
-      background-color: var(--surface);
-      padding: 5px 12px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
     }
 
     /* ============================================================
@@ -340,10 +286,198 @@
     .progress-stat-dot.pending     { background-color: var(--border); }
 
     /* ============================================================
+       THEME PICKER
+       ============================================================ */
+    .theme-section {
+      padding: 0 0 56px;
+      margin-top: 16px;
+    }
+
+    .theme-section-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .theme-section-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .theme-section-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 540px) {
+      .theme-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .theme-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .theme-option {
+      background-color: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .theme-option:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .theme-option.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.25);
+    }
+
+    .theme-option.active::after {
+      content: 'ACTIVE';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #1A2A1F;
+      z-index: 2;
+    }
+
+    .theme-preview {
+      display: flex;
+      height: 100px;
+    }
+
+    .theme-preview-half {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+    }
+
+    .theme-preview-label {
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    .theme-preview-swatches {
+      display: flex;
+      gap: 4px;
+    }
+
+    .theme-swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 1px solid rgba(128, 128, 128, 0.2);
+    }
+
+    .theme-swatch-lg {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1.5px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .theme-info {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .theme-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .theme-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+
+    /* ============================================================
+       COLLAPSIBLE SECTIONS
+       ============================================================ */
+    .collapsible-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+    }
+
+    .collapsible-toggle:hover .collapse-chevron {
+      color: var(--accent);
+    }
+
+    .collapse-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--text-secondary);
+      transition: transform 0.3s ease, color 0.2s ease;
+      margin-left: auto;
+    }
+
+    .collapsible-body {
+      overflow: hidden;
+      max-height: 2000px;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 1;
+    }
+
+    .collapsible-body.collapsed {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .collapsed-indicator .collapse-chevron {
+      transform: rotate(-90deg);
+    }
+
+    /* ============================================================
        ROLE SECTIONS
        ============================================================ */
     .role-section {
       padding: 0 0 48px;
+      margin-top: 40px;
     }
 
     .role-header {
@@ -626,40 +760,6 @@
       margin: 0 6px;
     }
 
-    /* ============================================================
-       THEME TOGGLE
-       ============================================================ */
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: var(--surface);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      flex-shrink: 0;
-    }
-
-    .theme-toggle:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--bg);
-    }
-
-    /* Dark mode: show sun icon, hide moon */
-    [data-theme="dark"] .icon-moon { display: none; }
-    [data-theme="dark"] .icon-sun { display: block; }
-
-    /* Light mode: show moon icon, hide sun */
-    :root:not([data-theme="dark"]) .icon-sun,
-    [data-theme="light"] .icon-sun { display: none; }
-    :root:not([data-theme="dark"]) .icon-moon,
-    [data-theme="light"] .icon-moon { display: block; }
-
     /* Smooth color transitions on theme change */
     body, .header, .progress-card, .screen-card, .footer {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -671,14 +771,6 @@
     @media (min-width: 768px) {
       .container {
         padding: 0 32px;
-      }
-
-      .header-inner {
-        height: 72px;
-      }
-
-      .header-logo-text {
-        font-size: 22px;
       }
 
       .intro {
@@ -721,32 +813,14 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="shared/header.css">
 </head>
 <body>
 
   <!-- ============================================================
-       HEADER
+       HEADER (shared component)
        ============================================================ -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#" class="header-logo">
-        <!-- Leaf icon -->
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 22C6 22 8.5 14 16 10C16 10 12 16 12 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 10C16 10 20 6 24 4C24 4 22 10 18 14C14 18 10 20 6 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 10C12.5 12.5 10 16 8 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-        </svg>
-        <span class="header-logo-text">Hinbuna Kurdi</span>
-      </a>
-      <div style="display:flex;align-items:center;gap:12px;">
-        <a href="onboarding.html" class="header-label" style="text-decoration:none;cursor:pointer;" title="Developer Onboarding Guide">Onboarding Guide</a>
-        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle theme">
-          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="shared-header" data-page-type="gallery" data-show-lang="false" data-show-login="false"></div>
 
   <main>
     <!-- ============================================================
@@ -781,21 +855,179 @@
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot in-progress"></span>
-            <span>1 In Progress</span>
+            <span>2 In Progress</span>
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot pending"></span>
-            <span>31 Pending</span>
+            <span>30 Pending</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
+         THEME PICKER
+         ============================================================ -->
+    <section class="theme-section container fade-in fade-in-delay-2">
+      <button class="collapsible-toggle theme-section-header collapsed-indicator" onclick="toggleCollapse(this)">
+        <div>
+          <h2 class="theme-section-title">Color Theme</h2>
+          <p class="theme-section-subtitle">Pick a palette — click "Apply to Landing" to preview it live on P1</p>
+        </div>
+        <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="collapsible-body collapsed">
+      <div class="theme-grid">
+
+        <!-- 1. Forest Green (default) -->
+        <div class="theme-option active" data-theme-id="forest-green" onclick="selectTheme(this)">
+          <div class="theme-preview">
+            <div class="theme-preview-half" style="background: #FDF8F3;">
+              <span class="theme-preview-label" style="color: #5A6B5E;">Light</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #FDF8F3;" title="Page"></div>
+                <div class="theme-swatch" style="background: #F5EEE6;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #2D5A3D;" title="Primary"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+            <div class="theme-preview-half" style="background: #1A2F23;">
+              <span class="theme-preview-label" style="color: #A8B5AC;">Dark</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #1A2F23;" title="Page"></div>
+                <div class="theme-swatch" style="background: #243D30;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #2F4F3A;" title="Border"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+          </div>
+          <div class="theme-info">
+            <div class="theme-name">Forest Green</div>
+            <div class="theme-desc">Original warm forest green dark mode</div>
+          </div>
+        </div>
+
+        <!-- 2. Warm Charcoal -->
+        <div class="theme-option" data-theme-id="warm-charcoal" onclick="selectTheme(this)">
+          <div class="theme-preview">
+            <div class="theme-preview-half" style="background: #FDF8F3;">
+              <span class="theme-preview-label" style="color: #5A6B5E;">Light</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #FDF8F3;" title="Page"></div>
+                <div class="theme-swatch" style="background: #F5EEE6;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #2D5A3D;" title="Primary"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+            <div class="theme-preview-half" style="background: #1C1E1D;">
+              <span class="theme-preview-label" style="color: #A0A5A2;">Dark</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #1C1E1D;" title="Page"></div>
+                <div class="theme-swatch" style="background: #272A28;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #363936;" title="Border"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+          </div>
+          <div class="theme-info">
+            <div class="theme-name">Warm Charcoal</div>
+            <div class="theme-desc">Neutral dark, warm undertone. Zero green in dark mode.</div>
+          </div>
+        </div>
+
+        <!-- 3. Dark Slate -->
+        <div class="theme-option" data-theme-id="dark-slate" onclick="selectTheme(this)">
+          <div class="theme-preview">
+            <div class="theme-preview-half" style="background: #FDF8F3;">
+              <span class="theme-preview-label" style="color: #5A6B5E;">Light</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #FDF8F3;" title="Page"></div>
+                <div class="theme-swatch" style="background: #F5EEE6;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #2D5A3D;" title="Primary"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+            <div class="theme-preview-half" style="background: #1A2024;">
+              <span class="theme-preview-label" style="color: #9CADA8;">Dark</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #1A2024;" title="Page"></div>
+                <div class="theme-swatch" style="background: #232D31;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #2F3B3E;" title="Border"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+          </div>
+          <div class="theme-info">
+            <div class="theme-name">Dark Slate</div>
+            <div class="theme-desc">Cool blue-slate with slight teal. Modern, no green.</div>
+          </div>
+        </div>
+
+        <!-- 4. Warm Earth -->
+        <div class="theme-option" data-theme-id="warm-earth" onclick="selectTheme(this)">
+          <div class="theme-preview">
+            <div class="theme-preview-half" style="background: #FAF5EE;">
+              <span class="theme-preview-label" style="color: #6B5E4F;">Light</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #FAF5EE;" title="Page"></div>
+                <div class="theme-swatch" style="background: #F0E8DC;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #2D5A3D;" title="Primary"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+            <div class="theme-preview-half" style="background: #1E1C19;">
+              <span class="theme-preview-label" style="color: #ADA89E;">Dark</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #1E1C19;" title="Page"></div>
+                <div class="theme-swatch" style="background: #2A2722;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #3A362F;" title="Border"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+          </div>
+          <div class="theme-info">
+            <div class="theme-name">Warm Earth</div>
+            <div class="theme-desc">Dark brown, cozy warmth. Like evening by firelight.</div>
+          </div>
+        </div>
+
+        <!-- 5. Midnight Green -->
+        <div class="theme-option" data-theme-id="midnight-green" onclick="selectTheme(this)">
+          <div class="theme-preview">
+            <div class="theme-preview-half" style="background: #FDF8F3;">
+              <span class="theme-preview-label" style="color: #5A6B5E;">Light</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #FDF8F3;" title="Page"></div>
+                <div class="theme-swatch" style="background: #F5EEE6;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #2D5A3D;" title="Primary"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+            <div class="theme-preview-half" style="background: #141E1A;">
+              <span class="theme-preview-label" style="color: #8FA598;">Dark</span>
+              <div class="theme-preview-swatches">
+                <div class="theme-swatch-lg" style="background: #141E1A;" title="Page"></div>
+                <div class="theme-swatch" style="background: #1D2B24;" title="Surface"></div>
+                <div class="theme-swatch" style="background: #283830;" title="Border"></div>
+                <div class="theme-swatch" style="background: #D4A843;" title="Accent"></div>
+              </div>
+            </div>
+          </div>
+          <div class="theme-info">
+            <div class="theme-name">Midnight Green</div>
+            <div class="theme-desc">Deeper, darker green. Subtle hint, not overwhelming.</div>
+          </div>
+        </div>
+
+      </div>
+      </div><!-- /collapsible-body -->
+    </section>
+
+    <!-- ============================================================
          PUBLIC SCREENS (P1–P6)
          ============================================================ -->
     <section class="role-section container fade-in fade-in-delay-2" id="public">
-      <div class="role-header">
+      <button class="collapsible-toggle role-header" onclick="toggleCollapse(this)">
         <div class="role-icon public">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
@@ -804,7 +1036,9 @@
           <span class="role-subtitle">Unauthenticated pages</span>
         </div>
         <span class="role-count">6 screens</span>
-      </div>
+        <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="collapsible-body">
       <div class="screen-grid">
 
         <!-- P1. Landing Page -->
@@ -845,9 +1079,9 @@
           </div>
           <p class="screen-description">Email/password, social login buttons, forgot password link</p>
           <div class="screen-card-bottom">
-            <span class="status status-pending"><span class="status-dot"></span>Pending</span>
+            <span class="status status-in-progress"><span class="status-dot"></span>In Progress</span>
             <div class="screen-links">
-              <a href="P3-login.html" class="screen-link screen-link-light disabled">View</a>
+              <a href="P3-login.html" class="screen-link screen-link-light">View</a>
             </div>
           </div>
         </div>
@@ -898,13 +1132,14 @@
         </div>
 
       </div>
+      </div><!-- /collapsible-body -->
     </section>
 
     <!-- ============================================================
          STUDENT SCREENS (S1–S12)
          ============================================================ -->
     <section class="role-section container fade-in fade-in-delay-3" id="student">
-      <div class="role-header">
+      <button class="collapsible-toggle role-header collapsed-indicator" onclick="toggleCollapse(this)">
         <div class="role-icon student">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
@@ -913,7 +1148,9 @@
           <span class="role-subtitle">Authenticated learner</span>
         </div>
         <span class="role-count">12 screens</span>
-      </div>
+        <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="collapsible-body collapsed">
       <div class="screen-grid">
 
         <!-- S1. Dashboard -->
@@ -1097,13 +1334,14 @@
         </div>
 
       </div>
+      </div><!-- /collapsible-body -->
     </section>
 
     <!-- ============================================================
          TEACHER SCREENS (T1–T8)
          ============================================================ -->
     <section class="role-section container fade-in fade-in-delay-4" id="teacher">
-      <div class="role-header">
+      <button class="collapsible-toggle role-header collapsed-indicator" onclick="toggleCollapse(this)">
         <div class="role-icon teacher">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
@@ -1112,7 +1350,9 @@
           <span class="role-subtitle">Mamoste CMS + monitoring</span>
         </div>
         <span class="role-count">8 screens</span>
-      </div>
+        <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="collapsible-body collapsed">
       <div class="screen-grid">
 
         <!-- T1. Content Dashboard -->
@@ -1236,13 +1476,14 @@
         </div>
 
       </div>
+      </div><!-- /collapsible-body -->
     </section>
 
     <!-- ============================================================
          ADMIN SCREENS (A1–A6)
          ============================================================ -->
     <section class="role-section container fade-in fade-in-delay-4" id="admin">
-      <div class="role-header">
+      <button class="collapsible-toggle role-header collapsed-indicator" onclick="toggleCollapse(this)">
         <div class="role-icon admin">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
@@ -1251,7 +1492,9 @@
           <span class="role-subtitle">Platform management</span>
         </div>
         <span class="role-count">6 screens</span>
-      </div>
+        <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="collapsible-body collapsed">
       <div class="screen-grid">
 
         <!-- A1. Admin Dashboard -->
@@ -1345,6 +1588,7 @@
         </div>
 
       </div>
+      </div><!-- /collapsible-body -->
     </section>
 
   </main>
@@ -1365,21 +1609,41 @@
   </footer>
 
   <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('hinbuna-theme', next);
+    /* ============================================================
+       COLLAPSIBLE SECTIONS
+       ============================================================ */
+    function toggleCollapse(btn) {
+      var body = btn.nextElementSibling;
+      body.classList.toggle('collapsed');
+      btn.classList.toggle('collapsed-indicator');
     }
 
-    // Restore saved theme (default: dark)
-    (function() {
-      const saved = localStorage.getItem('hinbuna-theme');
+    /* ============================================================
+       COLOR THEME PICKER — applies palette to this page instantly
+       ============================================================ */
+    function selectTheme(el) {
+      var themeId = el.dataset.themeId;
+      if (!themeId) return;
+
+      // Update active state in UI
+      document.querySelectorAll('.theme-option').forEach(function (opt) {
+        opt.classList.toggle('active', opt.dataset.themeId === themeId);
+      });
+
+      // Apply via shared theme system (saves to localStorage, applies CSS overrides)
+      HK.setColorTheme(themeId);
+    }
+
+    // Restore active theme indicator on load
+    (function () {
+      var saved = HK.getColorTheme();
       if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
+        document.querySelectorAll('.theme-option').forEach(function (el) {
+          el.classList.toggle('active', el.dataset.themeId === saved);
+        });
       }
     })();
   </script>
+  <script src="shared/header.js"></script>
 </body>
 </html>

@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared/header.css">
+  <script src="shared/theme.js"></script>
   <style>
     /* ============================================================
        HINBUNA KURDI — DEVELOPER ONBOARDING GUIDE
@@ -127,129 +129,17 @@
     .fade-in-delay-3 { animation-delay: 0.24s; }
 
     /* ============================================================
-       HEADER
+       SHARED HEADER OVERRIDES
+       z-index bump so header stays above sidebar
        ============================================================ */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background-color: rgba(253, 248, 243, 0.92);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
+    .header { z-index: 200; }
 
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
-      height: 64px;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .header-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--primary);
-    }
-
-    .header-logo svg {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-
-    .header-logo-text {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: -0.3px;
-      color: var(--primary);
-    }
-
-    .header-breadcrumb {
-      display: none;
-      align-items: center;
-      gap: 8px;
-      margin-left: 12px;
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .header-breadcrumb svg {
-      width: 14px;
-      height: 14px;
-      opacity: 0.5;
-    }
-
-    .header-breadcrumb span {
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .header-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: var(--radius-sm);
-      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
-    }
-
-    .header-link-gallery {
-      background-color: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .header-link-gallery:hover {
-      background-color: var(--primary);
-      color: var(--bg);
-      border-color: var(--primary);
-      transform: translateY(-1px);
-    }
-
-    .header-link-gallery svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .header-label {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-secondary);
-      background-color: var(--surface);
-      padding: 5px 12px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      display: none;
-    }
-
-    /* Sidebar toggle button (mobile) */
+    /* Sidebar toggle button (mobile only) — positioned over shared header */
     .sidebar-toggle {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 201;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -636,7 +526,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 8px 14px;
-      background-color: #243D30;
+      background-color: var(--surface);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
@@ -1041,6 +931,582 @@
     }
 
     /* ============================================================
+       PROJECT TIMELINE
+       ============================================================ */
+    .timeline-section {
+      margin-bottom: 48px;
+      padding-bottom: 0;
+    }
+
+    .timeline-header {
+      margin-bottom: 36px;
+    }
+
+    .timeline-overline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .timeline-overline svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .timeline-header h2 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.4px;
+    }
+
+    .timeline-header .timeline-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .timeline-header .timeline-subtitle strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Timeline container */
+    .timeline {
+      position: relative;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* Vertical line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        var(--primary) 0%,
+        var(--primary) 50%,
+        var(--border) 50%,
+        var(--border) 100%
+      );
+      border-radius: 1px;
+    }
+
+    /* Timeline item */
+    .timeline-item {
+      position: relative;
+      display: flex;
+      gap: 20px;
+      padding-bottom: 32px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    /* Timeline dot */
+    .timeline-dot {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-dot svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Completed state */
+    .timeline-item--completed .timeline-dot {
+      background-color: var(--primary);
+      border: 2px solid var(--primary);
+      color: var(--bg);
+      box-shadow: 0 2px 8px rgba(45, 90, 61, 0.2);
+    }
+
+    /* In-progress state */
+    .timeline-item--in-progress .timeline-dot {
+      background-color: var(--accent);
+      border: 2px solid var(--accent);
+      color: var(--text);
+      box-shadow: 0 2px 12px rgba(212, 168, 67, 0.3);
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 2px 12px rgba(212, 168, 67, 0.3); }
+      50%      { box-shadow: 0 2px 20px rgba(212, 168, 67, 0.5); }
+    }
+
+    /* Upcoming state */
+    .timeline-item--upcoming .timeline-dot {
+      background-color: var(--bg);
+      border: 2px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* Future/roadmap state */
+    .timeline-item--future .timeline-dot {
+      background-color: var(--bg);
+      border: 2px dashed var(--border);
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    /* Timeline card */
+    .timeline-card {
+      flex: 1;
+      min-width: 0;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .timeline-card:hover {
+      border-color: var(--tan);
+    }
+
+    .timeline-item--completed .timeline-card {
+      border-left: 3px solid var(--primary);
+    }
+
+    .timeline-item--in-progress .timeline-card {
+      border-left: 3px solid var(--accent);
+      box-shadow: 0 4px 16px rgba(212, 168, 67, 0.08);
+    }
+
+    .timeline-item--future .timeline-card {
+      opacity: 0.65;
+      border-style: dashed;
+    }
+
+    /* Card header */
+    .timeline-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-card-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .timeline-card-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Duration badge variants */
+    .timeline-card-duration--1w {
+      background-color: rgba(45, 90, 61, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(45, 90, 61, 0.15);
+    }
+
+    .timeline-card-duration--2w {
+      background-color: rgba(212, 168, 67, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(212, 168, 67, 0.2);
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+
+    .timeline-card-duration--roadmap {
+      background-color: rgba(168, 181, 172, 0.1);
+      color: var(--text-secondary);
+      border: 1px dashed var(--border);
+    }
+
+    /* Card date */
+    .timeline-card-date {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    /* Card tasks */
+    .timeline-card-tasks {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .timeline-card-tasks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 3px 0;
+    }
+
+    .timeline-card-tasks li::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--text-secondary);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .timeline-item--completed .timeline-card-tasks li::before {
+      background-color: var(--primary);
+    }
+
+    .timeline-item--in-progress .timeline-card-tasks li::before {
+      background-color: var(--accent);
+    }
+
+    /* Status badge */
+    .timeline-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-top: 12px;
+    }
+
+    .timeline-status--done {
+      background-color: rgba(45, 138, 78, 0.1);
+      color: var(--color-success);
+      border: 1px solid rgba(45, 138, 78, 0.2);
+    }
+
+    .timeline-status--active {
+      background-color: rgba(212, 168, 67, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(212, 168, 67, 0.2);
+    }
+
+    .timeline-status svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Future items sub-list */
+    .timeline-future-apps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline-future-apps li {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background-color: var(--bg);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .timeline-future-apps li::before {
+      display: none;
+    }
+
+    /* Responsive: larger screens */
+    @media (min-width: 768px) {
+      .timeline-header h2 {
+        font-size: 32px;
+      }
+
+      .timeline::before {
+        left: 23px;
+      }
+
+      .timeline-dot {
+        width: 48px;
+        height: 48px;
+      }
+
+      .timeline-dot svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .timeline-item {
+        gap: 24px;
+      }
+
+      .timeline-card {
+        padding: 22px 24px;
+      }
+
+      .timeline-card-title {
+        font-size: 17px;
+      }
+    }
+
+    /* ============================================================
+       GANTT CALENDAR OVERVIEW
+       ============================================================ */
+    .gantt-overview {
+      margin-bottom: 36px;
+    }
+
+    .gantt-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .gantt-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background-color: var(--surface);
+    }
+
+    .gantt-chart {
+      min-width: 600px;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    /* Month header row */
+    .gantt-month-row th {
+      padding: 10px 0 2px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+      text-align: left;
+      border-bottom: none;
+      background-color: var(--surface);
+    }
+
+    .gantt-month-row th:first-child {
+      padding-left: 12px;
+    }
+
+    /* Week header row */
+    .gantt-week-row th {
+      padding: 4px 0 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--surface);
+      position: relative;
+    }
+
+    .gantt-week-row th:first-child {
+      text-align: left;
+      padding-left: 12px;
+    }
+
+    /* Phase rows */
+    .gantt-chart tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gantt-chart tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .gantt-phase-label {
+      padding: 10px 12px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      min-width: 100px;
+      background-color: var(--surface);
+      vertical-align: middle;
+    }
+
+    .gantt-cell {
+      padding: 10px 2px;
+      vertical-align: middle;
+      position: relative;
+      background-color: var(--surface);
+    }
+
+    /* Gantt bars */
+    .gantt-bar {
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s ease;
+    }
+
+    .gantt-bar:hover {
+      opacity: 0.85;
+    }
+
+    /* Completed bar */
+    .gantt-bar--completed {
+      background-color: var(--primary);
+      color: var(--bg);
+    }
+
+    /* In-progress bar */
+    .gantt-bar--in-progress {
+      background-color: var(--accent);
+      color: var(--text);
+      background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.12) 50%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: gantt-shimmer 2.5s ease-in-out infinite;
+    }
+
+    @keyframes gantt-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Upcoming bar */
+    .gantt-bar--upcoming {
+      background-color: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* Future/roadmap bar */
+    .gantt-bar--future {
+      background-color: transparent;
+      border: 1.5px dashed var(--border);
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+
+    /* Today marker */
+    .gantt-today-marker {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: var(--color-error);
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .gantt-today-marker::before {
+      content: 'Today';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--color-error);
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Week header today highlight */
+    .gantt-week--today {
+      color: var(--color-error) !important;
+      font-weight: 700 !important;
+    }
+
+    /* Divider between overview and detailed timeline */
+    .gantt-divider {
+      height: 1px;
+      background-color: var(--border);
+      margin: 32px 0;
+      border: none;
+    }
+
+    .timeline-detail-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    /* Multi-week bar spanning cells */
+    .gantt-bar-span {
+      position: relative;
+    }
+
+    /* Responsive: gantt scrolls on mobile */
+    @media (max-width: 767px) {
+      .gantt-wrapper {
+        margin: 0 -4px;
+      }
+
+      .gantt-phase-label {
+        font-size: 11px;
+        min-width: 80px;
+        padding: 8px 8px;
+      }
+    }
+
+    /* ============================================================
        FOOTER
        ============================================================ */
     .footer {
@@ -1074,19 +1540,6 @@
        RESPONSIVE
        ============================================================ */
     @media (min-width: 768px) {
-      .header-inner {
-        height: 72px;
-        padding: 0 32px;
-      }
-
-      .header-breadcrumb {
-        display: flex;
-      }
-
-      .header-label {
-        display: inline-block;
-      }
-
       .sidebar-toggle {
         display: none;
       }
@@ -1130,38 +1583,8 @@
       }
     }
 
-    /* ============================================================
-       THEME TOGGLE
-       ============================================================ */
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: var(--surface);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      flex-shrink: 0;
-    }
-
-    .theme-toggle:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--bg);
-    }
-
-    [data-theme="dark"] .icon-moon { display: none; }
-    [data-theme="dark"] .icon-sun { display: block; }
-    :root:not([data-theme="dark"]) .icon-sun,
-    [data-theme="light"] .icon-sun { display: none; }
-    :root:not([data-theme="dark"]) .icon-moon,
-    [data-theme="light"] .icon-moon { display: block; }
-
-    body, .header, .sidebar, .accordion-title, .accordion-content, .footer, .callout {
+    /* Theme transitions for non-header elements */
+    body, .sidebar, .accordion-title, .accordion-content, .footer, .callout, .timeline-card, .timeline-dot, .gantt-wrapper, .gantt-chart, .gantt-cell, .gantt-phase-label, .gantt-bar {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
 
@@ -1182,39 +1605,14 @@
 <body>
 
   <!-- ============================================================
-       HEADER
+       SHARED HEADER (injected by shared/header.js)
        ============================================================ -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="header-left">
-        <a href="index.html" class="header-logo">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M6 22C6 22 8.5 14 16 10C16 10 12 16 12 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M16 10C16 10 20 6 24 4C24 4 22 10 18 14C14 18 10 20 6 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M16 10C12.5 12.5 10 16 8 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-          </svg>
-          <span class="header-logo-text">Hinbuna Kurdi</span>
-        </a>
-        <div class="header-breadcrumb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          <span>Developer Onboarding</span>
-        </div>
-      </div>
-      <div class="header-right">
-        <a href="index.html" class="header-link header-link-gallery">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          Back to Gallery
-        </a>
-        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle theme">
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle table of contents">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="shared-header" data-page-type="onboarding" data-show-lang="false" data-show-login="false"></div>
+
+  <!-- Sidebar toggle (mobile only, onboarding-specific) -->
+  <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle table of contents">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 
   <!-- ============================================================
        SIDEBAR BACKDROP (mobile)
@@ -1231,7 +1629,13 @@
       <div class="sidebar-title">Table of Contents</div>
       <ul class="sidebar-nav">
         <li class="sidebar-nav-item">
-          <a href="#section-1" class="sidebar-nav-link active" onclick="closeSidebarMobile()">
+          <a href="#section-timeline" class="sidebar-nav-link active" onclick="closeSidebarMobile()">
+            <span class="nav-number" style="font-size: 9px;">TL</span>
+            Project Timeline
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#section-1" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">1</span>
             Project Overview
           </a>
@@ -1310,13 +1714,294 @@
             </span>
             <span class="intro-meta-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-              9 sections
+              9 sections + timeline
             </span>
           </div>
         </section>
 
+        <!-- ============================================================
+             PROJECT TIMELINE
+             ============================================================ -->
+        <section class="timeline-section fade-in fade-in-delay-1" id="section-timeline">
+          <div class="timeline-header">
+            <div class="timeline-overline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Roadmap
+            </div>
+            <h2>Project Timeline</h2>
+            <p class="timeline-subtitle"><strong>8-week plan: February &rarr; March 2026</strong> &mdash; From foundation to launch, and beyond.</p>
+          </div>
+
+          <!-- GANTT CALENDAR OVERVIEW -->
+          <div class="gantt-overview">
+            <div class="gantt-label">Overview</div>
+            <div class="gantt-wrapper">
+              <table class="gantt-chart">
+                <thead>
+                  <!-- Month row -->
+                  <tr class="gantt-month-row">
+                    <th></th>
+                    <th colspan="4" style="text-align: center;">February 2026</th>
+                    <th colspan="4" style="text-align: center;">March 2026</th>
+                  </tr>
+                  <!-- Week row -->
+                  <tr class="gantt-week-row">
+                    <th style="min-width: 100px;">Phase</th>
+                    <th>Feb 3</th>
+                    <th class="gantt-week--today" style="position: relative;">Feb 10
+                      <span class="gantt-today-marker" style="left: 40%;"></span>
+                    </th>
+                    <th>Feb 17</th>
+                    <th>Feb 24</th>
+                    <th>Mar 3</th>
+                    <th>Mar 10</th>
+                    <th>Mar 17</th>
+                    <th>Mar 24</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Phase 1: Foundation (W1, completed) -->
+                  <tr>
+                    <td class="gantt-phase-label">P1 Foundation</td>
+                    <td class="gantt-cell"><div class="gantt-bar gantt-bar--completed">Done</div></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                  </tr>
+                  <!-- Phase 2: MVP Screens (W2, in-progress) -->
+                  <tr>
+                    <td class="gantt-phase-label">P2 MVP Screens</td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"><div class="gantt-bar gantt-bar--in-progress">Now</div></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                  </tr>
+                  <!-- Phase 3: Ticket Planning (W3) -->
+                  <tr>
+                    <td class="gantt-phase-label">P3 Tickets</td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"><div class="gantt-bar gantt-bar--upcoming">W3</div></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                  </tr>
+                  <!-- Phase 4: Implementation (W4-W5, 2 weeks) -->
+                  <tr>
+                    <td class="gantt-phase-label">P4 Build</td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell" colspan="2"><div class="gantt-bar gantt-bar--upcoming">2 weeks</div></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                  </tr>
+                  <!-- Phase 5: Testing (W6-W7, 2 weeks) -->
+                  <tr>
+                    <td class="gantt-phase-label">P5 Testing</td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell" colspan="2"><div class="gantt-bar gantt-bar--upcoming">2 weeks</div></td>
+                    <td class="gantt-cell"></td>
+                  </tr>
+                  <!-- Phase 6: EzmunaAstaKurdi (W8) -->
+                  <tr>
+                    <td class="gantt-phase-label">P6 Ezmuna</td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"><div class="gantt-bar gantt-bar--upcoming">W8</div></td>
+                  </tr>
+                  <!-- Phase 7: Roadmap (extends beyond) -->
+                  <tr>
+                    <td class="gantt-phase-label">P7 Roadmap</td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"></td>
+                    <td class="gantt-cell"><div class="gantt-bar gantt-bar--future">&rarr;</div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- DIVIDER -->
+          <hr class="gantt-divider">
+          <div class="timeline-detail-label">Detailed Timeline</div>
+
+          <ol class="timeline">
+
+            <!-- Phase 1: Foundation — COMPLETED -->
+            <li class="timeline-item timeline-item--completed">
+              <div class="timeline-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="timeline-card-title">Phase 1 &mdash; Foundation</span>
+                  <span class="timeline-card-duration timeline-card-duration--1w">1w</span>
+                </div>
+                <div class="timeline-card-date">Feb 7, 2026</div>
+                <ul class="timeline-card-tasks">
+                  <li>Project setup &amp; repository structure</li>
+                  <li>Material alignment with Mamoste</li>
+                  <li>Design system &amp; brand decisions</li>
+                </ul>
+                <span class="timeline-status timeline-status--done">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Done
+                </span>
+              </div>
+            </li>
+
+            <!-- Phase 2: MVP Screen Decisions — IN PROGRESS -->
+            <li class="timeline-item timeline-item--in-progress">
+              <div class="timeline-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4"/><path d="M12 19v4"/><path d="M4.22 4.22l2.83 2.83"/><path d="M16.95 16.95l2.83 2.83"/><path d="M1 12h4"/><path d="M19 12h4"/><path d="M4.22 19.78l2.83-2.83"/><path d="M16.95 7.05l2.83-2.83"/></svg>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="timeline-card-title">Phase 2 &mdash; MVP Screen Decisions</span>
+                  <span class="timeline-card-duration timeline-card-duration--1w">1w</span>
+                </div>
+                <div class="timeline-card-date">Feb 14, 2026</div>
+                <ul class="timeline-card-tasks">
+                  <li>Screen layout decisions for all 32 screens</li>
+                  <li>Prompt files &amp; design specs</li>
+                  <li>Light + dark mode HTML mockups</li>
+                </ul>
+                <span class="timeline-status timeline-status--active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  In Progress
+                </span>
+              </div>
+            </li>
+
+            <!-- Phase 3: Ticket-Kanban Planning — UPCOMING -->
+            <li class="timeline-item timeline-item--upcoming">
+              <div class="timeline-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="timeline-card-title">Phase 3 &mdash; Ticket-Kanban Planning</span>
+                  <span class="timeline-card-duration timeline-card-duration--1w">1w</span>
+                </div>
+                <div class="timeline-card-date">Feb 21, 2026</div>
+                <ul class="timeline-card-tasks">
+                  <li>Break screens into implementation tickets</li>
+                  <li>Kanban board setup &amp; sprint planning</li>
+                  <li>Assign frontend tasks to Gule</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Phase 4: Implementation — UPCOMING -->
+            <li class="timeline-item timeline-item--upcoming">
+              <div class="timeline-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="timeline-card-title">Phase 4 &mdash; Implementation</span>
+                  <span class="timeline-card-duration timeline-card-duration--2w">2 weeks</span>
+                </div>
+                <div class="timeline-card-date">Feb 21 &ndash; Mar 7, 2026</div>
+                <ul class="timeline-card-tasks">
+                  <li>NestJS backend: auth, courses, progress modules</li>
+                  <li>React frontend: screen-by-screen build from HTML mockups</li>
+                  <li>Database migrations &amp; seed data</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Phase 5: Testing — UPCOMING -->
+            <li class="timeline-item timeline-item--upcoming">
+              <div class="timeline-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="timeline-card-title">Phase 5 &mdash; Testing</span>
+                  <span class="timeline-card-duration timeline-card-duration--2w">2 weeks</span>
+                </div>
+                <div class="timeline-card-date">Mar 7 &ndash; Mar 21, 2026</div>
+                <ul class="timeline-card-tasks">
+                  <li>End-to-end testing of student flow</li>
+                  <li>Teacher content workflow QA</li>
+                  <li>Performance &amp; accessibility audit</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Phase 6: EzmunaAstaKurdi Tunes — UPCOMING -->
+            <li class="timeline-item timeline-item--upcoming">
+              <div class="timeline-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="timeline-card-title">Phase 6 &mdash; EzmunaAstaKurdi Tunes</span>
+                  <span class="timeline-card-duration timeline-card-duration--1w">1w</span>
+                </div>
+                <div class="timeline-card-date">Mar 28, 2026</div>
+                <ul class="timeline-card-tasks">
+                  <li>UI improvements &amp; polish</li>
+                  <li>Small bug fixes</li>
+                  <li>Algorithm correction</li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Phase 7: Next Steps — FUTURE -->
+            <li class="timeline-item timeline-item--future">
+              <div class="timeline-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="timeline-card-title">Next Steps &mdash; Connected Apps</span>
+                  <span class="timeline-card-duration timeline-card-duration--roadmap">Roadmap</span>
+                </div>
+                <div class="timeline-card-date">Post-launch &middot; Ongoing</div>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 4px;">Expanding the Adar Schule ecosystem with shared SSO:</p>
+                <ul class="timeline-future-apps">
+                  <li>Ferheng (Dictionary)</li>
+                  <li>Games &amp; Puzzles</li>
+                  <li>Short Stories</li>
+                  <li>Grammar Exercises</li>
+                  <li>Kurdish Corpus</li>
+                </ul>
+              </div>
+            </li>
+
+          </ol>
+        </section>
+
         <!-- ACCORDION SECTIONS -->
-        <div class="accordion fade-in fade-in-delay-1">
+        <div class="accordion fade-in fade-in-delay-2">
 
           <!-- ============================================================
                SECTION 1: PROJECT OVERVIEW
@@ -2311,12 +2996,12 @@ claude
 
     // --- Sidebar Active State ---
     function updateSidebarActive() {
-      const sections = document.querySelectorAll('.accordion-item[id]');
+      const sections = document.querySelectorAll('.accordion-item[id], .timeline-section[id]');
       const navLinks = document.querySelectorAll('.sidebar-nav-link');
 
       const scrollPos = window.scrollY + 120;
 
-      let activeId = 'section-1';
+      let activeId = 'section-timeline';
       sections.forEach(section => {
         if (section.offsetTop <= scrollPos) {
           activeId = section.id;
@@ -2377,25 +3062,9 @@ claude
       });
     }
 
-    // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('hinbuna-theme', next);
-    }
-
-    // Restore saved theme (default: dark)
-    (function() {
-      const saved = localStorage.getItem('hinbuna-theme');
-      if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-      }
-    })();
-
     // Initialize
     updateSidebarActive();
   </script>
+  <script src="shared/header.js"></script>
 </body>
 </html>

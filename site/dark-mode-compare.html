@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Palette Comparison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111;
+      color: #ccc;
+      padding: 32px 24px;
+    }
+
+    h1 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #F5EEE6;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1300px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .palette {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #333;
+      transition: border-color 0.2s;
+    }
+    .palette:hover { border-color: #D4A843; }
+
+    .palette-header {
+      padding: 16px 20px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+    .palette-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #F5EEE6;
+      margin-bottom: 4px;
+    }
+    .palette-desc {
+      font-size: 13px;
+      color: #888;
+    }
+    .palette-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #D4A843;
+      color: #1a1a1a;
+      margin-top: 8px;
+    }
+
+    /* Mock page area */
+    .mock-page {
+      padding: 20px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Header mock */
+    .mock-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+    .mock-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mock-logo svg { width: 18px; height: 18px; }
+    .mock-logo span {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .mock-nav {
+      display: flex;
+      gap: 8px;
+    }
+    .mock-nav-item {
+      width: 40px;
+      height: 8px;
+      border-radius: 4px;
+      opacity: 0.4;
+    }
+
+    /* Card mock */
+    .mock-card {
+      padding: 16px;
+      border-radius: 12px;
+      border-width: 1px;
+      border-style: solid;
+    }
+    .mock-card-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .mock-card-text {
+      font-size: 13px;
+      line-height: 1.5;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+
+    /* Button mock */
+    .mock-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      border: none;
+    }
+    .mock-btn-primary {
+      background: #D4A843;
+      color: #1a1a1a;
+    }
+    .mock-btn-outline {
+      background: transparent;
+      border: 1.5px solid;
+      font-size: 13px;
+      padding: 7px 18px;
+    }
+
+    /* CTA section mock */
+    .mock-cta {
+      padding: 24px 16px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .mock-cta-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    .mock-cta-sub {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-bottom: 14px;
+    }
+
+    /* Swatches */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .swatch {
+      height: 32px;
+      border-radius: 6px;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .swatch-label {
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 9px;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .swatch-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 20px;
+      padding-top: 12px;
+      border-top: 1px solid #333;
+    }
+    .swatch-row .swatch {
+      flex: 1;
+      height: 28px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Dark Mode Palette Comparison</h1>
+<p class="subtitle">Hover to highlight · Pick one that feels right for Hinbûna Kurdî</p>
+
+<div class="grid">
+
+  <!-- CURRENT: Soldier Green -->
+  <div class="palette">
+    <div class="palette-header">
+      <div class="palette-name">Current — Forest Green</div>
+      <div class="palette-desc">What we have now. Heavy green everywhere.</div>
+      <span class="palette-tag">CURRENT</span>
+    </div>
+    <div class="mock-page" style="background: #1A2F23;">
+      <!-- Header -->
+      <div class="mock-header" style="background: rgba(26, 47, 35, 0.92);">
+        <div class="mock-logo">
+          <svg viewBox="0 0 100 100"><polygon points="50,5 53,30 63,7 59,32 75,13 64,35 85,22 67,40 92,34 70,46 95,47 70,52 94,60 69,57 89,73 66,63 81,83 61,67 70,91 56,69 57,95 50,70 43,95 44,69 31,91 39,67 19,83 34,63 11,73 31,57 6,60 30,52 5,47 31,46 8,34 33,40 15,22 36,35 25,13 41,32 37,7 47,30" fill="#D4A843"/><circle cx="50" cy="50" r="16" fill="#D4A843"/></svg>
+          <span style="color: #F5EEE6;">Hinbûna Kurdî</span>
+        </div>
+        <div class="mock-nav">
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+        </div>
+      </div>
+      <!-- Card -->
+      <div class="mock-card" style="background: #243D30; border-color: #2F4F3A;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Fêrbûna zimanê kurdî</div>
+        <div class="mock-card-text" style="color: #A8B5AC;">Structured curriculum from A1 to B1 with native audio and professional educators.</div>
+        <button class="mock-btn mock-btn-primary">Dest pê bike</button>
+      </div>
+      <!-- Second card -->
+      <div class="mock-card" style="background: #243D30; border-color: #2F4F3A;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Course Progress</div>
+        <div class="mock-card-text" style="color: #A8B5AC;">Module A1 · Unit 3 — Reng û Danasîn</div>
+        <button class="mock-btn mock-btn-outline" style="color: #D4A843; border-color: #D4A843;">Bidomîne</button>
+      </div>
+      <!-- CTA -->
+      <div class="mock-cta" style="background: #2A4736;">
+        <div class="mock-cta-title" style="color: #F5EEE6;">Îro dest pê bike</div>
+        <div class="mock-cta-sub" style="color: #A8B5AC;">Join thousands learning Kurdish</div>
+        <button class="mock-btn mock-btn-primary">Bêlaş dest pê bike</button>
+      </div>
+      <!-- Swatches -->
+      <div class="swatch-row">
+        <div class="swatch" style="background: #1A2F23;" title="#1A2F23"></div>
+        <div class="swatch" style="background: #243D30;" title="#243D30"></div>
+        <div class="swatch" style="background: #2F4F3A;" title="#2F4F3A"></div>
+        <div class="swatch" style="background: #2A4736;" title="#2A4736"></div>
+        <div class="swatch" style="background: #D4A843;" title="#D4A843"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION A: Warm Charcoal -->
+  <div class="palette">
+    <div class="palette-header">
+      <div class="palette-name">A — Warm Charcoal</div>
+      <div class="palette-desc">Neutral dark, warm undertone. No green.</div>
+    </div>
+    <div class="mock-page" style="background: #1C1E1D;">
+      <div class="mock-header" style="background: rgba(28, 30, 29, 0.92);">
+        <div class="mock-logo">
+          <svg viewBox="0 0 100 100"><polygon points="50,5 53,30 63,7 59,32 75,13 64,35 85,22 67,40 92,34 70,46 95,47 70,52 94,60 69,57 89,73 66,63 81,83 61,67 70,91 56,69 57,95 50,70 43,95 44,69 31,91 39,67 19,83 34,63 11,73 31,57 6,60 30,52 5,47 31,46 8,34 33,40 15,22 36,35 25,13 41,32 37,7 47,30" fill="#D4A843"/><circle cx="50" cy="50" r="16" fill="#D4A843"/></svg>
+          <span style="color: #F5EEE6;">Hinbûna Kurdî</span>
+        </div>
+        <div class="mock-nav">
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+        </div>
+      </div>
+      <div class="mock-card" style="background: #272A28; border-color: #363936;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Fêrbûna zimanê kurdî</div>
+        <div class="mock-card-text" style="color: #A0A5A2;">Structured curriculum from A1 to B1 with native audio and professional educators.</div>
+        <button class="mock-btn mock-btn-primary">Dest pê bike</button>
+      </div>
+      <div class="mock-card" style="background: #272A28; border-color: #363936;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Course Progress</div>
+        <div class="mock-card-text" style="color: #A0A5A2;">Module A1 · Unit 3 — Reng û Danasîn</div>
+        <button class="mock-btn mock-btn-outline" style="color: #D4A843; border-color: #D4A843;">Bidomîne</button>
+      </div>
+      <div class="mock-cta" style="background: #2E3230;">
+        <div class="mock-cta-title" style="color: #F5EEE6;">Îro dest pê bike</div>
+        <div class="mock-cta-sub" style="color: #A0A5A2;">Join thousands learning Kurdish</div>
+        <button class="mock-btn mock-btn-primary">Bêlaş dest pê bike</button>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background: #1C1E1D;" title="#1C1E1D"></div>
+        <div class="swatch" style="background: #272A28;" title="#272A28"></div>
+        <div class="swatch" style="background: #363936;" title="#363936"></div>
+        <div class="swatch" style="background: #2E3230;" title="#2E3230"></div>
+        <div class="swatch" style="background: #D4A843;" title="#D4A843"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B: Dark Slate -->
+  <div class="palette">
+    <div class="palette-header">
+      <div class="palette-name">B — Dark Slate</div>
+      <div class="palette-desc">Cool blue-slate. Hint of teal, no green.</div>
+    </div>
+    <div class="mock-page" style="background: #1A2024;">
+      <div class="mock-header" style="background: rgba(26, 32, 36, 0.92);">
+        <div class="mock-logo">
+          <svg viewBox="0 0 100 100"><polygon points="50,5 53,30 63,7 59,32 75,13 64,35 85,22 67,40 92,34 70,46 95,47 70,52 94,60 69,57 89,73 66,63 81,83 61,67 70,91 56,69 57,95 50,70 43,95 44,69 31,91 39,67 19,83 34,63 11,73 31,57 6,60 30,52 5,47 31,46 8,34 33,40 15,22 36,35 25,13 41,32 37,7 47,30" fill="#D4A843"/><circle cx="50" cy="50" r="16" fill="#D4A843"/></svg>
+          <span style="color: #F5EEE6;">Hinbûna Kurdî</span>
+        </div>
+        <div class="mock-nav">
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+        </div>
+      </div>
+      <div class="mock-card" style="background: #232D31; border-color: #2F3B3E;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Fêrbûna zimanê kurdî</div>
+        <div class="mock-card-text" style="color: #9CADA8;">Structured curriculum from A1 to B1 with native audio and professional educators.</div>
+        <button class="mock-btn mock-btn-primary">Dest pê bike</button>
+      </div>
+      <div class="mock-card" style="background: #232D31; border-color: #2F3B3E;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Course Progress</div>
+        <div class="mock-card-text" style="color: #9CADA8;">Module A1 · Unit 3 — Reng û Danasîn</div>
+        <button class="mock-btn mock-btn-outline" style="color: #D4A843; border-color: #D4A843;">Bidomîne</button>
+      </div>
+      <div class="mock-cta" style="background: #283537;">
+        <div class="mock-cta-title" style="color: #F5EEE6;">Îro dest pê bike</div>
+        <div class="mock-cta-sub" style="color: #9CADA8;">Join thousands learning Kurdish</div>
+        <button class="mock-btn mock-btn-primary">Bêlaş dest pê bike</button>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background: #1A2024;" title="#1A2024"></div>
+        <div class="swatch" style="background: #232D31;" title="#232D31"></div>
+        <div class="swatch" style="background: #2F3B3E;" title="#2F3B3E"></div>
+        <div class="swatch" style="background: #283537;" title="#283537"></div>
+        <div class="swatch" style="background: #D4A843;" title="#D4A843"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C: Warm Earth -->
+  <div class="palette">
+    <div class="palette-header">
+      <div class="palette-name">C — Warm Earth</div>
+      <div class="palette-desc">Dark brown, cozy warmth. Like evening firelight.</div>
+    </div>
+    <div class="mock-page" style="background: #1E1C19;">
+      <div class="mock-header" style="background: rgba(30, 28, 25, 0.92);">
+        <div class="mock-logo">
+          <svg viewBox="0 0 100 100"><polygon points="50,5 53,30 63,7 59,32 75,13 64,35 85,22 67,40 92,34 70,46 95,47 70,52 94,60 69,57 89,73 66,63 81,83 61,67 70,91 56,69 57,95 50,70 43,95 44,69 31,91 39,67 19,83 34,63 11,73 31,57 6,60 30,52 5,47 31,46 8,34 33,40 15,22 36,35 25,13 41,32 37,7 47,30" fill="#D4A843"/><circle cx="50" cy="50" r="16" fill="#D4A843"/></svg>
+          <span style="color: #F5EEE6;">Hinbûna Kurdî</span>
+        </div>
+        <div class="mock-nav">
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+          <div class="mock-nav-item" style="background: #F5EEE6;"></div>
+        </div>
+      </div>
+      <div class="mock-card" style="background: #2A2722; border-color: #3A362F;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Fêrbûna zimanê kurdî</div>
+        <div class="mock-card-text" style="color: #ADA89E;">Structured curriculum from A1 to B1 with native audio and professional educators.</div>
+        <button class="mock-btn mock-btn-primary">Dest pê bike</button>
+      </div>
+      <div class="mock-card" style="background: #2A2722; border-color: #3A362F;">
+        <div class="mock-card-title" style="color: #F5EEE6;">Course Progress</div>
+        <div class="mock-card-text" style="color: #ADA89E;">Module A1 · Unit 3 — Reng û Danasîn</div>
+        <button class="mock-btn mock-btn-outline" style="color: #D4A843; border-color: #D4A843;">Bidomîne</button>
+      </div>
+      <div class="mock-cta" style="background: #32302A;">
+        <div class="mock-cta-title" style="color: #F5EEE6;">Îro dest pê bike</div>
+        <div class="mock-cta-sub" style="color: #ADA89E;">Join thousands learning Kurdish</div>
+        <button class="mock-btn mock-btn-primary">Bêlaş dest pê bike</button>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background: #1E1C19;" title="#1E1C19"></div>
+        <div class="swatch" style="background: #2A2722;" title="#2A2722"></div>
+        <div class="swatch" style="background: #3A362F;" title="#3A362F"></div>
+        <div class="swatch" style="background: #32302A;" title="#32302A"></div>
+        <div class="swatch" style="background: #D4A843;" title="#D4A843"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

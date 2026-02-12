@@ -1,0 +1,322 @@
+/* ============================================================
+   SHARED HEADER — Hinbuna Kurdi
+   Single source of truth for all page headers.
+   Used by: P1-landing.html, index.html, onboarding.html
+   ============================================================ */
+
+/* ============================================
+   HEADER — Base (Light Mode)
+   ============================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(253, 248, 243, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(229, 221, 211, 0.5);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 16px rgba(26, 42, 31, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .header-inner { height: 64px; padding: 0 40px; }
+}
+
+@media (min-width: 1024px) {
+  .header-inner { padding: 0 60px; }
+}
+
+/* ============================================
+   LOGO
+   ============================================ */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-logo-leaf {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .header-logo-leaf { width: 26px; height: 26px; }
+}
+
+.header-logo-text {
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .header-logo-text { font-size: 22px; }
+}
+
+/* ============================================
+   HEADER ACTIONS
+   ============================================ */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .header-actions { gap: 16px; }
+}
+
+/* ============================================
+   ICON BUTTONS (theme toggle, lang picker)
+   ============================================ */
+.header-icon-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm, 8px);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.header-icon-btn:hover {
+  background-color: rgba(45, 90, 61, 0.06);
+}
+
+.header-icon-btn:active {
+  background-color: rgba(45, 90, 61, 0.1);
+  transform: scale(0.95);
+}
+
+.header-icon-btn svg { width: 20px; height: 20px; }
+
+/* ============================================
+   LOGIN BUTTON
+   ============================================ */
+.header-login {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  padding: 7px 16px;
+  border-radius: var(--radius-sm, 8px);
+  border: 1.5px solid rgba(45, 90, 61, 0.2);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-login:hover {
+  background-color: rgba(45, 90, 61, 0.04);
+  border-color: rgba(45, 90, 61, 0.35);
+}
+
+/* ============================================
+   NAV LINK (gallery/onboarding pages)
+   ============================================ */
+.header-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  color: var(--text-secondary, #5A6B5E);
+  background-color: var(--bg-surface, var(--surface, #F5EEE6));
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border, #E5DDD3);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.header-nav-link:hover {
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  border-color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+/* ============================================
+   THEME TOGGLE — Icon Swap
+   ============================================ */
+[data-theme="dark"] .theme-icon-sun { display: block; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+.theme-icon-sun { display: none; }
+.theme-icon-moon { display: block; }
+
+/* ============================================
+   LANGUAGE PICKER
+   ============================================ */
+.lang-picker {
+  position: relative;
+}
+
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: var(--bg-page, var(--bg, #FDF8F3));
+  border: 1px solid var(--border, #E5DDD3);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: var(--shadow-xl, 0 12px 36px rgba(26, 42, 31, 0.12));
+  min-width: 180px;
+  padding: 6px 0;
+  z-index: 200;
+  animation: hkDropdownFadeIn 0.18s ease;
+}
+
+.lang-dropdown.open { display: block; }
+
+@keyframes hkDropdownFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 9px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary, var(--text, #1A2A1F));
+  text-align: left;
+  transition: background-color 0.15s ease;
+  line-height: 1.4;
+}
+
+.lang-option:hover {
+  background-color: var(--bg-surface, var(--surface, #F5EEE6));
+}
+
+.lang-option.active {
+  font-weight: 600;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+.lang-option-check {
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  flex-shrink: 0;
+}
+
+.lang-option.active .lang-option-check {
+  opacity: 1;
+}
+
+.lang-option-label {
+  flex: 1;
+}
+
+.lang-option-native {
+  font-size: 12px;
+  color: var(--text-secondary, #5A6B5E);
+  margin-left: 8px;
+}
+
+/* RTL language labels */
+.lang-option[data-dir="rtl"] .lang-option-native {
+  direction: rtl;
+}
+
+/* Backdrop to close dropdown */
+.lang-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+}
+.lang-backdrop.open { display: block; }
+
+/* ============================================
+   DARK MODE — Header overrides
+   ============================================ */
+[data-theme="dark"] .header {
+  background-color: color-mix(in srgb, var(--bg, #1A2F23) 92%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--border, #2F4F3A) 50%, transparent);
+}
+
+[data-theme="dark"] .header.scrolled {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .header-logo-text {
+  color: var(--text-primary, var(--text, #F5EEE6));
+}
+
+/* Logo sun is already gold -- stays visible */
+[data-theme="dark"] .header-icon-btn {
+  color: var(--text-primary, var(--text, #F5EEE6));
+}
+
+[data-theme="dark"] .header-icon-btn:hover {
+  background-color: rgba(245, 238, 230, 0.08);
+}
+
+[data-theme="dark"] .header-icon-btn:active {
+  background-color: rgba(245, 238, 230, 0.12);
+}
+
+[data-theme="dark"] .header-login {
+  color: var(--color-accent, var(--accent, #D4A843));
+  border-color: rgba(212, 168, 67, 0.35);
+}
+
+[data-theme="dark"] .header-login:hover {
+  background-color: rgba(212, 168, 67, 0.08);
+  border-color: rgba(212, 168, 67, 0.55);
+}
+
+[data-theme="dark"] .lang-option.active {
+  color: var(--color-accent, var(--accent, #D4A843));
+}
+
+[data-theme="dark"] .lang-option-check {
+  color: var(--color-accent, var(--accent, #D4A843));
+}
+
+[data-theme="dark"] .header-nav-link {
+  color: var(--text-secondary, #A8B5AC);
+  background-color: var(--bg-surface, var(--surface, #243D30));
+  border-color: var(--border, #2F4F3A);
+}
+
+[data-theme="dark"] .header-nav-link:hover {
+  color: var(--color-accent, var(--accent, #D4A843));
+  border-color: var(--color-accent, var(--accent, #D4A843));
+}

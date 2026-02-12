@@ -154,144 +154,6 @@
     }
 
     /* ============================================
-       1. HEADER
-       ============================================ */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: rgba(253, 248, 243, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(229, 221, 211, 0.5);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .header.scrolled {
-      box-shadow: 0 2px 16px rgba(26, 42, 31, 0.06);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    @media (min-width: 768px) {
-      .header-inner { height: 64px; padding: 0 40px; }
-    }
-
-    @media (min-width: 1024px) {
-      .header-inner { padding: 0 60px; }
-    }
-
-    .header-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .header-logo-leaf {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-    }
-
-    .header-logo-text {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 22px;
-      letter-spacing: 0.3px;
-      position: relative;
-      padding-bottom: 5px;
-      background: linear-gradient(
-        135deg,
-        #2D5A3D 0%,
-        #3d7a52 35%,
-        #8a7a45 60%,
-        #b8a05a 75%,
-        #2D5A3D 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 1px 2px rgba(45, 90, 61, 0.2));
-    }
-
-    /* warm golden brushstroke underline — fades on both edges */
-    .header-logo-text::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2.5px;
-      background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 67, 0.4) 15%, #D4A843 50%, rgba(212, 168, 67, 0.4) 85%, transparent 100%);
-      border-radius: 2px;
-      box-shadow: 0 1px 6px rgba(212, 168, 67, 0.25);
-    }
-
-    @media (min-width: 768px) {
-      .header-logo-text { font-size: 26px; }
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    @media (min-width: 768px) {
-      .header-actions { gap: 16px; }
-    }
-
-    .header-icon-btn {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-sm);
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      color: var(--color-primary);
-      transition: background-color 0.2s ease, transform 0.15s ease;
-    }
-
-    .header-icon-btn:hover {
-      background-color: rgba(45, 90, 61, 0.06);
-    }
-
-    .header-icon-btn:active {
-      background-color: rgba(45, 90, 61, 0.1);
-      transform: scale(0.95);
-    }
-
-    .header-icon-btn svg { width: 20px; height: 20px; }
-
-    .header-login {
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--color-primary);
-      padding: 7px 16px;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid rgba(45, 90, 61, 0.2);
-      transition: background-color 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .header-login:hover {
-      background-color: rgba(45, 90, 61, 0.04);
-      border-color: rgba(45, 90, 61, 0.35);
-    }
-
-    /* ============================================
        2. HERO — Typography-driven with texture
        ============================================ */
     .hero {
@@ -1260,14 +1122,14 @@
        8. FINAL CTA
        ============================================ */
     .final-cta {
-      background-color: var(--color-primary);
+      background-color: #F5EEE6;
       padding: 56px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    /* Layer 1: Golden radial glow */
+    /* Layer 1: Soft warm radial glow */
     .final-cta::before {
       content: '';
       position: absolute;
@@ -1277,8 +1139,8 @@
       width: 600px;
       height: 400px;
       background:
-        radial-gradient(circle, rgba(212, 168, 67, 0.18) 0%, transparent 40%),
-        radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 70%);
+        radial-gradient(circle, rgba(212, 168, 67, 0.1) 0%, transparent 40%),
+        radial-gradient(circle, rgba(45, 90, 61, 0.04) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1321,7 +1183,7 @@
       font-family: var(--font-heading);
       font-weight: 800;
       font-size: 28px;
-      color: var(--bg-page);
+      color: var(--color-primary);
       margin-bottom: 12px;
       letter-spacing: -0.3px;
       line-height: 1.25;
@@ -1335,7 +1197,7 @@
       font-family: var(--font-body);
       font-size: 15px;
       line-height: 1.6;
-      color: rgba(253, 248, 243, 0.7);
+      color: var(--text-secondary);
       margin-bottom: 32px;
     }
 
@@ -1344,8 +1206,8 @@
       align-items: center;
       justify-content: center;
       padding: 14px 36px;
-      background-color: var(--color-accent);
-      color: var(--text-primary);
+      background-color: var(--color-primary);
+      color: #FDF8F3;
       font-family: var(--font-heading);
       font-weight: 700;
       font-size: 16px;
@@ -1359,8 +1221,8 @@
     }
 
     .btn-accent:hover {
-      background-color: var(--color-accent-hover);
-      box-shadow: 0 4px 20px rgba(212, 168, 67, 0.35);
+      background-color: var(--color-primary-hover);
+      box-shadow: 0 4px 16px rgba(45, 90, 61, 0.25);
     }
 
     .btn-accent:active {
@@ -1450,45 +1312,6 @@
     /* ============================================
        DARK MODE — Component overrides
        ============================================ */
-
-    /* Header */
-    [data-theme="dark"] .header {
-      background-color: rgba(26, 47, 35, 0.92);
-      border-bottom-color: rgba(47, 79, 58, 0.5);
-    }
-    [data-theme="dark"] .header.scrolled {
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-    }
-    /* Logo text — golden shine in dark mode */
-    [data-theme="dark"] .header-logo-text {
-      background: linear-gradient(
-        135deg,
-        #8cb89a 0%,
-        #b8a05a 40%,
-        #c4ad68 70%,
-        #8cb89a 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 1px 4px rgba(212, 168, 67, 0.35));
-    }
-    /* Logo sun is already gold — just ensure it stays visible */
-    [data-theme="dark"] .header-icon-btn { color: var(--text-primary); }
-    [data-theme="dark"] .header-icon-btn:hover {
-      background-color: rgba(245, 238, 230, 0.08);
-    }
-    [data-theme="dark"] .header-icon-btn:active {
-      background-color: rgba(245, 238, 230, 0.12);
-    }
-    [data-theme="dark"] .header-login {
-      color: var(--color-accent);
-      border-color: rgba(212, 168, 67, 0.35);
-    }
-    [data-theme="dark"] .header-login:hover {
-      background-color: rgba(212, 168, 67, 0.08);
-      border-color: rgba(212, 168, 67, 0.55);
-    }
 
     /* Hero sun — more visible in dark mode, like golden hour */
     [data-theme="dark"] .hero::before {
@@ -1622,27 +1445,27 @@
     }
     [data-theme="dark"] .pricing-check { color: var(--color-accent); }
 
-    /* Final CTA */
+    /* Final CTA — lifted surface, same feel as light mode beige */
     [data-theme="dark"] .final-cta {
-      background-color: #162B1F;
+      background-color: #2A4736;
     }
     [data-theme="dark"] .final-cta::before {
       background:
-        radial-gradient(circle, rgba(212, 168, 67, 0.14) 0%, transparent 35%),
-        radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
+        radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 35%),
+        radial-gradient(circle, rgba(212, 168, 67, 0.03) 0%, transparent 70%);
     }
     [data-theme="dark"] .final-cta-sun {
-      opacity: 0.08;
+      opacity: 0.04;
     }
     [data-theme="dark"] .final-cta-heading { color: var(--text-primary); }
     [data-theme="dark"] .final-cta-subtext { color: var(--text-secondary); }
     [data-theme="dark"] .btn-accent {
       background-color: var(--color-accent);
       color: #1A2A1F;
-      box-shadow: 0 0 24px rgba(212, 168, 67, 0.15);
+      box-shadow: 0 0 20px rgba(212, 168, 67, 0.12);
     }
     [data-theme="dark"] .btn-accent:hover {
-      box-shadow: 0 4px 28px rgba(212, 168, 67, 0.3);
+      box-shadow: 0 4px 24px rgba(212, 168, 67, 0.25);
     }
 
     /* Footer — already dark, subtle adjustments */
@@ -1650,203 +1473,15 @@
       background-color: #111E17;
     }
 
-    /* Theme toggle icon swap */
-    [data-theme="dark"] .theme-icon-sun { display: block; }
-    [data-theme="dark"] .theme-icon-moon { display: none; }
-    .theme-icon-sun { display: none; }
-    .theme-icon-moon { display: block; }
-
-    /* ============================================
-       LANGUAGE PICKER
-       ============================================ */
-    .lang-picker {
-      position: relative;
-    }
-
-    .lang-dropdown {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      background-color: var(--bg-page);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-xl);
-      min-width: 180px;
-      padding: 6px 0;
-      z-index: 200;
-      animation: dropdownFadeIn 0.18s ease;
-    }
-
-    .lang-dropdown.open { display: block; }
-
-    @keyframes dropdownFadeIn {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .lang-option {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 9px 16px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-primary);
-      text-align: left;
-      transition: background-color 0.15s ease;
-      line-height: 1.4;
-    }
-
-    .lang-option:hover {
-      background-color: var(--bg-surface);
-    }
-
-    .lang-option.active {
-      font-weight: 600;
-      color: var(--color-primary);
-    }
-
-    [data-theme="dark"] .lang-option.active {
-      color: var(--color-accent);
-    }
-
-    .lang-option-check {
-      width: 16px;
-      height: 16px;
-      opacity: 0;
-      color: var(--color-primary);
-      flex-shrink: 0;
-    }
-
-    [data-theme="dark"] .lang-option-check {
-      color: var(--color-accent);
-    }
-
-    .lang-option.active .lang-option-check {
-      opacity: 1;
-    }
-
-    .lang-option-label {
-      flex: 1;
-    }
-
-    .lang-option-native {
-      font-size: 12px;
-      color: var(--text-secondary);
-      margin-left: 8px;
-    }
-
-    /* RTL language labels */
-    .lang-option[data-dir="rtl"] .lang-option-native {
-      direction: rtl;
-    }
-
-    /* Backdrop to close dropdown */
-    .lang-backdrop {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 199;
-    }
-    .lang-backdrop.open { display: block; }
   </style>
+  <link rel="stylesheet" href="shared/header.css">
 </head>
 <body>
 
 <!-- ==========================================
-     1. HEADER
+     1. HEADER (shared component)
      ========================================== -->
-<header class="header" id="header">
-  <div class="header-inner">
-    <a href="#" class="header-logo">
-      <svg class="header-logo-leaf" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2" fill="#D4A843"/>
-        <circle cx="50" cy="50" r="16" fill="#D4A843"/>
-      </svg>
-      <span class="header-logo-text">Hinbûna Kurdî</span>
-    </a>
-
-    <div class="header-actions">
-      <!-- Language Picker -->
-      <div class="lang-picker">
-        <button class="header-icon-btn" id="lang-toggle" aria-label="Language" title="Language">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          </svg>
-        </button>
-        <div class="lang-backdrop" id="lang-backdrop"></div>
-        <div class="lang-dropdown" id="lang-dropdown">
-          <button class="lang-option active" data-lang="ku">
-            <span class="lang-option-label">Kurdî</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="en">
-            <span class="lang-option-label">English</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="de">
-            <span class="lang-option-label">Deutsch</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="sv">
-            <span class="lang-option-label">Svenska</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="da">
-            <span class="lang-option-label">Dansk</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="it">
-            <span class="lang-option-label">Italiano</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="tr">
-            <span class="lang-option-label">Türkçe</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="fa" data-dir="rtl">
-            <span class="lang-option-label">فارسی</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-          <button class="lang-option" data-lang="ar" data-dir="rtl">
-            <span class="lang-option-label">العربية</span>
-            <svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Theme Toggle -->
-      <button class="header-icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-        <!-- Moon icon (shown in light mode — click to go dark) -->
-        <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <!-- Sun icon (shown in dark mode — click to go light) -->
-        <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-      </button>
-
-      <a href="#" class="header-login">Têkeve</a>
-    </div>
-  </div>
-</header>
+<div id="shared-header" data-page-type="public" data-show-lang="true" data-show-login="true" data-show-theme="true"></div>
 
 <!-- ==========================================
      2. HERO
@@ -2292,6 +1927,79 @@
      SCRIPTS — Scroll animations & header state
      ============================================ -->
 <script>
+  // Color theme override — reads selection from index.html theme picker
+  (function() {
+    var themeId = localStorage.getItem('hk-color-theme');
+    if (!themeId || themeId === 'forest-green') return; // default, no override needed
+
+    var themes = {
+      'warm-charcoal': {
+        dark: {
+          '--bg-page': '#1C1E1D', '--bg-surface': '#272A28', '--color-tan': '#3A3835',
+          '--text-primary': '#F5EEE6', '--text-secondary': '#A0A5A2', '--border': '#363936'
+        },
+        cta: '#2E3230', header: 'rgba(28, 30, 29, 0.92)', footer: '#161817'
+      },
+      'dark-slate': {
+        dark: {
+          '--bg-page': '#1A2024', '--bg-surface': '#232D31', '--color-tan': '#2F3B3E',
+          '--text-primary': '#F5EEE6', '--text-secondary': '#9CADA8', '--border': '#2F3B3E'
+        },
+        cta: '#283537', header: 'rgba(26, 32, 36, 0.92)', footer: '#141B1E'
+      },
+      'warm-earth': {
+        dark: {
+          '--bg-page': '#1E1C19', '--bg-surface': '#2A2722', '--color-tan': '#3A362F',
+          '--text-primary': '#F5EEE6', '--text-secondary': '#ADA89E', '--border': '#3A362F'
+        },
+        light: {
+          '--bg-page': '#FAF5EE', '--bg-surface': '#F0E8DC', '--border': '#E0D5C5'
+        },
+        cta: '#32302A', header: 'rgba(30, 28, 25, 0.92)', footer: '#17150F'
+      },
+      'midnight-green': {
+        dark: {
+          '--bg-page': '#141E1A', '--bg-surface': '#1D2B24', '--color-tan': '#283830',
+          '--text-primary': '#F5EEE6', '--text-secondary': '#8FA598', '--border': '#283830'
+        },
+        cta: '#223028', header: 'rgba(20, 30, 26, 0.92)', footer: '#0E1612'
+      }
+    };
+
+    var t = themes[themeId];
+    if (!t) return;
+
+    // Inject override stylesheet
+    var style = document.createElement('style');
+    var css = '';
+
+    // Dark mode overrides
+    if (t.dark) {
+      css += '[data-theme="dark"] {\n';
+      for (var prop in t.dark) { css += '  ' + prop + ': ' + t.dark[prop] + ';\n'; }
+      css += '}\n';
+    }
+    if (t.header) {
+      css += '[data-theme="dark"] .header { background-color: ' + t.header + '; }\n';
+    }
+    if (t.cta) {
+      css += '[data-theme="dark"] .final-cta { background-color: ' + t.cta + '; }\n';
+    }
+    if (t.footer) {
+      css += '[data-theme="dark"] .footer { background-color: ' + t.footer + '; }\n';
+    }
+
+    // Light mode overrides (if any)
+    if (t.light) {
+      css += ':root {\n';
+      for (var prop in t.light) { css += '  ' + prop + ': ' + t.light[prop] + ';\n'; }
+      css += '}\n';
+    }
+
+    style.textContent = css;
+    document.head.appendChild(style);
+  })();
+
   // IntersectionObserver for fade-up animations
   (function() {
     var observer = new IntersectionObserver(function(entries) {
@@ -2308,45 +2016,6 @@
 
     document.querySelectorAll('.fade-up').forEach(function(el) {
       observer.observe(el);
-    });
-  })();
-
-  // Header shadow on scroll
-  (function() {
-    var header = document.getElementById('header');
-    var scrolled = false;
-
-    window.addEventListener('scroll', function() {
-      var shouldBeScrolled = window.scrollY > 8;
-      if (shouldBeScrolled !== scrolled) {
-        scrolled = shouldBeScrolled;
-        header.classList.toggle('scrolled', scrolled);
-      }
-    }, { passive: true });
-  })();
-
-  // Theme toggle (light/dark)
-  (function() {
-    var toggle = document.getElementById('theme-toggle');
-    var html = document.documentElement;
-
-    // Check saved preference or system preference
-    var saved = localStorage.getItem('hk-theme');
-    if (saved) {
-      html.setAttribute('data-theme', saved);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      html.setAttribute('data-theme', 'dark');
-    }
-
-    toggle.addEventListener('click', function() {
-      var current = html.getAttribute('data-theme');
-      var next = current === 'dark' ? 'light' : 'dark';
-      if (next === 'light') {
-        html.removeAttribute('data-theme');
-      } else {
-        html.setAttribute('data-theme', 'dark');
-      }
-      localStorage.setItem('hk-theme', next);
     });
   })();
 
@@ -2422,43 +2091,9 @@
     setInterval(updateSun, 5 * 60 * 1000);
   })();
 
-  // Language picker
-  (function() {
-    var langToggle = document.getElementById('lang-toggle');
-    var dropdown = document.getElementById('lang-dropdown');
-    var backdrop = document.getElementById('lang-backdrop');
-    var options = dropdown.querySelectorAll('.lang-option');
-
-    function openDropdown() {
-      dropdown.classList.add('open');
-      backdrop.classList.add('open');
-    }
-
-    function closeDropdown() {
-      dropdown.classList.remove('open');
-      backdrop.classList.remove('open');
-    }
-
-    langToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (dropdown.classList.contains('open')) {
-        closeDropdown();
-      } else {
-        openDropdown();
-      }
-    });
-
-    backdrop.addEventListener('click', closeDropdown);
-
-    options.forEach(function(opt) {
-      opt.addEventListener('click', function() {
-        options.forEach(function(o) { o.classList.remove('active'); });
-        opt.classList.add('active');
-        closeDropdown();
-      });
-    });
-  })();
 </script>
+
+<script src="shared/header.js"></script>
 
 </body>
 </html>
