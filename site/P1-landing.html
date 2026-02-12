@@ -1926,80 +1926,8 @@
 <!-- ============================================
      SCRIPTS — Scroll animations & header state
      ============================================ -->
+<script src="shared/theme.js"></script>
 <script>
-  // Color theme override — reads selection from index.html theme picker
-  (function() {
-    var themeId = localStorage.getItem('hk-color-theme');
-    if (!themeId || themeId === 'forest-green') return; // default, no override needed
-
-    var themes = {
-      'warm-charcoal': {
-        dark: {
-          '--bg-page': '#1C1E1D', '--bg-surface': '#272A28', '--color-tan': '#3A3835',
-          '--text-primary': '#F5EEE6', '--text-secondary': '#A0A5A2', '--border': '#363936'
-        },
-        cta: '#2E3230', header: 'rgba(28, 30, 29, 0.92)', footer: '#161817'
-      },
-      'dark-slate': {
-        dark: {
-          '--bg-page': '#1A2024', '--bg-surface': '#232D31', '--color-tan': '#2F3B3E',
-          '--text-primary': '#F5EEE6', '--text-secondary': '#9CADA8', '--border': '#2F3B3E'
-        },
-        cta: '#283537', header: 'rgba(26, 32, 36, 0.92)', footer: '#141B1E'
-      },
-      'warm-earth': {
-        dark: {
-          '--bg-page': '#1E1C19', '--bg-surface': '#2A2722', '--color-tan': '#3A362F',
-          '--text-primary': '#F5EEE6', '--text-secondary': '#ADA89E', '--border': '#3A362F'
-        },
-        light: {
-          '--bg-page': '#FAF5EE', '--bg-surface': '#F0E8DC', '--border': '#E0D5C5'
-        },
-        cta: '#32302A', header: 'rgba(30, 28, 25, 0.92)', footer: '#17150F'
-      },
-      'midnight-green': {
-        dark: {
-          '--bg-page': '#141E1A', '--bg-surface': '#1D2B24', '--color-tan': '#283830',
-          '--text-primary': '#F5EEE6', '--text-secondary': '#8FA598', '--border': '#283830'
-        },
-        cta: '#223028', header: 'rgba(20, 30, 26, 0.92)', footer: '#0E1612'
-      }
-    };
-
-    var t = themes[themeId];
-    if (!t) return;
-
-    // Inject override stylesheet
-    var style = document.createElement('style');
-    var css = '';
-
-    // Dark mode overrides
-    if (t.dark) {
-      css += '[data-theme="dark"] {\n';
-      for (var prop in t.dark) { css += '  ' + prop + ': ' + t.dark[prop] + ';\n'; }
-      css += '}\n';
-    }
-    if (t.header) {
-      css += '[data-theme="dark"] .header { background-color: ' + t.header + '; }\n';
-    }
-    if (t.cta) {
-      css += '[data-theme="dark"] .final-cta { background-color: ' + t.cta + '; }\n';
-    }
-    if (t.footer) {
-      css += '[data-theme="dark"] .footer { background-color: ' + t.footer + '; }\n';
-    }
-
-    // Light mode overrides (if any)
-    if (t.light) {
-      css += ':root {\n';
-      for (var prop in t.light) { css += '  ' + prop + ': ' + t.light[prop] + ';\n'; }
-      css += '}\n';
-    }
-
-    style.textContent = css;
-    document.head.appendChild(style);
-  })();
-
   // IntersectionObserver for fade-up animations
   (function() {
     var observer = new IntersectionObserver(function(entries) {
