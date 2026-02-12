@@ -75,6 +75,51 @@
 }
 
 /* ============================================
+   HEADER LEFT (logo + back button group)
+   ============================================ */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================
+   BACK TO GALLERY (dev utility)
+   ============================================ */
+.header-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  border-radius: 6px;
+  color: var(--text-secondary, #5A6B5E);
+  opacity: 0.45;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.header-back-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.header-back-btn:hover {
+  opacity: 1;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  background-color: rgba(45, 90, 61, 0.06);
+}
+
+[data-theme="dark"] .header-back-btn {
+  color: var(--text-secondary, #A8B5AC);
+}
+
+[data-theme="dark"] .header-back-btn:hover {
+  color: var(--color-accent, var(--accent, #D4A843));
+  background-color: rgba(245, 238, 230, 0.08);
+}
+
+/* ============================================
    HEADER ACTIONS
    ============================================ */
 .header-actions {

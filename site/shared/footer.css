@@ -1,0 +1,309 @@
+/* ============================================================
+   SHARED FOOTER — Hinbuna Kurdi
+   Single source of truth for all page footers.
+   ============================================================ */
+
+/* ============================================
+   BASE — All footer types
+   ============================================ */
+.shared-footer {
+  position: relative;
+  padding: 32px 20px 24px;
+  text-align: center;
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.shared-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .shared-footer { padding: 40px 40px 28px; }
+}
+
+@media (min-width: 1024px) {
+  .shared-footer { padding: 40px 60px 28px; }
+}
+
+/* ============================================
+   PUBLIC FOOTER (P1-landing, MVP screens)
+   Full branded footer — dark green background
+   ============================================ */
+.shared-footer--public {
+  background-color: #1A2A1F;
+  color: #F5EEE6;
+  border-top: 1px solid rgba(45, 90, 61, 0.2);
+  padding: 48px 20px 32px;
+}
+
+.shared-footer--public .shared-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logo */
+.shared-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Same logo styling as header — exact match */
+.shared-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shared-footer-logo-text {
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  color: rgba(253, 248, 243, 0.9);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .shared-footer-logo-text { font-size: 22px; }
+}
+
+.footer-logo-leaf {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-logo-leaf { width: 26px; height: 26px; }
+}
+
+/* Tagline */
+.shared-footer-tagline {
+  font-size: 13px;
+  color: rgba(253, 248, 243, 0.5);
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+/* Nav links */
+.shared-footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 8px;
+  margin-top: 4px;
+}
+
+.shared-footer-link {
+  font-size: 13px;
+  color: rgba(253, 248, 243, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.shared-footer-link:hover {
+  color: #D4A843;
+}
+
+.shared-footer-dot {
+  font-size: 13px;
+  color: rgba(253, 248, 243, 0.25);
+}
+
+/* Copyright */
+.shared-footer-copyright {
+  font-size: 12px;
+  color: rgba(253, 248, 243, 0.35);
+  margin: 0;
+}
+
+/* Public footer dark mode override (darker bg) */
+[data-theme="dark"] .shared-footer--public {
+  background-color: #111E17;
+  border-top-color: rgba(45, 90, 61, 0.15);
+}
+
+/* ============================================
+   AUTH FOOTER (P3-login, P4-register, P5-forgot)
+   Minimal single-line footer
+   ============================================ */
+.shared-footer--auth {
+  background: transparent;
+  padding: 20px;
+}
+
+.shared-footer--auth .shared-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  font-size: 12px;
+  color: var(--text-secondary, #5A6B5E);
+}
+
+.shared-footer--auth .shared-footer-link {
+  color: var(--text-secondary, #5A6B5E);
+}
+
+.shared-footer--auth .shared-footer-link:hover {
+  color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+.shared-footer--auth .shared-footer-dot {
+  color: var(--border, #E5DDD3);
+}
+
+.shared-footer--auth .shared-footer-copyright {
+  font-size: 12px;
+  color: var(--text-secondary, #5A6B5E);
+}
+
+/* Auth dark mode */
+[data-theme="dark"] .shared-footer--auth .shared-footer-link {
+  color: var(--text-secondary, #A8B5AC);
+}
+
+[data-theme="dark"] .shared-footer--auth .shared-footer-link:hover {
+  color: var(--color-accent, var(--accent, #D4A843));
+}
+
+[data-theme="dark"] .shared-footer--auth .shared-footer-dot {
+  color: var(--border, #2F4F3A);
+}
+
+[data-theme="dark"] .shared-footer--auth .shared-footer-copyright {
+  color: var(--text-secondary, #A8B5AC);
+}
+
+/* ============================================
+   DEV FOOTER (gallery, onboarding)
+   Simple centered footer
+   ============================================ */
+.shared-footer--gallery,
+.shared-footer--onboarding {
+  background: transparent;
+  border-top: 1px solid var(--border, #E5DDD3);
+  padding: 20px;
+}
+
+.shared-footer--gallery .shared-footer-row,
+.shared-footer--onboarding .shared-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  font-size: 13px;
+  color: var(--text-secondary, #5A6B5E);
+}
+
+.shared-footer--gallery .shared-footer-link,
+.shared-footer--onboarding .shared-footer-link {
+  color: var(--text-secondary, #5A6B5E);
+}
+
+.shared-footer--gallery .shared-footer-link:hover,
+.shared-footer--onboarding .shared-footer-link:hover {
+  color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+.shared-footer--gallery .shared-footer-dot,
+.shared-footer--onboarding .shared-footer-dot {
+  color: var(--border, #E5DDD3);
+}
+
+.shared-footer--gallery .shared-footer-copyright,
+.shared-footer--onboarding .shared-footer-copyright {
+  font-size: 13px;
+  color: var(--text-secondary, #5A6B5E);
+}
+
+/* Dev dark mode */
+[data-theme="dark"] .shared-footer--gallery,
+[data-theme="dark"] .shared-footer--onboarding {
+  border-top-color: var(--border, #2F4F3A);
+}
+
+[data-theme="dark"] .shared-footer--gallery .shared-footer-link,
+[data-theme="dark"] .shared-footer--onboarding .shared-footer-link {
+  color: var(--text-secondary, #A8B5AC);
+}
+
+[data-theme="dark"] .shared-footer--gallery .shared-footer-link:hover,
+[data-theme="dark"] .shared-footer--onboarding .shared-footer-link:hover {
+  color: var(--color-accent, var(--accent, #D4A843));
+}
+
+[data-theme="dark"] .shared-footer--gallery .shared-footer-dot,
+[data-theme="dark"] .shared-footer--onboarding .shared-footer-dot {
+  color: var(--border, #2F4F3A);
+}
+
+/* ============================================
+   SETTINGS GEAR BUTTON (all footer types)
+   ============================================ */
+.shared-footer-gear {
+  position: absolute;
+  bottom: 24px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(253, 248, 243, 0.3);
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+}
+
+.shared-footer-gear svg {
+  width: 18px;
+  height: 18px;
+}
+
+.shared-footer-gear:hover {
+  color: #D4A843;
+  background-color: rgba(212, 168, 67, 0.08);
+  transform: rotate(45deg);
+}
+
+/* Gear color for non-dark-bg footers (auth, gallery, onboarding) */
+.shared-footer--auth .shared-footer-gear,
+.shared-footer--gallery .shared-footer-gear,
+.shared-footer--onboarding .shared-footer-gear {
+  color: var(--text-secondary, #5A6B5E);
+  opacity: 0.5;
+}
+
+.shared-footer--auth .shared-footer-gear:hover,
+.shared-footer--gallery .shared-footer-gear:hover,
+.shared-footer--onboarding .shared-footer-gear:hover {
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  background-color: rgba(45, 90, 61, 0.06);
+  opacity: 1;
+}
+
+[data-theme="dark"] .shared-footer--auth .shared-footer-gear:hover,
+[data-theme="dark"] .shared-footer--gallery .shared-footer-gear:hover,
+[data-theme="dark"] .shared-footer--onboarding .shared-footer-gear:hover {
+  color: var(--color-accent, var(--accent, #D4A843));
+  background-color: rgba(212, 168, 67, 0.08);
+}
+
+@media (min-width: 768px) {
+  .shared-footer-gear { right: 40px; }
+}
+
+@media (min-width: 1024px) {
+  .shared-footer-gear { right: 60px; }
+}

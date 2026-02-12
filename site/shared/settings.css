@@ -1,0 +1,291 @@
+/* ============================================================
+   SETTINGS DRAWER — Hinbuna Kurdi
+   Slide-up panel for color theme selection.
+   ============================================================ */
+
+/* ============================================
+   BACKDROP
+   ============================================ */
+.settings-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.settings-backdrop.open {
+  display: block;
+  animation: settingsFadeIn 0.2s ease;
+}
+
+@keyframes settingsFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   DRAWER
+   ============================================ */
+.settings-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 901;
+  background-color: var(--bg-page, var(--bg, #FDF8F3));
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.12);
+  padding: 0 24px 32px;
+  max-height: 70vh;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.settings-drawer.open {
+  transform: translateY(0);
+}
+
+[data-theme="dark"] .settings-drawer {
+  background-color: var(--bg-page, var(--bg, #1A2F23));
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================
+   HANDLE BAR (mobile drag hint)
+   ============================================ */
+.settings-handle {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+}
+
+.settings-handle-bar {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--border, #E5DDD3);
+}
+
+[data-theme="dark"] .settings-handle-bar {
+  background-color: var(--border, #2F4F3A);
+}
+
+/* ============================================
+   DRAWER HEADER
+   ============================================ */
+.settings-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0 16px;
+}
+
+.settings-drawer-title {
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-primary, var(--text, #1A2A1F));
+}
+
+[data-theme="dark"] .settings-drawer-title {
+  color: var(--text-primary, var(--text, #F5EEE6));
+}
+
+.settings-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-secondary, #5A6B5E);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.settings-close-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.settings-close-btn:hover {
+  background-color: rgba(45, 90, 61, 0.06);
+  color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+[data-theme="dark"] .settings-close-btn {
+  color: var(--text-secondary, #A8B5AC);
+}
+
+[data-theme="dark"] .settings-close-btn:hover {
+  background-color: rgba(245, 238, 230, 0.08);
+  color: var(--text-primary, var(--text, #F5EEE6));
+}
+
+/* ============================================
+   SECTION
+   ============================================ */
+.settings-section {
+  margin-bottom: 8px;
+}
+
+.settings-section-label {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-secondary, #5A6B5E);
+  margin-bottom: 12px;
+}
+
+[data-theme="dark"] .settings-section-label {
+  color: var(--text-secondary, #A8B5AC);
+}
+
+/* ============================================
+   THEME CARDS
+   ============================================ */
+.settings-themes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settings-theme-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border, #E5DDD3);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  text-align: left;
+}
+
+.settings-theme-card:hover {
+  border-color: var(--color-primary, var(--primary, #2D5A3D));
+  background-color: rgba(45, 90, 61, 0.03);
+}
+
+.settings-theme-card.active {
+  border-color: var(--color-primary, var(--primary, #2D5A3D));
+  background-color: rgba(45, 90, 61, 0.06);
+}
+
+[data-theme="dark"] .settings-theme-card {
+  border-color: var(--border, #2F4F3A);
+}
+
+[data-theme="dark"] .settings-theme-card:hover {
+  border-color: var(--color-accent, var(--accent, #D4A843));
+  background-color: rgba(212, 168, 67, 0.04);
+}
+
+[data-theme="dark"] .settings-theme-card.active {
+  border-color: var(--color-accent, var(--accent, #D4A843));
+  background-color: rgba(212, 168, 67, 0.08);
+}
+
+/* ============================================
+   SWATCH PREVIEW
+   ============================================ */
+.settings-swatch {
+  display: flex;
+  width: 48px;
+  height: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settings-swatch-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.settings-swatch-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.settings-swatch-dot.sm {
+  width: 6px;
+  height: 6px;
+}
+
+/* ============================================
+   THEME INFO
+   ============================================ */
+.settings-theme-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.settings-theme-name {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, var(--text, #1A2A1F));
+}
+
+[data-theme="dark"] .settings-theme-name {
+  color: var(--text-primary, var(--text, #F5EEE6));
+}
+
+.settings-theme-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 12px;
+  color: var(--text-secondary, #5A6B5E);
+}
+
+[data-theme="dark"] .settings-theme-desc {
+  color: var(--text-secondary, #A8B5AC);
+}
+
+/* ============================================
+   CHECK MARK
+   ============================================ */
+.settings-theme-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  opacity: 0;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  transition: opacity 0.2s ease;
+}
+
+.settings-theme-check svg {
+  width: 18px;
+  height: 18px;
+}
+
+.settings-theme-card.active .settings-theme-check {
+  opacity: 1;
+}
+
+[data-theme="dark"] .settings-theme-check {
+  color: var(--color-accent, var(--accent, #D4A843));
+}

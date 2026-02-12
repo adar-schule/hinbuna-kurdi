@@ -139,14 +139,15 @@
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 32px;
     }
 
     /* ============================================================
        INTRO SECTION
        ============================================================ */
     .intro {
-      padding: 48px 0 32px;
+      padding-top: 48px;
+      padding-bottom: 32px;
       text-align: center;
     }
 
@@ -184,7 +185,7 @@
        PROGRESS BAR
        ============================================================ */
     .progress-section {
-      padding: 0 0 40px;
+      padding-bottom: 40px;
     }
 
     .progress-card {
@@ -289,7 +290,7 @@
        THEME PICKER
        ============================================================ */
     .theme-section {
-      padding: 0 0 56px;
+      padding-bottom: 56px;
       margin-top: 16px;
     }
 
@@ -476,7 +477,7 @@
        ROLE SECTIONS
        ============================================================ */
     .role-section {
-      padding: 0 0 48px;
+      padding-bottom: 48px;
       margin-top: 40px;
     }
 
@@ -770,11 +771,12 @@
        ============================================================ */
     @media (min-width: 768px) {
       .container {
-        padding: 0 32px;
+        padding: 0 40px;
       }
 
       .intro {
-        padding: 64px 0 40px;
+        padding-top: 64px;
+        padding-bottom: 40px;
       }
 
       .intro h1 {
@@ -814,6 +816,8 @@
     }
   </style>
   <link rel="stylesheet" href="shared/header.css">
+  <link rel="stylesheet" href="shared/footer.css">
+  <link rel="stylesheet" href="shared/settings.css">
 </head>
 <body>
 
@@ -1568,17 +1572,8 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
-  <footer class="footer">
-    <div class="container">
-      <p>
-        &copy; 2026 Adar Schule
-        <span class="footer-separator">&middot;</span>
-        <a href="onboarding.html">Developer Onboarding</a>
-        <span class="footer-separator">&middot;</span>
-        Generated with <a href="https://claude.ai" target="_blank" rel="noopener">Claude Code</a>
-      </p>
-    </div>
-  </footer>
+  <!-- FOOTER (shared component) -->
+  <div id="shared-footer" data-page-type="gallery"></div>
 
   <script>
     /* ============================================================
@@ -1617,5 +1612,7 @@
     })();
   </script>
   <script src="shared/header.js"></script>
+  <script src="shared/settings.js"></script>
+  <script src="shared/footer.js"></script>
 </body>
 </html>

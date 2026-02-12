@@ -49,6 +49,13 @@
       '<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>' +
     '</svg>';
 
+  // Back-to-gallery arrow (dev utility — public pages only)
+  var BACK_ARROW_SVG =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M19 12H5"/>' +
+      '<polyline points="12 19 5 12 12 5"/>' +
+    '</svg>';
+
   var CHECK_SVG =
     '<svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
       '<polyline points="20 6 9 17 4 12"/>' +
@@ -84,11 +91,20 @@
     html += '<header class="header" id="header">';
     html += '<div class="header-inner">';
 
-    // Logo — always present
+    // Logo + optional back button
+    html += '<div class="header-left">';
     html += '<a href="' + getLogoHref(pageType) + '" class="header-logo">';
     html += LOGO_SVG;
     html += '<span class="header-logo-text">Hinb\u00fbna Kurd\u00ee</span>';
     html += '</a>';
+
+    // Back to gallery (dev utility — public pages only)
+    if (pageType === 'public') {
+      html += '<a href="index.html" class="header-back-btn" title="Back to Gallery">';
+      html += BACK_ARROW_SVG;
+      html += '</a>';
+    }
+    html += '</div>';
 
     // Actions area
     html += '<div class="header-actions">';
