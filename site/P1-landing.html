@@ -353,11 +353,52 @@
       .btn-primary { width: 100%; }
     }
 
+    .hero-notes {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
     .hero-note {
       font-size: 13px;
       color: var(--text-secondary);
       letter-spacing: 0.2px;
       opacity: 0.8;
+    }
+    .hero-link {
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .hero-link:hover {
+      color: #D4A843;
+    }
+    .fade-in-only {
+      opacity: 0;
+      transition: opacity 0.8s ease 0.8s;
+    }
+    .fade-in-only.visible {
+      opacity: 0.8;
+    }
+    .hero-link-arrow {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .hero-link:hover .hero-link-arrow {
+      transform: translateX(3px);
+    }
+    .pricing-compare {
+      text-align: center;
+      margin-top: 28px;
+    }
+    .pricing-compare a {
+      color: #2D5A3D;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .pricing-compare a:hover {
+      color: #D4A843;
     }
 
     @media (max-width: 479px) {
@@ -1448,7 +1489,8 @@
       color: #1A2A1F;
     }
     [data-theme="dark"] .pricing-check { color: var(--color-accent); }
-
+    [data-theme="dark"] .pricing-compare a { color: #c9b88a; }
+    [data-theme="dark"] .pricing-compare a:hover { color: #D4A843; }
     /* Final CTA — lifted surface, same feel as light mode beige */
     [data-theme="dark"] .final-cta {
       background-color: #2A4736;
@@ -1511,7 +1553,10 @@
       <a href="P4-register.html" class="btn-primary fade-up fade-up-d1">
         Dest pê bike — Bêlaş e
       </a>
-      <span class="hero-note fade-up fade-up-d2">No credit card required</span>
+      <div class="hero-notes">
+        <span class="hero-note fade-up fade-up-d2">No credit card required</span>
+        <a href="P2-pricing.html" class="hero-note hero-link fade-in-only">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -1880,9 +1925,10 @@
             Offline mode
           </li>
         </ul>
-        <a href="P4-register.html" class="btn-primary-pricing">Premium bibe</a>
+        <a href="P2-pricing.html" class="btn-primary-pricing">Premium bibe</a>
       </div>
     </div>
+    <p class="pricing-compare fade-up fade-up-d2"><a href="P2-pricing.html">Hemû planan bibîne &rarr;</a></p>
   </div>
 </section>
 
@@ -1927,7 +1973,7 @@
       rootMargin: '0px 0px -40px 0px'
     });
 
-    document.querySelectorAll('.fade-up').forEach(function(el) {
+    document.querySelectorAll('.fade-up, .fade-in-only').forEach(function(el) {
       observer.observe(el);
     });
   })();
