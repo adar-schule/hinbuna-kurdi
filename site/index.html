@@ -229,18 +229,32 @@
       background-color: var(--border);
       border-radius: 5px;
       overflow: hidden;
-      position: relative;
+      display: flex;
     }
 
-    .progress-bar-fill {
+    .progress-bar-done {
       height: 100%;
       background: linear-gradient(90deg, var(--primary), var(--primary-light));
-      border-radius: 5px;
+      border-radius: 5px 0 0 5px;
       transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
     }
 
-    .progress-bar-fill::after {
+    .progress-bar-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light, #e0bc6a));
+      border-radius: 0;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    /* Round right edge if it's the last visible segment */
+    .progress-bar-done:last-child { border-radius: 5px; }
+    .progress-bar-progress:last-child { border-radius: 0 5px 5px 0; }
+    .progress-bar-done:first-child:last-child { border-radius: 5px; }
+
+    .progress-bar-done::after,
+    .progress-bar-progress::after {
       content: '';
       position: absolute;
       top: 0;
@@ -846,24 +860,25 @@
       <div class="progress-card">
         <div class="progress-header">
           <span class="progress-title">Overall Progress</span>
-          <span class="progress-count"><strong>0</strong> of 32 screens designed</span>
+          <span class="progress-count"><strong>2</strong> of 32 screens designed</span>
         </div>
-        <!-- Progress: 0 of 32 = ~0% (1 in-progress doesn't count as done) -->
+        <!-- Progress: 2 done (6.25%) + 1 in-progress (3.125%) -->
         <div class="progress-bar-track">
-          <div class="progress-bar-fill" style="width: 0%;"></div>
+          <div class="progress-bar-done" style="width: 6.25%;"></div>
+          <div class="progress-bar-progress" style="width: 3.125%;"></div>
         </div>
         <div class="progress-stats">
           <div class="progress-stat">
             <span class="progress-stat-dot done"></span>
-            <span>0 Done</span>
+            <span>2 Done</span>
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot in-progress"></span>
-            <span>2 In Progress</span>
+            <span>1 In Progress</span>
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot pending"></span>
-            <span>30 Pending</span>
+            <span>29 Pending</span>
           </div>
         </div>
       </div>
@@ -1025,7 +1040,7 @@
           </div>
           <p class="screen-description">Hero, features, sponsors, social proof, pricing preview, CTA</p>
           <div class="screen-card-bottom">
-            <span class="status status-in-progress"><span class="status-dot"></span>In Progress</span>
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
             <div class="screen-links">
               <a href="P1-landing.html" class="screen-link screen-link-light">View</a>
             </div>
@@ -1040,7 +1055,7 @@
           </div>
           <p class="screen-description">Free vs Premium vs Lifetime plans, feature comparison, FAQ</p>
           <div class="screen-card-bottom">
-            <span class="status status-pending"><span class="status-dot"></span>Pending</span>
+            <span class="status status-in-progress"><span class="status-dot"></span>In Progress</span>
             <div class="screen-links">
               <a href="P2-pricing.html" class="screen-link screen-link-light disabled">View</a>
             </div>
@@ -1055,7 +1070,7 @@
           </div>
           <p class="screen-description">Email/password, social login buttons, forgot password link</p>
           <div class="screen-card-bottom">
-            <span class="status status-in-progress"><span class="status-dot"></span>In Progress</span>
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
             <div class="screen-links">
               <a href="P3-login.html" class="screen-link screen-link-light">View</a>
             </div>
