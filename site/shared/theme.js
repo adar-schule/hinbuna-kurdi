@@ -73,7 +73,7 @@
       darkRules: {
         '.header':    'rgba(20, 30, 26, 0.92)',
         '.final-cta': '#223028',
-        '.footer':    '#0E1612'
+        '.shared-footer':    '#0E1612'
       },
       light: null
     },
@@ -111,7 +111,7 @@
       darkRules: {
         '.header':    'rgba(28, 30, 29, 0.92)',
         '.final-cta': '#2E3230',
-        '.footer':    '#161817'
+        '.shared-footer':    '#161817'
       },
       light: null
     },
@@ -149,7 +149,7 @@
       darkRules: {
         '.header':    'rgba(26, 32, 36, 0.92)',
         '.final-cta': '#283537',
-        '.footer':    '#141B1E'
+        '.shared-footer':    '#141B1E'
       },
       light: null
     }

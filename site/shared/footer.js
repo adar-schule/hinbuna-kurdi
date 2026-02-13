@@ -1,17 +1,12 @@
 /**
  * Shared Footer — Hinbuna Kurdi
  * Single source of truth for all page footers.
+ * One identical footer on every page.
  *
  * Usage:
- *   <div id="shared-footer" data-page-type="public"></div>
+ *   <div id="shared-footer"></div>
  *   <link rel="stylesheet" href="shared/footer.css">
  *   <script src="shared/footer.js"></script>
- *
- * Page types:
- *   - "public"     : Full branded footer (logo, tagline, nav links, copyright, gear)
- *   - "auth"       : Minimal footer (copyright, landing link, privacy, gear)
- *   - "gallery"    : Dev footer (copyright, onboarding link, Claude attribution, gear)
- *   - "onboarding" : Dev footer (copyright, gallery link, Claude attribution, gear)
  */
 (function () {
   'use strict';
@@ -34,41 +29,16 @@
     '</svg>';
 
   // ============================================================
-  // Build footer HTML
+  // Build footer HTML — identical on every page
   // ============================================================
 
-  function buildFooter(config) {
-    var pageType = config.pageType || 'public';
+  function buildFooter() {
     var html = '';
 
-    html += '<footer class="shared-footer shared-footer--' + pageType + '">';
+    html += '<footer class="shared-footer">';
     html += '<div class="shared-footer-inner">';
 
-    if (pageType === 'public') {
-      html += buildPublicFooter();
-    } else if (pageType === 'auth') {
-      html += buildAuthFooter();
-    } else if (pageType === 'gallery') {
-      html += buildDevFooter('onboarding.html', 'Developer Onboarding');
-    } else if (pageType === 'onboarding') {
-      html += buildDevFooter('index.html', 'Design Gallery');
-    }
-
-    // Settings gear — always present, all page types
-    html += '<button class="shared-footer-gear" id="footer-settings-gear" aria-label="Settings" title="M\u00eeheng">';
-    html += GEAR_SVG;
-    html += '</button>';
-
-    html += '</div>'; // .shared-footer-inner
-    html += '</footer>';
-
-    return html;
-  }
-
-  // ---- Public footer (P1-landing, future MVP screens) ----
-  function buildPublicFooter() {
-    var html = '';
-
+    // Brand (logo + tagline)
     html += '<div class="shared-footer-brand">';
     html += '<div class="shared-footer-logo">';
     html += LOGO_SVG;
@@ -77,6 +47,7 @@
     html += '<p class="shared-footer-tagline">F\u00earb\u00fbna ziman\u00ea kurd\u00ee</p>';
     html += '</div>';
 
+    // Nav links
     html += '<nav class="shared-footer-links">';
     html += '<a href="#" class="shared-footer-link">Derbar\u00ea</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
@@ -87,37 +58,16 @@
     html += '<a href="#" class="shared-footer-link">T\u00eakil\u00ee</a>';
     html += '</nav>';
 
+    // Copyright row with gear
+    html += '<div class="shared-footer-bottom">';
     html += '<p class="shared-footer-copyright">\u00a9 2026 Adar Schule</p>';
-
-    return html;
-  }
-
-  // ---- Auth footer (P3-login, P4-register, P5-forgot) ----
-  function buildAuthFooter() {
-    var html = '';
-
-    html += '<div class="shared-footer-row">';
-    html += '<span class="shared-footer-copyright">\u00a9 2026 Adar Schule</span>';
-    html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="P1-landing.html" class="shared-footer-link">Ser\u00fbpel</a>';
-    html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="#" class="shared-footer-link">Pol\u00eet\u00eekaya nepen\u00eet\u00eey\u00ea</a>';
+    html += '<button class="shared-footer-gear" id="footer-settings-gear" aria-label="Settings" title="M\u00eeheng">';
+    html += GEAR_SVG;
+    html += '</button>';
     html += '</div>';
 
-    return html;
-  }
-
-  // ---- Dev footer (gallery, onboarding) ----
-  function buildDevFooter(linkHref, linkText) {
-    var html = '';
-
-    html += '<div class="shared-footer-row">';
-    html += '<span class="shared-footer-copyright">\u00a9 2026 Adar Schule</span>';
-    html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="' + linkHref + '" class="shared-footer-link">' + linkText + '</a>';
-    html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += 'Generated with <a href="https://claude.ai" target="_blank" rel="noopener" class="shared-footer-link">Claude Code</a>';
-    html += '</div>';
+    html += '</div>'; // .shared-footer-inner
+    html += '</footer>';
 
     return html;
   }
@@ -130,11 +80,7 @@
     var placeholder = document.getElementById('shared-footer');
     if (!placeholder) return;
 
-    var config = {
-      pageType: placeholder.getAttribute('data-page-type') || 'public'
-    };
-
-    placeholder.outerHTML = buildFooter(config);
+    placeholder.outerHTML = buildFooter();
 
     // Bind gear button → opens settings drawer (from settings.js)
     var gearBtn = document.getElementById('footer-settings-gear');
