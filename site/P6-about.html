@@ -1075,6 +1075,270 @@
     [data-theme="dark"] .final-cta-subtext { color: var(--text-secondary); }
 
     /* ============================================
+       8. LEGAL SECTIONS — Privacy, Terms, Contact
+       ============================================ */
+    .legal-section {
+      padding: 56px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (min-width: 768px) {
+      .legal-section { padding: 72px 40px; }
+    }
+
+    @media (min-width: 1024px) {
+      .legal-section { padding: 88px 60px; max-width: 1200px; margin: 0 auto; }
+    }
+
+    .legal-section:nth-child(even) {
+      background-color: var(--bg-surface);
+    }
+
+    .legal-content {
+      max-width: 720px;
+    }
+
+    .legal-block {
+      margin-bottom: 32px;
+    }
+
+    .legal-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-block-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.1px;
+    }
+
+    @media (min-width: 768px) {
+      .legal-block-title { font-size: 19px; }
+    }
+
+    .legal-block p,
+    .legal-block li {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    @media (min-width: 768px) {
+      .legal-block p,
+      .legal-block li { font-size: 15px; }
+    }
+
+    .legal-block p + p {
+      margin-top: 12px;
+    }
+
+    .legal-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+    }
+
+    .legal-block li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 6px;
+    }
+
+    .legal-block li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-accent);
+      opacity: 0.5;
+    }
+
+    .legal-date {
+      font-size: 12px;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      margin-bottom: 24px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* ============================================
+       9. CONTACT SECTION
+       ============================================ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 720px;
+    }
+
+    @media (min-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    .contact-info-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-info-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(45, 90, 61, 0.08);
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .contact-info-icon {
+      background-color: rgba(212, 168, 67, 0.1);
+      color: var(--color-accent);
+    }
+
+    .contact-info-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-info-text h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .contact-info-text p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .contact-info-text a {
+      color: var(--color-accent);
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-info-text a:hover {
+      opacity: 0.8;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-field label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text-primary);
+      letter-spacing: 0.2px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.12);
+    }
+
+    .form-field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.5;
+    }
+
+    [data-theme="dark"] .form-field input,
+    [data-theme="dark"] .form-field textarea {
+      background-color: var(--bg-surface);
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background-color: var(--color-primary);
+      color: var(--bg-page);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      min-height: 48px;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--color-primary-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.985);
+    }
+
+    .btn-submit svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    [data-theme="dark"] .btn-submit {
+      background-color: var(--color-accent);
+      color: #1A2A1F;
+    }
+
+    [data-theme="dark"] .btn-submit:hover {
+      background-color: var(--color-accent-hover);
+    }
+
+    /* ============================================
        ACCESSIBILITY — Reduced motion
        ============================================ */
     @media (prefers-reduced-motion: reduce) {
@@ -1457,7 +1721,221 @@
 </section>
 
 <!-- ==========================================
-     9. FOOTER (shared component)
+     9. PRIVACY POLICY — "Polîtîkaya Nihênîyê"
+     ========================================== -->
+<section id="niheni" class="legal-section">
+  <span class="section-eyebrow fade-up">Nihênî</span>
+  <h2 class="section-heading fade-up">Polîtîkaya Nihênîyê</h2>
+  <p class="legal-date fade-up">Dawî hatiye nûkirin: 14.02.2026</p>
+
+  <div class="legal-content">
+    <div class="legal-block fade-up fade-up-d1">
+      <h3 class="legal-block-title">1. Daneyên ku em berhev dikin</h3>
+      <p>Dema ku hûn li Hinbûna Kurdî tomar dibin an jî platformê bikar tînin, em van daneyan berhev dikin:</p>
+      <ul>
+        <li>Nav, navnîşana e-nameyê û şîfreya şîfrekirî</li>
+        <li>Zimanê piştgiriyê yê hilbijartî (almanî, îngilîzî, kurdî)</li>
+        <li>Daneyên pêşketinê: dersên qediyayî, bersivên çalakiyan, demjimêrên fêrbûnê</li>
+        <li>Daneyên teknîkî: celebê gerok, pergala xebitandinê, navnîşana IP-ê (bi awayekî anonîm)</li>
+      </ul>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d2">
+      <h3 class="legal-block-title">2. Çawa em daneyan bikar tînin</h3>
+      <p>Em daneyên we tenê ji bo van armancên jêrîn bikar tînin:</p>
+      <ul>
+        <li>Pêşkêşkirina xizmetên fêrbûnê û şopandina pêşketina we</li>
+        <li>Baştirkirina naveroka dersan û ezmûna bikarhêner</li>
+        <li>Şandina agahdariyên girîng ên derbarê hesabê we (ne reklam)</li>
+        <li>Parastina ewlehiya platformê</li>
+      </ul>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d2">
+      <h3 class="legal-block-title">3. Cookie û teknolojiyên şopandinê</h3>
+      <p>Em cookie yên pêwîst bikar tînin ji bo ku platforma rast bixebite — mînak ji bo tomarkirina tema we (tarî/ronahî) û rewşa têketinê. Em cookie yên reklaman bikar naynin.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d3">
+      <h3 class="legal-block-title">4. Parvekirina daneyan bi aliyên sêyemîn re</h3>
+      <p>Em daneyên we bi tu aliyekî sêyemîn re parve nakin, ji bilî:</p>
+      <ul>
+        <li>Pêşkêşkerên xizmetê yên teknîkî (hosting: AWS, TTS: kurdishtts.com)</li>
+        <li>Daxwazên qanûnî yên dewletê</li>
+      </ul>
+      <p>Em daneyên we tu caran nafroşin.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d3">
+      <h3 class="legal-block-title">5. Mafên we</h3>
+      <p>Li gorî GDPR û qanûnên din ên parastina daneyan, mafên we hene:</p>
+      <ul>
+        <li>Gihîştina daneyên xwe — bibînin ka em çi agahiyan li ser we hildidin</li>
+        <li>Sererastkirina daneyan — agahiyên xelet biguherînin</li>
+        <li>Jêbirina daneyan — daxwaza jêbirina hesabê xwe bikin</li>
+        <li>Derxistina daneyan — daneyên xwe bi formatek standard bistînin</li>
+      </ul>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d4">
+      <h3 class="legal-block-title">6. Ewlehî</h3>
+      <p>Em hemû tedbîrên pêwîst digirin da ku daneyên we ewle bin — şîfrekirin di veguheztinê de (HTTPS), şîfreyên hashkirî, û kontrolên gihîştinê yên tund.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d4">
+      <h3 class="legal-block-title">7. Têkilî</h3>
+      <p>Ji bo her pirsek derbarê nihênîyê, bi me re têkilî daynin: <a href="mailto:privacy@adarschule.com" style="color: var(--color-accent);">privacy@adarschule.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     10. TERMS OF SERVICE — "Şert û Mercan"
+     ========================================== -->
+<section id="sert" class="legal-section">
+  <span class="section-eyebrow fade-up">Şertên Bikaranînê</span>
+  <h2 class="section-heading fade-up">Şert û Mercan</h2>
+  <p class="legal-date fade-up">Dawî hatiye nûkirin: 14.02.2026</p>
+
+  <div class="legal-content">
+    <div class="legal-block fade-up fade-up-d1">
+      <h3 class="legal-block-title">1. Pejirandin</h3>
+      <p>Bi tomarkirina hesabek li Hinbûna Kurdî, hûn van şert û mercan qebûl dikin. Eger hûn li hev nakin, ji kerema xwe platformê bikar neynin.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d1">
+      <h3 class="legal-block-title">2. Hesab</h3>
+      <ul>
+        <li>Divê hûn agahiyên rast pêşkêş bikin dema ku tomar dibin</li>
+        <li>Hûn berpirsiyar in ji bo ewlehiya şîfreya xwe</li>
+        <li>Yek kes — yek hesab. Hesabên dubare dikarin werin rakirin</li>
+        <li>Hûn dikarin her dem hesabê xwe jê bikin</li>
+      </ul>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d2">
+      <h3 class="legal-block-title">3. Xizmetên me</h3>
+      <p>Hinbûna Kurdî platformek fêrbûna zimanê kurdî ye ku van xizmetan pêşkêş dike:</p>
+      <ul>
+        <li>Dersên birêkûpêk ên Kurmancî (A1–B1)</li>
+        <li>Çalakiyên pratîk û bihîstinê</li>
+        <li>Şopandina pêşketinê</li>
+        <li>Dengê zikmakî bi teknolojiya TTS</li>
+      </ul>
+      <p>Em dikarin her dem xizmetan nûve bikin, zêde bikin, an biguherînin.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d2">
+      <h3 class="legal-block-title">4. Biha û abone</h3>
+      <p>Hinbûna Kurdî di vê qonaxê de belaş e. Dema ku planên premium werin zêdekirin, em ê agahdariya zelal bidin derbarê biha û şertên abone.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d3">
+      <h3 class="legal-block-title">5. Mafên rewşenbîrî</h3>
+      <p>Hemû naveroka li ser platformê — ders, çalakî, wêne, kod û sêwirandin — aîdî Adar Schule ye. Hûn dikarin ji bo fêrbûna kesane bikar bînin, lê bêyî destûra me ji nû ve bilavkirin qedexe ye.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d3">
+      <h3 class="legal-block-title">6. Bikaranîna qebûlkirî</h3>
+      <p>Hûn qebûl dikin ku:</p>
+      <ul>
+        <li>Naveroka platformê kopî nekin û li cihekî din bilavnekin</li>
+        <li>Hewl nedin ku pergala ewlehiyê binpê bikin</li>
+        <li>Naveroka neqanûnî, nefretbar, an ziyandar parve nekin</li>
+        <li>Hesabê xwe bi kesên din re parve nekin</li>
+      </ul>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d4">
+      <h3 class="legal-block-title">7. Berpirsiyarî</h3>
+      <p>Hinbûna Kurdî "wek ku heye" tê pêşkêşkirin. Em hewl didin ku kalîteyeke bilind pêşkêş bikin, lê em nikaribin garantiyeke bêkêmasî bidin. Em berpirsiyar nînin ji bo ziyanên nerastê ku ji bikaranîna platformê derdikevin.</p>
+    </div>
+
+    <div class="legal-block fade-up fade-up-d4">
+      <h3 class="legal-block-title">8. Qanûna serdest</h3>
+      <p>Ev şert û mercan li gorî qanûnên Almanyayê (Bundesrepublik Deutschland) têne rêvebirin. Dadgeha bi salahîyet Berlin e.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     11. CONTACT — "Têkilî"
+     ========================================== -->
+<section id="tekili" class="legal-section" style="border-bottom: 1px solid var(--border);">
+  <span class="section-eyebrow fade-up">Têkilî</span>
+  <h2 class="section-heading fade-up">Bi me re têkilî daynin</h2>
+  <p class="section-subtext fade-up">Pirs, pêşniyar an hevkarî? Em kêfxweş dibin ku ji we re bersiv bidin.</p>
+
+  <div class="contact-grid">
+    <!-- Contact info -->
+    <div class="fade-up fade-up-d1">
+      <div class="contact-info-block">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-info-text">
+          <h4>E-name</h4>
+          <p><a href="mailto:info@adarschule.com">info@adarschule.com</a></p>
+        </div>
+      </div>
+
+      <div class="contact-info-block">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contact-info-text">
+          <h4>Cih</h4>
+          <p>Berlin, Almanya</p>
+        </div>
+      </div>
+
+      <div class="contact-info-block">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="contact-info-text">
+          <h4>Demjimêra bersivdanê</h4>
+          <p>Bi gelemperî di nav 48 saetan de</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <form class="contact-form fade-up fade-up-d2" onsubmit="event.preventDefault(); this.querySelector('.btn-submit').textContent='Hat şandin!'; this.querySelector('.btn-submit').disabled=true; setTimeout(function(){this.reset(); this.querySelector('.btn-submit').textContent='Bişîne'; this.querySelector('.btn-submit').disabled=false;}.bind(this), 2000);">
+      <div class="form-field">
+        <label for="contact-name">Nav</label>
+        <input type="text" id="contact-name" placeholder="Navê we" required>
+      </div>
+      <div class="form-field">
+        <label for="contact-email">E-name</label>
+        <input type="email" id="contact-email" placeholder="email@nimûne.com" required>
+      </div>
+      <div class="form-field">
+        <label for="contact-message">Peyam</label>
+        <textarea id="contact-message" placeholder="Peyama we..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">
+        Bişîne
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ==========================================
+     12. FOOTER (shared component)
      ========================================== -->
 <div id="shared-footer"></div>
 

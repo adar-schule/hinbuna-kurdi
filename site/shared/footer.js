@@ -51,11 +51,11 @@
     html += '<nav class="shared-footer-links">';
     html += '<a href="P6-about.html" class="shared-footer-link">Derbar\u00ea</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="#" class="shared-footer-link">Pol\u00eet\u00eekaya Nih\u00ean\u00eey\u00ea</a>';
+    html += '<a href="P6-about.html#niheni" class="shared-footer-link">Pol\u00eet\u00eekaya Nih\u00ean\u00eey\u00ea</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="#" class="shared-footer-link">\u015eert \u00fb Mercan</a>';
+    html += '<a href="P6-about.html#sert" class="shared-footer-link">\u015eert \u00fb Mercan</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="#" class="shared-footer-link">T\u00eakil\u00ee</a>';
+    html += '<a href="P6-about.html#tekili" class="shared-footer-link">T\u00eakil\u00ee</a>';
     html += '</nav>';
 
     // Copyright row with gear
