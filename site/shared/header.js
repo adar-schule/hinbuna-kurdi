@@ -131,7 +131,7 @@
 
     // Login button
     if (showLogin && pageType === 'public') {
-      html += '<a href="#" class="header-login">T\u00eakeve</a>';
+      html += '<a href="P3-login.html" class="header-login">T\u00eakeve</a>';
     }
 
     html += '</div>'; // .header-actions
@@ -142,7 +142,7 @@
   }
 
   function getLogoHref(pageType) {
-    if (pageType === 'public') return '#';
+    if (pageType === 'public') return 'P1-landing.html';
     if (pageType === 'gallery') return '#';
     if (pageType === 'onboarding') return 'index.html';
     return '#';

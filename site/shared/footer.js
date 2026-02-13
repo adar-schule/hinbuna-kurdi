@@ -49,7 +49,7 @@
 
     // Nav links
     html += '<nav class="shared-footer-links">';
-    html += '<a href="#" class="shared-footer-link">Derbar\u00ea</a>';
+    html += '<a href="P6-about.html" class="shared-footer-link">Derbar\u00ea</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
     html += '<a href="#" class="shared-footer-link">Pol\u00eet\u00eekaya Nih\u00ean\u00eey\u00ea</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
