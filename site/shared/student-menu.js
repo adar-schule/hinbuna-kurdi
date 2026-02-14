@@ -1,0 +1,186 @@
+/**
+ * Shared Student Menu — Hinbuna Kurdi
+ * Injects hamburger button + slide-out navigation drawer into any student screen.
+ *
+ * Usage:
+ *   <link rel="stylesheet" href="shared/student-menu.css">
+ *   <script src="shared/student-menu.js" data-active="home"></script>
+ *
+ *   data-active values: "home" | "courses" | "profile" | "settings"
+ *
+ * The script auto-detects the header (.app-header / .lesson-header)
+ * and appends the hamburger button + drawer to the page.
+ *
+ * Note: All HTML is hardcoded static content (no user input), so
+ * insertAdjacentHTML usage is safe — no untrusted data is injected.
+ */
+(function () {
+  'use strict';
+
+  // Detect which nav item should be active
+  var scriptTag = document.currentScript;
+  var activePage = scriptTag ? scriptTag.getAttribute('data-active') : '';
+
+  // SVG icons (all static, no user input)
+  var HAMBURGER_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  var CLOSE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
+  function icon(d) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
+  }
+
+  var HOME_SVG = icon('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>');
+
+  var NAV_ITEMS = [
+    { id: 'courses',  href: 'S2-course-list.html',  label: 'Courses',  icon: icon('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>') },
+    { id: 'profile',  href: '#',                     label: 'Profile',  icon: icon('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'), disabled: true },
+    { id: 'settings', href: '#',                     label: 'Settings', icon: icon('<circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2m-9-11h2m18 0h2m-3.64-6.36l-1.41 1.41M6.05 17.95l-1.41 1.41m0-12.73l1.41 1.41m11.31 11.31l1.41 1.41"/>'), disabled: true },
+  ];
+
+  var EXTRA_ITEMS = [
+    { type: 'separator' },
+    { id: 'premium',  href: '#', label: 'Go Premium', icon: icon('<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'), cls: 'premium', disabled: true },
+    { id: 'help',     href: '#', label: 'Help',       icon: icon('<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>'), disabled: true },
+    { type: 'separator' },
+    { id: 'logout',   href: 'P3-login.html', label: 'Logout', icon: icon('<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>'), cls: 'danger' },
+  ];
+
+  // ============================================================
+  // Build drawer HTML (all static content, safe to inject)
+  // ============================================================
+  function buildDrawer() {
+    var html = '';
+
+    // Overlay
+    html += '<div class="menu-overlay" id="menu-overlay"></div>';
+
+    // Drawer
+    html += '<nav class="menu-drawer" id="menu-drawer" aria-label="Main navigation">';
+
+    // Drawer header (user info)
+    html += '<div class="menu-drawer-header">';
+    html += '<div class="menu-user">';
+    html += '<div class="menu-avatar">AK</div>';
+    html += '<div class="menu-user-info">';
+    html += '<span class="menu-user-name">Azad Kurd</span>';
+    html += '<span class="menu-user-level">Level 4 &middot; 1,250 XP</span>';
+    html += '</div>';
+    html += '</div>';
+    html += '<button class="menu-close-btn" id="menu-close" aria-label="Close menu">' + CLOSE_SVG + '</button>';
+    html += '</div>';
+
+    // Nav items
+    html += '<div class="menu-nav">';
+
+    NAV_ITEMS.forEach(function (item) {
+      var isActive = item.id === activePage;
+      var cls = 'menu-nav-item' + (isActive ? ' active' : '');
+      if (item.disabled && !isActive) {
+        html += '<a href="#" class="' + cls + '" onclick="return false;" style="opacity:0.5;">' + item.icon + item.label + '</a>';
+      } else {
+        html += '<a href="' + item.href + '" class="' + cls + '">' + item.icon + item.label + '</a>';
+      }
+    });
+
+    EXTRA_ITEMS.forEach(function (item) {
+      if (item.type === 'separator') {
+        html += '<div class="menu-separator"></div>';
+        return;
+      }
+      var cls = 'menu-nav-item' + (item.cls ? ' ' + item.cls : '');
+      if (item.disabled) {
+        html += '<a href="#" class="' + cls + '" onclick="return false;">' + item.icon + item.label + '</a>';
+      } else {
+        html += '<a href="' + item.href + '" class="' + cls + '">' + item.icon + item.label + '</a>';
+      }
+    });
+
+    html += '</div>'; // .menu-nav
+    html += '</nav>';
+
+    return html;
+  }
+
+  // ============================================================
+  // Inject hamburger button into header
+  // ============================================================
+  function injectHamburgerButton() {
+    // Try standard student header first, then lesson header
+    var actionsContainer = document.querySelector('.header-actions') || document.querySelector('.header-right');
+    if (!actionsContainer) return;
+
+    var btnClass = actionsContainer.querySelector('.lh-btn') ? 'lh-btn' : 'header-icon-btn';
+
+    // Inject Home icon button (before hamburger)
+    // Note: All HTML is hardcoded static content (no user input), safe to inject
+    var homeBtn = document.createElement('a');
+    homeBtn.className = btnClass;
+    homeBtn.href = 'S1-dashboard.html';
+    homeBtn.setAttribute('aria-label', 'Home');
+    homeBtn.title = 'Home';
+    homeBtn.insertAdjacentHTML('beforeend', HOME_SVG);
+    actionsContainer.appendChild(homeBtn);
+
+    // Inject hamburger button (static SVG content only)
+    var btn = document.createElement('button');
+    btn.className = btnClass;
+    btn.id = 'menu-toggle';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.title = 'Menu';
+    btn.insertAdjacentHTML('beforeend', HAMBURGER_SVG);
+    actionsContainer.appendChild(btn);
+  }
+
+  // ============================================================
+  // Initialize
+  // ============================================================
+  function init() {
+    // Don't double-inject if menu already exists (e.g. S1 has its own)
+    if (document.getElementById('menu-drawer')) return;
+
+    injectHamburgerButton();
+
+    // Inject drawer HTML after header (all static content, safe)
+    var header = document.querySelector('.app-header') || document.querySelector('.lesson-header');
+    if (header) {
+      header.insertAdjacentHTML('afterend', buildDrawer());
+    } else {
+      document.body.insertAdjacentHTML('afterbegin', buildDrawer());
+    }
+
+    // Bind events
+    var menuToggle = document.getElementById('menu-toggle');
+    var menuClose = document.getElementById('menu-close');
+    var menuOverlay = document.getElementById('menu-overlay');
+    var menuDrawer = document.getElementById('menu-drawer');
+
+    function openMenu() {
+      if (menuOverlay) menuOverlay.classList.add('open');
+      if (menuDrawer) menuDrawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (menuOverlay) menuOverlay.classList.remove('open');
+      if (menuDrawer) menuDrawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (menuToggle) menuToggle.addEventListener('click', openMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menuDrawer && menuDrawer.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

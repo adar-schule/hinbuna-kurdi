@@ -60,7 +60,10 @@
 
     // Copyright row with gear
     html += '<div class="shared-footer-bottom">';
-    html += '<p class="shared-footer-copyright">\u00a9 2026 Adar Schule</p>';
+    html += '<div class="shared-footer-bottom-text">';
+    html += '<p class="shared-footer-copyright">\u00a9 2026 <a href="#" class="shared-footer-org">Adar Schule</a></p>';
+    html += '<a href="#" class="shared-footer-craftlab">Built by <span>N\u00fbcraft Labs</span></a>';
+    html += '</div>';
     html += '<button class="shared-footer-gear" id="footer-settings-gear" aria-label="Settings" title="M\u00eeheng">';
     html += GEAR_SVG;
     html += '</button>';

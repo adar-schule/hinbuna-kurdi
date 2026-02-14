@@ -1,0 +1,252 @@
+/* ============================================================
+   BREADCRUMB SUB-HEADER — Hinbuna Kurdi
+   Compact two-line navigation bar below the main header.
+   Line 1: Clickable hierarchy labels with dropdown pickers.
+   Line 2: Italic current context values.
+   ============================================================ */
+
+.breadcrumb-bar {
+  position: sticky;
+  top: 56px; /* below app-header */
+  z-index: 99;
+  background-color: var(--bg-page);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.breadcrumb-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 6px 20px;
+  gap: 12px;
+  min-height: 42px;
+}
+
+/* ============================================
+   LEFT: Breadcrumb path (two lines)
+   ============================================ */
+.breadcrumb-path {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Line 1: Clickable labels — Course › Unit › Lesson */
+.breadcrumb-labels {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.breadcrumb-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: 2px 0;
+  border: none;
+  background: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+  position: relative;
+}
+
+.breadcrumb-label:hover {
+  color: var(--color-accent, #D4A843);
+}
+
+/* Active label (current depth) — non-clickable */
+.breadcrumb-label.current {
+  color: var(--text-primary);
+  cursor: default;
+}
+
+.breadcrumb-label.current:hover {
+  color: var(--text-primary);
+}
+
+/* Chevron separator */
+.breadcrumb-sep {
+  font-size: 10px;
+  color: var(--text-secondary);
+  opacity: 0.4;
+  margin: 0 5px;
+  user-select: none;
+}
+
+/* Line 2: Current context values */
+.breadcrumb-values {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+}
+
+.breadcrumb-value {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.breadcrumb-value-sep {
+  font-size: 9px;
+  font-style: normal;
+  color: var(--text-secondary);
+  opacity: 0.3;
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   RIGHT: Action icons
+   ============================================ */
+.breadcrumb-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.breadcrumb-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  border-radius: var(--radius-sm, 8px);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.breadcrumb-action-btn:hover {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.breadcrumb-action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.breadcrumb-action-btn.close-btn:hover {
+  color: var(--color-error, #DC4545);
+}
+
+/* ============================================
+   DROPDOWN PICKER
+   ============================================ */
+.breadcrumb-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 2px;
+  min-width: 220px;
+  max-width: 300px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: var(--shadow-lg);
+  z-index: 300;
+  padding: 6px 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.breadcrumb-dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.breadcrumb-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background-color 0.1s ease;
+  cursor: pointer;
+}
+
+.breadcrumb-dropdown-item:hover {
+  background-color: rgba(212, 168, 67, 0.08);
+}
+
+/* Active item */
+.breadcrumb-dropdown-item.active {
+  color: var(--color-accent, #D4A843);
+  font-weight: 600;
+}
+
+.breadcrumb-dropdown-item.active::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-accent, #D4A843);
+  flex-shrink: 0;
+}
+
+/* Locked item */
+.breadcrumb-dropdown-item.locked {
+  color: var(--text-secondary);
+  opacity: 0.45;
+  cursor: default;
+}
+
+.breadcrumb-dropdown-item.locked:hover {
+  background-color: transparent;
+}
+
+.breadcrumb-dropdown-item .dd-lock {
+  width: 14px;
+  height: 14px;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Done item checkmark */
+.breadcrumb-dropdown-item .dd-check {
+  width: 14px;
+  height: 14px;
+  color: var(--color-success, #2D8A4E);
+  flex-shrink: 0;
+}
+
+/* Dropdown backdrop (for closing) */
+.breadcrumb-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 299;
+  display: none;
+}
+
+.breadcrumb-backdrop.open {
+  display: block;
+}
