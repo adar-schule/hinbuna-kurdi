@@ -17,6 +17,7 @@
   <!-- Shared theme system -->
   <script src="shared/theme.js"></script>
   <link rel="stylesheet" href="shared/settings.css">
+  <link rel="stylesheet" href="shared/student-menu.css">
 
   <style>
     /* ============================================
@@ -212,173 +213,6 @@
     .dev-gallery-link svg {
       width: 12px;
       height: 12px;
-    }
-
-    /* ============================================
-       HAMBURGER MENU
-       ============================================ */
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.4);
-      z-index: 200;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .menu-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .menu-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 280px;
-      max-width: 85vw;
-      background-color: var(--bg-page);
-      z-index: 201;
-      transform: translateX(100%);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-    }
-
-    .menu-overlay.open + .menu-drawer,
-    .menu-drawer.open {
-      transform: translateX(0);
-    }
-
-    .menu-drawer-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .menu-user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .menu-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: var(--color-primary);
-      color: #FDF8F3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .menu-user-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .menu-user-name {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
-
-    .menu-user-level {
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-
-    .menu-close-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border: none;
-      background: none;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      color: var(--text-secondary);
-      transition: background-color 0.2s ease;
-    }
-
-    .menu-close-btn:hover {
-      background-color: var(--bg-surface);
-    }
-
-    .menu-close-btn svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .menu-nav {
-      flex: 1;
-      padding: 8px 0;
-    }
-
-    .menu-nav-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-primary);
-      transition: background-color 0.15s ease;
-      text-decoration: none;
-    }
-
-    .menu-nav-item:hover {
-      background-color: var(--bg-surface);
-    }
-
-    .menu-nav-item.active {
-      color: var(--color-accent);
-      font-weight: 600;
-    }
-
-    .menu-nav-item svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      color: var(--text-secondary);
-    }
-
-    .menu-nav-item.active svg {
-      color: var(--color-accent);
-    }
-
-    .menu-separator {
-      height: 1px;
-      background-color: var(--border);
-      margin: 8px 20px;
-    }
-
-    .menu-nav-item.premium {
-      color: var(--color-accent);
-    }
-
-    .menu-nav-item.premium svg {
-      color: var(--color-accent);
-    }
-
-    .menu-nav-item.danger {
-      color: var(--color-error);
-    }
-
-    .menu-nav-item.danger svg {
-      color: var(--color-error);
     }
 
     /* ============================================
@@ -1040,64 +874,12 @@
           <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/><line x1="12" y1="2" x2="12" y2="0"/><line x1="4.93" y1="4.93" x2="3.51" y2="3.51"/><line x1="2" y1="12" x2="0" y2="12"/><line x1="22" y1="12" x2="24" y2="12"/><line x1="19.07" y1="4.93" x2="20.49" y2="3.51"/></svg>
           <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
         </button>
-        <!-- Home -->
-        <a href="S1-dashboard.html" class="header-icon-btn" aria-label="Home" title="Home">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </a>
-        <!-- Hamburger Menu -->
-        <button class="header-icon-btn" id="menu-toggle" aria-label="Open menu" title="Menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
+        <!-- Home + Hamburger injected by shared/student-menu.js -->
       </div>
     </div>
   </header>
 
-  <!-- ============================================================
-       HAMBURGER MENU DRAWER
-       ============================================================ -->
-  <div class="menu-overlay" id="menu-overlay"></div>
-  <nav class="menu-drawer" id="menu-drawer" aria-label="Main navigation">
-    <div class="menu-drawer-header">
-      <div class="menu-user">
-        <div class="menu-avatar">AK</div>
-        <div class="menu-user-info">
-          <span class="menu-user-name">Azad Kurd</span>
-          <span class="menu-user-level">Level 4 &middot; 1,250 XP</span>
-        </div>
-      </div>
-      <button class="menu-close-btn" id="menu-close" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="menu-nav">
-      <a href="S2-course-list.html" class="menu-nav-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        Courses
-      </a>
-      <a href="#" class="menu-nav-item" onclick="return false;" style="opacity: 0.5;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Profile
-      </a>
-      <a href="#" class="menu-nav-item" onclick="return false;" style="opacity: 0.5;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2m-9-11h2m18 0h2m-3.64-6.36l-1.41 1.41M6.05 17.95l-1.41 1.41m0-12.73l1.41 1.41m11.31 11.31l1.41 1.41"/></svg>
-        Settings
-      </a>
-      <div class="menu-separator"></div>
-      <a href="#" class="menu-nav-item premium" onclick="return false;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Go Premium
-      </a>
-      <a href="#" class="menu-nav-item" onclick="return false;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        Help
-      </a>
-      <div class="menu-separator"></div>
-      <a href="P3-login.html" class="menu-nav-item danger">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Logout
-      </a>
-    </div>
-  </nav>
+  <!-- Menu drawer injected by shared/student-menu.js -->
 
   <!-- ============================================================
        DASHBOARD CONTENT
@@ -1293,29 +1075,9 @@
         }, { passive: true });
       }
 
-      // --- Hamburger Menu ---
-      var menuToggle = document.getElementById('menu-toggle');
-      var menuClose = document.getElementById('menu-close');
-      var menuOverlay = document.getElementById('menu-overlay');
-      var menuDrawer = document.getElementById('menu-drawer');
-
-      function openMenu() {
-        menuOverlay.classList.add('open');
-        menuDrawer.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeMenu() {
-        menuOverlay.classList.remove('open');
-        menuDrawer.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      if (menuToggle) menuToggle.addEventListener('click', openMenu);
-      if (menuClose) menuClose.addEventListener('click', closeMenu);
-      if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
     })();
   </script>
+  <script src="shared/student-menu.js" data-active="home"></script>
 
 </body>
 </html>

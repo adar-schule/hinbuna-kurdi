@@ -995,17 +995,8 @@
       // Data
       // ============================================================
 
-      var LANGUAGES = [
-        { code: 'ku', label: 'Kurd\u00ee' },
-        { code: 'en', label: 'English' },
-        { code: 'de', label: 'Deutsch' },
-        { code: 'sv', label: 'Svenska' },
-        { code: 'da', label: 'Dansk' },
-        { code: 'it', label: 'Italiano' },
-        { code: 'tr', label: 'T\u00fcrk\u00e7e' },
-        { code: 'fa', label: '\u0641\u0627\u0631\u0633\u06CC', dir: 'rtl' },
-        { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', dir: 'rtl' }
-      ];
+      // Language list from centralized HK.LANGUAGES (loaded via theme.js)
+      var LANGUAGES = (window.HK && HK.LANGUAGES) || [];
 
       var THEME_SWATCHES = {
         'forest-green': {
@@ -1104,7 +1095,7 @@
       // Language Grid
       // ============================================================
 
-      var currentLang = localStorage.getItem('hk-lang') || 'en';
+      var currentLang = (window.HK && HK.getLang) ? HK.getLang() : 'en';
       var langGrid = document.getElementById('lang-grid');
 
       function renderLangGrid() {
@@ -1159,7 +1150,7 @@
           if (!btn) return;
           var code = btn.getAttribute('data-lang');
           currentLang = code;
-          localStorage.setItem('hk-lang', code);
+          if (window.HK && HK.setLang) HK.setLang(code);
 
           // Update all buttons
           var opts = langGrid.querySelectorAll('.lang-option');

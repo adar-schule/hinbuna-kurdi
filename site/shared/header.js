@@ -117,21 +117,8 @@
       '<polyline points="20 6 9 17 4 12"/>' +
     '</svg>';
 
-  // ============================================================
-  // Language options
-  // ============================================================
-
-  var LANGUAGES = [
-    { code: 'ku', label: 'Kurd\u00ee' },
-    { code: 'en', label: 'English' },
-    { code: 'de', label: 'Deutsch' },
-    { code: 'sv', label: 'Svenska' },
-    { code: 'da', label: 'Dansk' },
-    { code: 'it', label: 'Italiano' },
-    { code: 'tr', label: 'T\u00fcrk\u00e7e' },
-    { code: 'fa', label: '\u0641\u0627\u0631\u0633\u06CC', dir: 'rtl' },
-    { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', dir: 'rtl' }
-  ];
+  // Language list from centralized HK.LANGUAGES (loaded via theme.js)
+  var LANGUAGES = (window.HK && HK.LANGUAGES) || [];
 
   // ============================================================
   // Build header HTML
@@ -364,6 +351,8 @@
       opt.addEventListener('click', function () {
         options.forEach(function (o) { o.classList.remove('active'); });
         opt.classList.add('active');
+        var code = opt.getAttribute('data-lang');
+        if (code && window.HK && HK.setLang) HK.setLang(code);
         closeDropdown();
       });
     });

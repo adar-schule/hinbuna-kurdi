@@ -20,12 +20,49 @@
  *   <script src="shared/theme.js"></script>
  *
  * API:
+ *   HK.LANGUAGES                    — language list (single source of truth)
+ *   HK.getLang()                     — current language code
+ *   HK.setLang('ku')                — change + save + fire event
  *   HK.setColorTheme('dark-slate')  — apply + save
  *   HK.getColorTheme()              — current ID
  *   HK.COLOR_THEMES                 — theme definitions
  */
 (function () {
   'use strict';
+
+  // ============================================================
+  // Language list — single source of truth for all pages
+  // Same order everywhere: header picker, settings, hamburger menu
+  // ============================================================
+
+  var LANGUAGES = [
+    { code: 'ku', label: 'Kurd\u00ee' },
+    { code: 'en', label: 'English' },
+    { code: 'de', label: 'Deutsch' },
+    { code: 'sv', label: 'Svenska' },
+    { code: 'da', label: 'Dansk' },
+    { code: 'it', label: 'Italiano' },
+    { code: 'tr', label: 'T\u00fcrk\u00e7e' },
+    { code: 'fa', label: '\u0641\u0627\u0631\u0633\u06CC', dir: 'rtl' },
+    { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', dir: 'rtl' }
+  ];
+
+  function getLang() {
+    return localStorage.getItem('hk-lang') || 'en';
+  }
+
+  function setLang(code) {
+    localStorage.setItem('hk-lang', code);
+    // Fire a custom event so any open UI can react
+    window.dispatchEvent(new CustomEvent('hk-lang-change', { detail: { lang: code } }));
+  }
+
+  function getLangLabel(code) {
+    for (var i = 0; i < LANGUAGES.length; i++) {
+      if (LANGUAGES[i].code === code) return LANGUAGES[i].label;
+    }
+    return 'English';
+  }
 
   // ============================================================
   // Color theme definitions
@@ -281,6 +318,10 @@
   // ============================================================
 
   window.HK = window.HK || {};
+  window.HK.LANGUAGES = LANGUAGES;
+  window.HK.getLang = getLang;
+  window.HK.setLang = setLang;
+  window.HK.getLangLabel = getLangLabel;
   window.HK.setColorTheme = applyColorTheme;
   window.HK.getColorTheme = getColorTheme;
   window.HK.COLOR_THEMES = COLOR_THEMES;
