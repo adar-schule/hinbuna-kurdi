@@ -8,8 +8,9 @@
  *
  * Page types:
  *   - "public"     : Full header (logo, lang picker, theme toggle, login button)
- *   - "gallery"    : Logo, "Onboarding Guide" nav link, theme toggle
- *   - "onboarding" : Logo, "Design Gallery" nav link, theme toggle
+ *   - "gallery"    : Logo, "Onboarding Guide" + "Components" nav links, theme toggle
+ *   - "onboarding" : Logo, "Design Gallery" + "Components" nav links, theme toggle
+ *   - "components" : Logo, "Design Gallery" + "Onboarding Guide" nav links, theme toggle
  */
 (function () {
   'use strict';
@@ -56,6 +57,28 @@
       '<polyline points="12 19 5 12 12 5"/>' +
     '</svg>';
 
+  // Nav link icons (dev pages: gallery, onboarding, components)
+  var NAV_ICON_GALLERY =
+    '<svg class="nav-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<rect x="3" y="3" width="7" height="7" rx="1"/>' +
+      '<rect x="14" y="3" width="7" height="7" rx="1"/>' +
+      '<rect x="3" y="14" width="7" height="7" rx="1"/>' +
+      '<rect x="14" y="14" width="7" height="7" rx="1"/>' +
+    '</svg>';
+
+  var NAV_ICON_ONBOARDING =
+    '<svg class="nav-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<circle cx="12" cy="12" r="10"/>' +
+      '<polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>' +
+    '</svg>';
+
+  var NAV_ICON_COMPONENTS =
+    '<svg class="nav-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M12 2L2 7l10 5 10-5-10-5z"/>' +
+      '<path d="M2 17l10 5 10-5"/>' +
+      '<path d="M2 12l10 5 10-5"/>' +
+    '</svg>';
+
   var CHECK_SVG =
     '<svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
       '<polyline points="20 6 9 17 4 12"/>' +
@@ -83,9 +106,10 @@
 
   function buildHeader(config) {
     var pageType  = config.pageType || 'public';
-    var showLang  = config.showLang !== false;
-    var showLogin = config.showLogin !== false;
-    var showTheme = config.showTheme !== false;
+    var showLang    = config.showLang !== false;
+    var showLogin   = config.showLogin !== false;
+    var showTheme   = config.showTheme !== false;
+    var showGallery = config.showGallery === true;
 
     var html = '';
     html += '<header class="header" id="header">';
@@ -98,8 +122,8 @@
     html += '<span class="header-logo-text">Hinb\u00fbna Kurd\u00ee</span>';
     html += '</a>';
 
-    // Back to gallery (dev utility — public pages only)
-    if (pageType === 'public') {
+    // Back to gallery (dev utility — only on main screens)
+    if (showGallery) {
       html += '<a href="index.html" class="header-back-btn" title="Back to Gallery">';
       html += BACK_ARROW_SVG;
       html += '</a>';
@@ -109,11 +133,22 @@
     // Actions area
     html += '<div class="header-actions">';
 
-    // Nav link (gallery/onboarding pages)
-    if (pageType === 'gallery') {
-      html += '<a href="onboarding.html" class="header-nav-link" title="Developer Onboarding Guide">Onboarding Guide</a>';
-    } else if (pageType === 'onboarding') {
-      html += '<a href="index.html" class="header-nav-link" title="Back to Design Gallery">Design Gallery</a>';
+    // Nav links (gallery/onboarding/components pages)
+    if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components') {
+      var navItems = [
+        { id: 'gallery',    href: 'index.html',       icon: NAV_ICON_GALLERY,     label: 'Gallery',    title: 'Design Gallery' },
+        { id: 'onboarding', href: 'onboarding.html',  icon: NAV_ICON_ONBOARDING,  label: 'Onboarding', title: 'Developer Onboarding Guide' },
+        { id: 'components', href: 'components.html',   icon: NAV_ICON_COMPONENTS,  label: 'Components', title: 'Component Library' }
+      ];
+      for (var n = 0; n < navItems.length; n++) {
+        var item = navItems[n];
+        var isActive = (item.id === pageType);
+        if (isActive) {
+          html += '<span class="header-nav-link header-nav-link--active" title="' + item.title + '">' + item.icon + '<span class="nav-link-text">' + item.label + '</span></span>';
+        } else {
+          html += '<a href="' + item.href + '" class="header-nav-link" title="' + item.title + '">' + item.icon + '<span class="nav-link-text">' + item.label + '</span></a>';
+        }
+      }
     }
 
     // Language picker (public pages by default)
@@ -145,6 +180,7 @@
     if (pageType === 'public') return 'P1-landing.html';
     if (pageType === 'gallery') return '#';
     if (pageType === 'onboarding') return 'index.html';
+    if (pageType === 'components') return 'index.html';
     return '#';
   }
 
@@ -280,9 +316,10 @@
     // Read configuration from data attributes
     var config = {
       pageType:  placeholder.getAttribute('data-page-type') || 'public',
-      showLang:  placeholder.getAttribute('data-show-lang') !== 'false',
-      showLogin: placeholder.getAttribute('data-show-login') !== 'false',
-      showTheme: placeholder.getAttribute('data-show-theme') !== 'false'
+      showLang:    placeholder.getAttribute('data-show-lang') !== 'false',
+      showLogin:   placeholder.getAttribute('data-show-login') !== 'false',
+      showTheme:   placeholder.getAttribute('data-show-theme') !== 'false',
+      showGallery: placeholder.getAttribute('data-show-gallery') === 'true'
     };
 
     // Inject header HTML

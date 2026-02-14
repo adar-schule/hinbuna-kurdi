@@ -54,6 +54,9 @@
       --radius-md: 12px;
       --radius-lg: 16px;
       --radius-xl: 24px;
+
+      /* Stripe */
+      --stripe-height: 2px;
     }
 
     /* ============================================
@@ -150,7 +153,6 @@
 
     @media (prefers-reduced-motion: reduce) {
       .fade-up { opacity: 1; transform: none; transition: none; }
-      .sponsor-track { animation: none !important; }
     }
 
     /* ============================================
@@ -437,20 +439,20 @@
     .sponsor-track {
       display: flex;
       gap: 48px;
-      animation: scrollSponsors 60s linear infinite;
       width: max-content;
       align-items: center;
+      will-change: transform;
+      cursor: grab;
+      user-select: none;
     }
 
-    .sponsor-track:hover {
-      animation-play-state: paused;
+    .sponsor-track:active {
+      cursor: grabbing;
     }
 
-    @keyframes scrollSponsors {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .sponsor-track a {
+      -webkit-user-drag: none;
     }
-    /* 4 sets total: animation scrolls -50% = 2 sets, then loops back seamlessly */
 
     .sponsor-item {
       display: flex;
@@ -842,32 +844,22 @@
       overflow: hidden;
     }
 
-    /* Subtle left accent stripe */
+    /* Top gradient stripe */
     .feature-card::before {
       content: '';
       position: absolute;
-      top: 16px;
-      bottom: 16px;
+      top: 0;
       left: 0;
-      width: 3px;
-      border-radius: 0 2px 2px 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      right: 0;
+      height: var(--stripe-height);
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     }
-
-    .feature-card:nth-child(1)::before { background-color: var(--color-primary); }
-    .feature-card:nth-child(2)::before { background-color: var(--color-accent); }
-    .feature-card:nth-child(3)::before { background-color: var(--color-info); }
-    .feature-card:nth-child(4)::before { background-color: var(--color-success); }
 
     .feature-card:hover {
       box-shadow: var(--shadow-lg);
       transform: translateY(-2px);
       border-color: var(--border);
-    }
-
-    .feature-card:hover::before {
-      opacity: 1;
     }
 
     .feature-card-top {
@@ -1427,8 +1419,6 @@
       background-color: rgba(61, 168, 99, 0.12);
       color: var(--color-success);
     }
-    [data-theme="dark"] .feature-card:nth-child(1)::before { background-color: var(--color-accent); }
-    [data-theme="dark"] .feature-card:nth-child(2)::before { background-color: var(--color-accent); }
 
     /* Buttons — dark mode: primary becomes GOLD */
     [data-theme="dark"] .btn-primary {
@@ -1529,7 +1519,7 @@
 <!-- ==========================================
      1. HEADER (shared component)
      ========================================== -->
-<div id="shared-header" data-page-type="public" data-show-lang="true" data-show-login="true" data-show-theme="true"></div>
+<div id="shared-header" data-page-type="public" data-show-lang="true" data-show-login="true" data-show-theme="true" data-show-gallery="true"></div>
 
 <!-- ==========================================
      2. HERO
@@ -1581,6 +1571,36 @@
         </div>
         <span class="sponsor-name">Bezirksamt Neukölln</span>
       </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
+        </div>
+        <span class="sponsor-name">Kurdistan Foundation</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
+        </div>
+        <span class="sponsor-name">Visit Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Chronicle" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-chronicle.png" alt="Kurdistan Chronicle">
+        </div>
+        <span class="sponsor-name">Kurdistan Chronicle</span>
+      </a>
+      <a href="#" class="sponsor-item" title="JOBS.Kurdistan" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/jobs-kurdistan.jpg" alt="JOBS.Kurdistan">
+        </div>
+        <span class="sponsor-name">JOBS.Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
+        </div>
+        <span class="sponsor-name">Kurdistan Racing Team</span>
+      </a>
       <a href="#" class="sponsor-item" title="Lasan" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/lasan-logo-01.png" alt="Lasan">
@@ -1605,6 +1625,36 @@
           <img src="icons/bezirk-neukoln-01.png" alt="Bezirksamt Neukölln">
         </div>
         <span class="sponsor-name">Bezirksamt Neukölln</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
+        </div>
+        <span class="sponsor-name">Kurdistan Foundation</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
+        </div>
+        <span class="sponsor-name">Visit Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Chronicle" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-chronicle.png" alt="Kurdistan Chronicle">
+        </div>
+        <span class="sponsor-name">Kurdistan Chronicle</span>
+      </a>
+      <a href="#" class="sponsor-item" title="JOBS.Kurdistan" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/jobs-kurdistan.jpg" alt="JOBS.Kurdistan">
+        </div>
+        <span class="sponsor-name">JOBS.Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
+        </div>
+        <span class="sponsor-name">Kurdistan Racing Team</span>
       </a>
       <a href="#" class="sponsor-item" title="Lasan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1631,30 +1681,35 @@
         </div>
         <span class="sponsor-name">Bezirksamt Neukölln</span>
       </a>
-      <a href="#" class="sponsor-item" title="Lasan" onclick="return false;">
+      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/lasan-logo-01.png" alt="Lasan">
+          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
         </div>
-        <span class="sponsor-name">Lasan Restaurant</span>
+        <span class="sponsor-name">Kurdistan Foundation</span>
       </a>
-      <a href="#" class="sponsor-item" title="Zagros" onclick="return false;">
+      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/zagros-logo-01.png" alt="Zagros">
+          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
         </div>
-        <span class="sponsor-name">Zagros Döner</span>
+        <span class="sponsor-name">Visit Kurdistan</span>
       </a>
-      <!-- Set 4 (extra duplicate for full coverage) -->
-      <a href="#" class="sponsor-item" title="Land Berlin" onclick="return false;">
+      <a href="#" class="sponsor-item" title="Kurdistan Chronicle" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/berlin-logo-01.png" alt="Land Berlin">
+          <img src="icons/kurdistan-chronicle.png" alt="Kurdistan Chronicle">
         </div>
-        <span class="sponsor-name">Land Berlin</span>
+        <span class="sponsor-name">Kurdistan Chronicle</span>
       </a>
-      <a href="#" class="sponsor-item" title="Bezirksamt Neukölln" onclick="return false;">
+      <a href="#" class="sponsor-item" title="JOBS.Kurdistan" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/bezirk-neukoln-01.png" alt="Bezirksamt Neukölln">
+          <img src="icons/jobs-kurdistan.jpg" alt="JOBS.Kurdistan">
         </div>
-        <span class="sponsor-name">Bezirksamt Neukölln</span>
+        <span class="sponsor-name">JOBS.Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
+        </div>
+        <span class="sponsor-name">Kurdistan Racing Team</span>
       </a>
       <a href="#" class="sponsor-item" title="Lasan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -2048,6 +2103,96 @@
 
     updateSun();
     setInterval(updateSun, 5 * 60 * 1000);
+  })();
+
+  // Sponsor carousel — auto-scroll + drag/touch
+  (function() {
+    var track = document.querySelector('.sponsor-track');
+    if (!track) return;
+
+    var speed = 0.3;           // px per frame
+    var pos = 0;               // current translateX offset (negative)
+    var dragging = false;
+    var dragStartX = 0;
+    var dragStartPos = 0;
+    var rafId = null;
+    var setWidth = 0;
+
+    // Measure one set width (total / 3 sets)
+    function measureSet() {
+      setWidth = track.scrollWidth / 3;
+    }
+    measureSet();
+    window.addEventListener('resize', measureSet);
+
+    // Wrap position so it stays within one set cycle
+    function wrapPos() {
+      if (setWidth <= 0) return;
+      // Keep pos negative and within [-setWidth, 0)
+      while (pos < -setWidth) pos += setWidth;
+      while (pos > 0) pos -= setWidth;
+    }
+
+    // Animation loop
+    function tick() {
+      if (!dragging) {
+        pos -= speed;
+        wrapPos();
+      }
+      track.style.transform = 'translateX(' + pos + 'px)';
+      rafId = requestAnimationFrame(tick);
+    }
+    rafId = requestAnimationFrame(tick);
+
+    // Reduced motion: stop auto-scroll
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      speed = 0;
+    }
+
+    // --- Mouse drag ---
+    track.addEventListener('mousedown', function(e) {
+      dragging = true;
+      dragStartX = e.clientX;
+      dragStartPos = pos;
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', function(e) {
+      if (!dragging) return;
+      var dx = e.clientX - dragStartX;
+      pos = dragStartPos + dx;
+      wrapPos();
+    });
+
+    window.addEventListener('mouseup', function() {
+      if (dragging) dragging = false;
+    });
+
+    // Prevent click on links after drag
+    track.addEventListener('click', function(e) {
+      if (Math.abs(pos - dragStartPos) > 5) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+
+    // --- Touch drag ---
+    track.addEventListener('touchstart', function(e) {
+      dragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragStartPos = pos;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', function(e) {
+      if (!dragging) return;
+      var dx = e.touches[0].clientX - dragStartX;
+      pos = dragStartPos + dx;
+      wrapPos();
+    }, { passive: true });
+
+    track.addEventListener('touchend', function() {
+      dragging = false;
+    });
   })();
 
 </script>

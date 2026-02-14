@@ -182,7 +182,7 @@
 }
 
 /* ============================================
-   NAV LINK (gallery/onboarding pages)
+   NAV LINK (gallery/onboarding/components pages)
    ============================================ */
 .header-nav-link {
   display: inline-flex;
@@ -206,6 +206,39 @@
 .header-nav-link:hover {
   color: var(--color-primary, var(--primary, #2D5A3D));
   border-color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+.header-nav-link--active {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+.nav-link-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.nav-link-text {
+  /* visible by default on desktop */
+}
+
+/* Mobile: icon only */
+@media (max-width: 767px) {
+  .header-nav-link {
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .nav-link-text {
+    display: none;
+  }
+
+  .nav-link-icon {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /* ============================================

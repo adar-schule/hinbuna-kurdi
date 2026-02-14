@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu çawa yî? — Hinbûna Kurdî</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="shared/theme.js"></script>
+  <link rel="stylesheet" href="shared/settings.css">
+  <style>
+    :root {
+      --bg-page: #FDF8F3; --bg-surface: #F5EEE6; --color-primary: #2D5A3D;
+      --color-primary-hover: #24493A; --color-accent: #D4A843; --color-accent-hover: #c99b3a;
+      --color-tan: #E3C79D; --text-primary: #1A2A1F; --text-secondary: #5A6B5E;
+      --border: #E5DDD3; --color-success: #2D8A4E; --color-info: #3B7A8A;
+      --shadow-sm: 0 1px 3px rgba(26,42,31,0.06); --shadow-md: 0 4px 12px rgba(26,42,31,0.08);
+      --shadow-lg: 0 8px 24px rgba(26,42,31,0.10);
+      --font-heading: 'Nunito', sans-serif; --font-body: 'Inter', sans-serif;
+      --radius-xs: 4px; --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px;
+      --stripe-height: 2px;
+    }
+    [data-theme="dark"] {
+      --bg-page: #1A2F23; --bg-surface: #243D30; --color-primary: #2D5A3D;
+      --color-primary-hover: #367248; --color-accent: #D4A843; --color-accent-hover: #e0b64e;
+      --color-tan: #3A5E45; --text-primary: #F5EEE6; --text-secondary: #A8B5AC;
+      --border: #2F4F3A; --color-success: #3DA863; --color-info: #4D9AAE;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2); --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--text-primary); background-color: var(--bg-page); min-height: 100vh; display: flex; flex-direction: column; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Header — lesson-style with back + close */
+    .lesson-header { position: sticky; top: 0; z-index: 100; background-color: var(--bg-page); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s ease, background-color 0.3s ease; }
+    .lesson-header.scrolled { box-shadow: var(--shadow-md); }
+    .lesson-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 600px; margin: 0 auto; padding: 0 20px; height: 56px; }
+
+    .lh-btn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-sm); color: var(--text-secondary); border: none; background: none; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+    .lh-btn:hover { background-color: var(--bg-surface); color: var(--text-primary); }
+    .lh-btn svg { width: 20px; height: 20px; }
+
+    .lh-center { display: flex; align-items: center; gap: 6px; }
+    .lh-center-text { font-family: var(--font-heading); font-weight: 600; font-size: 13px; color: var(--text-secondary); }
+
+    .header-right { display: flex; align-items: center; gap: 4px; }
+
+    .theme-icon-sun { display: none; }
+    [data-theme="dark"] .theme-icon-moon { display: none; }
+    [data-theme="dark"] .theme-icon-sun { display: block; }
+
+    /* Main — centered lesson intro */
+    .lesson-intro { flex: 1; max-width: 600px; margin: 0 auto; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+
+    .lesson-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
+    .lesson-badge.course { background-color: rgba(45, 90, 61, 0.10); color: var(--color-primary); }
+    [data-theme="dark"] .lesson-badge.course { background-color: rgba(212, 168, 67, 0.15); color: var(--color-accent); }
+
+    .lesson-title-card { background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px 24px; margin-bottom: 24px; width: 100%; max-width: 340px; position: relative; overflow: hidden; }
+    .lesson-title-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: var(--stripe-height); background: linear-gradient(90deg, var(--color-primary), var(--color-accent)); }
+
+    .lesson-number-label { font-size: 12px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+
+    .lesson-title-ku { font-family: var(--font-heading); font-weight: 800; font-size: 28px; color: var(--text-primary); line-height: 1.2; margin-bottom: 4px; }
+    .lesson-title-en { font-size: 16px; color: var(--text-secondary); font-weight: 500; }
+
+    .lesson-objective { margin-bottom: 24px; max-width: 320px; }
+    .lesson-objective-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-secondary); margin-bottom: 6px; }
+    .lesson-objective-text { font-size: 14px; color: var(--text-primary); line-height: 1.5; }
+
+    .lesson-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+    .lesson-meta-item { display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--text-secondary); }
+    .lesson-meta-item svg { width: 16px; height: 16px; }
+
+    .start-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 320px; padding: 14px 24px; border: none; border-radius: var(--radius-md); font-family: var(--font-body); font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; text-decoration: none; background-color: var(--color-primary); color: #FDF8F3; }
+    [data-theme="dark"] .start-btn { background-color: var(--color-accent); color: #1A2A1F; }
+    .start-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .start-btn:active { transform: translateY(0); }
+    .start-btn svg { width: 18px; height: 18px; }
+
+    /* Vocabulary preview */
+    .vocab-preview { margin-top: 32px; width: 100%; max-width: 340px; }
+    .vocab-preview-title { font-size: 12px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; text-align: left; }
+    .vocab-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .vocab-tag { font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 20px; background-color: var(--bg-surface); border: 1px solid var(--border); color: var(--text-primary); }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .anim-up { animation: fadeInUp 0.6s ease-out both; }
+    .anim-fade { animation: fadeIn 0.6s ease-out both; }
+    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; }
+    .d3 { animation-delay: 0.3s; } .d4 { animation-delay: 0.4s; } .d5 { animation-delay: 0.5s; }
+
+    @media (min-width: 768px) { .lesson-intro { padding: 60px 24px; } .lesson-title-ku { font-size: 32px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    body, .lesson-header, .lesson-title-card, .vocab-tag { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="lesson-header" id="lesson-header">
+    <div class="lesson-header-inner">
+      <div style="display:flex;align-items:center;gap:4px;">
+        <a href="S4-unit-view.html" class="lh-btn" title="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg></a>
+      </div>
+      <div class="lh-center">
+        <span class="lh-center-text">Lesson 2</span>
+      </div>
+      <div class="header-right">
+        <button class="lh-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="S4-unit-view.html" class="lh-btn" title="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Lesson Intro -->
+  <main class="lesson-intro">
+    <span class="lesson-badge course anim-fade d1">Kurmanji A1 &middot; Unit 1</span>
+
+    <div class="lesson-title-card anim-up d2">
+      <div class="lesson-number-label">Lesson 2</div>
+      <div class="lesson-title-ku">Tu çawa yî?</div>
+      <div class="lesson-title-en">How are you?</div>
+    </div>
+
+    <div class="lesson-objective anim-fade d3">
+      <div class="lesson-objective-label">Learning Objective</div>
+      <div class="lesson-objective-text">Ask and answer "how are you?" in Kurdish. Learn health and well-being vocabulary.</div>
+    </div>
+
+    <div class="lesson-meta anim-fade d3">
+      <span class="lesson-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        8 activities
+      </span>
+      <span class="lesson-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~5 min
+      </span>
+    </div>
+
+    <a href="#" class="start-btn anim-up d4" onclick="return false;">
+      Start Lesson
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </a>
+
+    <div class="vocab-preview anim-fade d5">
+      <div class="vocab-preview-title">Key Vocabulary</div>
+      <div class="vocab-tags">
+        <span class="vocab-tag">çawa</span>
+        <span class="vocab-tag">baş</span>
+        <span class="vocab-tag">spas</span>
+        <span class="vocab-tag">erê</span>
+        <span class="vocab-tag">na</span>
+        <span class="vocab-tag">ez baş im</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="shared/settings.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var html = document.documentElement;
+      var saved = localStorage.getItem('hk-theme');
+      if (saved) { if (saved === 'light') html.removeAttribute('data-theme'); else html.setAttribute('data-theme', saved); }
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { html.setAttribute('data-theme', 'dark'); }
+      var toggle = document.getElementById('theme-toggle');
+      if (toggle) { toggle.addEventListener('click', function () { var c = html.getAttribute('data-theme'); var n = c === 'dark' ? 'light' : 'dark'; if (n === 'light') html.removeAttribute('data-theme'); else html.setAttribute('data-theme', 'dark'); localStorage.setItem('hk-theme', n); }); }
+      var header = document.getElementById('lesson-header');
+      if (header) { var s = false; window.addEventListener('scroll', function () { var sh = window.scrollY > 8; if (sh !== s) { s = sh; header.classList.toggle('scrolled', s); } }, { passive: true }); }
+    })();
+  </script>
+</body>
+</html>
