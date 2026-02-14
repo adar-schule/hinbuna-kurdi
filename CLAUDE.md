@@ -7,16 +7,94 @@ Kurdish language learning platform (Kurmanji A1-B1).
 > **Note**: This repo is being rebuilt from vanilla HTML/CSS/JS to NestJS + React + Tailwind.
 > Legacy prototype code in root. New stack coming soon.
 
-## Before You Start
+## Getting Started with Claude Code
 
-1. **Clone coding standards** (if not already):
-   ```bash
-   git clone git@github.com:adar-schule/coding-standards.git ~/.adar-schule/coding-standards
-   ```
+### 1. Install Claude Code
 
-2. **Read the standards**: `~/.adar-schule/coding-standards/README.md`
+```bash
+# Install Claude Code CLI
+npm install -g @anthropic-ai/claude-code
 
-3. **AI Tools**: Works with Claude Code, Cursor, or any AI assistant that reads CLAUDE.md
+# Navigate to the wrapper folder (NOT the repo)
+cd path/to/HinbunaKurdi
+
+# Start Claude
+claude
+```
+
+> **Important:** Always start Claude from the `HinbunaKurdi/` wrapper folder, not from `REPOS/hinbuna-kurdi/`. The wrapper has the main CLAUDE.md with all rules and references.
+
+### 2. Understand the Setup
+
+```
+HinbunaKurdi/                     (start Claude here)
+├── CLAUDE.md                     # Main entry — Claude reads this first
+├── _rules/                       # Workflow, design, coding standards
+├── _claude-files/                # Current work status (read at session start)
+├── _screenshots/                 # Visual references
+└── REPOS/
+    └── hinbuna-kurdi/            # The actual codebase
+        ├── CLAUDE.md             # Tech stack, commands, structure
+        ├── _docs/                # All project documentation
+        │   ├── 09-design-decisions.md   # Colors, typography, components
+        │   └── prompts/          # Screen generation templates
+        └── site/                 # HTML/CSS screens (current MVP)
+```
+
+Claude automatically reads the CLAUDE.md files and follows the rules. You don't need to explain the project — it already knows.
+
+### 3. Start the Dev Server
+
+```bash
+cd REPOS/hinbuna-kurdi/site && python3 -m http.server 8080 &
+```
+
+Open `http://localhost:8080` in your browser to preview screens.
+
+### 4. How We Work — Adding a New Screen
+
+All design standards are already decided. Adding a screen follows this workflow:
+
+1. **Tell Claude which screen** — e.g. "Create the student dashboard screen"
+2. **Claude reads the standards** — design decisions, color palette, typography, components are all documented in `_docs/09-design-decisions.md`
+3. **Claude generates the HTML/CSS** — following the established patterns from existing screens
+4. **You preview in browser** — check `localhost:8080`, give feedback
+5. **Iterate** — "make the sidebar narrower", "change the card layout", etc.
+
+That's it. The standards do the heavy lifting.
+
+### 5. What's Already Decided (Don't Reinvent)
+
+These are locked. Follow them, don't redesign:
+
+| Standard | Where |
+|----------|-------|
+| Color palette & tokens | `_docs/09-design-decisions.md` |
+| Typography (font, sizes, weights) | `_docs/09-design-decisions.md` |
+| Component patterns (cards, buttons, nav) | `_docs/09-design-decisions.md` |
+| Page tree (all screens mapped) | `_docs/10-page-tree.md` |
+| Brand vibe (calm + SaaS, NOT gamified) | `../../_rules/DESIGN-RULES.md` |
+| Prompt templates for screen generation | `_docs/prompts/` |
+| Shared theme system (light/dark) | Already in `site/shared/` |
+
+### 6. Screen Ownership
+
+Each team member owns a set of screens. Check with Armanc before starting:
+
+| Screen Group | Owner | Status |
+|--------------|-------|--------|
+| Public pages (landing, pricing, about, etc.) | Armanc | Done |
+| Student screens (dashboard, lessons, progress) | TBD | Standards first, then build |
+| Mamoste screens (content management, analytics) | TBD | After student screens |
+| Admin screens (user management, system) | TBD | After mamoste screens |
+
+### 7. Rules for Everyone
+
+- **Never redesign existing components** — reuse what's in `site/shared/`
+- **Never change color tokens** — they're locked in design decisions
+- **Always preview before committing** — `localhost:8080`
+- **Always rebase, never merge** — see `../../_rules/CODING-STANDARDS.md`
+- **Ask Claude, don't guess** — it knows the project standards
 
 ---
 
@@ -29,6 +107,7 @@ Kurdish language learning platform (Kurmanji A1-B1).
 | Database | PostgreSQL |
 | Auth | JWT + Passport.js |
 | Hosting | AWS (ECS + RDS + S3) |
+| TTS/STT | kurdishtts.com API |
 
 ---
 
@@ -84,89 +163,6 @@ src/
 
 ---
 
-## Development Standards
-
-### Git
-
-**Commit format:**
-```
-type(scope): description
-
-# Types: feat, fix, docs, style, refactor, test, chore
-feat(auth): add JWT refresh token
-fix(lessons): correct progress calculation
-```
-
-**Branch naming:**
-```
-hk-123-feature-description
-```
-
-**PR title:**
-```
-HK-123: feat(auth): add social login
-```
-
-**Rules:**
-- Always rebase, never merge
-- Run `npm run lint && npm run test` before commit
-- Never force push to main
-
-### Code Quality
-
-**Pre-commit checklist:**
-- [ ] `npm run lint` passes
-- [ ] `npm run format` applied
-- [ ] `npm run test` passes
-- [ ] No `console.log` in production code
-- [ ] No `any` types
-- [ ] No commented-out code
-- [ ] All user text uses i18n
-
-**Limits:**
-| Metric | Limit |
-|--------|-------|
-| Complexity | Max 10 |
-| Nesting depth | Max 3 |
-| Function params | Max 4 |
-| File length | Max 500 lines |
-
-### Backend Rules
-
-| Rule | Description |
-|------|-------------|
-| Core independence | `core/` has NO dependencies on modules |
-| Service-to-service | Cross-domain via services, not repositories |
-| Thin controllers | No business logic in controllers |
-| DTOs only | Never expose entities directly |
-| Transactions | `@Transactional()` for writes |
-
-**Database:**
-```bash
-npm run migration:generate  # Generate (NEVER manual)
-npm run migration:run       # Apply
-```
-
-### Frontend Rules
-
-| Rule | Description |
-|------|-------------|
-| UI first | Check `components/ui/` before creating |
-| No inline styles | Tailwind classes only |
-| i18n all text | Never hardcode strings |
-
-**i18n example:**
-```tsx
-const { t } = useTranslation('lessons');
-<h1>{t('title')}</h1>  // Good
-
-<h1>Lessons</h1>       // Bad
-```
-
-**Locales:** Kurdish (ku), German (de), English (en)
-
----
-
 ## Commands Reference
 
 ```bash
@@ -183,61 +179,16 @@ npm run test:cov      # Coverage
 npm run migration:generate
 npm run migration:run
 npm run seed
-
-# Git workflow
-git checkout main
-git pull --rebase origin main
-git checkout -b hk-123-feature-name
-npm run lint:fix && npm run format && npm run test
-git commit -m "feat(scope): description"
-git push -u origin hk-123-feature-name
 ```
-
----
-
-## Environments
-
-| Environment | Branch | Purpose |
-|-------------|--------|---------|
-| Development | `dev` | Local dev |
-| Staging | `staging` | Pre-production |
-| Production | `main` | Live |
-
-**Flow:** Feature → main → auto-deploy staging → manual promote prod
-
----
-
-## AI Assistant Rules
-
-If using Claude, Cursor, or similar:
-
-- **No auto-commits** - Never commit/push without explicit "yes"
-- **No auto-deploys** - Never deploy without confirmation
-- **Plan first** - Research → Plan → Implement (fresh context)
-- **Context limit** - Above 40% context, save & restart
-
-See `~/.adar-schule/coding-standards/` for full AI workflow guidelines.
-
----
-
-## Anti-Patterns
-
-| Don't | Do Instead |
-|-------|------------|
-| Vibe code | Plan first, get sign-off |
-| Direct commits to main | Branch + PR |
-| Manual migrations | `npm run migration:generate` |
-| Hardcode strings | Use i18n |
-| Inline styles | Tailwind classes |
-| Business logic in controllers | Keep controllers thin |
-| Expose entities | Return DTOs |
 
 ---
 
 ## Resources
 
-- **Data model**: See `../../_docs/04-data-model-design.md` (31 tables across 10 domains)
+- **Data model**: `_docs/04-data-model-design.md` (31 tables across 10 domains)
 - **Content structure**: Course → Module → Unit → Lesson → Activity → Material
+- **Design decisions**: `_docs/09-design-decisions.md`
+- **Page tree**: `_docs/10-page-tree.md`
 - **Locales**: Kurdish (ku), German (de), English (en)
 
 ### Data Model Overview (31 tables)
@@ -263,27 +214,6 @@ See `~/.adar-schule/coding-standards/` for full AI workflow guidelines.
 | Personalized Learning | Phase 2 | Adaptive based on user mistakes |
 | AI Content Generation | Future | Generate exercises targeting weak areas |
 | Kurdish Corpus | Side App | Expert-curated language dataset |
-
-### Theme System
-
-**Why**: Kids learning Kurdish = future of the language. App must be attractive to ALL age groups.
-
-**Themes** (age/vibe-based):
-| Theme | Age | Vibe | Priority |
-|-------|-----|------|----------|
-| `zarok` | 6-12 | Playful, colorful, mascot | MVP+ |
-| `ciwan` | 13-17 | Cool, modern, social | Phase 2 |
-| `xort` | 18-25 | Clean, minimal | Phase 2 |
-| `mezin` | 26+ | Serious, professional | MVP |
-
-**Accessibility** (universal, any theme):
-- `font_size`: sm, md, lg, xl
-- `contrast_mode`: normal, high
-- `motion_preference`: full, reduced
-- `color_mode`: light, dark, system
-- `audio_cues`: boolean
-
-Stored in `user_learning_preferences` table.
 
 ### Side Apps Ecosystem
 

@@ -883,6 +883,35 @@
 
     .callout-success .callout-icon { color: var(--color-success); }
 
+    /* --- Callout Dark Mode --- */
+    [data-theme="dark"] .callout {
+      color: #E8F0EB;
+    }
+
+    [data-theme="dark"] .callout-content p {
+      color: #D0DAD3;
+    }
+
+    [data-theme="dark"] .callout-warning {
+      background-color: rgba(239, 176, 52, 0.08);
+      border-color: rgba(239, 176, 52, 0.30);
+    }
+
+    [data-theme="dark"] .callout-info {
+      background-color: rgba(90, 160, 176, 0.08);
+      border-color: rgba(90, 160, 176, 0.30);
+    }
+
+    [data-theme="dark"] .callout-danger {
+      background-color: rgba(230, 106, 106, 0.08);
+      border-color: rgba(230, 106, 106, 0.30);
+    }
+
+    [data-theme="dark"] .callout-success {
+      background-color: rgba(74, 186, 110, 0.08);
+      border-color: rgba(74, 186, 110, 0.30);
+    }
+
     /* ============================================================
        DIVIDER
        ============================================================ */
@@ -1651,41 +1680,43 @@
         <li class="sidebar-nav-item">
           <a href="#section-3" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">3</span>
-            Design Workflow
+            Using Claude Code
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#section-4" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">4</span>
-            Brand Rules
+            Design Workflow
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#section-5" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">5</span>
-            Tools &amp; Plugins
+            Brand Rules
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#section-6" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">6</span>
-            Screen Priority
+            Tools &amp; Plugins
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#section-7" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">7</span>
-            Git Workflow
+            Screen Priority
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#section-8" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">8</span>
-            Quality Checklist
+            Git Workflow
           </a>
+        </li>
+        <li class="sidebar-nav-item">
           <a href="#section-9" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">9</span>
-            Using Claude Code
+            Quality Checklist
           </a>
         </li>
       </ul>
@@ -2121,11 +2152,210 @@ cd hinbuna-kurdi</code></pre>
           </div>
 
           <!-- ============================================================
-               SECTION 3: DESIGN WORKFLOW
+               SECTION 3: USING CLAUDE CODE
                ============================================================ -->
           <div class="accordion-item" id="section-3">
             <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
               <span class="accordion-number">3</span>
+              <span class="accordion-title">Using Claude Code</span>
+              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+
+                <p>Claude Code is our <strong>primary development tool</strong> for this project. All screen designs, code, and documentation are created through Claude Code in the terminal.</p>
+
+                <div class="callout callout-warning">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Before your first session:</strong> Read the project's <code>CLAUDE.md</code> files. Claude Code reads these automatically and follows the rules inside. They are critical for consistency.</p>
+                  </div>
+                </div>
+
+                <h4>Install Claude Code</h4>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># Install Claude Code (requires Node.js 18+)</span>
+npm install -g @anthropic-ai/claude-code
+
+<span class="cmt"># Navigate to the WRAPPER folder (not the repo!)</span>
+<span class="kw">cd</span> path/to/HinbunaKurdi
+
+<span class="cmt"># Start Claude Code</span>
+claude</code></pre>
+                </div>
+
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Always start from the wrapper folder <code>HinbunaKurdi/</code></strong>, not from <code>REPOS/hinbuna-kurdi/</code>. The wrapper has the main CLAUDE.md with all rules, design standards, and workflow references.</p>
+                  </div>
+                </div>
+
+                <h4>Wrapper Folder Structure</h4>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code>HinbunaKurdi/                     <span class="cmt"># Start Claude here</span>
+├── CLAUDE.md                     <span class="cmt"># Main entry &mdash; Claude reads this first</span>
+├── _rules/                       <span class="cmt"># Workflow, design, coding standards</span>
+│   ├── WORKFLOW.md               <span class="cmt"># Three-phase workflow, context rules</span>
+│   ├── DESIGN-RULES.md           <span class="cmt"># Brand identity, anti-patterns</span>
+│   ├── CODING-STANDARDS.md       <span class="cmt"># Git, linting, code limits</span>
+│   └── SESSION-CHECKLIST.md      <span class="cmt"># Session start/end routines</span>
+├── _claude-files/                <span class="cmt"># Current work status</span>
+├── _screenshots/                 <span class="cmt"># Visual references</span>
+└── REPOS/
+    └── hinbuna-kurdi/            <span class="cmt"># This repo</span>
+        ├── CLAUDE.md             <span class="cmt"># Tech stack, commands</span>
+        ├── _docs/                <span class="cmt"># Project docs &amp; prompts</span>
+        └── site/                 <span class="cmt"># HTML/CSS screens</span></code></pre>
+                </div>
+
+                <h4>Install Required Plugins</h4>
+                <p>Run these <strong>inside Claude Code</strong> (after starting <code>claude</code>):</p>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># Design quality — ensures professional output</span>
+/plugin install frontend-design@claude-code-plugins
+
+<span class="cmt"># Browser testing</span>
+/plugin install playwright@claude-plugins-official
+
+<span class="cmt"># Up-to-date library docs</span>
+/plugin install context7@claude-plugins-official
+
+<span class="cmt"># Security scanning</span>
+/plugin install security-guidance@claude-plugins-official
+
+<span class="cmt"># Git workflow helpers</span>
+/plugin install commit-commands@claude-plugins-official</code></pre>
+                </div>
+
+                <h4>Install MCP Servers</h4>
+                <p>Run these in your <strong>regular terminal</strong> (outside Claude Code):</p>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># shadcn/ui component library</span>
+claude mcp add --transport http shadcn https://www.shadcn.io/api/mcp
+
+<span class="cmt"># SVG icons (200k+ icons, no API key needed)</span>
+claude mcp add iconify -- npx -y iconify-mcp-server@latest
+
+<span class="cmt"># Chrome DevTools debugging</span>
+claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
+
+<span class="cmt"># HTML to image conversion</span>
+claude mcp add --transport http hcti https://mcp.hcti.io</code></pre>
+                </div>
+
+                <h4>CLAUDE.md Rules (Critical)</h4>
+                <p>The project has multiple <code>CLAUDE.md</code> files that Claude reads automatically:</p>
+
+                <table class="feature-table">
+                  <thead>
+                    <tr>
+                      <th>File</th>
+                      <th>Purpose</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>HinbunaKurdi/CLAUDE.md</code></td>
+                      <td>Main router &mdash; links to all rules, status files, and repo docs</td>
+                    </tr>
+                    <tr>
+                      <td><code>HinbunaKurdi/_rules/*.md</code></td>
+                      <td>Workflow, design rules, coding standards, session checklist</td>
+                    </tr>
+                    <tr>
+                      <td><code>REPOS/hinbuna-kurdi/CLAUDE.md</code></td>
+                      <td>Tech stack, commands, project structure</td>
+                    </tr>
+                    <tr>
+                      <td><code>~/.claude/CLAUDE.md</code></td>
+                      <td>Personal preferences &mdash; git account, never push without confirmation</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4>Key Rules Claude Follows</h4>
+                <ul>
+                  <li><strong>Never push without confirmation</strong> &mdash; Claude will always ask before committing or pushing</li>
+                  <li><strong>Never reference Duolingo</strong> &mdash; in any prompts, designs, code, or descriptions</li>
+                  <li><strong>Brand system enforced</strong> &mdash; colors, fonts, components from <code>_docs/prompts/00-base-template.md</code></li>
+                  <li><strong>frontend-design skill</strong> &mdash; invoke before generating any screen HTML for designer-quality output</li>
+                  <li><strong>Mobile-first always</strong> &mdash; 375px base width for all designs</li>
+                  <li><strong>Status tracking</strong> &mdash; Claude reads <code>_claude-files/status-mvp-screens-design.md</code> each session to know where we are</li>
+                </ul>
+
+                <h4>How to Start a Design Session</h4>
+                <div class="code-block">
+                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  <pre><code><span class="cmt"># Start Claude Code from the wrapper</span>
+<span class="kw">cd</span> path/to/HinbunaKurdi
+claude
+
+<span class="cmt"># Then tell Claude what to do:</span>
+<span class="str">"Read the status file and let's continue designing screens"</span>
+
+<span class="cmt"># Claude will:</span>
+<span class="cmt"># 1. Read _claude-files/status-mvp-screens-design.md</span>
+<span class="cmt"># 2. Read the brand system (00-base-template.md)</span>
+<span class="cmt"># 3. Read the next screen's prompt file</span>
+<span class="cmt"># 4. Invoke frontend-design skill</span>
+<span class="cmt"># 5. Generate the HTML</span>
+<span class="cmt"># 6. Wait for your review before committing</span></code></pre>
+                </div>
+
+                <h4>Useful Commands During Sessions</h4>
+                <table class="feature-table">
+                  <thead>
+                    <tr>
+                      <th>Command</th>
+                      <th>What it does</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>/plugin</code></td>
+                      <td>View and manage installed plugins</td>
+                    </tr>
+                    <tr>
+                      <td><code>/mcp</code></td>
+                      <td>Check MCP server status</td>
+                    </tr>
+                    <tr>
+                      <td><code>/clear</code></td>
+                      <td>Clear conversation (start fresh, keeps context files)</td>
+                    </tr>
+                    <tr>
+                      <td><code>/help</code></td>
+                      <td>General help and keyboard shortcuts</td>
+                    </tr>
+                    <tr>
+                      <td><code>open site/index.html</code></td>
+                      <td>Preview the design gallery in browser</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Context limit:</strong> Claude Code sessions have a context window. When it reaches ~70%, save your work and start a new session. Claude will read the status files and pick up where you left off.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               SECTION 4: DESIGN WORKFLOW
+               ============================================================ -->
+          <div class="accordion-item" id="section-4">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="accordion-number">4</span>
               <span class="accordion-title">Design Workflow &mdash; How to Create a Screen</span>
               <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -2211,11 +2441,11 @@ cd hinbuna-kurdi</code></pre>
           </div>
 
           <!-- ============================================================
-               SECTION 4: BRAND RULES
+               SECTION 5: BRAND RULES
                ============================================================ -->
-          <div class="accordion-item" id="section-4">
+          <div class="accordion-item" id="section-5">
             <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
-              <span class="accordion-number">4</span>
+              <span class="accordion-number">5</span>
               <span class="accordion-title">Brand Rules &mdash; CRITICAL</span>
               <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -2450,9 +2680,9 @@ cd hinbuna-kurdi</code></pre>
           <!-- ============================================================
                SECTION 5: TOOLS & PLUGINS
                ============================================================ -->
-          <div class="accordion-item" id="section-5">
+          <div class="accordion-item" id="section-6">
             <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
-              <span class="accordion-number">5</span>
+              <span class="accordion-number">6</span>
               <span class="accordion-title">Tools &amp; Plugins</span>
               <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -2490,11 +2720,11 @@ cd hinbuna-kurdi</code></pre>
           </div>
 
           <!-- ============================================================
-               SECTION 6: SCREEN PRIORITY ORDER
+               SECTION 7: SCREEN PRIORITY ORDER
                ============================================================ -->
-          <div class="accordion-item" id="section-6">
+          <div class="accordion-item" id="section-7">
             <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
-              <span class="accordion-number">6</span>
+              <span class="accordion-number">7</span>
               <span class="accordion-title">Screen Priority Order</span>
               <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -2551,11 +2781,11 @@ cd hinbuna-kurdi</code></pre>
           </div>
 
           <!-- ============================================================
-               SECTION 7: GIT WORKFLOW
+               SECTION 8: GIT WORKFLOW
                ============================================================ -->
-          <div class="accordion-item" id="section-7">
+          <div class="accordion-item" id="section-8">
             <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
-              <span class="accordion-number">7</span>
+              <span class="accordion-number">8</span>
               <span class="accordion-title">Git Workflow</span>
               <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -2657,9 +2887,9 @@ git push -u origin hk-012-pricing-screens</code></pre>
           <!-- ============================================================
                SECTION 8: QUALITY CHECKLIST
                ============================================================ -->
-          <div class="accordion-item" id="section-8">
+          <div class="accordion-item" id="section-9">
             <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
-              <span class="accordion-number">8</span>
+              <span class="accordion-number">9</span>
               <span class="accordion-title">Quality Checklist</span>
               <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -2767,172 +2997,6 @@ git push -u origin hk-012-pricing-screens</code></pre>
                     <p><strong>If all 15 items pass, your screen is ready to commit.</strong> If any item fails, fix it before pushing. Consistency across all 32 screens is what makes the design system work.</p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ============================================================
-               SECTION 9: Using Claude Code
-               ============================================================ -->
-          <div class="accordion-item" id="section-9">
-            <button class="accordion-trigger" onclick="toggleAccordion(this)">
-              <span class="accordion-number">9</span>
-              <span class="accordion-title">Using Claude Code</span>
-              <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="accordion-content">
-              <div class="accordion-body">
-
-                <p>Claude Code is our <strong>primary development tool</strong> for this project. All screen designs, code, and documentation are created through Claude Code in the terminal.</p>
-
-                <div class="callout callout-warning">
-                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                  <div class="callout-content">
-                    <p><strong>Before your first session:</strong> Read the project's <code>CLAUDE.md</code> files. Claude Code reads these automatically and follows the rules inside. They are critical for consistency.</p>
-                  </div>
-                </div>
-
-                <h4>Install Claude Code</h4>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># Install Claude Code (requires Node.js 18+)</span>
-npm install -g @anthropic-ai/claude-code
-
-<span class="cmt"># Navigate to the repo</span>
-<span class="kw">cd</span> hinbuna-kurdi
-
-<span class="cmt"># Start Claude Code</span>
-claude</code></pre>
-                </div>
-
-                <h4>Install Required Plugins</h4>
-                <p>Run these <strong>inside Claude Code</strong> (after starting <code>claude</code>):</p>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># Design quality — ensures professional output</span>
-/plugin install frontend-design@claude-code-plugins
-
-<span class="cmt"># Browser testing</span>
-/plugin install playwright@claude-plugins-official
-
-<span class="cmt"># Up-to-date library docs</span>
-/plugin install context7@claude-plugins-official
-
-<span class="cmt"># Security scanning</span>
-/plugin install security-guidance@claude-plugins-official
-
-<span class="cmt"># Git workflow helpers</span>
-/plugin install commit-commands@claude-plugins-official</code></pre>
-                </div>
-
-                <h4>Install MCP Servers</h4>
-                <p>Run these in your <strong>regular terminal</strong> (outside Claude Code):</p>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># shadcn/ui component library</span>
-claude mcp add --transport http shadcn https://www.shadcn.io/api/mcp
-
-<span class="cmt"># SVG icons (200k+ icons, no API key needed)</span>
-claude mcp add iconify -- npx -y iconify-mcp-server@latest
-
-<span class="cmt"># Chrome DevTools debugging</span>
-claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
-
-<span class="cmt"># HTML to image conversion</span>
-claude mcp add --transport http hcti https://mcp.hcti.io</code></pre>
-                </div>
-
-                <h4>CLAUDE.md Rules (Critical)</h4>
-                <p>The repo has two <code>CLAUDE.md</code> files that Claude reads automatically:</p>
-
-                <table class="feature-table">
-                  <thead>
-                    <tr>
-                      <th>File</th>
-                      <th>Purpose</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>CLAUDE.md</code> (repo root)</td>
-                      <td>Tech stack, coding standards, git rules, commit format, branch naming, pre-commit checklist</td>
-                    </tr>
-                    <tr>
-                      <td><code>~/.claude/CLAUDE.md</code> (global)</td>
-                      <td>Personal preferences — git account, never push without confirmation, session tracking</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <h4>Key Rules Claude Follows</h4>
-                <ul>
-                  <li><strong>Never push without confirmation</strong> — Claude will always ask before committing or pushing</li>
-                  <li><strong>Never reference Duolingo</strong> — in any prompts, designs, code, or descriptions</li>
-                  <li><strong>Brand system enforced</strong> — colors, fonts, components from <code>_docs/prompts/00-base-template.md</code></li>
-                  <li><strong>frontend-design skill</strong> — invoke before generating any screen HTML for designer-quality output</li>
-                  <li><strong>Git scope: personal</strong> — uses personal git account (Nuri Armanç Engin)</li>
-                  <li><strong>Mobile-first always</strong> — 375px base width for all designs</li>
-                  <li><strong>Status tracking</strong> — Claude reads <code>_claude-files/status-mvp-screens-design.md</code> each session to know where we are</li>
-                </ul>
-
-                <h4>How to Start a Design Session</h4>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># Start Claude Code in the repo</span>
-<span class="kw">cd</span> hinbuna-kurdi
-claude
-
-<span class="cmt"># Then tell Claude what to do:</span>
-<span class="str">"Read the status file and let's continue designing screens"</span>
-
-<span class="cmt"># Claude will:</span>
-<span class="cmt"># 1. Read _claude-files/status-mvp-screens-design.md</span>
-<span class="cmt"># 2. Read the brand system (00-base-template.md)</span>
-<span class="cmt"># 3. Read the next screen's prompt file</span>
-<span class="cmt"># 4. Invoke frontend-design skill</span>
-<span class="cmt"># 5. Generate the HTML</span>
-<span class="cmt"># 6. Wait for your review before committing</span></code></pre>
-                </div>
-
-                <h4>Useful Commands During Sessions</h4>
-                <table class="feature-table">
-                  <thead>
-                    <tr>
-                      <th>Command</th>
-                      <th>What it does</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>/plugin</code></td>
-                      <td>View and manage installed plugins</td>
-                    </tr>
-                    <tr>
-                      <td><code>/mcp</code></td>
-                      <td>Check MCP server status</td>
-                    </tr>
-                    <tr>
-                      <td><code>/clear</code></td>
-                      <td>Clear conversation (start fresh, keeps context files)</td>
-                    </tr>
-                    <tr>
-                      <td><code>/help</code></td>
-                      <td>General help and keyboard shortcuts</td>
-                    </tr>
-                    <tr>
-                      <td><code>open site/index.html</code></td>
-                      <td>Preview the design gallery in browser</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <div class="callout callout-info">
-                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                  <div class="callout-content">
-                    <p><strong>Context limit:</strong> Claude Code sessions have a context window. When it reaches ~70%, save your work and start a new session. Claude will read the status files and pick up where you left off.</p>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
