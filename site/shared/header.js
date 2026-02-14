@@ -8,10 +8,10 @@
  *
  * Page types:
  *   - "public"     : Full header (logo, lang picker, theme toggle, login button)
- *   - "gallery"              : Logo, nav links (Onboarding, Components, Notes), theme toggle
- *   - "onboarding"           : Logo, nav links (Gallery, Components, Notes), theme toggle
- *   - "components"           : Logo, nav links (Gallery, Onboarding, Notes), theme toggle
- *   - "implementation-notes" : Logo, nav links (Gallery, Onboarding, Components), theme toggle
+ *   - "gallery"              : Logo, play btn, nav links, hamburger (mobile), theme toggle
+ *   - "onboarding"           : Logo, play btn, nav links, hamburger (mobile), theme toggle
+ *   - "components"           : Logo, play btn, nav links, hamburger (mobile), theme toggle
+ *   - "implementation-notes" : Logo, play btn, nav links, hamburger (mobile), theme toggle
  */
 (function () {
   'use strict';
@@ -57,6 +57,28 @@
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
       '<path d="M19 12H5"/>' +
       '<polyline points="12 19 5 12 12 5"/>' +
+    '</svg>';
+
+  // Play/Preview button icon (dev pages only)
+  var NAV_ICON_PLAY =
+    '<svg class="nav-play-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>' +
+      '<polygon points="10,7.5 10,16.5 17,12" fill="currentColor"/>' +
+    '</svg>';
+
+  // Hamburger menu icon (dev pages, mobile only)
+  var HAMBURGER_SVG =
+    '<svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<line x1="3" y1="6" x2="21" y2="6"/>' +
+      '<line x1="3" y1="12" x2="21" y2="12"/>' +
+      '<line x1="3" y1="18" x2="21" y2="18"/>' +
+    '</svg>';
+
+  // Close icon for hamburger menu
+  var CLOSE_SVG =
+    '<svg class="hamburger-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<line x1="18" y1="6" x2="6" y2="18"/>' +
+      '<line x1="6" y1="6" x2="18" y2="18"/>' +
     '</svg>';
 
   // Nav link icons (dev pages: gallery, onboarding, components)
@@ -144,7 +166,7 @@
     // Actions area
     html += '<div class="header-actions">';
 
-    // Nav links (gallery/onboarding/components pages)
+    // Dev page controls (play button, nav links, hamburger)
     if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes') {
       var navItems = [
         { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Gallery',    title: 'Design Gallery' },
@@ -152,6 +174,14 @@
         { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components', title: 'Component Library' },
         { id: 'implementation-notes', href: 'implementation-notes.html',  icon: NAV_ICON_NOTES,       label: 'Notes',      title: 'Implementation Notes' }
       ];
+
+      // Play/Preview button — primary action, always visible
+      html += '<a href="P1-landing.html" class="header-play-btn" title="Preview App">';
+      html += NAV_ICON_PLAY;
+      html += '</a>';
+
+      // Inline nav links (visible on desktop, hidden on mobile)
+      html += '<div class="header-nav-inline">';
       for (var n = 0; n < navItems.length; n++) {
         var item = navItems[n];
         var isActive = (item.id === pageType);
@@ -161,6 +191,27 @@
           html += '<a href="' + item.href + '" class="header-nav-link" title="' + item.title + '">' + item.icon + '<span class="nav-link-text">' + item.label + '</span></a>';
         }
       }
+      html += '</div>';
+
+      // Hamburger button (visible on mobile only)
+      html += '<button class="header-hamburger-btn" id="dev-hamburger" aria-label="Open navigation menu" title="Menu">';
+      html += HAMBURGER_SVG;
+      html += CLOSE_SVG;
+      html += '</button>';
+
+      // Mobile dropdown menu
+      html += '<div class="dev-nav-backdrop" id="dev-nav-backdrop"></div>';
+      html += '<div class="dev-nav-dropdown" id="dev-nav-dropdown">';
+      for (var m = 0; m < navItems.length; m++) {
+        var mItem = navItems[m];
+        var mIsActive = (mItem.id === pageType);
+        if (mIsActive) {
+          html += '<span class="dev-nav-item dev-nav-item--active">' + mItem.icon + '<span>' + mItem.label + '</span></span>';
+        } else {
+          html += '<a href="' + mItem.href + '" class="dev-nav-item">' + mItem.icon + '<span>' + mItem.label + '</span></a>';
+        }
+      }
+      html += '</div>';
     }
 
     // Theme toggle (FIRST — same position on public + student)
@@ -319,6 +370,60 @@
   }
 
   // ============================================================
+  // Dev hamburger menu logic
+  // ============================================================
+
+  function initDevHamburger() {
+    var hamburger = document.getElementById('dev-hamburger');
+    var dropdown  = document.getElementById('dev-nav-dropdown');
+    var backdrop  = document.getElementById('dev-nav-backdrop');
+
+    if (!hamburger || !dropdown || !backdrop) return;
+
+    function openMenu() {
+      dropdown.classList.add('open');
+      backdrop.classList.add('open');
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-label', 'Close navigation menu');
+    }
+
+    function closeMenu() {
+      dropdown.classList.remove('open');
+      backdrop.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    function toggleMenu() {
+      if (dropdown.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    // Close on item click
+    var items = dropdown.querySelectorAll('.dev-nav-item');
+    items.forEach(function (item) {
+      item.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+  }
+
+  // ============================================================
   // Initialize
   // ============================================================
 
@@ -342,6 +447,7 @@
     initTheme();
     initScrollShadow();
     initLangPicker();
+    initDevHamburger();
   }
 
   // Run when DOM is ready

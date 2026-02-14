@@ -148,6 +148,7 @@
       // Done/clickable item
       html += '<a href="' + item.href + '" class="' + cls + '">';
       if (item.status === 'done') html += CHECK_SVG;
+      else if (item.status === 'active') html += '<span class="dd-in-progress"></span>';
       html += '<span>' + item.name + '</span>';
       html += '</a>';
     }

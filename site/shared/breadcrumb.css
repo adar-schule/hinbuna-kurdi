@@ -293,6 +293,16 @@
   background-color: rgba(212, 168, 67, 0.12);
 }
 
+/* In-progress dot (active unit the user is working on, but not the one currently viewed) */
+.breadcrumb-dropdown-item .dd-in-progress {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent, #D4A843);
+  background: linear-gradient(to top, var(--color-accent, #D4A843) 50%, transparent 50%);
+  flex-shrink: 0;
+}
+
 /* ============================================
    STATE: Upcoming (next available)
    "Coming up next"

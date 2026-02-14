@@ -126,6 +126,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -179,6 +180,256 @@
 .header-login:hover {
   background-color: rgba(45, 90, 61, 0.04);
   border-color: rgba(45, 90, 61, 0.35);
+}
+
+/* ============================================
+   PLAY/PREVIEW BUTTON (dev pages only)
+   ============================================ */
+.header-play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(212, 168, 67, 0.12);
+  color: #D4A843;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.header-play-btn:hover {
+  background-color: rgba(212, 168, 67, 0.22);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+}
+
+.header-play-btn:active {
+  transform: scale(0.95);
+}
+
+.nav-play-icon {
+  width: 22px;
+  height: 22px;
+}
+
+[data-theme="dark"] .header-play-btn {
+  background-color: rgba(212, 168, 67, 0.15);
+  color: #D4A843;
+}
+
+[data-theme="dark"] .header-play-btn:hover {
+  background-color: rgba(212, 168, 67, 0.28);
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.12);
+}
+
+/* ============================================
+   INLINE NAV CONTAINER (desktop only)
+   ============================================ */
+.header-nav-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .header-nav-inline { gap: 16px; }
+}
+
+/* Hide inline nav on mobile, show hamburger */
+@media (max-width: 639px) {
+  .header-nav-inline {
+    display: none;
+  }
+}
+
+/* ============================================
+   HAMBURGER BUTTON (dev pages, mobile only)
+   ============================================ */
+.header-hamburger-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm, 8px);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  position: relative;
+  order: 99;
+}
+
+.header-hamburger-btn:hover {
+  background-color: rgba(45, 90, 61, 0.06);
+}
+
+.header-hamburger-btn:active {
+  background-color: rgba(45, 90, 61, 0.1);
+  transform: scale(0.95);
+}
+
+.header-hamburger-btn .hamburger-icon,
+.header-hamburger-btn .hamburger-close-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.header-hamburger-btn .hamburger-close-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.header-hamburger-btn.open .hamburger-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.header-hamburger-btn.open .hamburger-close-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+[data-theme="dark"] .header-hamburger-btn {
+  color: var(--text-primary, var(--text, #F5EEE6));
+}
+
+[data-theme="dark"] .header-hamburger-btn:hover {
+  background-color: rgba(245, 238, 230, 0.08);
+}
+
+/* Show hamburger on mobile only */
+@media (max-width: 639px) {
+  .header-hamburger-btn {
+    display: flex;
+  }
+}
+
+/* ============================================
+   DEV NAV DROPDOWN (mobile hamburger menu)
+   ============================================ */
+.dev-nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 198;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.dev-nav-backdrop.open {
+  display: block;
+  opacity: 1;
+}
+
+.dev-nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: var(--bg-page, var(--bg, #FDF8F3));
+  border: 1px solid var(--border, #E5DDD3);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: 0 12px 36px rgba(26, 42, 31, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+  min-width: 200px;
+  padding: 8px 0;
+  z-index: 200;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dev-nav-dropdown.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: devNavFadeIn 0.2s ease forwards;
+}
+
+@keyframes devNavFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dev-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary, var(--text, #1A2A1F));
+  text-decoration: none;
+  text-align: left;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dev-nav-item:hover {
+  background-color: var(--bg-surface, var(--surface, #F5EEE6));
+  color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+.dev-nav-item .nav-link-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.dev-nav-item--active {
+  color: #D4A843;
+  font-weight: 600;
+  cursor: default;
+  pointer-events: none;
+}
+
+.dev-nav-item--active .nav-link-icon {
+  color: #D4A843;
+}
+
+/* Dark mode for dropdown */
+[data-theme="dark"] .dev-nav-dropdown {
+  background-color: var(--bg-page, var(--bg, #1A2F23));
+  border-color: var(--border, #2F4F3A);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .dev-nav-item {
+  color: var(--text-primary, var(--text, #F5EEE6));
+}
+
+[data-theme="dark"] .dev-nav-item:hover {
+  background-color: var(--bg-surface, var(--surface, #243D30));
+  color: var(--color-accent, var(--accent, #D4A843));
+}
+
+[data-theme="dark"] .dev-nav-item--active {
+  color: #D4A843;
+}
+
+[data-theme="dark"] .dev-nav-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Only show dropdown on mobile */
+@media (min-width: 640px) {
+  .dev-nav-dropdown,
+  .dev-nav-backdrop,
+  .header-hamburger-btn {
+    display: none !important;
+  }
 }
 
 /* ============================================
