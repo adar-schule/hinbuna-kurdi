@@ -158,19 +158,34 @@
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 2px;
-  min-width: 220px;
-  max-width: 300px;
+  margin-top: 4px;
+  min-width: 260px;
+  max-width: 320px;
+  max-height: 360px;
+  overflow-y: auto;
   background-color: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md, 12px);
   box-shadow: var(--shadow-lg);
   z-index: 300;
-  padding: 6px 0;
+  padding: 0;
   opacity: 0;
   transform: translateY(-4px);
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.breadcrumb-dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+.breadcrumb-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.breadcrumb-dropdown::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 4px;
 }
 
 .breadcrumb-dropdown.open {
@@ -179,71 +194,200 @@
   pointer-events: auto;
 }
 
+/* Dropdown title header */
+.breadcrumb-dropdown-title {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  padding: 10px 16px 6px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+  user-select: none;
+}
+
+/* Group wrapper for item sections */
+.breadcrumb-dropdown-group {
+  padding: 4px 0;
+}
+
+/* Separator between done/active items and locked items */
+.breadcrumb-dropdown-separator {
+  height: 1px;
+  background-color: var(--border);
+  margin: 4px 14px;
+  opacity: 0.7;
+}
+
+/* ============================================
+   DROPDOWN ITEMS — Base
+   ============================================ */
 .breadcrumb-dropdown-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 14px;
+  padding: 10px 14px 10px 14px;
+  min-height: 44px;
+  font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 13px;
   font-weight: 500;
   color: var(--text-primary);
   text-decoration: none;
-  transition: background-color 0.1s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   STATE: Done (completed, clickable)
+   "You can go here"
+   ============================================ */
+.breadcrumb-dropdown-item.done {
+  color: var(--text-primary);
+  font-weight: 500;
   cursor: pointer;
 }
 
-.breadcrumb-dropdown-item:hover {
-  background-color: rgba(212, 168, 67, 0.08);
+.breadcrumb-dropdown-item.done:hover {
+  background-color: rgba(45, 138, 78, 0.08);
+  border-left-color: var(--color-success, #2D8A4E);
 }
 
-/* Active item */
-.breadcrumb-dropdown-item.active {
-  color: var(--color-accent, #D4A843);
-  font-weight: 600;
-}
-
-.breadcrumb-dropdown-item.active::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: var(--color-accent, #D4A843);
+.breadcrumb-dropdown-item.done .dd-check {
+  width: 16px;
+  height: 16px;
+  color: var(--color-success, #2D8A4E);
   flex-shrink: 0;
 }
 
-/* Locked item */
+/* ============================================
+   STATE: Active (current item)
+   "You are here"
+   ============================================ */
+.breadcrumb-dropdown-item.active {
+  background-color: rgba(212, 168, 67, 0.12);
+  border-left-color: var(--color-accent, #D4A843);
+  color: var(--color-accent, #D4A843);
+  font-weight: 700;
+  cursor: default;
+}
+
+/* Active dot indicator (left side, after the border) */
+.breadcrumb-dropdown-item.active .dd-active-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent, #D4A843);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(212, 168, 67, 0.25);
+}
+
+/* Active item should NOT highlight on hover (it's not a navigation target) */
+.breadcrumb-dropdown-item.active:hover {
+  background-color: rgba(212, 168, 67, 0.12);
+}
+
+/* ============================================
+   STATE: Upcoming (next available)
+   "Coming up next"
+   ============================================ */
+.breadcrumb-dropdown-item.upcoming {
+  color: var(--text-secondary);
+  opacity: 0.65;
+  cursor: default;
+  font-weight: 500;
+}
+
+.breadcrumb-dropdown-item.upcoming:hover {
+  background-color: rgba(212, 168, 67, 0.05);
+}
+
+.breadcrumb-dropdown-item .dd-future {
+  width: 16px;
+  height: 16px;
+  color: var(--color-accent, #D4A843);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   STATE: Locked (unavailable)
+   "Not available yet"
+   ============================================ */
 .breadcrumb-dropdown-item.locked {
   color: var(--text-secondary);
-  opacity: 0.45;
-  cursor: default;
+  opacity: 0.35;
+  cursor: not-allowed;
+  font-weight: 400;
 }
 
 .breadcrumb-dropdown-item.locked:hover {
   background-color: transparent;
+  border-left-color: transparent;
+}
+
+.breadcrumb-dropdown-item.locked span {
+  opacity: 0.9;
 }
 
 .breadcrumb-dropdown-item .dd-lock {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   color: var(--text-secondary);
   opacity: 0.5;
   flex-shrink: 0;
-  margin-left: auto;
 }
 
-/* Done item checkmark */
+/* Done item checkmark (fallback for non-.done class usage) */
 .breadcrumb-dropdown-item .dd-check {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   color: var(--color-success, #2D8A4E);
   flex-shrink: 0;
+}
+
+/* ============================================
+   DARK MODE overrides
+   ============================================ */
+[data-theme="dark"] .breadcrumb-dropdown {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .breadcrumb-dropdown-title {
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .breadcrumb-dropdown-item.active {
+  background-color: rgba(212, 168, 67, 0.1);
+}
+
+[data-theme="dark"] .breadcrumb-dropdown-item.done:hover {
+  background-color: rgba(45, 138, 78, 0.1);
+}
+
+[data-theme="dark"] .breadcrumb-dropdown-item.upcoming {
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .breadcrumb-dropdown-item.locked {
+  opacity: 0.25;
+}
+
+[data-theme="dark"] .breadcrumb-dropdown-separator {
+  opacity: 0.5;
 }
 
 /* Dropdown backdrop (for closing) */
 .breadcrumb-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 299;
+  z-index: 98;
   display: none;
 }
 

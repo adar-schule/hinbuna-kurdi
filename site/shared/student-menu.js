@@ -21,7 +21,33 @@
   var scriptTag = document.currentScript;
   var activePage = scriptTag ? scriptTag.getAttribute('data-active') : '';
 
+  // ============================================================
+  // Language & Theme data
+  // ============================================================
+
+  var LANGUAGES = [
+    { code: 'ku', label: 'Kurd\u00ee' },
+    { code: 'en', label: 'English' },
+    { code: 'de', label: 'Deutsch' },
+    { code: 'sv', label: 'Svenska' },
+    { code: 'da', label: 'Dansk' },
+    { code: 'it', label: 'Italiano' },
+    { code: 'tr', label: 'T\u00fcrk\u00e7e' },
+    { code: 'fa', label: '\u0641\u0627\u0631\u0633\u06CC', dir: 'rtl' },
+    { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', dir: 'rtl' }
+  ];
+
+  var THEMES = {
+    'forest-green':   'Forest Green',
+    'midnight-green': 'Midnight Green',
+    'warm-charcoal':  'Warm Charcoal',
+    'dark-slate':     'Dark Slate'
+  };
+
+  // ============================================================
   // SVG icons (all static, no user input)
+  // ============================================================
+
   var HAMBURGER_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
   var CLOSE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
 
@@ -31,10 +57,18 @@
 
   var HOME_SVG = icon('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>');
 
+  var GLOBE_SVG = icon('<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>');
+
+  var PALETTE_SVG = icon('<path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.1-.7-.4-1-.3-.3-.4-.7-.4-1.1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9.9-10-9.9z"/><circle cx="7.5" cy="11.5" r="1.5" fill="currentColor"/><circle cx="10.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="18" cy="11.5" r="1.5" fill="currentColor"/>');
+
+  var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  var CHEVRON_SVG = '<svg class="menu-expand-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+
   var NAV_ITEMS = [
     { id: 'courses',  href: 'S2-course-list.html',  label: 'Courses',  icon: icon('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>') },
     { id: 'profile',  href: '#',                     label: 'Profile',  icon: icon('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'), disabled: true },
-    { id: 'settings', href: '#',                     label: 'Settings', icon: icon('<circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2m-9-11h2m18 0h2m-3.64-6.36l-1.41 1.41M6.05 17.95l-1.41 1.41m0-12.73l1.41 1.41m11.31 11.31l1.41 1.41"/>'), disabled: true },
+    { id: 'settings', href: 'S10-settings.html',     label: 'Settings', icon: icon('<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>'), disabled: false },
   ];
 
   var EXTRA_ITEMS = [
@@ -46,10 +80,35 @@
   ];
 
   // ============================================================
+  // Helpers
+  // ============================================================
+
+  function getCurrentLang() {
+    return localStorage.getItem('hk-lang') || 'en';
+  }
+
+  function getLangLabel(code) {
+    for (var i = 0; i < LANGUAGES.length; i++) {
+      if (LANGUAGES[i].code === code) return LANGUAGES[i].label;
+    }
+    return 'English';
+  }
+
+  function getCurrentColorTheme() {
+    return (window.HK && HK.getColorTheme) ? HK.getColorTheme() : 'forest-green';
+  }
+
+  function getThemeLabel(id) {
+    return THEMES[id] || 'Forest Green';
+  }
+
+  // ============================================================
   // Build drawer HTML (all static content, safe to inject)
   // ============================================================
   function buildDrawer() {
     var html = '';
+    var currentLang = getCurrentLang();
+    var currentTheme = getCurrentColorTheme();
 
     // Overlay
     html += '<div class="menu-overlay" id="menu-overlay"></div>';
@@ -82,6 +141,56 @@
       }
     });
 
+    // ---- Language picker (expandable) ----
+    html += '<div class="menu-separator"></div>';
+
+    html += '<button class="menu-nav-item menu-expandable-toggle" id="menu-lang-toggle" aria-expanded="false">';
+    html += GLOBE_SVG;
+    html += '<span class="menu-expand-label">' + getLangLabel(currentLang) + '</span>';
+    html += CHEVRON_SVG;
+    html += '</button>';
+
+    html += '<div class="menu-expandable-panel" id="menu-lang-panel">';
+    html += '<div class="menu-expandable-inner">';
+    for (var i = 0; i < LANGUAGES.length; i++) {
+      var lang = LANGUAGES[i];
+      var isLangActive = lang.code === currentLang;
+      var dirAttr = lang.dir ? ' dir="' + lang.dir + '"' : '';
+      html += '<button class="menu-sub-item' + (isLangActive ? ' active' : '') + '" data-lang="' + lang.code + '"' + dirAttr + '>';
+      html += '<span class="menu-sub-item-label">' + lang.label + '</span>';
+      if (isLangActive) {
+        html += '<span class="menu-sub-item-check">' + CHECK_SVG + '</span>';
+      }
+      html += '</button>';
+    }
+    html += '</div>'; // .menu-expandable-inner
+    html += '</div>'; // .menu-expandable-panel
+
+    // ---- Color Theme picker (expandable) ----
+    html += '<button class="menu-nav-item menu-expandable-toggle" id="menu-theme-toggle" aria-expanded="false">';
+    html += PALETTE_SVG;
+    html += '<span class="menu-expand-label">' + getThemeLabel(currentTheme) + '</span>';
+    html += CHEVRON_SVG;
+    html += '</button>';
+
+    html += '<div class="menu-expandable-panel" id="menu-theme-panel">';
+    html += '<div class="menu-expandable-inner">';
+    var themeIds = Object.keys(THEMES);
+    for (var t = 0; t < themeIds.length; t++) {
+      var tid = themeIds[t];
+      var isThemeActive = tid === currentTheme;
+      html += '<button class="menu-sub-item' + (isThemeActive ? ' active' : '') + '" data-color-theme="' + tid + '">';
+      html += '<span class="menu-sub-item-swatch menu-swatch-' + tid + '"></span>';
+      html += '<span class="menu-sub-item-label">' + THEMES[tid] + '</span>';
+      if (isThemeActive) {
+        html += '<span class="menu-sub-item-check">' + CHECK_SVG + '</span>';
+      }
+      html += '</button>';
+    }
+    html += '</div>'; // .menu-expandable-inner
+    html += '</div>'; // .menu-expandable-panel
+
+    // Extra items (premium, help, logout)
     EXTRA_ITEMS.forEach(function (item) {
       if (item.type === 'separator') {
         html += '<div class="menu-separator"></div>';
@@ -132,6 +241,89 @@
   }
 
   // ============================================================
+  // Expandable panel logic
+  // ============================================================
+  function bindExpandable(toggleId, panelId) {
+    var toggle = document.getElementById(toggleId);
+    var panel = document.getElementById(panelId);
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.style.maxHeight = '0';
+      } else {
+        toggle.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  }
+
+  function bindLanguageSelection() {
+    var langItems = document.querySelectorAll('#menu-lang-panel .menu-sub-item');
+    langItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        var code = item.getAttribute('data-lang');
+        localStorage.setItem('hk-lang', code);
+
+        // Update active states
+        langItems.forEach(function (li) {
+          var isNowActive = li.getAttribute('data-lang') === code;
+          li.classList.toggle('active', isNowActive);
+          // Update checkmark
+          var existingCheck = li.querySelector('.menu-sub-item-check');
+          if (isNowActive && !existingCheck) {
+            li.insertAdjacentHTML('beforeend', '<span class="menu-sub-item-check">' + CHECK_SVG + '</span>');
+          } else if (!isNowActive && existingCheck) {
+            existingCheck.remove();
+          }
+        });
+
+        // Update toggle label
+        var toggleLabel = document.querySelector('#menu-lang-toggle .menu-expand-label');
+        if (toggleLabel) toggleLabel.textContent = getLangLabel(code);
+      });
+    });
+  }
+
+  function bindThemeSelection() {
+    var themeItems = document.querySelectorAll('#menu-theme-panel .menu-sub-item');
+    themeItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        var themeId = item.getAttribute('data-color-theme');
+
+        // Apply the theme
+        if (window.HK && HK.setColorTheme) {
+          HK.setColorTheme(themeId);
+        }
+
+        // Update active states
+        themeItems.forEach(function (ti) {
+          var isNowActive = ti.getAttribute('data-color-theme') === themeId;
+          ti.classList.toggle('active', isNowActive);
+          var existingCheck = ti.querySelector('.menu-sub-item-check');
+          if (isNowActive && !existingCheck) {
+            ti.insertAdjacentHTML('beforeend', '<span class="menu-sub-item-check">' + CHECK_SVG + '</span>');
+          } else if (!isNowActive && existingCheck) {
+            existingCheck.remove();
+          }
+        });
+
+        // Update toggle label
+        var toggleLabel = document.querySelector('#menu-theme-toggle .menu-expand-label');
+        if (toggleLabel) toggleLabel.textContent = getThemeLabel(themeId);
+
+        // Also update the settings drawer if present
+        var settingsCards = document.querySelectorAll('.settings-theme-card');
+        settingsCards.forEach(function (card) {
+          card.classList.toggle('active', card.getAttribute('data-theme-id') === themeId);
+        });
+      });
+    });
+  }
+
+  // ============================================================
   // Initialize
   // ============================================================
   function init() {
@@ -176,6 +368,14 @@
         closeMenu();
       }
     });
+
+    // Bind expandable panels
+    bindExpandable('menu-lang-toggle', 'menu-lang-panel');
+    bindExpandable('menu-theme-toggle', 'menu-theme-panel');
+
+    // Bind language and theme selection
+    bindLanguageSelection();
+    bindThemeSelection();
   }
 
   if (document.readyState === 'loading') {

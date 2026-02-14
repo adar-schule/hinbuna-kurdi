@@ -8,9 +8,10 @@
  *
  * Page types:
  *   - "public"     : Full header (logo, lang picker, theme toggle, login button)
- *   - "gallery"    : Logo, "Onboarding Guide" + "Components" nav links, theme toggle
- *   - "onboarding" : Logo, "Design Gallery" + "Components" nav links, theme toggle
- *   - "components" : Logo, "Design Gallery" + "Onboarding Guide" nav links, theme toggle
+ *   - "gallery"              : Logo, nav links (Onboarding, Components, Notes), theme toggle
+ *   - "onboarding"           : Logo, nav links (Gallery, Components, Notes), theme toggle
+ *   - "components"           : Logo, nav links (Gallery, Onboarding, Notes), theme toggle
+ *   - "implementation-notes" : Logo, nav links (Gallery, Onboarding, Components), theme toggle
  */
 (function () {
   'use strict';
@@ -80,6 +81,15 @@
       '<path d="M2 12l10 5 10-5"/>' +
     '</svg>';
 
+  var NAV_ICON_NOTES =
+    '<svg class="nav-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>' +
+      '<polyline points="14 2 14 8 20 8"/>' +
+      '<line x1="16" y1="13" x2="8" y2="13"/>' +
+      '<line x1="16" y1="17" x2="8" y2="17"/>' +
+      '<polyline points="10 9 9 9 8 9"/>' +
+    '</svg>';
+
   var CHECK_SVG =
     '<svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
       '<polyline points="20 6 9 17 4 12"/>' +
@@ -135,11 +145,12 @@
     html += '<div class="header-actions">';
 
     // Nav links (gallery/onboarding/components pages)
-    if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components') {
+    if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes') {
       var navItems = [
-        { id: 'gallery',    href: 'index.html',       icon: NAV_ICON_GALLERY,     label: 'Gallery',    title: 'Design Gallery' },
-        { id: 'onboarding', href: 'onboarding.html',  icon: NAV_ICON_ONBOARDING,  label: 'Onboarding', title: 'Developer Onboarding Guide' },
-        { id: 'components', href: 'components.html',   icon: NAV_ICON_COMPONENTS,  label: 'Components', title: 'Component Library' }
+        { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Gallery',    title: 'Design Gallery' },
+        { id: 'onboarding',           href: 'onboarding.html',           icon: NAV_ICON_ONBOARDING,  label: 'Onboarding', title: 'Developer Onboarding Guide' },
+        { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components', title: 'Component Library' },
+        { id: 'implementation-notes', href: 'implementation-notes.html',  icon: NAV_ICON_NOTES,       label: 'Notes',      title: 'Implementation Notes' }
       ];
       for (var n = 0; n < navItems.length; n++) {
         var item = navItems[n];
@@ -152,17 +163,17 @@
       }
     }
 
-    // Language picker (public pages by default)
-    if (showLang && pageType === 'public') {
-      html += buildLangPicker();
-    }
-
-    // Theme toggle
+    // Theme toggle (FIRST — same position on public + student)
     if (showTheme) {
       html += '<button class="header-icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">';
       html += MOON_SVG;
       html += SUN_SVG;
       html += '</button>';
+    }
+
+    // Language picker (after theme toggle, before login)
+    if (showLang && pageType === 'public') {
+      html += buildLangPicker();
     }
 
     // Login button
@@ -182,6 +193,7 @@
     if (pageType === 'gallery') return '#';
     if (pageType === 'onboarding') return 'index.html';
     if (pageType === 'components') return 'index.html';
+    if (pageType === 'implementation-notes') return 'index.html';
     return '#';
   }
 
