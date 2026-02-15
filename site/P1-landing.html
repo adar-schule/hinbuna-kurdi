@@ -9,10 +9,8 @@
   <!-- Kurdish Sun Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
 
-  <!-- Google Fonts: Nunito (headings) + Inter (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts: Inter + Nunito (self-hosted) -->
+  <link rel="stylesheet" href="shared/fonts.css">
 
   <style>
     /* ============================================
@@ -408,24 +406,272 @@
     }
 
     /* ============================================
+       HERO CAROUSEL
+       ============================================ */
+    .hero-carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-slides {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .hero-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    /* Slide content inherits existing .hero-content styles */
+    .hero-slide .hero-content {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+    }
+
+    .hero-slide.active .hero-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      color: var(--text-secondary);
+      opacity: 0.4;
+      transition: opacity 0.3s, color 0.3s, transform 0.3s;
+      font-size: 28px;
+      line-height: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .carousel-arrow:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+
+    .carousel-arrow:active {
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    .carousel-arrow--prev { left: 4px; }
+    .carousel-arrow--next { right: 4px; }
+
+    @media (min-width: 768px) {
+      .carousel-arrow--prev { left: 12px; }
+      .carousel-arrow--next { right: 12px; }
+      .carousel-arrow { font-size: 32px; padding: 16px; }
+    }
+
+    @media (min-width: 1024px) {
+      .carousel-arrow--prev { left: 20px; }
+      .carousel-arrow--next { right: 20px; }
+    }
+
+    /* Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding: 20px 0 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: var(--text-secondary);
+      background-clip: content-box;
+      opacity: 0.3;
+      cursor: pointer;
+      padding: 8px;
+      transition: opacity 0.3s, background 0.3s, transform 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .carousel-dot:hover {
+      opacity: 0.6;
+      transform: scale(1.2);
+    }
+
+    .carousel-dot.active {
+      background: var(--color-accent);
+      background-clip: content-box;
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slides { transition: none; }
+      .hero-slide .hero-content { transition: none; opacity: 1; transform: none; }
+    }
+
+    /* ============================================
+       ECOSYSTEM SLIDE STYLES
+       ============================================ */
+
+    /* Slide 2: Ecosystem overview — icon cluster */
+    .eco-icon-cluster {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .eco-icon-cluster svg {
+      width: 64px;
+      height: 64px;
+      color: var(--color-accent);
+      opacity: 0.8;
+    }
+
+    @media (min-width: 768px) {
+      .eco-icon-cluster svg { width: 80px; height: 80px; }
+    }
+
+    /* Slide 3: App grid */
+    .eco-app-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+
+    @media (min-width: 480px) {
+      .eco-app-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    }
+
+    @media (min-width: 768px) {
+      .eco-app-grid { grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 640px; }
+    }
+
+    .eco-app-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 8px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+      text-align: center;
+    }
+
+    .eco-app-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .eco-app-card.eco-app-active {
+      border-color: var(--color-accent);
+      background: color-mix(in srgb, var(--color-accent) 8%, var(--bg-surface));
+    }
+
+    .eco-app-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .eco-app-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .eco-app-desc {
+      font-size: 10px;
+      color: var(--text-secondary);
+      line-height: 1.3;
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .eco-app-desc { display: block; }
+      .eco-app-card { padding: 14px 10px; gap: 8px; }
+      .eco-app-name { font-size: 12px; }
+      .eco-app-desc { font-size: 11px; }
+    }
+
+    /* Slide heading (ecosystem slides — smaller than main hero) */
+    .eco-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 1.25;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .eco-heading { font-size: 32px; margin-bottom: 16px; }
+    }
+
+    @media (min-width: 1024px) {
+      .eco-heading { font-size: 38px; }
+    }
+
+    .eco-subtext {
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+
+    @media (min-width: 768px) {
+      .eco-subtext { font-size: 15px; margin-bottom: 28px; }
+    }
+
+    /* Slide 4: AI sparkle icon */
+    .eco-sparkle svg {
+      width: 56px;
+      height: 56px;
+      color: var(--color-accent);
+    }
+
+    @media (min-width: 768px) {
+      .eco-sparkle svg { width: 72px; height: 72px; }
+    }
+
+    /* ============================================
        3. SPONSORS CAROUSEL
        ============================================ */
     .sponsors {
-      padding: 36px 0 32px;
+      padding: 48px 0 44px;
       overflow: hidden;
       border-top: 1px solid var(--border);
     }
 
     .sponsors-label {
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 2.5px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--text-secondary);
       text-align: center;
-      margin-bottom: 24px;
-      opacity: 0.65;
+      margin-bottom: 32px;
+      opacity: 0.8;
     }
 
     .sponsor-carousel {
@@ -438,7 +684,7 @@
 
     .sponsor-track {
       display: flex;
-      gap: 48px;
+      gap: 40px;
       width: max-content;
       align-items: center;
       will-change: transform;
@@ -459,11 +705,11 @@
       align-items: center;
       gap: 0;
       flex-shrink: 0;
-      padding: 10px;
-      border-radius: var(--radius-sm);
+      padding: 12px;
+      border-radius: var(--radius-md);
       border: 1px solid transparent;
       transition: opacity 0.4s ease, border-color 0.3s ease, transform 0.3s ease, gap 0.3s ease;
-      opacity: 0.6;
+      opacity: 0.7;
       user-select: none;
       cursor: default;
       position: relative;
@@ -472,14 +718,14 @@
     .sponsor-item:hover {
       opacity: 1;
       border-color: var(--border);
-      transform: scale(1.06);
-      gap: 10px;
+      transform: scale(1.08);
+      gap: 12px;
     }
 
     .sponsor-logo-shape {
-      width: 56px;
-      height: 56px;
-      border-radius: 8px;
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -487,8 +733,8 @@
     }
 
     .sponsor-logo-shape svg {
-      width: 32px;
-      height: 32px;
+      width: 44px;
+      height: 44px;
     }
 
     .sponsor-logo-shape img {
@@ -499,8 +745,8 @@
 
     .sponsor-name {
       font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 13px;
+      font-weight: 700;
+      font-size: 14px;
       color: var(--text-secondary);
       letter-spacing: -0.2px;
       white-space: nowrap;
@@ -511,7 +757,7 @@
     }
 
     .sponsor-item:hover .sponsor-name {
-      max-width: 180px;
+      max-width: 260px;
       opacity: 1;
     }
 
@@ -1509,6 +1755,19 @@
       background-color: #111E17;
     }
 
+    /* Carousel — arrows & dots more visible on dark background */
+    [data-theme="dark"] .carousel-arrow {
+      opacity: 0.55;
+    }
+    [data-theme="dark"] .carousel-dot {
+      opacity: 0.4;
+    }
+
+    /* Ecosystem slide headings — primary green is invisible on dark bg */
+    [data-theme="dark"] .eco-heading {
+      color: var(--text-primary);
+    }
+
   </style>
   <link rel="stylesheet" href="shared/header.css">
   <link rel="stylesheet" href="shared/footer.css">
@@ -1525,30 +1784,141 @@
      2. HERO
      ========================================== -->
 <section class="hero">
-  <!-- Kurdish 21-ray sun icon — semi-transparent, moves with the glow -->
+  <!-- Kurdish 21-ray sun icon — semi-transparent, moves with the glow (UNCHANGED) -->
   <div class="hero-sun-icon" id="hero-sun-icon">
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <polygon points="50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2" fill="#D4A843"/>
       <circle cx="50" cy="50" r="16" fill="#D4A843"/>
     </svg>
   </div>
-  <div class="hero-content fade-up">
-    <h1 class="hero-heading">
-      Fêrbûna zimanê kurdî — bi rêbazên nûjen
-    </h1>
-    <p class="hero-subtext">
-      Structured Kurmanji curriculum from A1 to B1. Professional educators. Native audio. AI-powered practice.
-    </p>
-    <div class="hero-cta-group">
-      <a href="P4-register.html" class="btn-primary fade-up fade-up-d1">
-        Dest pê bike — Bêlaş e
-      </a>
-      <div class="hero-notes">
-        <span class="hero-note fade-up fade-up-d2">No credit card required</span>
-        <a href="P2-pricing.html" class="hero-note hero-link fade-in-only">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
+
+  <!-- CAROUSEL -->
+  <div class="hero-carousel" id="hero-carousel">
+    <div class="hero-slides" id="hero-slides">
+
+      <!-- Slide 1: Learn Kurdish (original hero) -->
+      <div class="hero-slide active" data-slide="0">
+        <div class="hero-content">
+          <h1 class="hero-heading">Fêrbûna zimanê kurdî — bi rêbazên nûjen</h1>
+          <p class="hero-subtext">Structured Kurmanji curriculum from A1 to B1. Professional educators. Native audio. AI-powered practice.</p>
+          <div class="hero-cta-group">
+            <a href="P4-register.html" class="btn-primary">Dest pê bike — Bêlaş e</a>
+            <div class="hero-notes">
+              <span class="hero-note">No credit card required</span>
+              <a href="P2-pricing.html" class="hero-note hero-link">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Slide 2: Ecosystem Overview -->
+      <div class="hero-slide" data-slide="1">
+        <div class="hero-content">
+          <div class="eco-icon-cluster">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/>
+              <circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/>
+              <line x1="6" y1="5.5" x2="9.5" y2="10"/><line x1="18" y1="5.5" x2="14.5" y2="10"/>
+              <line x1="6" y1="18.5" x2="9.5" y2="14"/><line x1="18" y1="18.5" x2="14.5" y2="14"/>
+            </svg>
+          </div>
+          <h2 class="eco-heading">Yek hesab — hemû app</h2>
+          <p class="eco-subtext">Create your account once. Learn Kurdish on Hinbûna, look up words on Ferheng, read stories on Çîrok, practice on Lîstik. Auto-login everywhere. Your progress and vocabulary follow you across all apps.</p>
+          <a href="P4-register.html" class="btn-primary">Hesabê xwe çêke</a>
+        </div>
+      </div>
+
+      <!-- Slide 3: App Showcase -->
+      <div class="hero-slide" data-slide="2">
+        <div class="hero-content" style="max-width: 720px;">
+          <h2 class="eco-heading">Ekosîstema Hinbûna Kurdî</h2>
+          <div class="eco-app-grid">
+            <div class="eco-app-card eco-app-active">
+              <span class="eco-app-icon">🌟</span>
+              <span class="eco-app-name">Hinbûna Kurdî</span>
+              <span class="eco-app-desc">Your structured path to fluency</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">📖</span>
+              <span class="eco-app-name">Ferheng</span>
+              <span class="eco-app-desc">Your words, always with you</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">📚</span>
+              <span class="eco-app-name">Çîrokên Kurt</span>
+              <span class="eco-app-desc">Stories written just for you</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">🎮</span>
+              <span class="eco-app-name">Lîstika Kurdî</span>
+              <span class="eco-app-desc">Practice that knows your weak spots</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">🧠</span>
+              <span class="eco-app-name">Korpûsa Kurdî</span>
+              <span class="eco-app-desc">Shape the future of Kurdish AI</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">🔊</span>
+              <span class="eco-app-name">TTS Kurdî</span>
+              <span class="eco-app-desc">Hear any Kurdish text come alive</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">👥</span>
+              <span class="eco-app-name">Civat</span>
+              <span class="eco-app-desc">Learn together, grow together</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">📜</span>
+              <span class="eco-app-name">Belge</span>
+              <span class="eco-app-desc">Prove what you know</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">📕</span>
+              <span class="eco-app-name">Kurdînama</span>
+              <span class="eco-app-desc">The Kurdish encyclopedia</span>
+            </div>
+            <div class="eco-app-card">
+              <span class="eco-app-icon">🗣️</span>
+              <span class="eco-app-name">Hevalê AI</span>
+              <span class="eco-app-desc">Your AI friend who speaks Kurdish</span>
+            </div>
+          </div>
+          <p class="eco-subtext">Switch between apps from the header icon. Each app knows your level and progress.</p>
+          <a href="P4-register.html" class="btn-primary">Dest pê bike</a>
+        </div>
+      </div>
+
+      <!-- Slide 4: AI Features -->
+      <div class="hero-slide" data-slide="3">
+        <div class="hero-content">
+          <div class="eco-icon-cluster eco-sparkle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z"/>
+              <circle cx="18" cy="5" r="1" fill="currentColor"/><circle cx="6" cy="19" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+          <h2 class="eco-heading">Bi AI — ji bo te taybet</h2>
+          <p class="eco-subtext">Open Ferheng — see vocabulary from your recent lessons. Read Çîrokên Kurt — stories written for your level. Play Lîstik — drills targeting your weak spots. Talk to Hevalê AI — practice conversation with AI characters. Contribute to Korpûsa Kurdî — help train Kurdish AI. All powered by AI, all personalized for you.</p>
+          <a href="P4-register.html" class="btn-primary">Dest pê bike — Bêlaş e</a>
+        </div>
+      </div>
+
+    </div><!-- /.hero-slides -->
+
+    <!-- Navigation arrows -->
+    <button class="carousel-arrow carousel-arrow--prev" id="carousel-prev" aria-label="Previous slide">&#8249;</button>
+    <button class="carousel-arrow carousel-arrow--next" id="carousel-next" aria-label="Next slide">&#8250;</button>
+
+    <!-- Dot indicators -->
+    <div class="carousel-dots" id="carousel-dots">
+      <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+      <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+      <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
+      <button class="carousel-dot" data-dot="3" aria-label="Slide 4"></button>
     </div>
-  </div>
+  </div><!-- /.hero-carousel -->
 </section>
 
 <!-- ==========================================
@@ -1558,7 +1928,7 @@
   <p class="sponsors-label">Supported by</p>
   <div class="sponsor-carousel">
     <div class="sponsor-track">
-      <!-- Set 1 (14 items: 5 Nûcraft at positions 1,4,8,11,14 — never adjacent) -->
+      <!-- Set 1 (18 items: 13 sponsors + 5 Nûcraft at pos 1,5,9,13,18 — never adjacent, white-bg icons spread apart) -->
       <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/nucraft-green.png" alt="Nûcraft Labs">
@@ -1571,6 +1941,36 @@
         </div>
         <span class="sponsor-name">Land Berlin</span>
       </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
+        </div>
+        <span class="sponsor-name">Kurdistan Foundation</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Bundesministerium der Finanzen" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/bundesministerium-finanzen.png" alt="Bundesministerium der Finanzen">
+        </div>
+        <span class="sponsor-name">Bundesministerium der Finanzen</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/nucraft-diamond.png" alt="Nûcraft Labs">
+        </div>
+        <span class="sponsor-name">Nûcraft Labs</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
+        </div>
+        <span class="sponsor-name">Visit Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="European Union" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/european-union.png" alt="European Union">
+        </div>
+        <span class="sponsor-name">European Union</span>
+      </a>
       <a href="#" class="sponsor-item" title="Bezirksamt Neukölln" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/bezirk-neukoln-01.png" alt="Bezirksamt Neukölln">
@@ -1579,21 +1979,9 @@
       </a>
       <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/nucraft-diamond.png" alt="Nûcraft Labs">
+          <img src="icons/nucraft-grid.png" alt="Nûcraft Labs">
         </div>
         <span class="sponsor-name">Nûcraft Labs</span>
-      </a>
-      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
-        </div>
-        <span class="sponsor-name">Kurdistan Foundation</span>
-      </a>
-      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
-        </div>
-        <span class="sponsor-name">Visit Kurdistan</span>
       </a>
       <a href="#" class="sponsor-item" title="Kurdistan Chronicle" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1601,11 +1989,11 @@
         </div>
         <span class="sponsor-name">Kurdistan Chronicle</span>
       </a>
-      <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
+      <a href="#" class="sponsor-item" title="EU LIFE Programme" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/nucraft-grid.png" alt="Nûcraft Labs">
+          <img src="icons/eu-life-programme.png" alt="EU LIFE Programme">
         </div>
-        <span class="sponsor-name">Nûcraft Labs</span>
+        <span class="sponsor-name">EU LIFE Programme</span>
       </a>
       <a href="#" class="sponsor-item" title="JOBS.Kurdistan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1613,17 +2001,23 @@
         </div>
         <span class="sponsor-name">JOBS.Kurdistan</span>
       </a>
-      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
-        </div>
-        <span class="sponsor-name">Kurdistan Racing Team</span>
-      </a>
       <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/nucraft-gold.png" alt="Nûcraft Labs">
         </div>
         <span class="sponsor-name">Nûcraft Labs</span>
+      </a>
+      <a href="#" class="sponsor-item" title="European Commission" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/european-commission.png" alt="European Commission">
+        </div>
+        <span class="sponsor-name">European Commission</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
+        </div>
+        <span class="sponsor-name">Kurdistan Racing Team</span>
       </a>
       <a href="#" class="sponsor-item" title="Lasan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1656,6 +2050,36 @@
         </div>
         <span class="sponsor-name">Land Berlin</span>
       </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
+        </div>
+        <span class="sponsor-name">Kurdistan Foundation</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Bundesministerium der Finanzen" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/bundesministerium-finanzen.png" alt="Bundesministerium der Finanzen">
+        </div>
+        <span class="sponsor-name">Bundesministerium der Finanzen</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/nucraft-diamond.png" alt="Nûcraft Labs">
+        </div>
+        <span class="sponsor-name">Nûcraft Labs</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
+        </div>
+        <span class="sponsor-name">Visit Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="European Union" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/european-union.png" alt="European Union">
+        </div>
+        <span class="sponsor-name">European Union</span>
+      </a>
       <a href="#" class="sponsor-item" title="Bezirksamt Neukölln" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/bezirk-neukoln-01.png" alt="Bezirksamt Neukölln">
@@ -1664,21 +2088,9 @@
       </a>
       <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/nucraft-diamond.png" alt="Nûcraft Labs">
+          <img src="icons/nucraft-grid.png" alt="Nûcraft Labs">
         </div>
         <span class="sponsor-name">Nûcraft Labs</span>
-      </a>
-      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
-        </div>
-        <span class="sponsor-name">Kurdistan Foundation</span>
-      </a>
-      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
-        </div>
-        <span class="sponsor-name">Visit Kurdistan</span>
       </a>
       <a href="#" class="sponsor-item" title="Kurdistan Chronicle" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1686,11 +2098,11 @@
         </div>
         <span class="sponsor-name">Kurdistan Chronicle</span>
       </a>
-      <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
+      <a href="#" class="sponsor-item" title="EU LIFE Programme" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/nucraft-grid.png" alt="Nûcraft Labs">
+          <img src="icons/eu-life-programme.png" alt="EU LIFE Programme">
         </div>
-        <span class="sponsor-name">Nûcraft Labs</span>
+        <span class="sponsor-name">EU LIFE Programme</span>
       </a>
       <a href="#" class="sponsor-item" title="JOBS.Kurdistan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1698,17 +2110,23 @@
         </div>
         <span class="sponsor-name">JOBS.Kurdistan</span>
       </a>
-      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
-        </div>
-        <span class="sponsor-name">Kurdistan Racing Team</span>
-      </a>
       <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/nucraft-gold.png" alt="Nûcraft Labs">
         </div>
         <span class="sponsor-name">Nûcraft Labs</span>
+      </a>
+      <a href="#" class="sponsor-item" title="European Commission" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/european-commission.png" alt="European Commission">
+        </div>
+        <span class="sponsor-name">European Commission</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
+        </div>
+        <span class="sponsor-name">Kurdistan Racing Team</span>
       </a>
       <a href="#" class="sponsor-item" title="Lasan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1741,6 +2159,36 @@
         </div>
         <span class="sponsor-name">Land Berlin</span>
       </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
+        </div>
+        <span class="sponsor-name">Kurdistan Foundation</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Bundesministerium der Finanzen" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/bundesministerium-finanzen.png" alt="Bundesministerium der Finanzen">
+        </div>
+        <span class="sponsor-name">Bundesministerium der Finanzen</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/nucraft-diamond.png" alt="Nûcraft Labs">
+        </div>
+        <span class="sponsor-name">Nûcraft Labs</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
+        </div>
+        <span class="sponsor-name">Visit Kurdistan</span>
+      </a>
+      <a href="#" class="sponsor-item" title="European Union" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/european-union.png" alt="European Union">
+        </div>
+        <span class="sponsor-name">European Union</span>
+      </a>
       <a href="#" class="sponsor-item" title="Bezirksamt Neukölln" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/bezirk-neukoln-01.png" alt="Bezirksamt Neukölln">
@@ -1749,21 +2197,9 @@
       </a>
       <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/nucraft-diamond.png" alt="Nûcraft Labs">
+          <img src="icons/nucraft-grid.png" alt="Nûcraft Labs">
         </div>
         <span class="sponsor-name">Nûcraft Labs</span>
-      </a>
-      <a href="#" class="sponsor-item" title="Kurdistan Foundation" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/kurdistan-foundation.jpg" alt="Kurdistan Foundation">
-        </div>
-        <span class="sponsor-name">Kurdistan Foundation</span>
-      </a>
-      <a href="#" class="sponsor-item" title="Visit Kurdistan" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/visit-kurdistan.jpg" alt="Visit Kurdistan">
-        </div>
-        <span class="sponsor-name">Visit Kurdistan</span>
       </a>
       <a href="#" class="sponsor-item" title="Kurdistan Chronicle" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1771,11 +2207,11 @@
         </div>
         <span class="sponsor-name">Kurdistan Chronicle</span>
       </a>
-      <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
+      <a href="#" class="sponsor-item" title="EU LIFE Programme" onclick="return false;">
         <div class="sponsor-logo-shape">
-          <img src="icons/nucraft-grid.png" alt="Nûcraft Labs">
+          <img src="icons/eu-life-programme.png" alt="EU LIFE Programme">
         </div>
-        <span class="sponsor-name">Nûcraft Labs</span>
+        <span class="sponsor-name">EU LIFE Programme</span>
       </a>
       <a href="#" class="sponsor-item" title="JOBS.Kurdistan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -1783,17 +2219,23 @@
         </div>
         <span class="sponsor-name">JOBS.Kurdistan</span>
       </a>
-      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
-        <div class="sponsor-logo-shape">
-          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
-        </div>
-        <span class="sponsor-name">Kurdistan Racing Team</span>
-      </a>
       <a href="#" class="sponsor-item" title="Nûcraft Labs" onclick="return false;">
         <div class="sponsor-logo-shape">
           <img src="icons/nucraft-gold.png" alt="Nûcraft Labs">
         </div>
         <span class="sponsor-name">Nûcraft Labs</span>
+      </a>
+      <a href="#" class="sponsor-item" title="European Commission" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/european-commission.png" alt="European Commission">
+        </div>
+        <span class="sponsor-name">European Commission</span>
+      </a>
+      <a href="#" class="sponsor-item" title="Kurdistan Racing Team" onclick="return false;">
+        <div class="sponsor-logo-shape">
+          <img src="icons/kurdistan-racing-team.jpg" alt="Kurdistan Racing Team">
+        </div>
+        <span class="sponsor-name">Kurdistan Racing Team</span>
       </a>
       <a href="#" class="sponsor-item" title="Lasan" onclick="return false;">
         <div class="sponsor-logo-shape">
@@ -2285,6 +2727,112 @@
     });
   })();
 
+</script>
+
+<script>
+/* ============================================
+   HERO CAROUSEL
+   ============================================ */
+(function() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var track = document.getElementById('hero-slides');
+  var dots = document.querySelectorAll('.carousel-dot');
+  var prevBtn = document.getElementById('carousel-prev');
+  var nextBtn = document.getElementById('carousel-next');
+
+  if (!slides.length || !track) return;
+
+  var current = 0;
+  var total = slides.length;
+  var autoInterval = 5000;
+  var timer = null;
+  var isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function goTo(index, instant) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+
+    // Remove active from old slide
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+
+    current = index;
+
+    // Move track
+    if (instant || isReducedMotion) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+    // Activate new slide
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(next, autoInterval);
+  }
+
+  function stopAuto() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  function resetAuto() {
+    stopAuto();
+    startAuto();
+  }
+
+  // Arrow clicks
+  prevBtn.addEventListener('click', function() { prev(); resetAuto(); });
+  nextBtn.addEventListener('click', function() { next(); resetAuto(); });
+
+  // Dot clicks
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].addEventListener('click', (function(idx) {
+      return function() { goTo(idx); resetAuto(); };
+    })(i));
+  }
+
+  // Touch swipe
+  var touchStartX = 0;
+  var touchEndX = 0;
+  var carousel = document.getElementById('hero-carousel');
+
+  carousel.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    var diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) { next(); } else { prev(); }
+      resetAuto();
+    }
+  }, { passive: true });
+
+  // Keyboard
+  document.addEventListener('keydown', function(e) {
+    // Only if carousel is in viewport
+    var rect = carousel.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    if (e.key === 'ArrowLeft') { prev(); resetAuto(); }
+    if (e.key === 'ArrowRight') { next(); resetAuto(); }
+  });
+
+  // Pause on hover (desktop)
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+
+  // Start
+  startAuto();
+})();
 </script>
 
 <script src="shared/header.js"></script>

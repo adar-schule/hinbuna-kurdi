@@ -1,0 +1,287 @@
+{
+  "unitId": 8,
+  "name": "Peyvên Pirsê û Malbat",
+  "subtitle": "Question Words & Family",
+  "lessons": [
+    {
+      "id": "8-1",
+      "name": "Peyvên Pirsê",
+      "subtitle": "Question Words",
+      "learningObjective": "Learn the 8 Kurdish question words: çi, çawa, çend, çima, kî, kê, li ku, ji ku — and cardinal directions",
+      "durationMinutes": 12,
+      "vocabPreview": ["çi", "çawa", "çend", "çima", "kî", "kê"],
+      "wordsLearned": [
+        { "ku": "çi", "en": "what" },
+        { "ku": "çawa", "en": "how" },
+        { "ku": "çend", "en": "how many / how much" },
+        { "ku": "çima", "en": "why" },
+        { "ku": "kî", "en": "who (nominative / subject)" },
+        { "ku": "kê", "en": "whom (accusative / object)" },
+        { "ku": "li ku (derê)", "en": "where (location)" },
+        { "ku": "ji ku (derê)", "en": "where from (origin)" },
+        { "ku": "bakur", "en": "north" },
+        { "ku": "başûr", "en": "south" },
+        { "ku": "rojava", "en": "west" },
+        { "ku": "rojhilat", "en": "east" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn this question word",
+          "word": "çi",
+          "hint": "Tap to flip",
+          "translation": "what",
+          "example": "Ev çi ye? — Ev av e.",
+          "exampleTranslation": "What is this? — This is water."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this question word",
+          "word": "çawa",
+          "hint": "Tap to flip",
+          "translation": "how",
+          "example": "Tu çawa yî? — Ez baş im.",
+          "exampleTranslation": "How are you? — I am good."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this question word",
+          "word": "çima",
+          "hint": "Tap to flip",
+          "translation": "why",
+          "example": "Tu çima digirî? — Ez nexweş im, loma digirîm.",
+          "exampleTranslation": "Why are you crying? — I am sick, therefore I am crying."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn the difference: kî vs. kê",
+          "word": "kî (who) vs. kê (whom)",
+          "hint": "Tap to flip",
+          "translation": "kî = subject (who), kê = object (whom)",
+          "example": "Tu kî yî? — Tu kê dibînî?",
+          "exampleTranslation": "Who are you? — Whom do you see?"
+        },
+        {
+          "type": "reading",
+          "instruction": "Read the question word examples",
+          "title": "Peyvên Pirsê — Question Words",
+          "lines": [
+            { "speaker": "", "ku": "Ev çi ye? — Ev jîrfon e.", "en": "What is this? — This is a smartphone." },
+            { "speaker": "", "ku": "Tu çawa yî? — Ez baş im.", "en": "How are you? — I am good." },
+            { "speaker": "", "ku": "Tu çend salî yî? — Ez bîst û yek salî me.", "en": "How old are you? — I am 21 years old." },
+            { "speaker": "", "ku": "Tu çima digirî? — Ez nexweş im, loma digirîm.", "en": "Why are you crying? — I am sick, therefore I cry." },
+            { "speaker": "", "ku": "Tu kî yî? — Ez Hêlîn im.", "en": "Who are you? — I am Hêlîn." },
+            { "speaker": "", "ku": "Tu kê dibînî? — Ez keçê dibînim.", "en": "Whom do you see? — I see the girl." },
+            { "speaker": "", "ku": "Li ku bi almanî çi ye? — Li ku bi almanî wo ye.", "en": "What is 'li ku' in German? — 'Li ku' in German is 'wo' (where)." },
+            { "speaker": "", "ku": "Ji ku bi almanî çi ye? — Ji ku bi almanî woher ye.", "en": "What is 'ji ku' in German? — 'Ji ku' in German is 'woher' (where from)." }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Tu kê dibînî?\" — What does 'kê' mean here?",
+          "options": ["who (subject)", "whom (object)", "where", "what"],
+          "correct": 1,
+          "explanation": "kê = whom (accusative/object). It asks about the person being seen. Compare: kî = who (subject), kê = whom (object). \"Tu kê dibînî?\" = Whom do you see?"
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Tu ji ku derê Kurdistanê yî?\" — \"Ez ji bakurê Kurdistanê me.\" What is bakur?",
+          "options": ["south", "east", "north", "west"],
+          "correct": 2,
+          "explanation": "bakur = north. The four directions: bakur (north), başûr (south), rojava (west), rojhilat (east). \"Ez ji bakurê Kurdistanê me\" = I am from northern Kurdistan."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Tu ___ salî yî?",
+          "before": "Tu ",
+          "gap": "çend",
+          "after": " salî yî?",
+          "display": "Tu ___ salî yî?",
+          "wordBank": ["çi", "çawa", "çend", "çima"],
+          "explanation": "çend = how many. \"Tu çend salî yî?\" = How old are you? (Literally: You how-many years-old are?)"
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Tu ji ___ yî?",
+          "before": "Tu ji ",
+          "gap": "ku",
+          "after": " yî?",
+          "display": "Tu ji ___ yî?",
+          "wordBank": ["ku", "çi", "kî", "çawa"],
+          "explanation": "ji ku = where from. \"Tu ji ku yî?\" = Where are you from?"
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the question words",
+          "pairs": [
+            { "ku": "çi", "en": "what" },
+            { "ku": "çawa", "en": "how" },
+            { "ku": "çima", "en": "why" },
+            { "ku": "çend", "en": "how many" },
+            { "ku": "kî", "en": "who" },
+            { "ku": "kê", "en": "whom" }
+          ]
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the cardinal directions",
+          "pairs": [
+            { "ku": "bakur", "en": "north" },
+            { "ku": "başûr", "en": "south" },
+            { "ku": "rojava", "en": "west" },
+            { "ku": "rojhilat", "en": "east" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8-2",
+      "name": "Malbat û Diyalog",
+      "subtitle": "Family & Dialogue",
+      "learningObjective": "Learn 10+ family terms, singular-to-plural possessives, and the verb hatin (to come)",
+      "durationMinutes": 12,
+      "vocabPreview": ["xatî", "xal", "ap", "dapîr", "bapîr", "hatin"],
+      "wordsLearned": [
+        { "ku": "xatî", "en": "aunt (mother's side)" },
+        { "ku": "met", "en": "aunt (father's side)" },
+        { "ku": "xal", "en": "uncle (mother's side)" },
+        { "ku": "ap", "en": "uncle (father's side)" },
+        { "ku": "dapîr", "en": "grandmother" },
+        { "ku": "bapîr", "en": "grandfather" },
+        { "ku": "pismam", "en": "cousin (father's side, male)" },
+        { "ku": "kurxal", "en": "cousin (mother's side, male)" },
+        { "ku": "dotmam", "en": "cousin (father's side, female)" },
+        { "ku": "keçxal", "en": "cousin (mother's side, female)" },
+        { "ku": "hatin — bihê", "en": "to come — come!" },
+        { "ku": "diya min → diyên me", "en": "my mother → our mothers" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn this family word",
+          "word": "xatî",
+          "hint": "Tap to flip",
+          "translation": "aunt (mother's side)",
+          "example": "Xatiya min çil salî ye.",
+          "exampleTranslation": "My aunt (maternal) is 40 years old."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this family word",
+          "word": "xal / ap",
+          "hint": "Tap to flip",
+          "translation": "uncle: xal (mother's side), ap (father's side)",
+          "example": "Xalê min pêjgîrê difroşe.",
+          "exampleTranslation": "My uncle (maternal) sells pots."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this family word",
+          "word": "dapîr / bapîr",
+          "hint": "Tap to flip",
+          "translation": "grandmother / grandfather",
+          "example": "Bapîrê min pir dikene.",
+          "exampleTranslation": "My grandfather laughs a lot."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn the verb hatin",
+          "word": "hatin (to come)",
+          "hint": "Tap to flip",
+          "translation": "ez têm, tu tê, ew tê, em/hûn/ew tên",
+          "example": "Pismamê min ji zanîngehê tê.",
+          "exampleTranslation": "My cousin comes from the university."
+        },
+        {
+          "type": "reading",
+          "instruction": "Read the family dialogue",
+          "title": "Malbat — Family",
+          "lines": [
+            { "speaker": "A", "ku": "Xatiya te çend salî ye?", "en": "How old is your aunt (maternal)?" },
+            { "speaker": "B", "ku": "Xatiya min çil salî ye.", "en": "My aunt is 40 years old." },
+            { "speaker": "A", "ku": "Ew çi karî dike?", "en": "What is her job?" },
+            { "speaker": "B", "ku": "Ew mamoste ye.", "en": "She is a teacher." },
+            { "speaker": "A", "ku": "Ew kê dibîne?", "en": "Whom does she see?" },
+            { "speaker": "B", "ku": "Xatiya min xalê xwe dibîne.", "en": "My aunt sees her (own) uncle." },
+            { "speaker": "A", "ku": "Navê kurxalê te çi ye?", "en": "What is your cousin's (maternal, male) name?" },
+            { "speaker": "B", "ku": "Navê kurxalê min Alan e. Ew panzdeh salî ye.", "en": "My cousin's name is Alan. He is 15 years old." },
+            { "speaker": "A", "ku": "Bapîrê te baş e?", "en": "Is your grandfather well?" },
+            { "speaker": "B", "ku": "Erê, bapîrê min baş e. Ew pir dikene.", "en": "Yes, my grandfather is well. He laughs a lot." },
+            { "speaker": "A", "ku": "Ew ji ku ye?", "en": "Where is he from?" },
+            { "speaker": "B", "ku": "Ew ji Îngilistanê ye.", "en": "He is from England." },
+            { "speaker": "A", "ku": "Pismamê te ji ku tê?", "en": "Where does your cousin (paternal, male) come from?" },
+            { "speaker": "B", "ku": "Pismamê min ji zanîngehê tê. Ew dibe endezyar.", "en": "My cousin comes from the university. He will become an engineer." }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "What is the difference between xal and ap?",
+          "options": ["xal = father, ap = mother", "xal = uncle (mother's side), ap = uncle (father's side)", "xal = grandfather, ap = grandmother", "They mean the same thing"],
+          "correct": 1,
+          "explanation": "Kurdish distinguishes maternal and paternal relatives: xal = uncle (mother's brother), ap = uncle (father's brother). Similarly: xatî = aunt (mother's side), met = aunt (father's side)."
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Bapîrê min baş e. Ew pir dikene.\" — What does bapîr do?",
+          "options": ["He cries a lot", "He laughs a lot", "He reads a lot", "He eats a lot"],
+          "correct": 1,
+          "explanation": "dikene = laughs (from kenîn). pir = a lot. \"Ew pir dikene\" = He laughs a lot."
+        },
+        {
+          "type": "reading",
+          "instruction": "Study singular to plural possessive changes",
+          "title": "Singular → Plural",
+          "lines": [
+            { "speaker": "", "ku": "Diya min çiya dibîne. → Diyên me çiya dibînin.", "en": "My mother sees the mountain. → Our mothers see the mountain." },
+            { "speaker": "", "ku": "Xalê min pêjgîrê difroşe. → Xalên me pêjgîrê difroşin.", "en": "My uncle sells pots. → Our uncles sell pots." },
+            { "speaker": "", "ku": "Bapîrê te sîrê dixwe. → Bapîrên we sîrê dixwin.", "en": "Your grandfather eats garlic. → Your grandfathers eat garlic." },
+            { "speaker": "", "ku": "Birayê min solê dişo. → Birayên we solê dişon.", "en": "My brother washes shoes. → Your brothers wash shoes." },
+            { "speaker": "", "ku": "Hevala wî şa ye. → Hevalên wî şa ne.", "en": "His friend (f) is happy. → His friends are happy." }
+          ]
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Make it plural: Xalê min difroşe. → ___ me difroşin.",
+          "before": "",
+          "gap": "Xalên",
+          "after": " me difroşin.",
+          "display": "___ me difroşin.",
+          "wordBank": ["Xalên", "Xalê", "Xalan", "Xalî"],
+          "explanation": "Singular: Xalê min (my uncle). Plural: Xalên me (our uncles). The -ê changes to -ên, and min changes to me."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Pismamê min ji zanîngehê ___.",
+          "before": "Pismamê min ji zanîngehê ",
+          "gap": "tê",
+          "after": ".",
+          "display": "Pismamê min ji zanîngehê ___.",
+          "wordBank": ["tê", "têm", "tên", "diçe"],
+          "explanation": "hatin (to come): ew tê (he/she comes). My cousin comes from the university. Note: hatin has irregular conjugation: ez têm, tu tê, ew tê, em/hûn/ew tên."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the family terms",
+          "pairs": [
+            { "ku": "xatî", "en": "aunt (mother's side)" },
+            { "ku": "met", "en": "aunt (father's side)" },
+            { "ku": "xal", "en": "uncle (mother's side)" },
+            { "ku": "ap", "en": "uncle (father's side)" },
+            { "ku": "dapîr", "en": "grandmother" },
+            { "ku": "bapîr", "en": "grandfather" }
+          ]
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the cousin terms",
+          "pairs": [
+            { "ku": "pismam", "en": "cousin (father's side, male)" },
+            { "ku": "dotmam", "en": "cousin (father's side, female)" },
+            { "ku": "kurxal", "en": "cousin (mother's side, male)" },
+            { "ku": "keçxal", "en": "cousin (mother's side, female)" }
+          ]
+        }
+      ]
+    }
+  ]
+}

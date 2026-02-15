@@ -1,0 +1,64 @@
+{
+  "id": "kurmanji-a1",
+  "name": "Kurmancî A1",
+  "description": "Beginner",
+  "totalLessons": 25,
+  "units": [
+    {
+      "id": 1,
+      "name": "Silav û Reng",
+      "subtitle": "Greetings & Colors",
+      "lessonCount": 3,
+      "dataFile": "unit-1.json"
+    },
+    {
+      "id": 2,
+      "name": "Ev Çi Ye?",
+      "subtitle": "What Is This?",
+      "lessonCount": 2,
+      "dataFile": "unit-2.json"
+    },
+    {
+      "id": 3,
+      "name": "Cînav û Bûn",
+      "subtitle": "Pronouns & To Be",
+      "lessonCount": 4,
+      "dataFile": "unit-3.json"
+    },
+    {
+      "id": 4,
+      "name": "Danasîn û Hevok",
+      "subtitle": "Descriptions & Sentences",
+      "lessonCount": 3,
+      "dataFile": "unit-4.json"
+    },
+    {
+      "id": 5,
+      "name": "Kesandina Lêkeran",
+      "subtitle": "Verb Conjugation",
+      "lessonCount": 4,
+      "dataFile": "unit-5.json"
+    },
+    {
+      "id": 6,
+      "name": "Lêker û Hevok",
+      "subtitle": "Verbs & Sentences",
+      "lessonCount": 3,
+      "dataFile": "unit-6.json"
+    },
+    {
+      "id": 7,
+      "name": "Têgihîştin û Axaftin",
+      "subtitle": "Understanding & Speaking",
+      "lessonCount": 2,
+      "dataFile": "unit-7.json"
+    },
+    {
+      "id": 8,
+      "name": "Peyvên Pirsê û Malbat",
+      "subtitle": "Question Words & Family",
+      "lessonCount": 2,
+      "dataFile": "unit-8.json"
+    }
+  ]
+}

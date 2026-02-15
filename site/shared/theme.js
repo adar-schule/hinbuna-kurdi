@@ -325,4 +325,109 @@
   window.HK.setColorTheme = applyColorTheme;
   window.HK.getColorTheme = getColorTheme;
   window.HK.COLOR_THEMES = COLOR_THEMES;
+
+  // ============================================================
+  // App Switcher — shared across public & student pages
+  // ============================================================
+
+  var APP_GRID_SVG =
+    '<svg viewBox="0 0 24 24" fill="currentColor">' +
+      '<circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/>' +
+      '<circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>' +
+      '<circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>' +
+    '</svg>';
+
+  var INFO_ICON_SVG =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px">' +
+      '<circle cx="12" cy="12" r="10"/>' +
+      '<line x1="12" y1="16" x2="12" y2="12"/>' +
+      '<line x1="12" y1="8" x2="12.01" y2="8"/>' +
+    '</svg>';
+
+  var ECOSYSTEM_APPS = [
+    { id: 'hinbuna', icon: '\uD83C\uDF1F', name: 'Hinb\u00fbna Kurd\u00ee', tagline: 'F\u00eArb\u00fbna ziman\u00ea kurd\u00ee', active: true },
+    { id: 'ferheng', icon: '\uD83D\uDCD6', name: 'Ferheng', tagline: 'Ferheng\u00ea kurd\u00ee', href: '#' },
+    { id: 'cirok', icon: '\uD83D\uDCDA', name: '\u00C7\u00eerok\u00ean Kurt', tagline: '\u00C7\u00eerok\u00ean kurt bi kurd\u00ee', href: '#' },
+    { id: 'listik', icon: '\uD83C\uDFAE', name: 'L\u00eestika Kurd\u00ee', tagline: 'L\u00eaxistin \u00fb p\u00ea\u015fketin', href: '#' },
+    { id: 'heval-ai', icon: '\uD83D\uDDE3\uFE0F', name: 'Heval\u00ea AI', tagline: 'Heval\u00ea te y\u00ea AI', href: '#' },
+    { id: 'tts', icon: '\uD83D\uDD0A', name: 'TTS Kurd\u00ee', tagline: 'Deng\u00ea ziman\u00ea kurd\u00ee', href: '#' },
+    { id: 'civat', icon: '\uD83D\uDC65', name: 'Civat', tagline: 'Civata f\u00eArb\u00fbn\u00ea', href: '#' },
+    { id: 'belge', icon: '\uD83D\uDCDC', name: 'Belge', tagline: 'Belgey\u00ean CEFR', href: '#' },
+    { id: 'kurdi-nama', icon: '\uD83D\uDCD5', name: 'Kurd\u00eenama', tagline: 'Zan\u00eena kurd\u00ee', href: '#' },
+    { id: 'korpus', icon: '\uD83E\uDDE0', name: 'Korp\u00fbsa Kurd\u00ee', tagline: 'Dataset\u00ea ziman\u00ea kurd\u00ee', href: '#' }
+  ];
+
+  function buildAppSwitcherHTML() {
+    var html = '';
+    html += '<div class="app-switcher">';
+    html += '<button class="app-switcher-btn" id="app-switcher-toggle" aria-label="Switch app" title="Apps">';
+    html += APP_GRID_SVG;
+    html += '</button>';
+    html += '<div class="app-switcher-backdrop" id="app-switcher-backdrop"></div>';
+    html += '<div class="app-switcher-dropdown" id="app-switcher-dropdown">';
+
+    // Title row with "learn more" link
+    html += '<div class="app-switcher-dropdown-header">';
+    html += '<div class="app-switcher-dropdown-title">Ekos\u00ees\u0074em</div>';
+    html += '<a href="P7-products.html" class="app-switcher-learn-more">';
+    html += INFO_ICON_SVG;
+    html += '<span>Learn More</span>';
+    html += '</a>';
+    html += '</div>';
+
+    for (var i = 0; i < ECOSYSTEM_APPS.length; i++) {
+      var app = ECOSYSTEM_APPS[i];
+      var activeClass = app.active ? ' app-switcher-item--active' : '';
+      var tag = app.active ? 'div' : 'a';
+      var href = app.active ? '' : ' href="' + (app.href || '#') + '"';
+      html += '<' + tag + href + ' class="app-switcher-item' + activeClass + '">';
+      html += '<span class="app-switcher-icon">' + app.icon + '</span>';
+      html += '<div class="app-switcher-info">';
+      html += '<div class="app-switcher-name">' + app.name + '</div>';
+      html += '<div class="app-switcher-tagline">' + app.tagline + '</div>';
+      html += '</div>';
+      if (!app.active) {
+        html += '<span class="app-switcher-badge">N\u00eaz\u00eek e</span>';
+      }
+      html += '</' + tag + '>';
+    }
+
+    html += '</div>';
+    html += '</div>';
+    return html;
+  }
+
+  function initAppSwitcher() {
+    var appToggle = document.getElementById('app-switcher-toggle');
+    var appDropdown = document.getElementById('app-switcher-dropdown');
+    var appBackdrop = document.getElementById('app-switcher-backdrop');
+
+    if (!appToggle || !appDropdown) return;
+
+    appToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      appDropdown.classList.toggle('open');
+      if (appBackdrop) appBackdrop.classList.toggle('open');
+    });
+
+    if (appBackdrop) {
+      appBackdrop.addEventListener('click', function () {
+        appDropdown.classList.remove('open');
+        appBackdrop.classList.remove('open');
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      if (!appToggle.contains(e.target) && !appDropdown.contains(e.target)) {
+        appDropdown.classList.remove('open');
+        if (appBackdrop) appBackdrop.classList.remove('open');
+      }
+    });
+  }
+
+  window.HK.AppSwitcher = {
+    apps: ECOSYSTEM_APPS,
+    build: buildAppSwitcherHTML,
+    init: initAppSwitcher
+  };
 })();

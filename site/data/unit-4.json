@@ -1,0 +1,344 @@
+{
+  "unitId": 4,
+  "name": "Danasîn û Hevok",
+  "subtitle": "Descriptions & Sentences",
+  "lessons": [
+    {
+      "id": "4-1",
+      "name": "Kal, Pîr, Kevn",
+      "subtitle": "Four Words for 'Old'",
+      "learningObjective": "Learn the 4 different Kurdish words for 'old' — kal (old man), pîr (old woman), kevn (old object), kartû (stale food) — and their opposites",
+      "durationMinutes": 12,
+      "vocabPreview": ["kal", "pîr", "kevn", "kartû", "ciwan", "nû"],
+      "wordsLearned": [
+        { "ku": "kal", "en": "old (man / male animal)" },
+        { "ku": "pîr", "en": "old (woman / female animal)" },
+        { "ku": "kevn", "en": "old (object / thing)" },
+        { "ku": "kartû", "en": "old / stale (food)" },
+        { "ku": "ciwan", "en": "young" },
+        { "ku": "nû", "en": "new" },
+        { "ku": "teze", "en": "fresh" },
+        { "ku": "ga", "en": "ox / bull" },
+        { "ku": "çêlek", "en": "cow" },
+        { "ku": "mey", "en": "wine" },
+        { "ku": "heval", "en": "friend" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn: 'old' for men",
+          "word": "kal",
+          "hint": "Tap to flip",
+          "translation": "old (for men / male beings)",
+          "example": "Bapîr kal e. Ga kal e.",
+          "exampleTranslation": "Grandfather is old. The ox is old."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn: 'old' for women",
+          "word": "pîr",
+          "hint": "Tap to flip",
+          "translation": "old (for women / female beings)",
+          "example": "Dapîr pîr e. Çêlek pîr e.",
+          "exampleTranslation": "Grandmother is old. The cow is old."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn: 'old' for objects",
+          "word": "kevn",
+          "hint": "Tap to flip",
+          "translation": "old (for objects / things)",
+          "example": "Mase kevn e. Mey kevn e.",
+          "exampleTranslation": "The table is old. The wine is old."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn: 'old/stale' for food",
+          "word": "kartû",
+          "hint": "Tap to flip",
+          "translation": "old / stale (for food)",
+          "example": "Nan kartû ye.",
+          "exampleTranslation": "The bread is stale."
+        },
+        {
+          "type": "reading",
+          "instruction": "Read the examples",
+          "title": "Çar peyvên 'kevn' — Four words for 'old'",
+          "lines": [
+            { "speaker": "", "ku": "Mêr: Ez kal im. (masculine)", "en": "Man: I am old." },
+            { "speaker": "", "ku": "Jin: Ez pîr im. (feminine)", "en": "Woman: I am old." },
+            { "speaker": "", "ku": "Mase kevn e. (object)", "en": "The table is old." },
+            { "speaker": "", "ku": "Nan kartû ye. (food)", "en": "The bread is stale." },
+            { "speaker": "", "ku": "Heval kal e. (male friend)", "en": "The (male) friend is old." },
+            { "speaker": "", "ku": "Heval pîr e. (female friend)", "en": "The (female) friend is old." }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Çêlek pîr e.\" Why 'pîr' and not 'kal'?",
+          "options": ["Because çêlek (cow) is an animal", "Because çêlek (cow) is female", "Because çêlek (cow) is an object", "Because çêlek (cow) is food"],
+          "correct": 1,
+          "explanation": "'pîr' is used for female beings. A cow (çêlek) is female, so we say 'pîr'. A bull (ga) is male, so we say 'kal'."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the correct 'old' word to each noun",
+          "pairs": [
+            { "ku": "Bapîr (grandfather)", "en": "kal" },
+            { "ku": "Dapîr (grandmother)", "en": "pîr" },
+            { "ku": "Mase (table)", "en": "kevn" },
+            { "ku": "Nan (bread)", "en": "kartû" }
+          ]
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete with the correct 'old' word",
+          "before": "Mey ",
+          "gap": "kevn",
+          "after": " e.",
+          "display": "Mey ___ e.",
+          "wordBank": ["kevn", "kal", "pîr", "kartû"],
+          "explanation": "Wine (mey) is an object, so we use 'kevn'. Mey kevn e = The wine is old."
+        },
+        {
+          "type": "mcq",
+          "instruction": "What is the opposite of 'kal' (old man)?",
+          "options": ["nû", "teze", "ciwan", "pîr"],
+          "correct": 2,
+          "explanation": "'ciwan' = young. Kal ↔ ciwan (old man ↔ young man). Also: pîr ↔ ciwan (old woman ↔ young woman), nû ↔ kevn (new ↔ old object)."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the opposites",
+          "pairs": [
+            { "ku": "kal (old man)", "en": "ciwan (young)" },
+            { "ku": "pîr (old woman)", "en": "ciwan (young)" },
+            { "ku": "kevn (old object)", "en": "nû (new)" },
+            { "ku": "kartû (stale food)", "en": "teze (fresh)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4-2",
+      "name": "Hevokên Pêreyî",
+      "subtitle": "Subordinate Clauses",
+      "learningObjective": "Learn to build complex sentences with 'ji ber ku' (because), 'loma' (therefore), and 'lê' (but)",
+      "durationMinutes": 12,
+      "vocabPreview": ["ji ber ku", "loma", "lê", "germ"],
+      "wordsLearned": [
+        { "ku": "ji ber ku", "en": "because" },
+        { "ku": "loma", "en": "therefore / so" },
+        { "ku": "lê", "en": "but" },
+        { "ku": "germ", "en": "warm" },
+        { "ku": "têr", "en": "full / satisfied" },
+        { "ku": "hêdî", "en": "slow" },
+        { "ku": "fireh", "en": "wide / large" },
+        { "ku": "dûr", "en": "far" },
+        { "ku": "gul", "en": "rose" },
+        { "ku": "tivir", "en": "grape" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn this conjunction",
+          "word": "ji ber ku",
+          "hint": "Tap to flip",
+          "translation": "because",
+          "example": "Şêr şa ye, ji ber ku têr e.",
+          "exampleTranslation": "The lion is happy because it is full."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this conjunction",
+          "word": "loma",
+          "hint": "Tap to flip",
+          "translation": "therefore / so",
+          "example": "Dîkê sor ne westî ye, loma pir bang dike.",
+          "exampleTranslation": "The red rooster is not tired, therefore it crows a lot."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this conjunction",
+          "word": "lê",
+          "hint": "Tap to flip",
+          "translation": "but",
+          "example": "Ev ne gulên sor, lê tivirên spî ne.",
+          "exampleTranslation": "These are not red roses, but white grapes."
+        },
+        {
+          "type": "reading",
+          "instruction": "Read the complex sentences from Mamoste's materials",
+          "title": "Hevokên Pêreyî — Subordinate Clauses",
+          "lines": [
+            { "speaker": "", "ku": "Şêr şa ye, ji ber ku têr e.", "en": "The lion is happy because it is full." },
+            { "speaker": "", "ku": "Jin ne şa ye, ji ber ku hevala baş dûr e.", "en": "The woman is not happy because her good friend is far away." },
+            { "speaker": "", "ku": "Eyloyê qehweyî zû ye, ji ber ku birçî ye.", "en": "The brown gazelle is fast because it is hungry." },
+            { "speaker": "", "ku": "Piling hêdî ne, ji ber ku têr in.", "en": "The leopards are slow because they are full." },
+            { "speaker": "", "ku": "Xanî germ e, ji ber ku pencere fireh e.", "en": "The house is warm because the window is wide." },
+            { "speaker": "", "ku": "Dîkê sor ne westî ye, loma pir bang dike.", "en": "The red rooster is not tired, therefore it crows a lot." },
+            { "speaker": "", "ku": "Ev ne gulên sor, lê tivirên spî ne.", "en": "These are not red roses, but white grapes." },
+            { "speaker": "", "ku": "Ev zeytûna piçûk e, lê dendikê mezin e.", "en": "This olive is small, but its seed is big." },
+            { "speaker": "", "ku": "Dayika te pîr û porspî ye.", "en": "Your mother is old and white-haired." }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Şêr şa ye, ji ber ku têr e.\" What does 'ji ber ku' mean?",
+          "options": ["therefore", "but", "because", "and"],
+          "correct": 2,
+          "explanation": "'ji ber ku' = because. The lion is happy BECAUSE it is full (têr)."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete the sentence with the correct conjunction",
+          "before": "Jin ne şa ye, ",
+          "gap": "ji ber ku",
+          "after": " hevala baş dûr e.",
+          "display": "Jin ne şa ye, ___ hevala baş dûr e.",
+          "wordBank": ["ji ber ku", "loma", "lê", "û"],
+          "explanation": "'ji ber ku' = because. The woman is not happy BECAUSE her good friend is far away."
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Ev ne gulên sor, lê tivirên spî ne.\" What does 'lê' mean?",
+          "options": ["because", "therefore", "and", "but"],
+          "correct": 3,
+          "explanation": "'lê' = but. These are NOT red roses, BUT white grapes. 'lê' introduces a contrast."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete the sentence",
+          "before": "Piling hêdî ne, ",
+          "gap": "ji ber ku",
+          "after": " têr in.",
+          "display": "Piling hêdî ne, ___ têr in.",
+          "wordBank": ["ji ber ku", "loma", "lê", "û"],
+          "explanation": "The leopards are slow BECAUSE (ji ber ku) they are full (têr)."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the conjunctions to their meanings",
+          "pairs": [
+            { "ku": "ji ber ku", "en": "because" },
+            { "ku": "loma", "en": "therefore" },
+            { "ku": "lê", "en": "but" },
+            { "ku": "û", "en": "and" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4-3",
+      "name": "Nû û Kevn",
+      "subtitle": "New & Old — Classification",
+      "learningObjective": "Practice classifying nouns by which 'old' word applies — sorting people, objects, and food correctly",
+      "durationMinutes": 10,
+      "vocabPreview": ["nû", "kevn", "teze", "ciwan"],
+      "wordsLearned": [
+        { "ku": "mase", "en": "table" },
+        { "ku": "xwişk", "en": "sister" },
+        { "ku": "bapîr", "en": "grandfather" },
+        { "ku": "bira", "en": "brother" },
+        { "ku": "dayik", "en": "mother" },
+        { "ku": "bav", "en": "father" },
+        { "ku": "dapîr", "en": "grandmother" },
+        { "ku": "pênûs", "en": "pen / pencil" },
+        { "ku": "çente", "en": "bag" },
+        { "ku": "masî", "en": "fish" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Review the classification rule",
+          "word": "4 words for 'old'",
+          "hint": "Tap to flip",
+          "translation": "kal = old man, pîr = old woman, kevn = old thing, kartû = stale food",
+          "example": "Bav kal e. Dayik pîr e. Mase kevn e. Nan kartû ye.",
+          "exampleTranslation": "Father is old. Mother is old. Table is old. Bread is stale."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Review the classification rule",
+          "word": "4 opposites",
+          "hint": "Tap to flip",
+          "translation": "ciwan = young (person), nû = new (object), teze = fresh (food)",
+          "example": "Bira ciwan e. Pênûs nû ye. Sêv teze ye.",
+          "exampleTranslation": "Brother is young. Pen is new. Apple is fresh."
+        },
+        {
+          "type": "reading",
+          "instruction": "Read the classification examples",
+          "title": "Kî / Çi — Who / What gets which word?",
+          "lines": [
+            { "speaker": "", "ku": "Xanî, pirtûk, pênûs, mase → kevn", "en": "House, book, pen, table → old (objects)" },
+            { "speaker": "", "ku": "Bapîr, bav, bira, tu → kal", "en": "Grandfather, father, brother, you → old (male)" },
+            { "speaker": "", "ku": "Dapîr, dayik, xwişk, tu → pîr", "en": "Grandmother, mother, sister, you → old (female)" },
+            { "speaker": "", "ku": "Bira, dayik, bav, ez, tu → ciwan", "en": "Brother, mother, father, I, you → young" },
+            { "speaker": "", "ku": "Sêv, îsot, çay, nan, masî → teze", "en": "Apple, pepper, tea, bread, fish → fresh" },
+            { "speaker": "", "ku": "Sêv teze ye. Mase kevn e. Bapîr kal e.", "en": "The apple is fresh. The table is old. Grandfather is old." }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "Which word do you use for an old table?",
+          "options": ["kal", "pîr", "kevn", "kartû"],
+          "correct": 2,
+          "explanation": "A table (mase) is an object, so we use 'kevn'. Mase kevn e = The table is old."
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Rojîn, tu pîr î?\" — \"Na, ez ciwan im.\" Who is Rojîn?",
+          "options": ["A man", "A woman", "An object", "Food"],
+          "correct": 1,
+          "explanation": "We know Rojîn is a woman because the question uses 'pîr' (old, for women). Rojîn answers 'ciwan' (young)."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete with the correct word",
+          "before": "Çente ",
+          "gap": "kevn",
+          "after": " e.",
+          "display": "Çente ___ e. (The bag is old.)",
+          "wordBank": ["kevn", "kal", "pîr", "kartû"],
+          "explanation": "A bag (çente) is an object, so we use 'kevn'. Çente kevn e = The bag is old."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete with the correct word",
+          "before": "Masî ",
+          "gap": "teze",
+          "after": " ye.",
+          "display": "Masî ___ ye. (The fish is fresh.)",
+          "wordBank": ["teze", "nû", "ciwan", "kevn"],
+          "explanation": "Fish (masî) is food, so we use 'teze' (fresh). Masî teze ye = The fish is fresh."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match each noun with the correct 'old' or 'young/new/fresh' word",
+          "pairs": [
+            { "ku": "pirtûk (book)", "en": "nû / kevn" },
+            { "ku": "bav (father)", "en": "ciwan / kal" },
+            { "ku": "dayik (mother)", "en": "ciwan / pîr" },
+            { "ku": "nan (bread)", "en": "teze / kartû" },
+            { "ku": "xanî (house)", "en": "nû / kevn" }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Çi kevn e?\" — Which answer fits this question?",
+          "options": ["Bapîr kevn e.", "Nan kevn e.", "Pirtûk kevn e.", "Dayik kevn e."],
+          "correct": 2,
+          "explanation": "'Çi kevn e?' = 'What is old?' Only objects use 'kevn'. Pirtûk (book) is an object. People use kal/pîr, food uses kartû."
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Kî ciwan e?\" — Which answer fits?",
+          "options": ["Mase ciwan e.", "Sêv ciwan e.", "Bêrîvan ciwan e.", "Nan ciwan e."],
+          "correct": 2,
+          "explanation": "'Kî ciwan e?' = 'Who is young?' 'Kî' asks about people, not things. Bêrîvan (a person) ciwan e = Bêrîvan is young."
+        }
+      ]
+    }
+  ]
+}

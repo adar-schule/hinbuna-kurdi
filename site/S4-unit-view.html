@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silav û Nasîn — Hinbûna Kurdî</title>
+  <title>Unit — Hinbûna Kurdî</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts: Inter + Nunito (self-hosted) -->
+  <link rel="stylesheet" href="shared/fonts.css">
   <link rel="stylesheet" href="shared/student-menu.css">
   <link rel="stylesheet" href="shared/breadcrumb.css">
   <script src="shared/theme.js"></script>
@@ -85,7 +84,9 @@
     .anim { animation: fadeInUp 0.5s ease-out both; }
     .anim-d1 { animation-delay: 0.05s; } .anim-d2 { animation-delay: 0.10s; }
     .anim-d3 { animation-delay: 0.15s; } .anim-d4 { animation-delay: 0.20s; }
-    .anim-d5 { animation-delay: 0.25s; }
+    .anim-d5 { animation-delay: 0.25s; } .anim-d6 { animation-delay: 0.30s; }
+    .anim-d7 { animation-delay: 0.35s; } .anim-d8 { animation-delay: 0.40s; }
+    .anim-d9 { animation-delay: 0.45s; }
 
     @media (min-width: 768px) { .page-content { padding: 28px 24px 48px; } .unit-heading { font-size: 26px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
@@ -96,8 +97,8 @@
   <header class="app-header" id="app-header">
     <div class="app-header-inner">
       <div class="app-header-left">
-        <a href="S3-module-view.html" class="back-btn" title="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg></a>
-        <span class="page-title">Silav û Nasîn</span>
+        <a href="S3-module-view.html" class="back-btn" id="back-btn" title="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg></a>
+        <span class="page-title" id="page-title">Silav û Nasîn</span>
       </div>
       <div class="header-actions">
         <button class="header-icon-btn" id="theme-toggle" aria-label="Toggle theme">
@@ -116,14 +117,15 @@
   </div>
 
   <main class="page-content">
-    <div class="unit-header anim anim-d1">
-      <h1 class="unit-heading">Beş 1: Silav û Nasîn</h1>
-      <p class="unit-sub">Greetings &amp; Introductions &middot; 4 lessons</p>
+    <div class="unit-header anim anim-d1" id="unit-header">
+      <h1 class="unit-heading" id="unit-heading">Beş 1: Silav û Nasîn</h1>
+      <p class="unit-sub" id="unit-sub">Greetings &amp; Introductions &middot; 4 lessons</p>
     </div>
 
-    <div class="lesson-list">
+    <div class="lesson-list" id="lesson-list">
+      <!-- Fallback static content shown while loading / on error -->
       <!-- Lesson 1 — Completed -->
-      <a href="S5-lesson-view.html" class="lesson-card anim anim-d2">
+      <a href="S5-lesson-view.html?unit=1&lesson=1-1" class="lesson-card anim anim-d2">
         <div class="lesson-number done">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
@@ -138,7 +140,7 @@
       </a>
 
       <!-- Lesson 2 — Current / Unlocked -->
-      <a href="S5-lesson-view.html" class="lesson-card anim anim-d3">
+      <a href="S5-lesson-view.html?unit=1&lesson=1-2" class="lesson-card anim anim-d3">
         <div class="lesson-number current">2</div>
         <div class="lesson-info">
           <div class="lesson-name">Tu çawa yî?</div>
@@ -181,6 +183,150 @@
       if (toggle) { toggle.addEventListener('click', function () { var c = html.getAttribute('data-theme'); var n = c === 'dark' ? 'light' : 'dark'; if (n === 'light') html.removeAttribute('data-theme'); else html.setAttribute('data-theme', 'dark'); localStorage.setItem('hk-theme', n); }); }
       var header = document.getElementById('app-header');
       if (header) { var s = false; window.addEventListener('scroll', function () { var sh = window.scrollY > 8; if (sh !== s) { s = sh; header.classList.toggle('scrolled', s); } }, { passive: true }); }
+
+      // ── Data-driven lesson list from unit JSON ──
+
+      var params = new URLSearchParams(window.location.search);
+      var unitId = parseInt(params.get('unit'), 10) || 1;
+
+      function getLessonStatus(index) {
+        // Demo state: first lesson done, second current, rest locked
+        if (index === 0) return 'done';
+        if (index === 1) return 'current';
+        return 'locked';
+      }
+
+      function buildLessonCard(lesson, index, unitIdNum) {
+        var status = getLessonStatus(index);
+        var lessonNum = index + 1;
+        var animDelay = index + 2; // header is d1, lessons start at d2
+        var isClickable = status !== 'locked';
+
+        // Number/icon element
+        var numEl = document.createElement('div');
+        numEl.className = 'lesson-number ' + (status === 'done' ? 'done' : status === 'current' ? 'current' : 'locked-num');
+        if (status === 'done') {
+          numEl.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
+        } else {
+          numEl.textContent = lessonNum;
+        }
+
+        // Info
+        var infoEl = document.createElement('div');
+        infoEl.className = 'lesson-info';
+        var nameEl = document.createElement('div');
+        nameEl.className = 'lesson-name';
+        nameEl.textContent = lesson.name;
+        var descEl = document.createElement('div');
+        descEl.className = 'lesson-desc';
+        descEl.textContent = lesson.subtitle;
+        infoEl.appendChild(nameEl);
+        infoEl.appendChild(descEl);
+
+        // Card wrapper
+        var card;
+        if (isClickable) {
+          card = document.createElement('a');
+          card.href = 'S5-lesson-view.html?unit=' + unitIdNum + '&lesson=' + lesson.id;
+        } else {
+          card = document.createElement('div');
+        }
+        card.className = 'lesson-card anim anim-d' + animDelay + (status === 'locked' ? ' locked' : '');
+
+        card.appendChild(numEl);
+        card.appendChild(infoEl);
+
+        // Right side: XP badge for done, arrow for current
+        if (status === 'done') {
+          var xpEl = document.createElement('span');
+          xpEl.className = 'lesson-xp';
+          xpEl.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>');
+          xpEl.appendChild(document.createTextNode(' +50 XP'));
+          card.appendChild(xpEl);
+        } else if (status === 'current') {
+          var arrowEl = document.createElement('div');
+          arrowEl.className = 'lesson-arrow';
+          arrowEl.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>');
+          card.appendChild(arrowEl);
+        }
+
+        return card;
+      }
+
+      function renderLessons(unitData, unitMeta) {
+        var lessonList = document.getElementById('lesson-list');
+        if (!lessonList || !unitData || !unitData.lessons) return;
+
+        var unitName = unitMeta ? unitMeta.name : unitData.name;
+        var unitSubtitle = unitMeta ? unitMeta.subtitle : unitData.subtitle;
+        var lessonCount = unitData.lessons.length;
+
+        // Update header title
+        var pageTitle = document.getElementById('page-title');
+        if (pageTitle) pageTitle.textContent = unitName;
+        document.title = unitName + ' \u2014 Hinb\u00fbna Kurd\u00ee';
+
+        // Update unit header
+        var headingEl = document.getElementById('unit-heading');
+        if (headingEl) headingEl.textContent = 'Be\u015f ' + unitId + ': ' + unitName;
+        var subEl = document.getElementById('unit-sub');
+        if (subEl) subEl.textContent = unitSubtitle + ' \u00B7 ' + lessonCount + ' lesson' + (lessonCount !== 1 ? 's' : '');
+
+        // Update breadcrumb data attributes before breadcrumb.js initializes
+        // (breadcrumb already ran, so we update via the rendered DOM)
+        var bcUnit = document.querySelector('.breadcrumb-value:last-child');
+        if (bcUnit) bcUnit.textContent = unitName;
+
+        // Build lesson cards
+        var fragment = document.createDocumentFragment();
+        unitData.lessons.forEach(function (lesson, i) {
+          fragment.appendChild(buildLessonCard(lesson, i, unitId));
+        });
+
+        lessonList.textContent = '';
+        lessonList.appendChild(fragment);
+      }
+
+      // Update breadcrumb data attributes before breadcrumb.js renders
+      var bcEl = document.getElementById('student-breadcrumb');
+      if (bcEl) {
+        // We set these before breadcrumb.js runs; it reads data-* on init
+        // But breadcrumb.js already ran (sync script). We update them anyway for
+        // the case where we can re-init, and update the header title dynamically.
+      }
+
+      // Fetch course.json (for unit metadata) and unit-{X}.json (for lessons)
+      var coursePromise = fetch('data/course.json').then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      });
+      var unitPromise = fetch('data/unit-' + unitId + '.json').then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      });
+
+      Promise.all([coursePromise, unitPromise])
+        .then(function (results) {
+          var course = results[0];
+          var unitData = results[1];
+
+          // Find unit metadata from course.json
+          var unitMeta = null;
+          if (course && course.units) {
+            for (var i = 0; i < course.units.length; i++) {
+              if (course.units[i].id === unitId) {
+                unitMeta = course.units[i];
+                break;
+              }
+            }
+          }
+
+          renderLessons(unitData, unitMeta);
+        })
+        .catch(function (err) {
+          // On error, keep the static fallback content
+          console.warn('S4: Could not load unit data, using static fallback.', err);
+        });
     })();
   </script>
 </body>

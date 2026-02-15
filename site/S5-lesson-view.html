@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu çawa yî? — Hinbûna Kurdî</title>
+  <title>Lesson — Hinbûna Kurdî</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts: Inter + Nunito (self-hosted) -->
+  <link rel="stylesheet" href="shared/fonts.css">
   <link rel="stylesheet" href="shared/student-menu.css">
   <link rel="stylesheet" href="shared/breadcrumb.css">
   <script src="shared/theme.js"></script>
@@ -108,8 +107,8 @@
   <header class="app-header" id="app-header">
     <div class="app-header-inner">
       <div class="app-header-left">
-        <a href="S4-unit-view.html" class="back-btn" title="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg></a>
-        <span class="page-title">Lesson 2</span>
+        <a href="S4-unit-view.html?unit=1" class="back-btn" id="back-btn" title="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg></a>
+        <span class="page-title" id="page-title">Lesson 2</span>
       </div>
       <div class="header-actions">
         <button class="header-icon-btn" id="theme-toggle" aria-label="Toggle theme">
@@ -123,45 +122,45 @@
   <!-- Breadcrumb Sub-Header -->
   <div id="student-breadcrumb"
     data-course="Kurmancî A1" data-course-href="S3-module-view.html"
-    data-unit="Silav û Nasîn" data-unit-href="S4-unit-view.html"
+    data-unit="Silav û Nasîn" data-unit-href="S4-unit-view.html?unit=1"
     data-lesson="Tu çawa yî?"
-    data-close-href="S4-unit-view.html">
+    data-close-href="S4-unit-view.html?unit=1">
   </div>
 
   <!-- Lesson Intro -->
-  <main class="lesson-intro">
-    <span class="lesson-badge course anim-fade d1">Kurmanji A1 &middot; Unit 1</span>
+  <main class="lesson-intro" id="lesson-intro">
+    <span class="lesson-badge course anim-fade d1" id="lesson-badge">Kurmanji A1 &middot; Unit 1</span>
 
     <div class="lesson-title-card anim-up d2">
-      <div class="lesson-number-label">Lesson 2</div>
-      <div class="lesson-title-ku">Tu çawa yî?</div>
-      <div class="lesson-title-en">How are you?</div>
+      <div class="lesson-number-label" id="lesson-number-label">Lesson 2</div>
+      <div class="lesson-title-ku" id="lesson-title-ku">Tu çawa yî?</div>
+      <div class="lesson-title-en" id="lesson-title-en">How are you?</div>
     </div>
 
     <div class="lesson-objective anim-fade d3">
       <div class="lesson-objective-label">Learning Objective</div>
-      <div class="lesson-objective-text">Ask and answer "how are you?" in Kurdish. Learn health and well-being vocabulary.</div>
+      <div class="lesson-objective-text" id="lesson-objective-text">Ask and answer "how are you?" in Kurdish. Learn health and well-being vocabulary.</div>
     </div>
 
-    <div class="lesson-meta anim-fade d3">
+    <div class="lesson-meta anim-fade d3" id="lesson-meta">
       <span class="lesson-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        8 activities
+        <span id="meta-activities">8 activities</span>
       </span>
       <span class="lesson-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        ~5 min
+        <span id="meta-duration">~5 min</span>
       </span>
     </div>
 
-    <a href="S6-lesson-player.html" class="start-btn anim-up d4">
+    <a href="S6-lesson-player.html?unit=1&lesson=1-1" class="start-btn anim-up d4" id="start-btn">
       Start Lesson
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </a>
 
-    <div class="vocab-preview anim-fade d5">
+    <div class="vocab-preview anim-fade d5" id="vocab-preview">
       <div class="vocab-preview-title">Key Vocabulary</div>
-      <div class="vocab-tags">
+      <div class="vocab-tags" id="vocab-tags">
         <span class="vocab-tag">çawa</span>
         <span class="vocab-tag">baş</span>
         <span class="vocab-tag">spas</span>
@@ -186,6 +185,132 @@
       if (toggle) { toggle.addEventListener('click', function () { var c = html.getAttribute('data-theme'); var n = c === 'dark' ? 'light' : 'dark'; if (n === 'light') html.removeAttribute('data-theme'); else html.setAttribute('data-theme', 'dark'); localStorage.setItem('hk-theme', n); }); }
       var header = document.getElementById('app-header');
       if (header) { var s = false; window.addEventListener('scroll', function () { var sh = window.scrollY > 8; if (sh !== s) { s = sh; header.classList.toggle('scrolled', s); } }, { passive: true }); }
+
+      // ── Data-driven lesson intro from unit JSON ──
+
+      var params = new URLSearchParams(window.location.search);
+      var unitId = parseInt(params.get('unit'), 10) || 1;
+      var lessonId = params.get('lesson') || '1-1';
+
+      function renderLesson(lesson, lessonIndex, unitData, unitMeta) {
+        var unitName = unitMeta ? unitMeta.name : unitData.name;
+        var unitBackHref = 'S4-unit-view.html?unit=' + unitId;
+        var lessonNum = lessonIndex + 1;
+
+        // Update back button href
+        var backBtn = document.getElementById('back-btn');
+        if (backBtn) backBtn.href = unitBackHref;
+
+        // Update page title in header
+        var pageTitle = document.getElementById('page-title');
+        if (pageTitle) pageTitle.textContent = 'Lesson ' + lessonNum;
+        document.title = lesson.name + ' \u2014 Hinb\u00fbna Kurd\u00ee';
+
+        // Update breadcrumb values (breadcrumb.js already ran, update rendered DOM)
+        var bcValues = document.querySelectorAll('.breadcrumb-value');
+        if (bcValues.length >= 2) bcValues[1].textContent = unitName;
+        if (bcValues.length >= 3) bcValues[2].textContent = lesson.name;
+
+        // Update badge
+        var badge = document.getElementById('lesson-badge');
+        if (badge) badge.textContent = 'Kurmanji A1 \u00B7 Unit ' + unitId;
+
+        // Update lesson title card
+        var numLabel = document.getElementById('lesson-number-label');
+        if (numLabel) numLabel.textContent = 'Lesson ' + lessonNum;
+        var titleKu = document.getElementById('lesson-title-ku');
+        if (titleKu) titleKu.textContent = lesson.name;
+        var titleEn = document.getElementById('lesson-title-en');
+        if (titleEn) titleEn.textContent = lesson.subtitle;
+
+        // Update objective
+        var objText = document.getElementById('lesson-objective-text');
+        if (objText) objText.textContent = lesson.learningObjective;
+
+        // Update meta
+        var activityCount = lesson.activities ? lesson.activities.length : 0;
+        var metaAct = document.getElementById('meta-activities');
+        if (metaAct) metaAct.textContent = activityCount + ' activit' + (activityCount !== 1 ? 'ies' : 'y');
+        var metaDur = document.getElementById('meta-duration');
+        if (metaDur) metaDur.textContent = '~' + (lesson.durationMinutes || 5) + ' min';
+
+        // Update start button href
+        var startBtn = document.getElementById('start-btn');
+        if (startBtn) startBtn.href = 'S6-lesson-player.html?unit=' + unitId + '&lesson=' + lessonId;
+
+        // Update vocab tags
+        var vocabTags = document.getElementById('vocab-tags');
+        if (vocabTags && lesson.vocabPreview && lesson.vocabPreview.length > 0) {
+          vocabTags.textContent = '';
+          var fragment = document.createDocumentFragment();
+          lesson.vocabPreview.forEach(function (word) {
+            var tag = document.createElement('span');
+            tag.className = 'vocab-tag';
+            tag.textContent = word;
+            fragment.appendChild(tag);
+          });
+          vocabTags.appendChild(fragment);
+        }
+
+        // Show vocab section (hide if no preview words)
+        var vocabPreview = document.getElementById('vocab-preview');
+        if (vocabPreview) {
+          vocabPreview.style.display = (lesson.vocabPreview && lesson.vocabPreview.length > 0) ? '' : 'none';
+        }
+      }
+
+      // Fetch unit JSON and find the lesson
+      fetch('data/unit-' + unitId + '.json')
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (unitData) {
+          // Also fetch course.json for unit metadata
+          return fetch('data/course.json')
+            .then(function (r2) {
+              if (!r2.ok) throw new Error('HTTP ' + r2.status);
+              return r2.json();
+            })
+            .then(function (course) {
+              // Find unit metadata
+              var unitMeta = null;
+              if (course && course.units) {
+                for (var i = 0; i < course.units.length; i++) {
+                  if (course.units[i].id === unitId) {
+                    unitMeta = course.units[i];
+                    break;
+                  }
+                }
+              }
+
+              // Find the lesson by ID
+              var lesson = null;
+              var lessonIndex = 0;
+              if (unitData && unitData.lessons) {
+                for (var j = 0; j < unitData.lessons.length; j++) {
+                  if (unitData.lessons[j].id === lessonId) {
+                    lesson = unitData.lessons[j];
+                    lessonIndex = j;
+                    break;
+                  }
+                }
+                // Fallback: if lessonId not found, use the first lesson
+                if (!lesson && unitData.lessons.length > 0) {
+                  lesson = unitData.lessons[0];
+                  lessonIndex = 0;
+                }
+              }
+
+              if (lesson) {
+                renderLesson(lesson, lessonIndex, unitData, unitMeta);
+              }
+            });
+        })
+        .catch(function (err) {
+          // On error, keep the static fallback content
+          console.warn('S5: Could not load lesson data, using static fallback.', err);
+        });
     })();
   </script>
 </body>

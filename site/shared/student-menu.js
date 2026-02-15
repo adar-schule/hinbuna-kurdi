@@ -28,12 +28,15 @@
   var HAMBURGER_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
   var CLOSE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
 
+  // APP_GRID_SVG — now in HK.AppSwitcher (theme.js)
+
   function icon(d) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
   }
 
   var HOME_SVG = icon('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>');
 
+  // Ecosystem apps — shared via HK.AppSwitcher (theme.js)
   var NAV_ITEMS = [
     { id: 'courses',  href: 'S2-course-list.html',  label: 'Courses',  icon: icon('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>') },
     { id: 'profile',  href: '#',                     label: 'Profile',  icon: icon('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'), disabled: true },
@@ -106,7 +109,14 @@
   }
 
   // ============================================================
-  // Inject hamburger button into header
+  // Build app switcher HTML (all static content, safe to inject)
+  // ============================================================
+  function buildAppSwitcher() {
+    return (window.HK && HK.AppSwitcher) ? HK.AppSwitcher.build() : '';
+  }
+
+  // ============================================================
+  // Inject hamburger button + app switcher into header
   // ============================================================
   function injectHamburgerButton() {
     // Try standard student header first, then lesson header
@@ -115,17 +125,36 @@
 
     var btnClass = actionsContainer.querySelector('.lh-btn') ? 'lh-btn' : 'header-icon-btn';
 
-    // Inject Home icon button (before hamburger)
-    // Note: All HTML is hardcoded static content (no user input), safe to inject
+    // Order: [Home] [App Switcher] [Theme Toggle] [Hamburger]
+    // Theme toggle is already in HTML — inject Home and App before it
+
+    var themeToggle = document.getElementById('theme-toggle');
+
+    // Inject Home icon button (before theme toggle)
     var homeBtn = document.createElement('a');
     homeBtn.className = btnClass;
     homeBtn.href = 'S1-dashboard.html';
     homeBtn.setAttribute('aria-label', 'Home');
     homeBtn.title = 'Home';
     homeBtn.insertAdjacentHTML('beforeend', HOME_SVG);
-    actionsContainer.appendChild(homeBtn);
+    if (themeToggle) {
+      actionsContainer.insertBefore(homeBtn, themeToggle);
+    } else {
+      actionsContainer.appendChild(homeBtn);
+    }
 
-    // Inject hamburger button (static SVG content only)
+    // Inject App Switcher (before theme toggle, after Home)
+    var switcherWrapper = document.createElement('div');
+    switcherWrapper.style.display = 'contents';
+    switcherWrapper.insertAdjacentHTML('beforeend', buildAppSwitcher());
+    var switcherEl = switcherWrapper.firstElementChild;
+    if (themeToggle) {
+      actionsContainer.insertBefore(switcherEl, themeToggle);
+    } else {
+      actionsContainer.appendChild(switcherEl);
+    }
+
+    // Inject hamburger button (after theme toggle, at end)
     var btn = document.createElement('button');
     btn.className = btnClass;
     btn.id = 'menu-toggle';
@@ -133,6 +162,13 @@
     btn.title = 'Menu';
     btn.insertAdjacentHTML('beforeend', HAMBURGER_SVG);
     actionsContainer.appendChild(btn);
+  }
+
+  // ============================================================
+  // App Switcher logic — delegated to HK.AppSwitcher (theme.js)
+  // ============================================================
+  function initAppSwitcher() {
+    if (window.HK && HK.AppSwitcher) HK.AppSwitcher.init();
   }
 
   // ============================================================
@@ -151,6 +187,9 @@
     } else {
       document.body.insertAdjacentHTML('afterbegin', buildDrawer());
     }
+
+    // Initialize app switcher events
+    initAppSwitcher();
 
     // Bind events
     var menuToggle = document.getElementById('menu-toggle');

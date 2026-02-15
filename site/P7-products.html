@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ku" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekosistem — Hinbuna Kurdi</title>
+  <meta name="description" content="Explore the Hinbuna Kurdi ecosystem - language learning tools, dictionary, stories, AI companion and more.">
+  <!-- Kurdish Sun Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
+
+  <!-- Fonts: Inter + Nunito (self-hosted) -->
+  <link rel="stylesheet" href="shared/fonts.css">
+
+  <link rel="stylesheet" href="shared/header.css">
+  <link rel="stylesheet" href="shared/footer.css">
+  <link rel="stylesheet" href="shared/settings.css">
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+       ============================================ */
+    :root {
+      --bg-page: #FDF8F3;
+      --bg-surface: #F5EEE6;
+      --color-primary: #2D5A3D;
+      --color-primary-hover: #24493A;
+      --color-accent: #D4A843;
+      --color-accent-hover: #c99b3a;
+      --color-tan: #E3C79D;
+      --text-primary: #1A2A1F;
+      --text-secondary: #5A6B5E;
+      --border: #E5DDD3;
+      --shadow-sm: 0 1px 3px rgba(26, 42, 31, 0.06);
+      --shadow-md: 0 4px 12px rgba(26, 42, 31, 0.08);
+      --font-heading: 'Nunito', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #1A2F23;
+      --bg-surface: #243D30;
+      --color-primary: #2D5A3D;
+      --color-primary-hover: #367248;
+      --color-accent: #D4A843;
+      --color-accent-hover: #e0b64e;
+      --color-tan: #3A5E45;
+      --text-primary: #F5EEE6;
+      --text-secondary: #A8B5AC;
+      --border: #2F4F3A;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================
+       PLACEHOLDER CONTENT
+       ============================================ */
+    .products-placeholder {
+      flex: 1;
+      max-width: 600px;
+      margin: 120px auto 80px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .products-placeholder h1 {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .products-placeholder p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER (shared component)
+     ============================================ -->
+<div id="shared-header" data-page-type="public" data-show-lang="true" data-show-login="true" data-show-theme="true"></div>
+
+<!-- ============================================
+     PAGE CONTENT — placeholder
+     ============================================ -->
+<main class="products-placeholder">
+  <h1>Ekosistema Hinbuna Kurdi</h1>
+  <p>This page will describe all the products and tools in the Hinbuna Kurdi ecosystem.</p>
+</main>
+
+<!-- ============================================
+     FOOTER (shared component)
+     ============================================ -->
+<div id="shared-footer"></div>
+
+<!-- ============================================
+     SCRIPTS
+     ============================================ -->
+<script src="shared/theme.js"></script>
+<script src="shared/header.js"></script>
+<script src="shared/settings.js"></script>
+<script src="shared/footer.js"></script>
+
+</body>
+</html>

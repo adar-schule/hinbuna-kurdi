@@ -120,6 +120,8 @@
   // Language list from centralized HK.LANGUAGES (loaded via theme.js)
   var LANGUAGES = (window.HK && HK.LANGUAGES) || [];
 
+  // Ecosystem apps — shared via HK.AppSwitcher (theme.js)
+
   // ============================================================
   // Build header HTML
   // ============================================================
@@ -139,7 +141,7 @@
     html += '<div class="header-left">';
     html += '<a href="' + getLogoHref(pageType) + '" class="header-logo">';
     html += LOGO_SVG;
-    html += '<span class="header-logo-text">Hinb\u00fbna Kurd\u00ee</span>';
+    html += '<span class="header-logo-text">Hinb\u00fbna<br>Kurd\u00ee</span>';
     html += '</a>';
 
     // Back to gallery (dev utility — only on main screens)
@@ -201,7 +203,20 @@
       html += '</div>';
     }
 
-    // Theme toggle (FIRST — same position on public + student)
+    // Public page order: [Lang] [App Switcher] [Theme Toggle] [Têkeve]
+    // Dev page order: theme toggle only (no lang/app/login)
+
+    // Language picker (first on public)
+    if (showLang && pageType === 'public') {
+      html += buildLangPicker();
+    }
+
+    // App Switcher (public pages only)
+    if (pageType === 'public') {
+      html += buildAppSwitcher();
+    }
+
+    // Theme toggle
     if (showTheme) {
       html += '<button class="header-icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">';
       html += MOON_SVG;
@@ -209,12 +224,7 @@
       html += '</button>';
     }
 
-    // Language picker (after theme toggle, before login)
-    if (showLang && pageType === 'public') {
-      html += buildLangPicker();
-    }
-
-    // Login button
+    // Login button (last on public)
     if (showLogin && pageType === 'public') {
       html += '<a href="P3-login.html" class="header-login">T\u00eakeve</a>';
     }
@@ -257,6 +267,10 @@
     html += '</div>'; // .lang-dropdown
     html += '</div>'; // .lang-picker
     return html;
+  }
+
+  function buildAppSwitcher() {
+    return (window.HK && HK.AppSwitcher) ? HK.AppSwitcher.build() : '';
   }
 
   // ============================================================
@@ -359,6 +373,14 @@
   }
 
   // ============================================================
+  // App Switcher logic — delegated to HK.AppSwitcher (theme.js)
+  // ============================================================
+
+  function initAppSwitcher() {
+    if (window.HK && HK.AppSwitcher) HK.AppSwitcher.init();
+  }
+
+  // ============================================================
   // Dev hamburger menu logic
   // ============================================================
 
@@ -436,6 +458,7 @@
     initTheme();
     initScrollShadow();
     initLangPicker();
+    initAppSwitcher();
     initDevHamburger();
   }
 

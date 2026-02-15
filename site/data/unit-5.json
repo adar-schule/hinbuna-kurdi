@@ -1,0 +1,462 @@
+{
+  "unitId": 5,
+  "name": "Kesandina Lêkeran",
+  "subtitle": "Verb Conjugation",
+  "lessons": [
+    {
+      "id": "5-1",
+      "name": "Alan, Delal, Sosîn, Azad",
+      "subtitle": "Character Profiles",
+      "learningObjective": "Read short character descriptions in present tense and answer comprehension questions",
+      "durationMinutes": 10,
+      "vocabPreview": ["diçim", "dixwim", "difroşim", "dimînim"],
+      "wordsLearned": [
+        { "ku": "diçim malê", "en": "I go home" },
+        { "ku": "dixwim", "en": "I eat" },
+        { "ku": "difroşim", "en": "I sell" },
+        { "ku": "dikirim", "en": "I buy" },
+        { "ku": "dimînim", "en": "I live / I stay" },
+        { "ku": "dixwîne", "en": "he/she reads" },
+        { "ku": "dibînim", "en": "I see" },
+        { "ku": "dişom", "en": "I wash" },
+        { "ku": "xwendegeh", "en": "school" },
+        { "ku": "şagirt", "en": "student / pupil" },
+        { "ku": "endezyar", "en": "engineer" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn this verb",
+          "word": "diçim",
+          "hint": "Tap to flip",
+          "translation": "I go",
+          "example": "Ez diçim malê.",
+          "exampleTranslation": "I go home."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this verb",
+          "word": "dixwim",
+          "hint": "Tap to flip",
+          "translation": "I eat",
+          "example": "Ez sêvê dixwim.",
+          "exampleTranslation": "I eat the apple."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this verb",
+          "word": "dimînim",
+          "hint": "Tap to flip",
+          "translation": "I live / I stay",
+          "example": "Ez li Wanê dimînim.",
+          "exampleTranslation": "I live in Van."
+        },
+        {
+          "type": "reading",
+          "instruction": "Read about Alan",
+          "title": "Alan",
+          "lines": [
+            { "speaker": "", "ku": "Navê min Alan e.", "en": "My name is Alan." },
+            { "speaker": "", "ku": "Ez deh salî me.", "en": "I am 10 years old." },
+            { "speaker": "", "ku": "Ez diçim malê.", "en": "I go home." },
+            { "speaker": "", "ku": "Ez sêvê dixwim, lê goşt naxwim.", "en": "I eat the apple, but I don't eat meat." },
+            { "speaker": "", "ku": "Ez li Wanê dimînim.", "en": "I live in Van." }
+          ]
+        },
+        {
+          "type": "reading",
+          "instruction": "Read about Delal and Sosîn",
+          "title": "Delal û Sosîn",
+          "lines": [
+            { "speaker": "", "ku": "Navê min Delal e. Ez bîst salî me.", "en": "My name is Delal. I am 20 years old." },
+            { "speaker": "", "ku": "Ez masî difroşim, lê lîmonê dikirim.", "en": "I sell fish, but I buy lemons." },
+            { "speaker": "", "ku": "Ez li Mêrdînê dimînim.", "en": "I live in Mardin." },
+            { "speaker": "", "ku": "Navê wê Sosîn e. Ew yanzdeh salî ye.", "en": "Her name is Sosîn. She is 11 years old." },
+            { "speaker": "", "ku": "Ew şagirt e. Ew diçe xwendegehê.", "en": "She is a student. She goes to school." },
+            { "speaker": "", "ku": "Ew pirtûkê dixwîne.", "en": "She reads the book." }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "Alan goşt dixwe?",
+          "options": ["Erê, ew goşt dixwe.", "Na, ew goşt naxwe.", "Ew masî dixwe.", "Ew nan dixwe."],
+          "correct": 1,
+          "explanation": "Alan says \"goşt naxwim\" — he does NOT eat meat. \"na-\" before the verb stem makes it negative."
+        },
+        {
+          "type": "mcq",
+          "instruction": "Sosîn çi dike?",
+          "options": ["Ew masî difroşe.", "Ew diçe malê.", "Ew diçe xwendegehê.", "Ew li Wanê dimîne."],
+          "correct": 2,
+          "explanation": "Sosîn is a student (şagirt) and goes to school (diçe xwendegehê). She also reads books (pirtûkê dixwîne)."
+        },
+        {
+          "type": "mcq",
+          "instruction": "Delal li ku dimîne?",
+          "options": ["Li Wanê", "Li Bochumê", "Li Mêrdînê", "Li Amedê"],
+          "correct": 2,
+          "explanation": "Delal says \"Ez li Mêrdînê dimînim\" — I live in Mardin."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Alan sêvê ..., lê goşt naxwe.",
+          "before": "Alan sêvê ",
+          "gap": "dixwe",
+          "after": ", lê goşt naxwe.",
+          "display": "Alan sêvê ___, lê goşt naxwe.",
+          "wordBank": ["dixwe", "dixwîne", "dibîne", "dikire"],
+          "explanation": "\"dixwe\" = eats. The verb xwarin (to eat) → dixwe (he/she eats). Don't confuse with dixwîne (reads) from xwendin."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match each character with what they do",
+          "pairs": [
+            { "ku": "Alan — sêvê dixwe", "en": "eats the apple" },
+            { "ku": "Delal — masî difroşe", "en": "sells fish" },
+            { "ku": "Sosîn — pirtûkê dixwîne", "en": "reads the book" },
+            { "ku": "Azad — dest û rû dişo", "en": "washes hands and face" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-2",
+      "name": "Kesandina Lêkeran",
+      "subtitle": "Verb Conjugation",
+      "learningObjective": "Learn present tense conjugation of key Kurdish verbs using the di-[stem]-[ending] pattern",
+      "durationMinutes": 15,
+      "vocabPreview": ["çûn", "xwarin", "dîtin", "gotin", "zanîn", "kirin"],
+      "wordsLearned": [
+        { "ku": "çûn — biçe", "en": "to go — go!" },
+        { "ku": "xwarin — bixwe", "en": "to eat — eat!" },
+        { "ku": "xwendin — bixwîne", "en": "to read — read!" },
+        { "ku": "dîtin — bibîne", "en": "to see — see!" },
+        { "ku": "kirin — bike", "en": "to do/make — do!" },
+        { "ku": "gotin — bibêje", "en": "to say — say!" },
+        { "ku": "zanîn — bizane", "en": "to know — know!" },
+        { "ku": "firotin — bifroşe", "en": "to sell — sell!" },
+        { "ku": "kirîn — bikire", "en": "to buy — buy!" },
+        { "ku": "nivîsîn — binivîse", "en": "to write — write!" },
+        { "ku": "lîstin — bilîze", "en": "to play — play!" },
+        { "ku": "kenîn — bikene", "en": "to laugh — laugh!" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn this verb conjugation",
+          "word": "çûn (to go)",
+          "hint": "Tap to flip",
+          "translation": "diçim, diçî, diçe, diçin",
+          "example": "Ez diçim malê. Tu diçî ku?",
+          "exampleTranslation": "I go home. Where do you go?"
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this verb conjugation",
+          "word": "xwarin (to eat)",
+          "hint": "Tap to flip",
+          "translation": "dixwim, dixwî, dixwe, dixwin",
+          "example": "Ez sêvê dixwim. Ew goşt dixwe.",
+          "exampleTranslation": "I eat the apple. He/she eats meat."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this verb conjugation",
+          "word": "gotin (to say)",
+          "hint": "Tap to flip",
+          "translation": "dibêjim, dibêjî, dibêje, dibêjin",
+          "example": "Ez dibêjim. Tu çi dibêjî?",
+          "exampleTranslation": "I say. What do you say?"
+        },
+        {
+          "type": "reading",
+          "instruction": "Study the conjugation pattern",
+          "title": "Di-[stem]-[ending] Pattern",
+          "lines": [
+            { "speaker": "", "ku": "ez diçim / tu diçî / ew diçe", "en": "I go / you go / he-she goes" },
+            { "speaker": "", "ku": "em diçin / hûn diçin / ew diçin", "en": "we go / you (pl.) go / they go" },
+            { "speaker": "", "ku": "ez dixwim / tu dixwî / ew dixwe", "en": "I eat / you eat / he-she eats" },
+            { "speaker": "", "ku": "ez dibînim / tu dibînî / ew dibîne", "en": "I see / you see / he-she sees" },
+            { "speaker": "", "ku": "ez dizanim / tu dizanî / ew dizane", "en": "I know / you know / he-she knows" }
+          ]
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Conjugate: Ez sêvê ___ (xwarin, ez)",
+          "before": "Ez sêvê ",
+          "gap": "dixwim",
+          "after": ".",
+          "display": "Ez sêvê ___.",
+          "wordBank": ["dixwim", "dixwî", "dixwe", "dixwin"],
+          "explanation": "For \"ez\" (I), the present tense ending is -im: di-xw-im → dixwim."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Conjugate: Tu çi ___ ? (gotin, tu)",
+          "before": "Tu çi ",
+          "gap": "dibêjî",
+          "after": "?",
+          "display": "Tu çi ___?",
+          "wordBank": ["dibêjim", "dibêjî", "dibêje", "dibêjin"],
+          "explanation": "For \"tu\" (you), the ending is -î: di-bêj-î → dibêjî. The verb gotin changes its stem to bêj- in present tense."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Conjugate: Ew pirtûkê ___ (xwendin, ew)",
+          "before": "Ew pirtûkê ",
+          "gap": "dixwîne",
+          "after": ".",
+          "display": "Ew pirtûkê ___.",
+          "wordBank": ["dixwînim", "dixwînî", "dixwîne", "dixwînin"],
+          "explanation": "For \"ew\" (he/she), the ending is -e: di-xwîn-e → dixwîne."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the infinitive to its imperative form",
+          "pairs": [
+            { "ku": "çûn", "en": "biçe!" },
+            { "ku": "xwarin", "en": "bixwe!" },
+            { "ku": "gotin", "en": "bibêje!" },
+            { "ku": "dîtin", "en": "bibîne!" },
+            { "ku": "zanîn", "en": "bizane!" }
+          ]
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the verb to its meaning",
+          "pairs": [
+            { "ku": "nivîsîn", "en": "to write" },
+            { "ku": "lîstin", "en": "to play" },
+            { "ku": "kenîn", "en": "to laugh" },
+            { "ku": "firotin", "en": "to sell" },
+            { "ku": "kirîn", "en": "to buy" }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "What is the present tense pattern for Kurdish verbs?",
+          "options": ["bi-[stem]-[ending]", "di-[stem]-[ending]", "na-[stem]-[ending]", "[stem]-[ending]"],
+          "correct": 1,
+          "explanation": "Kurdish present tense uses di- prefix + stem + personal ending: di-ç-im (I go), di-xw-î (you eat), di-bîn-e (he/she sees). The bi- prefix is for imperative (commands)."
+        }
+      ]
+    },
+    {
+      "id": "5-3",
+      "name": "Tewandîn",
+      "subtitle": "Accusative Case",
+      "learningObjective": "Learn the accusative case: feminine nouns add -ê, masculine nouns stay the same",
+      "durationMinutes": 10,
+      "vocabPreview": ["sêvê", "jinê", "nan", "pirtûkê"],
+      "wordsLearned": [
+        { "ku": "sêv → sêvê", "en": "apple → the apple (acc.)" },
+        { "ku": "jin → jinê", "en": "woman → the woman (acc.)" },
+        { "ku": "pirtûk → pirtûkê", "en": "book → the book (acc.)" },
+        { "ku": "nan → nan", "en": "bread → bread (acc., masc. = no change)" },
+        { "ku": "mêr → mêr", "en": "man → man (acc., masc. = no change)" },
+        { "ku": "xanî → xanî", "en": "house → house (acc., masc. = no change)" },
+        { "ku": "jîrfon → jîrfonê", "en": "smartphone → the smartphone (acc.)" },
+        { "ku": "porteqal → porteqalê", "en": "orange → the orange (acc.)" },
+        { "ku": "pênûs → pênûsê", "en": "pen → the pen (acc.)" }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn the accusative rule",
+          "word": "Tewandîn (Accusative)",
+          "hint": "Tap to flip",
+          "translation": "Feminine nouns add -ê, masculine nouns stay the same",
+          "example": "Ez jinê dibînim. Ez mêr dibînim.",
+          "exampleTranslation": "I see the woman (fem→-ê). I see the man (masc→no change)."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this example",
+          "word": "sêv (f) → sêvê",
+          "hint": "Tap to flip",
+          "translation": "apple → the apple (accusative)",
+          "example": "Sêv sor e. Ez sêvê dixwim.",
+          "exampleTranslation": "The apple is red. I eat the apple."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this example",
+          "word": "nan (m) → nan",
+          "hint": "Tap to flip",
+          "translation": "bread → bread (no change, masculine)",
+          "example": "Nan erzan e. Tu nan dixwî.",
+          "exampleTranslation": "Bread is cheap. You eat bread."
+        },
+        {
+          "type": "reading",
+          "instruction": "Compare nominative and accusative",
+          "title": "Tewandîn — Nominative vs. Accusative",
+          "lines": [
+            { "speaker": "", "ku": "Mêr dîn e. → Ez mêr dibînim.", "en": "The man is crazy. → I see the man. (masc: no change)" },
+            { "speaker": "", "ku": "Jin dîn e. → Ez jinê dibînim.", "en": "The woman is crazy. → I see the woman. (fem: +ê)" },
+            { "speaker": "", "ku": "Sêv sor e. → Ez sêvê dixwim.", "en": "The apple is red. → I eat the apple. (fem: +ê)" },
+            { "speaker": "", "ku": "Nan erzan e. → Tu nan dixwî.", "en": "Bread is cheap. → You eat bread. (masc: no change)" },
+            { "speaker": "", "ku": "Pirtûk nû ye. → Ez pirtûkê dixwînim.", "en": "The book is new. → I read the book. (fem: +ê)" },
+            { "speaker": "", "ku": "Xanî sor e. → Ez xanî dibînim.", "en": "The house is red. → I see the house. (masc: no change)" }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Ez ___ dixwim.\" Which is correct for sêv (feminine)?",
+          "options": ["sêv", "sêvê", "sêvî", "sêvan"],
+          "correct": 1,
+          "explanation": "Sêv is feminine. In the accusative case, feminine nouns add -ê: sêv → sêvê. \"Ez sêvê dixwim\" = I eat the apple."
+        },
+        {
+          "type": "mcq",
+          "instruction": "\"Tu ___ dixwî.\" Which is correct for nan (masculine)?",
+          "options": ["nanê", "nanî", "nan", "nanên"],
+          "correct": 2,
+          "explanation": "Nan is masculine. Masculine nouns do NOT change in the accusative case. \"Tu nan dixwî\" = You eat bread."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Tu ___ dikirî. (jîrfon, feminine)",
+          "before": "Tu ",
+          "gap": "jîrfonê",
+          "after": " dikirî.",
+          "display": "Tu ___ dikirî.",
+          "wordBank": ["jîrfon", "jîrfonê", "jîrfonî", "jîrfonan"],
+          "explanation": "Jîrfon (smartphone) is feminine. In the accusative: jîrfon → jîrfonê. \"Tu jîrfonê dikirî\" = You buy the smartphone."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Ez ___ dibînim. (xanî, masculine)",
+          "before": "Ez ",
+          "gap": "xanî",
+          "after": " dibînim.",
+          "display": "Ez ___ dibînim.",
+          "wordBank": ["xanî", "xanîyê", "xanîyî", "xanîyan"],
+          "explanation": "Xanî (house) is masculine. Masculine nouns stay the same in accusative. \"Ez xanî dibînim\" = I see the house."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the noun to its accusative form",
+          "pairs": [
+            { "ku": "sêv (f)", "en": "sêvê" },
+            { "ku": "nan (m)", "en": "nan" },
+            { "ku": "pirtûk (f)", "en": "pirtûkê" },
+            { "ku": "xanî (m)", "en": "xanî" },
+            { "ku": "porteqal (f)", "en": "porteqalê" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-4",
+      "name": "Diyalog",
+      "subtitle": "Meeting Dialogue",
+      "learningObjective": "Practice a meeting dialogue — asking about origin, occupation, age, and languages",
+      "durationMinutes": 10,
+      "vocabPreview": ["Ji ku yî?", "Tu çi dikî?", "Tu çend salî yî?", "dizanî"],
+      "wordsLearned": [
+        { "ku": "Tu ji ku yî?", "en": "Where are you from?" },
+        { "ku": "Ez ji ... me.", "en": "I am from ..." },
+        { "ku": "Tu çi dikî?", "en": "What do you do?" },
+        { "ku": "xwendekar", "en": "university student" },
+        { "ku": "zanîngeh", "en": "university" },
+        { "ku": "Tu farsî dizanî?", "en": "Do you know Farsi?" },
+        { "ku": "Tu çend salî yî?", "en": "How old are you?" },
+        { "ku": "Ez bîst û pênc salî me.", "en": "I am 25 years old." },
+        { "ku": "Navê kurdî ye.", "en": "It is a Kurdish name." }
+      ],
+      "activities": [
+        {
+          "type": "flashcard",
+          "instruction": "Learn this question",
+          "word": "Tu ji ku yî?",
+          "hint": "Tap to flip",
+          "translation": "Where are you from?",
+          "example": "Tu ji ku yî? — Ez ji Wanê me.",
+          "exampleTranslation": "Where are you from? — I am from Van."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this question",
+          "word": "Tu çi dikî?",
+          "hint": "Tap to flip",
+          "translation": "What do you do?",
+          "example": "Tu çi dikî? — Ez xwendekar im.",
+          "exampleTranslation": "What do you do? — I am a student."
+        },
+        {
+          "type": "flashcard",
+          "instruction": "Learn this question",
+          "word": "Tu çend salî yî?",
+          "hint": "Tap to flip",
+          "translation": "How old are you?",
+          "example": "Tu çend salî yî? — Ez nozdeh salî me.",
+          "exampleTranslation": "How old are you? — I am 19 years old."
+        },
+        {
+          "type": "reading",
+          "instruction": "Read the dialogue",
+          "title": "Hevdîtin — Meeting",
+          "lines": [
+            { "speaker": "Berfîn", "ku": "Silav! Tu çawa yî?", "en": "Hello! How are you?" },
+            { "speaker": "Dîlan", "ku": "Silav! Ez baş im. Tu çawa yî?", "en": "Hello! I am good. How are you?" },
+            { "speaker": "Berfîn", "ku": "Ez baş im. Tu ji ku tê?", "en": "I am good. Where are you coming from?" },
+            { "speaker": "Dîlan", "ku": "Ez ji zanîngehê têm.", "en": "I am coming from the university." },
+            { "speaker": "Berfîn", "ku": "Tu çi dikî?", "en": "What do you do?" },
+            { "speaker": "Dîlan", "ku": "Ez xwendekar im.", "en": "I am a university student." },
+            { "speaker": "Berfîn", "ku": "Gelo tu ji ku yî?", "en": "So, where are you from?" },
+            { "speaker": "Dîlan", "ku": "Ez ji Iranê me. Tu farsî dizanî?", "en": "I am from Iran. Do you know Farsi?" },
+            { "speaker": "Berfîn", "ku": "Na, ez farsî nizanim. Ez kurd im, ez ji Wanê me.", "en": "No, I don't know Farsi. I am Kurdish, I am from Van." },
+            { "speaker": "Dîlan", "ku": "Berfîn navê kurdî ye. Tu çend salî yî?", "en": "Berfîn is a Kurdish name. How old are you?" },
+            { "speaker": "Berfîn", "ku": "Ez bîst û pênc salî me. Tu çend salî yî?", "en": "I am 25 years old. How old are you?" },
+            { "speaker": "Dîlan", "ku": "Ez nozdeh salî me.", "en": "I am 19 years old." }
+          ]
+        },
+        {
+          "type": "mcq",
+          "instruction": "Dîlan ji ku tê?",
+          "options": ["Ji malê", "Ji zanîngehê", "Ji xwendegehê", "Ji Wanê"],
+          "correct": 1,
+          "explanation": "Dîlan says \"Ez ji zanîngehê têm\" — I am coming from the university. zanîngeh = university."
+        },
+        {
+          "type": "mcq",
+          "instruction": "Berfîn farsî dizane?",
+          "options": ["Erê, ew farsî dizane.", "Na, ew farsî nizane.", "Ew farsî dixwîne.", "Ew îngilîzî dizane."],
+          "correct": 1,
+          "explanation": "Berfîn says \"Na, ez farsî nizanim\" — No, I don't know Farsi. Note the negation: dizanim → nizanim (zanîn uses ni- for negation)."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Ez ji ___ me.",
+          "before": "Tu ji ku yî? — Ez ji ",
+          "gap": "Wanê",
+          "after": " me.",
+          "display": "Tu ji ku yî? — Ez ji ___ me.",
+          "wordBank": ["Wanê", "wan", "Wanî", "malê"],
+          "explanation": "City names in Kurdish take -ê in the oblique case: Wan → Wanê. \"Ez ji Wanê me\" = I am from Van."
+        },
+        {
+          "type": "gap_fill",
+          "instruction": "Complete: Tu çend ___ yî?",
+          "before": "Tu çend ",
+          "gap": "salî",
+          "after": " yî?",
+          "display": "Tu çend ___ yî?",
+          "wordBank": ["salî", "sal", "salê", "salan"],
+          "explanation": "\"Tu çend salî yî?\" = How old are you? Literally: You how many years-old are? salî = years old."
+        },
+        {
+          "type": "matching",
+          "instruction": "Match the questions with answers",
+          "pairs": [
+            { "ku": "Tu ji ku yî?", "en": "Ez ji Iranê me." },
+            { "ku": "Tu çi dikî?", "en": "Ez xwendekar im." },
+            { "ku": "Tu çend salî yî?", "en": "Ez nozdeh salî me." },
+            { "ku": "Tu farsî dizanî?", "en": "Erê, ez farsî dizanim." }
+          ]
+        }
+      ]
+    }
+  ]
+}
