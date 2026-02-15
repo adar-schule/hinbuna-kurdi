@@ -15,6 +15,7 @@
   <!-- Shared theme system -->
   <script src="shared/theme.js"></script>
   <link rel="stylesheet" href="shared/settings.css">
+  <link rel="stylesheet" href="shared/header.css">
   <link rel="stylesheet" href="shared/student-menu.css">
 
   <style>
@@ -107,90 +108,7 @@
     /* ============================================
        LOGGED-IN HEADER
        ============================================ */
-    .app-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: var(--bg-page);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow 0.3s ease, background-color 0.3s ease;
-    }
-
-    .app-header.scrolled {
-      box-shadow: var(--shadow-md);
-    }
-
-    .app-header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 20px;
-      height: 56px;
-    }
-
-    .app-header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .app-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--text-primary);
-    }
-
-    .app-logo-sun {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-
-    .app-logo-text {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 17px;
-      letter-spacing: -0.3px;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .header-icon-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: none;
-      background: none;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      color: var(--text-secondary);
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .header-icon-btn:hover {
-      background-color: var(--bg-surface);
-      color: var(--text-primary);
-    }
-
-    .header-icon-btn svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* Theme toggle icons */
-    .theme-icon-sun { display: none; }
-    [data-theme="dark"] .theme-icon-moon { display: none; }
-    [data-theme="dark"] .theme-icon-sun { display: block; }
+    /* app-header, app-logo, header-actions, header-icon-btn, theme toggle → shared/header.css */
 
     /* Dev gallery link */
     .dev-gallery-link {
@@ -859,7 +777,7 @@
             <polygon points="50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2" fill="#D4A843"/>
             <circle cx="50" cy="50" r="16" fill="#D4A843"/>
           </svg>
-          <span class="app-logo-text">Hinbûna Kurdî</span>
+          <span class="app-logo-text">Hinbûna<br>Kurdî</span>
         </a>
         <a href="index.html" class="dev-gallery-link" title="Back to Gallery">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>

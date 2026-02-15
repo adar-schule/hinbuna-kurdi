@@ -165,6 +165,121 @@
 .header-icon-btn svg { width: 20px; height: 20px; }
 
 /* ============================================
+   STUDENT HEADER (app-header context)
+   Shared base for S1–S10 student screens.
+   Sizes match public header for consistency.
+   ============================================ */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-page, #FDF8F3);
+  border-bottom: 1px solid var(--border, #E5DDD3);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.app-header.scrolled {
+  box-shadow: var(--shadow-md, 0 2px 16px rgba(26, 42, 31, 0.06));
+}
+
+.app-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 56px;
+}
+
+@media (min-width: 768px) {
+  .app-header-inner { height: 64px; }
+}
+
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-primary, #1A2A1F);
+}
+
+.app-logo-sun {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .app-logo-sun { width: 26px; height: 26px; }
+}
+
+.app-logo-text {
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+  color: var(--color-primary, var(--primary, #2D5A3D));
+}
+
+.app-logo-text br { display: block; }
+
+@media (min-width: 768px) {
+  .app-logo-text { font-size: 22px; white-space: nowrap; }
+  .app-logo-text br { display: none; }
+}
+
+.page-title {
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary, #1A2A1F);
+}
+
+@media (min-width: 768px) {
+  .page-title { font-size: 17px; }
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm, 8px);
+  color: var(--text-secondary, #5A6B5E);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: var(--bg-surface, #F5EEE6);
+  color: var(--text-primary, #1A2A1F);
+}
+
+.back-btn svg { width: 20px; height: 20px; }
+
+.app-header .header-actions {
+  gap: 4px;
+}
+
+.app-header .header-icon-btn {
+  color: var(--text-secondary, #5A6B5E);
+}
+
+.app-header .header-icon-btn:hover {
+  background-color: var(--bg-surface, #F5EEE6);
+  color: var(--text-primary, #1A2A1F);
+}
+
+/* ============================================
    LOGIN BUTTON
    ============================================ */
 .header-login {
@@ -608,7 +723,8 @@
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
 }
 
-[data-theme="dark"] .header-logo-text {
+[data-theme="dark"] .header-logo-text,
+[data-theme="dark"] .app-logo-text {
   color: var(--text-primary, var(--text, #F5EEE6));
 }
 
@@ -847,13 +963,22 @@
    SMALL MOBILE (Galaxy S20, etc. ≤ 399px)
    ============================================ */
 @media (max-width: 399px) {
+  /* Public header */
   .header-inner { padding: 0 12px; }
-  .header-actions { gap: 6px; }
+  .header-logo-text { font-size: 13px; }
+  .header-logo-leaf { width: 20px; height: 20px; }
+  .header-login { font-size: 13px; padding: 5px 10px; }
+
+  /* Student header */
+  .app-header-inner { padding: 0 12px; }
+  .app-logo-sun { width: 20px; height: 20px; }
+  .app-logo-text { font-size: 13px; }
+  .page-title { font-size: 13px; }
+
+  /* Shared (both header types) */
+  .header-actions { gap: 4px; }
   .header-icon-btn { width: 32px; height: 32px; }
   .header-icon-btn svg { width: 18px; height: 18px; }
   .app-switcher-btn { width: 32px; height: 32px; }
   .app-switcher-btn svg { width: 18px; height: 18px; }
-  .header-login { font-size: 13px; padding: 5px 10px; }
-  .header-logo-text { font-size: 13px; }
-  .header-logo-leaf { width: 20px; height: 20px; }
 }
