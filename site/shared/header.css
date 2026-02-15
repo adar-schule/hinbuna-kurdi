@@ -648,6 +648,20 @@
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
+/* Desktop: anchor under icon instead of viewport center */
+@media (min-width: 768px) {
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: auto;
+    right: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  .lang-dropdown.open {
+    transform: translateY(0) scale(1);
+  }
+}
+
 .lang-option {
   display: flex;
   align-items: center;
@@ -827,6 +841,20 @@
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* Desktop: anchor under icon instead of viewport center */
+@media (min-width: 768px) {
+  .app-switcher-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: auto;
+    right: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  .app-switcher-dropdown.open {
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Dark mode shadow */
