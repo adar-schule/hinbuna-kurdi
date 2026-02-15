@@ -78,27 +78,153 @@
     a { text-decoration: none; color: inherit; }
 
     /* ============================================
-       PLACEHOLDER CONTENT
+       PAGE HEADER
        ============================================ */
-    .products-placeholder {
-      flex: 1;
-      max-width: 600px;
-      margin: 120px auto 80px;
-      padding: 0 24px;
+    .products-hero {
+      padding: 48px 20px 32px;
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .products-placeholder h1 {
+    @media (min-width: 768px) {
+      .products-hero { padding: 72px 40px 40px; }
+    }
+
+    .products-hero h1 {
       font-family: var(--font-heading);
       font-size: 28px;
       font-weight: 800;
+      color: var(--color-primary);
       margin-bottom: 12px;
     }
 
-    .products-placeholder p {
+    [data-theme="dark"] .products-hero h1 {
+      color: var(--text-primary);
+    }
+
+    @media (min-width: 768px) {
+      .products-hero h1 { font-size: 36px; }
+    }
+
+    .products-hero p {
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       PRODUCT GRID
+       ============================================ */
+    .products-grid-section {
+      flex: 1;
+      padding: 0 20px 64px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (min-width: 480px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+
+    @media (min-width: 768px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .products-grid-section { padding: 0 40px 80px; }
+    }
+
+    @media (min-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    }
+
+    /* Product card */
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 24px 16px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+      cursor: default;
+    }
+
+    .product-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-card.product-active {
+      border-color: var(--color-accent);
+      background: color-mix(in srgb, var(--color-accent) 8%, var(--bg-surface));
+    }
+
+    .product-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .product-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* ============================================
+       BOTTOM NOTE
+       ============================================ */
+    .products-note {
+      text-align: center;
+      padding: 0 20px 48px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .products-note p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: var(--radius-md);
+      background-color: var(--color-primary);
+      color: #fff;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-hover);
+    }
+
+    [data-theme="dark"] .btn-primary:hover {
+      background-color: var(--color-primary-hover);
     }
   </style>
 </head>
@@ -110,12 +236,89 @@
 <div id="shared-header" data-page-type="public" data-show-lang="true" data-show-login="true" data-show-theme="true"></div>
 
 <!-- ============================================
-     PAGE CONTENT — placeholder
+     PAGE HERO
      ============================================ -->
-<main class="products-placeholder">
-  <h1>Ekosistema Hinbuna Kurdi</h1>
-  <p>This page will describe all the products and tools in the Hinbuna Kurdi ecosystem.</p>
-</main>
+<section class="products-hero">
+  <h1>Ekosîstema Hinbûna Kurdî</h1>
+  <p>One account, ten tools. Everything you need to learn, practice, and live in Kurdish — connected and personalized.</p>
+</section>
+
+<!-- ============================================
+     PRODUCT GRID
+     ============================================ -->
+<section class="products-grid-section">
+  <div class="products-grid">
+
+    <div class="product-card product-active">
+      <span class="product-icon">🌟</span>
+      <span class="product-name">Hinbûna Kurdî</span>
+      <span class="product-desc">Your structured path to fluency</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">📖</span>
+      <span class="product-name">Ferheng</span>
+      <span class="product-desc">Your words, always with you</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">📚</span>
+      <span class="product-name">Çîrokên Kurt</span>
+      <span class="product-desc">Stories written just for you</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">🎮</span>
+      <span class="product-name">Lîstika Kurdî</span>
+      <span class="product-desc">Practice that knows your weak spots</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">🧠</span>
+      <span class="product-name">Korpûsa Kurdî</span>
+      <span class="product-desc">Shape the future of Kurdish AI</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">🔊</span>
+      <span class="product-name">TTS Kurdî</span>
+      <span class="product-desc">Hear any Kurdish text come alive</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">👥</span>
+      <span class="product-name">Civat</span>
+      <span class="product-desc">Learn together, grow together</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">📜</span>
+      <span class="product-name">Belge</span>
+      <span class="product-desc">Prove what you know</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">📕</span>
+      <span class="product-name">Kurdînama</span>
+      <span class="product-desc">The Kurdish encyclopedia</span>
+    </div>
+
+    <div class="product-card">
+      <span class="product-icon">🗣️</span>
+      <span class="product-name">Hevalê AI</span>
+      <span class="product-desc">Your AI friend who speaks Kurdish</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     BOTTOM NOTE
+     ============================================ -->
+<section class="products-note">
+  <p>Switch between apps from the header icon. Each app knows your level, your vocabulary, and your progress.</p>
+  <a href="P4-register.html" class="btn-primary">Hesabê xwe çêke — Bêlaş e</a>
+</section>
 
 <!-- ============================================
      FOOTER (shared component)

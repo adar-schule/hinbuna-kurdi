@@ -438,55 +438,84 @@
       transform: translateY(0);
     }
 
+    /* Carousel navigation — arrows + dots in one row */
+    .carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 20px 0 0;
+      position: relative;
+      z-index: 5;
+    }
+
     /* Arrows */
     .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       z-index: 5;
-      background: none;
+      background: rgba(255, 255, 255, 0.08);
       border: none;
       cursor: pointer;
-      padding: 12px;
+      padding: 8px 12px;
       color: var(--text-secondary);
-      opacity: 0.4;
-      transition: opacity 0.3s, color 0.3s, transform 0.3s;
-      font-size: 28px;
+      opacity: 0.6;
+      transition: opacity 0.3s, color 0.3s, transform 0.3s, background 0.3s;
+      font-size: 20px;
       line-height: 1;
+      border-radius: var(--radius-sm);
       -webkit-tap-highlight-color: transparent;
     }
 
     .carousel-arrow:hover {
       opacity: 1;
       color: var(--color-accent);
+      background: rgba(212, 168, 67, 0.1);
     }
 
     .carousel-arrow:active {
-      transform: translateY(-50%) scale(0.9);
+      transform: scale(0.9);
     }
-
-    .carousel-arrow--prev { left: 4px; }
-    .carousel-arrow--next { right: 4px; }
 
     @media (min-width: 768px) {
-      .carousel-arrow--prev { left: 12px; }
-      .carousel-arrow--next { right: 12px; }
-      .carousel-arrow { font-size: 32px; padding: 16px; }
+      .carousel-arrow { font-size: 24px; padding: 10px 14px; }
     }
 
-    @media (min-width: 1024px) {
-      .carousel-arrow--prev { left: 20px; }
-      .carousel-arrow--next { right: 20px; }
+    /* Play/Pause */
+    .carousel-playpause {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      transition: opacity 0.3s, color 0.3s, background 0.3s;
+      line-height: 1;
+      border-radius: var(--radius-sm);
+      -webkit-tap-highlight-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-playpause svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .carousel-playpause:hover {
+      opacity: 1;
+      color: var(--color-accent);
+      background: rgba(212, 168, 67, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      .carousel-playpause svg { width: 16px; height: 16px; }
     }
 
     /* Dots */
     .carousel-dots {
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 0;
-      padding: 20px 0 0;
-      position: relative;
-      z-index: 5;
     }
 
     .carousel-dot {
@@ -1811,112 +1840,69 @@
         </div>
       </div>
 
-      <!-- Slide 2: Ecosystem Overview -->
+      <!-- Slide 2: One Account -->
       <div class="hero-slide" data-slide="1">
         <div class="hero-content">
-          <div class="eco-icon-cluster">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3"/>
-              <circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/>
-              <circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/>
-              <line x1="6" y1="5.5" x2="9.5" y2="10"/><line x1="18" y1="5.5" x2="14.5" y2="10"/>
-              <line x1="6" y1="18.5" x2="9.5" y2="14"/><line x1="18" y1="18.5" x2="14.5" y2="14"/>
-            </svg>
+          <h2 class="hero-heading">Yek hesab — hemû app</h2>
+          <p class="hero-subtext">Create your account once. Learn Kurdish on Hinbûna, look up words on Ferheng, read stories on Çîrok, practice on Lîstik. Auto-login everywhere. Your progress and vocabulary follow you across all apps.</p>
+          <div class="hero-cta-group">
+            <a href="P4-register.html" class="btn-primary">Hesabê xwe çêke</a>
+            <div class="hero-notes">
+              <span class="hero-note">No credit card required</span>
+              <a href="P2-pricing.html" class="hero-note hero-link">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
+            </div>
           </div>
-          <h2 class="eco-heading">Yek hesab — hemû app</h2>
-          <p class="eco-subtext">Create your account once. Learn Kurdish on Hinbûna, look up words on Ferheng, read stories on Çîrok, practice on Lîstik. Auto-login everywhere. Your progress and vocabulary follow you across all apps.</p>
-          <a href="P4-register.html" class="btn-primary">Hesabê xwe çêke</a>
         </div>
       </div>
 
-      <!-- Slide 3: App Showcase -->
+      <!-- Slide 3: Discover the Ecosystem -->
       <div class="hero-slide" data-slide="2">
-        <div class="hero-content" style="max-width: 720px;">
-          <h2 class="eco-heading">Ekosîstema Hinbûna Kurdî</h2>
-          <div class="eco-app-grid">
-            <div class="eco-app-card eco-app-active">
-              <span class="eco-app-icon">🌟</span>
-              <span class="eco-app-name">Hinbûna Kurdî</span>
-              <span class="eco-app-desc">Your structured path to fluency</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">📖</span>
-              <span class="eco-app-name">Ferheng</span>
-              <span class="eco-app-desc">Your words, always with you</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">📚</span>
-              <span class="eco-app-name">Çîrokên Kurt</span>
-              <span class="eco-app-desc">Stories written just for you</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">🎮</span>
-              <span class="eco-app-name">Lîstika Kurdî</span>
-              <span class="eco-app-desc">Practice that knows your weak spots</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">🧠</span>
-              <span class="eco-app-name">Korpûsa Kurdî</span>
-              <span class="eco-app-desc">Shape the future of Kurdish AI</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">🔊</span>
-              <span class="eco-app-name">TTS Kurdî</span>
-              <span class="eco-app-desc">Hear any Kurdish text come alive</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">👥</span>
-              <span class="eco-app-name">Civat</span>
-              <span class="eco-app-desc">Learn together, grow together</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">📜</span>
-              <span class="eco-app-name">Belge</span>
-              <span class="eco-app-desc">Prove what you know</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">📕</span>
-              <span class="eco-app-name">Kurdînama</span>
-              <span class="eco-app-desc">The Kurdish encyclopedia</span>
-            </div>
-            <div class="eco-app-card">
-              <span class="eco-app-icon">🗣️</span>
-              <span class="eco-app-name">Hevalê AI</span>
-              <span class="eco-app-desc">Your AI friend who speaks Kurdish</span>
+        <div class="hero-content">
+          <h2 class="hero-heading">Ekosîstema Hinbûna Kurdî</h2>
+          <p class="hero-subtext">More than a course — a complete world for Kurdish. A dictionary that knows your level. Stories crafted for your vocabulary. Games that target what you need to practice. An AI companion you can talk to in Kurdish. 10 tools, one account, one mission.</p>
+          <div class="hero-cta-group">
+            <a href="P7-products.html" class="btn-primary">Hemû amûran bibîne</a>
+            <div class="hero-notes">
+              <span class="hero-note">No credit card required</span>
+              <a href="P2-pricing.html" class="hero-note hero-link">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
             </div>
           </div>
-          <p class="eco-subtext">Switch between apps from the header icon. Each app knows your level and progress.</p>
-          <a href="P4-register.html" class="btn-primary">Dest pê bike</a>
         </div>
       </div>
 
       <!-- Slide 4: AI Features -->
       <div class="hero-slide" data-slide="3">
         <div class="hero-content">
-          <div class="eco-icon-cluster eco-sparkle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z"/>
-              <circle cx="18" cy="5" r="1" fill="currentColor"/><circle cx="6" cy="19" r="1" fill="currentColor"/>
-            </svg>
+          <h2 class="hero-heading">Bi AI — ji bo te taybet</h2>
+          <p class="hero-subtext">AI that learns how you learn. It spots your weak points and builds exercises around them. It adapts to your pace, your mistakes, your progress. Every lesson gets smarter the more you practice. No two learners get the same path.</p>
+          <div class="hero-cta-group">
+            <a href="P4-register.html" class="btn-primary">Dest pê bike — Bêlaş e</a>
+            <div class="hero-notes">
+              <span class="hero-note">No credit card required</span>
+              <a href="P2-pricing.html" class="hero-note hero-link">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
+            </div>
           </div>
-          <h2 class="eco-heading">Bi AI — ji bo te taybet</h2>
-          <p class="eco-subtext">Open Ferheng — see vocabulary from your recent lessons. Read Çîrokên Kurt — stories written for your level. Play Lîstik — drills targeting your weak spots. Talk to Hevalê AI — practice conversation with AI characters. Contribute to Korpûsa Kurdî — help train Kurdish AI. All powered by AI, all personalized for you.</p>
-          <a href="P4-register.html" class="btn-primary">Dest pê bike — Bêlaş e</a>
         </div>
       </div>
 
     </div><!-- /.hero-slides -->
 
-    <!-- Navigation arrows -->
-    <button class="carousel-arrow carousel-arrow--prev" id="carousel-prev" aria-label="Previous slide">&#8249;</button>
-    <button class="carousel-arrow carousel-arrow--next" id="carousel-next" aria-label="Next slide">&#8250;</button>
-
-    <!-- Dot indicators -->
-    <div class="carousel-dots" id="carousel-dots">
-      <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
-      <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
-      <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
-      <button class="carousel-dot" data-dot="3" aria-label="Slide 4"></button>
+    <!-- Navigation: ‹ oo ⏸ oo › -->
+    <div class="carousel-nav">
+      <button class="carousel-arrow" id="carousel-prev" aria-label="Previous slide">&#8249;</button>
+      <div class="carousel-dots" id="carousel-dots">
+        <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+        <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+      </div>
+      <button class="carousel-playpause" id="carousel-playpause" aria-label="Pause autoplay">
+        <svg class="icon-pause" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="4" height="12" rx="1"/><rect x="9" y="2" width="4" height="12" rx="1"/></svg>
+        <svg class="icon-play" viewBox="0 0 16 16" fill="currentColor" style="display:none"><polygon points="3,2 14,8 3,14"/></svg>
+      </button>
+      <div class="carousel-dots">
+        <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
+        <button class="carousel-dot" data-dot="3" aria-label="Slide 4"></button>
+      </div>
+      <button class="carousel-arrow" id="carousel-next" aria-label="Next slide">&#8250;</button>
     </div>
   </div><!-- /.hero-carousel -->
 </section>
@@ -2774,9 +2760,11 @@
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
+  var isPaused = false;
+
   function startAuto() {
     stopAuto();
-    timer = setInterval(next, autoInterval);
+    if (!isPaused) timer = setInterval(next, autoInterval);
   }
 
   function stopAuto() {
@@ -2785,7 +2773,7 @@
 
   function resetAuto() {
     stopAuto();
-    startAuto();
+    if (!isPaused) startAuto();
   }
 
   // Arrow clicks
@@ -2826,9 +2814,29 @@
     if (e.key === 'ArrowRight') { next(); resetAuto(); }
   });
 
-  // Pause on hover (desktop)
-  carousel.addEventListener('mouseenter', stopAuto);
-  carousel.addEventListener('mouseleave', startAuto);
+  // Play/Pause button
+  var playPauseBtn = document.getElementById('carousel-playpause');
+  var iconPause = playPauseBtn.querySelector('.icon-pause');
+  var iconPlay = playPauseBtn.querySelector('.icon-play');
+
+  playPauseBtn.addEventListener('click', function() {
+    isPaused = !isPaused;
+    if (isPaused) {
+      stopAuto();
+      iconPause.style.display = 'none';
+      iconPlay.style.display = 'block';
+      playPauseBtn.setAttribute('aria-label', 'Resume autoplay');
+    } else {
+      startAuto();
+      iconPause.style.display = 'block';
+      iconPlay.style.display = 'none';
+      playPauseBtn.setAttribute('aria-label', 'Pause autoplay');
+    }
+  });
+
+  // Pause on hover (desktop) — only if not manually paused
+  carousel.addEventListener('mouseenter', function() { if (!isPaused) stopAuto(); });
+  carousel.addEventListener('mouseleave', function() { if (!isPaused) startAuto(); });
 
   // Start
   startAuto();
