@@ -411,7 +411,8 @@
     .hero-carousel {
       position: relative;
       width: 100%;
-      overflow: hidden;
+      overflow-x: clip;
+      overflow-y: visible;
     }
 
     .hero-slides {
@@ -548,6 +549,36 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-slides { transition: none; }
       .hero-slide .hero-content { transition: none; opacity: 1; transform: none; }
+    }
+
+    /* Mobile carousel: fade instead of slide to prevent overflow clipping */
+    @media (max-width: 767px) {
+      .hero-carousel {
+        overflow: visible;
+      }
+
+      .hero-slides {
+        display: grid;
+        transform: none !important;
+      }
+
+      .hero-slide {
+        grid-area: 1 / 1;
+        min-width: unset;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+      }
+
+      .hero-slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .hero-slide .hero-content {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     /* ============================================
@@ -1840,13 +1871,13 @@
         </div>
       </div>
 
-      <!-- Slide 2: One Account -->
+      <!-- Slide 2: Discover the Ecosystem -->
       <div class="hero-slide" data-slide="1">
         <div class="hero-content">
-          <h2 class="hero-heading">Yek hesab — hemû app</h2>
-          <p class="hero-subtext">Create your account once. Learn Kurdish on Hinbûna, look up words on Ferheng, read stories on Çîrok, practice on Lîstik. Auto-login everywhere. Your progress and vocabulary follow you across all apps.</p>
+          <h2 class="hero-heading">Ekosîstema Hinbûna Kurdî</h2>
+          <p class="hero-subtext">More than a course — a complete world for Kurdish. A dictionary that knows your level. Stories crafted for your vocabulary. Games that target what you need to practice. An AI companion you can talk to in Kurdish. 10 tools, one account, one mission.</p>
           <div class="hero-cta-group">
-            <a href="P4-register.html" class="btn-primary">Hesabê xwe çêke</a>
+            <a href="P7-products.html" class="btn-primary">Hemû amûran bibîne</a>
             <div class="hero-notes">
               <span class="hero-note">No credit card required</span>
               <a href="P2-pricing.html" class="hero-note hero-link">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
@@ -1855,13 +1886,13 @@
         </div>
       </div>
 
-      <!-- Slide 3: Discover the Ecosystem -->
+      <!-- Slide 3: One Account -->
       <div class="hero-slide" data-slide="2">
         <div class="hero-content">
-          <h2 class="hero-heading">Ekosîstema Hinbûna Kurdî</h2>
-          <p class="hero-subtext">More than a course — a complete world for Kurdish. A dictionary that knows your level. Stories crafted for your vocabulary. Games that target what you need to practice. An AI companion you can talk to in Kurdish. 10 tools, one account, one mission.</p>
+          <h2 class="hero-heading">Yek hesab — hemû app</h2>
+          <p class="hero-subtext">Create your account once. Learn Kurdish on Hinbûna, look up words on Ferheng, read stories on Çîrok, practice on Lîstik. Auto-login everywhere. Your progress and vocabulary follow you across all apps.</p>
           <div class="hero-cta-group">
-            <a href="P7-products.html" class="btn-primary">Hemû amûran bibîne</a>
+            <a href="P4-register.html" class="btn-primary">Hesabê xwe çêke</a>
             <div class="hero-notes">
               <span class="hero-note">No credit card required</span>
               <a href="P2-pricing.html" class="hero-note hero-link">Hemû planan bibîne <span class="hero-link-arrow">&rarr;</span></a>
