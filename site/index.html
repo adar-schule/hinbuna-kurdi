@@ -904,17 +904,17 @@
       <div class="progress-card">
         <div class="progress-header">
           <span class="progress-title">Overall Progress</span>
-          <span class="progress-count"><strong>11</strong> of 32 screens designed</span>
+          <span class="progress-count"><strong>20</strong> of 34 screens designed</span>
         </div>
-        <!-- Progress: 11 done (34.375%) + 0 in-progress -->
+        <!-- Progress: 20 done (58.8%) + 0 in-progress -->
         <div class="progress-bar-track">
-          <div class="progress-bar-done" style="width: 34.375%;"></div>
+          <div class="progress-bar-done" style="width: 58.8%;"></div>
           <div class="progress-bar-progress" style="width: 0%;"></div>
         </div>
         <div class="progress-stats">
           <div class="progress-stat">
             <span class="progress-stat-dot done"></span>
-            <span>11 Done</span>
+            <span>20 Done</span>
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot in-progress"></span>
@@ -922,7 +922,7 @@
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot pending"></span>
-            <span>21 Pending</span>
+            <span>14 Pending</span>
           </div>
         </div>
       </div>
@@ -1065,13 +1065,13 @@
       <button class="collapsible-toggle theme-section-header collapsed-indicator" onclick="toggleCollapse(this)">
         <div>
           <h2 class="theme-section-title">Page Tree</h2>
-          <p class="theme-section-subtitle">How the 6 public pages connect to each other</p>
+          <p class="theme-section-subtitle">How public + student pages connect to each other</p>
         </div>
         <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="collapsible-body collapsed">
         <div class="page-tree">
-          <svg viewBox="0 0 440 310" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 440 560" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <marker id="arr" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
                 <polygon points="0 0, 7 2.5, 0 5" fill="#D4A843"/>
@@ -1079,43 +1079,39 @@
               <marker id="arr-dim" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
                 <polygon points="0 0, 7 2.5, 0 5" fill="#8a7a5e"/>
               </marker>
+              <marker id="arr-blue" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+                <polygon points="0 0, 7 2.5, 0 5" fill="#4D9AAE"/>
+              </marker>
             </defs>
 
-            <!-- ── Lines (behind boxes) ── -->
+            <!-- ══════ PUBLIC SECTION ══════ -->
+            <text x="10" y="16" font-size="10" fill="#8a7a5e" font-weight="700" font-family="Inter, sans-serif" text-transform="uppercase" letter-spacing="1.5">PUBLIC</text>
 
-            <!-- P1 → P3 Login (header btn) -->
+            <!-- ── Lines (behind boxes) ── -->
             <path d="M160 62 L100 120" stroke="#D4A843" stroke-width="1.5" fill="none" marker-end="url(#arr)" opacity="0.65"/>
             <text x="112" y="90" font-size="8" fill="#D4A843" font-family="Inter, sans-serif" opacity="0.8">login btn</text>
 
-            <!-- P1 → P4 Register (CTAs) -->
             <path d="M220 68 L220 118" stroke="#D4A843" stroke-width="2" fill="none" marker-end="url(#arr)" opacity="0.8"/>
             <text x="236" y="98" font-size="8" fill="#D4A843" font-family="Inter, sans-serif" opacity="0.85">4 CTAs</text>
 
-            <!-- P1 → P6 About (footer) -->
             <path d="M280 62 L350 120" stroke="#8a7a5e" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-dim)" opacity="0.5"/>
             <text x="330" y="88" font-size="8" fill="#8a7a5e" font-family="Inter, sans-serif" opacity="0.7">footer</text>
 
-            <!-- P3 ↔ P4 (bidirectional) -->
             <line x1="148" y1="138" x2="172" y2="138" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
             <line x1="172" y1="144" x2="148" y2="144" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arr)" opacity="0.4"/>
 
-            <!-- P3 → P5 Forgot -->
             <path d="M88 158 L88 210" stroke="#D4A843" stroke-width="1.5" fill="none" marker-end="url(#arr)" opacity="0.55"/>
             <text x="96" y="190" font-size="8" fill="#D4A843" font-family="Inter, sans-serif" opacity="0.7">forgot?</text>
 
-            <!-- P5 → P3 back -->
             <path d="M108 214 L108 162" stroke="#8a7a5e" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-dim)" opacity="0.35"/>
 
-            <!-- P2 → P4 (plan CTAs) -->
             <path d="M88 270 L180 158" stroke="#D4A843" stroke-width="1.5" fill="none" marker-end="url(#arr)" opacity="0.55"/>
             <text x="116" y="220" font-size="8" fill="#D4A843" font-family="Inter, sans-serif" opacity="0.7">3 CTAs</text>
 
-            <!-- ── Page boxes ── -->
-
-            <!-- P1 Landing — HOME (top center, golden, largest) -->
-            <rect x="130" y="20" width="180" height="48" rx="10" fill="#D4A843"/>
-            <text x="220" y="44" text-anchor="middle" font-size="15" fill="#1A2A1F" font-weight="800" font-family="Nunito, sans-serif">P1 Landing</text>
-            <text x="220" y="58" text-anchor="middle" font-size="9" fill="#5d4e27" font-weight="600" font-family="Inter, sans-serif">HOME</text>
+            <!-- P1 Landing -->
+            <rect x="130" y="26" width="180" height="48" rx="10" fill="#D4A843"/>
+            <text x="220" y="50" text-anchor="middle" font-size="15" fill="#1A2A1F" font-weight="800" font-family="Nunito, sans-serif">P1 Landing</text>
+            <text x="220" y="64" text-anchor="middle" font-size="9" fill="#5d4e27" font-weight="600" font-family="Inter, sans-serif">HOME</text>
 
             <!-- P3 Login -->
             <rect x="30" y="122" width="118" height="36" rx="8" fill="#2D5A3D"/>
@@ -1130,6 +1126,10 @@
             <rect x="330" y="122" width="96" height="36" rx="8" fill="#3a5a47" opacity="0.75"/>
             <text x="378" y="145" text-anchor="middle" font-size="12" fill="#c8d5cc" font-weight="600" font-family="Nunito, sans-serif">P6 About</text>
 
+            <!-- P7 Products -->
+            <rect x="330" y="170" width="96" height="36" rx="8" fill="#3a5a47" opacity="0.75"/>
+            <text x="378" y="193" text-anchor="middle" font-size="12" fill="#c8d5cc" font-weight="600" font-family="Nunito, sans-serif">P7 Products</text>
+
             <!-- P5 Forgot -->
             <rect x="38" y="214" width="110" height="32" rx="7" fill="#3a5a47" opacity="0.7"/>
             <text x="93" y="235" text-anchor="middle" font-size="11" fill="#c8d5cc" font-weight="600" font-family="Nunito, sans-serif">P5 Forgot</text>
@@ -1137,6 +1137,77 @@
             <!-- P2 Pricing -->
             <rect x="30" y="270" width="118" height="36" rx="8" fill="#2D5A3D"/>
             <text x="89" y="293" text-anchor="middle" font-size="12" fill="#FDF8F3" font-weight="700" font-family="Nunito, sans-serif">P2 Pricing</text>
+
+            <!-- Onboarding -->
+            <rect x="174" y="175" width="132" height="32" rx="7" fill="#3a5a47" opacity="0.7"/>
+            <text x="240" y="196" text-anchor="middle" font-size="11" fill="#c8d5cc" font-weight="600" font-family="Nunito, sans-serif">Onboarding</text>
+
+            <!-- P4 → Onboarding -->
+            <path d="M240 160 L240 173" stroke="#D4A843" stroke-width="1.5" fill="none" marker-end="url(#arr)" opacity="0.55"/>
+
+            <!-- ══════ DIVIDER ══════ -->
+            <line x1="0" y1="320" x2="440" y2="320" stroke="#2F4F3A" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+            <text x="10" y="340" font-size="10" fill="#4D9AAE" font-weight="700" font-family="Inter, sans-serif" letter-spacing="1.5">STUDENT</text>
+
+            <!-- ── Student flow lines ── -->
+            <!-- S1 → S2 -->
+            <path d="M90 390 L90 410" stroke="#4D9AAE" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)" opacity="0.7"/>
+            <!-- S2 → S3 -->
+            <path d="M90 440 L90 460" stroke="#4D9AAE" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)" opacity="0.7"/>
+            <!-- S3 → S4 → S5 → S6 -->
+            <path d="M148 478 L175 478" stroke="#4D9AAE" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)" opacity="0.7"/>
+            <path d="M275 478 L302 478" stroke="#4D9AAE" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)" opacity="0.7"/>
+            <path d="M385 490 L385 510" stroke="#4D9AAE" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)" opacity="0.7"/>
+
+            <!-- S1 → S9 (hamburger) -->
+            <path d="M148 375 L250 375" stroke="#8a7a5e" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-dim)" opacity="0.4"/>
+            <text x="170" y="370" font-size="7" fill="#8a7a5e" font-family="Inter, sans-serif" opacity="0.6">menu</text>
+
+            <!-- S9 → S11, S12 -->
+            <path d="M330 375 L370 410" stroke="#8a7a5e" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-dim)" opacity="0.4"/>
+            <path d="M330 375 L410 410" stroke="#8a7a5e" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-dim)" opacity="0.4"/>
+
+            <!-- ── Student boxes ── -->
+            <!-- S1 Dashboard -->
+            <rect x="30" y="355" width="118" height="36" rx="8" fill="#1565c0" opacity="0.9"/>
+            <text x="89" y="378" text-anchor="middle" font-size="12" fill="#FDF8F3" font-weight="700" font-family="Nunito, sans-serif">S1 Dashboard</text>
+
+            <!-- S9 Profile -->
+            <rect x="255" y="358" width="75" height="30" rx="7" fill="#1565c0" opacity="0.65"/>
+            <text x="292" y="378" text-anchor="middle" font-size="10" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">S9 Profile</text>
+
+            <!-- S10 Settings -->
+            <rect x="255" y="395" width="75" height="26" rx="6" fill="#1565c0" opacity="0.45"/>
+            <text x="292" y="413" text-anchor="middle" font-size="9" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">S10 Settings</text>
+
+            <!-- S11 Achievements -->
+            <rect x="340" y="410" width="90" height="26" rx="6" fill="#1565c0" opacity="0.45"/>
+            <text x="385" y="427" text-anchor="middle" font-size="8" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">S11 Badges</text>
+
+            <!-- S12 Leaderboard -->
+            <rect x="340" y="440" width="90" height="26" rx="6" fill="#1565c0" opacity="0.45"/>
+            <text x="385" y="457" text-anchor="middle" font-size="8" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">S12 Board</text>
+
+            <!-- S2 Courses -->
+            <rect x="30" y="410" width="118" height="30" rx="7" fill="#1565c0" opacity="0.8"/>
+            <text x="89" y="430" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="700" font-family="Nunito, sans-serif">S2 Courses</text>
+
+            <!-- S3 Module -->
+            <rect x="30" y="460" width="118" height="30" rx="7" fill="#1565c0" opacity="0.7"/>
+            <text x="89" y="480" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">S3 Module</text>
+
+            <!-- S4 Unit -->
+            <rect x="175" y="462" width="100" height="30" rx="7" fill="#1565c0" opacity="0.7"/>
+            <text x="225" y="482" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">S4 Unit</text>
+
+            <!-- S5 Lesson -->
+            <rect x="302" y="462" width="100" height="30" rx="7" fill="#1565c0" opacity="0.7"/>
+            <text x="352" y="482" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">S5 Lesson</text>
+
+            <!-- S6 Player (with S7+S8) -->
+            <rect x="302" y="514" width="130" height="40" rx="8" fill="#1565c0" opacity="0.9"/>
+            <text x="367" y="533" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="700" font-family="Nunito, sans-serif">S6 Player</text>
+            <text x="367" y="546" text-anchor="middle" font-size="8" fill="#90caf9" font-family="Inter, sans-serif">incl. S7 + S8</text>
 
           </svg>
         </div>
@@ -1155,7 +1226,7 @@
           <h2 class="role-title">Public</h2>
           <span class="role-subtitle">Unauthenticated pages</span>
         </div>
-        <span class="role-done-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>6/6 Done</span>
+        <span class="role-done-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>8/8 Done</span>
         <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="collapsible-body collapsed">
@@ -1251,6 +1322,36 @@
           </div>
         </div>
 
+        <!-- P7. Products (Side Apps) -->
+        <div class="screen-card">
+          <div class="screen-card-top">
+            <span class="screen-name">P7. Products</span>
+            <span class="badge badge-p2">P2</span>
+          </div>
+          <p class="screen-description">Side apps ecosystem — Dictionary, Stories, Grammar, TTS, Corpus</p>
+          <div class="screen-card-bottom">
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
+            <div class="screen-links">
+              <a href="P7-products.html" class="screen-link screen-link-light">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Onboarding -->
+        <div class="screen-card">
+          <div class="screen-card-top">
+            <span class="screen-name">Onboarding</span>
+            <span class="badge badge-p1">P1</span>
+          </div>
+          <p class="screen-description">First-time user setup — language, goals, experience level</p>
+          <div class="screen-card-bottom">
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
+            <div class="screen-links">
+              <a href="onboarding.html" class="screen-link screen-link-light">View</a>
+            </div>
+          </div>
+        </div>
+
       </div>
       </div><!-- /collapsible-body -->
     </section>
@@ -1267,7 +1368,7 @@
           <h2 class="role-title">Student</h2>
           <span class="role-subtitle">Authenticated learner</span>
         </div>
-        <span class="role-count">5/12 screens</span>
+        <span class="role-done-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>12/12 Done</span>
         <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="collapsible-body">
@@ -1399,11 +1500,11 @@
             <span class="screen-name">S9. Profile</span>
             <span class="badge badge-p1">P1</span>
           </div>
-          <p class="screen-description">User info, learning stats, achievements overview</p>
+          <p class="screen-description">Stats grid, course progress, recent activity, words learned, links to S11/S12</p>
           <div class="screen-card-bottom">
-            <span class="status status-pending"><span class="status-dot"></span>Pending</span>
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
             <div class="screen-links">
-              <a href="S9-profile.html" class="screen-link screen-link-light disabled">View</a>
+              <a href="S9-profile.html" class="screen-link screen-link-light">View</a>
             </div>
           </div>
         </div>
@@ -1416,9 +1517,9 @@
           </div>
           <p class="screen-description">Language, theme, notifications, accessibility</p>
           <div class="screen-card-bottom">
-            <span class="status status-pending"><span class="status-dot"></span>Pending</span>
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
             <div class="screen-links">
-              <a href="S10-settings.html" class="screen-link screen-link-light disabled">View</a>
+              <a href="S10-settings.html" class="screen-link screen-link-light">View</a>
             </div>
           </div>
         </div>
@@ -1429,11 +1530,11 @@
             <span class="screen-name">S11. Achievements</span>
             <span class="badge badge-p2">P2</span>
           </div>
-          <p class="screen-description">Badge collection, progress milestones, rewards</p>
+          <p class="screen-description">Milestone badges — earned & locked, Kurdish badge names, summary bar</p>
           <div class="screen-card-bottom">
-            <span class="status status-pending"><span class="status-dot"></span>Pending</span>
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
             <div class="screen-links">
-              <a href="S11-achievements.html" class="screen-link screen-link-light disabled">View</a>
+              <a href="S11-achievements.html" class="screen-link screen-link-light">View</a>
             </div>
           </div>
         </div>
@@ -1444,11 +1545,11 @@
             <span class="screen-name">S12. Leaderboard</span>
             <span class="badge badge-p2">P2</span>
           </div>
-          <p class="screen-description">Weekly/monthly rankings, position, XP comparison</p>
+          <p class="screen-description">Weekly/monthly rankings with tab toggle, your rank card, top 15 entries</p>
           <div class="screen-card-bottom">
-            <span class="status status-pending"><span class="status-dot"></span>Pending</span>
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
             <div class="screen-links">
-              <a href="S12-leaderboard.html" class="screen-link screen-link-light disabled">View</a>
+              <a href="S12-leaderboard.html" class="screen-link screen-link-light">View</a>
             </div>
           </div>
         </div>
