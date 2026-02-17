@@ -906,15 +906,15 @@
           <span class="progress-title">Overall Progress</span>
           <span class="progress-count"><strong>20</strong> of 34 screens designed</span>
         </div>
-        <!-- Progress: 20 done (58.8%) + 0 in-progress -->
+        <!-- Progress: 21 done (61.8%) + 0 in-progress -->
         <div class="progress-bar-track">
-          <div class="progress-bar-done" style="width: 58.8%;"></div>
+          <div class="progress-bar-done" style="width: 61.8%;"></div>
           <div class="progress-bar-progress" style="width: 0%;"></div>
         </div>
         <div class="progress-stats">
           <div class="progress-stat">
             <span class="progress-stat-dot done"></span>
-            <span>20 Done</span>
+            <span>21 Done</span>
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot in-progress"></span>
@@ -922,7 +922,7 @@
           </div>
           <div class="progress-stat">
             <span class="progress-stat-dot pending"></span>
-            <span>14 Pending</span>
+            <span>13 Pending</span>
           </div>
         </div>
       </div>
@@ -1360,7 +1360,7 @@
          STUDENT SCREENS (S1–S12)
          ============================================================ -->
     <section class="role-section container fade-in fade-in-delay-3" id="student">
-      <button class="collapsible-toggle role-header" onclick="toggleCollapse(this)">
+      <button class="collapsible-toggle role-header collapsed-indicator" onclick="toggleCollapse(this)">
         <div class="role-icon student">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
@@ -1371,7 +1371,7 @@
         <span class="role-done-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>12/12 Done</span>
         <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="collapsible-body">
+      <div class="collapsible-body collapsed">
       <div class="screen-grid">
 
         <!-- S1. Dashboard -->
@@ -1562,7 +1562,7 @@
          TEACHER SCREENS (T1–T8)
          ============================================================ -->
     <section class="role-section container fade-in fade-in-delay-4" id="teacher">
-      <button class="collapsible-toggle role-header collapsed-indicator" onclick="toggleCollapse(this)">
+      <button class="collapsible-toggle role-header" onclick="toggleCollapse(this)">
         <div class="role-icon teacher">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
@@ -1573,7 +1573,7 @@
         <span class="role-count">8 screens</span>
         <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="collapsible-body collapsed">
+      <div class="collapsible-body">
       <div class="screen-grid">
 
         <!-- T1. Content Dashboard -->
@@ -1584,9 +1584,9 @@
           </div>
           <p class="screen-description">Overview of all content, KPIs, recent activity</p>
           <div class="screen-card-bottom">
-            <span class="status status-pending"><span class="status-dot"></span>Pending</span>
+            <span class="status status-done"><span class="status-dot"></span>Done</span>
             <div class="screen-links">
-              <a href="T1-content-dashboard.html" class="screen-link screen-link-light disabled">View</a>
+              <a href="T1-teacher-dashboard.html" class="screen-link screen-link-light">View</a>
             </div>
           </div>
         </div>

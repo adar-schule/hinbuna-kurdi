@@ -108,6 +108,21 @@ All grays have a green/warm tint to match the forest palette. No cold blue-grays
 - **Right (3 icons):** Language globe icon | Sun/Moon mode toggle icon | Hamburger menu icon (3 lines)
 - All icons: clean, modern, monochrome
 
+### "Back to Gallery" Button (Dev Utility)
+
+The back-arrow button next to the logo links to the Design Gallery (`index.html`).
+It is a **dev-only** shortcut — NOT repeated on every page.
+
+**Where it appears:**
+- P1 Landing Page (public entry point)
+- S1 Student Dashboard (student entry point)
+- T1 Teacher Dashboard (teacher entry point — when built)
+- A1 Admin Dashboard (admin entry point — when built)
+
+**Where it does NOT appear:**
+- Sub-pages within a role (P2–P7, S2–S12, T2–T8, A2–A6)
+- These pages already have breadcrumb or back navigation to their role's dashboard
+
 ### Language Picker
 
 - NOT inline pills — too many languages (8+)

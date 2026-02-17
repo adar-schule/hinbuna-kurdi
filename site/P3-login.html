@@ -518,6 +518,41 @@
     }
 
     /* ============================================
+       TEACHER DEMO LINK
+       ============================================ */
+    .teacher-demo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--border);
+      transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      width: 100%;
+    }
+
+    .teacher-demo-link:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+      background-color: rgba(212, 168, 67, 0.04);
+    }
+
+    [data-theme="dark"] .teacher-demo-link:hover {
+      background-color: rgba(212, 168, 67, 0.08);
+    }
+
+    .teacher-demo-link svg {
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    /* ============================================
        RESPONSIVE
        ============================================ */
     @media (max-width: 480px) {
@@ -552,7 +587,7 @@
   <!-- ============================================
        HEADER (shared component)
        ============================================ -->
-  <div id="shared-header" data-page-type="public" data-show-lang="true" data-show-login="false" data-show-theme="true" data-show-gallery="true"></div>
+  <div id="shared-header" data-page-type="public" data-show-lang="true" data-show-login="false" data-show-theme="true"></div>
 
   <!-- ============================================
        AUTH PAGE
@@ -668,6 +703,12 @@
       <p class="auth-footer-text anim-delay-7">
         Hesabê te tune? <a href="P4-register.html">Hesabek çêke</a>
       </p>
+
+      <!-- Teacher Demo Link -->
+      <a href="T1-teacher-dashboard.html" class="teacher-demo-link anim-delay-7">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Wek Mamoste têkeve
+      </a>
 
     </div>
   </main>
