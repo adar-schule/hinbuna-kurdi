@@ -108,11 +108,12 @@
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 28px;
     }
 
-    @media (min-width: 768px) { .container { padding: 0 40px; } }
-    @media (min-width: 1024px) { .container { padding: 0 60px; } }
+    @media (min-width: 600px) { .container { padding: 0 36px; } }
+    @media (min-width: 768px) { .container { padding: 0 48px; } }
+    @media (min-width: 1024px) { .container { padding: 0 64px; } }
 
     /* ============================================
        SCROLL ANIMATIONS
@@ -183,10 +184,12 @@
     .support-hero {
       position: relative;
       text-align: center;
-      padding: 56px 20px 48px;
+      padding: 56px 28px 48px;
       overflow: hidden;
       background-color: var(--bg-surface);
     }
+
+    @media (min-width: 600px) { .support-hero { padding: 56px 36px 48px; } }
 
     .support-hero::before {
       content: '';
@@ -265,6 +268,8 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 20px;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .hero-context-card h3 {
@@ -380,41 +385,50 @@
        2. MISSION — Key Facts
        ============================================ */
     .mission-section {
-      padding: 64px 0;
+      padding-top: 64px;
+      padding-bottom: 64px;
       border-bottom: 1px solid var(--border);
     }
 
     .fact-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
 
-    @media (min-width: 600px) { .fact-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
-    @media (min-width: 900px) { .fact-grid { grid-template-columns: repeat(6, 1fr); } }
+    @media (min-width: 600px) { .fact-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+    @media (min-width: 900px) { .fact-grid { grid-template-columns: repeat(6, 1fr); gap: 16px; } }
 
     .fact-card {
       background-color: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 20px 16px;
+      padding: 16px 12px;
       text-align: center;
+      min-width: 0;
+      overflow: hidden;
     }
+
+    @media (min-width: 600px) { .fact-card { padding: 20px 16px; } }
 
     .fact-value {
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 22px;
+      font-size: 18px;
       color: var(--color-accent);
       line-height: 1.2;
       margin-bottom: 4px;
     }
 
+    @media (min-width: 600px) { .fact-value { font-size: 22px; } }
+
     .fact-label {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-secondary);
       line-height: 1.4;
     }
+
+    @media (min-width: 600px) { .fact-label { font-size: 12px; } }
 
     .mission-opportunity {
       margin-top: 32px;
@@ -439,7 +453,8 @@
        3. TRANSPARENCY — How Money Is Used
        ============================================ */
     .transparency-section {
-      padding: 64px 0;
+      padding-top: 64px;
+      padding-bottom: 64px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -512,20 +527,22 @@
       margin-top: 28px;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .not-spend-item {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-secondary);
       background-color: var(--bg-surface);
       border: 1px solid var(--border);
-      padding: 8px 14px;
+      padding: 8px 12px;
       border-radius: 20px;
     }
+
+    @media (min-width: 600px) { .not-spend-item { font-size: 13px; padding: 8px 14px; } }
 
     .not-spend-item svg {
       width: 14px;
@@ -538,7 +555,7 @@
        4. PATH TOGGLE — Support vs Invest
        ============================================ */
     .path-toggle-section {
-      padding: 48px 0 0;
+      padding-top: 48px;
     }
 
     .path-toggle {
@@ -549,7 +566,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       padding: 4px;
-      max-width: 400px;
+      max-width: 440px;
       margin: 0 auto 48px;
     }
 
@@ -583,6 +600,430 @@
     .path-panel.active { display: block; }
 
     /* ============================================
+       4b. FOUNDERS ROADMAP
+       ============================================ */
+    .founders-section {
+      padding-bottom: 64px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .founders-private-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #DC4545;
+      background-color: rgba(220, 69, 69, 0.1);
+      border: 1px solid rgba(220, 69, 69, 0.25);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .founders-private-badge svg {
+      width: 14px;
+      height: 14px;
+      stroke: #DC4545;
+      flex-shrink: 0;
+    }
+
+    /* Funding Thermometer */
+    .funding-thermometer {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .thermo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .thermo-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-primary);
+    }
+
+    .thermo-amount {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--color-accent);
+    }
+
+    .thermo-bar {
+      width: 100%;
+      height: 20px;
+      background-color: var(--bg-page);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .thermo-fill {
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      transition: width 1s ease;
+    }
+
+    .thermo-segment {
+      height: 100%;
+      position: relative;
+    }
+
+    .thermo-segment:first-child { border-radius: 10px 0 0 10px; }
+    .thermo-segment:last-child { border-radius: 0 10px 10px 0; }
+
+    .thermo-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .thermo-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .thermo-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Roadmap Timeline */
+    .roadmap-timeline {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 32px;
+    }
+
+    .roadmap-timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-primary), var(--border));
+    }
+
+    .roadmap-step {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .roadmap-step:last-child { margin-bottom: 0; }
+
+    .roadmap-dot {
+      position: absolute;
+      left: -24px;
+      top: 3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 3px solid var(--color-accent);
+      background-color: var(--bg-page);
+      z-index: 1;
+    }
+
+    .roadmap-step.decision .roadmap-dot {
+      border-color: #DC4545;
+      background-color: #DC4545;
+    }
+
+    .roadmap-step.milestone .roadmap-dot {
+      border-color: var(--color-success);
+      background-color: var(--color-success);
+    }
+
+    .roadmap-step-period {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--color-accent);
+      margin-bottom: 2px;
+    }
+
+    .roadmap-step.decision .roadmap-step-period { color: #DC4545; }
+    .roadmap-step.milestone .roadmap-step-period { color: var(--color-success); }
+
+    .roadmap-step-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .roadmap-step-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .roadmap-step-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 6px;
+    }
+
+    .roadmap-step-tag.critical {
+      background-color: rgba(220, 69, 69, 0.15);
+      color: #DC4545;
+    }
+
+    .roadmap-step-tag.go {
+      background-color: rgba(45, 138, 78, 0.15);
+      color: var(--color-success);
+    }
+
+    /* Cost Breakdown Chart */
+    .cost-breakdown {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .cost-breakdown-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+
+    .cost-bar-item {
+      margin-bottom: 14px;
+    }
+
+    .cost-bar-item:last-child { margin-bottom: 0; }
+
+    .cost-bar-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .cost-bar-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .cost-bar-value {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--color-accent);
+    }
+
+    .cost-bar-track {
+      width: 100%;
+      height: 8px;
+      background-color: var(--bg-page);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .cost-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.8s ease;
+    }
+
+    /* Decision Cards */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 600px) { .decision-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .decision-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .decision-card-signal {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .decision-card-condition {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .decision-card-action {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .decision-card.green { border-color: var(--color-success); }
+    .decision-card.yellow { border-color: var(--color-accent); }
+    .decision-card.red { border-color: #DC4545; }
+
+    /* Revenue Milestone Bars */
+    .revenue-milestones {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .revenue-milestones-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+
+    .rev-milestone {
+      margin-bottom: 16px;
+    }
+
+    .rev-milestone:last-child { margin-bottom: 0; }
+
+    .rev-milestone-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .rev-milestone-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .rev-milestone-value {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .rev-milestone-bar {
+      width: 100%;
+      height: 24px;
+      background-color: var(--bg-page);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .rev-milestone-fill {
+      height: 100%;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1A2A1F;
+      transition: width 1s ease;
+    }
+
+    /* Founders Checklist */
+    .founders-checklist {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .founders-checklist-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .checklist-group {
+      margin-bottom: 20px;
+    }
+
+    .checklist-group:last-child { margin-bottom: 0; }
+
+    .checklist-group-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .checklist-item:last-child { border-bottom: none; }
+
+    .checklist-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .checklist-item-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .checklist-item-text strong {
+      color: var(--text-primary);
+    }
+
+    /* ============================================
        5. SUPPORT PATH — Tiers
        ============================================ */
     .support-section {
@@ -607,6 +1048,7 @@
       display: flex;
       flex-direction: column;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      min-width: 0;
     }
 
     .tier-card:hover {
@@ -886,7 +1328,8 @@
        7. TEAM
        ============================================ */
     .team-section {
-      padding: 64px 0;
+      padding-top: 64px;
+      padding-bottom: 64px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -965,7 +1408,8 @@
        8. FAQ
        ============================================ */
     .faq-section {
-      padding: 64px 0;
+      padding-top: 64px;
+      padding-bottom: 64px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -1071,7 +1515,8 @@
        9. CONTACT / NEXT STEPS
        ============================================ */
     .contact-section {
-      padding: 64px 0;
+      padding-top: 64px;
+      padding-bottom: 64px;
     }
 
     .contact-grid {
@@ -1113,6 +1558,134 @@
     }
 
     .contact-card .btn { font-size: 13px; padding: 10px 24px; }
+
+    /* ============================================
+       PASSWORD MODAL
+       ============================================ */
+    .pass-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pass-overlay.visible {
+      display: flex;
+    }
+
+    .pass-modal {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .pass-modal-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      background-color: rgba(212, 168, 67, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pass-modal-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-accent);
+    }
+
+    .pass-modal h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .pass-modal p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .pass-input-wrap {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .pass-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .pass-input:focus {
+      border-color: var(--color-accent);
+    }
+
+    .pass-input.error {
+      border-color: #DC4545;
+      animation: passShake 0.4s ease;
+    }
+
+    @keyframes passShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    .pass-error-msg {
+      font-size: 12px;
+      color: #DC4545;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    .pass-error-msg.visible {
+      display: block;
+    }
+
+    .pass-btn-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pass-btn-row .btn {
+      flex: 1;
+      justify-content: center;
+      font-size: 13px;
+      padding: 10px 16px;
+    }
+
+    .btn-ghost {
+      background: none;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-primary);
+      border-color: var(--text-secondary);
+    }
   </style>
 </head>
 <body>
@@ -1124,6 +1697,25 @@
 
 <main>
 
+<!-- Password Modal -->
+<div class="pass-overlay" id="passOverlay">
+  <div class="pass-modal">
+    <div class="pass-modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <h3>Founders Only</h3>
+    <p>This section is private. Enter the access code.</p>
+    <div class="pass-input-wrap">
+      <input type="password" class="pass-input" id="passInput" placeholder="Access code" autocomplete="off">
+    </div>
+    <div class="pass-error-msg" id="passError">Wrong code. Try again.</div>
+    <div class="pass-btn-row">
+      <button class="btn btn-ghost" onclick="closePassModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitPass()">Enter</button>
+    </div>
+  </div>
+</div>
+
   <!-- ==========================================
      1. HERO
      ========================================== -->
@@ -1131,14 +1723,14 @@
     <div class="support-hero-content">
       <h1 class="support-hero-heading">Support & Invest in Kurdish Education</h1>
       <p class="support-hero-subtext">
-        HinbûnaKurdî is building the first dedicated Kurmanji Kurdish language learning app. No major platform &mdash; not Duolingo, not Babbel, not Rosetta Stone &mdash; offers Kurdish. We are changing that.
+        HinbûnaKurdî is building the first dedicated Kurdish language learning app. No major platform &mdash; not Duolingo, not Babbel, not Rosetta Stone &mdash; offers Kurdish. We are changing that.
       </p>
 
       <div class="hero-context">
         <div class="hero-context-card problem">
           <h3>The Problem</h3>
           <ul>
-            <li>15&ndash;20 million Kurmanji speakers worldwide</li>
+            <li>30&ndash;45 million Kurdish speakers worldwide</li>
             <li>1.5&ndash;2 million Kurds in Europe losing their language</li>
             <li>Zero serious digital tools to learn Kurdish</li>
             <li>A language without digital presence risks disappearing</li>
@@ -1147,10 +1739,10 @@
         <div class="hero-context-card solution">
           <h3>The Solution</h3>
           <ul>
-            <li>Complete Kurmanji learning app: A1 to B2</li>
+            <li>Complete Kurdish learning app: A1 to B2</li>
+            <li>Kurmanji first, Sorani and other dialects to follow</li>
             <li>Built by a Kurdish teacher + senior engineer</li>
-            <li>Affordable pricing with regional options</li>
-            <li>Ecosystem ready: more dialects, more apps</li>
+            <li>Affordable pricing, ecosystem ready for more apps</li>
           </ul>
         </div>
       </div>
@@ -1178,11 +1770,11 @@
 
     <div class="fact-grid">
       <div class="fact-card fade-up fade-up-d1">
-        <div class="fact-value">15&ndash;20M</div>
-        <div class="fact-label">Kurmanji speakers worldwide</div>
+        <div class="fact-value">30&ndash;45M</div>
+        <div class="fact-label">Kurdish speakers worldwide</div>
       </div>
       <div class="fact-card fade-up fade-up-d2">
-        <div class="fact-value">1.5&ndash;2M</div>
+        <div class="fact-value">2&ndash;3M</div>
         <div class="fact-label">Kurdish diaspora in Europe</div>
       </div>
       <div class="fact-card fade-up fade-up-d3">
@@ -1236,7 +1828,7 @@
           <div class="cost-card-title">Content Creation</div>
         </div>
         <div class="cost-card-amount">Included in partnership</div>
-        <div class="cost-card-desc">Kurmanji course content A1&ndash;B2 by qualified Kurdish teacher</div>
+        <div class="cost-card-desc">Kurdish course content A1&ndash;B2, starting with Kurmanji</div>
       </div>
 
       <div class="cost-card fade-up fade-up-d3">
@@ -1307,6 +1899,313 @@
     <div class="path-toggle">
       <button class="path-toggle-btn active" data-path="support" onclick="switchPath('support')">Support</button>
       <button class="path-toggle-btn" data-path="invest" onclick="switchPath('invest')">Invest</button>
+      <button class="path-toggle-btn" data-path="founders" onclick="requestFoundersAccess()">Founders</button>
+    </div>
+
+    <!-- ==========================================
+       4b. FOUNDERS ROADMAP (Private)
+       ========================================== -->
+    <div class="path-panel" id="founders">
+      <div class="founders-section">
+        <div class="founders-private-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Private — Founders Only
+        </div>
+        <p class="section-eyebrow">Founders Roadmap</p>
+        <h2 class="section-heading">Our Plan — Armanc &amp; Mamoste</h2>
+        <p class="section-subtext">This is our personal guide. The real numbers, the real decisions, and the steps we need to take together. Everything here is between us.</p>
+
+        <!-- Funding Thermometer -->
+        <div class="funding-thermometer fade-up">
+          <div class="thermo-header">
+            <span class="thermo-title">Year 1 Funding Target</span>
+            <span class="thermo-amount">&euro;82,000</span>
+          </div>
+          <div class="thermo-bar">
+            <div class="thermo-fill" style="width: 100%;">
+              <div class="thermo-segment" style="width: 45%; background-color: #D4A843;"></div>
+              <div class="thermo-segment" style="width: 18%; background-color: #2D8A4E;"></div>
+              <div class="thermo-segment" style="width: 30%; background-color: #3B7A8A;"></div>
+              <div class="thermo-segment" style="width: 7%; background-color: var(--text-secondary);"></div>
+            </div>
+          </div>
+          <div class="thermo-legend">
+            <div class="thermo-legend-item"><span class="thermo-legend-dot" style="background:#D4A843;"></span> Inner Circle &euro;15K&ndash;60K</div>
+            <div class="thermo-legend-item"><span class="thermo-legend-dot" style="background:#2D8A4E;"></span> Businesses &euro;5K&ndash;20K</div>
+            <div class="thermo-legend-item"><span class="thermo-legend-dot" style="background:#3B7A8A;"></span> Institutions &euro;10K&ndash;50K</div>
+            <div class="thermo-legend-item"><span class="thermo-legend-dot" style="background:var(--text-secondary);"></span> Community &euro;0&ndash;5K</div>
+          </div>
+        </div>
+
+        <!-- Monthly Cost Breakdown -->
+        <div class="cost-breakdown fade-up">
+          <div class="cost-breakdown-title">Monthly Burn Rate — Where the Money Goes</div>
+          <div class="cost-bar-item">
+            <div class="cost-bar-label">
+              <span class="cost-bar-name">Armanc Salary (net &euro;3,500 + tax/insurance)</span>
+              <span class="cost-bar-value">&euro;5,700/mo</span>
+            </div>
+            <div class="cost-bar-track">
+              <div class="cost-bar-fill" style="width: 83%; background-color: #D4A843;"></div>
+            </div>
+          </div>
+          <div class="cost-bar-item">
+            <div class="cost-bar-label">
+              <span class="cost-bar-name">Mamoste Salary</span>
+              <span class="cost-bar-value">&euro;0 (Year 1)</span>
+            </div>
+            <div class="cost-bar-track">
+              <div class="cost-bar-fill" style="width: 0%; background-color: var(--color-success);"></div>
+            </div>
+          </div>
+          <div class="cost-bar-item">
+            <div class="cost-bar-label">
+              <span class="cost-bar-name">Servers &amp; Tools</span>
+              <span class="cost-bar-value">&euro;150/mo</span>
+            </div>
+            <div class="cost-bar-track">
+              <div class="cost-bar-fill" style="width: 12%; background-color: #3B7A8A;"></div>
+            </div>
+          </div>
+          <div class="cost-bar-item">
+            <div class="cost-bar-label">
+              <span class="cost-bar-name">Marketing</span>
+              <span class="cost-bar-value">&euro;250/mo</span>
+            </div>
+            <div class="cost-bar-track">
+              <div class="cost-bar-fill" style="width: 16%; background-color: var(--color-success);"></div>
+            </div>
+          </div>
+          <div class="cost-bar-item">
+            <div class="cost-bar-label">
+              <span class="cost-bar-name">Legal &amp; Setup (one-time)</span>
+              <span class="cost-bar-value">&euro;3,000</span>
+            </div>
+            <div class="cost-bar-track">
+              <div class="cost-bar-fill" style="width: 22%; background-color: var(--text-secondary);"></div>
+            </div>
+          </div>
+          <div class="cost-bar-item">
+            <div class="cost-bar-label">
+              <span class="cost-bar-name">Emergency Buffer</span>
+              <span class="cost-bar-value">&euro;5,000</span>
+            </div>
+            <div class="cost-bar-track">
+              <div class="cost-bar-fill" style="width: 28%; background-color: #DC4545;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Armanc's Red Line -->
+        <h3 class="section-heading" style="font-size: 20px; margin-bottom: 6px;">Armanc&rsquo;s Red Line</h3>
+        <p class="section-subtext" style="margin-bottom: 24px;">Needs minimum &euro;3,500 net/month to go full-time on the project.</p>
+
+        <!-- Year 1 Roadmap Timeline -->
+        <h3 class="section-heading" style="font-size: 20px; margin-bottom: 16px;">Year 1 Roadmap</h3>
+        <div class="roadmap-timeline fade-up">
+          <div class="roadmap-step">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-step-period">Month 1&ndash;2</div>
+            <div class="roadmap-step-title">Fundraising &amp; Legal Setup</div>
+            <div class="roadmap-step-desc"><strong>Armanc:</strong> Pitch deck, donor meetings, verify visa for self-employment. Still employed.<br><strong>Mamoste:</strong> Begin organizing A1 content in structured format.</div>
+          </div>
+
+          <div class="roadmap-step decision">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-step-period">Month 3 — DECISION POINT</div>
+            <div class="roadmap-step-title">~&euro;82K annual funding secured = Armanc goes full-time</div>
+            <div class="roadmap-step-desc">The full gross annual need (~&euro;82,000) must be secured or committed. If yes, Armanc submits resignation (1&ndash;3 months notice). Otherwise: continue as side project.</div>
+            <span class="roadmap-step-tag critical">Go / No-Go</span>
+          </div>
+
+          <div class="roadmap-step">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-step-period">Month 3&ndash;5</div>
+            <div class="roadmap-step-title">Full-Time Development</div>
+            <div class="roadmap-step-desc"><strong>Armanc:</strong> HTML mockups &rarr; real app. Auth, course engine, content CMS, payment system.<br><strong>Mamoste:</strong> A1 content ready, A2 in progress. Loading into CMS.</div>
+          </div>
+
+          <div class="roadmap-step milestone">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-step-period">Month 6&ndash;7</div>
+            <div class="roadmap-step-title">Beta Launch</div>
+            <div class="roadmap-step-desc">Release to donor community (50&ndash;100 testers). App Store submission. Payment system live. First revenue starts.</div>
+            <span class="roadmap-step-tag go">Beta</span>
+          </div>
+
+          <div class="roadmap-step milestone">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-step-period">Month 8&ndash;9</div>
+            <div class="roadmap-step-title">Public Launch</div>
+            <div class="roadmap-step-desc">App live for everyone. ASO optimization. Community marketing push. B1 content loading.</div>
+            <span class="roadmap-step-tag go">Launch</span>
+          </div>
+
+          <div class="roadmap-step decision">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-step-period">Month 10 — EVALUATION POINT</div>
+            <div class="roadmap-step-title">Stay or Transition?</div>
+            <div class="roadmap-step-desc">Evaluate Monthly Recurring Revenue (MRR) growth. Month 10 (not 12) because Armanc needs 2 months buffer to find a new job if needed. Berlin senior roles: 2&ndash;8 weeks hiring.</div>
+            <span class="roadmap-step-tag critical">Critical Decision</span>
+          </div>
+
+          <div class="roadmap-step">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-step-period">Month 11&ndash;12</div>
+            <div class="roadmap-step-title">Scale or Transition</div>
+            <div class="roadmap-step-desc"><strong>If staying:</strong> Optimize, scale, ecosystem planning, consider investors from strength.<br><strong>If leaving:</strong> Transition period, job search begins. App becomes side project.</div>
+          </div>
+        </div>
+
+        <!-- Month 10 Decision Framework -->
+        <h3 class="section-heading" style="font-size: 20px; margin-bottom: 16px;">Month 10 Decision Framework</h3>
+        <div class="decision-grid fade-up">
+          <div class="decision-card green">
+            <div class="decision-card-signal">&#x2705;</div>
+            <div class="decision-card-condition">Monthly Revenue &rarr; &euro;3,500+</div>
+            <div class="decision-card-action"><strong>STAY.</strong> Product-market fit confirmed. Enter Year 2. Consider investor from strength position.</div>
+          </div>
+          <div class="decision-card yellow">
+            <div class="decision-card-signal">&#x26A0;&#xFE0F;</div>
+            <div class="decision-card-condition">Monthly Revenue growing but &lt; &euro;2,000</div>
+            <div class="decision-card-action"><strong>OPTION A:</strong> Seek investor for Year 2 runway.<br><strong>OPTION B:</strong> Side project + job search.</div>
+          </div>
+          <div class="decision-card red">
+            <div class="decision-card-signal">&#x274C;</div>
+            <div class="decision-card-condition">Monthly Revenue flat or declining</div>
+            <div class="decision-card-action"><strong>Transition out.</strong> Begin job search. App continues as side project for both.</div>
+          </div>
+        </div>
+
+        <!-- Revenue Milestones -->
+        <div class="revenue-milestones fade-up">
+          <div class="revenue-milestones-title">Revenue Milestones &mdash; What We Need</div>
+          <div class="rev-milestone">
+            <div class="rev-milestone-label">
+              <span class="rev-milestone-name">Mamoste minimum wage</span>
+              <span class="rev-milestone-value">~350 subscribers &bull; &euro;2,500/mo</span>
+            </div>
+            <div class="rev-milestone-bar">
+              <div class="rev-milestone-fill" style="width: 18%; background-color: rgba(212, 168, 67, 0.6);">&euro;2.5K</div>
+            </div>
+          </div>
+          <div class="rev-milestone">
+            <div class="rev-milestone-label">
+              <span class="rev-milestone-name">Both founders at minimum</span>
+              <span class="rev-milestone-value">~970 subscribers &bull; &euro;7,000/mo</span>
+            </div>
+            <div class="rev-milestone-bar">
+              <div class="rev-milestone-fill" style="width: 50%; background-color: rgba(212, 168, 67, 0.75);">&euro;7K</div>
+            </div>
+          </div>
+          <div class="rev-milestone">
+            <div class="rev-milestone-label">
+              <span class="rev-milestone-name">Both at &euro;3,500 net each</span>
+              <span class="rev-milestone-value">~1,940 subscribers &bull; &euro;14,000/mo</span>
+            </div>
+            <div class="rev-milestone-bar">
+              <div class="rev-milestone-fill" style="width: 78%; background-color: var(--color-accent);">&euro;14K</div>
+            </div>
+          </div>
+          <div class="rev-milestone">
+            <div class="rev-milestone-label">
+              <span class="rev-milestone-name">Comfortable + hiring possible</span>
+              <span class="rev-milestone-value">~3,470 subscribers &bull; &euro;25,000/mo</span>
+            </div>
+            <div class="rev-milestone-bar">
+              <div class="rev-milestone-fill" style="width: 100%; background-color: var(--color-success);">&euro;25K</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Revenue Split -->
+        <h3 class="section-heading" style="font-size: 20px; margin-bottom: 6px;">Revenue Split &mdash; 60 / 40</h3>
+        <p class="section-subtext" style="margin-bottom: 16px;">App revenue is always split <strong>60% Mamoste / 40% Armanc</strong>. Mamoste&rsquo;s minimum wage is guaranteed first &mdash; until his share covers minimum wage, he gets priority.</p>
+        <div class="decision-grid fade-up" style="margin-bottom: 28px;">
+          <div class="decision-card">
+            <div class="decision-card-condition">Until Mamoste reaches min. wage</div>
+            <div class="decision-card-action"><strong>Mamoste:</strong> Gets priority from revenue until minimum wage is covered<br><strong>Armanc:</strong> Remainder</div>
+          </div>
+          <div class="decision-card">
+            <div class="decision-card-condition">After minimum wage secured</div>
+            <div class="decision-card-action"><strong>Mamoste:</strong> 60%<br><strong>Armanc:</strong> 40%</div>
+          </div>
+        </div>
+
+        <!-- Immediate Checklist -->
+        <div class="founders-checklist fade-up">
+          <div class="founders-checklist-title">Action Items &mdash; What We Do Now</div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-label">This Week</div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Review 3-year plan together &mdash; mark sections that need changes</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Agree on revenue split model (60/40) or adjust</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Agree on Year 1 terms: <strong>Mamoste &euro;0, Armanc funded externally</strong></span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Decide: try EXIST grant or focus on community donations?</span>
+            </div>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-label">This Month</div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text"><strong>Armanc:</strong> Create pitch deck for Kurdish community donors</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text"><strong>Armanc:</strong> Verify visa for self-employment with Ausl&auml;nderbeh&ouml;rde</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text"><strong>Armanc:</strong> List 10 potential donors with estimated amounts</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text"><strong>Mamoste:</strong> Begin structuring A1 content into lessons/units</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text"><strong>Both:</strong> Visit TU/HTW Gr&uuml;ndungszentrum for free EXIST consultation</span>
+            </div>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-label">Next 2&ndash;3 Months</div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Meet top 5 donors <strong>face-to-face</strong> (not email)</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Secure <strong>~&euro;82,000 in commitments</strong> (full Year 1 funding) before Armanc resigns</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Register <strong>N&ucirc;craft Labs UG</strong> (after EXIST check) &mdash; money must flow through legal entity</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Submit grant applications (EU, Berlin, applicable programs)</span>
+            </div>
+            <div class="checklist-item">
+              <svg class="checklist-icon" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+              <span class="checklist-item-text">Armanc submits resignation once <strong>~&euro;82K is secured/committed</strong></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- ==========================================
@@ -1406,13 +2305,13 @@
       <div class="invest-section">
         <p class="section-eyebrow">Invest</p>
         <h2 class="section-heading">Invest in the Future of Kurdish Digital Education</h2>
-        <p class="section-subtext">HinbûnaKurdî is more than a language app. It is a platform that can serve language schools, driving schools, corporate training, universities. The Kurdish app is Version 1. The platform is the real business.</p>
+        <p class="section-subtext">HinbûnaKurdî is more than a language app. Starting with Kurmanji, we will expand to Sorani and other Kurdish dialects. Beyond that, the platform can serve language schools, corporate training, and universities. The Kurdish app is Version 1. The platform is the real business.</p>
 
         <div class="invest-highlights fade-up">
           <div class="invest-card">
             <h4>Market Opportunity</h4>
             <ul>
-              <li>15&ndash;20 million Kurmanji speakers, zero major competitors</li>
+              <li>30&ndash;45 million Kurdish speakers, zero major competitors</li>
               <li>150K&ndash;300K diaspora heritage learners actively seeking tools</li>
               <li>Growing Kurdistan Region with rising digital education demand</li>
               <li>Platform designed for white-labeling across industries</li>
@@ -1481,7 +2380,7 @@
             <ul>
               <li>Investment range: &euro;50,000 &ndash; &euro;150,000</li>
               <li>In exchange for: 10&ndash;25% equity (negotiable)</li>
-              <li>Use of funds: dev acceleration, marketing, Sorani expansion, team growth</li>
+              <li>Use of funds: dev acceleration, marketing, dialect expansion, team growth</li>
               <li>When: after launch + traction (Month 9&ndash;12)</li>
             </ul>
           </div>
@@ -1525,7 +2424,7 @@
               <span class="risk-name">Market too niche</span>
               <span class="risk-level low">Low</span>
             </div>
-            <p class="risk-mitigation">15&ndash;20M speakers is not niche. Platform vision expands beyond Kurdish.</p>
+            <p class="risk-mitigation">30&ndash;45M speakers is not niche. Platform vision expands beyond Kurdish.</p>
           </div>
           <div class="risk-item">
             <div class="risk-item-header">
@@ -1557,7 +2456,7 @@
         </div>
         <ul class="team-desc">
           <li>Founded by a qualified Kurdish teacher working in Germany</li>
-          <li>Years of experience teaching Kurmanji to children and adults</li>
+          <li>Years of experience teaching Kurdish to children and adults</li>
           <li>Responsible for all course content: A1 to B2 levels</li>
           <li>Owner of HinbûnaKurdî app and educational brand</li>
         </ul>
@@ -1771,15 +2670,75 @@
     }
   }
 
-  // Handle direct anchor links (#support / #invest)
+  // Handle direct anchor links (#support / #invest / #founders)
   (function() {
     var hash = window.location.hash;
     if (hash === '#invest') {
       switchPath('invest');
     } else if (hash === '#support') {
       switchPath('support');
+    } else if (hash === '#founders') {
+      requestFoundersAccess();
     }
   })();
+
+  // Founders password gate (SHA-256 hashed)
+  var FOUNDERS_HASH = '4c822fdfe75a66930775a7a58bba9fa70efc300f47691cb7bdc6ecd160c21901';
+  var foundersUnlocked = false;
+
+  function requestFoundersAccess() {
+    if (foundersUnlocked) {
+      switchPath('founders');
+      return;
+    }
+    document.getElementById('passOverlay').classList.add('visible');
+    var input = document.getElementById('passInput');
+    input.value = '';
+    input.classList.remove('error');
+    document.getElementById('passError').classList.remove('visible');
+    setTimeout(function() { input.focus(); }, 100);
+  }
+
+  function closePassModal() {
+    document.getElementById('passOverlay').classList.remove('visible');
+    document.getElementById('passInput').value = '';
+    document.getElementById('passInput').classList.remove('error');
+    document.getElementById('passError').classList.remove('visible');
+  }
+
+  async function hashPassword(str) {
+    var data = new TextEncoder().encode(str);
+    var buf = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+
+  async function submitPass() {
+    var input = document.getElementById('passInput');
+    var val = input.value.trim();
+    if (!val) return;
+
+    var hash = await hashPassword(val);
+    if (hash === FOUNDERS_HASH) {
+      foundersUnlocked = true;
+      closePassModal();
+      switchPath('founders');
+    } else {
+      input.classList.add('error');
+      document.getElementById('passError').classList.add('visible');
+      setTimeout(function() { input.classList.remove('error'); }, 400);
+    }
+  }
+
+  // Enter key submits password
+  document.getElementById('passInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') submitPass();
+    if (e.key === 'Escape') closePassModal();
+  });
+
+  // Close modal on overlay click
+  document.getElementById('passOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closePassModal();
+  });
 
   // FAQ tab toggle
   function switchFaq(tab) {
