@@ -821,6 +821,36 @@
       opacity: 1;
     }
 
+    .sponsor-cta {
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    .sponsor-cta a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: color 0.2s ease;
+    }
+
+    .sponsor-cta a:hover {
+      color: var(--accent);
+    }
+
+    .sponsor-cta a span {
+      border-bottom: 1px dashed var(--text-secondary);
+      padding-bottom: 1px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .sponsor-cta a:hover span {
+      border-bottom-color: var(--accent);
+      color: var(--accent);
+    }
+
     /* ============================================
        4. TRUST BAR
        ============================================ */
@@ -1942,7 +1972,7 @@
      3. SPONSORS CAROUSEL
      ========================================== -->
 <section class="sponsors fade-up">
-  <p class="sponsors-label">Supported by</p>
+  <p class="sponsors-label">Supported by / Invested by</p>
   <div class="sponsor-carousel">
     <div class="sponsor-track">
       <!-- Set 1 (18 items: 13 sponsors + 5 Nûcraft at pos 1,5,9,13,18 — never adjacent, white-bg icons spread apart) -->
@@ -2273,6 +2303,9 @@
         <span class="sponsor-name">Nûcraft Labs</span>
       </a>
     </div>
+  </div>
+  <div class="sponsor-cta">
+    <a href="P8-support.html"><span>Interested in supporting or investing in Kurdish education?</span> &rarr;</a>
   </div>
 </section>
 
