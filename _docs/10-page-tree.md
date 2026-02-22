@@ -1,6 +1,6 @@
 # Page Tree — Public Screens Navigation Map
 
-> How all 6 public pages (P1–P6) link to each other.
+> How all public pages (P1–P8) link to each other.
 
 ## Shared Navigation (all pages)
 
@@ -51,6 +51,11 @@
 |---------|----------|
 | (header/footer only) | — |
 
+### P8 Support & Invest
+| Element | Links to |
+|---------|----------|
+| (header/footer only) | — |
+
 ## Connection Summary
 
 ```
@@ -77,7 +82,13 @@
                     │ About   │
                     └─────────┘
 
+                    ┌─────────┐
+                    │ P8      │  (footer link only)
+                    │ Support │
+                    └─────────┘
+
 Header logo → P1 (from any page)
 Header "Têkeve" → P3 (from any page)
 Footer "Derbarê" → P6 (from any page)
+Footer "Piştgirî" → P8 (from any page)
 ```

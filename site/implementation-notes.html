@@ -1067,7 +1067,7 @@
         </span>
         <span class="in-intro-meta-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          6 sections
+          7 sections
         </span>
         <span class="in-intro-meta-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -1794,6 +1794,208 @@
     </div>
 
     <!-- ============================================================
+         SECTION 7: SINGLE SIGN-ON (SSO) — ECOSYSTEM AUTH LAYER
+         ============================================================ -->
+    <div class="in-section">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">7</span>
+        <span class="in-section-title">Single Sign-On (SSO) &mdash; Ecosystem Auth Layer</span>
+        <span class="in-section-badge"><span class="badge badge-p1">P1</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            The Idea
+          </h3>
+          <p>
+            Users log in <strong>once</strong> and gain access to <strong>every app</strong> in the Hinbuna ecosystem. No separate accounts, no repeated logins &mdash; a single authentication layer that spans all side apps.
+          </p>
+          <p>
+            The ecosystem includes the main <strong>Hinbuna Kurdi</strong> platform plus a growing family of companion tools. SSO ensures that switching between them feels seamless, like moving between tabs in the same app.
+          </p>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            Ecosystem Apps
+          </h3>
+
+          <div class="in-arch-diagram">
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Hinbuna Kurdi</div>
+              <div class="in-arch-card-desc">Main learning platform &mdash; courses, lessons, progress tracking</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Dictionary</div>
+              <div class="in-arch-card-desc">Kurdish&ndash;multilingual dictionary with examples and audio</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Short Stories</div>
+              <div class="in-arch-card-desc">Graded reading with vocabulary highlights and TTS</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="in-arch-card-title">Grammar Exercises</div>
+              <div class="in-arch-card-desc">Structured drills targeting specific grammar rules</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <div class="in-arch-card-title">Grammar Puzzles</div>
+              <div class="in-arch-card-desc">Interactive puzzle-based grammar practice</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </div>
+              <div class="in-arch-card-title">TTS</div>
+              <div class="in-arch-card-desc">Kurdish text-to-speech via kurdishtts.com API</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <div class="in-arch-card-title">Kurdish Corpus</div>
+              <div class="in-arch-card-desc">Expert-curated language dataset for research and learning</div>
+            </div>
+          </div>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State
+          </h3>
+          <ul>
+            <li>Auth exists only within the main Hinbuna Kurdi app (JWT + Passport.js)</li>
+            <li>Side apps are not yet connected &mdash; each would require its own login</li>
+            <li>No shared session or token exchange mechanism between apps</li>
+            <li>Header dropdown already lists ecosystem apps (as navigation links), but without auth continuity</li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State &mdash; Shared Auth Layer
+          </h3>
+          <p>
+            A <strong>centralized auth service</strong> handles all authentication and issues tokens that are valid across the entire ecosystem. Each app validates tokens against this shared service instead of managing its own auth.
+          </p>
+
+          <table class="in-compare-table">
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Current</th>
+                <th>With SSO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">Login</td>
+                <td>Per-app login required</td>
+                <td>Single login for all apps</td>
+              </tr>
+              <tr>
+                <td class="col-label">User Profile</td>
+                <td>Isolated per app</td>
+                <td>Shared profile, preferences sync across apps</td>
+              </tr>
+              <tr>
+                <td class="col-label">Session</td>
+                <td>No session sharing</td>
+                <td>Shared JWT tokens, seamless app switching</td>
+              </tr>
+              <tr>
+                <td class="col-label">Navigation</td>
+                <td>Header links to apps (no auth)</td>
+                <td>Header dropdown opens apps with active session</td>
+              </tr>
+              <tr>
+                <td class="col-label">Registration</td>
+                <td>Separate sign-up per app</td>
+                <td>One account, all apps unlocked</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">TypeScript</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="cm">// Shared auth service — central token issuer</span>
+<span class="kw">interface</span> <span class="fn">SSOConfig</span> {
+  authServiceUrl: <span class="kw">string</span>;       <span class="cm">// Central auth API endpoint</span>
+  allowedApps: <span class="kw">string</span>[];        <span class="cm">// Registered app identifiers</span>
+  tokenStrategy: <span class="st">'jwt'</span>;        <span class="cm">// JWT with shared signing key</span>
+  sessionDuration: <span class="kw">string</span>;     <span class="cm">// e.g. '7d'</span>
+  refreshEnabled: <span class="kw">boolean</span>;     <span class="cm">// Refresh token rotation</span>
+}
+
+<span class="kw">const</span> ECOSYSTEM_APPS = [
+  { id: <span class="st">'hinbuna-kurdi'</span>,     name: <span class="st">'Hinbuna Kurdi'</span>,     url: <span class="st">'https://hinbunakurdi.com'</span> },
+  { id: <span class="st">'dictionary'</span>,         name: <span class="st">'Dictionary'</span>,         url: <span class="st">'https://ferheng.hinbunakurdi.com'</span> },
+  { id: <span class="st">'short-stories'</span>,      name: <span class="st">'Short Stories'</span>,      url: <span class="st">'https://cirokan.hinbunakurdi.com'</span> },
+  { id: <span class="st">'grammar-exercises'</span>,  name: <span class="st">'Grammar Exercises'</span>,  url: <span class="st">'https://reman.hinbunakurdi.com'</span> },
+  { id: <span class="st">'grammar-puzzles'</span>,   name: <span class="st">'Grammar Puzzles'</span>,   url: <span class="st">'https://puzzles.hinbunakurdi.com'</span> },
+  { id: <span class="st">'tts'</span>,               name: <span class="st">'TTS'</span>,               url: <span class="st">'https://tts.hinbunakurdi.com'</span> },
+  { id: <span class="st">'kurdish-corpus'</span>,    name: <span class="st">'Kurdish Corpus'</span>,    url: <span class="st">'https://corpus.hinbunakurdi.com'</span> },
+] <span class="kw">as const</span>;
+
+<span class="cm">// Token payload — shared across all ecosystem apps</span>
+<span class="kw">interface</span> <span class="fn">SSOTokenPayload</span> {
+  sub: <span class="kw">string</span>;               <span class="cm">// User ID</span>
+  email: <span class="kw">string</span>;
+  name: <span class="kw">string</span>;
+  role: <span class="st">'student'</span> | <span class="st">'teacher'</span> | <span class="st">'admin'</span>;
+  apps: <span class="kw">string</span>[];             <span class="cm">// Authorized app IDs</span>
+  iat: <span class="kw">number</span>;
+  exp: <span class="kw">number</span>;
+}</code></pre>
+          </div>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            How It Works
+          </h3>
+          <ol>
+            <li><strong>User registers or logs in</strong> on any ecosystem app &mdash; request goes to the central auth service</li>
+            <li><strong>Auth service issues a JWT</strong> signed with a shared secret, containing the user&rsquo;s ID, role, and list of authorized apps</li>
+            <li><strong>Token is stored</strong> in an <code>httpOnly</code> cookie scoped to the parent domain (e.g. <code>.hinbunakurdi.com</code>), so all subdomains can read it</li>
+            <li><strong>User navigates to another app</strong> via the header dropdown &mdash; the cookie is automatically sent, and the target app validates it against the shared signing key</li>
+            <li><strong>No re-login required</strong> &mdash; the user is already authenticated</li>
+          </ol>
+
+          <div class="callout callout-warning">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div class="callout-content">
+              <p><strong>Key principle:</strong> The auth service is a <strong>standalone microservice</strong> &mdash; not embedded in the main Hinbuna Kurdi backend. Every ecosystem app is an equal consumer. If the main platform goes down, other apps can still validate existing tokens.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div class="callout-content">
+              <p><strong>B2B potential:</strong> This shared auth layer is also the foundation for the B2B boilerplate &mdash; organizations can license the SSO system to build their own multi-app ecosystems with the same architecture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
          MIGRATION PRIORITY TABLE
          ============================================================ -->
     <section style="margin-top: 40px; margin-bottom: 20px;">
@@ -1849,6 +2051,12 @@
             <td><span class="badge badge-p2">P2</span></td>
             <td>High</td>
             <td>Theme system, user profiles</td>
+          </tr>
+          <tr>
+            <td class="system-name">SSO (Ecosystem Auth)</td>
+            <td><span class="badge badge-p1">P1</span></td>
+            <td>High</td>
+            <td>Auth service, JWT, domain setup</td>
           </tr>
         </tbody>
       </table>
