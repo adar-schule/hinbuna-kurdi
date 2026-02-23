@@ -491,6 +491,35 @@
     var lessonComplete = document.getElementById('lesson-complete');
 
     // ============================================================
+    // Multi-lang helper — resolves { en: "...", de: "..." } objects
+    // ============================================================
+    var locale = (typeof HK !== 'undefined' && HK.getLang) ? HK.getLang() : 'en';
+
+    function t(val) {
+      if (val == null) return '';
+      if (typeof val === 'string') return val;
+      if (typeof val === 'object') {
+        if (val[locale] != null) return val[locale];
+        if (val.en != null) return val.en;
+        // Return first available value
+        for (var k in val) { if (val.hasOwnProperty(k)) return val[k]; }
+      }
+      return String(val);
+    }
+
+    // Resolve MCQ options: array of strings or array of { en, de } objects
+    function tOption(opt) {
+      if (typeof opt === 'string') return opt;
+      return t(opt);
+    }
+
+    // Get the locale label for column headers (e.g. "English" or "Deutsch")
+    function getLangLabel() {
+      if (typeof HK !== 'undefined' && HK.getLangLabel) return HK.getLangLabel(locale);
+      return locale === 'de' ? 'Deutsch' : 'English';
+    }
+
+    // ============================================================
     // Helpers
     // ============================================================
     function el(tag, attrs, children) {
@@ -562,7 +591,7 @@
     // ============================================================
     function renderFlashcard(act) {
       var badge = el('div', { className: 'activity-type-badge anim-slide', textContent: 'Flashcard' });
-      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: act.instruction });
+      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: t(act.instruction) });
       instruction.style.animationDelay = '0.05s';
 
       var container = el('div', { className: 'flashcard-container anim-slide' });
@@ -574,11 +603,11 @@
       wordRow.appendChild(el('div', { className: 'flashcard-word', textContent: act.word }));
       wordRow.appendChild(createListenBtn());
       front.appendChild(wordRow);
-      front.appendChild(el('div', { className: 'flashcard-hint', textContent: act.hint }));
+      front.appendChild(el('div', { className: 'flashcard-hint', textContent: t(act.hint) }));
 
       var back = el('div', { className: 'flashcard-face flashcard-back' });
       var transRow = el('div', { className: 'flashcard-translation-row' });
-      transRow.appendChild(el('div', { className: 'flashcard-translation', textContent: act.translation }));
+      transRow.appendChild(el('div', { className: 'flashcard-translation', textContent: t(act.translation) }));
       back.appendChild(transRow);
       var exampleRow = el('div', { className: 'flashcard-translation-row' });
       exampleRow.appendChild(el('div', { className: 'flashcard-example', textContent: act.example }));
@@ -621,12 +650,12 @@
     // ============================================================
     function renderReading(act) {
       var badge = el('div', { className: 'activity-type-badge anim-slide', textContent: 'Dialogue' });
-      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: act.instruction });
+      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: t(act.instruction) });
       instruction.style.animationDelay = '0.05s';
 
       var card = el('div', { className: 'dialogue-card anim-slide' });
       card.style.animationDelay = '0.1s';
-      card.appendChild(el('div', { className: 'dialogue-title', textContent: act.title }));
+      card.appendChild(el('div', { className: 'dialogue-title', textContent: t(act.title) }));
 
       for (var i = 0; i < act.lines.length; i++) {
         var line = act.lines[i];
@@ -639,7 +668,7 @@
         kuRow.appendChild(el('span', { className: 'dialogue-ku', textContent: line.ku }));
         kuRow.appendChild(createListenBtn('listen-sm'));
         bubble.appendChild(kuRow);
-        bubble.appendChild(el('div', { className: 'dialogue-en', textContent: line.en }));
+        bubble.appendChild(el('div', { className: 'dialogue-en', textContent: t(line) }));
         lineEl.appendChild(bubble);
         card.appendChild(lineEl);
       }
@@ -660,10 +689,11 @@
     // ============================================================
     function renderMCQ(act) {
       var badge = el('div', { className: 'activity-type-badge anim-slide', textContent: 'Multiple Choice' });
+      var instrText = t(act.instruction);
       var instruction = el('div', { className: 'activity-instruction anim-slide' });
-      instruction.appendChild(document.createTextNode(act.instruction));
+      instruction.appendChild(document.createTextNode(instrText));
       // Add listen icon if instruction contains Kurdish text (quotes indicate Kurdish)
-      if (act.instruction.indexOf('\u201C') !== -1 || act.instruction.indexOf('"') !== -1) {
+      if (instrText.indexOf('\u201C') !== -1 || instrText.indexOf('"') !== -1) {
         instruction.appendChild(document.createTextNode(' '));
         instruction.appendChild(createListenBtn('listen-sm'));
       }
@@ -677,7 +707,7 @@
           var opt = el('button', { className: 'mcq-option anim-slide' });
           opt.style.animationDelay = (0.1 + idx * 0.06) + 's';
           opt.appendChild(el('span', { className: 'mcq-letter', textContent: letters[idx] }));
-          opt.appendChild(el('span', { textContent: act.options[idx] }));
+          opt.appendChild(el('span', { textContent: tOption(act.options[idx]) }));
           opt.addEventListener('click', function () {
             if (isChecked) return;
             var all = optionsWrap.querySelectorAll('.mcq-option');
@@ -704,7 +734,7 @@
     // ============================================================
     function renderGapFill(act) {
       var badge = el('div', { className: 'activity-type-badge anim-slide', textContent: 'Fill the Gap' });
-      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: act.instruction });
+      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: t(act.instruction) });
       instruction.style.animationDelay = '0.05s';
 
       var sentenceRow = el('div', { className: 'gapfill-row anim-slide' });
@@ -772,20 +802,20 @@
     // ============================================================
     function renderMatching(act) {
       var badge = el('div', { className: 'activity-type-badge anim-slide', textContent: 'Matching' });
-      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: act.instruction });
+      var instruction = el('div', { className: 'activity-instruction anim-slide', textContent: t(act.instruction) });
       instruction.style.animationDelay = '0.05s';
 
       var colLabels = el('div', { className: 'matching-container anim-slide' });
       colLabels.style.animationDelay = '0.1s';
       colLabels.appendChild(el('div', { className: 'match-col-label', textContent: 'Kurdî' }));
-      colLabels.appendChild(el('div', { className: 'match-col-label', textContent: 'English' }));
+      colLabels.appendChild(el('div', { className: 'match-col-label', textContent: getLangLabel() }));
 
       var grid = el('div', { className: 'matching-container anim-slide' });
       grid.style.animationDelay = '0.15s';
 
-      // Shuffle EN side
+      // Shuffle translated side — resolve multi-lang pairs
       var kuItems = act.pairs.map(function (p) { return p.ku; });
-      var enItems = act.pairs.map(function (p) { return p.en; }).sort(function () { return Math.random() - 0.5; });
+      var enItems = act.pairs.map(function (p) { return t(p); }).sort(function () { return Math.random() - 0.5; });
 
       var selectedKu = null;
       var selectedEn = null;
@@ -797,11 +827,11 @@
       function checkMatch() {
         if (!selectedKu || !selectedEn) return;
         matchAttempts++;
-        // Find correct EN for selectedKu
+        // Find correct translation for selectedKu
         var correctEn = null;
         for (var i = 0; i < act.pairs.length; i++) {
           if (act.pairs[i].ku === selectedKu.dataset.word) {
-            correctEn = act.pairs[i].en;
+            correctEn = t(act.pairs[i]);
             break;
           }
         }
@@ -851,8 +881,9 @@
             checkMatch();
           });
 
-          var enBtn = el('button', { className: 'match-item', textContent: enItems[idx] });
-          enBtn.dataset.word = enItems[idx];
+          var enText = enItems[idx];
+          var enBtn = el('button', { className: 'match-item', textContent: enText });
+          enBtn.dataset.word = enText;
           enBtn.dataset.side = 'en';
           enBtn.addEventListener('click', function () {
             if (enBtn.classList.contains('matched')) return;
@@ -928,7 +959,7 @@
         var w = WORDS_LEARNED[i];
         var tag = el('span', { className: 'word-learned' });
         tag.appendChild(document.createTextNode(w.ku));
-        tag.appendChild(el('span', { className: 'word-en', textContent: ' \u2014 ' + w.en }));
+        tag.appendChild(el('span', { className: 'word-en', textContent: ' \u2014 ' + t(w) }));
         wordsList.appendChild(tag);
       }
 
@@ -1009,7 +1040,7 @@
           opts[userAnswer].classList.add('wrong');
           opts[act.correct].classList.add('correct');
         }
-        showFeedback(correct, act.explanation, function () {
+        showFeedback(correct, t(act.explanation), function () {
           currentIndex++;
           renderActivity();
         });
@@ -1024,7 +1055,7 @@
         } else {
           slot.classList.add('wrong');
         }
-        showFeedback(gapCorrect, act.explanation, function () {
+        showFeedback(gapCorrect, t(act.explanation), function () {
           currentIndex++;
           renderActivity();
         });

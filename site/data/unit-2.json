@@ -4,7 +4,7 @@
   "slug": "ev-ci-ye",
   "description": "Learn to ask 'What is this?' in Kurdish, identify everyday objects, and master personal pronouns.",
   "metadata": {
-    "subtitle": "What Is This?"
+    "subtitle": { "en": "What Is This?", "de": "Was ist das?" }
   },
   "lessons": [
     {
@@ -13,25 +13,25 @@
       "description": "Learn the preposition 'bi' and how to ask 'What is this in Kurdish/German?' with basic vocabulary.",
       "slug": "bi-kurdi-ci-ye",
       "orderIndex": 0,
-      "learningObjective": "Learn the preposition 'bi' and how to ask 'What is this in Kurdish/German?' with basic vocabulary",
+      "learningObjective": { "en": "Learn the preposition 'bi' and how to ask 'What is this in Kurdish/German?' with basic vocabulary", "de": "Lerne die Präposition 'bi' und wie man fragt 'Was ist das auf Kurdisch/Deutsch?' mit grundlegendem Wortschatz" },
       "durationMinutes": 12,
       "isPublished": true,
       "metadata": {
-        "subtitle": "What Is It in Kurdish?",
+        "subtitle": { "en": "What Is It in Kurdish?", "de": "Was heißt es auf Kurdisch?" },
         "vocabPreview": ["bi kurdî", "Ev çi ye?", "poz", "pirtûk"],
         "wordsLearned": [
-          { "ku": "bi", "en": "with / in (a language)" },
-          { "ku": "Ev çi ye?", "en": "What is this?" },
-          { "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?" },
-          { "ku": "poz", "en": "nose" },
-          { "ku": "por", "en": "hair" },
-          { "ku": "av", "en": "water" },
-          { "ku": "şêr", "en": "lion" },
-          { "ku": "nan", "en": "bread" },
-          { "ku": "pirtûk", "en": "book" },
-          { "ku": "çav", "en": "eye" },
-          { "ku": "çay", "en": "tea" },
-          { "ku": "berçavk", "en": "glasses" }
+          { "ku": "bi", "en": "with / in (a language)", "de": "mit / auf (einer Sprache)" },
+          { "ku": "Ev çi ye?", "en": "What is this?", "de": "Was ist das?" },
+          { "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?", "de": "Was ist das auf Kurdisch?" },
+          { "ku": "poz", "en": "nose", "de": "Nase" },
+          { "ku": "por", "en": "hair", "de": "Haar" },
+          { "ku": "av", "en": "water", "de": "Wasser" },
+          { "ku": "şêr", "en": "lion", "de": "Löwe" },
+          { "ku": "nan", "en": "bread", "de": "Brot" },
+          { "ku": "pirtûk", "en": "book", "de": "Buch" },
+          { "ku": "çav", "en": "eye", "de": "Auge" },
+          { "ku": "çay", "en": "tea", "de": "Tee" },
+          { "ku": "berçavk", "en": "glasses", "de": "Brille" }
         ]
       },
       "activities": [
@@ -40,13 +40,13 @@
           "type": "flashcard",
           "orderIndex": 0,
           "isPublished": true,
-          "instruction": "Learn this preposition",
+          "instruction": { "en": "Learn this preposition", "de": "Lerne diese Präposition" },
           "content": {
             "word": "bi",
-            "hint": "Tap to flip",
-            "translation": "with / in (a language)",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "with / in (a language)", "de": "mit / auf (einer Sprache)" },
             "example": "Ev bi kurdî çi ye?",
-            "exampleTranslation": "What is this in Kurdish?"
+            "exampleTranslation": { "en": "What is this in Kurdish?", "de": "Was ist das auf Kurdisch?" }
           }
         },
         {
@@ -54,13 +54,13 @@
           "type": "flashcard",
           "orderIndex": 1,
           "isPublished": true,
-          "instruction": "Learn this question",
+          "instruction": { "en": "Learn this question", "de": "Lerne diese Frage" },
           "content": {
             "word": "Ev çi ye?",
-            "hint": "Tap to flip",
-            "translation": "What is this?",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "What is this?", "de": "Was ist das?" },
             "example": "Ev çi ye? — Ev av e.",
-            "exampleTranslation": "What is this? — This is water."
+            "exampleTranslation": { "en": "What is this? — This is water.", "de": "Was ist das? — Das ist Wasser." }
           }
         },
         {
@@ -68,13 +68,13 @@
           "type": "flashcard",
           "orderIndex": 2,
           "isPublished": true,
-          "instruction": "Learn this word",
+          "instruction": { "en": "Learn this word", "de": "Lerne dieses Wort" },
           "content": {
             "word": "poz",
-            "hint": "Tap to flip",
-            "translation": "nose",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "nose", "de": "Nase" },
             "example": "Ev bi kurdî poz e.",
-            "exampleTranslation": "This is 'nose' in Kurdish."
+            "exampleTranslation": { "en": "This is 'nose' in Kurdish.", "de": "Das heißt 'Nase' auf Kurdisch." }
           }
         },
         {
@@ -82,13 +82,13 @@
           "type": "flashcard",
           "orderIndex": 3,
           "isPublished": true,
-          "instruction": "Learn this word",
+          "instruction": { "en": "Learn this word", "de": "Lerne dieses Wort" },
           "content": {
             "word": "pirtûk",
-            "hint": "Tap to flip",
-            "translation": "book",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "book", "de": "Buch" },
             "example": "Ev bi kurdî pirtûk e.",
-            "exampleTranslation": "This is 'book' in Kurdish."
+            "exampleTranslation": { "en": "This is 'book' in Kurdish.", "de": "Das heißt 'Buch' auf Kurdisch." }
           }
         },
         {
@@ -96,18 +96,18 @@
           "type": "reading",
           "orderIndex": 4,
           "isPublished": true,
-          "instruction": "Read the translation dialogue",
+          "instruction": { "en": "Read the translation dialogue", "de": "Lies den Übersetzungsdialog" },
           "content": {
-            "title": "Ev bi kurdî çi ye? — What is this in Kurdish?",
+            "title": { "en": "Ev bi kurdî çi ye? — What is this in Kurdish?", "de": "Ev bi kurdî çi ye? — Was ist das auf Kurdisch?" },
             "lines": [
-              { "speaker": "Armanc", "ku": "Ev çi ye?", "en": "What is this?" },
-              { "speaker": "Bêrîvan", "ku": "Ev av e.", "en": "This is water." },
-              { "speaker": "Armanc", "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?" },
-              { "speaker": "Bêrîvan", "ku": "Ev bi kurdî poz e.", "en": "This is 'nose' in Kurdish." },
-              { "speaker": "Armanc", "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?" },
-              { "speaker": "Bêrîvan", "ku": "Ev bi kurdî şêr e.", "en": "This is 'lion' in Kurdish." },
-              { "speaker": "Armanc", "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?" },
-              { "speaker": "Bêrîvan", "ku": "Ev bi kurdî berçavk e.", "en": "This is 'glasses' in Kurdish." }
+              { "speaker": "Armanc", "ku": "Ev çi ye?", "en": "What is this?", "de": "Was ist das?" },
+              { "speaker": "Bêrîvan", "ku": "Ev av e.", "en": "This is water.", "de": "Das ist Wasser." },
+              { "speaker": "Armanc", "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?", "de": "Was ist das auf Kurdisch?" },
+              { "speaker": "Bêrîvan", "ku": "Ev bi kurdî poz e.", "en": "This is 'nose' in Kurdish.", "de": "Das heißt 'Nase' auf Kurdisch." },
+              { "speaker": "Armanc", "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?", "de": "Was ist das auf Kurdisch?" },
+              { "speaker": "Bêrîvan", "ku": "Ev bi kurdî şêr e.", "en": "This is 'lion' in Kurdish.", "de": "Das heißt 'Löwe' auf Kurdisch." },
+              { "speaker": "Armanc", "ku": "Ev bi kurdî çi ye?", "en": "What is this in Kurdish?", "de": "Was ist das auf Kurdisch?" },
+              { "speaker": "Bêrîvan", "ku": "Ev bi kurdî berçavk e.", "en": "This is 'glasses' in Kurdish.", "de": "Das heißt 'Brille' auf Kurdisch." }
             ]
           }
         },
@@ -116,11 +116,16 @@
           "type": "mcq",
           "orderIndex": 5,
           "isPublished": true,
-          "instruction": "\"Ev bi kurdî poz e.\" What does 'poz' mean?",
+          "instruction": { "en": "\"Ev bi kurdî poz e.\" What does 'poz' mean?", "de": "\"Ev bi kurdî poz e.\" Was bedeutet 'poz'?" },
           "content": {
-            "options": ["hair", "nose", "eye", "lion"],
+            "options": [
+              { "en": "hair", "de": "Haar" },
+              { "en": "nose", "de": "Nase" },
+              { "en": "eye", "de": "Auge" },
+              { "en": "lion", "de": "Löwe" }
+            ],
             "correct": 1,
-            "explanation": "\"poz\" means nose. The full sentence: 'Ev bi kurdî poz e' = 'This is nose in Kurdish.'"
+            "explanation": { "en": "\"poz\" means nose. The full sentence: 'Ev bi kurdî poz e' = 'This is nose in Kurdish.'", "de": "\"poz\" bedeutet Nase. Der vollständige Satz: 'Ev bi kurdî poz e' = 'Das heißt Nase auf Kurdisch.'" }
           }
         },
         {
@@ -128,14 +133,14 @@
           "type": "matching",
           "orderIndex": 6,
           "isPublished": true,
-          "instruction": "Match the Kurdish words to their English meanings",
+          "instruction": { "en": "Match the Kurdish words to their English meanings", "de": "Ordne die kurdischen Wörter ihren Bedeutungen zu" },
           "content": {
             "pairs": [
-              { "ku": "av", "en": "water" },
-              { "ku": "nan", "en": "bread" },
-              { "ku": "şêr", "en": "lion" },
-              { "ku": "pirtûk", "en": "book" },
-              { "ku": "çav", "en": "eye" }
+              { "ku": "av", "en": "water", "de": "Wasser" },
+              { "ku": "nan", "en": "bread", "de": "Brot" },
+              { "ku": "şêr", "en": "lion", "de": "Löwe" },
+              { "ku": "pirtûk", "en": "book", "de": "Buch" },
+              { "ku": "çav", "en": "eye", "de": "Auge" }
             ]
           }
         },
@@ -144,14 +149,14 @@
           "type": "gap_fill",
           "orderIndex": 7,
           "isPublished": true,
-          "instruction": "Complete the answer",
+          "instruction": { "en": "Complete the answer", "de": "Vervollständige die Antwort" },
           "content": {
             "before": "Ev bi kurdî ",
             "gap": "nan",
             "after": " e.",
             "display": "Ev bi kurdî ___ e.",
             "wordBank": ["nan", "por", "av", "şêr"],
-            "explanation": "\"nan\" means bread. 'Ev bi kurdî nan e' = 'This is bread in Kurdish.'"
+            "explanation": { "en": "\"nan\" means bread. 'Ev bi kurdî nan e' = 'This is bread in Kurdish.'", "de": "\"nan\" bedeutet Brot. 'Ev bi kurdî nan e' = 'Das heißt Brot auf Kurdisch.'" }
           }
         },
         {
@@ -159,11 +164,16 @@
           "type": "mcq",
           "orderIndex": 8,
           "isPublished": true,
-          "instruction": "How do you ask 'What is this in Kurdish?'",
+          "instruction": { "en": "How do you ask 'What is this in Kurdish?'", "de": "Wie fragt man 'Was ist das auf Kurdisch?'" },
           "content": {
-            "options": ["Ev çi ye?", "Ev bi kurdî çi ye?", "Tu çawa yî?", "Navê te çi ye?"],
+            "options": [
+              { "en": "Ev çi ye?", "de": "Ev çi ye?" },
+              { "en": "Ev bi kurdî çi ye?", "de": "Ev bi kurdî çi ye?" },
+              { "en": "Tu çawa yî?", "de": "Tu çawa yî?" },
+              { "en": "Navê te çi ye?", "de": "Navê te çi ye?" }
+            ],
             "correct": 1,
-            "explanation": "'Ev bi kurdî çi ye?' uses 'bi kurdî' (in Kurdish) to ask what something is called. 'bi' = in/with, 'kurdî' = Kurdish."
+            "explanation": { "en": "'Ev bi kurdî çi ye?' uses 'bi kurdî' (in Kurdish) to ask what something is called. 'bi' = in/with, 'kurdî' = Kurdish.", "de": "'Ev bi kurdî çi ye?' verwendet 'bi kurdî' (auf Kurdisch), um zu fragen, wie etwas heißt. 'bi' = in/mit, 'kurdî' = Kurdisch." }
           }
         },
         {
@@ -171,14 +181,14 @@
           "type": "gap_fill",
           "orderIndex": 9,
           "isPublished": true,
-          "instruction": "Complete the question",
+          "instruction": { "en": "Complete the question", "de": "Vervollständige die Frage" },
           "content": {
             "before": "Ev ",
             "gap": "bi kurdî",
             "after": " çi ye?",
             "display": "Ev ___ çi ye?",
             "wordBank": ["bi kurdî", "bi almanî", "çawa", "kî"],
-            "explanation": "'bi kurdî' means 'in Kurdish.' The full question: 'Ev bi kurdî çi ye?' = 'What is this in Kurdish?'"
+            "explanation": { "en": "'bi kurdî' means 'in Kurdish.' The full question: 'Ev bi kurdî çi ye?' = 'What is this in Kurdish?'", "de": "'bi kurdî' bedeutet 'auf Kurdisch'. Die vollständige Frage: 'Ev bi kurdî çi ye?' = 'Was ist das auf Kurdisch?'" }
           }
         }
       ]
@@ -189,25 +199,25 @@
       "description": "Learn all Kurdish personal pronouns (subject and object forms) and common everyday phrases.",
       "slug": "cinavin-kesin",
       "orderIndex": 1,
-      "learningObjective": "Learn all Kurdish personal pronouns (subject and object forms) and common everyday phrases",
+      "learningObjective": { "en": "Learn all Kurdish personal pronouns (subject and object forms) and common everyday phrases", "de": "Lerne alle kurdischen Personalpronomen (Subjekt- und Objektformen) und häufige Alltagsphrasen" },
       "durationMinutes": 12,
       "isPublished": true,
       "metadata": {
-        "subtitle": "Personal Pronouns",
+        "subtitle": { "en": "Personal Pronouns", "de": "Personalpronomen" },
         "vocabPreview": ["ez / min", "tu / te", "Tu bi xêr hatî", "Dora min e"],
         "wordsLearned": [
-          { "ku": "ez", "en": "I" },
-          { "ku": "tu", "en": "you (singular)" },
-          { "ku": "ew", "en": "he / she / they" },
-          { "ku": "em", "en": "we" },
-          { "ku": "hûn", "en": "you (plural / formal)" },
-          { "ku": "min", "en": "me (object form of ez)" },
-          { "ku": "te", "en": "you (object form of tu)" },
-          { "ku": "wî / wê", "en": "him / her (object)" },
-          { "ku": "me", "en": "us (object form of em)" },
-          { "ku": "we", "en": "you all (object form of hûn)" },
-          { "ku": "wan", "en": "them (object form of ew)" },
-          { "ku": "Tu bi xêr hatî", "en": "Welcome (You are welcome)" }
+          { "ku": "ez", "en": "I", "de": "ich" },
+          { "ku": "tu", "en": "you (singular)", "de": "du" },
+          { "ku": "ew", "en": "he / she / they", "de": "er / sie / sie (Plural)" },
+          { "ku": "em", "en": "we", "de": "wir" },
+          { "ku": "hûn", "en": "you (plural / formal)", "de": "ihr / Sie (Höflichkeitsform)" },
+          { "ku": "min", "en": "me (object form of ez)", "de": "mich/mir (Objektform von ez)" },
+          { "ku": "te", "en": "you (object form of tu)", "de": "dich/dir (Objektform von tu)" },
+          { "ku": "wî / wê", "en": "him / her (object)", "de": "ihm/ihn / ihr (Objekt)" },
+          { "ku": "me", "en": "us (object form of em)", "de": "uns (Objektform von em)" },
+          { "ku": "we", "en": "you all (object form of hûn)", "de": "euch (Objektform von hûn)" },
+          { "ku": "wan", "en": "them (object form of ew)", "de": "ihnen/sie (Objektform von ew)" },
+          { "ku": "Tu bi xêr hatî", "en": "Welcome (You are welcome)", "de": "Willkommen (Du bist willkommen)" }
         ]
       },
       "activities": [
@@ -216,13 +226,13 @@
           "type": "flashcard",
           "orderIndex": 0,
           "isPublished": true,
-          "instruction": "Learn this pronoun pair",
+          "instruction": { "en": "Learn this pronoun pair", "de": "Lerne dieses Pronomen-Paar" },
           "content": {
             "word": "ez / min",
-            "hint": "Tap to flip",
-            "translation": "I / me",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "I / me", "de": "ich / mich, mir" },
             "example": "Ez baş im. Navê min Armanc e.",
-            "exampleTranslation": "I am good. My name is Armanc."
+            "exampleTranslation": { "en": "I am good. My name is Armanc.", "de": "Mir geht es gut. Mein Name ist Armanc." }
           }
         },
         {
@@ -230,13 +240,13 @@
           "type": "flashcard",
           "orderIndex": 1,
           "isPublished": true,
-          "instruction": "Learn this pronoun pair",
+          "instruction": { "en": "Learn this pronoun pair", "de": "Lerne dieses Pronomen-Paar" },
           "content": {
             "word": "tu / te",
-            "hint": "Tap to flip",
-            "translation": "you / you (object)",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "you / you (object)", "de": "du / dich, dir (Objekt)" },
             "example": "Tu çawa yî? Navê te çi ye?",
-            "exampleTranslation": "How are you? What is your name?"
+            "exampleTranslation": { "en": "How are you? What is your name?", "de": "Wie geht es dir? Wie heißt du?" }
           }
         },
         {
@@ -244,13 +254,13 @@
           "type": "flashcard",
           "orderIndex": 2,
           "isPublished": true,
-          "instruction": "Learn this pronoun pair",
+          "instruction": { "en": "Learn this pronoun pair", "de": "Lerne dieses Pronomen-Paar" },
           "content": {
             "word": "ew / wî, wê",
-            "hint": "Tap to flip",
-            "translation": "he, she / him, her",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "he, she / him, her", "de": "er, sie / ihm, ihn, ihr" },
             "example": "Ew baş e. Navê wî Azad e.",
-            "exampleTranslation": "He is good. His name is Azad."
+            "exampleTranslation": { "en": "He is good. His name is Azad.", "de": "Ihm geht es gut. Sein Name ist Azad." }
           }
         },
         {
@@ -258,16 +268,16 @@
           "type": "reading",
           "orderIndex": 3,
           "isPublished": true,
-          "instruction": "Read the pronoun overview",
+          "instruction": { "en": "Read the pronoun overview", "de": "Lies die Pronomen-Übersicht" },
           "content": {
-            "title": "Cînavên Kesîn — Personal Pronouns",
+            "title": { "en": "Cînavên Kesîn — Personal Pronouns", "de": "Cînavên Kesîn — Personalpronomen" },
             "lines": [
-              { "speaker": "", "ku": "Ez — min (I — me)", "en": "I am / me" },
-              { "speaker": "", "ku": "Tu — te (you — you)", "en": "You are / you" },
-              { "speaker": "", "ku": "Ew — wî/wê (he/she — him/her)", "en": "He/she is / him/her" },
-              { "speaker": "", "ku": "Em — me (we — us)", "en": "We are / us" },
-              { "speaker": "", "ku": "Hûn — we (you all — you all)", "en": "You (plural) are / you all" },
-              { "speaker": "", "ku": "Ew — wan (they — them)", "en": "They are / them" }
+              { "speaker": "", "ku": "Ez — min (I — me)", "en": "I am / me", "de": "ich / mich, mir" },
+              { "speaker": "", "ku": "Tu — te (you — you)", "en": "You are / you", "de": "du / dich, dir" },
+              { "speaker": "", "ku": "Ew — wî/wê (he/she — him/her)", "en": "He/she is / him/her", "de": "er/sie / ihm, ihn/ihr" },
+              { "speaker": "", "ku": "Em — me (we — us)", "en": "We are / us", "de": "wir / uns" },
+              { "speaker": "", "ku": "Hûn — we (you all — you all)", "en": "You (plural) are / you all", "de": "ihr / euch" },
+              { "speaker": "", "ku": "Ew — wan (they — them)", "en": "They are / them", "de": "sie (Plural) / ihnen, sie" }
             ]
           }
         },
@@ -276,14 +286,14 @@
           "type": "matching",
           "orderIndex": 4,
           "isPublished": true,
-          "instruction": "Match the subject pronouns to their object forms",
+          "instruction": { "en": "Match the subject pronouns to their object forms", "de": "Ordne die Subjektpronomen ihren Objektformen zu" },
           "content": {
             "pairs": [
-              { "ku": "ez", "en": "min" },
-              { "ku": "tu", "en": "te" },
-              { "ku": "em", "en": "me" },
-              { "ku": "hûn", "en": "we" },
-              { "ku": "ew (they)", "en": "wan" }
+              { "ku": "ez", "en": "min", "de": "min" },
+              { "ku": "tu", "en": "te", "de": "te" },
+              { "ku": "em", "en": "me", "de": "me" },
+              { "ku": "hûn", "en": "we", "de": "we" },
+              { "ku": "ew (they)", "en": "wan", "de": "wan" }
             ]
           }
         },
@@ -292,11 +302,16 @@
           "type": "mcq",
           "orderIndex": 5,
           "isPublished": true,
-          "instruction": "What is the object form of 'ez' (I)?",
+          "instruction": { "en": "What is the object form of 'ez' (I)?", "de": "Was ist die Objektform von 'ez' (ich)?" },
           "content": {
-            "options": ["te", "min", "me", "wî"],
+            "options": [
+              { "en": "te", "de": "te" },
+              { "en": "min", "de": "min" },
+              { "en": "me", "de": "me" },
+              { "en": "wî", "de": "wî" }
+            ],
             "correct": 1,
-            "explanation": "'ez' = I (subject), 'min' = me (object). Example: Navê min = My name."
+            "explanation": { "en": "'ez' = I (subject), 'min' = me (object). Example: Navê min = My name.", "de": "'ez' = ich (Subjekt), 'min' = mich/mir (Objekt). Beispiel: Navê min = Mein Name." }
           }
         },
         {
@@ -304,14 +319,14 @@
           "type": "gap_fill",
           "orderIndex": 6,
           "isPublished": true,
-          "instruction": "Complete the phrase",
+          "instruction": { "en": "Complete the phrase", "de": "Vervollständige den Ausdruck" },
           "content": {
             "before": "Tu ",
             "gap": "bi xêr hatî",
             "after": "!",
             "display": "Tu ___ !",
             "wordBank": ["bi xêr hatî", "çawa yî", "baş î", "bi kurdî"],
-            "explanation": "'Tu bi xêr hatî' means 'Welcome' (literally: 'You came with goodness')."
+            "explanation": { "en": "'Tu bi xêr hatî' means 'Welcome' (literally: 'You came with goodness').", "de": "'Tu bi xêr hatî' bedeutet 'Willkommen' (wörtlich: 'Du kamst mit Güte')." }
           }
         },
         {
@@ -319,11 +334,16 @@
           "type": "mcq",
           "orderIndex": 7,
           "isPublished": true,
-          "instruction": "\"Dora min e\" means:",
+          "instruction": { "en": "\"Dora min e\" means:", "de": "\"Dora min e\" bedeutet:" },
           "content": {
-            "options": ["My name is...", "I am good", "It is my turn", "I am welcome"],
+            "options": [
+              { "en": "My name is...", "de": "Mein Name ist..." },
+              { "en": "I am good", "de": "Mir geht es gut" },
+              { "en": "It is my turn", "de": "Ich bin dran" },
+              { "en": "I am welcome", "de": "Ich bin willkommen" }
+            ],
             "correct": 2,
-            "explanation": "'Dora min e' means 'It is my turn.' Dor = turn, min = my, e = is."
+            "explanation": { "en": "'Dora min e' means 'It is my turn.' Dor = turn, min = my, e = is.", "de": "'Dora min e' bedeutet 'Ich bin dran.' Dor = Reihe/Runde, min = mein, e = ist." }
           }
         },
         {
@@ -331,14 +351,14 @@
           "type": "gap_fill",
           "orderIndex": 8,
           "isPublished": true,
-          "instruction": "Complete with the correct pronoun form",
+          "instruction": { "en": "Complete with the correct pronoun form", "de": "Vervollständige mit der richtigen Pronomenform" },
           "content": {
             "before": "Navê ",
             "gap": "te",
             "after": " çi ye?",
             "display": "Navê ___ çi ye?",
             "wordBank": ["te", "min", "me", "wan"],
-            "explanation": "'Navê te çi ye?' = 'What is your name?' Uses 'te' because it is the object form of 'tu'."
+            "explanation": { "en": "'Navê te çi ye?' = 'What is your name?' Uses 'te' because it is the object form of 'tu'.", "de": "'Navê te çi ye?' = 'Wie heißt du?' Man verwendet 'te', weil es die Objektform von 'tu' ist." }
           }
         },
         {
@@ -346,11 +366,16 @@
           "type": "mcq",
           "orderIndex": 9,
           "isPublished": true,
-          "instruction": "\"Hûn çawa ne?\" is the formal/plural version of which phrase?",
+          "instruction": { "en": "\"Hûn çawa ne?\" is the formal/plural version of which phrase?", "de": "\"Hûn çawa ne?\" ist die formelle/Pluralversion welches Ausdrucks?" },
           "content": {
-            "options": ["Ev çi ye?", "Tu çawa yî?", "Navê te çi ye?", "Ez baş im"],
+            "options": [
+              { "en": "Ev çi ye?", "de": "Ev çi ye?" },
+              { "en": "Tu çawa yî?", "de": "Tu çawa yî?" },
+              { "en": "Navê te çi ye?", "de": "Navê te çi ye?" },
+              { "en": "Ez baş im", "de": "Ez baş im" }
+            ],
             "correct": 1,
-            "explanation": "'Tu çawa yî?' (singular/informal) becomes 'Hûn çawa ne?' (plural/formal). Both mean 'How are you?'"
+            "explanation": { "en": "'Tu çawa yî?' (singular/informal) becomes 'Hûn çawa ne?' (plural/formal). Both mean 'How are you?'", "de": "'Tu çawa yî?' (Singular/informell) wird zu 'Hûn çawa ne?' (Plural/formell). Beide bedeuten 'Wie geht es dir/Ihnen?'" }
           }
         }
       ]

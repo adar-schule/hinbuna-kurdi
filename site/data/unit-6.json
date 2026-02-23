@@ -4,7 +4,7 @@
   "slug": "leker-u-hevok",
   "description": "Learn essential Kurdish verbs in affirmative and negative forms, build sentences with question-answer patterns, and master four negation rules.",
   "metadata": {
-    "subtitle": "Verbs & Sentences"
+    "subtitle": { "en": "Verbs & Sentences", "de": "Verben & Sätze" }
   },
   "lessons": [
     {
@@ -13,25 +13,25 @@
       "description": "Learn 10 verbs in both affirmative and negative forms with real sentence examples.",
       "slug": "deh-leker",
       "orderIndex": 0,
-      "learningObjective": "Learn 10 verbs in both affirmative and negative forms with real sentence examples",
+      "learningObjective": { "en": "Learn 10 verbs in both affirmative and negative forms with real sentence examples", "de": "Lerne 10 Verben in bejahender und verneinender Form mit echten Satzbeispielen" },
       "durationMinutes": 12,
       "isPublished": true,
       "metadata": {
-        "subtitle": "Ten Verbs — Affirmative & Negative",
+        "subtitle": { "en": "Ten Verbs — Affirmative & Negative", "de": "Zehn Verben — Bejahung & Verneinung" },
         "vocabPreview": ["firotin", "girtin", "kirîn", "xwendin", "nivîsîn", "dan"],
         "wordsLearned": [
-          { "ku": "firotin — bifroşe", "en": "to sell — sell!" },
-          { "ku": "girtin — bigire", "en": "to take/hold — take!" },
-          { "ku": "kirîn — bikire", "en": "to buy — buy!" },
-          { "ku": "xwendin — bixwîne", "en": "to read — read!" },
-          { "ku": "nivîsîn — binivîse", "en": "to write — write!" },
-          { "ku": "dan — bide", "en": "to give — give!" },
-          { "ku": "dîtin — bibîne", "en": "to see — see!" },
-          { "ku": "xwarin — bixwe", "en": "to eat — eat!" },
-          { "ku": "gotin — bibêje", "en": "to say — say!" },
-          { "ku": "cûtin — bicû", "en": "to chew — chew!" },
-          { "ku": "neynik", "en": "mirror" },
-          { "ku": "helbest", "en": "poem" }
+          { "ku": "firotin — bifroşe", "en": "to sell — sell!", "de": "verkaufen — verkauf!" },
+          { "ku": "girtin — bigire", "en": "to take/hold — take!", "de": "nehmen/halten — nimm!" },
+          { "ku": "kirîn — bikire", "en": "to buy — buy!", "de": "kaufen — kauf!" },
+          { "ku": "xwendin — bixwîne", "en": "to read — read!", "de": "lesen — lies!" },
+          { "ku": "nivîsîn — binivîse", "en": "to write — write!", "de": "schreiben — schreib!" },
+          { "ku": "dan — bide", "en": "to give — give!", "de": "geben — gib!" },
+          { "ku": "dîtin — bibîne", "en": "to see — see!", "de": "sehen — sieh!" },
+          { "ku": "xwarin — bixwe", "en": "to eat — eat!", "de": "essen — iss!" },
+          { "ku": "gotin — bibêje", "en": "to say — say!", "de": "sagen — sag!" },
+          { "ku": "cûtin — bicû", "en": "to chew — chew!", "de": "kauen — kau!" },
+          { "ku": "neynik", "en": "mirror", "de": "Spiegel" },
+          { "ku": "helbest", "en": "poem", "de": "Gedicht" }
         ]
       },
       "activities": [
@@ -40,13 +40,13 @@
           "type": "flashcard",
           "orderIndex": 0,
           "isPublished": true,
-          "instruction": "Learn this verb pair",
+          "instruction": { "en": "Learn this verb pair", "de": "Lerne dieses Verbpaar" },
           "content": {
             "word": "firotin (to sell)",
-            "hint": "Tap to flip",
-            "translation": "difroşim / nafroşim",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "difroşim / nafroşim", "de": "ich verkaufe / ich verkaufe nicht" },
             "example": "Em neynikê difroşin. Em neynikê nafroşin.",
-            "exampleTranslation": "We sell the mirror. We don't sell the mirror."
+            "exampleTranslation": { "en": "We sell the mirror. We don't sell the mirror.", "de": "Wir verkaufen den Spiegel. Wir verkaufen den Spiegel nicht." }
           }
         },
         {
@@ -54,13 +54,13 @@
           "type": "flashcard",
           "orderIndex": 1,
           "isPublished": true,
-          "instruction": "Learn this verb pair",
+          "instruction": { "en": "Learn this verb pair", "de": "Lerne dieses Verbpaar" },
           "content": {
             "word": "nivîsîn (to write)",
-            "hint": "Tap to flip",
-            "translation": "dinivîsim / nanivîsim",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "dinivîsim / nanivîsim", "de": "ich schreibe / ich schreibe nicht" },
             "example": "Hêlîn helbestê dinivîse. Serhat helbestê nanivîse.",
-            "exampleTranslation": "Hêlîn writes the poem. Serhat does not write the poem."
+            "exampleTranslation": { "en": "Hêlîn writes the poem. Serhat does not write the poem.", "de": "Hêlîn schreibt das Gedicht. Serhat schreibt das Gedicht nicht." }
           }
         },
         {
@@ -68,13 +68,13 @@
           "type": "flashcard",
           "orderIndex": 2,
           "isPublished": true,
-          "instruction": "Learn this verb pair",
+          "instruction": { "en": "Learn this verb pair", "de": "Lerne dieses Verbpaar" },
           "content": {
             "word": "dan (to give)",
-            "hint": "Tap to flip",
-            "translation": "didim / nadim",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "didim / nadim", "de": "ich gebe / ich gebe nicht" },
             "example": "Jin pere dide. Mêr pere nade.",
-            "exampleTranslation": "The woman gives money. The man does not give money."
+            "exampleTranslation": { "en": "The woman gives money. The man does not give money.", "de": "Die Frau gibt Geld. Der Mann gibt kein Geld." }
           }
         },
         {
@@ -82,16 +82,16 @@
           "type": "reading",
           "orderIndex": 3,
           "isPublished": true,
-          "instruction": "Read the affirmative and negative pairs",
+          "instruction": { "en": "Read the affirmative and negative pairs", "de": "Lies die bejahenden und verneinenden Paare" },
           "content": {
-            "title": "Erênî û Neyînî — Affirmative & Negative",
+            "title": { "en": "Erênî û Neyînî — Affirmative & Negative", "de": "Erênî û Neyînî — Bejahung & Verneinung" },
             "lines": [
-              { "speaker": "", "ku": "Em neynikê difroşin. — Em neynikê nafroşin.", "en": "We sell the mirror. — We don't sell the mirror." },
-              { "speaker": "", "ku": "Tu gulê digirî. — Tu gulê nagirî.", "en": "You hold the rose. — You don't hold the rose." },
-              { "speaker": "", "ku": "Amed rojnameyê dikire. — Amed rojnameyê nakire.", "en": "Amed buys the newspaper. — Amed doesn't buy the newspaper." },
-              { "speaker": "", "ku": "Hêlîn helbestê dinivîse. — Serhat helbestê nanivîse.", "en": "Hêlîn writes the poem. — Serhat doesn't write the poem." },
-              { "speaker": "", "ku": "Jin pere dide. — Mêr pere nade.", "en": "The woman gives money. — The man doesn't give money." },
-              { "speaker": "", "ku": "Ronî kartolê dixwe. — Hûn kartolê naxwin.", "en": "Ronî eats potatoes. — You (pl.) don't eat potatoes." }
+              { "speaker": "", "ku": "Em neynikê difroşin. — Em neynikê nafroşin.", "en": "We sell the mirror. — We don't sell the mirror.", "de": "Wir verkaufen den Spiegel. — Wir verkaufen den Spiegel nicht." },
+              { "speaker": "", "ku": "Tu gulê digirî. — Tu gulê nagirî.", "en": "You hold the rose. — You don't hold the rose.", "de": "Du hältst die Rose. — Du hältst die Rose nicht." },
+              { "speaker": "", "ku": "Amed rojnameyê dikire. — Amed rojnameyê nakire.", "en": "Amed buys the newspaper. — Amed doesn't buy the newspaper.", "de": "Amed kauft die Zeitung. — Amed kauft die Zeitung nicht." },
+              { "speaker": "", "ku": "Hêlîn helbestê dinivîse. — Serhat helbestê nanivîse.", "en": "Hêlîn writes the poem. — Serhat doesn't write the poem.", "de": "Hêlîn schreibt das Gedicht. — Serhat schreibt das Gedicht nicht." },
+              { "speaker": "", "ku": "Jin pere dide. — Mêr pere nade.", "en": "The woman gives money. — The man doesn't give money.", "de": "Die Frau gibt Geld. — Der Mann gibt kein Geld." },
+              { "speaker": "", "ku": "Ronî kartolê dixwe. — Hûn kartolê naxwin.", "en": "Ronî eats potatoes. — You (pl.) don't eat potatoes.", "de": "Ronî isst Kartoffeln. — Ihr esst keine Kartoffeln." }
             ]
           }
         },
@@ -100,11 +100,16 @@
           "type": "mcq",
           "orderIndex": 4,
           "isPublished": true,
-          "instruction": "How do you negate \"difroşin\" (we sell)?",
+          "instruction": { "en": "How do you negate \"difroşin\" (we sell)?", "de": "Wie verneint man \"difroşin\" (wir verkaufen)?" },
           "content": {
-            "options": ["nedifroşin", "nafroşin", "nifroşin", "tunefroşin"],
+            "options": [
+              { "en": "nedifroşin", "de": "nedifroşin" },
+              { "en": "nafroşin", "de": "nafroşin" },
+              { "en": "nifroşin", "de": "nifroşin" },
+              { "en": "tunefroşin", "de": "tunefroşin" }
+            ],
             "correct": 1,
-            "explanation": "For regular verbs, replace the di- prefix with na-: difroşin → nafroşin. This is the standard negation pattern for present tense."
+            "explanation": { "en": "For regular verbs, replace the di- prefix with na-: difroşin → nafroşin. This is the standard negation pattern for present tense.", "de": "Bei regulären Verben wird das Präfix di- durch na- ersetzt: difroşin → nafroşin. Das ist das Standardmuster für die Verneinung im Präsens." }
           }
         },
         {
@@ -112,11 +117,16 @@
           "type": "mcq",
           "orderIndex": 5,
           "isPublished": true,
-          "instruction": "\"Hêlîn helbestê dinivîse.\" What does Hêlîn do?",
+          "instruction": { "en": "\"Hêlîn helbestê dinivîse.\" What does Hêlîn do?", "de": "\"Hêlîn helbestê dinivîse.\" Was macht Hêlîn?" },
           "content": {
-            "options": ["Reads the poem", "Writes the poem", "Sees the poem", "Says the poem"],
+            "options": [
+              { "en": "Reads the poem", "de": "Liest das Gedicht" },
+              { "en": "Writes the poem", "de": "Schreibt das Gedicht" },
+              { "en": "Sees the poem", "de": "Sieht das Gedicht" },
+              { "en": "Says the poem", "de": "Sagt das Gedicht" }
+            ],
             "correct": 1,
-            "explanation": "dinivîse = writes (from nivîsîn = to write). helbest = poem. Hêlîn writes the poem."
+            "explanation": { "en": "dinivîse = writes (from nivîsîn = to write). helbest = poem. Hêlîn writes the poem.", "de": "dinivîse = schreibt (von nivîsîn = schreiben). helbest = Gedicht. Hêlîn schreibt das Gedicht." }
           }
         },
         {
@@ -124,14 +134,14 @@
           "type": "gap_fill",
           "orderIndex": 6,
           "isPublished": true,
-          "instruction": "Make it negative: Jin pere dide. → Mêr pere ___.",
+          "instruction": { "en": "Make it negative: Jin pere dide. → Mêr pere ___.", "de": "Verneine: Jin pere dide. → Mêr pere ___." },
           "content": {
             "before": "Mêr pere ",
             "gap": "nade",
             "after": ".",
             "display": "Mêr pere ___.",
             "wordBank": ["nade", "nedide", "dide", "nadide"],
-            "explanation": "dide → nade. Replace di- with na-: dide → nade. The man does not give money."
+            "explanation": { "en": "dide → nade. Replace di- with na-: dide → nade. The man does not give money.", "de": "dide → nade. Ersetze di- durch na-: dide → nade. Der Mann gibt kein Geld." }
           }
         },
         {
@@ -139,14 +149,14 @@
           "type": "gap_fill",
           "orderIndex": 7,
           "isPublished": true,
-          "instruction": "Make it negative: Ez xanî dibînim. → Hêlîn xanî ___.",
+          "instruction": { "en": "Make it negative: Ez xanî dibînim. → Hêlîn xanî ___.", "de": "Verneine: Ez xanî dibînim. → Hêlîn xanî ___." },
           "content": {
             "before": "Hêlîn xanî ",
             "gap": "nabîne",
             "after": ".",
             "display": "Hêlîn xanî ___.",
             "wordBank": ["nabîne", "dibîne", "nabînim", "nedibîne"],
-            "explanation": "dibîne → nabîne. Replace di- with na- for he/she form. Hêlîn does not see the house."
+            "explanation": { "en": "dibîne → nabîne. Replace di- with na- for he/she form. Hêlîn does not see the house.", "de": "dibîne → nabîne. Ersetze di- durch na- für die er/sie-Form. Hêlîn sieht das Haus nicht." }
           }
         },
         {
@@ -154,14 +164,14 @@
           "type": "matching",
           "orderIndex": 8,
           "isPublished": true,
-          "instruction": "Match each affirmative with its negative",
+          "instruction": { "en": "Match each affirmative with its negative", "de": "Ordne jede bejahende Form der verneinenden zu" },
           "content": {
             "pairs": [
-              { "ku": "difroşim", "en": "nafroşim" },
-              { "ku": "digirî", "en": "nagirî" },
-              { "ku": "dikire", "en": "nakire" },
-              { "ku": "dixwîne", "en": "naxwîne" },
-              { "ku": "dinivîse", "en": "nanivîse" }
+              { "ku": "difroşim", "en": "nafroşim", "de": "nafroşim" },
+              { "ku": "digirî", "en": "nagirî", "de": "nagirî" },
+              { "ku": "dikire", "en": "nakire", "de": "nakire" },
+              { "ku": "dixwîne", "en": "naxwîne", "de": "naxwîne" },
+              { "ku": "dinivîse", "en": "nanivîse", "de": "nanivîse" }
             ]
           }
         },
@@ -170,11 +180,16 @@
           "type": "mcq",
           "orderIndex": 9,
           "isPublished": true,
-          "instruction": "\"Ronî kartolê dixwe.\" What is kartol?",
+          "instruction": { "en": "\"Ronî kartolê dixwe.\" What is kartol?", "de": "\"Ronî kartolê dixwe.\" Was ist kartol?" },
           "content": {
-            "options": ["Carrot", "Potato", "Tomato", "Onion"],
+            "options": [
+              { "en": "Carrot", "de": "Karotte" },
+              { "en": "Potato", "de": "Kartoffel" },
+              { "en": "Tomato", "de": "Tomate" },
+              { "en": "Onion", "de": "Zwiebel" }
+            ],
             "correct": 1,
-            "explanation": "kartol = potato (from German Kartoffel). \"Ronî kartolê dixwe\" = Ronî eats potatoes."
+            "explanation": { "en": "kartol = potato (from German Kartoffel). \"Ronî kartolê dixwe\" = Ronî eats potatoes.", "de": "kartol = Kartoffel (vom deutschen Wort Kartoffel). \"Ronî kartolê dixwe\" = Ronî isst Kartoffeln." }
           }
         }
       ]
@@ -185,22 +200,22 @@
       "description": "Build questions and answers using verbs: avêtin, çûn, dan, dîtin with real Kurdish sentence patterns.",
       "slug": "hevok-cekirin",
       "orderIndex": 1,
-      "learningObjective": "Build questions and answers using verbs: avêtin, çûn, dan, dîtin — with real Kurdish sentence patterns",
+      "learningObjective": { "en": "Build questions and answers using verbs: avêtin, çûn, dan, dîtin — with real Kurdish sentence patterns", "de": "Bilde Fragen und Antworten mit den Verben: avêtin, çûn, dan, dîtin — mit echten kurdischen Satzmustern" },
       "durationMinutes": 12,
       "isPublished": true,
       "metadata": {
-        "subtitle": "Building Sentences",
+        "subtitle": { "en": "Building Sentences", "de": "Sätze bilden" },
         "vocabPreview": ["davêjim", "diçim", "didim", "dibînim"],
         "wordsLearned": [
-          { "ku": "Tu çi davêjî?", "en": "What do you throw?" },
-          { "ku": "zebeş", "en": "watermelon" },
-          { "ku": "kevir", "en": "stone" },
-          { "ku": "Tu diçî ku?", "en": "Where do you go?" },
-          { "ku": "Tu çi didî?", "en": "What do you give?" },
-          { "ku": "Tu kê dibînî?", "en": "Who(m) do you see?" },
-          { "ku": "Kî kê dibîne?", "en": "Who sees whom?" },
-          { "ku": "xwê", "en": "salt" },
-          { "ku": "çiya", "en": "mountain" }
+          { "ku": "Tu çi davêjî?", "en": "What do you throw?", "de": "Was wirfst du?" },
+          { "ku": "zebeş", "en": "watermelon", "de": "Wassermelone" },
+          { "ku": "kevir", "en": "stone", "de": "Stein" },
+          { "ku": "Tu diçî ku?", "en": "Where do you go?", "de": "Wohin gehst du?" },
+          { "ku": "Tu çi didî?", "en": "What do you give?", "de": "Was gibst du?" },
+          { "ku": "Tu kê dibînî?", "en": "Who(m) do you see?", "de": "Wen siehst du?" },
+          { "ku": "Kî kê dibîne?", "en": "Who sees whom?", "de": "Wer sieht wen?" },
+          { "ku": "xwê", "en": "salt", "de": "Salz" },
+          { "ku": "çiya", "en": "mountain", "de": "Berg" }
         ]
       },
       "activities": [
@@ -209,13 +224,13 @@
           "type": "flashcard",
           "orderIndex": 0,
           "isPublished": true,
-          "instruction": "Learn this question pattern",
+          "instruction": { "en": "Learn this question pattern", "de": "Lerne dieses Fragemuster" },
           "content": {
             "word": "Tu çi davêjî?",
-            "hint": "Tap to flip",
-            "translation": "What do you throw?",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "What do you throw?", "de": "Was wirfst du?" },
             "example": "Tu çi davêjî? — Ez zebeşê davêjim.",
-            "exampleTranslation": "What do you throw? — I throw the watermelon."
+            "exampleTranslation": { "en": "What do you throw? — I throw the watermelon.", "de": "Was wirfst du? — Ich werfe die Wassermelone." }
           }
         },
         {
@@ -223,13 +238,13 @@
           "type": "flashcard",
           "orderIndex": 1,
           "isPublished": true,
-          "instruction": "Learn this question pattern",
+          "instruction": { "en": "Learn this question pattern", "de": "Lerne dieses Fragemuster" },
           "content": {
             "word": "Tu diçî ku?",
-            "hint": "Tap to flip",
-            "translation": "Where do you go?",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "Where do you go?", "de": "Wohin gehst du?" },
             "example": "Tu diçî ku? — Ez diçim Berlinê.",
-            "exampleTranslation": "Where do you go? — I go to Berlin."
+            "exampleTranslation": { "en": "Where do you go? — I go to Berlin.", "de": "Wohin gehst du? — Ich gehe nach Berlin." }
           }
         },
         {
@@ -237,13 +252,13 @@
           "type": "flashcard",
           "orderIndex": 2,
           "isPublished": true,
-          "instruction": "Learn this question pattern",
+          "instruction": { "en": "Learn this question pattern", "de": "Lerne dieses Fragemuster" },
           "content": {
             "word": "Tu kê dibînî?",
-            "hint": "Tap to flip",
-            "translation": "Who(m) do you see?",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "Who(m) do you see?", "de": "Wen siehst du?" },
             "example": "Tu kê dibînî? — Ez te dibînim.",
-            "exampleTranslation": "Who do you see? — I see you."
+            "exampleTranslation": { "en": "Who do you see? — I see you.", "de": "Wen siehst du? — Ich sehe dich." }
           }
         },
         {
@@ -251,17 +266,17 @@
           "type": "reading",
           "orderIndex": 3,
           "isPublished": true,
-          "instruction": "Read the Q&A pairs",
+          "instruction": { "en": "Read the Q&A pairs", "de": "Lies die Frage-Antwort-Paare" },
           "content": {
-            "title": "Hevok Çêkirin — Building Sentences",
+            "title": { "en": "Hevok Çêkirin — Building Sentences", "de": "Hevok Çêkirin — Sätze bilden" },
             "lines": [
-              { "speaker": "", "ku": "Tu çi davêjî? — Ez zebeşê davêjim.", "en": "What do you throw? — I throw the watermelon." },
-              { "speaker": "", "ku": "Tu diçî ku? — Ez diçim Berlinê.", "en": "Where do you go? — I go to Berlin." },
-              { "speaker": "", "ku": "Ez naçim Hamburgê.", "en": "I don't go to Hamburg." },
-              { "speaker": "", "ku": "Tu çi didî? — Ez goşt didim.", "en": "What do you give? — I give meat." },
-              { "speaker": "", "ku": "Ez xwêyê nadim.", "en": "I don't give salt." },
-              { "speaker": "", "ku": "Kî kê dibîne? — Alan Delalê dibîne.", "en": "Who sees whom? — Alan sees Delal." },
-              { "speaker": "", "ku": "Meryem çiya dibîne. Hêvî gur dibîne.", "en": "Meryem sees the mountain. Hêvî sees the wolf." }
+              { "speaker": "", "ku": "Tu çi davêjî? — Ez zebeşê davêjim.", "en": "What do you throw? — I throw the watermelon.", "de": "Was wirfst du? — Ich werfe die Wassermelone." },
+              { "speaker": "", "ku": "Tu diçî ku? — Ez diçim Berlinê.", "en": "Where do you go? — I go to Berlin.", "de": "Wohin gehst du? — Ich gehe nach Berlin." },
+              { "speaker": "", "ku": "Ez naçim Hamburgê.", "en": "I don't go to Hamburg.", "de": "Ich gehe nicht nach Hamburg." },
+              { "speaker": "", "ku": "Tu çi didî? — Ez goşt didim.", "en": "What do you give? — I give meat.", "de": "Was gibst du? — Ich gebe Fleisch." },
+              { "speaker": "", "ku": "Ez xwêyê nadim.", "en": "I don't give salt.", "de": "Ich gebe kein Salz." },
+              { "speaker": "", "ku": "Kî kê dibîne? — Alan Delalê dibîne.", "en": "Who sees whom? — Alan sees Delal.", "de": "Wer sieht wen? — Alan sieht Delal." },
+              { "speaker": "", "ku": "Meryem çiya dibîne. Hêvî gur dibîne.", "en": "Meryem sees the mountain. Hêvî sees the wolf.", "de": "Meryem sieht den Berg. Hêvî sieht den Wolf." }
             ]
           }
         },
@@ -270,11 +285,16 @@
           "type": "mcq",
           "orderIndex": 4,
           "isPublished": true,
-          "instruction": "\"Tu diçî ku?\" — What does this question ask?",
+          "instruction": { "en": "\"Tu diçî ku?\" — What does this question ask?", "de": "\"Tu diçî ku?\" — Was fragt diese Frage?" },
           "content": {
-            "options": ["Where do you come from?", "Where do you go?", "What do you do?", "Who do you see?"],
+            "options": [
+              { "en": "Where do you come from?", "de": "Woher kommst du?" },
+              { "en": "Where do you go?", "de": "Wohin gehst du?" },
+              { "en": "What do you do?", "de": "Was machst du?" },
+              { "en": "Who do you see?", "de": "Wen siehst du?" }
+            ],
             "correct": 1,
-            "explanation": "\"Tu diçî ku?\" = Where do you go? diçî = you go (from çûn), ku = where (destination)."
+            "explanation": { "en": "\"Tu diçî ku?\" = Where do you go? diçî = you go (from çûn), ku = where (destination).", "de": "\"Tu diçî ku?\" = Wohin gehst du? diçî = du gehst (von çûn), ku = wohin (Ziel)." }
           }
         },
         {
@@ -282,11 +302,16 @@
           "type": "mcq",
           "orderIndex": 5,
           "isPublished": true,
-          "instruction": "\"Kî kê dibîne?\" — Alan Delalê dibîne. Who sees whom?",
+          "instruction": { "en": "\"Kî kê dibîne?\" — Alan Delalê dibîne. Who sees whom?", "de": "\"Kî kê dibîne?\" — Alan Delalê dibîne. Wer sieht wen?" },
           "content": {
-            "options": ["Delal sees Alan", "Alan sees Delal", "They see each other", "Nobody sees anyone"],
+            "options": [
+              { "en": "Delal sees Alan", "de": "Delal sieht Alan" },
+              { "en": "Alan sees Delal", "de": "Alan sieht Delal" },
+              { "en": "They see each other", "de": "Sie sehen sich gegenseitig" },
+              { "en": "Nobody sees anyone", "de": "Niemand sieht jemanden" }
+            ],
             "correct": 1,
-            "explanation": "Kî = who (subject), kê = whom (object). Alan (subject) Delalê (object, fem. +ê) dibîne (sees). Alan sees Delal."
+            "explanation": { "en": "Kî = who (subject), kê = whom (object). Alan (subject) Delalê (object, fem. +ê) dibîne (sees). Alan sees Delal.", "de": "Kî = wer (Subjekt), kê = wen (Objekt). Alan (Subjekt) Delalê (Objekt, fem. +ê) dibîne (sieht). Alan sieht Delal." }
           }
         },
         {
@@ -294,14 +319,14 @@
           "type": "gap_fill",
           "orderIndex": 6,
           "isPublished": true,
-          "instruction": "Complete: Tu çi ___? — Ez zebeşê davêjim.",
+          "instruction": { "en": "Complete: Tu çi ___? — Ez zebeşê davêjim.", "de": "Vervollständige: Tu çi ___? — Ez zebeşê davêjim." },
           "content": {
             "before": "Tu çi ",
             "gap": "davêjî",
             "after": "?",
             "display": "Tu çi ___?",
             "wordBank": ["davêjî", "davêjim", "davêje", "davêjin"],
-            "explanation": "For \"tu\" (you), the ending is -î: davêjî. The verb avêtin (to throw) → davêjî in present tense for tu."
+            "explanation": { "en": "For \"tu\" (you), the ending is -î: davêjî. The verb avêtin (to throw) → davêjî in present tense for tu.", "de": "Für \"tu\" (du) ist die Endung -î: davêjî. Das Verb avêtin (werfen) → davêjî im Präsens für tu." }
           }
         },
         {
@@ -309,14 +334,14 @@
           "type": "gap_fill",
           "orderIndex": 7,
           "isPublished": true,
-          "instruction": "Complete: Ez diçim ___.",
+          "instruction": { "en": "Complete: Ez diçim ___.", "de": "Vervollständige: Ez diçim ___." },
           "content": {
             "before": "Ez diçim ",
             "gap": "Berlinê",
             "after": ".",
             "display": "Ez diçim ___.",
             "wordBank": ["Berlinê", "Berlin", "Berlinî", "ji Berlinê"],
-            "explanation": "City names take -ê when used as a destination: Berlin → Berlinê. \"Ez diçim Berlinê\" = I go to Berlin."
+            "explanation": { "en": "City names take -ê when used as a destination: Berlin → Berlinê. \"Ez diçim Berlinê\" = I go to Berlin.", "de": "Städtenamen erhalten -ê als Zielangabe: Berlin → Berlinê. \"Ez diçim Berlinê\" = Ich gehe nach Berlin." }
           }
         },
         {
@@ -324,13 +349,13 @@
           "type": "matching",
           "orderIndex": 8,
           "isPublished": true,
-          "instruction": "Match the question to the correct answer",
+          "instruction": { "en": "Match the question to the correct answer", "de": "Ordne die Frage der richtigen Antwort zu" },
           "content": {
             "pairs": [
-              { "ku": "Tu çi davêjî?", "en": "Ez kevir davêjim." },
-              { "ku": "Tu diçî ku?", "en": "Ez diçim Bochumê." },
-              { "ku": "Tu çi didî?", "en": "Ez avê didim." },
-              { "ku": "Tu kê dibînî?", "en": "Ez te dibînim." }
+              { "ku": "Tu çi davêjî?", "en": "Ez kevir davêjim.", "de": "Ich werfe den Stein." },
+              { "ku": "Tu diçî ku?", "en": "Ez diçim Bochumê.", "de": "Ich gehe nach Bochum." },
+              { "ku": "Tu çi didî?", "en": "Ez avê didim.", "de": "Ich gebe Wasser." },
+              { "ku": "Tu kê dibînî?", "en": "Ez te dibînim.", "de": "Ich sehe dich." }
             ]
           }
         },
@@ -339,14 +364,14 @@
           "type": "gap_fill",
           "orderIndex": 9,
           "isPublished": true,
-          "instruction": "Make it negative: Ez diçim Kölnê. → Ez ___ Kölnê.",
+          "instruction": { "en": "Make it negative: Ez diçim Kölnê. → Ez ___ Kölnê.", "de": "Verneine: Ez diçim Kölnê. → Ez ___ Kölnê." },
           "content": {
             "before": "Ez ",
             "gap": "naçim",
             "after": " Kölnê.",
             "display": "Ez ___ Kölnê.",
             "wordBank": ["naçim", "neçim", "niçim", "diçim"],
-            "explanation": "diçim → naçim. Replace di- with na-: I don't go to Cologne."
+            "explanation": { "en": "diçim → naçim. Replace di- with na-: I don't go to Cologne.", "de": "diçim → naçim. Ersetze di- durch na-: Ich gehe nicht nach Köln." }
           }
         }
       ]
@@ -357,23 +382,23 @@
       "description": "Master the four negation patterns in Kurdish: bûn→ne, verbs→na-, zanîn/karîn→ni-, hebûn→tune.",
       "slug": "ereni-u-neyini",
       "orderIndex": 2,
-      "learningObjective": "Master the four negation patterns in Kurdish: bûn→ne, verbs→na-, zanîn/karîn→ni-, hebûn→tune",
+      "learningObjective": { "en": "Master the four negation patterns in Kurdish: bûn→ne, verbs→na-, zanîn/karîn→ni-, hebûn→tune", "de": "Meistere die vier Verneinungsmuster im Kurdischen: bûn→ne, Verben→na-, zanîn/karîn→ni-, hebûn→tune" },
       "durationMinutes": 12,
       "isPublished": true,
       "metadata": {
-        "subtitle": "Affirmative & Negative — Four Rules",
+        "subtitle": { "en": "Affirmative & Negative — Four Rules", "de": "Bejahung & Verneinung — Vier Regeln" },
         "vocabPreview": ["ne", "na-", "ni-", "tune"],
         "wordsLearned": [
-          { "ku": "ne (bûn negation)", "en": "not (for adjective/noun + bûn)" },
-          { "ku": "na- (verb negation)", "en": "not (replaces di- on verbs)" },
-          { "ku": "ni- (zanîn/karîn)", "en": "not (for zanîn/karîn only)" },
-          { "ku": "tune (hebûn)", "en": "not existing / don't have" },
-          { "ku": "karîn", "en": "to be able / can" },
-          { "ku": "hebûn", "en": "to have / to exist" },
-          { "ku": "Erê", "en": "Yes" },
-          { "ku": "Na", "en": "No" },
-          { "ku": "girav", "en": "island" },
-          { "ku": "deng", "en": "sound / voice" }
+          { "ku": "ne (bûn negation)", "en": "not (for adjective/noun + bûn)", "de": "nicht (für Adjektiv/Nomen + bûn)" },
+          { "ku": "na- (verb negation)", "en": "not (replaces di- on verbs)", "de": "nicht (ersetzt di- bei Verben)" },
+          { "ku": "ni- (zanîn/karîn)", "en": "not (for zanîn/karîn only)", "de": "nicht (nur für zanîn/karîn)" },
+          { "ku": "tune (hebûn)", "en": "not existing / don't have", "de": "nicht vorhanden / nicht haben" },
+          { "ku": "karîn", "en": "to be able / can", "de": "können" },
+          { "ku": "hebûn", "en": "to have / to exist", "de": "haben / existieren" },
+          { "ku": "Erê", "en": "Yes", "de": "Ja" },
+          { "ku": "Na", "en": "No", "de": "Nein" },
+          { "ku": "girav", "en": "island", "de": "Insel" },
+          { "ku": "deng", "en": "sound / voice", "de": "Klang / Stimme" }
         ]
       },
       "activities": [
@@ -382,13 +407,13 @@
           "type": "flashcard",
           "orderIndex": 0,
           "isPublished": true,
-          "instruction": "Learn negation rule 1",
+          "instruction": { "en": "Learn negation rule 1", "de": "Lerne Verneinungsregel 1" },
           "content": {
             "word": "bûn → ne",
-            "hint": "Tap to flip",
-            "translation": "For bûn (to be): add 'ne' before the adjective",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "For bûn (to be): add 'ne' before the adjective", "de": "Für bûn (sein): 'ne' vor das Adjektiv setzen" },
             "example": "Ez baş im → Ez ne baş im.",
-            "exampleTranslation": "I am good → I am not good."
+            "exampleTranslation": { "en": "I am good → I am not good.", "de": "Mir geht es gut → Mir geht es nicht gut." }
           }
         },
         {
@@ -396,13 +421,13 @@
           "type": "flashcard",
           "orderIndex": 1,
           "isPublished": true,
-          "instruction": "Learn negation rule 2",
+          "instruction": { "en": "Learn negation rule 2", "de": "Lerne Verneinungsregel 2" },
           "content": {
             "word": "Verbs → na-",
-            "hint": "Tap to flip",
-            "translation": "Replace di- with na- for all regular verbs",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "Replace di- with na- for all regular verbs", "de": "Ersetze di- durch na- bei allen regulären Verben" },
             "example": "Agît dibîne → Agît nabîne.",
-            "exampleTranslation": "Agît sees → Agît does not see."
+            "exampleTranslation": { "en": "Agît sees → Agît does not see.", "de": "Agît sieht → Agît sieht nicht." }
           }
         },
         {
@@ -410,13 +435,13 @@
           "type": "flashcard",
           "orderIndex": 2,
           "isPublished": true,
-          "instruction": "Learn negation rule 3",
+          "instruction": { "en": "Learn negation rule 3", "de": "Lerne Verneinungsregel 3" },
           "content": {
             "word": "zanîn / karîn → ni-",
-            "hint": "Tap to flip",
-            "translation": "zanîn (know) and karîn (can) use ni- instead of na-",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "zanîn (know) and karîn (can) use ni- instead of na-", "de": "zanîn (wissen) und karîn (können) verwenden ni- statt na-" },
             "example": "Ez kurdî dizanim → Ez tirkî nizanim.",
-            "exampleTranslation": "I know Kurdish → I don't know Turkish."
+            "exampleTranslation": { "en": "I know Kurdish → I don't know Turkish.", "de": "Ich kann Kurdisch → Ich kann kein Türkisch." }
           }
         },
         {
@@ -424,13 +449,13 @@
           "type": "flashcard",
           "orderIndex": 3,
           "isPublished": true,
-          "instruction": "Learn negation rule 4",
+          "instruction": { "en": "Learn negation rule 4", "de": "Lerne Verneinungsregel 4" },
           "content": {
             "word": "hebûn → tune",
-            "hint": "Tap to flip",
-            "translation": "For hebûn (to have/exist): use 'tune' for negation",
+            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
+            "translation": { "en": "For hebûn (to have/exist): use 'tune' for negation", "de": "Für hebûn (haben/existieren): 'tune' zur Verneinung verwenden" },
             "example": "Avê heye → Avê tune.",
-            "exampleTranslation": "There is water → There is no water."
+            "exampleTranslation": { "en": "There is water → There is no water.", "de": "Es gibt Wasser → Es gibt kein Wasser." }
           }
         },
         {
@@ -438,18 +463,18 @@
           "type": "reading",
           "orderIndex": 4,
           "isPublished": true,
-          "instruction": "Read the Q&A with yes/no answers",
+          "instruction": { "en": "Read the Q&A with yes/no answers", "de": "Lies die Fragen und Antworten mit Ja/Nein" },
           "content": {
-            "title": "Erê / Na — Yes / No",
+            "title": { "en": "Erê / Na — Yes / No", "de": "Erê / Na — Ja / Nein" },
             "lines": [
-              { "speaker": "A", "ku": "Hûn pirtûkê dikirin?", "en": "Do you (pl.) buy the book?" },
-              { "speaker": "B", "ku": "Erê, em pirtûkê dikirin.", "en": "Yes, we buy the book." },
-              { "speaker": "B", "ku": "Na, em pirtûkê nakirin.", "en": "No, we don't buy the book." },
-              { "speaker": "A", "ku": "Tu deng dibihîzî?", "en": "Do you hear the sound?" },
-              { "speaker": "B", "ku": "Erê, ez deng dibihîzim.", "en": "Yes, I hear the sound." },
-              { "speaker": "B", "ku": "Na, ez deng nabihîzim.", "en": "No, I don't hear the sound." },
-              { "speaker": "A", "ku": "Ew goşt û birinc dixwe?", "en": "Does he/she eat meat and rice?" },
-              { "speaker": "B", "ku": "Na, ew goşt û birinc naxwe.", "en": "No, he/she doesn't eat meat and rice." }
+              { "speaker": "A", "ku": "Hûn pirtûkê dikirin?", "en": "Do you (pl.) buy the book?", "de": "Kauft ihr das Buch?" },
+              { "speaker": "B", "ku": "Erê, em pirtûkê dikirin.", "en": "Yes, we buy the book.", "de": "Ja, wir kaufen das Buch." },
+              { "speaker": "B", "ku": "Na, em pirtûkê nakirin.", "en": "No, we don't buy the book.", "de": "Nein, wir kaufen das Buch nicht." },
+              { "speaker": "A", "ku": "Tu deng dibihîzî?", "en": "Do you hear the sound?", "de": "Hörst du den Klang?" },
+              { "speaker": "B", "ku": "Erê, ez deng dibihîzim.", "en": "Yes, I hear the sound.", "de": "Ja, ich höre den Klang." },
+              { "speaker": "B", "ku": "Na, ez deng nabihîzim.", "en": "No, I don't hear the sound.", "de": "Nein, ich höre den Klang nicht." },
+              { "speaker": "A", "ku": "Ew goşt û birinc dixwe?", "en": "Does he/she eat meat and rice?", "de": "Isst er/sie Fleisch und Reis?" },
+              { "speaker": "B", "ku": "Na, ew goşt û birinc naxwe.", "en": "No, he/she doesn't eat meat and rice.", "de": "Nein, er/sie isst kein Fleisch und Reis." }
             ]
           }
         },
@@ -458,11 +483,16 @@
           "type": "mcq",
           "orderIndex": 5,
           "isPublished": true,
-          "instruction": "How do you negate \"Ez kurdî dizanim\"?",
+          "instruction": { "en": "How do you negate \"Ez kurdî dizanim\"?", "de": "Wie verneint man \"Ez kurdî dizanim\"?" },
           "content": {
-            "options": ["Ez kurdî nazanim", "Ez kurdî nizanim", "Ez kurdî ne zanim", "Ez kurdî tunezanim"],
+            "options": [
+              { "en": "Ez kurdî nazanim", "de": "Ez kurdî nazanim" },
+              { "en": "Ez kurdî nizanim", "de": "Ez kurdî nizanim" },
+              { "en": "Ez kurdî ne zanim", "de": "Ez kurdî ne zanim" },
+              { "en": "Ez kurdî tunezanim", "de": "Ez kurdî tunezanim" }
+            ],
             "correct": 1,
-            "explanation": "zanîn (to know) uses the special ni- prefix for negation: dizanim → nizanim. This also applies to karîn (to be able)."
+            "explanation": { "en": "zanîn (to know) uses the special ni- prefix for negation: dizanim → nizanim. This also applies to karîn (to be able).", "de": "zanîn (wissen) verwendet das spezielle Präfix ni- zur Verneinung: dizanim → nizanim. Das gilt auch für karîn (können)." }
           }
         },
         {
@@ -470,11 +500,16 @@
           "type": "mcq",
           "orderIndex": 6,
           "isPublished": true,
-          "instruction": "Which negation pattern is used with bûn (to be)?",
+          "instruction": { "en": "Which negation pattern is used with bûn (to be)?", "de": "Welches Verneinungsmuster wird bei bûn (sein) verwendet?" },
           "content": {
-            "options": ["na- before the verb", "ni- before the verb", "ne before the adjective", "tune"],
+            "options": [
+              { "en": "na- before the verb", "de": "na- vor dem Verb" },
+              { "en": "ni- before the verb", "de": "ni- vor dem Verb" },
+              { "en": "ne before the adjective", "de": "ne vor dem Adjektiv" },
+              { "en": "tune", "de": "tune" }
+            ],
             "correct": 2,
-            "explanation": "With bûn, the word \"ne\" is placed before the adjective/noun: Ez baş im → Ez ne baş im. Ew tî ye → Ew ne tî ye."
+            "explanation": { "en": "With bûn, the word \"ne\" is placed before the adjective/noun: Ez baş im → Ez ne baş im. Ew tî ye → Ew ne tî ye.", "de": "Bei bûn wird das Wort \"ne\" vor das Adjektiv/Nomen gesetzt: Ez baş im → Ez ne baş im. Ew tî ye → Ew ne tî ye." }
           }
         },
         {
@@ -482,14 +517,14 @@
           "type": "gap_fill",
           "orderIndex": 7,
           "isPublished": true,
-          "instruction": "Negate: Ew diçin → Ew ___.",
+          "instruction": { "en": "Negate: Ew diçin → Ew ___.", "de": "Verneine: Ew diçin → Ew ___." },
           "content": {
             "before": "Ew ",
             "gap": "naçin",
             "after": ".",
             "display": "Ew ___.",
             "wordBank": ["naçin", "neçin", "niçin", "tuneçin"],
-            "explanation": "çûn is a regular verb, so replace di- with na-: diçin → naçin."
+            "explanation": { "en": "çûn is a regular verb, so replace di- with na-: diçin → naçin.", "de": "çûn ist ein reguläres Verb, also ersetze di- durch na-: diçin → naçin." }
           }
         },
         {
@@ -497,14 +532,14 @@
           "type": "gap_fill",
           "orderIndex": 8,
           "isPublished": true,
-          "instruction": "Negate: Ez tirkî dizanim → Ez tirkî ___.",
+          "instruction": { "en": "Negate: Ez tirkî dizanim → Ez tirkî ___.", "de": "Verneine: Ez tirkî dizanim → Ez tirkî ___." },
           "content": {
             "before": "Ez tirkî ",
             "gap": "nizanim",
             "after": ".",
             "display": "Ez tirkî ___.",
             "wordBank": ["nazanim", "nizanim", "ne zanim", "tunezanim"],
-            "explanation": "zanîn uses ni- for negation: dizanim → nizanim. NOT nazanim!"
+            "explanation": { "en": "zanîn uses ni- for negation: dizanim → nizanim. NOT nazanim!", "de": "zanîn verwendet ni- zur Verneinung: dizanim → nizanim. NICHT nazanim!" }
           }
         },
         {
@@ -512,13 +547,13 @@
           "type": "matching",
           "orderIndex": 9,
           "isPublished": true,
-          "instruction": "Match each verb type to its negation pattern",
+          "instruction": { "en": "Match each verb type to its negation pattern", "de": "Ordne jedem Verbtyp sein Verneinungsmuster zu" },
           "content": {
             "pairs": [
-              { "ku": "bûn (to be)", "en": "ne + adjective" },
-              { "ku": "regular verbs (di-)", "en": "na- replaces di-" },
-              { "ku": "zanîn / karîn", "en": "ni- replaces di-" },
-              { "ku": "hebûn (to have)", "en": "tune" }
+              { "ku": "bûn (to be)", "en": "ne + adjective", "de": "ne + Adjektiv" },
+              { "ku": "regular verbs (di-)", "en": "na- replaces di-", "de": "na- ersetzt di-" },
+              { "ku": "zanîn / karîn", "en": "ni- replaces di-", "de": "ni- ersetzt di-" },
+              { "ku": "hebûn (to have)", "en": "tune", "de": "tune" }
             ]
           }
         }

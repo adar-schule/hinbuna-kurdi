@@ -178,6 +178,19 @@
       var header = document.getElementById('app-header');
       if (header) { var s = false; window.addEventListener('scroll', function () { var sh = window.scrollY > 8; if (sh !== s) { s = sh; header.classList.toggle('scrolled', s); } }, { passive: true }); }
 
+      // ── Multi-lang helper ──
+      var locale = (typeof HK !== 'undefined' && HK.getLang) ? HK.getLang() : 'en';
+      function t(val) {
+        if (val == null) return '';
+        if (typeof val === 'string') return val;
+        if (typeof val === 'object') {
+          if (val[locale] != null) return val[locale];
+          if (val.en != null) return val.en;
+          for (var k in val) { if (val.hasOwnProperty(k)) return val[k]; }
+        }
+        return String(val);
+      }
+
       // ── Data-driven lesson intro from unit JSON ──
 
       var params = new URLSearchParams(window.location.search);
@@ -213,7 +226,7 @@
         var titleKu = document.getElementById('lesson-title-ku');
         if (titleKu) titleKu.textContent = lesson.name;
         var titleEn = document.getElementById('lesson-title-en');
-        if (titleEn) titleEn.textContent = (lesson.metadata && lesson.metadata.subtitle) || lesson.subtitle || '';
+        if (titleEn) titleEn.textContent = t((lesson.metadata && lesson.metadata.subtitle) || lesson.subtitle || '');
 
         // Update description (if present)
         var descSection = document.getElementById('lesson-description');
@@ -229,7 +242,7 @@
 
         // Update objective
         var objText = document.getElementById('lesson-objective-text');
-        if (objText) objText.textContent = lesson.learningObjective;
+        if (objText) objText.textContent = t(lesson.learningObjective);
 
         // Update meta
         var activityCount = lesson.activities ? lesson.activities.length : 0;
