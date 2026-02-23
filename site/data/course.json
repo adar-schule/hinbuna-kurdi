@@ -1,64 +1,136 @@
 {
   "id": "kurmanji-a1",
   "name": "Kurmancî A1",
-  "description": "Beginner",
+  "slug": "kurmanci-a1",
+  "description": "Beginner Kurmanji Kurdish — from first greetings to basic conversation.",
+  "level": "A1",
   "totalLessons": 25,
+  "isPublished": true,
+  "metadata": {},
+  "modules": [
+    {
+      "id": "a1-destpek",
+      "name": "A1: Destpêk",
+      "slug": "a1-destpek",
+      "description": "Foundation module covering greetings, basic vocabulary, pronouns, verbs, and simple sentences.",
+      "level": "A1",
+      "orderIndex": 0,
+      "isPublished": true,
+      "metadata": {}
+    }
+  ],
   "units": [
     {
       "id": 1,
       "name": "Silav û Reng",
-      "subtitle": "Greetings & Colors",
+      "description": "Learn basic greetings, introductions, farewells, and colors in Kurmanji Kurdish.",
+      "slug": "silav-u-reng",
+      "orderIndex": 0,
+      "isFree": true,
+      "isPublished": true,
       "lessonCount": 3,
-      "dataFile": "unit-1.json"
+      "dataFile": "unit-1.json",
+      "metadata": {
+        "subtitle": "Greetings & Colors"
+      }
     },
     {
       "id": 2,
       "name": "Ev Çi Ye?",
-      "subtitle": "What Is This?",
+      "description": "Learn to identify everyday objects, ask 'What is this?', and build basic noun vocabulary.",
+      "slug": "ev-ci-ye",
+      "orderIndex": 1,
+      "isFree": true,
+      "isPublished": true,
       "lessonCount": 2,
-      "dataFile": "unit-2.json"
+      "dataFile": "unit-2.json",
+      "metadata": {
+        "subtitle": "What Is This?"
+      }
     },
     {
       "id": 3,
       "name": "Cînav û Bûn",
-      "subtitle": "Pronouns & To Be",
+      "description": "Master Kurdish personal pronouns and the verb 'bûn' (to be) in present tense.",
+      "slug": "cinav-u-bun",
+      "orderIndex": 2,
+      "isFree": true,
+      "isPublished": true,
       "lessonCount": 4,
-      "dataFile": "unit-3.json"
+      "dataFile": "unit-3.json",
+      "metadata": {
+        "subtitle": "Pronouns & To Be"
+      }
     },
     {
       "id": 4,
       "name": "Danasîn û Hevok",
-      "subtitle": "Descriptions & Sentences",
+      "description": "Describe people and things using adjectives, and form simple Kurdish sentences.",
+      "slug": "danasin-u-hevok",
+      "orderIndex": 3,
+      "isFree": false,
+      "isPublished": true,
       "lessonCount": 3,
-      "dataFile": "unit-4.json"
+      "dataFile": "unit-4.json",
+      "metadata": {
+        "subtitle": "Descriptions & Sentences"
+      }
     },
     {
       "id": 5,
       "name": "Kesandina Lêkeran",
-      "subtitle": "Verb Conjugation",
+      "description": "Learn how Kurdish verbs change based on the subject — present tense conjugation patterns.",
+      "slug": "kesandina-lekeran",
+      "orderIndex": 4,
+      "isFree": false,
+      "isPublished": true,
       "lessonCount": 4,
-      "dataFile": "unit-5.json"
+      "dataFile": "unit-5.json",
+      "metadata": {
+        "subtitle": "Verb Conjugation"
+      }
     },
     {
       "id": 6,
       "name": "Lêker û Hevok",
-      "subtitle": "Verbs & Sentences",
+      "description": "Combine verbs with nouns and adjectives to form complete everyday sentences.",
+      "slug": "leker-u-hevok",
+      "orderIndex": 5,
+      "isFree": false,
+      "isPublished": true,
       "lessonCount": 3,
-      "dataFile": "unit-6.json"
+      "dataFile": "unit-6.json",
+      "metadata": {
+        "subtitle": "Verbs & Sentences"
+      }
     },
     {
       "id": 7,
       "name": "Têgihîştin û Axaftin",
-      "subtitle": "Understanding & Speaking",
+      "description": "Practice listening comprehension and spoken Kurdish through dialogues and exercises.",
+      "slug": "tegihistin-u-axaftin",
+      "orderIndex": 6,
+      "isFree": false,
+      "isPublished": true,
       "lessonCount": 2,
-      "dataFile": "unit-7.json"
+      "dataFile": "unit-7.json",
+      "metadata": {
+        "subtitle": "Understanding & Speaking"
+      }
     },
     {
       "id": 8,
       "name": "Peyvên Pirsê û Malbat",
-      "subtitle": "Question Words & Family",
+      "description": "Learn question words (who, what, where, when, why) and family vocabulary.",
+      "slug": "peyven-pirse-u-malbat",
+      "orderIndex": 7,
+      "isFree": false,
+      "isPublished": true,
       "lessonCount": 2,
-      "dataFile": "unit-8.json"
+      "dataFile": "unit-8.json",
+      "metadata": {
+        "subtitle": "Question Words & Family"
+      }
     }
   ]
 }

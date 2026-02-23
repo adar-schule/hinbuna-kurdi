@@ -206,7 +206,7 @@
         nameEl.textContent = lesson.name;
         var descEl = document.createElement('div');
         descEl.className = 'lesson-desc';
-        descEl.textContent = lesson.subtitle;
+        descEl.textContent = (lesson.metadata && lesson.metadata.subtitle) || lesson.subtitle || '';
         infoEl.appendChild(nameEl);
         infoEl.appendChild(descEl);
 
@@ -245,7 +245,7 @@
         if (!lessonList || !unitData || !unitData.lessons) return;
 
         var unitName = unitMeta ? unitMeta.name : unitData.name;
-        var unitSubtitle = unitMeta ? unitMeta.subtitle : unitData.subtitle;
+        var unitSubtitle = unitMeta ? ((unitMeta.metadata && unitMeta.metadata.subtitle) || unitMeta.subtitle || '') : ((unitData.metadata && unitData.metadata.subtitle) || unitData.subtitle || '');
         var lessonCount = unitData.lessons.length;
 
         // Update header title

@@ -1,440 +1,648 @@
 {
   "unitId": 3,
   "name": "Cînav û Bûn",
-  "subtitle": "Pronouns & To Be",
+  "slug": "cinav-u-bun",
+  "description": "Master Kurdish personal pronouns, the verb 'bun' (to be), nominative case agreement, negation patterns, and themed color vocabulary.",
+  "metadata": {
+    "subtitle": "Pronouns & To Be"
+  },
   "lessons": [
     {
       "id": "3-1",
       "name": "Cînavên Kesîn û Bûn",
-      "subtitle": "Personal Pronouns & To Be",
+      "description": "Learn the verb 'bun' (to be) conjugation with consonant-ending and vowel-ending adjectives.",
+      "slug": "cinavin-kesin-u-bun",
+      "orderIndex": 0,
       "learningObjective": "Learn the verb 'bûn' (to be) conjugation with consonant-ending and vowel-ending adjectives",
       "durationMinutes": 14,
-      "vocabPreview": ["bûn", "baş im", "tî me", "birçî"],
-      "wordsLearned": [
-        { "ku": "bûn", "en": "to be" },
-        { "ku": "Ez baş im", "en": "I am good" },
-        { "ku": "Tu baş î", "en": "You are good" },
-        { "ku": "Ew baş e", "en": "He/she is good" },
-        { "ku": "Em baş in", "en": "We are good" },
-        { "ku": "birçî", "en": "hungry" },
-        { "ku": "tî", "en": "thirsty" },
-        { "ku": "şa", "en": "happy" },
-        { "ku": "westî", "en": "tired" },
-        { "ku": "mamoste", "en": "teacher" },
-        { "ku": "endezyar", "en": "engineer" },
-        { "ku": "doktor", "en": "doctor" }
-      ],
+      "isPublished": true,
+      "metadata": {
+        "subtitle": "Personal Pronouns & To Be",
+        "vocabPreview": ["bûn", "baş im", "tî me", "birçî"],
+        "wordsLearned": [
+          { "ku": "bûn", "en": "to be" },
+          { "ku": "Ez baş im", "en": "I am good" },
+          { "ku": "Tu baş î", "en": "You are good" },
+          { "ku": "Ew baş e", "en": "He/she is good" },
+          { "ku": "Em baş in", "en": "We are good" },
+          { "ku": "birçî", "en": "hungry" },
+          { "ku": "tî", "en": "thirsty" },
+          { "ku": "şa", "en": "happy" },
+          { "ku": "westî", "en": "tired" },
+          { "ku": "mamoste", "en": "teacher" },
+          { "ku": "endezyar", "en": "engineer" },
+          { "ku": "doktor", "en": "doctor" }
+        ]
+      },
       "activities": [
         {
+          "id": "3-1-01",
           "type": "flashcard",
+          "orderIndex": 0,
+          "isPublished": true,
           "instruction": "Learn the verb 'bûn' — consonant ending",
-          "word": "baş → -im / -î / -e / -in",
-          "hint": "Tap to flip",
-          "translation": "Consonant endings: Ez baş im, Tu baş î, Ew baş e, Em baş in",
-          "example": "Ez baş im. Tu baş î. Ew baş e.",
-          "exampleTranslation": "I am good. You are good. He/she is good."
+          "content": {
+            "word": "baş → -im / -î / -e / -in",
+            "hint": "Tap to flip",
+            "translation": "Consonant endings: Ez baş im, Tu baş î, Ew baş e, Em baş in",
+            "example": "Ez baş im. Tu baş î. Ew baş e.",
+            "exampleTranslation": "I am good. You are good. He/she is good."
+          }
         },
         {
+          "id": "3-1-02",
           "type": "flashcard",
+          "orderIndex": 1,
+          "isPublished": true,
           "instruction": "Learn the verb 'bûn' — vowel ending",
-          "word": "tî → -me / -yî / -ye / -ne",
-          "hint": "Tap to flip",
-          "translation": "Vowel endings: Ez tî me, Tu tî yî, Ew tî ye, Em tî ne",
-          "example": "Ez tî me. Tu tî yî. Ew tî ye.",
-          "exampleTranslation": "I am thirsty. You are thirsty. He/she is thirsty."
+          "content": {
+            "word": "tî → -me / -yî / -ye / -ne",
+            "hint": "Tap to flip",
+            "translation": "Vowel endings: Ez tî me, Tu tî yî, Ew tî ye, Em tî ne",
+            "example": "Ez tî me. Tu tî yî. Ew tî ye.",
+            "exampleTranslation": "I am thirsty. You are thirsty. He/she is thirsty."
+          }
         },
         {
+          "id": "3-1-03",
           "type": "flashcard",
+          "orderIndex": 2,
+          "isPublished": true,
           "instruction": "Learn this adjective",
-          "word": "birçî",
-          "hint": "Tap to flip",
-          "translation": "hungry",
-          "example": "Tu birçî yî? — Erê, ez birçî me.",
-          "exampleTranslation": "Are you hungry? — Yes, I am hungry."
+          "content": {
+            "word": "birçî",
+            "hint": "Tap to flip",
+            "translation": "hungry",
+            "example": "Tu birçî yî? — Erê, ez birçî me.",
+            "exampleTranslation": "Are you hungry? — Yes, I am hungry."
+          }
         },
         {
+          "id": "3-1-04",
           "type": "reading",
+          "orderIndex": 3,
+          "isPublished": true,
           "instruction": "Read the question-and-answer practice",
-          "title": "Gelo tu ...? — Are you ...?",
-          "lines": [
-            { "speaker": "Armanc", "ku": "Tu şêr î?", "en": "Are you a lion?" },
-            { "speaker": "Bêrîvan", "ku": "Na, ez ne şêr im.", "en": "No, I am not a lion." },
-            { "speaker": "Armanc", "ku": "Tu şa yî?", "en": "Are you happy?" },
-            { "speaker": "Bêrîvan", "ku": "Erê, ez şa me.", "en": "Yes, I am happy." },
-            { "speaker": "Armanc", "ku": "Tu birçî yî?", "en": "Are you hungry?" },
-            { "speaker": "Bêrîvan", "ku": "Na, ez ne birçî me.", "en": "No, I am not hungry." },
-            { "speaker": "Armanc", "ku": "Tu mamoste yî?", "en": "Are you a teacher?" },
-            { "speaker": "Bêrîvan", "ku": "Erê, ez mamoste me.", "en": "Yes, I am a teacher." }
-          ]
+          "content": {
+            "title": "Gelo tu ...? — Are you ...?",
+            "lines": [
+              { "speaker": "Armanc", "ku": "Tu şêr î?", "en": "Are you a lion?" },
+              { "speaker": "Bêrîvan", "ku": "Na, ez ne şêr im.", "en": "No, I am not a lion." },
+              { "speaker": "Armanc", "ku": "Tu şa yî?", "en": "Are you happy?" },
+              { "speaker": "Bêrîvan", "ku": "Erê, ez şa me.", "en": "Yes, I am happy." },
+              { "speaker": "Armanc", "ku": "Tu birçî yî?", "en": "Are you hungry?" },
+              { "speaker": "Bêrîvan", "ku": "Na, ez ne birçî me.", "en": "No, I am not hungry." },
+              { "speaker": "Armanc", "ku": "Tu mamoste yî?", "en": "Are you a teacher?" },
+              { "speaker": "Bêrîvan", "ku": "Erê, ez mamoste me.", "en": "Yes, I am a teacher." }
+            ]
+          }
         },
         {
+          "id": "3-1-05",
           "type": "mcq",
+          "orderIndex": 4,
+          "isPublished": true,
           "instruction": "Which ending do you use after a consonant? (e.g., 'baş')",
-          "options": ["-me / -yî / -ye / -ne", "-im / -î / -e / -in", "-am / -ay / -e / -an", "-um / -ûy / -e / -un"],
-          "correct": 1,
-          "explanation": "After a consonant (baş, kurd, şêr), use: -im, -î, -e, -in. Example: Ez baş im, Tu baş î, Ew baş e, Em baş in."
+          "content": {
+            "options": ["-me / -yî / -ye / -ne", "-im / -î / -e / -in", "-am / -ay / -e / -an", "-um / -ûy / -e / -un"],
+            "correct": 1,
+            "explanation": "After a consonant (baş, kurd, şêr), use: -im, -î, -e, -in. Example: Ez baş im, Tu baş î, Ew baş e, Em baş in."
+          }
         },
         {
+          "id": "3-1-06",
           "type": "gap_fill",
+          "orderIndex": 5,
+          "isPublished": true,
           "instruction": "Complete with the correct form of 'bûn'",
-          "before": "Ez endezyar ",
-          "gap": "im",
-          "after": ".",
-          "display": "Ez endezyar ___.",
-          "wordBank": ["im", "î", "e", "me"],
-          "explanation": "'endezyar' ends in a consonant (r), so we use '-im' for 'ez'. Ez endezyar im = I am an engineer."
+          "content": {
+            "before": "Ez endezyar ",
+            "gap": "im",
+            "after": ".",
+            "display": "Ez endezyar ___.",
+            "wordBank": ["im", "î", "e", "me"],
+            "explanation": "'endezyar' ends in a consonant (r), so we use '-im' for 'ez'. Ez endezyar im = I am an engineer."
+          }
         },
         {
+          "id": "3-1-07",
           "type": "gap_fill",
+          "orderIndex": 6,
+          "isPublished": true,
           "instruction": "Complete with the correct form of 'bûn'",
-          "before": "Tu şa ",
-          "gap": "yî",
-          "after": "?",
-          "display": "Tu şa ___?",
-          "wordBank": ["yî", "î", "ye", "ne"],
-          "explanation": "'şa' ends in a vowel (a), so we use '-yî' for 'tu'. Tu şa yî? = Are you happy?"
+          "content": {
+            "before": "Tu şa ",
+            "gap": "yî",
+            "after": "?",
+            "display": "Tu şa ___?",
+            "wordBank": ["yî", "î", "ye", "ne"],
+            "explanation": "'şa' ends in a vowel (a), so we use '-yî' for 'tu'. Tu şa yî? = Are you happy?"
+          }
         },
         {
+          "id": "3-1-08",
           "type": "matching",
+          "orderIndex": 7,
+          "isPublished": true,
           "instruction": "Match the pronouns to their 'bûn' form with 'baş'",
-          "pairs": [
-            { "ku": "Ez baş ...", "en": "im" },
-            { "ku": "Tu baş ...", "en": "î" },
-            { "ku": "Ew baş ...", "en": "e" },
-            { "ku": "Em baş ...", "en": "in" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "Ez baş ...", "en": "im" },
+              { "ku": "Tu baş ...", "en": "î" },
+              { "ku": "Ew baş ...", "en": "e" },
+              { "ku": "Em baş ...", "en": "in" }
+            ]
+          }
         },
         {
+          "id": "3-1-09",
           "type": "mcq",
+          "orderIndex": 8,
+          "isPublished": true,
           "instruction": "\"Em kurd in û serbilind in.\" What does this mean?",
-          "options": ["We are hungry and thirsty.", "We are Kurdish and proud.", "We are teachers and engineers.", "We are happy and tired."],
-          "correct": 1,
-          "explanation": "'Em kurd in' = We are Kurdish. 'serbilind' = proud. 'û' = and. A famous Kurdish phrase!"
+          "content": {
+            "options": ["We are hungry and thirsty.", "We are Kurdish and proud.", "We are teachers and engineers.", "We are happy and tired."],
+            "correct": 1,
+            "explanation": "'Em kurd in' = We are Kurdish. 'serbilind' = proud. 'û' = and. A famous Kurdish phrase!"
+          }
         }
       ]
     },
     {
       "id": "3-2",
       "name": "Navdêra Xwerû",
-      "subtitle": "Nominative Case",
+      "description": "Learn singular and plural agreement -- how nouns change their verb endings based on consonant vs. vowel.",
+      "slug": "navdera-xweru",
+      "orderIndex": 1,
       "learningObjective": "Learn singular and plural agreement — how nouns change their verb endings based on consonant vs. vowel",
       "durationMinutes": 10,
-      "vocabPreview": ["pirtûk", "zarok", "dar", "piçûk"],
-      "wordsLearned": [
-        { "ku": "pirtûk", "en": "book" },
-        { "ku": "jin", "en": "woman" },
-        { "ku": "zarok", "en": "child" },
-        { "ku": "dar", "en": "tree" },
-        { "ku": "diran", "en": "teeth" },
-        { "ku": "piçûk", "en": "small" },
-        { "ku": "rind", "en": "beautiful" },
-        { "ku": "dirêj", "en": "long" },
-        { "ku": "jîr", "en": "clever" },
-        { "ku": "zû", "en": "fast / early" }
-      ],
+      "isPublished": true,
+      "metadata": {
+        "subtitle": "Nominative Case",
+        "vocabPreview": ["pirtûk", "zarok", "dar", "piçûk"],
+        "wordsLearned": [
+          { "ku": "pirtûk", "en": "book" },
+          { "ku": "jin", "en": "woman" },
+          { "ku": "zarok", "en": "child" },
+          { "ku": "dar", "en": "tree" },
+          { "ku": "diran", "en": "teeth" },
+          { "ku": "piçûk", "en": "small" },
+          { "ku": "rind", "en": "beautiful" },
+          { "ku": "dirêj", "en": "long" },
+          { "ku": "jîr", "en": "clever" },
+          { "ku": "zû", "en": "fast / early" }
+        ]
+      },
       "activities": [
         {
+          "id": "3-2-01",
           "type": "flashcard",
+          "orderIndex": 0,
+          "isPublished": true,
           "instruction": "Learn singular agreement (consonant noun)",
-          "word": "Pirtûk sor e",
-          "hint": "Tap to flip",
-          "translation": "The book is red",
-          "example": "Pirtûk sor e. → Pirtûk sor in.",
-          "exampleTranslation": "The book is red. → The books are red."
+          "content": {
+            "word": "Pirtûk sor e",
+            "hint": "Tap to flip",
+            "translation": "The book is red",
+            "example": "Pirtûk sor e. → Pirtûk sor in.",
+            "exampleTranslation": "The book is red. → The books are red."
+          }
         },
         {
+          "id": "3-2-02",
           "type": "flashcard",
+          "orderIndex": 1,
+          "isPublished": true,
           "instruction": "Learn singular agreement (vowel noun)",
-          "word": "Mamoste zû ye",
-          "hint": "Tap to flip",
-          "translation": "The teacher is fast",
-          "example": "Mamoste zû ye. → Mamoste zû ne.",
-          "exampleTranslation": "The teacher is fast. → The teachers are fast."
+          "content": {
+            "word": "Mamoste zû ye",
+            "hint": "Tap to flip",
+            "translation": "The teacher is fast",
+            "example": "Mamoste zû ye. → Mamoste zû ne.",
+            "exampleTranslation": "The teacher is fast. → The teachers are fast."
+          }
         },
         {
+          "id": "3-2-03",
           "type": "reading",
+          "orderIndex": 2,
+          "isPublished": true,
           "instruction": "Read singular vs. plural sentences",
-          "title": "Yekejimar û Pirejimar — Singular & Plural",
-          "lines": [
-            { "speaker": "", "ku": "Pirtûk sor e. → Pirtûk sor in.", "en": "The book is red. → The books are red." },
-            { "speaker": "", "ku": "Jin rind e. → Jin rind in.", "en": "The woman is beautiful. → The women are beautiful." },
-            { "speaker": "", "ku": "Zarok piçûk e. → Zarok piçûk in.", "en": "The child is small. → The children are small." },
-            { "speaker": "", "ku": "Dar kesk e. → Dar kesk in.", "en": "The tree is green. → The trees are green." },
-            { "speaker": "", "ku": "Diran spî ye. → Diran spî ne.", "en": "The tooth is white. → The teeth are white." },
-            { "speaker": "", "ku": "Mamoste zû ye. → Mamoste zû ne.", "en": "The teacher is fast. → The teachers are fast." }
-          ]
+          "content": {
+            "title": "Yekejimar û Pirejimar — Singular & Plural",
+            "lines": [
+              { "speaker": "", "ku": "Pirtûk sor e. → Pirtûk sor in.", "en": "The book is red. → The books are red." },
+              { "speaker": "", "ku": "Jin rind e. → Jin rind in.", "en": "The woman is beautiful. → The women are beautiful." },
+              { "speaker": "", "ku": "Zarok piçûk e. → Zarok piçûk in.", "en": "The child is small. → The children are small." },
+              { "speaker": "", "ku": "Dar kesk e. → Dar kesk in.", "en": "The tree is green. → The trees are green." },
+              { "speaker": "", "ku": "Diran spî ye. → Diran spî ne.", "en": "The tooth is white. → The teeth are white." },
+              { "speaker": "", "ku": "Mamoste zû ye. → Mamoste zû ne.", "en": "The teacher is fast. → The teachers are fast." }
+            ]
+          }
         },
         {
+          "id": "3-2-04",
           "type": "mcq",
+          "orderIndex": 3,
+          "isPublished": true,
           "instruction": "\"Ker jîr e\" — what changes in plural?",
-          "options": ["Ker jîr ye", "Ker jîr in", "Ker jîr ne", "Ker jîr im"],
-          "correct": 1,
-          "explanation": "'jîr' ends in a consonant (r), so singular is '-e' and plural is '-in'. Ker jîr e → Ker jîr in."
+          "content": {
+            "options": ["Ker jîr ye", "Ker jîr in", "Ker jîr ne", "Ker jîr im"],
+            "correct": 1,
+            "explanation": "'jîr' ends in a consonant (r), so singular is '-e' and plural is '-in'. Ker jîr e → Ker jîr in."
+          }
         },
         {
+          "id": "3-2-05",
           "type": "mcq",
+          "orderIndex": 4,
+          "isPublished": true,
           "instruction": "\"Hunermend westî ye\" — what changes in plural?",
-          "options": ["Hunermend westî in", "Hunermend westî ne", "Hunermend westî e", "Hunermend westî me"],
-          "correct": 1,
-          "explanation": "'westî' ends in a vowel (î), so singular is '-ye' and plural is '-ne'. Hunermend westî ye → Hunermend westî ne."
+          "content": {
+            "options": ["Hunermend westî in", "Hunermend westî ne", "Hunermend westî e", "Hunermend westî me"],
+            "correct": 1,
+            "explanation": "'westî' ends in a vowel (î), so singular is '-ye' and plural is '-ne'. Hunermend westî ye → Hunermend westî ne."
+          }
         },
         {
+          "id": "3-2-06",
           "type": "gap_fill",
+          "orderIndex": 5,
+          "isPublished": true,
           "instruction": "Complete the plural form",
-          "before": "Xanî zer ",
-          "gap": "in",
-          "after": ".",
-          "display": "Xanî zer ___. (plural)",
-          "wordBank": ["in", "ne", "e", "ye"],
-          "explanation": "'zer' ends in a consonant (r). For plural: -in. Xanî zer in = The houses are yellow."
+          "content": {
+            "before": "Xanî zer ",
+            "gap": "in",
+            "after": ".",
+            "display": "Xanî zer ___. (plural)",
+            "wordBank": ["in", "ne", "e", "ye"],
+            "explanation": "'zer' ends in a consonant (r). For plural: -in. Xanî zer in = The houses are yellow."
+          }
         },
         {
+          "id": "3-2-07",
           "type": "gap_fill",
+          "orderIndex": 6,
+          "isPublished": true,
           "instruction": "Complete the singular form",
-          "before": "Por dirêj ",
-          "gap": "e",
-          "after": ".",
-          "display": "Por dirêj ___. (singular)",
-          "wordBank": ["e", "ye", "in", "ne"],
-          "explanation": "'dirêj' ends in a consonant (j). For singular: -e. Por dirêj e = The hair is long."
+          "content": {
+            "before": "Por dirêj ",
+            "gap": "e",
+            "after": ".",
+            "display": "Por dirêj ___. (singular)",
+            "wordBank": ["e", "ye", "in", "ne"],
+            "explanation": "'dirêj' ends in a consonant (j). For singular: -e. Por dirêj e = The hair is long."
+          }
         },
         {
+          "id": "3-2-08",
           "type": "matching",
+          "orderIndex": 7,
+          "isPublished": true,
           "instruction": "Match the singular sentences to their plural forms",
-          "pairs": [
-            { "ku": "Pirtûk sor e", "en": "Pirtûk sor in" },
-            { "ku": "Diran spî ye", "en": "Diran spî ne" },
-            { "ku": "Zarok piçûk e", "en": "Zarok piçûk in" },
-            { "ku": "Mamoste zû ye", "en": "Mamoste zû ne" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "Pirtûk sor e", "en": "Pirtûk sor in" },
+              { "ku": "Diran spî ye", "en": "Diran spî ne" },
+              { "ku": "Zarok piçûk e", "en": "Zarok piçûk in" },
+              { "ku": "Mamoste zû ye", "en": "Mamoste zû ne" }
+            ]
+          }
         }
       ]
     },
     {
       "id": "3-3",
       "name": "Bûn – Neyînî",
-      "subtitle": "To Be — Negation",
+      "description": "Learn to form negative sentences with 'ne' + adjective, practicing full conjugation drills.",
+      "slug": "bun-neyini",
+      "orderIndex": 2,
       "learningObjective": "Learn to form negative sentences with 'ne' + adjective, practicing full conjugation drills",
       "durationMinutes": 12,
-      "vocabPreview": ["ne", "ne baş", "ne westî", "ne dîn"],
-      "wordsLearned": [
-        { "ku": "ne", "en": "not (negation particle)" },
-        { "ku": "Ez ne baş im", "en": "I am not good" },
-        { "ku": "karker", "en": "worker" },
-        { "ku": "dîn", "en": "crazy" },
-        { "ku": "jûjî", "en": "hedgehog" },
-        { "ku": "Erê", "en": "Yes" },
-        { "ku": "Na", "en": "No" },
-        { "ku": "Gelo", "en": "question particle (is it that...?)" }
-      ],
+      "isPublished": true,
+      "metadata": {
+        "subtitle": "To Be — Negation",
+        "vocabPreview": ["ne", "ne baş", "ne westî", "ne dîn"],
+        "wordsLearned": [
+          { "ku": "ne", "en": "not (negation particle)" },
+          { "ku": "Ez ne baş im", "en": "I am not good" },
+          { "ku": "karker", "en": "worker" },
+          { "ku": "dîn", "en": "crazy" },
+          { "ku": "jûjî", "en": "hedgehog" },
+          { "ku": "Erê", "en": "Yes" },
+          { "ku": "Na", "en": "No" },
+          { "ku": "Gelo", "en": "question particle (is it that...?)" }
+        ]
+      },
       "activities": [
         {
+          "id": "3-3-01",
           "type": "flashcard",
+          "orderIndex": 0,
+          "isPublished": true,
           "instruction": "Learn the negation pattern",
-          "word": "ne + adjective",
-          "hint": "Tap to flip",
-          "translation": "not + adjective — placed before the adjective",
-          "example": "Ez baş im. → Ez ne baş im.",
-          "exampleTranslation": "I am good. → I am not good."
+          "content": {
+            "word": "ne + adjective",
+            "hint": "Tap to flip",
+            "translation": "not + adjective — placed before the adjective",
+            "example": "Ez baş im. → Ez ne baş im.",
+            "exampleTranslation": "I am good. → I am not good."
+          }
         },
         {
+          "id": "3-3-02",
           "type": "flashcard",
+          "orderIndex": 1,
+          "isPublished": true,
           "instruction": "Learn this question particle",
-          "word": "Gelo",
-          "hint": "Tap to flip",
-          "translation": "Is it that...? (question particle, optional)",
-          "example": "Gelo tu karker î?",
-          "exampleTranslation": "Are you a worker?"
+          "content": {
+            "word": "Gelo",
+            "hint": "Tap to flip",
+            "translation": "Is it that...? (question particle, optional)",
+            "example": "Gelo tu karker î?",
+            "exampleTranslation": "Are you a worker?"
+          }
         },
         {
+          "id": "3-3-03",
           "type": "flashcard",
+          "orderIndex": 2,
+          "isPublished": true,
           "instruction": "Learn affirmative and negative answers",
-          "word": "Erê / Na",
-          "hint": "Tap to flip",
-          "translation": "Yes / No",
-          "example": "Gelo tu dîn î? — Na, ez ne dîn im.",
-          "exampleTranslation": "Are you crazy? — No, I am not crazy."
+          "content": {
+            "word": "Erê / Na",
+            "hint": "Tap to flip",
+            "translation": "Yes / No",
+            "example": "Gelo tu dîn î? — Na, ez ne dîn im.",
+            "exampleTranslation": "Are you crazy? — No, I am not crazy."
+          }
         },
         {
+          "id": "3-3-04",
           "type": "reading",
+          "orderIndex": 3,
+          "isPublished": true,
           "instruction": "Read the negation drill",
-          "title": "Erê an Na? — Yes or No?",
-          "lines": [
-            { "speaker": "Armanc", "ku": "Gelo tu karker î?", "en": "Are you a worker?" },
-            { "speaker": "Bêrîvan", "ku": "Na, ez ne karker im.", "en": "No, I am not a worker." },
-            { "speaker": "Armanc", "ku": "Gelo tu westî yî?", "en": "Are you tired?" },
-            { "speaker": "Bêrîvan", "ku": "Erê, ez westî me.", "en": "Yes, I am tired." },
-            { "speaker": "Armanc", "ku": "Gelo ew nexweş e?", "en": "Is he/she sick?" },
-            { "speaker": "Bêrîvan", "ku": "Na, ew ne nexweş e.", "en": "No, he/she is not sick." },
-            { "speaker": "Armanc", "ku": "Gelo hûn birçî ne?", "en": "Are you (all) hungry?" },
-            { "speaker": "Bêrîvan", "ku": "Na, em ne birçî ne.", "en": "No, we are not hungry." }
-          ]
+          "content": {
+            "title": "Erê an Na? — Yes or No?",
+            "lines": [
+              { "speaker": "Armanc", "ku": "Gelo tu karker î?", "en": "Are you a worker?" },
+              { "speaker": "Bêrîvan", "ku": "Na, ez ne karker im.", "en": "No, I am not a worker." },
+              { "speaker": "Armanc", "ku": "Gelo tu westî yî?", "en": "Are you tired?" },
+              { "speaker": "Bêrîvan", "ku": "Erê, ez westî me.", "en": "Yes, I am tired." },
+              { "speaker": "Armanc", "ku": "Gelo ew nexweş e?", "en": "Is he/she sick?" },
+              { "speaker": "Bêrîvan", "ku": "Na, ew ne nexweş e.", "en": "No, he/she is not sick." },
+              { "speaker": "Armanc", "ku": "Gelo hûn birçî ne?", "en": "Are you (all) hungry?" },
+              { "speaker": "Bêrîvan", "ku": "Na, em ne birçî ne.", "en": "No, we are not hungry." }
+            ]
+          }
         },
         {
+          "id": "3-3-05",
           "type": "mcq",
+          "orderIndex": 4,
+          "isPublished": true,
           "instruction": "How do you negate 'Ez karker im' (I am a worker)?",
-          "options": ["Ez na karker im", "Ez ne karker im", "Ez karker ne im", "Ez karker na"],
-          "correct": 1,
-          "explanation": "Negation uses 'ne' placed BEFORE the adjective/noun: Ez ne karker im = I am not a worker."
+          "content": {
+            "options": ["Ez na karker im", "Ez ne karker im", "Ez karker ne im", "Ez karker na"],
+            "correct": 1,
+            "explanation": "Negation uses 'ne' placed BEFORE the adjective/noun: Ez ne karker im = I am not a worker."
+          }
         },
         {
+          "id": "3-3-06",
           "type": "gap_fill",
+          "orderIndex": 5,
+          "isPublished": true,
           "instruction": "Complete the negative sentence",
-          "before": "Tu ",
-          "gap": "ne dîn",
-          "after": " î.",
-          "display": "Tu ___ î.",
-          "wordBank": ["ne dîn", "dîn", "ne baş", "ne westî"],
-          "explanation": "'ne dîn' = not crazy. 'Tu ne dîn î' = You are not crazy."
+          "content": {
+            "before": "Tu ",
+            "gap": "ne dîn",
+            "after": " î.",
+            "display": "Tu ___ î.",
+            "wordBank": ["ne dîn", "dîn", "ne baş", "ne westî"],
+            "explanation": "'ne dîn' = not crazy. 'Tu ne dîn î' = You are not crazy."
+          }
         },
         {
+          "id": "3-3-07",
           "type": "gap_fill",
+          "orderIndex": 6,
+          "isPublished": true,
           "instruction": "Complete the negative sentence (vowel ending)",
-          "before": "Ez ",
-          "gap": "ne westî",
-          "after": " me.",
-          "display": "Ez ___ me.",
-          "wordBank": ["ne westî", "westî", "ne baş", "ne karker"],
-          "explanation": "'westî' ends in a vowel, so 'ez' takes '-me': Ez ne westî me = I am not tired."
+          "content": {
+            "before": "Ez ",
+            "gap": "ne westî",
+            "after": " me.",
+            "display": "Ez ___ me.",
+            "wordBank": ["ne westî", "westî", "ne baş", "ne karker"],
+            "explanation": "'westî' ends in a vowel, so 'ez' takes '-me': Ez ne westî me = I am not tired."
+          }
         },
         {
+          "id": "3-3-08",
           "type": "matching",
+          "orderIndex": 7,
+          "isPublished": true,
           "instruction": "Match the affirmative to the negative",
-          "pairs": [
-            { "ku": "Ez karker im", "en": "Ez ne karker im" },
-            { "ku": "Tu westî yî", "en": "Tu ne westî yî" },
-            { "ku": "Ew dîn e", "en": "Ew ne dîn e" },
-            { "ku": "Em birçî ne", "en": "Em ne birçî ne" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "Ez karker im", "en": "Ez ne karker im" },
+              { "ku": "Tu westî yî", "en": "Tu ne westî yî" },
+              { "ku": "Ew dîn e", "en": "Ew ne dîn e" },
+              { "ku": "Em birçî ne", "en": "Em ne birçî ne" }
+            ]
+          }
         },
         {
+          "id": "3-3-09",
           "type": "mcq",
+          "orderIndex": 8,
+          "isPublished": true,
           "instruction": "\"Ez baş im, lê westî me.\" What does 'lê' mean here?",
-          "options": ["and", "or", "but", "because"],
-          "correct": 2,
-          "explanation": "'lê' means 'but.' The sentence: 'I am good, but tired.' This is a common Kurdish pattern."
+          "content": {
+            "options": ["and", "or", "but", "because"],
+            "correct": 2,
+            "explanation": "'lê' means 'but.' The sentence: 'I am good, but tired.' This is a common Kurdish pattern."
+          }
         }
       ]
     },
     {
       "id": "3-4",
       "name": "Reng û Mijar",
-      "subtitle": "Colors & Themes",
+      "description": "Learn themed vocabulary with colors across 6 categories: body, clothing, fruit, vegetables, animals, and house.",
+      "slug": "reng-u-mijar",
+      "orderIndex": 3,
       "learningObjective": "Learn themed vocabulary with colors across 6 categories: body, clothing, fruit, vegetables, animals, and house",
       "durationMinutes": 14,
-      "vocabPreview": ["çerm", "fistan", "sêv", "kartol", "pisîk", "pencere"],
-      "wordsLearned": [
-        { "ku": "çerm", "en": "skin" },
-        { "ku": "diran", "en": "teeth" },
-        { "ku": "lêv", "en": "lips" },
-        { "ku": "sol / pêlav", "en": "shoes" },
-        { "ku": "fistan", "en": "dress" },
-        { "ku": "sêv", "en": "apple" },
-        { "ku": "lîmon", "en": "lemon" },
-        { "ku": "kartol", "en": "potato" },
-        { "ku": "bacan", "en": "eggplant" },
-        { "ku": "pisîk", "en": "cat" },
-        { "ku": "kûçik", "en": "dog" },
-        { "ku": "derî", "en": "door" },
-        { "ku": "pencere", "en": "window" }
-      ],
+      "isPublished": true,
+      "metadata": {
+        "subtitle": "Colors & Themes",
+        "vocabPreview": ["çerm", "fistan", "sêv", "kartol", "pisîk", "pencere"],
+        "wordsLearned": [
+          { "ku": "çerm", "en": "skin" },
+          { "ku": "diran", "en": "teeth" },
+          { "ku": "lêv", "en": "lips" },
+          { "ku": "sol / pêlav", "en": "shoes" },
+          { "ku": "fistan", "en": "dress" },
+          { "ku": "sêv", "en": "apple" },
+          { "ku": "lîmon", "en": "lemon" },
+          { "ku": "kartol", "en": "potato" },
+          { "ku": "bacan", "en": "eggplant" },
+          { "ku": "pisîk", "en": "cat" },
+          { "ku": "kûçik", "en": "dog" },
+          { "ku": "derî", "en": "door" },
+          { "ku": "pencere", "en": "window" }
+        ]
+      },
       "activities": [
         {
+          "id": "3-4-01",
           "type": "flashcard",
+          "orderIndex": 0,
+          "isPublished": true,
           "instruction": "Learn body vocabulary",
-          "word": "çerm",
-          "hint": "Tap to flip",
-          "translation": "skin",
-          "example": "Çerm pîvazî ye.",
-          "exampleTranslation": "The skin is onion-colored (pinkish)."
+          "content": {
+            "word": "çerm",
+            "hint": "Tap to flip",
+            "translation": "skin",
+            "example": "Çerm pîvazî ye.",
+            "exampleTranslation": "The skin is onion-colored (pinkish)."
+          }
         },
         {
+          "id": "3-4-02",
           "type": "flashcard",
+          "orderIndex": 1,
+          "isPublished": true,
           "instruction": "Learn clothing vocabulary",
-          "word": "fistan",
-          "hint": "Tap to flip",
-          "translation": "dress",
-          "example": "Fistan sor e.",
-          "exampleTranslation": "The dress is red."
+          "content": {
+            "word": "fistan",
+            "hint": "Tap to flip",
+            "translation": "dress",
+            "example": "Fistan sor e.",
+            "exampleTranslation": "The dress is red."
+          }
         },
         {
+          "id": "3-4-03",
           "type": "flashcard",
+          "orderIndex": 2,
+          "isPublished": true,
           "instruction": "Learn fruit vocabulary",
-          "word": "sêv",
-          "hint": "Tap to flip",
-          "translation": "apple",
-          "example": "Sêv sor e.",
-          "exampleTranslation": "The apple is red."
+          "content": {
+            "word": "sêv",
+            "hint": "Tap to flip",
+            "translation": "apple",
+            "example": "Sêv sor e.",
+            "exampleTranslation": "The apple is red."
+          }
         },
         {
+          "id": "3-4-04",
           "type": "reading",
+          "orderIndex": 3,
+          "isPublished": true,
           "instruction": "Read the themed descriptions",
-          "title": "Reng û Mijar — Colors by Category",
-          "lines": [
-            { "speaker": "", "ku": "Meriv: Por reş e. Diran spî ye. Lêv ne zer e.", "en": "Body: Hair is black. Teeth are white. Lips are not yellow." },
-            { "speaker": "", "ku": "Kinc: Fistan sor e. Sol spî ye. Şort şîn e.", "en": "Clothing: Dress is red. Shoes are white. Shorts are blue." },
-            { "speaker": "", "ku": "Fêkî: Sêv sor e. Lîmon zer e. Hirmî kesk e.", "en": "Fruit: Apple is red. Lemon is yellow. Pear is green." },
-            { "speaker": "", "ku": "Sebze: Kartol zer e. Bacan mor e. Zeytûn kesk e.", "en": "Vegetables: Potato is yellow. Eggplant is purple. Olive is green." },
-            { "speaker": "", "ku": "Ajal: Şêr zer e. Hirç qehweyî ye. Kerguh spî ye.", "en": "Animals: Lion is yellow. Bear is brown. Rabbit is white." },
-            { "speaker": "", "ku": "Xanî: Derî spî ye. Pencere ne mor e. Xalî ne zer e.", "en": "House: Door is white. Window is not purple. Carpet is not yellow." }
-          ]
+          "content": {
+            "title": "Reng û Mijar — Colors by Category",
+            "lines": [
+              { "speaker": "", "ku": "Meriv: Por reş e. Diran spî ye. Lêv ne zer e.", "en": "Body: Hair is black. Teeth are white. Lips are not yellow." },
+              { "speaker": "", "ku": "Kinc: Fistan sor e. Sol spî ye. Şort şîn e.", "en": "Clothing: Dress is red. Shoes are white. Shorts are blue." },
+              { "speaker": "", "ku": "Fêkî: Sêv sor e. Lîmon zer e. Hirmî kesk e.", "en": "Fruit: Apple is red. Lemon is yellow. Pear is green." },
+              { "speaker": "", "ku": "Sebze: Kartol zer e. Bacan mor e. Zeytûn kesk e.", "en": "Vegetables: Potato is yellow. Eggplant is purple. Olive is green." },
+              { "speaker": "", "ku": "Ajal: Şêr zer e. Hirç qehweyî ye. Kerguh spî ye.", "en": "Animals: Lion is yellow. Bear is brown. Rabbit is white." },
+              { "speaker": "", "ku": "Xanî: Derî spî ye. Pencere ne mor e. Xalî ne zer e.", "en": "House: Door is white. Window is not purple. Carpet is not yellow." }
+            ]
+          }
         },
         {
+          "id": "3-4-05",
           "type": "matching",
+          "orderIndex": 4,
+          "isPublished": true,
           "instruction": "Match the Kurdish words to their category",
-          "pairs": [
-            { "ku": "çerm", "en": "body (skin)" },
-            { "ku": "fistan", "en": "clothing (dress)" },
-            { "ku": "sêv", "en": "fruit (apple)" },
-            { "ku": "kartol", "en": "vegetable (potato)" },
-            { "ku": "şêr", "en": "animal (lion)" },
-            { "ku": "pencere", "en": "house (window)" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "çerm", "en": "body (skin)" },
+              { "ku": "fistan", "en": "clothing (dress)" },
+              { "ku": "sêv", "en": "fruit (apple)" },
+              { "ku": "kartol", "en": "vegetable (potato)" },
+              { "ku": "şêr", "en": "animal (lion)" },
+              { "ku": "pencere", "en": "house (window)" }
+            ]
+          }
         },
         {
+          "id": "3-4-06",
           "type": "mcq",
+          "orderIndex": 5,
+          "isPublished": true,
           "instruction": "\"Bacan mor e.\" What is 'bacan'?",
-          "options": ["potato", "tomato", "eggplant", "onion"],
-          "correct": 2,
-          "explanation": "'bacan' = eggplant. 'mor' = purple. Eggplants are purple — the color helps you remember!"
+          "content": {
+            "options": ["potato", "tomato", "eggplant", "onion"],
+            "correct": 2,
+            "explanation": "'bacan' = eggplant. 'mor' = purple. Eggplants are purple — the color helps you remember!"
+          }
         },
         {
+          "id": "3-4-07",
           "type": "gap_fill",
+          "orderIndex": 6,
+          "isPublished": true,
           "instruction": "Complete the sentence",
-          "before": "Lîmon ",
-          "gap": "zer",
-          "after": " e.",
-          "display": "Lîmon ___ e.",
-          "wordBank": ["zer", "sor", "kesk", "mor"],
-          "explanation": "Lemons are yellow. 'Lîmon zer e' = The lemon is yellow."
+          "content": {
+            "before": "Lîmon ",
+            "gap": "zer",
+            "after": " e.",
+            "display": "Lîmon ___ e.",
+            "wordBank": ["zer", "sor", "kesk", "mor"],
+            "explanation": "Lemons are yellow. 'Lîmon zer e' = The lemon is yellow."
+          }
         },
         {
+          "id": "3-4-08",
           "type": "mcq",
+          "orderIndex": 7,
+          "isPublished": true,
           "instruction": "Which animal is described as 'qehweyî' (brown)?",
-          "options": ["şêr (lion)", "hirç (bear)", "kerguh (rabbit)", "pisîk (cat)"],
-          "correct": 1,
-          "explanation": "'Hirç qehweyî ye' = The bear is brown. From 'qehwe' (coffee) — coffee-colored!"
+          "content": {
+            "options": ["şêr (lion)", "hirç (bear)", "kerguh (rabbit)", "pisîk (cat)"],
+            "correct": 1,
+            "explanation": "'Hirç qehweyî ye' = The bear is brown. From 'qehwe' (coffee) — coffee-colored!"
+          }
         },
         {
+          "id": "3-4-09",
           "type": "matching",
+          "orderIndex": 8,
+          "isPublished": true,
           "instruction": "Match the nouns with their colors from the text",
-          "pairs": [
-            { "ku": "Sêv", "en": "sor (red)" },
-            { "ku": "Lîmon", "en": "zer (yellow)" },
-            { "ku": "Şêr", "en": "zer (yellow)" },
-            { "ku": "Diran", "en": "spî (white)" },
-            { "ku": "Bacan", "en": "mor (purple)" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "Sêv", "en": "sor (red)" },
+              { "ku": "Lîmon", "en": "zer (yellow)" },
+              { "ku": "Şêr", "en": "zer (yellow)" },
+              { "ku": "Diran", "en": "spî (white)" },
+              { "ku": "Bacan", "en": "mor (purple)" }
+            ]
+          }
         },
         {
+          "id": "3-4-10",
           "type": "gap_fill",
+          "orderIndex": 9,
+          "isPublished": true,
           "instruction": "Complete with the correct ending",
-          "before": "Hirç qehweyî ",
-          "gap": "ye",
-          "after": ".",
-          "display": "Hirç qehweyî ___.",
-          "wordBank": ["ye", "e", "ne", "in"],
-          "explanation": "'qehweyî' ends in a vowel (î), so the singular ending is '-ye'. Hirç qehweyî ye = The bear is brown."
+          "content": {
+            "before": "Hirç qehweyî ",
+            "gap": "ye",
+            "after": ".",
+            "display": "Hirç qehweyî ___.",
+            "wordBank": ["ye", "e", "ne", "in"],
+            "explanation": "'qehweyî' ends in a vowel (î), so the singular ending is '-ye'. Hirç qehweyî ye = The bear is brown."
+          }
         }
       ]
     }

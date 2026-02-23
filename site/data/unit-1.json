@@ -1,325 +1,482 @@
 {
   "unitId": 1,
   "name": "Silav û Reng",
-  "subtitle": "Greetings & Colors",
+  "slug": "silav-u-reng",
+  "description": "Learn basic greetings, introductions, farewells, and colors in Kurmanji Kurdish.",
+  "metadata": {
+    "subtitle": "Greetings & Colors"
+  },
   "lessons": [
     {
       "id": "1-1",
       "name": "Diyaloga Yekem",
-      "subtitle": "First Dialogue",
+      "description": "Learn basic Kurdish greetings, introductions, and farewells through a guided dialogue between Armanc and Bêrîvan.",
+      "slug": "diyaloga-yekem",
+      "orderIndex": 0,
       "learningObjective": "Learn basic Kurdish greetings, introductions, and farewells",
       "durationMinutes": 10,
-      "vocabPreview": ["Roj baş", "Silav", "Navê min", "Bi xatirê te"],
-      "wordsLearned": [
-        { "ku": "Roj baş", "en": "Good day" },
-        { "ku": "Silav", "en": "Hello" },
-        { "ku": "Navê min ... e", "en": "My name is ..." },
-        { "ku": "Tu çawa yî?", "en": "How are you?" },
-        { "ku": "Ez baş im", "en": "I am good" },
-        { "ku": "Spas", "en": "Thanks" },
-        { "ku": "Bi xatirê te", "en": "Goodbye (to the one leaving)" },
-        { "ku": "Oxir be", "en": "Goodbye (to the one staying)" },
-        { "ku": "Ev çi ye?", "en": "What is this?" },
-        { "ku": "Saxî û silametî", "en": "Get well soon" }
-      ],
+      "isPublished": true,
+      "metadata": {
+        "subtitle": "First Dialogue",
+        "vocabPreview": ["Roj baş", "Silav", "Navê min", "Bi xatirê te"],
+        "wordsLearned": [
+          { "ku": "Roj baş", "en": "Good day" },
+          { "ku": "Silav", "en": "Hello" },
+          { "ku": "Navê min ... e", "en": "My name is ..." },
+          { "ku": "Tu çawa yî?", "en": "How are you?" },
+          { "ku": "Ez baş im", "en": "I am good" },
+          { "ku": "Spas", "en": "Thanks" },
+          { "ku": "Bi xatirê te", "en": "Goodbye (to the one leaving)" },
+          { "ku": "Oxir be", "en": "Goodbye (to the one staying)" },
+          { "ku": "Ev çi ye?", "en": "What is this?" },
+          { "ku": "Saxî û silametî", "en": "Get well soon" }
+        ]
+      },
       "activities": [
         {
+          "id": "1-1-01",
           "type": "flashcard",
+          "orderIndex": 0,
+          "isPublished": true,
           "instruction": "Learn this greeting",
-          "word": "Roj baş",
-          "hint": "Tap to flip",
-          "translation": "Good day / Hello",
-          "example": "Roj baş! Tu çawa yî?",
-          "exampleTranslation": "Good day! How are you?"
+          "content": {
+            "word": "Roj baş",
+            "hint": "Tap to flip",
+            "translation": "Good day / Hello",
+            "example": "Roj baş! Tu çawa yî?",
+            "exampleTranslation": "Good day! How are you?"
+          }
         },
         {
+          "id": "1-1-02",
           "type": "flashcard",
+          "orderIndex": 1,
+          "isPublished": true,
           "instruction": "Learn this phrase",
-          "word": "Navê min ... e",
-          "hint": "Tap to flip",
-          "translation": "My name is ...",
-          "example": "Navê min Armanc e.",
-          "exampleTranslation": "My name is Armanc."
+          "content": {
+            "word": "Navê min ... e",
+            "hint": "Tap to flip",
+            "translation": "My name is ...",
+            "example": "Navê min Armanc e.",
+            "exampleTranslation": "My name is Armanc."
+          }
         },
         {
+          "id": "1-1-03",
           "type": "flashcard",
+          "orderIndex": 2,
+          "isPublished": true,
           "instruction": "Learn this word",
-          "word": "Spas",
-          "hint": "Tap to flip",
-          "translation": "Thanks",
-          "example": "Spas, ez baş im.",
-          "exampleTranslation": "Thanks, I am good."
+          "content": {
+            "word": "Spas",
+            "hint": "Tap to flip",
+            "translation": "Thanks",
+            "example": "Spas, ez baş im.",
+            "exampleTranslation": "Thanks, I am good."
+          }
         },
         {
+          "id": "1-1-04",
           "type": "reading",
+          "orderIndex": 3,
+          "isPublished": true,
           "instruction": "Read the dialogue",
-          "title": "Roj baş — First meeting",
-          "lines": [
-            { "speaker": "Armanc", "ku": "Roj baş!", "en": "Good day!" },
-            { "speaker": "Bêrîvan", "ku": "Roj baş!", "en": "Good day!" },
-            { "speaker": "Armanc", "ku": "Navê te çi ye?", "en": "What is your name?" },
-            { "speaker": "Bêrîvan", "ku": "Navê min Bêrîvan e. Navê te çi ye?", "en": "My name is Bêrîvan. What is your name?" },
-            { "speaker": "Armanc", "ku": "Navê min Armanc e.", "en": "My name is Armanc." },
-            { "speaker": "Bêrîvan", "ku": "Armanc, tu çawa yî?", "en": "Armanc, how are you?" },
-            { "speaker": "Armanc", "ku": "Ez baş im, spas! Û tu?", "en": "I am good, thanks! And you?" },
-            { "speaker": "Bêrîvan", "ku": "Ez nexweş im.", "en": "I am sick." },
-            { "speaker": "Armanc", "ku": "Saxî û silametî!", "en": "Get well soon!" },
-            { "speaker": "Bêrîvan", "ku": "Spas!", "en": "Thanks!" }
-          ]
+          "content": {
+            "title": "Roj baş — First meeting",
+            "lines": [
+              { "speaker": "Armanc", "ku": "Roj baş!", "en": "Good day!" },
+              { "speaker": "Bêrîvan", "ku": "Roj baş!", "en": "Good day!" },
+              { "speaker": "Armanc", "ku": "Navê te çi ye?", "en": "What is your name?" },
+              { "speaker": "Bêrîvan", "ku": "Navê min Bêrîvan e. Navê te çi ye?", "en": "My name is Bêrîvan. What is your name?" },
+              { "speaker": "Armanc", "ku": "Navê min Armanc e.", "en": "My name is Armanc." },
+              { "speaker": "Bêrîvan", "ku": "Armanc, tu çawa yî?", "en": "Armanc, how are you?" },
+              { "speaker": "Armanc", "ku": "Ez baş im, spas! Û tu?", "en": "I am good, thanks! And you?" },
+              { "speaker": "Bêrîvan", "ku": "Ez nexweş im.", "en": "I am sick." },
+              { "speaker": "Armanc", "ku": "Saxî û silametî!", "en": "Get well soon!" },
+              { "speaker": "Bêrîvan", "ku": "Spas!", "en": "Thanks!" }
+            ]
+          }
         },
         {
+          "id": "1-1-05",
           "type": "mcq",
+          "orderIndex": 4,
+          "isPublished": true,
           "instruction": "What does \"Navê te çi ye?\" mean?",
-          "options": ["How are you?", "What is your name?", "Where are you from?", "How old are you?"],
-          "correct": 1,
-          "explanation": "\"Navê te çi ye?\" means \"What is your name?\" — Navê = name, te = your, çi = what, ye = is."
+          "content": {
+            "options": ["How are you?", "What is your name?", "Where are you from?", "How old are you?"],
+            "correct": 1,
+            "explanation": "\"Navê te çi ye?\" means \"What is your name?\" — Navê = name, te = your, çi = what, ye = is."
+          }
         },
         {
+          "id": "1-1-06",
           "type": "mcq",
+          "orderIndex": 5,
+          "isPublished": true,
           "instruction": "Bêrîvan says \"Ez nexweş im.\" What does this mean?",
-          "options": ["I am good", "I am tired", "I am sick", "I am happy"],
-          "correct": 2,
-          "explanation": "\"nexweş\" means \"sick.\" Compare with \"baş\" (good): Ez baş im = I am good, Ez nexweş im = I am sick."
+          "content": {
+            "options": ["I am good", "I am tired", "I am sick", "I am happy"],
+            "correct": 2,
+            "explanation": "\"nexweş\" means \"sick.\" Compare with \"baş\" (good): Ez baş im = I am good, Ez nexweş im = I am sick."
+          }
         },
         {
+          "id": "1-1-07",
           "type": "gap_fill",
+          "orderIndex": 6,
+          "isPublished": true,
           "instruction": "Complete the greeting",
-          "before": "Navê min ",
-          "gap": "Armanc",
-          "after": " e.",
-          "display": "Navê min ___ e.",
-          "wordBank": ["Armanc", "baş", "nexweş", "spas"],
-          "explanation": "\"Navê min ... e\" is the pattern for saying your name. The name goes in the blank."
+          "content": {
+            "before": "Navê min ",
+            "gap": "Armanc",
+            "after": " e.",
+            "display": "Navê min ___ e.",
+            "wordBank": ["Armanc", "baş", "nexweş", "spas"],
+            "explanation": "\"Navê min ... e\" is the pattern for saying your name. The name goes in the blank."
+          }
         },
         {
+          "id": "1-1-08",
           "type": "matching",
+          "orderIndex": 7,
+          "isPublished": true,
           "instruction": "Match the Kurdish phrases",
-          "pairs": [
-            { "ku": "Roj baş", "en": "Good day" },
-            { "ku": "Bi xatirê te", "en": "Goodbye (leaving)" },
-            { "ku": "Oxir be", "en": "Goodbye (staying)" },
-            { "ku": "Saxî û silametî", "en": "Get well soon" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "Roj baş", "en": "Good day" },
+              { "ku": "Bi xatirê te", "en": "Goodbye (leaving)" },
+              { "ku": "Oxir be", "en": "Goodbye (staying)" },
+              { "ku": "Saxî û silametî", "en": "Get well soon" }
+            ]
+          }
         },
         {
+          "id": "1-1-09",
           "type": "mcq",
+          "orderIndex": 8,
+          "isPublished": true,
           "instruction": "How do you say goodbye to someone who is leaving?",
-          "options": ["Roj baş", "Bi xatirê te", "Oxir be", "Spas"],
-          "correct": 2,
-          "explanation": "\"Oxir be\" is said to the person leaving. \"Bi xatirê te\" is said BY the person leaving. Think of it: the one staying says 'go safely' (Oxir be)."
+          "content": {
+            "options": ["Roj baş", "Bi xatirê te", "Oxir be", "Spas"],
+            "correct": 2,
+            "explanation": "\"Oxir be\" is said to the person leaving. \"Bi xatirê te\" is said BY the person leaving. Think of it: the one staying says 'go safely' (Oxir be)."
+          }
         }
       ]
     },
     {
       "id": "1-2",
       "name": "Reng û Hevok",
-      "subtitle": "Colors & Sentences",
+      "description": "Learn 14 Kurdish colors and practice using them in simple sentences and descriptions.",
+      "slug": "reng-u-hevok",
+      "orderIndex": 1,
       "learningObjective": "Learn 14 Kurdish colors and use them in simple sentences",
       "durationMinutes": 12,
-      "vocabPreview": ["sor", "zer", "kesk", "spi", "reş", "mor"],
-      "wordsLearned": [
-        { "ku": "sor", "en": "red" },
-        { "ku": "zer", "en": "yellow" },
-        { "ku": "kesk", "en": "green" },
-        { "ku": "spi", "en": "white" },
-        { "ku": "reş", "en": "black" },
-        { "ku": "mor", "en": "purple" },
-        { "ku": "şîn", "en": "blue" },
-        { "ku": "boz", "en": "gray" },
-        { "ku": "qehweyî", "en": "brown" },
-        { "ku": "porteqalî", "en": "orange" },
-        { "ku": "Ev kîjan reng e?", "en": "What color is this?" }
-      ],
+      "isPublished": true,
+      "metadata": {
+        "subtitle": "Colors & Sentences",
+        "vocabPreview": ["sor", "zer", "kesk", "spi", "reş", "mor"],
+        "wordsLearned": [
+          { "ku": "sor", "en": "red" },
+          { "ku": "zer", "en": "yellow" },
+          { "ku": "kesk", "en": "green" },
+          { "ku": "spi", "en": "white" },
+          { "ku": "reş", "en": "black" },
+          { "ku": "mor", "en": "purple" },
+          { "ku": "şîn", "en": "blue" },
+          { "ku": "boz", "en": "gray" },
+          { "ku": "qehweyî", "en": "brown" },
+          { "ku": "porteqalî", "en": "orange" },
+          { "ku": "Ev kîjan reng e?", "en": "What color is this?" }
+        ]
+      },
       "activities": [
         {
+          "id": "1-2-01",
           "type": "flashcard",
+          "orderIndex": 0,
+          "isPublished": true,
           "instruction": "Learn this color",
-          "word": "sor",
-          "hint": "Tap to flip",
-          "translation": "red",
-          "example": "Ev sor e.",
-          "exampleTranslation": "This is red."
+          "content": {
+            "word": "sor",
+            "hint": "Tap to flip",
+            "translation": "red",
+            "example": "Ev sor e.",
+            "exampleTranslation": "This is red."
+          }
         },
         {
+          "id": "1-2-02",
           "type": "flashcard",
+          "orderIndex": 1,
+          "isPublished": true,
           "instruction": "Learn this color",
-          "word": "zer",
-          "hint": "Tap to flip",
-          "translation": "yellow",
-          "example": "Ev zer e.",
-          "exampleTranslation": "This is yellow."
+          "content": {
+            "word": "zer",
+            "hint": "Tap to flip",
+            "translation": "yellow",
+            "example": "Ev zer e.",
+            "exampleTranslation": "This is yellow."
+          }
         },
         {
+          "id": "1-2-03",
           "type": "flashcard",
+          "orderIndex": 2,
+          "isPublished": true,
           "instruction": "Learn this color",
-          "word": "kesk",
-          "hint": "Tap to flip",
-          "translation": "green",
-          "example": "Ev kesk e.",
-          "exampleTranslation": "This is green."
+          "content": {
+            "word": "kesk",
+            "hint": "Tap to flip",
+            "translation": "green",
+            "example": "Ev kesk e.",
+            "exampleTranslation": "This is green."
+          }
         },
         {
+          "id": "1-2-04",
           "type": "flashcard",
+          "orderIndex": 3,
+          "isPublished": true,
           "instruction": "Learn this color",
-          "word": "spi",
-          "hint": "Tap to flip",
-          "translation": "white",
-          "example": "Ev spi ye.",
-          "exampleTranslation": "This is white."
+          "content": {
+            "word": "spi",
+            "hint": "Tap to flip",
+            "translation": "white",
+            "example": "Ev spi ye.",
+            "exampleTranslation": "This is white."
+          }
         },
         {
+          "id": "1-2-05",
           "type": "flashcard",
+          "orderIndex": 4,
+          "isPublished": true,
           "instruction": "Learn this color",
-          "word": "reş",
-          "hint": "Tap to flip",
-          "translation": "black",
-          "example": "Ev reş e.",
-          "exampleTranslation": "This is black."
+          "content": {
+            "word": "reş",
+            "hint": "Tap to flip",
+            "translation": "black",
+            "example": "Ev reş e.",
+            "exampleTranslation": "This is black."
+          }
         },
         {
+          "id": "1-2-06",
           "type": "reading",
+          "orderIndex": 5,
+          "isPublished": true,
           "instruction": "Read the color dialogue",
-          "title": "Ev kîjan reng e? — What color is this?",
-          "lines": [
-            { "speaker": "Armanc", "ku": "Ev kîjan reng e?", "en": "What color is this?" },
-            { "speaker": "Bêrîvan", "ku": "Ev zer e.", "en": "This is yellow." },
-            { "speaker": "Armanc", "ku": "Ev kîjan reng e?", "en": "What color is this?" },
-            { "speaker": "Bêrîvan", "ku": "Ev kesk e.", "en": "This is green." },
-            { "speaker": "Armanc", "ku": "Ez bi te serbilind im.", "en": "I am proud of you." },
-            { "speaker": "Bêrîvan", "ku": "Ez jî.", "en": "Me too." }
-          ]
+          "content": {
+            "title": "Ev kîjan reng e? — What color is this?",
+            "lines": [
+              { "speaker": "Armanc", "ku": "Ev kîjan reng e?", "en": "What color is this?" },
+              { "speaker": "Bêrîvan", "ku": "Ev zer e.", "en": "This is yellow." },
+              { "speaker": "Armanc", "ku": "Ev kîjan reng e?", "en": "What color is this?" },
+              { "speaker": "Bêrîvan", "ku": "Ev kesk e.", "en": "This is green." },
+              { "speaker": "Armanc", "ku": "Ez bi te serbilind im.", "en": "I am proud of you." },
+              { "speaker": "Bêrîvan", "ku": "Ez jî.", "en": "Me too." }
+            ]
+          }
         },
         {
+          "id": "1-2-07",
           "type": "matching",
+          "orderIndex": 6,
+          "isPublished": true,
           "instruction": "Match the colors",
-          "pairs": [
-            { "ku": "sor", "en": "red" },
-            { "ku": "kesk", "en": "green" },
-            { "ku": "şîn", "en": "blue" },
-            { "ku": "zer", "en": "yellow" },
-            { "ku": "spi", "en": "white" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "sor", "en": "red" },
+              { "ku": "kesk", "en": "green" },
+              { "ku": "şîn", "en": "blue" },
+              { "ku": "zer", "en": "yellow" },
+              { "ku": "spi", "en": "white" }
+            ]
+          }
         },
         {
+          "id": "1-2-08",
           "type": "mcq",
+          "orderIndex": 7,
+          "isPublished": true,
           "instruction": "How do you say \"green\" in Kurdish?",
-          "options": ["sor", "kesk", "zer", "spi"],
-          "correct": 1,
-          "explanation": "\"kesk\" means green. Think of the Kurdish flag: sor (red), spi (white), kesk (green)."
+          "content": {
+            "options": ["sor", "kesk", "zer", "spi"],
+            "correct": 1,
+            "explanation": "\"kesk\" means green. Think of the Kurdish flag: sor (red), spi (white), kesk (green)."
+          }
         },
         {
+          "id": "1-2-09",
           "type": "gap_fill",
+          "orderIndex": 8,
+          "isPublished": true,
           "instruction": "Complete the sentence",
-          "before": "Çavên min ",
-          "gap": "reş",
-          "after": " in.",
-          "display": "Çavên min ___ in.",
-          "wordBank": ["sor", "reş", "zer", "kesk"],
-          "explanation": "\"Çavên min reş in\" means \"My eyes are black.\" Çav = eye, çavên min = my eyes."
+          "content": {
+            "before": "Çavên min ",
+            "gap": "reş",
+            "after": " in.",
+            "display": "Çavên min ___ in.",
+            "wordBank": ["sor", "reş", "zer", "kesk"],
+            "explanation": "\"Çavên min reş in\" means \"My eyes are black.\" Çav = eye, çavên min = my eyes."
+          }
         },
         {
+          "id": "1-2-10",
           "type": "mcq",
+          "orderIndex": 9,
+          "isPublished": true,
           "instruction": "\"Porê min qehweyî ye.\" What color is described?",
-          "options": ["Black", "Brown", "Red", "Gray"],
-          "correct": 1,
-          "explanation": "\"qehweyî\" means brown (from qehwe = coffee). \"Porê min qehweyî ye\" = My hair is brown."
+          "content": {
+            "options": ["Black", "Brown", "Red", "Gray"],
+            "correct": 1,
+            "explanation": "\"qehweyî\" means brown (from qehwe = coffee). \"Porê min qehweyî ye\" = My hair is brown."
+          }
         }
       ]
     },
     {
       "id": "1-3",
       "name": "Heft û Hefte",
-      "subtitle": "Numbers & Days of the Week",
+      "description": "Learn numbers 1-7 and the days of the week in Kurdish, discovering how numbers connect to day names.",
+      "slug": "heft-u-hefte",
+      "orderIndex": 2,
       "learningObjective": "Learn numbers 1-7 and the days of the week in Kurdish",
       "durationMinutes": 10,
-      "vocabPreview": ["yek", "du", "sê", "yekşem", "duşem"],
-      "wordsLearned": [
-        { "ku": "yek", "en": "one (1)" },
-        { "ku": "du / didu", "en": "two (2)" },
-        { "ku": "sê", "en": "three (3)" },
-        { "ku": "çar", "en": "four (4)" },
-        { "ku": "pênc", "en": "five (5)" },
-        { "ku": "şeş", "en": "six (6)" },
-        { "ku": "heft", "en": "seven (7)" },
-        { "ku": "yekşem", "en": "Sunday" },
-        { "ku": "duşem", "en": "Monday" },
-        { "ku": "sêşem", "en": "Tuesday" }
-      ],
+      "isPublished": true,
+      "metadata": {
+        "subtitle": "Numbers & Days of the Week",
+        "vocabPreview": ["yek", "du", "sê", "yekşem", "duşem"],
+        "wordsLearned": [
+          { "ku": "yek", "en": "one (1)" },
+          { "ku": "du / didu", "en": "two (2)" },
+          { "ku": "sê", "en": "three (3)" },
+          { "ku": "çar", "en": "four (4)" },
+          { "ku": "pênc", "en": "five (5)" },
+          { "ku": "şeş", "en": "six (6)" },
+          { "ku": "heft", "en": "seven (7)" },
+          { "ku": "yekşem", "en": "Sunday" },
+          { "ku": "duşem", "en": "Monday" },
+          { "ku": "sêşem", "en": "Tuesday" }
+        ]
+      },
       "activities": [
         {
+          "id": "1-3-01",
           "type": "flashcard",
+          "orderIndex": 0,
+          "isPublished": true,
           "instruction": "Learn this number",
-          "word": "yek",
-          "hint": "Tap to flip",
-          "translation": "one (1)",
-          "example": "Yek, du, sê...",
-          "exampleTranslation": "One, two, three..."
+          "content": {
+            "word": "yek",
+            "hint": "Tap to flip",
+            "translation": "one (1)",
+            "example": "Yek, du, sê...",
+            "exampleTranslation": "One, two, three..."
+          }
         },
         {
+          "id": "1-3-02",
           "type": "flashcard",
+          "orderIndex": 1,
+          "isPublished": true,
           "instruction": "Learn this number",
-          "word": "du / didu",
-          "hint": "Tap to flip",
-          "translation": "two (2)",
-          "example": "Du çav, du guh.",
-          "exampleTranslation": "Two eyes, two ears."
+          "content": {
+            "word": "du / didu",
+            "hint": "Tap to flip",
+            "translation": "two (2)",
+            "example": "Du çav, du guh.",
+            "exampleTranslation": "Two eyes, two ears."
+          }
         },
         {
+          "id": "1-3-03",
           "type": "flashcard",
+          "orderIndex": 2,
+          "isPublished": true,
           "instruction": "Learn this number",
-          "word": "heft",
-          "hint": "Tap to flip",
-          "translation": "seven (7)",
-          "example": "Heft rojên heftê.",
-          "exampleTranslation": "Seven days of the week."
+          "content": {
+            "word": "heft",
+            "hint": "Tap to flip",
+            "translation": "seven (7)",
+            "example": "Heft rojên heftê.",
+            "exampleTranslation": "Seven days of the week."
+          }
         },
         {
+          "id": "1-3-04",
           "type": "reading",
+          "orderIndex": 3,
+          "isPublished": true,
           "instruction": "Read about the days",
-          "title": "Rojên Heftê — Days of the Week",
-          "lines": [
-            { "speaker": "", "ku": "Yekşem — roja yekê", "en": "Sunday — day one" },
-            { "speaker": "", "ku": "Duşem — roja duyê", "en": "Monday — day two" },
-            { "speaker": "", "ku": "Sêşem — roja sêyê", "en": "Tuesday — day three" },
-            { "speaker": "", "ku": "Çarşem — roja çarê", "en": "Wednesday — day four" },
-            { "speaker": "", "ku": "Pêncşem — roja pêncê", "en": "Thursday — day five" },
-            { "speaker": "", "ku": "Înî — roja şeşê", "en": "Friday — day six" },
-            { "speaker": "", "ku": "Şemî — roja heftê", "en": "Saturday — day seven" }
-          ]
+          "content": {
+            "title": "Rojên Heftê — Days of the Week",
+            "lines": [
+              { "speaker": "", "ku": "Yekşem — roja yekê", "en": "Sunday — day one" },
+              { "speaker": "", "ku": "Duşem — roja duyê", "en": "Monday — day two" },
+              { "speaker": "", "ku": "Sêşem — roja sêyê", "en": "Tuesday — day three" },
+              { "speaker": "", "ku": "Çarşem — roja çarê", "en": "Wednesday — day four" },
+              { "speaker": "", "ku": "Pêncşem — roja pêncê", "en": "Thursday — day five" },
+              { "speaker": "", "ku": "Înî — roja şeşê", "en": "Friday — day six" },
+              { "speaker": "", "ku": "Şemî — roja heftê", "en": "Saturday — day seven" }
+            ]
+          }
         },
         {
+          "id": "1-3-05",
           "type": "matching",
+          "orderIndex": 4,
+          "isPublished": true,
           "instruction": "Match numbers to words",
-          "pairs": [
-            { "ku": "yek", "en": "1" },
-            { "ku": "sê", "en": "3" },
-            { "ku": "pênc", "en": "5" },
-            { "ku": "heft", "en": "7" }
-          ]
+          "content": {
+            "pairs": [
+              { "ku": "yek", "en": "1" },
+              { "ku": "sê", "en": "3" },
+              { "ku": "pênc", "en": "5" },
+              { "ku": "heft", "en": "7" }
+            ]
+          }
         },
         {
+          "id": "1-3-06",
           "type": "mcq",
+          "orderIndex": 5,
+          "isPublished": true,
           "instruction": "\"Duşem\" means Monday. What does \"du\" mean?",
-          "options": ["one", "two", "three", "four"],
-          "correct": 1,
-          "explanation": "\"du\" means two. The days are built from numbers: Yekşem (1-Sunday), Duşem (2-Monday), Sêşem (3-Tuesday), Çarşem (4-Wednesday)."
+          "content": {
+            "options": ["one", "two", "three", "four"],
+            "correct": 1,
+            "explanation": "\"du\" means two. The days are built from numbers: Yekşem (1-Sunday), Duşem (2-Monday), Sêşem (3-Tuesday), Çarşem (4-Wednesday)."
+          }
         },
         {
+          "id": "1-3-07",
           "type": "gap_fill",
+          "orderIndex": 6,
+          "isPublished": true,
           "instruction": "Complete the sequence",
-          "before": "Yek, du, sê, ",
-          "gap": "çar",
-          "after": ", pênc, şeş, heft.",
-          "display": "Yek, du, sê, ___, pênc, şeş, heft.",
-          "wordBank": ["çar", "heft", "du", "şeş"],
-          "explanation": "The number sequence: yek (1), du (2), sê (3), çar (4), pênc (5), şeş (6), heft (7)."
+          "content": {
+            "before": "Yek, du, sê, ",
+            "gap": "çar",
+            "after": ", pênc, şeş, heft.",
+            "display": "Yek, du, sê, ___, pênc, şeş, heft.",
+            "wordBank": ["çar", "heft", "du", "şeş"],
+            "explanation": "The number sequence: yek (1), du (2), sê (3), çar (4), pênc (5), şeş (6), heft (7)."
+          }
         },
         {
+          "id": "1-3-08",
           "type": "mcq",
+          "orderIndex": 7,
+          "isPublished": true,
           "instruction": "Which day is \"Pêncşem\"?",
-          "options": ["Wednesday", "Thursday", "Friday", "Saturday"],
-          "correct": 1,
-          "explanation": "Pêncşem = Thursday (pênc = 5, day five of the week starting from Sunday)."
+          "content": {
+            "options": ["Wednesday", "Thursday", "Friday", "Saturday"],
+            "correct": 1,
+            "explanation": "Pêncşem = Thursday (pênc = 5, day five of the week starting from Sunday)."
+          }
         }
       ]
     }

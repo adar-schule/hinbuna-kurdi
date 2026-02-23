@@ -112,6 +112,13 @@
       '<polyline points="10 9 9 9 8 9"/>' +
     '</svg>';
 
+  var NAV_ICON_DATAMODEL =
+    '<svg class="nav-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<ellipse cx="12" cy="6" rx="8" ry="3.5"/>' +
+      '<path d="M4 6v12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V6"/>' +
+      '<path d="M4 12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5"/>' +
+    '</svg>';
+
   var CHECK_SVG =
     '<svg class="lang-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
       '<polyline points="20 6 9 17 4 12"/>' +
@@ -156,12 +163,13 @@
     html += '<div class="header-actions">';
 
     // Dev page controls (play button, nav links, hamburger)
-    if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes') {
+    if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes' || pageType === 'data-model') {
       var navItems = [
         { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Gallery',    title: 'Design Gallery' },
         { id: 'onboarding',           href: 'onboarding.html',           icon: NAV_ICON_ONBOARDING,  label: 'Onboarding', title: 'Developer Onboarding Guide' },
         { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components', title: 'Component Library' },
-        { id: 'implementation-notes', href: 'implementation-notes.html',  icon: NAV_ICON_NOTES,       label: 'Notes',      title: 'Implementation Notes' }
+        { id: 'implementation-notes', href: 'implementation-notes.html',  icon: NAV_ICON_NOTES,       label: 'Notes',      title: 'Implementation Notes' },
+        { id: 'data-model',          href: 'data-model.html',           icon: NAV_ICON_DATAMODEL,   label: 'Data',       title: 'Data Model Overview' }
       ];
 
       // Play/Preview button — primary action, always visible
@@ -242,6 +250,7 @@
     if (pageType === 'onboarding') return 'index.html';
     if (pageType === 'components') return 'index.html';
     if (pageType === 'implementation-notes') return 'index.html';
+    if (pageType === 'data-model') return 'index.html';
     return '#';
   }
 

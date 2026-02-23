@@ -18,6 +18,7 @@ Generic LMS data model designed to support:
 - **Optional features** - Subscriptions, assignments, badges can be disabled per deployment
 - **Flexible access control** - Unit-level gating, configurable signup modes
 - **UUID primary keys** - Distributed-friendly, non-guessable
+- **AI-first architecture** - Core AI (error tracking, skill profiling, engagement) in every deployment; Premium AI (conversation AI, content generation) as optional module
 
 ---
 
@@ -432,7 +433,7 @@ canAccessUnit(user, unit): boolean {
 
 ---
 
-## Adaptive Learning / AI Personalization (5 tables)
+## AI Personalization — Core (11 tables)
 
 Enables AI-powered personalized learning paths by tracking:
 - **What mistakes** users make (not just right/wrong)
@@ -570,6 +571,166 @@ async getPersonalizedRecommendations(userId: string) {
 }
 ```
 
+### user_events
+
+Every user interaction — raw event stream for AI analysis.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users |
+| event_type | enum | click, skip, pause, retry, hint_used, bookmark, complete, timeout |
+| entity_type | string | lesson, activity, unit, page |
+| entity_id | UUID | nullable |
+| metadata | JSON | context, duration, position |
+| created_at | timestamp | |
+
+### session_logs
+
+Login sessions — when, how long, what device.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users |
+| started_at | timestamp | |
+| ended_at | timestamp | nullable |
+| duration_seconds | int | computed |
+| device_type | enum | mobile, tablet, desktop |
+| browser | string | nullable |
+| pages_visited | JSON | ordered list of pages |
+| metadata | JSON | |
+
+### user_behavior_profiles
+
+Computed learning habits — recalculated periodically from user_events + session_logs.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users, unique |
+| preferred_time | string | nullable — "morning", "evening", etc. |
+| avg_session_minutes | decimal | |
+| avg_activities_per_session | decimal | |
+| skip_rate | decimal | 0.0-1.0 |
+| retry_rate | decimal | 0.0-1.0 |
+| hint_usage_rate | decimal | 0.0-1.0 |
+| speed_category | enum | slow, normal, fast |
+| consistency_score | decimal | 0.0-1.0 (how regular) |
+| metadata | JSON | |
+| updated_at | timestamp | recalculated periodically |
+
+### user_engagement_scores
+
+Motivation & risk signals — AI-computed engagement level.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users, unique |
+| engagement_level | enum | high, medium, low, at_risk |
+| frustration_signals | int | count of rapid retries, rage-quits |
+| boredom_signals | int | count of fast skips, low time-on-task |
+| flow_signals | int | count of sustained focus periods |
+| streak_current | int | current consecutive days |
+| streak_longest | int | all-time best |
+| dropout_risk | decimal | 0.0-1.0 (AI-predicted) |
+| last_calculated_at | timestamp | |
+| metadata | JSON | |
+| updated_at | timestamp | |
+
+### ai_recommendations
+
+What the AI suggests next — with reasoning.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users |
+| type | enum | next_lesson, review, practice_weak, challenge, break |
+| entity_type | string | lesson, activity, unit, skill |
+| entity_id | UUID | nullable |
+| reason | text | "You got 3/5 wrong on verb conjugation" |
+| priority | int | 1=highest |
+| is_acted_on | boolean | did user follow it? |
+| metadata | JSON | |
+| created_at | timestamp | |
+| expires_at | timestamp | nullable |
+
+### spaced_repetition_items
+
+SM-2 review schedule per user per item.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users |
+| entity_type | enum | activity, skill, vocabulary_item |
+| entity_id | UUID | |
+| ease_factor | decimal | SM-2 easiness (default 2.5) |
+| interval_days | int | current interval |
+| repetitions | int | successful reviews count |
+| next_review_at | timestamp | when to show again |
+| last_reviewed_at | timestamp | |
+| metadata | JSON | |
+| created_at | timestamp | |
+| updated_at | timestamp | |
+
+---
+
+## AI Personalization — Premium (3 tables, optional module)
+
+Advanced AI features: conversation practice, content generation, character system.
+
+### ai_conversations
+
+Hevalê AI chat logs — conversation practice with AI characters.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users |
+| character_id | UUID | FK → user_characters, nullable |
+| messages | JSON | array of {role, content, timestamp} |
+| topic | string | nullable — "greetings", "shopping" |
+| skill_level | string | A1, A2, B1 |
+| corrections_made | int | AI corrections count |
+| metadata | JSON | |
+| started_at | timestamp | |
+| ended_at | timestamp | nullable |
+
+### ai_generated_content
+
+Custom exercises/stories created by AI for specific users.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users |
+| type | enum | exercise, story, review_set, practice_dialogue |
+| content | JSON | the generated content |
+| based_on | JSON | {weak_skills: [], error_patterns: []} |
+| quality_score | decimal | nullable, user feedback |
+| metadata | JSON | |
+| created_at | timestamp | |
+
+### user_characters
+
+User-created characters for story mode and conversation practice.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| id | UUID | PK |
+| user_id | UUID | FK → users |
+| name | string | |
+| avatar_config | JSON | appearance settings |
+| personality | JSON | traits, interests |
+| backstory | text | nullable |
+| metadata | JSON | |
+| is_active | boolean | default true |
+| created_at | timestamp | |
+| updated_at | timestamp | |
+
 ---
 
 ## Summary
@@ -585,9 +746,10 @@ async getPersonalizedRecommendations(userId: string) {
 | Badges | 2 | Optional |
 | Comments | 2 | Optional |
 | Audit | 1 | Optional |
-| **Adaptive Learning** | **5** | **Phase 2** |
+| **AI Core** | **11** | **Yes (basic intelligence)** |
+| **AI Premium** | **3** | **Optional (advanced AI features)** |
 
-**Total: 31 tables**
+**Total: 39 tables**
 
 ---
 
@@ -620,14 +782,26 @@ subscription_plans (1) ──< user_subscriptions (N)
 badges (1) ──< user_badges (N)
 skills (1) ──< user_skills (N)
 activity_attempts (1) ──< user_errors (N)
+
+users (1) ──< user_events (N)
+users (1) ──< session_logs (N)
+users (1) ──< user_behavior_profiles (1)
+users (1) ──< user_engagement_scores (1)
+users (1) ──< ai_recommendations (N)
+users (1) ──< spaced_repetition_items (N)
+users (1) ──< ai_conversations (N)
+users (1) ──< ai_generated_content (N)
+users (1) ──< user_characters (N)
+user_characters (1) ──< ai_conversations (N)
 ```
 
 ---
 
 ## Next Steps
 
-1. [ ] Define MVP screen list
-2. [ ] Decide role system details (if needed beyond student/teacher/admin)
-3. [ ] Review existing HTML prototype
+1. [x] Define MVP screen list (32 screens across 4 roles)
+2. [x] Decide role system details (student/teacher/admin)
+3. [x] Review existing HTML prototype (reusable patterns identified)
 4. [ ] Create implementation plan
-5. [ ] Phase 2: Implement adaptive learning tables and AI recommendation engine
+5. [ ] Implement core AI tables (user_events, session_logs, behavior profiles, engagement scores, recommendations, spaced repetition)
+6. [ ] Implement premium AI module (ai_conversations, ai_generated_content, user_characters)

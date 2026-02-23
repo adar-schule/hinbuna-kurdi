@@ -54,6 +54,9 @@
     .lesson-title-ku { font-family: var(--font-heading); font-weight: 800; font-size: 28px; color: var(--text-primary); line-height: 1.2; margin-bottom: 4px; }
     .lesson-title-en { font-size: 16px; color: var(--text-secondary); font-weight: 500; }
 
+    .lesson-description { margin-bottom: 16px; max-width: 320px; }
+    .lesson-description-text { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
     .lesson-objective { margin-bottom: 24px; max-width: 320px; }
     .lesson-objective-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-secondary); margin-bottom: 6px; }
     .lesson-objective-text { font-size: 14px; color: var(--text-primary); line-height: 1.5; }
@@ -120,6 +123,10 @@
       <div class="lesson-number-label" id="lesson-number-label">Lesson 2</div>
       <div class="lesson-title-ku" id="lesson-title-ku">Tu çawa yî?</div>
       <div class="lesson-title-en" id="lesson-title-en">How are you?</div>
+    </div>
+
+    <div class="lesson-description anim-fade d3" id="lesson-description" style="display: none;">
+      <div class="lesson-description-text" id="lesson-description-text"></div>
     </div>
 
     <div class="lesson-objective anim-fade d3">
@@ -206,7 +213,19 @@
         var titleKu = document.getElementById('lesson-title-ku');
         if (titleKu) titleKu.textContent = lesson.name;
         var titleEn = document.getElementById('lesson-title-en');
-        if (titleEn) titleEn.textContent = lesson.subtitle;
+        if (titleEn) titleEn.textContent = (lesson.metadata && lesson.metadata.subtitle) || lesson.subtitle || '';
+
+        // Update description (if present)
+        var descSection = document.getElementById('lesson-description');
+        var descText = document.getElementById('lesson-description-text');
+        if (descSection && descText) {
+          if (lesson.description) {
+            descText.textContent = lesson.description;
+            descSection.style.display = '';
+          } else {
+            descSection.style.display = 'none';
+          }
+        }
 
         // Update objective
         var objText = document.getElementById('lesson-objective-text');
@@ -225,10 +244,11 @@
 
         // Update vocab tags
         var vocabTags = document.getElementById('vocab-tags');
-        if (vocabTags && lesson.vocabPreview && lesson.vocabPreview.length > 0) {
+        var vocabList = (lesson.metadata && lesson.metadata.vocabPreview) || lesson.vocabPreview || [];
+        if (vocabTags && vocabList.length > 0) {
           vocabTags.textContent = '';
           var fragment = document.createDocumentFragment();
-          lesson.vocabPreview.forEach(function (word) {
+          vocabList.forEach(function (word) {
             var tag = document.createElement('span');
             tag.className = 'vocab-tag';
             tag.textContent = word;
@@ -238,9 +258,9 @@
         }
 
         // Show vocab section (hide if no preview words)
-        var vocabPreview = document.getElementById('vocab-preview');
-        if (vocabPreview) {
-          vocabPreview.style.display = (lesson.vocabPreview && lesson.vocabPreview.length > 0) ? '' : 'none';
+        var vocabPreviewSection = document.getElementById('vocab-preview');
+        if (vocabPreviewSection) {
+          vocabPreviewSection.style.display = vocabList.length > 0 ? '' : 'none';
         }
       }
 
