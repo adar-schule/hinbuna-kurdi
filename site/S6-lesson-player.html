@@ -613,6 +613,9 @@
       exampleRow.appendChild(el('div', { className: 'flashcard-example', textContent: act.example }));
       exampleRow.appendChild(createListenBtn('listen-sm listen-light'));
       back.appendChild(exampleRow);
+      if (act.exampleTranslation) {
+        back.appendChild(el('div', { className: 'flashcard-example', style: 'font-size:12px;opacity:0.7;', textContent: t(act.exampleTranslation) }));
+      }
 
       card.appendChild(front);
       card.appendChild(back);

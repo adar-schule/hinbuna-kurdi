@@ -36,15 +36,15 @@
   // ============================================================
 
   var LANGUAGES = [
-    { code: 'ku', label: 'Kurd\u00ee' },
-    { code: 'en', label: 'English' },
-    { code: 'de', label: 'Deutsch' },
-    { code: 'sv', label: 'Svenska' },
-    { code: 'da', label: 'Dansk' },
-    { code: 'it', label: 'Italiano' },
-    { code: 'tr', label: 'T\u00fcrk\u00e7e' },
-    { code: 'fa', label: '\u0641\u0627\u0631\u0633\u06CC', dir: 'rtl' },
-    { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', dir: 'rtl' }
+    { code: 'ku', label: 'Kurd\u00ee', color: '#2D5A3D' },
+    { code: 'en', label: 'English', color: '#3B7A8A' },
+    { code: 'de', label: 'Deutsch', color: '#9A6530' },
+    { code: 'sv', label: 'Svenska', color: '#4A7A9B' },
+    { code: 'da', label: 'Dansk', color: '#6B5B8A' },
+    { code: 'it', label: 'Italiano', color: '#7A4A3B' },
+    { code: 'tr', label: 'T\u00fcrk\u00e7e', color: '#C75B5B' },
+    { code: 'fa', label: '\u0641\u0627\u0631\u0633\u06CC', dir: 'rtl', color: '#5BA37B' },
+    { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', dir: 'rtl', color: '#7B68AE' }
   ];
 
   function getLang() {

@@ -443,8 +443,84 @@
     .btn-delete svg { width: 15px; height: 15px; }
 
     /* ============================================
-       MULTI-LANG FIELD — stacked per-language inputs
+       MULTI-LANG CHIP ROW — compact language selector
        ============================================ */
+    .chip-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+    .chip-row-icon { font-size: 14px; opacity: 0.6; flex-shrink: 0; }
+
+    .lang-chip {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 3px 8px; border-radius: 12px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      border: 1.5px solid var(--border); background-color: transparent;
+      cursor: pointer; transition: all 0.2s ease; user-select: none;
+      color: var(--text-secondary);
+    }
+    .lang-chip:hover { border-color: var(--text-primary); background-color: var(--bg-surface); }
+    .lang-chip.active { border-width: 2px; }
+    .lang-chip .chip-status { font-size: 8px; line-height: 1; }
+    .lang-chip.filled .chip-status { opacity: 1; }
+    .lang-chip.empty .chip-status { opacity: 0.4; }
+    .lang-chip.auto .chip-status { opacity: 1; }
+
+    .lang-chip-overflow {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 12px;
+      font-size: 10px; font-weight: 600;
+      border: 1.5px dashed var(--border); background-color: transparent;
+      cursor: pointer; transition: all 0.2s ease; color: var(--text-secondary);
+    }
+    .lang-chip-overflow:hover { border-color: var(--text-primary); }
+
+    .chip-expand-area { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+
+    .chip-expand-row {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 8px; border-radius: var(--radius-sm);
+      background-color: var(--bg-surface); border: 1px solid var(--border);
+      animation: fadeInUp 0.2s ease-out both;
+    }
+    .chip-expand-row .lang-tag {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; flex-shrink: 0;
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      border-radius: var(--radius-xs); background-color: var(--bg-page);
+      border: 1px solid var(--border); color: var(--text-secondary);
+    }
+    .chip-expand-row .form-input { flex: 1; }
+    .chip-expand-row .auto-badge {
+      font-size: 10px; opacity: 0.7; flex-shrink: 0; padding: 2px 6px;
+      border-radius: 8px; background-color: rgba(212, 168, 67, 0.15);
+      color: var(--color-accent);
+    }
+    .chip-expand-close {
+      background: none; border: none; cursor: pointer; padding: 2px;
+      color: var(--text-secondary); font-size: 16px; line-height: 1;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .chip-expand-close:hover { opacity: 1; color: var(--color-error); }
+
+    .btn-translate-all {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: var(--radius-sm);
+      border: 1.5px dashed var(--color-accent); background-color: rgba(212, 168, 67, 0.06);
+      color: var(--color-accent); font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease; margin-top: 8px;
+      font-family: var(--font-body);
+    }
+    .btn-translate-all:hover { background-color: rgba(212, 168, 67, 0.15); border-style: solid; }
+
+    .btn-translate-lesson {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: var(--radius-md);
+      border: 2px dashed var(--color-accent); background-color: rgba(212, 168, 67, 0.06);
+      color: var(--color-accent); font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+    .btn-translate-lesson:hover { background-color: rgba(212, 168, 67, 0.15); border-style: solid; }
+
+    /* Keep old classes for backwards compat */
     .lang-field-group { display: flex; flex-direction: column; gap: 4px; }
     .lang-field-row { display: flex; align-items: center; gap: 6px; }
     .lang-field-row .form-input { flex: 1; }
@@ -455,10 +531,6 @@
       border-radius: var(--radius-xs); background-color: var(--bg-page);
       border: 1px solid var(--border); color: var(--text-secondary);
     }
-    .lang-tag.en { color: var(--color-info); border-color: rgba(59, 122, 138, 0.3); }
-    .lang-tag.de { color: #9A6530; border-color: rgba(180, 120, 60, 0.3); }
-    [data-theme="dark"] .lang-tag.en { color: #4D9AAE; border-color: rgba(77, 154, 174, 0.3); }
-    [data-theme="dark"] .lang-tag.de { color: #D4A860; border-color: rgba(200, 150, 80, 0.3); }
 
     /* ============================================
        ANIMATIONS
@@ -566,10 +638,8 @@
     // ============================================================
     // Multi-lang helpers — resolves { en: "...", de: "..." } objects
     // ============================================================
-    var EDIT_LANGS = [
-      { code: 'en', label: 'English' },
-      { code: 'de', label: 'Deutsch' }
-    ];
+    var EDIT_LANGS = (window.HK && HK.LANGUAGES || []).filter(function (l) { return l.code !== 'ku'; });
+    var CHIP_MAX_VISIBLE = 5;
 
     function t(val) {
       if (val == null) return '';
@@ -662,7 +732,7 @@
       f.appendChild(top);
 
       if (lesson.learningObjective) {
-        f.appendChild(el('div', { className: 'lesson-header-objective', textContent: lesson.learningObjective }));
+        f.appendChild(el('div', { className: 'lesson-header-objective', textContent: t(lesson.learningObjective) }));
       }
 
       var stats = el('div', { className: 'lesson-header-stats' });
@@ -720,20 +790,20 @@
       var c = act.content || {};
       var inner = el('div', { className: 'activity-detail-inner' });
 
-      // Instruction field (all types) — multi-lang
-      addLangField(inner, 'Instruction', act.instruction);
+      // Instruction field (all types) — chip-row multi-lang
+      addChipRowField(inner, 'Instruction', act.instruction, { kuField: false });
 
       // Type-specific fields
       switch (act.type) {
         case 'flashcard':
           addField(inner, 'Word (Kurdî)', c.word || '');
-          addLangField(inner, 'Translation', c.translation);
+          addChipRowField(inner, 'Translation', c.translation, { kuField: false });
           addField(inner, 'Example Sentence (Kurdî)', c.example || '');
-          addLangField(inner, 'Example Translation', c.exampleTranslation);
+          addChipRowField(inner, 'Example Translation', c.exampleTranslation, { kuField: false });
           break;
 
         case 'reading':
-          addLangField(inner, 'Dialogue Title', c.title);
+          addChipRowField(inner, 'Dialogue Title', c.title, { kuField: false });
           if (c.lines && c.lines.length) {
             var linesGroup = el('div', { className: 'form-group' });
             linesGroup.appendChild(el('label', { className: 'form-label', textContent: 'Dialogue Lines' }));
@@ -743,13 +813,10 @@
               row.appendChild(el('input', { type: 'text', className: 'match-pair-input', value: line.speaker || '', placeholder: 'Speaker', style: 'text-align:center;font-weight:700;font-size:12px;' }));
               row.appendChild(el('input', { type: 'text', className: 'match-pair-input', value: line.ku || '', placeholder: 'Kurdî' }));
               pairs.appendChild(row);
-              // Per-language translation rows
-              EDIT_LANGS.forEach(function (lang) {
-                var langRow = el('div', { className: 'match-pair', style: 'grid-template-columns: 60px 1fr;' });
-                langRow.appendChild(el('span', { className: 'lang-tag ' + lang.code, style: 'justify-self:center;', textContent: lang.code }));
-                langRow.appendChild(el('input', { type: 'text', className: 'match-pair-input', value: tLang(line, lang.code), placeholder: lang.label + ' translation' }));
-                pairs.appendChild(langRow);
-              });
+              // Per-language chip-row translations
+              var lineChipContainer = el('div', { style: 'margin-left:60px;' });
+              addChipRowField(lineChipContainer, '', line, { kuField: false });
+              pairs.appendChild(lineChipContainer);
             });
             linesGroup.appendChild(pairs);
             var addBtn = el('button', { className: 'btn-add-option', onclick: 'return false;' });
@@ -769,15 +836,10 @@
               var item = el('div', { className: 'option-item' + (idx === c.correct ? ' correct' : '') });
               item.appendChild(el('span', { className: 'option-letter', textContent: LETTERS[idx] }));
               item.appendChild(el('div', { className: 'option-radio' }));
-              // Per-language option inputs
-              var optLangs = el('div', { className: 'lang-field-group', style: 'flex:1;' });
-              EDIT_LANGS.forEach(function (lang) {
-                var row = el('div', { className: 'lang-field-row' });
-                row.appendChild(el('span', { className: 'lang-tag ' + lang.code, textContent: lang.code }));
-                row.appendChild(el('input', { type: 'text', className: 'option-input', value: tLang(opt, lang.code), placeholder: lang.label }));
-                optLangs.appendChild(row);
-              });
-              item.appendChild(optLangs);
+              // Per-language chip-row option inputs
+              var optChipContainer = el('div', { style: 'flex:1;' });
+              addChipRowField(optChipContainer, '', opt, { kuField: false });
+              item.appendChild(optChipContainer);
               optList.appendChild(item);
             });
             optGroup.appendChild(optList);
@@ -787,7 +849,7 @@
             optGroup.appendChild(addOpt);
             inner.appendChild(optGroup);
           }
-          if (c.explanation) addLangTextarea(inner, 'Explanation', c.explanation);
+          if (c.explanation) addChipRowField(inner, 'Explanation', c.explanation, { kuField: false, textarea: true });
           break;
 
         case 'gap_fill':
@@ -803,7 +865,7 @@
           }
           addField(inner, 'Correct Answer', c.gap || '');
           if (c.wordBank) addField(inner, 'Word Bank (comma-separated)', c.wordBank.join(', '));
-          if (c.explanation) addLangTextarea(inner, 'Explanation', c.explanation);
+          if (c.explanation) addChipRowField(inner, 'Explanation', c.explanation, { kuField: false, textarea: true });
           break;
 
         case 'matching':
@@ -818,15 +880,10 @@
               var arrDiv = el('div', { className: 'match-arrow' });
               arrDiv.appendChild(svgEl(SVG.arrow));
               kuRow.appendChild(arrDiv);
-              // Per-language translation inputs stacked on the right
-              var langStack = el('div', { className: 'lang-field-group' });
-              EDIT_LANGS.forEach(function (lang) {
-                var langRow = el('div', { className: 'lang-field-row' });
-                langRow.appendChild(el('span', { className: 'lang-tag ' + lang.code, textContent: lang.code }));
-                langRow.appendChild(el('input', { type: 'text', className: 'match-pair-input', value: tLang(pair, lang.code), placeholder: lang.label, style: 'flex:1;' }));
-                langStack.appendChild(langRow);
-              });
-              kuRow.appendChild(langStack);
+              // Per-language chip-row translations on the right
+              var pairChipContainer = el('div');
+              addChipRowField(pairChipContainer, '', pair, { kuField: false });
+              kuRow.appendChild(pairChipContainer);
               pairsDiv.appendChild(kuRow);
             });
             pairsGroup.appendChild(pairsDiv);
@@ -838,6 +895,30 @@
           }
           break;
       }
+
+      // Translate all empty fields button (per-activity)
+      var translateRow = el('div', { className: 'form-group' });
+      var translateBtn = el('button', { className: 'btn-translate-all' });
+      translateBtn.textContent = '\u2728 Translate all empty fields';
+      translateBtn.addEventListener('click', function () {
+        translateBtn.textContent = '\u23F3 Translating all fields...';
+        var emptyChips = inner.querySelectorAll('.lang-chip.empty');
+        var delay = 0;
+        emptyChips.forEach(function (chip) {
+          delay += 200;
+          setTimeout(function () {
+            chip.classList.remove('empty');
+            chip.classList.add('auto');
+            var st = chip.querySelector('.chip-status');
+            if (st) st.textContent = '\u2728';
+          }, delay);
+        });
+        setTimeout(function () {
+          translateBtn.textContent = '\u2728 Translate all empty fields';
+        }, delay + 500);
+      });
+      translateRow.appendChild(translateBtn);
+      inner.appendChild(translateRow);
 
       // Published toggle (all types)
       var toggleGroup = el('div', { className: 'form-group' });
@@ -887,34 +968,174 @@
       parent.appendChild(g);
     }
 
-    // Multi-lang field: shows one input per language with lang tag
-    function addLangField(parent, label, value) {
+    // ============================================================
+    // Chip-row multi-lang field
+    // ============================================================
+    function addChipRowField(parent, label, value, opts) {
+      opts = opts || {};
+      var kuField = opts.kuField !== undefined ? opts.kuField : true;
+      var kuValue = opts.kuValue || '';
+      var useTextarea = opts.textarea || false;
+
       var g = el('div', { className: 'form-group' });
-      g.appendChild(el('label', { className: 'form-label', textContent: label }));
-      var group = el('div', { className: 'lang-field-group' });
-      EDIT_LANGS.forEach(function (lang) {
-        var row = el('div', { className: 'lang-field-row' });
-        row.appendChild(el('span', { className: 'lang-tag ' + lang.code, textContent: lang.code }));
-        row.appendChild(el('input', { type: 'text', className: 'form-input', value: tLang(value, lang.code), placeholder: lang.label }));
-        group.appendChild(row);
+      if (label) {
+        g.appendChild(el('label', { className: 'form-label', textContent: label }));
+      }
+
+      // Kurdish source input (if kuField is true)
+      if (kuField) {
+        if (useTextarea) {
+          g.appendChild(el('textarea', { className: 'form-input', rows: '2', textContent: kuValue || (typeof value === 'string' ? value : (value && value.ku ? value.ku : '')), placeholder: 'Kurdî' }));
+        } else {
+          g.appendChild(el('input', { type: 'text', className: 'form-input', value: kuValue || (typeof value === 'string' ? value : (value && value.ku ? value.ku : '')), placeholder: 'Kurdî' }));
+        }
+      }
+
+      // Chip row: globe icon + language chips
+      var chipRow = el('div', { className: 'chip-row' });
+      var globe = el('span', { className: 'chip-row-icon', textContent: '\uD83C\uDF10' });
+      chipRow.appendChild(globe);
+
+      // Expand area (below chip row)
+      var expandArea = el('div', { className: 'chip-expand-area' });
+
+      var visibleLangs = EDIT_LANGS.slice(0, CHIP_MAX_VISIBLE);
+      var overflowLangs = EDIT_LANGS.slice(CHIP_MAX_VISIBLE);
+      var allChips = [];
+
+      function makeChip(lang, hidden) {
+        var langVal = tLang(value, lang.code);
+        var statusClass = langVal ? 'filled' : 'empty';
+        var statusText = langVal ? '\u25CF' : '\u25CB';
+
+        var chip = el('button', { className: 'lang-chip ' + statusClass });
+        if (lang.color) {
+          chip.style.borderColor = lang.color;
+          chip.style.color = lang.color;
+        }
+        if (hidden) chip.style.display = 'none';
+        chip.setAttribute('data-lang', lang.code);
+
+        chip.appendChild(document.createTextNode(lang.code));
+        var statusSpan = el('span', { className: 'chip-status', textContent: statusText });
+        chip.appendChild(statusSpan);
+
+        chip.addEventListener('click', function () {
+          var existing = expandArea.querySelector('[data-expand-lang="' + lang.code + '"]');
+          if (existing) {
+            existing.remove();
+            chip.classList.remove('active');
+            return;
+          }
+          chip.classList.add('active');
+
+          var expRow = el('div', { className: 'chip-expand-row' });
+          expRow.setAttribute('data-expand-lang', lang.code);
+          if (lang.dir === 'rtl') expRow.setAttribute('dir', 'rtl');
+
+          var tag = el('span', { className: 'lang-tag', textContent: lang.code });
+          if (lang.color) { tag.style.color = lang.color; tag.style.borderColor = lang.color; }
+          expRow.appendChild(tag);
+
+          var inputEl;
+          if (useTextarea) {
+            inputEl = el('textarea', { className: 'form-input', rows: '2', textContent: langVal, placeholder: lang.label + ' translation' });
+          } else {
+            inputEl = el('input', { type: 'text', className: 'form-input', value: langVal, placeholder: lang.label + ' translation' });
+          }
+          if (lang.dir === 'rtl') inputEl.setAttribute('dir', 'rtl');
+          expRow.appendChild(inputEl);
+
+          // Auto-badge if value was auto-translated
+          if (chip.classList.contains('auto')) {
+            expRow.appendChild(el('span', { className: 'auto-badge', textContent: '\u2728 auto' }));
+          }
+
+          // Auto-translate button for empty fields
+          if (!langVal && !chip.classList.contains('auto')) {
+            var autoBtn = el('button', { className: 'btn-translate-all', style: 'margin-top:0;padding:4px 10px;font-size:11px;' });
+            autoBtn.textContent = '\u26A1 Auto-translate';
+            autoBtn.addEventListener('click', function () {
+              mockTranslate(expRow, lang.code, chip);
+            });
+            expRow.appendChild(autoBtn);
+          }
+
+          // Close button
+          var closeBtn = el('button', { className: 'chip-expand-close', textContent: '\u2715' });
+          closeBtn.addEventListener('click', function () {
+            expRow.remove();
+            chip.classList.remove('active');
+          });
+          expRow.appendChild(closeBtn);
+
+          expandArea.appendChild(expRow);
+          inputEl.focus();
+        });
+
+        allChips.push(chip);
+        return chip;
+      }
+
+      visibleLangs.forEach(function (lang) {
+        chipRow.appendChild(makeChip(lang, false));
       });
-      g.appendChild(group);
+
+      // Overflow chips
+      var overflowChipEls = [];
+      if (overflowLangs.length > 0) {
+        overflowLangs.forEach(function (lang) {
+          var c = makeChip(lang, true);
+          chipRow.appendChild(c);
+          overflowChipEls.push(c);
+        });
+
+        var overflowBtn = el('button', { className: 'lang-chip-overflow', textContent: '+' + overflowLangs.length });
+        overflowBtn.addEventListener('click', function () {
+          overflowChipEls.forEach(function (c) { c.style.display = ''; });
+          overflowBtn.style.display = 'none';
+        });
+        chipRow.appendChild(overflowBtn);
+      }
+
+      g.appendChild(chipRow);
+      g.appendChild(expandArea);
       parent.appendChild(g);
     }
 
-    // Multi-lang textarea: shows one textarea per language with lang tag
-    function addLangTextarea(parent, label, value) {
-      var g = el('div', { className: 'form-group' });
-      g.appendChild(el('label', { className: 'form-label', textContent: label }));
-      var group = el('div', { className: 'lang-field-group' });
-      EDIT_LANGS.forEach(function (lang) {
-        var row = el('div', { className: 'lang-field-row', style: 'align-items:flex-start;' });
-        row.appendChild(el('span', { className: 'lang-tag ' + lang.code, style: 'margin-top:10px;', textContent: lang.code }));
-        row.appendChild(el('textarea', { className: 'form-input', rows: '2', textContent: tLang(value, lang.code), placeholder: lang.label }));
-        group.appendChild(row);
-      });
-      g.appendChild(group);
-      parent.appendChild(g);
+    // Mock translate: simulates translation for empty fields
+    function mockTranslate(expRow, targetCode, chipEl) {
+      var autoBtn = expRow.querySelector('.btn-translate-all');
+      if (autoBtn) autoBtn.textContent = '\u23F3 Translating...';
+
+      setTimeout(function () {
+        var inputEl = expRow.querySelector('.form-input');
+        if (inputEl) {
+          var placeholder = '[' + targetCode.toUpperCase() + ' translation \u2014 via DeepL]';
+          if (inputEl.tagName === 'TEXTAREA') {
+            inputEl.textContent = placeholder;
+            inputEl.value = placeholder;
+          } else {
+            inputEl.value = placeholder;
+          }
+        }
+        // Add auto badge
+        if (autoBtn) autoBtn.remove();
+        var badge = el('span', { className: 'auto-badge', textContent: '\u2728 auto' });
+        var closeBtn = expRow.querySelector('.chip-expand-close');
+        if (closeBtn) {
+          expRow.insertBefore(badge, closeBtn);
+        } else {
+          expRow.appendChild(badge);
+        }
+        // Update chip status
+        if (chipEl) {
+          chipEl.classList.remove('empty');
+          chipEl.classList.add('auto');
+          var st = chipEl.querySelector('.chip-status');
+          if (st) st.textContent = '\u2728';
+        }
+      }, 800);
     }
 
     // ============================================================
@@ -1003,6 +1224,34 @@
 
       // Render lesson header
       renderLessonHeader(lesson, unitData.name, lessonIndex);
+
+      // Per-lesson translate button
+      var sectionHeader = document.querySelector('.section-header');
+      if (sectionHeader) {
+        var lessonTransBtn = el('button', { className: 'btn-translate-lesson' });
+        lessonTransBtn.textContent = '\u2728 Translate entire lesson (' + (lesson.activities ? lesson.activities.length : 0) + ' activities)';
+        lessonTransBtn.addEventListener('click', function () {
+          lessonTransBtn.textContent = '\u23F3 Translating all activities...';
+          var allEmpty = document.querySelectorAll('.lang-chip.empty');
+          var delay = 0;
+          allEmpty.forEach(function (chip) {
+            delay += 100;
+            setTimeout(function () {
+              chip.classList.remove('empty');
+              chip.classList.add('auto');
+              var st = chip.querySelector('.chip-status');
+              if (st) st.textContent = '\u2728';
+            }, delay);
+          });
+          setTimeout(function () {
+            lessonTransBtn.textContent = '\u2728 Translations complete!';
+            setTimeout(function () {
+              lessonTransBtn.textContent = '\u2728 Translate entire lesson (' + (lesson.activities ? lesson.activities.length : 0) + ' activities)';
+            }, 2000);
+          }, delay + 500);
+        });
+        sectionHeader.appendChild(lessonTransBtn);
+      }
 
       // Render activity cards
       var list = document.getElementById('activity-list');
