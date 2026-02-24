@@ -39,7 +39,7 @@
     { code: 'ku', label: 'Kurd\u00ee', color: '#2D5A3D' },
     { code: 'en', label: 'English', color: '#3B7A8A' },
     { code: 'de', label: 'Deutsch', color: '#9A6530' },
-    { code: 'sv', label: 'Svenska', color: '#4A7A9B' },
+    { code: 'sv', label: 'Svenska', color: '#4A6FA5' },
     { code: 'da', label: 'Dansk', color: '#6B5B8A' },
     { code: 'it', label: 'Italiano', color: '#7A4A3B' },
     { code: 'tr', label: 'T\u00fcrk\u00e7e', color: '#C75B5B' },
