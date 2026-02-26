@@ -51,7 +51,7 @@
 }
 
 [data-theme="dark"] .settings-drawer {
-  background-color: var(--bg-page, var(--bg, #1A2F23));
+  background-color: var(--bg-page, var(--bg, #1A2024));
   box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.35);
 }
 
@@ -72,7 +72,7 @@
 }
 
 [data-theme="dark"] .settings-handle-bar {
-  background-color: var(--border, #2F4F3A);
+  background-color: var(--border, #2F3B3E);
 }
 
 /* ============================================
@@ -121,7 +121,7 @@
 }
 
 [data-theme="dark"] .settings-close-btn {
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
 }
 
 [data-theme="dark"] .settings-close-btn:hover {
@@ -148,7 +148,7 @@
 }
 
 [data-theme="dark"] .settings-section-label {
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
 }
 
 /* ============================================
@@ -185,7 +185,7 @@
 }
 
 [data-theme="dark"] .settings-theme-card {
-  border-color: var(--border, #2F4F3A);
+  border-color: var(--border, #2F3B3E);
 }
 
 [data-theme="dark"] .settings-theme-card:hover {
@@ -259,7 +259,7 @@
 }
 
 [data-theme="dark"] .settings-theme-desc {
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
 }
 
 /* ============================================

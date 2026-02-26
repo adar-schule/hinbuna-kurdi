@@ -28,7 +28,7 @@
 
 /* Dark mode — uses a shade darker than --bg for contrast */
 [data-theme="dark"] .shared-footer {
-  background-color: color-mix(in srgb, var(--bg, #1A2F23) 70%, black);
+  background-color: color-mix(in srgb, var(--bg, #1A2024) 70%, black);
   border-top-color: var(--border, rgba(45, 90, 61, 0.15));
 }
 
@@ -85,7 +85,7 @@
    ============================================ */
 .shared-footer-tagline {
   font-size: 13px;
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
   opacity: 0.6;
   letter-spacing: 0.3px;
   margin: 0;
@@ -105,7 +105,7 @@
 
 .shared-footer-link {
   font-size: 13px;
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
   opacity: 0.7;
   text-decoration: none;
   transition: color 0.2s ease, opacity 0.2s ease;
@@ -118,7 +118,7 @@
 
 .shared-footer-dot {
   font-size: 13px;
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
   opacity: 0.3;
 }
 
@@ -142,7 +142,7 @@
 
 .shared-footer-copyright {
   font-size: 12px;
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
   opacity: 0.45;
   margin: 0;
 }
@@ -161,7 +161,7 @@
 
 .shared-footer-craftlab {
   font-size: 11px;
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
   opacity: 0.4;
   text-decoration: none;
   letter-spacing: 0.5px;
@@ -197,7 +197,7 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
   opacity: 0.35;
   transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease, opacity 0.2s ease;
 }

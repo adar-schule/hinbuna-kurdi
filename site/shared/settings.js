@@ -41,7 +41,7 @@
       label: 'Forest Green',
       desc: 'Warm & welcoming',
       light: { bg: '#FDF8F3', primary: '#2D5A3D', accent: '#D4A843' },
-      dark:  { bg: '#1A2F23', primary: '#7BC4A0', accent: '#D4A843' }
+      dark:  { bg: '#1A2024', primary: '#7BC4A0', accent: '#D4A843' }
     },
     'midnight-green': {
       label: 'Midnight Green',

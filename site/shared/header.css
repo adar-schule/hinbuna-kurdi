@@ -114,7 +114,7 @@
 }
 
 [data-theme="dark"] .header-back-btn {
-  color: var(--text-secondary, #A8B5AC);
+  color: var(--text-secondary, #9CADA8);
 }
 
 [data-theme="dark"] .header-back-btn:hover {
@@ -519,8 +519,8 @@
 
 /* Dark mode for dropdown */
 [data-theme="dark"] .dev-nav-dropdown {
-  background-color: var(--bg-page, var(--bg, #1A2F23));
-  border-color: var(--border, #2F4F3A);
+  background-color: var(--bg-page, var(--bg, #1A2024));
+  border-color: var(--border, #2F3B3E);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -529,7 +529,7 @@
 }
 
 [data-theme="dark"] .dev-nav-item:hover {
-  background-color: var(--bg-surface, var(--surface, #243D30));
+  background-color: var(--bg-surface, var(--surface, #232D31));
   color: var(--color-accent, var(--accent, #D4A843));
 }
 
@@ -729,8 +729,8 @@
    DARK MODE — Header overrides
    ============================================ */
 [data-theme="dark"] .header {
-  background-color: color-mix(in srgb, var(--bg, #1A2F23) 92%, transparent);
-  border-bottom-color: color-mix(in srgb, var(--border, #2F4F3A) 50%, transparent);
+  background-color: color-mix(in srgb, var(--bg, #1A2024) 92%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--border, #2F3B3E) 50%, transparent);
 }
 
 [data-theme="dark"] .header.scrolled {
@@ -774,9 +774,9 @@
 }
 
 [data-theme="dark"] .header-nav-link {
-  color: var(--text-secondary, #A8B5AC);
-  background-color: var(--bg-surface, var(--surface, #243D30));
-  border-color: var(--border, #2F4F3A);
+  color: var(--text-secondary, #9CADA8);
+  background-color: var(--bg-surface, var(--surface, #232D31));
+  border-color: var(--border, #2F3B3E);
 }
 
 [data-theme="dark"] .header-nav-link:hover {

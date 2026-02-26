@@ -71,9 +71,47 @@
   // ============================================================
 
   var COLOR_THEMES = {
+    'dark-slate': {
+      label: 'Dark Slate',
+      dark: null,
+      light: null
+    },
     'forest-green': {
       label: 'Forest Green',
-      dark: null,
+      dark: {
+        // Gallery vars
+        '--bg':             '#1A2F23',
+        '--surface':        '#243D30',
+        '--border':         '#2F4F3A',
+        '--text':           '#F5EEE6',
+        '--text-secondary': '#A8B5AC',
+        '--primary':        '#2D5A3D',
+        '--primary-light':  '#3D7A50',
+        '--primary-dark':   '#1E4030',
+        // Screen page vars
+        '--bg-page':        '#1A2F23',
+        '--bg-surface':     '#243D30',
+        '--text-primary':   '#F5EEE6',
+        '--color-tan':      '#2F4F3A',
+        // Login/form vars
+        '--input-bg':       '#1E3428',
+        '--input-border':   '#2F4F3A',
+        '--input-icon':     '#A8B5AC',
+        '--input-placeholder': '#4A6858',
+        '--social-border':  '#2F4F3A',
+        '--social-text':    '#F5EEE6',
+        '--social-hover-bg':'#1E3428',
+        // Code vars (onboarding)
+        '--code-bg':        '#152418',
+        '--code-comment':   '#5A7A66',
+        '--code-keyword':   '#7CC99E',
+        '--code-line-num':  '#3A5A48'
+      },
+      darkRules: {
+        '.header':    'rgba(26, 47, 35, 0.92)',
+        '.final-cta': '#2A4736',
+        '.shared-footer':    '#121E16'
+      },
       light: null
     },
     'midnight-green': {
@@ -149,44 +187,6 @@
         '.header':    'rgba(28, 30, 29, 0.92)',
         '.final-cta': '#2E3230',
         '.shared-footer':    '#161817'
-      },
-      light: null
-    },
-    'dark-slate': {
-      label: 'Dark Slate',
-      dark: {
-        // Gallery vars
-        '--bg':             '#1A2024',
-        '--surface':        '#232D31',
-        '--border':         '#2F3B3E',
-        '--text':           '#F5EEE6',
-        '--text-secondary': '#9CADA8',
-        '--primary':        '#5BA0B0',
-        '--primary-light':  '#6DB5C4',
-        '--primary-dark':   '#4A8D9C',
-        // Screen page vars
-        '--bg-page':        '#1A2024',
-        '--bg-surface':     '#232D31',
-        '--text-primary':   '#F5EEE6',
-        '--color-tan':      '#2F3B3E',
-        // Login/form vars
-        '--input-bg':       '#1E282C',
-        '--input-border':   '#2F3B3E',
-        '--input-icon':     '#9CADA8',
-        '--input-placeholder': '#5A7078',
-        '--social-border':  '#2F3B3E',
-        '--social-text':    '#F5EEE6',
-        '--social-hover-bg':'#1E282C',
-        // Code vars (onboarding)
-        '--code-bg':        '#161D21',
-        '--code-comment':   '#6A8A90',
-        '--code-keyword':   '#7CC9B8',
-        '--code-line-num':  '#4A6068'
-      },
-      darkRules: {
-        '.header':    'rgba(26, 32, 36, 0.92)',
-        '.final-cta': '#283537',
-        '.shared-footer':    '#141B1E'
       },
       light: null
     }
@@ -283,7 +283,7 @@
   }
 
   function getColorTheme() {
-    return localStorage.getItem('hk-color-theme') || 'forest-green';
+    return localStorage.getItem('hk-color-theme') || 'dark-slate';
   }
 
   // ============================================================
@@ -309,7 +309,7 @@
   // ============================================================
 
   var saved = localStorage.getItem('hk-color-theme');
-  if (saved && saved !== 'forest-green') {
+  if (saved && saved !== 'dark-slate') {
     applyColorTheme(saved);
   }
 

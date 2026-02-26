@@ -289,15 +289,11 @@
   function initTheme() {
     var html = document.documentElement;
 
-    // Restore saved theme preference
+    // Restore saved theme preference (default: dark)
     var saved = localStorage.getItem('hk-theme');
-    if (saved) {
-      if (saved === 'light') {
-        html.removeAttribute('data-theme');
-      } else {
-        html.setAttribute('data-theme', saved);
-      }
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (saved === 'light') {
+      html.removeAttribute('data-theme');
+    } else {
       html.setAttribute('data-theme', 'dark');
     }
 
