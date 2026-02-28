@@ -58,36 +58,13 @@ COURSE = The whole book
 
 ---
 
-## How Mamoste's Book Maps to This Structure
+## Content Mappings
 
-### Original Document: "A1.1: Kurdish Beginning"
+Each course level has its own detailed mapping document that traces source materials to units, lessons, and activities:
 
-| Your Section | Our Structure | Notes |
-|--------------|---------------|-------|
-| "A1.1" (whole document) | **Module: A1** | CEFR Beginner level |
-| Sections 1-3 | **Unit 1: Getting Started** | Alphabet, greetings, introductions |
-| Sections 4-6 | **Unit 2: Basic Conversations** | Names, how are you, objects |
-| Sections 7-10 | **Unit 3: Building Blocks** | Letters, numbers, songs |
-| Each numbered section (1, 2, 3...) | **Lesson** | One learning session |
-| Sample sentences | **Materials** | Used in activities |
+→ **Kurmancî A1:** See [02b-content-mapping-a1.md](./02b-content-mapping-a1.md) — 8 units, 25 lessons, ~220 activities mapped from `_material/von Mamoste/`
 
-### Example Mapping
-
-**Mamoste's Section 2: "Sample sentences -I"**
-```
-→ Lesson 1.2: Basic Greetings
-
-Materials:
-- Text: "Roj baş" (Guten Tag)
-- Text: "Navê te çi ye?" (Was ist dein Name?)
-- Audio: Pronunciation of greetings (future)
-
-Activities:
-- Reading: Show greeting with translation
-- Listening: Hear pronunciation (future)
-- Quiz: "What does 'Roj baş' mean?"
-- Gap-fill: "Navê ___ Ciwan e." (min)
-```
+Source materials live in the wrapper folder `_material/`. The `von Mamoste/` subfolder is the primary entry point — Mamoste's teaching files shape how content is structured in the app.
 
 ---
 

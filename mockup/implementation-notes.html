@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Implementation Notes — Hinbuna Kurdi</title>
+  <meta name="description" content="Future implementation notes for migrating Hinbuna Kurdi from static HTML mockups to React + NestJS. Developer reference for header, theme, language, and settings systems.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
+  <!-- Fonts: Inter + Nunito (self-hosted) -->
+  <link rel="stylesheet" href="shared/fonts.css">
+  <script src="shared/ecosystem-apps.js"></script>
+  <script src="shared/theme.js"></script>
+  <link rel="stylesheet" href="shared/header.css">
+  <link rel="stylesheet" href="shared/footer.css">
+  <link rel="stylesheet" href="shared/settings.css">
+
+  <style>
+    /* ============================================
+       IMPLEMENTATION NOTES — Hinbuna Kurdi
+       Developer reference for future React+NestJS migration.
+       Brand: Warm & Welcoming (Calm + SaaS)
+       Fonts: Nunito (headings) + Inter (body) + JetBrains Mono (code)
+       Colors: Forest green, cream, gold
+       ============================================ */
+
+    /* --- Design Tokens --- */
+    :root {
+      --bg-page: #FDF8F3;
+      --bg-surface: #F5EEE6;
+      --color-primary: #2D5A3D;
+      --color-primary-hover: #24493A;
+      --color-accent: #D4A843;
+      --color-accent-hover: #c99b3a;
+      --color-tan: #E3C79D;
+      --text-primary: #1A2A1F;
+      --text-secondary: #5A6B5E;
+      --border: #E5DDD3;
+      --color-success: #2D8A4E;
+      --color-error: #DC4545;
+      --color-warning: #EFB034;
+      --color-info: #3B7A8A;
+
+      --shadow-sm: 0 1px 3px rgba(26, 42, 31, 0.06);
+      --shadow-md: 0 4px 12px rgba(26, 42, 31, 0.08);
+      --shadow-lg: 0 8px 24px rgba(26, 42, 31, 0.10);
+
+      --font-heading: 'Nunito', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #1A2024;
+      --bg-surface: #232D31;
+      --color-primary: #4A9B6A;
+      --color-primary-hover: #367248;
+      --color-accent: #D4A843;
+      --color-accent-hover: #e0b64e;
+      --color-tan: #3A4E56;
+      --text-primary: #F5EEE6;
+      --text-secondary: #9CADA8;
+      --border: #2F3B3E;
+      --color-success: #3DA863;
+      --color-error: #E85858;
+      --color-warning: #EFB034;
+      --color-info: #4D9AAE;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+      --code-bg: #162B1F;
+      --code-text: #E8F0EB;
+      --code-comment: #6A8A74;
+      --code-string: #D4A843;
+      --code-keyword: #7CC99E;
+      --code-line-num: #4A6A55;
+    }
+
+    :root {
+      --code-bg: #2B3D33;
+      --code-text: #E8F0EB;
+      --code-comment: #7A9484;
+      --code-string: #D4A843;
+      --code-keyword: #7CC99E;
+      --code-line-num: #5A7566;
+    }
+
+    /* --- Reset & Base --- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* --- Animations --- */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.08s; }
+    .fade-in-delay-2 { animation-delay: 0.16s; }
+    .fade-in-delay-3 { animation-delay: 0.24s; }
+
+    /* ============================================
+       PAGE LAYOUT
+       ============================================ */
+    .in-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    @media (min-width: 768px) {
+      .in-container { padding: 0 40px; }
+    }
+
+    /* ============================================
+       INTRO
+       ============================================ */
+    .in-intro {
+      padding: 48px 0 16px;
+      text-align: center;
+    }
+
+    .in-intro-overline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .in-intro-overline svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .in-intro h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .in-intro p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .in-intro p strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .in-intro-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .in-intro-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background-color: var(--bg-surface);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .in-intro-meta-item svg {
+      width: 13px;
+      height: 13px;
+      color: var(--color-primary);
+    }
+
+    @media (min-width: 768px) {
+      .in-intro { padding: 64px 0 24px; }
+      .in-intro h1 { font-size: 36px; }
+    }
+
+    /* ============================================
+       MIGRATION OVERVIEW DIAGRAM
+       ============================================ */
+    .in-overview {
+      margin: 32px 0 40px;
+      padding: 28px 24px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .in-overview::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .in-overview-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .in-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .in-flow-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 18px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      min-width: 110px;
+      text-align: center;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .in-flow-box:hover {
+      border-color: var(--color-tan);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .in-flow-box-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .in-flow-box-icon.current {
+      background-color: rgba(45, 90, 61, 0.12);
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .in-flow-box-icon.current {
+      background-color: rgba(212, 168, 67, 0.15);
+      color: var(--color-accent);
+    }
+
+    .in-flow-box-icon.future {
+      background-color: rgba(212, 168, 67, 0.12);
+      color: var(--color-accent);
+    }
+
+    .in-flow-box-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .in-flow-box-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-primary);
+    }
+
+    .in-flow-box-sub {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .in-flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      color: var(--color-accent);
+    }
+
+    .in-flow-arrow svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .in-flow {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .in-flow-arrow {
+        transform: rotate(90deg);
+        padding: 4px 0;
+      }
+    }
+
+    /* ============================================
+       COLLAPSIBLE SECTIONS (same pattern as components.html)
+       ============================================ */
+    .in-section {
+      margin-bottom: 16px;
+    }
+
+    .in-section-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      user-select: none;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 16px 20px;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    }
+
+    .in-section-toggle:hover {
+      border-color: var(--color-tan);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .in-section-toggle:hover .in-chevron {
+      color: var(--color-accent);
+    }
+
+    .in-section-toggle.open {
+      border-color: var(--color-primary);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-color: transparent;
+    }
+
+    .in-section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-page);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .in-section-toggle.open .in-section-number {
+      background-color: var(--color-primary);
+      color: var(--bg-page);
+      border-color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .in-section-toggle.open .in-section-number {
+      background-color: var(--color-accent);
+      color: #1A2A1F;
+      border-color: var(--color-accent);
+    }
+
+    .in-section-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text-primary);
+      flex: 1;
+      line-height: 1.3;
+    }
+
+    .in-section-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .in-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--text-secondary);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    }
+
+    .in-section-toggle.open .in-chevron {
+      transform: rotate(180deg);
+    }
+
+    .in-section-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-bottom-left-radius: var(--radius-md);
+      border-bottom-right-radius: var(--radius-md);
+    }
+
+    .in-section-toggle:not(.open) + .in-section-body {
+      border-color: transparent;
+    }
+
+    .in-section-toggle.open + .in-section-body {
+      border-color: var(--color-primary);
+    }
+
+    .in-section-body.open {
+      max-height: 8000px;
+    }
+
+    .in-section-inner {
+      padding: 24px 20px 28px;
+    }
+
+    @media (min-width: 768px) {
+      .in-section-inner { padding: 28px 28px 32px; }
+    }
+
+    /* ============================================
+       CONTENT TYPOGRAPHY (inside sections)
+       ============================================ */
+    .in-section-inner h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-primary);
+      margin: 24px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .in-section-inner h3:first-child {
+      margin-top: 0;
+    }
+
+    .in-section-inner h3 .h3-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .in-section-inner p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .in-section-inner p strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .in-section-inner ul,
+    .in-section-inner ol {
+      margin: 8px 0 16px;
+      padding-left: 20px;
+    }
+
+    .in-section-inner li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    .in-section-inner li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Inline code */
+    .in-section-inner code:not(pre code) {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      background-color: rgba(45, 90, 61, 0.08);
+      color: var(--color-primary);
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] .in-section-inner code:not(pre code) {
+      background-color: rgba(212, 168, 67, 0.12);
+      color: var(--color-accent);
+    }
+
+    /* ============================================
+       CODE BLOCKS
+       ============================================ */
+    .code-block {
+      position: relative;
+      margin: 14px 0 18px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(45, 90, 61, 0.15);
+    }
+
+    .code-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .code-block-lang {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--code-comment);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .code-block-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--code-comment);
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .code-block-copy:hover {
+      color: var(--code-text);
+      border-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .code-block-copy.copied {
+      color: var(--color-success);
+      border-color: var(--color-success);
+    }
+
+    .code-block pre {
+      padding: 16px;
+      background-color: var(--code-bg);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .code-block pre code {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--code-text);
+      white-space: pre;
+      display: block;
+    }
+
+    .code-block .cm { color: var(--code-comment); font-style: italic; }
+    .code-block .kw { color: var(--code-keyword); }
+    .code-block .st { color: var(--code-string); }
+    .code-block .fn { color: #8CC5FF; }
+
+    /* ============================================
+       COMPARISON TABLE (Current vs Future)
+       ============================================ */
+    .in-compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 13px;
+    }
+
+    .in-compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-secondary);
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      background-color: var(--bg-page);
+    }
+
+    .in-compare-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+
+    .in-compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .in-compare-table tr:hover td {
+      background-color: rgba(45, 90, 61, 0.02);
+    }
+
+    [data-theme="dark"] .in-compare-table tr:hover td {
+      background-color: rgba(212, 168, 67, 0.04);
+    }
+
+    .in-compare-table .col-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    /* ============================================
+       PRIORITY BADGE
+       ============================================ */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .badge-p0 { background-color: var(--color-accent); color: #1A2A1F; }
+    .badge-p1 { background-color: var(--color-primary); color: var(--bg-page); }
+    .badge-p2 { background-color: var(--border); color: var(--text-secondary); }
+    .badge-mvp { background-color: rgba(45, 138, 78, 0.15); color: var(--color-success); border: 1px solid rgba(45, 138, 78, 0.3); }
+    .badge-future { background-color: rgba(59, 122, 138, 0.15); color: var(--color-info); border: 1px solid rgba(59, 122, 138, 0.3); }
+
+    /* ============================================
+       CALLOUT BOXES
+       ============================================ */
+    .callout {
+      display: flex;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      margin: 16px 0;
+      border: 1px solid;
+    }
+
+    .callout-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .callout-content p {
+      margin-bottom: 4px;
+    }
+
+    .callout-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout-info {
+      background-color: rgba(59, 122, 138, 0.06);
+      border-color: rgba(59, 122, 138, 0.2);
+    }
+
+    .callout-info .callout-icon { color: var(--color-info); }
+
+    .callout-success {
+      background-color: rgba(45, 138, 78, 0.06);
+      border-color: rgba(45, 138, 78, 0.2);
+    }
+
+    .callout-success .callout-icon { color: var(--color-success); }
+
+    .callout-warning {
+      background-color: rgba(239, 176, 52, 0.06);
+      border-color: rgba(239, 176, 52, 0.2);
+    }
+
+    .callout-warning .callout-icon { color: var(--color-warning); }
+
+    /* ============================================
+       DIAGRAM: Architecture Flow
+       ============================================ */
+    .in-arch-diagram {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 16px 0 20px;
+    }
+
+    @media (min-width: 600px) {
+      .in-arch-diagram { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 800px) {
+      .in-arch-diagram { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .in-arch-card {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .in-arch-card:hover {
+      border-color: var(--color-tan);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .in-arch-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .in-arch-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      background-color: rgba(45, 90, 61, 0.10);
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .in-arch-card-icon {
+      background-color: rgba(212, 168, 67, 0.12);
+      color: var(--color-accent);
+    }
+
+    .in-arch-card-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .in-arch-card-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .in-arch-card-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       THEME SWATCH GRID
+       ============================================ */
+    .in-theme-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 14px 0 20px;
+    }
+
+    @media (min-width: 600px) {
+      .in-theme-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .in-theme-swatch {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+      transition: border-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .in-theme-swatch:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-1px);
+    }
+
+    .in-theme-colors {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .in-theme-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .in-theme-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text-primary);
+    }
+
+    .in-theme-status {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* ============================================
+       LANGUAGE LIST
+       ============================================ */
+    .in-lang-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 18px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .in-lang-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: border-color 0.2s ease;
+    }
+
+    .in-lang-item:hover {
+      border-color: var(--color-accent);
+    }
+
+    .in-lang-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background-color: var(--bg-surface);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .in-lang-item.rtl {
+      border-color: var(--color-info);
+    }
+
+    .in-lang-item.rtl .in-lang-code {
+      color: var(--color-info);
+    }
+
+    /* ============================================
+       SETTINGS CATEGORIES GRID
+       ============================================ */
+    .in-settings-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 14px 0 20px;
+    }
+
+    @media (min-width: 600px) {
+      .in-settings-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .in-settings-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: border-color 0.2s ease;
+    }
+
+    .in-settings-card:hover {
+      border-color: var(--color-tan);
+    }
+
+    .in-settings-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background-color: rgba(45, 90, 61, 0.10);
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .in-settings-icon {
+      background-color: rgba(212, 168, 67, 0.12);
+      color: var(--color-accent);
+    }
+
+    .in-settings-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .in-settings-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .in-settings-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .in-settings-desc {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       FOOTER SPACING
+       ============================================ */
+    .in-footer-spacer {
+      height: 60px;
+    }
+
+    /* ============================================
+       PRIORITY TABLE (Migration)
+       ============================================ */
+    .in-priority-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+
+    .in-priority-table th {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-secondary);
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      background-color: var(--bg-surface);
+    }
+
+    .in-priority-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: middle;
+    }
+
+    .in-priority-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .in-priority-table .system-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (shared component) -->
+  <div id="shared-header" data-page-type="implementation-notes" data-show-lang="false" data-show-login="false"></div>
+
+  <main class="in-container">
+
+    <!-- ============================================================
+         INTRO
+         ============================================================ -->
+    <section class="in-intro fade-in">
+      <div class="in-intro-overline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Developer Reference
+      </div>
+      <h1>Implementation Notes</h1>
+      <p>
+        Reference guide for migrating <strong>Hinbuna Kurdi</strong> from static HTML/CSS mockups to a <strong>React + NestJS</strong> application.
+        Each section documents the current state and the target architecture.
+      </p>
+      <div class="in-intro-meta">
+        <span class="in-intro-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Feb 2026
+        </span>
+        <span class="in-intro-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          7 sections
+        </span>
+        <span class="in-intro-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Code examples
+        </span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MIGRATION OVERVIEW DIAGRAM
+         ============================================================ -->
+    <div class="in-overview fade-in fade-in-delay-1">
+      <div class="in-overview-title">Migration Path</div>
+      <div class="in-flow">
+        <div class="in-flow-box">
+          <div class="in-flow-box-icon current">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          </div>
+          <span class="in-flow-box-label">Static HTML</span>
+          <span class="in-flow-box-sub">Current mockups</span>
+        </div>
+        <div class="in-flow-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="in-flow-box">
+          <div class="in-flow-box-icon future">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="in-flow-box-label">React + Tailwind</span>
+          <span class="in-flow-box-sub">Component library</span>
+        </div>
+        <div class="in-flow-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="in-flow-box">
+          <div class="in-flow-box-icon future">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <span class="in-flow-box-label">NestJS + React</span>
+          <span class="in-flow-box-sub">Full application</span>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================
+         SECTION 1: CENTRALIZED HEADER SYSTEM
+         ============================================================ -->
+    <div class="in-section fade-in fade-in-delay-2">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">1</span>
+        <span class="in-section-title">Centralized Header System</span>
+        <span class="in-section-badge"><span class="badge badge-p0">P0</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State
+          </h3>
+          <ul>
+            <li><code>mockup/shared/header.js</code> builds the header via string concatenation in an IIFE</li>
+            <li>Supports page types: <strong>public</strong>, <strong>gallery</strong>, <strong>onboarding</strong>, <strong>components</strong>, <strong>implementation-notes</strong></li>
+            <li>Public pages get: logo, language picker, theme toggle, login button</li>
+            <li>Dev pages get: logo, nav links between dev pages, theme toggle</li>
+            <li>Student screens (S1&ndash;S5) use a completely <strong>separate</strong> <code>app-header</code> pattern with back button, title, and hamburger menu</li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State
+          </h3>
+          <p><strong>One React component</strong> &mdash; <code>&lt;AppHeader /&gt;</code> &mdash; with role-based variants controlled by props:</p>
+
+          <div class="in-arch-diagram">
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Public</div>
+              <div class="in-arch-card-desc">Logo + lang picker + theme toggle + login/signup</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="in-arch-card-title">Student</div>
+              <div class="in-arch-card-desc">Back + title + theme + home + hamburger menu</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="in-arch-card-title">Teacher</div>
+              <div class="in-arch-card-desc">Back + title + class picker + notifications</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Admin</div>
+              <div class="in-arch-card-desc">Logo + admin nav + notifications + profile</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Lesson</div>
+              <div class="in-arch-card-desc">Back + progress bar + close button</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">TSX</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="cm">// Single component, multiple variants</span>
+<span class="kw">interface</span> <span class="fn">AppHeaderProps</span> {
+  variant: <span class="st">'public'</span> | <span class="st">'student'</span> | <span class="st">'teacher'</span> | <span class="st">'admin'</span> | <span class="st">'lesson'</span>;
+  title?: <span class="kw">string</span>;
+  showLangPicker?: <span class="kw">boolean</span>;
+  showThemeToggle?: <span class="kw">boolean</span>;
+  showBreadcrumb?: <span class="kw">boolean</span>;
+  onBack?: () =&gt; <span class="kw">void</span>;
+  onClose?: () =&gt; <span class="kw">void</span>;
+}
+
+<span class="cm">// Usage</span>
+&lt;<span class="fn">AppHeader</span> variant=<span class="st">"public"</span> /&gt;
+&lt;<span class="fn">AppHeader</span> variant=<span class="st">"student"</span> title=<span class="st">"Courses"</span> /&gt;
+&lt;<span class="fn">AppHeader</span> variant=<span class="st">"lesson"</span> onClose={handleClose} /&gt;</code></pre>
+          </div>
+
+          <div class="callout callout-warning">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div class="callout-content">
+              <p><strong>Key principle:</strong> The header must be ONE component with props/config &mdash; not separate implementations per role. All variants share the same underlying markup and logic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- ============================================================
+
+    <!-- ============================================================
+         SECTION 2: CENTRALIZED CSS / DESIGN TOKEN SYSTEM
+         ============================================================ -->
+    <div class="in-section fade-in fade-in-delay-3">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">2</span>
+        <span class="in-section-title">Centralized CSS / Design Token System</span>
+        <span class="in-section-badge"><span class="badge badge-p0">P0</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State
+          </h3>
+          <ul>
+            <li>Each HTML file has its own <code>&lt;style&gt;</code> block defining CSS custom properties</li>
+            <li><strong>Two naming conventions</strong> coexist:
+              <ul>
+                <li>Gallery/dev pages: <code>--bg</code>, <code>--surface</code>, <code>--text</code>, <code>--primary</code></li>
+                <li>Screen pages: <code>--bg-page</code>, <code>--bg-surface</code>, <code>--text-primary</code>, <code>--color-primary</code></li>
+              </ul>
+            </li>
+            <li><code>shared/theme.js</code> manages 4 color themes via CSS variable injection</li>
+            <li>Theme overrides define <strong>both</strong> naming conventions to work everywhere</li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State
+          </h3>
+          <p><strong>Tailwind CSS</strong> with a custom theme config derived from <code>_docs/07-design-decisions.md</code>. One source of truth for all tokens.</p>
+
+          <table class="in-compare-table">
+            <thead>
+              <tr>
+                <th>Token</th>
+                <th>Current CSS Variable</th>
+                <th>Tailwind Class</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">Background</td>
+                <td><code>--bg</code> / <code>--bg-page</code></td>
+                <td><code>bg-page</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Surface</td>
+                <td><code>--surface</code> / <code>--bg-surface</code></td>
+                <td><code>bg-surface</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Primary</td>
+                <td><code>--primary</code> / <code>--color-primary</code></td>
+                <td><code>text-primary</code>, <code>bg-primary</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Accent (Gold)</td>
+                <td><code>--accent</code> / <code>--color-accent</code></td>
+                <td><code>text-accent</code>, <code>bg-accent</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Text</td>
+                <td><code>--text</code> / <code>--text-primary</code></td>
+                <td><code>text-foreground</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Border</td>
+                <td><code>--border</code></td>
+                <td><code>border-default</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JS</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="cm">// tailwind.config.js</span>
+<span class="kw">module</span>.<span class="kw">exports</span> = {
+  theme: {
+    extend: {
+      colors: {
+        bg:      <span class="st">'var(--bg)'</span>,
+        surface: <span class="st">'var(--surface)'</span>,
+        primary: {
+          DEFAULT: <span class="st">'var(--primary)'</span>,
+          light:   <span class="st">'var(--primary-light)'</span>,
+          dark:    <span class="st">'var(--primary-dark)'</span>,
+        },
+        accent: {
+          DEFAULT: <span class="st">'var(--accent)'</span>,
+          light:   <span class="st">'var(--accent-light)'</span>,
+        },
+      },
+      fontFamily: {
+        heading: [<span class="st">'Nunito'</span>, <span class="st">'sans-serif'</span>],
+        body:    [<span class="st">'Inter'</span>, <span class="st">'sans-serif'</span>],
+        mono:    [<span class="st">'JetBrains Mono'</span>, <span class="st">'monospace'</span>],
+      },
+    },
+  },
+};</code></pre>
+          </div>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div class="callout-content">
+              <p><strong>CSS variables remain the underlying mechanism.</strong> Tailwind abstracts them into utility classes, but the variables still power theme switching and runtime overrides.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 3: COLOR THEME LOGIC
+         ============================================================ -->
+    <div class="in-section">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">3</span>
+        <span class="in-section-title">Color Theme Logic</span>
+        <span class="in-section-badge"><span class="badge badge-p1">P1</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State
+          </h3>
+          <p>4 color themes defined in <code>shared/theme.js</code>, managed via <code>localStorage</code> keys <code>hk-theme</code> (light/dark) and <code>hk-color-theme</code> (palette ID):</p>
+
+          <div class="in-theme-grid">
+            <div class="in-theme-swatch">
+              <div class="in-theme-colors">
+                <span class="in-theme-dot" style="background-color: #1A2024;"></span>
+                <span class="in-theme-dot" style="background-color: #2D5A3D;"></span>
+                <span class="in-theme-dot" style="background-color: #D4A843;"></span>
+              </div>
+              <div class="in-theme-name">Forest Green</div>
+              <div class="in-theme-status">Default</div>
+            </div>
+            <div class="in-theme-swatch">
+              <div class="in-theme-colors">
+                <span class="in-theme-dot" style="background-color: #141E1A;"></span>
+                <span class="in-theme-dot" style="background-color: #4A9B6A;"></span>
+                <span class="in-theme-dot" style="background-color: #D4A843;"></span>
+              </div>
+              <div class="in-theme-name">Midnight Green</div>
+              <div class="in-theme-status">Deep + cool</div>
+            </div>
+            <div class="in-theme-swatch">
+              <div class="in-theme-colors">
+                <span class="in-theme-dot" style="background-color: #1C1E1D;"></span>
+                <span class="in-theme-dot" style="background-color: #6BAF8A;"></span>
+                <span class="in-theme-dot" style="background-color: #D4A843;"></span>
+              </div>
+              <div class="in-theme-name">Warm Charcoal</div>
+              <div class="in-theme-status">Neutral</div>
+            </div>
+            <div class="in-theme-swatch">
+              <div class="in-theme-colors">
+                <span class="in-theme-dot" style="background-color: #1A2024;"></span>
+                <span class="in-theme-dot" style="background-color: #5BA0B0;"></span>
+                <span class="in-theme-dot" style="background-color: #D4A843;"></span>
+              </div>
+              <div class="in-theme-name">Dark Slate</div>
+              <div class="in-theme-status">Blue-gray</div>
+            </div>
+          </div>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State
+          </h3>
+          <p><strong>Light/dark and color theme are SEPARATE controls:</strong></p>
+          <ul>
+            <li><strong>Light/dark</strong> = mode toggle (affects all CSS variable values)</li>
+            <li><strong>Color theme</strong> = palette selection (changes which set of colors is used)</li>
+          </ul>
+
+          <p>Theme picker must appear <strong>consistently</strong> in the same way across:</p>
+          <ul>
+            <li>Register flow (P4) &mdash; initial theme preference</li>
+            <li>Landing page header &mdash; quick access</li>
+            <li>Hamburger menu &mdash; logged-in users</li>
+            <li>Settings page (S10) &mdash; full control</li>
+          </ul>
+
+          <p><strong>Persistence strategy:</strong></p>
+          <ul>
+            <li>Guest: <code>localStorage</code> only</li>
+            <li>Logged in: sync to user profile via API, fall back to <code>localStorage</code></li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Age-Based Theme System (Planned)
+          </h3>
+          <table class="in-compare-table">
+            <thead>
+              <tr>
+                <th>Theme Group</th>
+                <th>Age Range</th>
+                <th>Vibe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">zarok</td>
+                <td>6&ndash;12</td>
+                <td>Playful, larger elements, brighter accents</td>
+              </tr>
+              <tr>
+                <td class="col-label">ciwan</td>
+                <td>13&ndash;17</td>
+                <td>Modern, slightly bolder colors</td>
+              </tr>
+              <tr>
+                <td class="col-label">xort</td>
+                <td>18&ndash;25</td>
+                <td>Clean, contemporary</td>
+              </tr>
+              <tr>
+                <td class="col-label">mezin</td>
+                <td>26+</td>
+                <td>Professional, calm (current default)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div class="callout-content">
+              <p>Each age theme defines its own set of 4 color palettes. Age group is set during registration and can be changed in settings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 4: LANGUAGE PICKER CONSISTENCY
+         ============================================================ -->
+    <div class="in-section">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">4</span>
+        <span class="in-section-title">Language Picker Consistency</span>
+        <span class="in-section-badge"><span class="badge badge-p1">P1</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State &mdash; 9 Supported Languages
+          </h3>
+
+          <ul class="in-lang-list">
+            <li class="in-lang-item"><span class="in-lang-code">ku</span> Kurd&icirc;</li>
+            <li class="in-lang-item"><span class="in-lang-code">en</span> English</li>
+            <li class="in-lang-item"><span class="in-lang-code">de</span> Deutsch</li>
+            <li class="in-lang-item"><span class="in-lang-code">sv</span> Svenska</li>
+            <li class="in-lang-item"><span class="in-lang-code">da</span> Dansk</li>
+            <li class="in-lang-item"><span class="in-lang-code">it</span> Italiano</li>
+            <li class="in-lang-item"><span class="in-lang-code">tr</span> T&uuml;rk&ccedil;e</li>
+            <li class="in-lang-item rtl"><span class="in-lang-code">fa</span> &#x641;&#x627;&#x631;&#x633;&#x6CC; <span class="badge badge-future" style="margin-left:4px;">RTL</span></li>
+            <li class="in-lang-item rtl"><span class="in-lang-code">ar</span> &#x627;&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629; <span class="badge badge-future" style="margin-left:4px;">RTL</span></li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State
+          </h3>
+          <p><strong>Same list, same order, same component</strong> across all touchpoints:</p>
+
+          <table class="in-compare-table">
+            <thead>
+              <tr>
+                <th>Touchpoint</th>
+                <th>Context</th>
+                <th>Behavior</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">Register (P4)</td>
+                <td>First-time setup</td>
+                <td>User selects &ldquo;support language&rdquo; (UI language for learning)</td>
+              </tr>
+              <tr>
+                <td class="col-label">Header globe</td>
+                <td>Any page</td>
+                <td>Quick-switch dropdown for any user</td>
+              </tr>
+              <tr>
+                <td class="col-label">Hamburger menu</td>
+                <td>Logged-in</td>
+                <td>Language option in nav drawer</td>
+              </tr>
+              <tr>
+                <td class="col-label">Settings (S10)</td>
+                <td>Full config</td>
+                <td>Primary + secondary language settings</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">TypeScript</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="cm">// src/config/languages.ts</span>
+<span class="kw">export const</span> LANGUAGES = [
+  { code: <span class="st">'ku'</span>, label: <span class="st">'Kurd&icirc;'</span>, dir: <span class="st">'ltr'</span> },
+  { code: <span class="st">'en'</span>, label: <span class="st">'English'</span>, dir: <span class="st">'ltr'</span> },
+  { code: <span class="st">'de'</span>, label: <span class="st">'Deutsch'</span>, dir: <span class="st">'ltr'</span> },
+  { code: <span class="st">'sv'</span>, label: <span class="st">'Svenska'</span>, dir: <span class="st">'ltr'</span> },
+  { code: <span class="st">'da'</span>, label: <span class="st">'Dansk'</span>, dir: <span class="st">'ltr'</span> },
+  { code: <span class="st">'it'</span>, label: <span class="st">'Italiano'</span>, dir: <span class="st">'ltr'</span> },
+  { code: <span class="st">'tr'</span>, label: <span class="st">'T&uuml;rk&ccedil;e'</span>, dir: <span class="st">'ltr'</span> },
+  { code: <span class="st">'fa'</span>, label: <span class="st">'&#x641;&#x627;&#x631;&#x633;&#x6CC;'</span>, dir: <span class="st">'rtl'</span> },
+  { code: <span class="st">'ar'</span>, label: <span class="st">'&#x627;&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629;'</span>, dir: <span class="st">'rtl'</span> },
+] <span class="kw">as const</span>;</code></pre>
+          </div>
+
+          <div class="callout callout-warning">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div class="callout-content">
+              <p><strong>RTL support:</strong> When <code>fa</code> or <code>ar</code> is selected, set <code>dir="rtl"</code> on the <code>&lt;html&gt;</code> element. This flips the entire layout. Already present as <code>dir: 'rtl'</code> attribute in the current language data.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 5: SETTINGS PAGE ARCHITECTURE
+         ============================================================ -->
+    <div class="in-section">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">5</span>
+        <span class="in-section-title">Settings Page Architecture</span>
+        <span class="in-section-badge"><span class="badge badge-p1">P1</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State
+          </h3>
+          <ul>
+            <li>Settings drawer opens from footer gear icon (managed by <code>shared/settings.js</code>)</li>
+            <li>Drawer contains: color theme picker + light/dark toggle</li>
+            <li>No dedicated settings page exists yet</li>
+            <li>Screen <strong>S10</strong> in the MVP plan is designated as the full settings page</li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State &mdash; Screen S10
+          </h3>
+
+          <div class="in-settings-grid">
+            <div class="in-settings-card">
+              <div class="in-settings-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="in-settings-info">
+                <div class="in-settings-name">Account <span class="badge badge-mvp">MVP</span></div>
+                <div class="in-settings-desc">Name, email, password change</div>
+              </div>
+            </div>
+            <div class="in-settings-card">
+              <div class="in-settings-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <div class="in-settings-info">
+                <div class="in-settings-name">Preferences <span class="badge badge-mvp">MVP</span></div>
+                <div class="in-settings-desc">Language, color theme, light/dark mode</div>
+              </div>
+            </div>
+            <div class="in-settings-card">
+              <div class="in-settings-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="in-settings-info">
+                <div class="in-settings-name">Learning <span class="badge badge-mvp">MVP</span></div>
+                <div class="in-settings-desc">Daily goal, notifications, audio speed</div>
+              </div>
+            </div>
+            <div class="in-settings-card">
+              <div class="in-settings-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <div class="in-settings-info">
+                <div class="in-settings-name">Accessibility <span class="badge badge-future">Post-MVP</span></div>
+                <div class="in-settings-desc">Font size, high contrast, reduced motion</div>
+              </div>
+            </div>
+            <div class="in-settings-card">
+              <div class="in-settings-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </div>
+              <div class="in-settings-info">
+                <div class="in-settings-name">Subscription <span class="badge badge-future">Post-MVP</span></div>
+                <div class="in-settings-desc">Plan details, billing, upgrade</div>
+              </div>
+            </div>
+            <div class="in-settings-card">
+              <div class="in-settings-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <div class="in-settings-info">
+                <div class="in-settings-name">Connected Apps <span class="badge badge-future">Post-MVP</span></div>
+                <div class="in-settings-desc">SSO across Dictionary, Quiz, Stories</div>
+              </div>
+            </div>
+            <div class="in-settings-card">
+              <div class="in-settings-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div class="in-settings-info">
+                <div class="in-settings-name">Privacy <span class="badge badge-future">Post-MVP</span></div>
+                <div class="in-settings-desc">Data export, account deletion</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">TypeScript</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="cm">// Settings stored per-user in the database</span>
+<span class="kw">interface</span> <span class="fn">UserSettings</span> {
+  <span class="cm">// Preferences (MVP)</span>
+  language: <span class="kw">string</span>;          <span class="cm">// 'ku' | 'en' | 'de' | ...</span>
+  colorTheme: <span class="kw">string</span>;       <span class="cm">// 'forest-green' | 'midnight-green' | ...</span>
+  darkMode: <span class="kw">boolean</span>;
+
+  <span class="cm">// Learning (MVP)</span>
+  dailyGoal: <span class="kw">number</span>;        <span class="cm">// minutes per day</span>
+  notificationsEnabled: <span class="kw">boolean</span>;
+  audioSpeed: <span class="kw">number</span>;       <span class="cm">// 0.5 - 2.0</span>
+
+  <span class="cm">// Accessibility (post-MVP)</span>
+  fontSize: <span class="st">'small'</span> | <span class="st">'medium'</span> | <span class="st">'large'</span> | <span class="st">'extra-large'</span>;
+  highContrast: <span class="kw">boolean</span>;
+  reducedMotion: <span class="kw">boolean</span>;
+}</code></pre>
+          </div>
+
+          <div class="callout callout-success">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div class="callout-content">
+              <p><strong>MVP scope:</strong> Start with Language + Color Theme + Light/Dark mode. All other settings categories come after the core learning experience is solid.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 6: FONT SIZE & ACCESSIBILITY
+         ============================================================ -->
+    <div class="in-section">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">6</span>
+        <span class="in-section-title">Font Size &amp; Accessibility</span>
+        <span class="in-section-badge"><span class="badge badge-p2">P2</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State
+          </h3>
+          <ul>
+            <li>No font size controls exist</li>
+            <li>No accessibility settings</li>
+            <li>Base font size is <code>15px</code> (set on <code>body</code>)</li>
+            <li>All animations always enabled (fade-ins, transitions)</li>
+            <li>Theme toggle is the only user preference control</li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State
+          </h3>
+
+          <p><strong>Font size control:</strong></p>
+          <table class="in-compare-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>Scale Factor</th>
+                <th>Base Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">Small</td>
+                <td>0.875x</td>
+                <td><code>13px</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Medium (default)</td>
+                <td>1.0x</td>
+                <td><code>15px</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Large</td>
+                <td>1.125x</td>
+                <td><code>17px</code></td>
+              </tr>
+              <tr>
+                <td class="col-label">Extra Large</td>
+                <td>1.25x</td>
+                <td><code>19px</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">CSS</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="cm">/* Font scaling via custom property */</span>
+<span class="kw">:root</span> {
+  --font-scale: <span class="st">1</span>;
+  font-size: <span class="fn">calc</span>(<span class="st">15px</span> * <span class="fn">var</span>(--font-scale));
+}
+
+<span class="cm">/* Reduced motion: respect OS preference */</span>
+<span class="kw">@media</span> (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: <span class="st">0.01ms</span> !important;
+    transition-duration: <span class="st">0.01ms</span> !important;
+  }
+}
+
+<span class="cm">/* Or user-controlled via data attribute */</span>
+[data-reduced-motion=<span class="st">"true"</span>] * {
+  animation-duration: <span class="st">0.01ms</span> !important;
+  transition-duration: <span class="st">0.01ms</span> !important;
+}</code></pre>
+          </div>
+
+          <p><strong>Additional accessibility features (post-MVP):</strong></p>
+          <ul>
+            <li><strong>High contrast mode</strong> &mdash; increase border widths and color contrast ratios (WCAG AAA: 7:1)</li>
+            <li><strong>Reduced motion</strong> &mdash; respect <code>prefers-reduced-motion</code> + user override in settings</li>
+            <li><strong>Audio cues</strong> &mdash; correct/incorrect sounds, level-up celebration, togglable</li>
+            <li><strong>Focus indicators</strong> &mdash; visible focus rings for keyboard navigation</li>
+          </ul>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div class="callout-content">
+              <p>Accessibility settings are <strong>universal</strong> across all age themes (zarok, ciwan, xort, mezin). Every user gets the same accessibility controls regardless of their age group.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 7: SINGLE SIGN-ON (SSO) — ECOSYSTEM AUTH LAYER
+         ============================================================ -->
+    <div class="in-section">
+      <button class="in-section-toggle" onclick="toggleSection(this)">
+        <span class="in-section-number">7</span>
+        <span class="in-section-title">Single Sign-On (SSO) &mdash; Ecosystem Auth Layer</span>
+        <span class="in-section-badge"><span class="badge badge-p1">P1</span></span>
+        <svg class="in-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="in-section-body">
+        <div class="in-section-inner">
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            The Idea
+          </h3>
+          <p>
+            Users log in <strong>once</strong> and gain access to <strong>every app</strong> in the Hinbuna ecosystem. No separate accounts, no repeated logins &mdash; a single authentication layer that spans all side apps.
+          </p>
+          <p>
+            The ecosystem includes the main <strong>Hinbuna Kurdi</strong> platform plus a growing family of companion tools. SSO ensures that switching between them feels seamless, like moving between tabs in the same app.
+          </p>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            Ecosystem Apps
+          </h3>
+
+          <div class="in-arch-diagram">
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Hinbuna Kurdi</div>
+              <div class="in-arch-card-desc">Main learning platform &mdash; courses, lessons, progress tracking</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Dictionary</div>
+              <div class="in-arch-card-desc">Kurdish&ndash;multilingual dictionary with examples and audio</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="in-arch-card-title">Short Stories</div>
+              <div class="in-arch-card-desc">Graded reading with vocabulary highlights and TTS</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="in-arch-card-title">Grammar Exercises</div>
+              <div class="in-arch-card-desc">Structured drills targeting specific grammar rules</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <div class="in-arch-card-title">Grammar Puzzles</div>
+              <div class="in-arch-card-desc">Interactive puzzle-based grammar practice</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </div>
+              <div class="in-arch-card-title">TTS</div>
+              <div class="in-arch-card-desc">Kurdish text-to-speech via kurdishtts.com API</div>
+            </div>
+            <div class="in-arch-card">
+              <div class="in-arch-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <div class="in-arch-card-title">Kurdish Corpus</div>
+              <div class="in-arch-card-desc">Expert-curated language dataset for research and learning</div>
+            </div>
+          </div>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current State
+          </h3>
+          <ul>
+            <li>Auth exists only within the main Hinbuna Kurdi app (JWT + Passport.js)</li>
+            <li>Side apps are not yet connected &mdash; each would require its own login</li>
+            <li>No shared session or token exchange mechanism between apps</li>
+            <li>Header dropdown already lists ecosystem apps (as navigation links), but without auth continuity</li>
+          </ul>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Future State &mdash; Shared Auth Layer
+          </h3>
+          <p>
+            A <strong>centralized auth service</strong> handles all authentication and issues tokens that are valid across the entire ecosystem. Each app validates tokens against this shared service instead of managing its own auth.
+          </p>
+
+          <table class="in-compare-table">
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Current</th>
+                <th>With SSO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">Login</td>
+                <td>Per-app login required</td>
+                <td>Single login for all apps</td>
+              </tr>
+              <tr>
+                <td class="col-label">User Profile</td>
+                <td>Isolated per app</td>
+                <td>Shared profile, preferences sync across apps</td>
+              </tr>
+              <tr>
+                <td class="col-label">Session</td>
+                <td>No session sharing</td>
+                <td>Shared JWT tokens, seamless app switching</td>
+              </tr>
+              <tr>
+                <td class="col-label">Navigation</td>
+                <td>Header links to apps (no auth)</td>
+                <td>Header dropdown opens apps with active session</td>
+              </tr>
+              <tr>
+                <td class="col-label">Registration</td>
+                <td>Separate sign-up per app</td>
+                <td>One account, all apps unlocked</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">TypeScript</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code><span class="cm">// Shared auth service — central token issuer</span>
+<span class="kw">interface</span> <span class="fn">SSOConfig</span> {
+  authServiceUrl: <span class="kw">string</span>;       <span class="cm">// Central auth API endpoint</span>
+  allowedApps: <span class="kw">string</span>[];        <span class="cm">// Registered app identifiers</span>
+  tokenStrategy: <span class="st">'jwt'</span>;        <span class="cm">// JWT with shared signing key</span>
+  sessionDuration: <span class="kw">string</span>;     <span class="cm">// e.g. '7d'</span>
+  refreshEnabled: <span class="kw">boolean</span>;     <span class="cm">// Refresh token rotation</span>
+}
+
+<span class="kw">const</span> ECOSYSTEM_APPS = [
+  { id: <span class="st">'hinbuna-kurdi'</span>,     name: <span class="st">'Hinbuna Kurdi'</span>,     url: <span class="st">'https://hinbunakurdi.com'</span> },
+  { id: <span class="st">'dictionary'</span>,         name: <span class="st">'Dictionary'</span>,         url: <span class="st">'https://ferheng.hinbunakurdi.com'</span> },
+  { id: <span class="st">'short-stories'</span>,      name: <span class="st">'Short Stories'</span>,      url: <span class="st">'https://cirokan.hinbunakurdi.com'</span> },
+  { id: <span class="st">'grammar-exercises'</span>,  name: <span class="st">'Grammar Exercises'</span>,  url: <span class="st">'https://reman.hinbunakurdi.com'</span> },
+  { id: <span class="st">'grammar-puzzles'</span>,   name: <span class="st">'Grammar Puzzles'</span>,   url: <span class="st">'https://puzzles.hinbunakurdi.com'</span> },
+  { id: <span class="st">'tts'</span>,               name: <span class="st">'TTS'</span>,               url: <span class="st">'https://tts.hinbunakurdi.com'</span> },
+  { id: <span class="st">'kurdish-corpus'</span>,    name: <span class="st">'Kurdish Corpus'</span>,    url: <span class="st">'https://corpus.hinbunakurdi.com'</span> },
+] <span class="kw">as const</span>;
+
+<span class="cm">// Token payload — shared across all ecosystem apps</span>
+<span class="kw">interface</span> <span class="fn">SSOTokenPayload</span> {
+  sub: <span class="kw">string</span>;               <span class="cm">// User ID</span>
+  email: <span class="kw">string</span>;
+  name: <span class="kw">string</span>;
+  role: <span class="st">'student'</span> | <span class="st">'teacher'</span> | <span class="st">'admin'</span>;
+  apps: <span class="kw">string</span>[];             <span class="cm">// Authorized app IDs</span>
+  iat: <span class="kw">number</span>;
+  exp: <span class="kw">number</span>;
+}</code></pre>
+          </div>
+
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            How It Works
+          </h3>
+          <ol>
+            <li><strong>User registers or logs in</strong> on any ecosystem app &mdash; request goes to the central auth service</li>
+            <li><strong>Auth service issues a JWT</strong> signed with a shared secret, containing the user&rsquo;s ID, role, and list of authorized apps</li>
+            <li><strong>Token is stored</strong> in an <code>httpOnly</code> cookie scoped to the parent domain (e.g. <code>.hinbunakurdi.com</code>), so all subdomains can read it</li>
+            <li><strong>User navigates to another app</strong> via the header dropdown &mdash; the cookie is automatically sent, and the target app validates it against the shared signing key</li>
+            <li><strong>No re-login required</strong> &mdash; the user is already authenticated</li>
+          </ol>
+
+          <div class="callout callout-warning">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div class="callout-content">
+              <p><strong>Key principle:</strong> The auth service is a <strong>standalone microservice</strong> &mdash; not embedded in the main Hinbuna Kurdi backend. Every ecosystem app is an equal consumer. If the main platform goes down, other apps can still validate existing tokens.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div class="callout-content">
+              <p><strong>B2B potential:</strong> This shared auth layer is also the foundation for the B2B boilerplate &mdash; organizations can license the SSO system to build their own multi-app ecosystems with the same architecture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+             MIGRATION PRIORITY TABLE
+         ============================================================ -->
+    <section style="margin-top: 40px; margin-bottom: 20px;">
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 22px; color: var(--text-primary); margin-bottom: 16px; text-align: center;">Migration Priority</h2>
+      <table class="in-priority-table">
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Priority</th>
+            <th>Complexity</th>
+            <th>Dependencies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="system-name">Design Tokens (Tailwind)</td>
+            <td><span class="badge badge-p0">P0</span></td>
+            <td>Medium</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td class="system-name">Header Component</td>
+            <td><span class="badge badge-p0">P0</span></td>
+            <td>High</td>
+            <td>Design tokens</td>
+          </tr>
+          <tr>
+            <td class="system-name">Language Picker</td>
+            <td><span class="badge badge-p1">P1</span></td>
+            <td>Medium</td>
+            <td>Header, i18n setup</td>
+          </tr>
+          <tr>
+            <td class="system-name">Theme Switching</td>
+            <td><span class="badge badge-p1">P1</span></td>
+            <td>Medium</td>
+            <td>Design tokens</td>
+          </tr>
+          <tr>
+            <td class="system-name">Settings Page (MVP)</td>
+            <td><span class="badge badge-p1">P1</span></td>
+            <td>Medium</td>
+            <td>Theme, language</td>
+          </tr>
+          <tr>
+            <td class="system-name">Accessibility</td>
+            <td><span class="badge badge-p2">P2</span></td>
+            <td>Low</td>
+            <td>Settings page</td>
+          </tr>
+          <tr>
+            <td class="system-name">Age-Based Themes</td>
+            <td><span class="badge badge-p2">P2</span></td>
+            <td>High</td>
+            <td>Theme system, user profiles</td>
+          </tr>
+          <tr>
+            <td class="system-name">SSO (Ecosystem Auth)</td>
+            <td><span class="badge badge-p1">P1</span></td>
+            <td>High</td>
+            <td>Auth service, JWT, domain setup</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="in-footer-spacer"></div>
+  </main>
+
+  <!-- FOOTER (shared component) -->
+  <div id="shared-footer"></div>
+
+  <!-- SCRIPTS -->
+  <script src="shared/header.js"></script>
+  <script src="shared/settings.js"></script>
+  <script src="shared/footer.js"></script>
+  <script>
+    // --- Section Toggle ---
+    function toggleSection(btn) {
+      var body = btn.nextElementSibling;
+      var isOpen = btn.classList.contains('open');
+
+      if (isOpen) {
+        btn.classList.remove('open');
+        body.classList.remove('open');
+      } else {
+        btn.classList.add('open');
+        body.classList.add('open');
+      }
+    }
+
+    // --- Copy Code ---
+    function copyCode(button) {
+      var codeBlock = button.closest('.code-block');
+      var code = codeBlock.querySelector('pre code');
+      var text = code.textContent;
+
+      navigator.clipboard.writeText(text).then(function () {
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        setTimeout(function () {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(function () {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        setTimeout(function () {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

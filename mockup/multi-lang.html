@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Lang — Hinbûna Kurdî</title>
+  <meta name="description" content="Multi-language system for Hinbuna Kurdi. Two contexts (public & logged-in), data model, AI translation pipeline, teacher workflow.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="shared/fonts.css">
+  <script src="shared/ecosystem-apps.js"></script>
+  <script src="shared/theme.js"></script>
+  <link rel="stylesheet" href="shared/header.css">
+  <link rel="stylesheet" href="shared/footer.css">
+  <link rel="stylesheet" href="shared/settings.css">
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+       ============================================ */
+    :root {
+      --bg-page: #FDF8F3;
+      --bg-surface: #F5EEE6;
+      --bg-surface-alt: #EDE5DA;
+      --color-primary: #2D5A3D;
+      --color-primary-hover: #24493A;
+      --color-accent: #D4A843;
+      --color-accent-hover: #c99b3a;
+      --color-tan: #E3C79D;
+      --text-primary: #1A2A1F;
+      --text-secondary: #5A6B5E;
+      --border: #E5DDD3;
+      --color-success: #2D8A4E;
+      --color-error: #DC4545;
+      --color-warning: #EFB034;
+      --color-info: #3B7A8A;
+
+      --shadow-sm: 0 1px 3px rgba(26, 42, 31, 0.06);
+      --shadow-md: 0 4px 12px rgba(26, 42, 31, 0.08);
+      --shadow-lg: 0 8px 24px rgba(26, 42, 31, 0.10);
+
+      --font-heading: 'Nunito', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #1A2024;
+      --bg-surface: #232D31;
+      --bg-surface-alt: #2A363B;
+      --color-primary: #2D5A3D;
+      --color-primary-hover: #367248;
+      --color-accent: #D4A843;
+      --color-accent-hover: #e0b64e;
+      --color-tan: #3A4E56;
+      --text-primary: #F5EEE6;
+      --text-secondary: #9CADA8;
+      --border: #2F3B3E;
+      --color-success: #3DA863;
+      --color-error: #E85858;
+      --color-warning: #EFB034;
+      --color-info: #4D9AAE;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================
+       PAGE LAYOUT
+       ============================================ */
+    .ml-container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    @media (min-width: 768px) {
+      .ml-container { padding: 0 40px 80px; }
+    }
+
+    .ml-intro {
+      padding: 48px 0 16px;
+      text-align: center;
+    }
+
+    .ml-intro h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .ml-intro p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .ml-intro { padding: 64px 0 24px; }
+      .ml-intro h1 { font-size: 36px; }
+    }
+
+    /* ============================================
+       HERO DIAGRAM
+       ============================================ */
+    .hero-diagram {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      margin: 24px 0 48px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-diagram { padding: 40px 36px; }
+    }
+
+    .hero-label {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Two-column: Public vs Logged-in */
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-split { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+
+    .hero-box {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero-box--public {
+      border-color: var(--color-info);
+      background: rgba(59, 122, 138, 0.04);
+    }
+
+    .hero-box--loggedin {
+      border-color: var(--color-success);
+      background: rgba(45, 138, 78, 0.04);
+    }
+
+    [data-theme="dark"] .hero-box--public { background: rgba(77, 154, 174, 0.06); }
+    [data-theme="dark"] .hero-box--loggedin { background: rgba(61, 168, 99, 0.06); }
+
+    .hero-box-label {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 2px 10px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .hero-box--public .hero-box-label {
+      background: rgba(59, 122, 138, 0.12);
+      color: var(--color-info);
+    }
+
+    .hero-box--loggedin .hero-box-label {
+      background: rgba(45, 138, 78, 0.12);
+      color: var(--color-success);
+    }
+
+    [data-theme="dark"] .hero-box--public .hero-box-label { color: #4D9AAE; background: rgba(77, 154, 174, 0.15); }
+    [data-theme="dark"] .hero-box--loggedin .hero-box-label { color: #3DA863; background: rgba(61, 168, 99, 0.15); }
+
+    .hero-box h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .hero-box-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .hero-box-detail .detail-icon {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    /* Propagation arrows */
+    .hero-propagation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .hero-prop-arrow {
+      color: var(--text-secondary);
+      font-size: 18px;
+      padding: 0 6px;
+    }
+
+    .hero-prop-item {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .hero-prop-item--highlight {
+      border-color: var(--color-accent);
+      background: rgba(212, 168, 67, 0.08);
+    }
+
+    /* AI Translation bar */
+    .hero-ai-bar {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-ai-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-accent);
+      white-space: nowrap;
+    }
+
+    .hero-ai-flow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .hero-ai-step {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .hero-ai-step--source {
+      background: rgba(154, 101, 48, 0.12);
+      color: #9A6530;
+    }
+
+    [data-theme="dark"] .hero-ai-step--source {
+      background: rgba(154, 101, 48, 0.2);
+      color: #C4884A;
+    }
+
+    .hero-ai-step--ai {
+      background: rgba(212, 168, 67, 0.12);
+      color: var(--color-accent);
+    }
+
+    .hero-ai-step--targets {
+      background: rgba(59, 122, 138, 0.1);
+      color: var(--color-info);
+    }
+
+    [data-theme="dark"] .hero-ai-step--targets { color: #4D9AAE; }
+
+    /* ============================================
+       COLLAPSIBLE SECTIONS
+       ============================================ */
+    .ml-section {
+      margin-bottom: 40px;
+    }
+
+    .ml-section-toggle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 14px 0;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+      border-bottom: 2px solid var(--border);
+      transition: border-color 0.2s ease;
+    }
+
+    .ml-section-toggle:hover {
+      border-bottom-color: var(--color-accent);
+    }
+
+    .ml-section-toggle:hover .ml-chevron {
+      color: var(--color-accent);
+    }
+
+    .ml-section-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .ml-section-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .ml-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--text-secondary);
+      transition: transform 0.3s ease, color 0.2s ease;
+    }
+
+    .ml-section-body {
+      overflow: hidden;
+      max-height: 5000px;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 1;
+      padding-top: 24px;
+    }
+
+    .ml-section-body.collapsed {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+    }
+
+    .ml-section-toggle.collapsed .ml-chevron {
+      transform: rotate(-90deg);
+    }
+
+    /* ============================================
+       CONTENT STYLES
+       ============================================ */
+    .ml-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .ml-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .ml-card p, .ml-card li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .ml-card ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .ml-card li {
+      margin-bottom: 4px;
+    }
+
+    /* Language chips */
+    .lang-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .lang-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .lang-chip .chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .lang-chip.teaching {
+      border-color: var(--color-primary);
+      background: rgba(45, 90, 61, 0.08);
+    }
+
+    .lang-chip.primary-support {
+      border-color: #9A6530;
+      background: rgba(154, 101, 48, 0.08);
+    }
+
+    .lang-chip.rtl {
+      font-style: italic;
+    }
+
+    /* Code blocks */
+    .ml-code {
+      background: #161D21;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 12px 0;
+      overflow-x: auto;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #F5EEE6;
+    }
+
+    :root .ml-code {
+      background: #F5F0EA;
+      color: #1A2A1F;
+    }
+
+    .ml-code .key { color: #5BA0B0; }
+    .ml-code .str { color: #D4A843; }
+    .ml-code .comment { color: #6A8A90; }
+    .ml-code .fn { color: #7CC9B8; }
+
+    :root .ml-code .key { color: #2D5A3D; }
+    :root .ml-code .str { color: #9A6530; }
+    :root .ml-code .comment { color: #5A6B5E; }
+    :root .ml-code .fn { color: #3B7A8A; }
+
+    /* Tables */
+    .ml-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .ml-table th, .ml-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ml-table th {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+    }
+
+    .ml-table td {
+      color: var(--text-primary);
+    }
+
+    .ml-table code {
+      background: var(--bg-surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: 'SF Mono', monospace;
+    }
+
+    .ml-table tbody tr:hover {
+      background: var(--bg-surface);
+    }
+
+    /* Badge */
+    .ml-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ml-badge-teaching { background: rgba(45, 90, 61, 0.15); color: #2D5A3D; }
+    .ml-badge-support { background: rgba(91, 160, 176, 0.15); color: #5BA0B0; }
+    .ml-badge-primary { background: rgba(154, 101, 48, 0.15); color: #9A6530; }
+    .ml-badge-rtl { background: rgba(123, 104, 174, 0.15); color: #7B68AE; }
+    .ml-badge-public { background: rgba(59, 122, 138, 0.12); color: #3B7A8A; }
+    .ml-badge-db { background: rgba(45, 138, 78, 0.12); color: #2D8A4E; }
+    .ml-badge-ai { background: rgba(212, 168, 67, 0.15); color: #D4A843; }
+
+    [data-theme="dark"] .ml-badge-teaching { background: rgba(45, 90, 61, 0.2); color: #4AAE6A; }
+    [data-theme="dark"] .ml-badge-primary { background: rgba(154, 101, 48, 0.2); color: #C4884A; }
+    [data-theme="dark"] .ml-badge-public { color: #4D9AAE; }
+    [data-theme="dark"] .ml-badge-db { color: #3DA863; }
+
+    /* Flow diagram */
+    .ml-flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .ml-flow-step {
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .ml-flow-arrow {
+      color: var(--text-secondary);
+      font-size: 16px;
+    }
+
+    /* Data model diagram */
+    .dm-diagram {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin: 16px 0;
+      font-family: 'SF Mono', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .dm-diagram .hl-table { color: var(--color-accent); font-weight: 700; }
+    .dm-diagram .hl-field { color: var(--color-info); }
+    .dm-diagram .hl-type { color: var(--color-success); }
+    .dm-diagram .hl-dim { color: var(--text-secondary); }
+    .dm-diagram .hl-note { color: var(--text-secondary); font-style: italic; }
+
+    [data-theme="dark"] .dm-diagram .hl-field { color: #4D9AAE; }
+    [data-theme="dark"] .dm-diagram .hl-type { color: #3DA863; }
+
+    /* Role cards grid */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    @media (min-width: 600px) {
+      .role-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .role-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .role-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .role-card p, .role-card li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .role-card ul {
+      padding-left: 16px;
+      margin-top: 4px;
+    }
+
+    .role-card li { margin-bottom: 2px; }
+
+    /* Link card (cross-reference) */
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin: 16px 0;
+      transition: border-color 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .link-card:hover {
+      border-color: var(--color-accent);
+    }
+
+    .link-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(212, 168, 67, 0.1);
+    }
+
+    .link-card-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-accent);
+    }
+
+    .link-card-text {
+      flex: 1;
+    }
+
+    .link-card-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+
+    .link-card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .link-card-arrow {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    /* Teacher workflow steps */
+    .workflow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 16px 0;
+      position: relative;
+    }
+
+    .workflow-step {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    .workflow-step:last-child { padding-bottom: 0; }
+
+    .workflow-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #1A2A1F;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .workflow-step:not(:last-child) .workflow-step-num::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: calc(100% + 20px - 28px);
+      background: var(--border);
+    }
+
+    .workflow-step-content {
+      flex: 1;
+      padding-top: 3px;
+    }
+
+    .workflow-step-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .workflow-step-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Warning callout */
+    .ml-callout {
+      border-left: 3px solid var(--color-warning);
+      padding: 12px 16px;
+      margin: 12px 0;
+      background: rgba(239, 176, 52, 0.06);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .ml-callout strong {
+      color: var(--text-primary);
+    }
+
+    /* Inline code */
+    .ml-section-body code {
+      background: var(--bg-surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: 'SF Mono', monospace;
+      border: 1px solid var(--border);
+    }
+
+    .ml-code code {
+      background: none;
+      padding: 0;
+      border: none;
+      font-size: inherit;
+    }
+
+    /* Status grid */
+    .ml-status-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 600px) {
+      .ml-status-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .ml-status-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .ml-status-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .ml-status-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Shared Header -->
+<div id="shared-header" data-page-type="multi-lang" data-show-lang="false" data-show-login="false" data-show-theme="true"></div>
+
+<!-- Page Content -->
+<div class="ml-container">
+
+  <!-- Intro -->
+  <div class="ml-intro">
+    <h1>Multi-Language System</h1>
+    <p>How language works across Hinbûna Kurdî — from public pages to logged-in screens, data model storage, content translation, and the AI pipeline.</p>
+  </div>
+
+  <!-- ============================================================
+       HERO DIAGRAM — The Big Picture
+       ============================================================ -->
+  <div class="hero-diagram">
+    <div class="hero-label">The Big Picture</div>
+
+    <!-- Two columns: Public vs Logged-in -->
+    <div class="hero-split">
+
+      <div class="hero-box hero-box--public">
+        <span class="hero-box-label">Public Pages</span>
+        <h3>Client-Side Only</h3>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M12 8v8m-4-4h8"/></svg>
+          <span>Language Picker in header</span>
+        </div>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Stored in <code style="border:none;background:none;padding:0;font-size:12px;">localStorage</code> (hk-lang)</span>
+        </div>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+          <span>No account needed, resets on clear</span>
+        </div>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Affects: landing, about, pricing pages</span>
+        </div>
+      </div>
+
+      <div class="hero-box hero-box--loggedin">
+        <span class="hero-box-label">Logged-In Users</span>
+        <h3>Database-Stored</h3>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6m3-3h-6"/></svg>
+          <span>Set during registration (student/teacher)</span>
+        </div>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <span>Stored in <code style="border:none;background:none;padding:0;font-size:12px;">users.language</code> (PostgreSQL)</span>
+        </div>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span>Changeable in Settings menu</span>
+        </div>
+        <div class="hero-box-detail">
+          <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Controls both UI text + lesson content</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- What the logged-in language controls -->
+    <div class="hero-label" style="margin-bottom:12px;">User language propagates to</div>
+    <div class="hero-propagation">
+      <span class="hero-prop-item hero-prop-item--highlight">users.language</span>
+      <span class="hero-prop-arrow">&rarr;</span>
+      <span class="hero-prop-item">UI Labels &amp; Menus</span>
+      <span class="hero-prop-arrow">&rarr;</span>
+      <span class="hero-prop-item">Lesson Translations</span>
+      <span class="hero-prop-arrow">&rarr;</span>
+      <span class="hero-prop-item">Instructions &amp; Hints</span>
+    </div>
+
+    <!-- AI Translation pipeline -->
+    <div class="hero-ai-bar">
+      <span class="hero-ai-label">AI Translation</span>
+      <div class="hero-ai-flow">
+        <span>Teacher writes</span>
+        <span class="hero-ai-step hero-ai-step--source">KU + DE</span>
+        <span>&rarr;</span>
+        <span class="hero-ai-step hero-ai-step--ai">AI translates from DE</span>
+        <span>&rarr;</span>
+        <span class="hero-ai-step hero-ai-step--targets">EN, SV, DA, IT, TR, FA, AR</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1: Supported Languages
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle" onclick="toggleSection(this)">
+      <span class="ml-section-title">Supported Languages</span>
+      <span class="ml-section-count">1 teaching + 8 support</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body">
+
+      <div class="ml-card">
+        <h3>Teaching Language</h3>
+        <p>Kurdish (Kurmanji) is always present. Kurdish content is <strong>never translated</strong> — it's what we're teaching. Words, sentences, and names stay in Kurdish across all user locales.</p>
+        <div class="lang-chips">
+          <span class="lang-chip teaching"><span class="chip-dot" style="background:#2D5A3D;"></span>Kurdî (ku) <span class="ml-badge ml-badge-teaching">Teaching</span></span>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <h3>Support Languages</h3>
+        <p><strong>Deutsch is the primary support language.</strong> Our main Mamoste writes content in DE first. AI translation uses DE as the source to generate all other languages — not Kurdish, because Kurdish AI translations aren't reliable yet.</p>
+        <div class="lang-chips">
+          <span class="lang-chip primary-support"><span class="chip-dot" style="background:#9A6530;"></span>Deutsch (de) <span class="ml-badge ml-badge-primary">Primary</span></span>
+          <span class="lang-chip"><span class="chip-dot" style="background:#3B7A8A;"></span>English (en)</span>
+          <span class="lang-chip"><span class="chip-dot" style="background:#4A6FA5;"></span>Svenska (sv)</span>
+          <span class="lang-chip"><span class="chip-dot" style="background:#6B5B8A;"></span>Dansk (da)</span>
+          <span class="lang-chip"><span class="chip-dot" style="background:#7A4A3B;"></span>Italiano (it)</span>
+          <span class="lang-chip"><span class="chip-dot" style="background:#C75B5B;"></span>Türkçe (tr)</span>
+          <span class="lang-chip rtl"><span class="chip-dot" style="background:#5BA37B;"></span>Farsî (fa) <span class="ml-badge ml-badge-rtl">RTL</span></span>
+          <span class="lang-chip rtl"><span class="chip-dot" style="background:#7B68AE;"></span>Erebî (ar) <span class="ml-badge ml-badge-rtl">RTL</span></span>
+        </div>
+      </div>
+
+      <div class="ml-callout">
+        <strong>Why DE first?</strong> Most Kurdish diaspora in Germany/Austria. Our lead teacher is fluent in German. AI translation quality from German to other European languages is excellent. Kurdish &rarr; other languages via AI is still poor.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 2: Public Pages — Client-Side
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle" onclick="toggleSection(this)">
+      <span class="ml-section-title">Public Pages — Client-Side Language</span>
+      <span class="ml-section-count">No DB</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body">
+
+      <div class="ml-card">
+        <h3>How It Works</h3>
+        <p>Visitors who haven't logged in pick a language from the header. It saves to the browser and controls all text on public pages (landing, about, pricing, etc.).</p>
+        <div class="ml-flow">
+          <span class="ml-flow-step">Language Picker</span>
+          <span class="ml-flow-arrow">&rarr;</span>
+          <span class="ml-flow-step"><code>localStorage</code> (hk-lang)</span>
+          <span class="ml-flow-arrow">&rarr;</span>
+          <span class="ml-flow-step"><code>HK.getLang()</code></span>
+          <span class="ml-flow-arrow">&rarr;</span>
+          <span class="ml-flow-step">Page renders in locale</span>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <h3>Storage Details</h3>
+        <table class="ml-table">
+          <thead>
+            <tr><th>Key</th><th>Storage</th><th>Default</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>hk-lang</code></td>
+              <td>localStorage</td>
+              <td><code>de</code></td>
+              <td>German default — matches primary audience</td>
+            </tr>
+            <tr>
+              <td><code>hk-theme</code></td>
+              <td>localStorage</td>
+              <td><code>dark</code></td>
+              <td>Light/dark mode</td>
+            </tr>
+            <tr>
+              <td><code>hk-color-theme</code></td>
+              <td>localStorage</td>
+              <td><code>dark-slate</code></td>
+              <td>Color palette variant</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ml-card">
+        <h3>What Public Pages Translate</h3>
+        <ul>
+          <li>Navigation links and buttons</li>
+          <li>Hero text, headings, descriptions</li>
+          <li>Footer content</li>
+          <li>Pricing plans and feature lists</li>
+          <li>Registration/login form labels</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>NOT translated:</strong> The app brand name ("Hinbûna Kurdî"), Kurdish example words shown on landing page.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 3: Logged-In Users — Data Model
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle" onclick="toggleSection(this)">
+      <span class="ml-section-title">Logged-In Users — Language in Data Model</span>
+      <span class="ml-section-count">DB-stored</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body">
+
+      <div class="ml-card">
+        <h3>One Language, Two Purposes</h3>
+        <p>When a user registers (student or teacher), they pick their language. This <strong>single setting</strong> controls both the UI language and the support language for educational content. No split — one pick, everything follows.</p>
+      </div>
+
+      <div class="role-grid">
+        <div class="role-card">
+          <h4>Student</h4>
+          <ul>
+            <li>Picks language during registration</li>
+            <li>All lesson translations show in that language</li>
+            <li>UI buttons/labels in same language</li>
+            <li>Can change in Settings</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <h4>Teacher</h4>
+          <ul>
+            <li>Language set during teacher onboarding</li>
+            <li>Admin/main teacher creates the teacher account</li>
+            <li>Teacher UI in their language</li>
+            <li>Can change in Settings</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <h4>Admin</h4>
+          <ul>
+            <li>Language set in admin profile</li>
+            <li>Admin panel in their language</li>
+            <li>Manages teacher/student registrations</li>
+            <li>Can change in Settings</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <h3>Data Model — <code>users</code> Table</h3>
+        <p>Language is stored as a dedicated column on the users table, not buried in metadata JSON.</p>
+        <div class="dm-diagram"><span class="hl-table">users</span>
+<span class="hl-dim">├──</span> <span class="hl-field">id</span>            <span class="hl-type">UUID</span>       <span class="hl-note">PK</span>
+<span class="hl-dim">├──</span> <span class="hl-field">email</span>         <span class="hl-type">string</span>     <span class="hl-note">unique</span>
+<span class="hl-dim">├──</span> <span class="hl-field">role</span>          <span class="hl-type">enum</span>       <span class="hl-note">student | teacher | admin</span>
+<span class="hl-dim">├──</span> <span class="hl-field">language</span>      <span class="hl-type">string(5)</span>  <span class="hl-note">"de", "en", "tr", ... — default "de"</span>
+<span class="hl-dim">├──</span> <span class="hl-field">first_name</span>    <span class="hl-type">string</span>
+<span class="hl-dim">├──</span> <span class="hl-field">last_name</span>     <span class="hl-type">string</span>
+<span class="hl-dim">├──</span> <span class="hl-field">metadata</span>      <span class="hl-type">JSON</span>       <span class="hl-note">preferences, profile extras</span>
+<span class="hl-dim">└──</span> <span class="hl-field">...</span></div>
+      </div>
+
+      <div class="ml-card">
+        <h3>Registration Flow</h3>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <span class="workflow-step-num">1</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">User arrives on registration page</div>
+              <div class="workflow-step-desc">Public page language (from localStorage) pre-selects the language field.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-step-num">2</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">User confirms or changes language</div>
+              <div class="workflow-step-desc">Dropdown shows all 8 support languages. DE is default.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-step-num">3</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">Account created with language</div>
+              <div class="workflow-step-desc">Saved to <code>users.language</code> in PostgreSQL. Overrides localStorage for all logged-in screens.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-step-num">4</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">All screens use DB language</div>
+              <div class="workflow-step-desc">Dashboard, lessons, progress, settings — everything renders in the user's stored language.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <h3>Teacher Onboarding</h3>
+        <p>Teachers don't self-register. The admin (or main teacher) creates teacher accounts via the <strong>Create Teacher</strong> screen. During that process, the admin selects the teacher's language — similar to student registration but done by an admin.</p>
+      </div>
+
+      <a href="data-model.html" class="link-card">
+        <div class="link-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div class="link-card-text">
+          <div class="link-card-title">Full Data Model Reference</div>
+          <div class="link-card-desc">See all 39 tables, the users table schema, and entity relationships.</div>
+        </div>
+        <svg class="link-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 4: Content Multi-Lang — Inline Objects
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle" onclick="toggleSection(this)">
+      <span class="ml-section-title">Content Multi-Lang — Inline Objects</span>
+      <span class="ml-section-count">How content stores translations</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body">
+
+      <div class="ml-card">
+        <h3>Inline Multi-Lang Objects</h3>
+        <p>All translatable fields use JSON objects with language codes as keys. This keeps everything in one place — no separate translation files, no sync headaches.</p>
+        <div class="ml-code">
+<span class="comment">// Single-language (old approach)</span>
+{ <span class="key">"translation"</span>: <span class="str">"Guten Tag / Hallo"</span> }
+
+<span class="comment">// Multi-lang (current approach)</span>
+{ <span class="key">"translation"</span>: {
+    <span class="key">"de"</span>: <span class="str">"Guten Tag / Hallo"</span>,
+    <span class="key">"en"</span>: <span class="str">"Good day / Hello"</span>,
+    <span class="key">"tr"</span>: <span class="str">"İyi günler / Merhaba"</span>
+  }
+}
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <h3>What Gets Translated</h3>
+        <table class="ml-table">
+          <thead>
+            <tr><th>Content Type</th><th>Translated Fields</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Flashcard</td><td><code>instruction</code>, <code>translation</code>, <code>hint</code>, <code>exampleTranslation</code></td></tr>
+            <tr><td>MCQ</td><td><code>instruction</code>, <code>options[]</code>, <code>explanation</code></td></tr>
+            <tr><td>Gap Fill</td><td><code>instruction</code>, <code>explanation</code></td></tr>
+            <tr><td>Matching</td><td><code>instruction</code>, <code>pairs[].{lang}</code></td></tr>
+            <tr><td>Reading</td><td><code>instruction</code>, <code>title</code>, <code>lines[].{lang}</code></td></tr>
+            <tr><td>Listening</td><td><code>instruction</code></td></tr>
+            <tr><td>Unit metadata</td><td><code>metadata.subtitle</code></td></tr>
+            <tr><td>Lesson metadata</td><td><code>metadata.subtitle</code>, <code>learningObjective</code>, <code>wordsLearned[].{lang}</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ml-card">
+        <h3>What Does NOT Get Translated</h3>
+        <ul>
+          <li><strong>Kurdish content</strong> — <code>word</code>, <code>sentence</code>, <code>ku</code> fields are the teaching language</li>
+          <li><strong>Structural fields</strong> — <code>id</code>, <code>slug</code>, <code>orderIndex</code>, <code>type</code></li>
+          <li><strong>Unit/Lesson names</strong> — Kurdish names (e.g., "Silav û Reng") stay as-is</li>
+          <li><strong>Audio/Image URLs</strong> — Language-agnostic resources</li>
+        </ul>
+      </div>
+
+      <div class="ml-card">
+        <h3>Data Format Examples</h3>
+
+        <p style="margin-bottom:8px;font-weight:600;font-size:13px;color:var(--text-secondary);">Flashcard Activity</p>
+        <div class="ml-code">
+{
+  <span class="key">"type"</span>: <span class="str">"flashcard"</span>,
+  <span class="key">"content"</span>: {
+    <span class="key">"word"</span>: <span class="str">"Roj baş"</span>,                  <span class="comment">// Kurdish — never translated</span>
+    <span class="key">"translation"</span>: {
+      <span class="key">"de"</span>: <span class="str">"Guten Tag / Hallo"</span>,        <span class="comment">// DE first (primary)</span>
+      <span class="key">"en"</span>: <span class="str">"Good day / Hello"</span>,
+      <span class="key">"tr"</span>: <span class="str">"İyi günler / Merhaba"</span>
+    },
+    <span class="key">"instruction"</span>: {
+      <span class="key">"de"</span>: <span class="str">"Lerne diese Begrüßung"</span>,
+      <span class="key">"en"</span>: <span class="str">"Learn this greeting"</span>
+    }
+  }
+}
+        </div>
+
+        <p style="margin-bottom:8px;margin-top:16px;font-weight:600;font-size:13px;color:var(--text-secondary);">Lesson Metadata</p>
+        <div class="ml-code">
+{
+  <span class="key">"name"</span>: <span class="str">"Diyaloga Yekem"</span>,            <span class="comment">// Kurdish name — not translated</span>
+  <span class="key">"metadata"</span>: {
+    <span class="key">"subtitle"</span>: {
+      <span class="key">"de"</span>: <span class="str">"Erster Dialog"</span>,
+      <span class="key">"en"</span>: <span class="str">"First Dialogue"</span>
+    },
+    <span class="key">"wordsLearned"</span>: [
+      { <span class="key">"ku"</span>: <span class="str">"Roj baş"</span>, <span class="key">"de"</span>: <span class="str">"Guten Tag"</span>, <span class="key">"en"</span>: <span class="str">"Good day"</span> }
+    ]
+  },
+  <span class="key">"learningObjective"</span>: {
+    <span class="key">"de"</span>: <span class="str">"Grundlegende kurdische Begrüßungen lernen"</span>,
+    <span class="key">"en"</span>: <span class="str">"Learn basic Kurdish greetings"</span>
+  }
+}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 5: Teacher Workflow & AI Translation
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle" onclick="toggleSection(this)">
+      <span class="ml-section-title">Teacher Workflow &amp; AI Translation</span>
+      <span class="ml-section-count">DE &rarr; all others</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body">
+
+      <div class="ml-card">
+        <h3>How Teachers Create Multi-Lang Content</h3>
+        <p>Teachers must handle the fact that every translatable field needs multiple languages. The teacher screen (T5 Activity Editor) shows per-language input fields with color-coded chips.</p>
+
+        <div class="workflow-steps" style="margin-top:16px;">
+          <div class="workflow-step">
+            <span class="workflow-step-num">1</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">Teacher writes Kurdish content</div>
+              <div class="workflow-step-desc">The teaching language — word, sentence, Kurdish text. This is always manual, never AI-generated.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-step-num">2</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">Teacher writes German translation</div>
+              <div class="workflow-step-desc">DE is the primary support language. Mamoste writes this manually — it's the quality source for all other translations.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-step-num">3</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">AI translates DE &rarr; other languages</div>
+              <div class="workflow-step-desc">From the German text, AI generates EN, SV, DA, IT, TR, FA, AR translations. Not from Kurdish — AI Kurdish quality is unreliable.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-step-num">4</span>
+            <div class="workflow-step-content">
+              <div class="workflow-step-title">Teacher reviews &amp; adjusts</div>
+              <div class="workflow-step-desc">AI translations are pre-filled but editable. Teacher can correct any language they know. All languages visible in one form.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ml-callout">
+        <strong>Why not translate from Kurdish?</strong> Current AI models (GPT, Claude, etc.) produce unreliable Kurdish translations — especially Kurmanji dialect. German &rarr; other languages is high quality. As Kurdish AI improves, we can add KU as a secondary source.
+      </div>
+
+      <div class="ml-card">
+        <h3>AI Translation Pipeline</h3>
+        <div class="dm-diagram"><span class="hl-table">TEACHER INPUT</span>
+<span class="hl-dim">├──</span> <span class="hl-field">Kurdish (ku)</span>    <span class="hl-note">Manual — teaching content</span>
+<span class="hl-dim">└──</span> <span class="hl-field">Deutsch (de)</span>    <span class="hl-note">Manual — translation source</span>
+
+    <span class="hl-dim">│</span>
+    <span class="hl-dim">▼</span>
+
+<span class="hl-table">AI TRANSLATION ENGINE</span>
+<span class="hl-dim">├──</span> Source: <span class="hl-field">DE text</span>
+<span class="hl-dim">├──</span> Model: configurable (GPT-4, Claude, etc.)
+<span class="hl-dim">└──</span> Output: <span class="hl-type">per-field translations</span>
+
+    <span class="hl-dim">│</span>
+    <span class="hl-dim">▼</span>
+
+<span class="hl-table">GENERATED TRANSLATIONS</span>
+<span class="hl-dim">├──</span> <span class="hl-field">en</span>  English      <span class="hl-note">from DE</span>
+<span class="hl-dim">├──</span> <span class="hl-field">sv</span>  Svenska      <span class="hl-note">from DE</span>
+<span class="hl-dim">├──</span> <span class="hl-field">da</span>  Dansk        <span class="hl-note">from DE</span>
+<span class="hl-dim">├──</span> <span class="hl-field">it</span>  Italiano     <span class="hl-note">from DE</span>
+<span class="hl-dim">├──</span> <span class="hl-field">tr</span>  Türkçe       <span class="hl-note">from DE</span>
+<span class="hl-dim">├──</span> <span class="hl-field">fa</span>  فارسی        <span class="hl-note">from DE (RTL)</span>
+<span class="hl-dim">└──</span> <span class="hl-field">ar</span>  العربية       <span class="hl-note">from DE (RTL)</span>
+
+    <span class="hl-dim">│</span>
+    <span class="hl-dim">▼</span>
+
+<span class="hl-table">TEACHER REVIEW</span>
+<span class="hl-dim">└──</span> Pre-filled, editable, all-in-one form</div>
+      </div>
+
+      <div class="ml-card">
+        <h3>Teacher Screen Requirements</h3>
+        <ul>
+          <li><strong>Per-field language inputs</strong> — Each translatable field shows DE (always) + other language chips that expand</li>
+          <li><strong>Auto-translate button</strong> — Triggers AI translation from DE for the current field or entire activity</li>
+          <li><strong>Color-coded chips</strong> — DE <span style="color:#9A6530;font-weight:700;">brown</span>, EN <span style="color:#3B7A8A;font-weight:700;">teal</span>, others in their respective colors</li>
+          <li><strong>Validation</strong> — Warn if DE translation is missing (can't auto-translate without it)</li>
+          <li><strong>Bulk translate</strong> — "Translate all fields to all languages" button for efficiency</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 6: Data Model — All Language Fields
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle" onclick="toggleSection(this)">
+      <span class="ml-section-title">Data Model — Language Fields Across Tables</span>
+      <span class="ml-section-count">Where language lives</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body">
+
+      <div class="ml-card">
+        <h3>User Language Settings</h3>
+        <table class="ml-table">
+          <thead>
+            <tr><th>Table</th><th>Field</th><th>Type</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>users</code></td>
+              <td><code>language</code></td>
+              <td><code>string(5)</code></td>
+              <td>User's selected language — controls UI + content. Default: <code>"de"</code></td>
+            </tr>
+            <tr>
+              <td><code>app_settings</code></td>
+              <td><code>default_language</code></td>
+              <td><code>string(5)</code></td>
+              <td>App-wide default for new registrations. <code>"de"</code></td>
+            </tr>
+            <tr>
+              <td><code>app_settings</code></td>
+              <td><code>supported_languages</code></td>
+              <td><code>JSON</code></td>
+              <td>Array of enabled language codes: <code>["de","en","sv","da","it","tr","fa","ar"]</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ml-card">
+        <h3>Content Translation Fields</h3>
+        <p>These fields use inline multi-lang JSON objects (not separate columns per language):</p>
+        <table class="ml-table">
+          <thead>
+            <tr><th>Table</th><th>Field</th><th>Storage</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>activities</code></td>
+              <td><code>content</code> (JSON)</td>
+              <td>Translatable subfields</td>
+              <td><code>content.translation.de</code>, <code>.en</code>, ...</td>
+            </tr>
+            <tr>
+              <td><code>lessons</code></td>
+              <td><code>metadata</code> (JSON)</td>
+              <td>Translatable subfields</td>
+              <td><code>metadata.subtitle.de</code>, <code>.en</code>, ...</td>
+            </tr>
+            <tr>
+              <td><code>lessons</code></td>
+              <td><code>learning_objective</code></td>
+              <td>JSON multi-lang</td>
+              <td><code>{"de": "...", "en": "..."}</code></td>
+            </tr>
+            <tr>
+              <td><code>units</code></td>
+              <td><code>metadata</code> (JSON)</td>
+              <td>Translatable subfields</td>
+              <td><code>metadata.subtitle.de</code>, <code>.en</code>, ...</td>
+            </tr>
+            <tr>
+              <td><code>materials</code></td>
+              <td><code>metadata</code> (JSON)</td>
+              <td>Translations, alt text</td>
+              <td><code>metadata.translations.de</code>, <code>.en</code>, ...</td>
+            </tr>
+            <tr>
+              <td><code>badges</code></td>
+              <td><code>name</code>, <code>description</code></td>
+              <td>JSON multi-lang</td>
+              <td><code>{"de": "Erste Lektion", "en": "First Lesson"}</code></td>
+            </tr>
+            <tr>
+              <td><code>notifications</code></td>
+              <td><code>title</code>, <code>message</code></td>
+              <td>JSON multi-lang</td>
+              <td>Generated in user's language at send time</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ml-card">
+        <h3>Entity Relationship — Language Flow</h3>
+        <div class="dm-diagram"><span class="hl-table">users</span>
+<span class="hl-dim">│</span>  <span class="hl-field">.language</span> = <span class="hl-type">"de"</span>
+<span class="hl-dim">│</span>
+<span class="hl-dim">├──&gt;</span> <span class="hl-table">UI Rendering</span>
+<span class="hl-dim">│</span>     Buttons, labels, nav, errors
+<span class="hl-dim">│</span>     Source: <span class="hl-field">i18n locale files</span>
+<span class="hl-dim">│</span>
+<span class="hl-dim">├──&gt;</span> <span class="hl-table">Lesson Content</span>
+<span class="hl-dim">│</span>     <span class="hl-field">t(activity.content.translation)</span> &rarr; picks <span class="hl-type">"de"</span>
+<span class="hl-dim">│</span>     <span class="hl-field">t(lesson.metadata.subtitle)</span>     &rarr; picks <span class="hl-type">"de"</span>
+<span class="hl-dim">│</span>     <span class="hl-field">t(lesson.learningObjective)</span>     &rarr; picks <span class="hl-type">"de"</span>
+<span class="hl-dim">│</span>
+<span class="hl-dim">├──&gt;</span> <span class="hl-table">Notifications</span>
+<span class="hl-dim">│</span>     Generated in user's <span class="hl-type">"de"</span> at send time
+<span class="hl-dim">│</span>
+<span class="hl-dim">└──&gt;</span> <span class="hl-table">AI Recommendations</span>
+      Reason text in user's <span class="hl-type">"de"</span></div>
+      </div>
+
+      <a href="data-model.html" class="link-card">
+        <div class="link-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div class="link-card-text">
+          <div class="link-card-title">Data Model — Full Table Schemas</div>
+          <div class="link-card-desc">All 39 tables with column types, constraints, and relationships.</div>
+        </div>
+        <svg class="link-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 7: Resolution & Fallback
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle" onclick="toggleSection(this)">
+      <span class="ml-section-title">Resolution &amp; Fallback Chain</span>
+      <span class="ml-section-count">t() helper</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body">
+
+      <div class="ml-card">
+        <h3>Language Resolution</h3>
+        <table class="ml-table">
+          <thead>
+            <tr><th>Context</th><th>Source</th><th>API</th><th>Default</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Public pages <span class="ml-badge ml-badge-public">Client</span></td>
+              <td><code>localStorage: hk-lang</code></td>
+              <td><code>HK.getLang()</code></td>
+              <td><code>"de"</code></td>
+            </tr>
+            <tr>
+              <td>Logged-in <span class="ml-badge ml-badge-db">DB</span></td>
+              <td><code>users.language</code></td>
+              <td>API response / JWT payload</td>
+              <td><code>"de"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ml-card">
+        <h3>Fallback Chain</h3>
+        <p>When a translation is missing for the user's locale, the <code>t()</code> helper falls through this chain:</p>
+        <div class="ml-code">
+<span class="fn">function</span> <span class="fn">t</span>(val) {
+  <span class="fn">if</span> (!val) <span class="fn">return</span> <span class="str">''</span>;
+  <span class="fn">if</span> (<span class="fn">typeof</span> val === <span class="str">'string'</span>) <span class="fn">return</span> val;     <span class="comment">// Legacy single-string</span>
+  <span class="fn">var</span> locale = getLocale();                    <span class="comment">// DB or localStorage</span>
+  <span class="fn">return</span> val[locale]                           <span class="comment">// 1. User's language</span>
+      || val[<span class="str">'de'</span>]                              <span class="comment">// 2. German (primary support)</span>
+      || val[<span class="str">'en'</span>]                              <span class="comment">// 3. English</span>
+      || Object.<span class="fn">values</span>(val)[0]                  <span class="comment">// 4. First available</span>
+      || <span class="str">''</span>;                                    <span class="comment">// 5. Empty string</span>
+}
+        </div>
+        <div class="ml-callout">
+          <strong>DE before EN in fallback.</strong> Since DE is always manually written by Mamoste, it's the most reliable translation. EN may be AI-generated. If both are missing, take whatever's available.
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <h3>Architecture Decision: Why Inline Objects</h3>
+        <ul>
+          <li><strong>Single source of truth</strong> — One JSON file per unit, all languages together</li>
+          <li><strong>No sync issues</strong> — Adding a new activity auto-includes all languages</li>
+          <li><strong>Teacher-friendly</strong> — Mamoste sees all translations in one edit form</li>
+          <li><strong>Whitelabel-safe</strong> — Boilerplate buyers can add/remove languages without restructuring</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 8: Screen Implementation Status
+       ============================================================ -->
+  <div class="ml-section">
+    <button class="ml-section-toggle collapsed" onclick="toggleSection(this)">
+      <span class="ml-section-title">Screen Implementation Status</span>
+      <svg class="ml-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ml-section-body collapsed">
+
+      <div class="ml-status-grid">
+        <div class="ml-status-card">
+          <h4>S5 — Lesson View <span class="ml-badge ml-badge-teaching">Done</span></h4>
+          <p>Uses <code>t()</code> for <code>metadata.subtitle</code> and <code>learningObjective</code>. Locale from <code>HK.getLang()</code>.</p>
+        </div>
+        <div class="ml-status-card">
+          <h4>S6 — Lesson Player <span class="ml-badge ml-badge-teaching">Done</span></h4>
+          <p>Full multi-lang: <code>t()</code>, <code>tOption()</code>, <code>getLangLabel()</code>. All 6 activity types render in user's locale.</p>
+        </div>
+        <div class="ml-status-card">
+          <h4>T5 — Activity Editor <span class="ml-badge ml-badge-teaching">Done</span></h4>
+          <p>Per-language edit fields with color-coded DE/EN chip tags. Uses <code>EDIT_LANGS</code>, <code>addLangField()</code>.</p>
+        </div>
+        <div class="ml-status-card">
+          <h4>S4 — Unit View <span class="ml-badge ml-badge-teaching">Done</span></h4>
+          <p>Reads <code>metadata.subtitle</code> with fallback to string.</p>
+        </div>
+        <div class="ml-status-card">
+          <h4>T4 — Lesson Editor <span class="ml-badge ml-badge-teaching">Done</span></h4>
+          <p>Reads <code>metadata.subtitle</code> with fallback.</p>
+        </div>
+        <div class="ml-status-card">
+          <h4>Header — Language Picker <span class="ml-badge ml-badge-teaching">Done</span></h4>
+          <p>9 languages. Saves to <code>hk-lang</code>. Fires <code>hk-lang-change</code> event.</p>
+        </div>
+      </div>
+
+      <div class="ml-card" style="margin-top: 16px;">
+        <h3>Not Yet Implemented</h3>
+        <ul>
+          <li><strong>UI text / labels</strong> — Buttons, headings, navigation still hardcoded</li>
+          <li><strong>S1 Dashboard</strong> — Static text, no <code>t()</code> helper yet</li>
+          <li><strong>Public pages (P1–P8)</strong> — All text hardcoded, no locale switching</li>
+          <li><strong>Error messages</strong> — Not localized</li>
+          <li><strong>AI auto-translate</strong> — Teacher screen button not wired up yet</li>
+          <li><strong>Registration language picker</strong> — Not implemented yet</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Shared Footer -->
+<script src="shared/header.js"></script>
+<script>
+  function toggleSection(btn) {
+    btn.classList.toggle('collapsed');
+    var body = btn.nextElementSibling;
+    body.classList.toggle('collapsed');
+  }
+</script>
+</body>
+</html>

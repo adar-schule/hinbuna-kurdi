@@ -29,7 +29,7 @@ Our goal is to create a professional, scalable learning platform that can be:
 
 | Role | Person | Responsibilities |
 |------|--------|------------------|
-| Project Lead & Engineer | Nuri | Full-stack development, DevOps, architecture |
+| Project Lead & Engineer | Armanc (Nuri Armanç Engin) | Full-stack development, DevOps, architecture |
 | Frontend & UX | Gule | User interface, user experience design |
 | Content & Curriculum | Mamoste | Language materials, lesson content, translations |
 
@@ -53,25 +53,26 @@ Our goal is to create a professional, scalable learning platform that can be:
 
 ### For Learners
 - Structured lessons following CEFR levels (A1, A2, B1...)
-- Interactive exercises (multiple choice, gap-fill, matching)
-- Progress tracking (XP points, streaks)
+- Interactive exercises (flashcard, reading, MCQ, gap-fill, matching, word order, listening)
+- Progress tracking (streaks, completion stats)
+- Kurdish TTS audio on every word and sentence
 - Mobile-friendly interface
 
 ### For Teachers/Admins
 - Dashboard with student overview
 - Content management (lessons, materials)
 - Progress monitoring per student
+- Class management and assignments
 
 ---
 
-## Timeline
+## MVP Scope
 
-**MVP Launch:** 2 months
-**MVP Scope:**
-- Content: As much as Mamoste provides (minimum A1 content)
+- Content: Kurmancî A1 (8 units, 25 lessons from Mamoste's materials)
 - Core learning flow (lessons, exercises, progress tracking)
 - Basic user management (auth, profile, dashboard)
 - Teacher dashboard (content management, student overview)
+- Kurdish TTS audio integration (via kurdishtts.com)
 
 ---
 
@@ -83,12 +84,51 @@ Our goal is to create a professional, scalable learning platform that can be:
 
 ---
 
+## App Ecosystem
+
+Hinbuna Kurdi is part of a broader ecosystem of Kurdish language tools sharing a single user identity.
+
+### Main Platform
+
+- **Hinbuna Kurdi** -- the core learning app
+- Starting with **Kurmanji dialect** (A1-B1)
+- **Sorani dialect** expansion planned after Kurmanji succeeds
+
+### Side Apps (Companion Apps)
+
+- Ezmuna Asta Kurdi -- test your Kurdish level across multiple dialects
+- Dictionary
+- Short Stories
+- Grammar Exercises
+- Grammar Puzzles
+- TTS (Text-to-Speech tool)
+- Kurdish Corpus (expert-curated language dataset)
+
+### Shared Infrastructure
+
+- Single SSO across all apps (shared Auth API + Users DB)
+- Shared user settings and personalization
+- Accessible via header dropdown in any app
+- See [03-tech-stack.md](./03-tech-stack.md) for SSO architecture details
+
+### Strategy
+
+- Main app first, then add side apps one by one
+- Each app is standalone but benefits from shared user data
+- White-label / B2B: the whole ecosystem can be licensed
+
+---
+
 ## Technology
 
+→ See [03-tech-stack.md](./03-tech-stack.md) for full architecture details.
+
+- **Stack:** NestJS + React + PostgreSQL on AWS
 - **Mobile-first** web application
 - **Industry standards:** SCORM/xAPI compatible, CEFR-aligned content
-- **Cloud hosted** on AWS
 - **Multi-app ready:** SSO across future companion apps
+- **AI-powered:** Personalized learning, spaced repetition, engagement tracking
+- **Kurdish TTS/STT:** via [kurdishtts.com](https://www.kurdishtts.com)
 
 ---
 

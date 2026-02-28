@@ -64,155 +64,20 @@
 
 ---
 
-## Database Schema
+## Database
 
-### Entity Relationship
+→ **Full schema (46 tables) + ERD diagrams:** See [04-data-model-design.md](./04-data-model-design.md)
+→ **Multi-language architecture:** See [09-multi-lang-architecture.md](./09-multi-lang-architecture.md)
 
-```
-users
-├── id (UUID)
-├── email
-├── password_hash
-├── display_name
-├── role (student | teacher | admin)
-├── ui_language (de | en | ku)
-├── xp (integer)
-├── streak (integer)
-└── created_at, updated_at
-
-courses
-├── id (UUID)
-├── title (JSONB: {de, en, ku})
-├── description (JSONB)
-├── dialect (kurmanji | sorani)
-├── status (draft | published)
-└── created_at, updated_at
-
-modules
-├── id (UUID)
-├── course_id (FK)
-├── title (JSONB)
-├── cefr_level (A1 | A2 | B1 | B2 | C1 | C2)
-├── order (integer)
-└── created_at, updated_at
-
-units
-├── id (UUID)
-├── module_id (FK)
-├── title (JSONB)
-├── description (JSONB)
-├── order (integer)
-└── created_at, updated_at
-
-lessons
-├── id (UUID)
-├── unit_id (FK)
-├── title (JSONB)
-├── learning_objective (JSONB)
-├── order (integer)
-├── duration_minutes (integer)
-└── created_at, updated_at
-
-activities
-├── id (UUID)
-├── lesson_id (FK)
-├── type (mcq | gap_fill | matching | word_order | reading | listening)
-├── prompt (JSONB)
-├── options (JSONB array)
-├── answer_key (JSONB)
-├── explanation (JSONB)
-├── xp_value (integer)
-├── order (integer)
-└── created_at, updated_at
-
-materials
-├── id (UUID)
-├── type (text | audio | image)
-├── title (JSONB)
-├── content_url (string)
-├── tags (string array)
-├── uploaded_by (FK users)
-└── created_at, updated_at
-
-activity_materials (junction)
-├── activity_id (FK)
-└── material_id (FK)
-
-user_progress
-├── id (UUID)
-├── user_id (FK)
-├── lesson_id (FK)
-├── completed_at (timestamp)
-├── score (integer)
-├── time_spent_seconds (integer)
-└── created_at
-```
-
-### JSONB for Multilingual Content
-
-All user-facing text stored as JSONB:
-```json
-{
-  "de": "Begrüßung",
-  "en": "Greetings",
-  "ku": "Silav"
-}
-```
+**Key facts:**
+- PostgreSQL with UUID primary keys
+- 46 tables across 12 domains (Content, Users, Subscriptions, Progress, Teacher, Notifications, Badges, Comments, Audit, AI Core, AI Premium, Multi-Language)
+- Roles & permissions via `roles` + `user_roles` tables (not a column on users)
+- Content hierarchy: Course → Module → Unit → Lesson → Activity → Material
 
 ---
 
-## API Structure (NestJS)
-
-### Modules
-
-```
-src/
-├── auth/           # JWT, login, register, SSO
-├── users/          # User CRUD, profile
-├── courses/        # Course management
-├── modules/        # Module (CEFR levels)
-├── units/          # Unit management
-├── lessons/        # Lesson management
-├── activities/     # Exercise types
-├── materials/      # File uploads, content
-├── progress/       # User progress tracking
-└── common/         # Shared utilities, guards, decorators
-```
-
-### Key Endpoints
-
-```
-# Auth
-POST   /auth/register
-POST   /auth/login
-POST   /auth/refresh
-GET    /auth/me
-
-# Courses (public)
-GET    /courses
-GET    /courses/:id
-GET    /courses/:id/modules
-
-# Learning Flow
-GET    /modules/:id/units
-GET    /units/:id/lessons
-GET    /lessons/:id/activities
-
-# Progress (authenticated)
-POST   /progress/complete
-GET    /progress/dashboard
-
-# Teacher/Admin
-GET    /teacher/students
-GET    /teacher/students/:id/progress
-POST   /teacher/lessons
-PUT    /teacher/lessons/:id
-POST   /teacher/materials/upload
-```
-
----
-
-## Authentication Flow
+## Authentication
 
 ### Multi-App SSO Design
 
@@ -235,40 +100,15 @@ POST   /teacher/materials/upload
               └─────────────┘
 ```
 
-### JWT Structure
-
-```json
-{
-  "sub": "user-uuid",
-  "email": "user@example.com",
-  "role": "student",
-  "apps": ["hinbuna", "dictionary"],
-  "iat": 1234567890,
-  "exp": 1234571490
-}
-```
+- Custom JWT + Passport.js (or KeyCloak)
+- Roles & permissions system → See [04-data-model-design.md](./04-data-model-design.md#users--auth-5-tables)
+- Shared user DB across all side apps
 
 ---
 
-## Frontend Structure (React)
+## Project Structure
 
-```
-src/
-├── components/
-│   ├── common/        # Button, Card, Input, etc.
-│   ├── layout/        # Header, Footer, Navigation
-│   ├── learning/      # LessonCard, ActivityRunner, ProgressBar
-│   └── teacher/       # Dashboard components
-├── pages/
-│   ├── public/        # Home, About, Auth
-│   ├── student/       # Dashboard, Lessons, Profile
-│   └── teacher/       # Admin dashboard, Content management
-├── hooks/             # Custom React hooks
-├── services/          # API calls
-├── store/             # State management (Zustand or Redux)
-├── i18n/              # Internationalization (de, en, ku)
-└── utils/             # Helpers
-```
+→ See repo [CLAUDE.md](../CLAUDE.md) for backend/frontend folder structure and commands.
 
 ---
 
@@ -310,56 +150,4 @@ src/
 
 ## Development Setup
 
-### Prerequisites
-- Node.js 20+
-- PostgreSQL 15+
-- AWS CLI configured
-
-### Commands
-```bash
-# Backend
-cd backend
-npm install
-npm run start:dev
-
-# Frontend
-cd frontend
-npm install
-npm run dev
-
-# Database
-npm run migration:run
-npm run seed
-```
-
----
-
-## Environment Variables
-
-```env
-# Database
-DATABASE_URL=postgresql://user:pass@localhost:5432/hinbuna
-
-# Auth
-JWT_SECRET=your-secret-key
-JWT_EXPIRES_IN=7d
-
-# AWS
-AWS_REGION=eu-central-1
-AWS_S3_BUCKET=hinbuna-media
-
-# App
-NODE_ENV=development
-API_URL=http://localhost:3000
-```
-
----
-
-## Next Steps
-
-1. [ ] Initialize NestJS project with modules
-2. [ ] Set up PostgreSQL with migrations
-3. [ ] Create React project with Tailwind
-4. [ ] Implement auth flow
-5. [ ] Build lesson display and activity runner
-6. [ ] Teacher dashboard basics
+→ See repo [CLAUDE.md](../CLAUDE.md) for prerequisites, commands, and environment variables.
