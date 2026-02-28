@@ -67,7 +67,7 @@
 ## Database
 
 → **Full schema (46 tables) + ERD diagrams:** See [04-data-model-design.md](./04-data-model-design.md)
-→ **Multi-language architecture:** See [09-multi-lang-architecture.md](./09-multi-lang-architecture.md)
+→ **Multi-language architecture:** See [multi-lang.html](../mockup/multi-lang.html) (visual overview) and multi-lang tables in [04-data-model-design.md](./04-data-model-design.md)
 
 **Key facts:**
 - PostgreSQL with UUID primary keys

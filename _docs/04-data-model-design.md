@@ -104,7 +104,7 @@ Generic LMS data model designed to support:
 | created_at | timestamp | |
 | updated_at | timestamp | |
 
-> **Multi-language note:** Activities use JSONB with language keys (Pattern D) rather than a separate translation table, because activity content is deeply nested and variable per type. Example: `{"question": {"ku": "Navê te çi ye?", "de": "Wie heißt du?"}, "options": [{"ku": "...", "de": "..."}]}`. See [09-multi-lang-architecture.md](./09-multi-lang-architecture.md) for rationale.
+> **Multi-language note:** Activities use JSONB with language keys (Pattern D) rather than a separate translation table, because activity content is deeply nested and variable per type. Example: `{"question": {"ku": "Navê te çi ye?", "de": "Wie heißt du?"}, "options": [{"ku": "...", "de": "..."}]}`. See [multi-lang.html](../mockup/multi-lang.html) for architecture overview.
 
 ### materials
 
@@ -1186,7 +1186,7 @@ User-created characters for story mode and conversation practice.
 
 Supports the hybrid translation architecture (Pattern C + D). Flat text fields on content entities use per-entity translation tables (Pattern C). Nested structured content like activity questions uses JSONB with language keys (Pattern D, already in `activities.content`).
 
-> **Architecture rationale:** See [09-multi-lang-architecture.md](./09-multi-lang-architecture.md) for the full research, pattern comparison, and design decisions.
+> **Architecture rationale:** See [multi-lang.html](../mockup/multi-lang.html) for the full architecture overview and design decisions.
 
 ### supported_locales
 

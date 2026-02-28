@@ -3,7 +3,7 @@
 **Source:** `_material/von Mamoste/` (24 docx files, 23 unique + 1 duplicate)
 **Last Updated:** February 2026
 
-> **TODO:** Adapt for multi-lang architecture (→ See [09-multi-lang-architecture.md](./09-multi-lang-architecture.md)) and SaaS/white-label reusability.
+> **TODO:** Adapt for multi-lang architecture (→ See [multi-lang.html](../mockup/multi-lang.html)) and SaaS/white-label reusability.
 
 ---
 
