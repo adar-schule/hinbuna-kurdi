@@ -122,6 +122,12 @@
       '<path d="M14 18h6"/>' +
     '</svg>';
 
+  var NAV_ICON_DOCS =
+    '<svg class="nav-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>' +
+      '<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>' +
+    '</svg>';
+
   var NAV_ICON_DATAMODEL =
     '<svg class="nav-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
       '<ellipse cx="12" cy="6" rx="8" ry="3.5"/>' +
@@ -173,14 +179,15 @@
     html += '<div class="header-actions">';
 
     // Dev page controls (play button, nav links, hamburger)
-    if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes' || pageType === 'data-model' || pageType === 'multi-lang') {
+    if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes' || pageType === 'data-model' || pageType === 'multi-lang' || pageType === 'docs') {
       var navItems = [
-        { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Gallery',    title: 'Design Gallery' },
-        { id: 'onboarding',           href: 'onboarding.html',           icon: NAV_ICON_ONBOARDING,  label: 'Onboarding', title: 'Developer Onboarding Guide' },
-        { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components', title: 'Component Library' },
-        { id: 'data-model',          href: 'data-model.html',           icon: NAV_ICON_DATAMODEL,   label: 'Data',       title: 'Data Model Overview' },
-        { id: 'multi-lang',          href: 'multi-lang.html',           icon: NAV_ICON_MULTILANG,   label: 'Multi-Lang', title: 'Multi-Language System' },
-        { id: 'implementation-notes', href: 'implementation-notes.html',  icon: NAV_ICON_NOTES,       label: 'Notes',      title: 'Implementation Notes' }
+        { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Gallery',       title: 'Design Gallery',             inline: true },
+        { id: 'onboarding',           href: 'onboarding.html',           icon: NAV_ICON_ONBOARDING,  label: 'Onboarding',    title: 'Developer Onboarding Guide', inline: false },
+        { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components',    title: 'Component Library',          inline: false },
+        { id: 'data-model',          href: 'data-model.html',           icon: NAV_ICON_DATAMODEL,   label: 'Data',          title: 'Data Model Overview',        inline: true },
+        { id: 'multi-lang',          href: 'multi-lang.html',           icon: NAV_ICON_MULTILANG,   label: 'Multi-Lang',    title: 'Multi-Language System',      inline: true },
+        { id: 'docs',                href: 'docs.html',                icon: NAV_ICON_DOCS,        label: 'Docs',          title: 'Project Documentation',      inline: true },
+        { id: 'implementation-notes', href: 'implementation-notes.html',  icon: NAV_ICON_NOTES,       label: 'Future Notes', title: 'Implementation Notes',       inline: false }
       ];
 
       // Play/Preview button — primary action, always visible
@@ -188,10 +195,11 @@
       html += NAV_ICON_PLAY;
       html += '</a>';
 
-      // Inline nav links (visible on desktop, hidden on mobile)
+      // Inline nav links (visible on desktop, hidden on mobile) — only inline items
       html += '<div class="header-nav-inline">';
       for (var n = 0; n < navItems.length; n++) {
         var item = navItems[n];
+        if (!item.inline) continue;
         var isActive = (item.id === pageType);
         if (isActive) {
           html += '<span class="header-nav-link header-nav-link--active" title="' + item.title + '">' + item.icon + '<span class="nav-link-text">' + item.label + '</span></span>';
@@ -207,16 +215,17 @@
       html += CLOSE_SVG;
       html += '</button>';
 
-      // Mobile dropdown menu
+      // Dropdown menu (all items; inline items get data-inline for CSS hiding on desktop)
       html += '<div class="dev-nav-backdrop" id="dev-nav-backdrop"></div>';
       html += '<div class="dev-nav-dropdown" id="dev-nav-dropdown">';
       for (var m = 0; m < navItems.length; m++) {
         var mItem = navItems[m];
         var mIsActive = (mItem.id === pageType);
+        var inlineAttr = mItem.inline ? ' data-inline="true"' : '';
         if (mIsActive) {
-          html += '<span class="dev-nav-item dev-nav-item--active">' + mItem.icon + '<span>' + mItem.label + '</span></span>';
+          html += '<span class="dev-nav-item dev-nav-item--active"' + inlineAttr + '>' + mItem.icon + '<span>' + mItem.label + '</span></span>';
         } else {
-          html += '<a href="' + mItem.href + '" class="dev-nav-item">' + mItem.icon + '<span>' + mItem.label + '</span></a>';
+          html += '<a href="' + mItem.href + '" class="dev-nav-item"' + inlineAttr + '>' + mItem.icon + '<span>' + mItem.label + '</span></a>';
         }
       }
       html += '</div>';
@@ -263,6 +272,7 @@
     if (pageType === 'implementation-notes') return 'index.html';
     if (pageType === 'data-model') return 'index.html';
     if (pageType === 'multi-lang') return 'index.html';
+    if (pageType === 'docs') return 'index.html';
     return '#';
   }
 

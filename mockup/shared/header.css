@@ -368,7 +368,7 @@
    HAMBURGER BUTTON (dev pages, mobile only)
    ============================================ */
 .header-hamburger-btn {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 36px;
@@ -423,12 +423,7 @@
   background-color: rgba(245, 238, 230, 0.08);
 }
 
-/* Show hamburger on mobile only */
-@media (max-width: 639px) {
-  .header-hamburger-btn {
-    display: flex;
-  }
-}
+/* Hamburger is always visible (display: flex in base rule) */
 
 /* ============================================
    DEV NAV DROPDOWN (mobile hamburger menu)
@@ -541,12 +536,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Only show dropdown on mobile */
+/* On desktop, hide dropdown items that are already shown inline */
 @media (min-width: 640px) {
-  .dev-nav-dropdown,
-  .dev-nav-backdrop,
-  .header-hamburger-btn {
-    display: none !important;
+  .dev-nav-item[data-inline="true"] {
+    display: none;
   }
 }
 

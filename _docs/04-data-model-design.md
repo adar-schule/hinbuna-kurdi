@@ -1214,6 +1214,10 @@ Language registry for the deployment. Controls which languages are available.
 | locale | string(10) | |
 | name | string(500) | |
 | description | text | nullable |
+| translation_source | enum | human, machine, machine_edited |
+| source_locale | string(10) | nullable — which locale this was translated from |
+| translated_by | UUID | nullable — FK → users (human) or null (API) |
+| reviewed_at | timestamp | nullable — when a human last reviewed |
 
 **Unique constraint:** (course_id, locale)
 
@@ -1226,6 +1230,10 @@ Language registry for the deployment. Controls which languages are available.
 | locale | string(10) | |
 | name | string(500) | |
 | description | text | nullable |
+| translation_source | enum | human, machine, machine_edited |
+| source_locale | string(10) | nullable |
+| translated_by | UUID | nullable — FK → users |
+| reviewed_at | timestamp | nullable |
 
 **Unique constraint:** (module_id, locale)
 
@@ -1238,6 +1246,10 @@ Language registry for the deployment. Controls which languages are available.
 | locale | string(10) | |
 | name | string(500) | |
 | description | text | nullable |
+| translation_source | enum | human, machine, machine_edited |
+| source_locale | string(10) | nullable |
+| translated_by | UUID | nullable — FK → users |
+| reviewed_at | timestamp | nullable |
 
 **Unique constraint:** (unit_id, locale)
 
@@ -1251,6 +1263,10 @@ Language registry for the deployment. Controls which languages are available.
 | name | string(500) | |
 | description | text | nullable |
 | learning_objective | text | nullable |
+| translation_source | enum | human, machine, machine_edited |
+| source_locale | string(10) | nullable |
+| translated_by | UUID | nullable — FK → users |
+| reviewed_at | timestamp | nullable |
 
 **Unique constraint:** (lesson_id, locale)
 
@@ -1282,6 +1298,10 @@ erDiagram
         string locale
         string name
         text description
+        enum translation_source
+        string source_locale
+        uuid translated_by FK
+        timestamp reviewed_at
     }
 
     module_translations {
@@ -1290,6 +1310,10 @@ erDiagram
         string locale
         string name
         text description
+        enum translation_source
+        string source_locale
+        uuid translated_by FK
+        timestamp reviewed_at
     }
 
     unit_translations {
@@ -1298,6 +1322,10 @@ erDiagram
         string locale
         string name
         text description
+        enum translation_source
+        string source_locale
+        uuid translated_by FK
+        timestamp reviewed_at
     }
 
     lesson_translations {
@@ -1307,6 +1335,10 @@ erDiagram
         string name
         text description
         text learning_objective
+        enum translation_source
+        string source_locale
+        uuid translated_by FK
+        timestamp reviewed_at
     }
 ```
 
@@ -1382,6 +1414,28 @@ users (1) ──< ai_generated_content (N)
 users (1) ──< user_characters (N)
 user_characters (1) ──< ai_conversations (N)
 ```
+
+---
+
+## Leftovers from HTML (to decide)
+
+Items from `data-model.html` that don't yet have a schema definition in this doc:
+
+### personalized_feed
+
+- Referenced in HTML AI Layer 4 (Act) as "Personalized content feed for each user" with badge "core"
+- **Status:** Needs schema definition or decision to remove
+- **Question:** Is this a real table or a computed view? What columns? If it's a materialized view built from `ai_recommendations` + `spaced_repetition_items` + `user_skills`, it might not need its own table. If it stores persistent per-user feed state (e.g., dismissed items, position), it needs a schema.
+
+### HTML overview counts are stale
+
+- The HTML page header says "39 tables across 11 domains" — this doc now has **46 tables across 12 domains** (after adding Multi-Language/Translations domain with 5 tables and expanding Users & Auth from 3 to 5 tables).
+- **Action:** Update `data-model.html` to match current counts (46 tables, 12 domains), and add the Multi-Language domain card to the overview grid.
+
+### AI Feature Tiers section (HTML Section 4)
+
+- The HTML has a dedicated "AI Feature Tiers" section with two cards: Core AI (6 bullet points) and Premium AI (4 bullet points). This content is a useful summary but is not duplicated in this doc — it's derived from the AI Core (11 tables) and AI Premium (3 tables) sections above.
+- **Status:** No action needed in this doc. The HTML serves as the visual overview. But `personalized_feed` should either get a schema here or be removed from the HTML.
 
 ---
 

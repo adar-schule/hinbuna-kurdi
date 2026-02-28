@@ -902,7 +902,7 @@
         </div>
         <div class="hero-box-detail">
           <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          <span>Stored in <code style="border:none;background:none;padding:0;font-size:12px;">users.language</code> (PostgreSQL)</span>
+          <span>Stored in <code style="border:none;background:none;padding:0;font-size:12px;">users</code> table — 4 locale fields (PostgreSQL)</span>
         </div>
         <div class="hero-box-detail">
           <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
@@ -910,22 +910,30 @@
         </div>
         <div class="hero-box-detail">
           <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          <span>Controls both UI text + lesson content</span>
+          <span>UI locale + content locale + immersion mode (separate controls)</span>
         </div>
       </div>
 
     </div>
 
     <!-- What the logged-in language controls -->
-    <div class="hero-label" style="margin-bottom:12px;">User language propagates to</div>
+    <div class="hero-label" style="margin-bottom:12px;">User locale fields propagate to</div>
     <div class="hero-propagation">
-      <span class="hero-prop-item hero-prop-item--highlight">users.language</span>
+      <span class="hero-prop-item hero-prop-item--highlight">ui_locale</span>
       <span class="hero-prop-arrow">&rarr;</span>
       <span class="hero-prop-item">UI Labels &amp; Menus</span>
+    </div>
+    <div class="hero-propagation" style="margin-top:8px;">
+      <span class="hero-prop-item hero-prop-item--highlight">content_locale</span>
       <span class="hero-prop-arrow">&rarr;</span>
       <span class="hero-prop-item">Lesson Translations</span>
       <span class="hero-prop-arrow">&rarr;</span>
       <span class="hero-prop-item">Instructions &amp; Hints</span>
+    </div>
+    <div class="hero-propagation" style="margin-top:8px;">
+      <span class="hero-prop-item hero-prop-item--highlight">translations_visible</span>
+      <span class="hero-prop-arrow">&rarr;</span>
+      <span class="hero-prop-item">Immersion Mode (hide translations)</span>
     </div>
 
     <!-- AI Translation pipeline -->
@@ -1099,20 +1107,6 @@
       </div>
 
       <div class="ml-card">
-        <h3>Data Model — <code>users</code> Table</h3>
-        <p>Language is stored as a dedicated column on the users table, not buried in metadata JSON.</p>
-        <div class="dm-diagram"><span class="hl-table">users</span>
-<span class="hl-dim">├──</span> <span class="hl-field">id</span>            <span class="hl-type">UUID</span>       <span class="hl-note">PK</span>
-<span class="hl-dim">├──</span> <span class="hl-field">email</span>         <span class="hl-type">string</span>     <span class="hl-note">unique</span>
-<span class="hl-dim">├──</span> <span class="hl-field">role</span>          <span class="hl-type">enum</span>       <span class="hl-note">student | teacher | admin</span>
-<span class="hl-dim">├──</span> <span class="hl-field">language</span>      <span class="hl-type">string(5)</span>  <span class="hl-note">"de", "en", "tr", ... — default "de"</span>
-<span class="hl-dim">├──</span> <span class="hl-field">first_name</span>    <span class="hl-type">string</span>
-<span class="hl-dim">├──</span> <span class="hl-field">last_name</span>     <span class="hl-type">string</span>
-<span class="hl-dim">├──</span> <span class="hl-field">metadata</span>      <span class="hl-type">JSON</span>       <span class="hl-note">preferences, profile extras</span>
-<span class="hl-dim">└──</span> <span class="hl-field">...</span></div>
-      </div>
-
-      <div class="ml-card">
         <h3>Registration Flow</h3>
         <div class="workflow-steps">
           <div class="workflow-step">
@@ -1133,7 +1127,7 @@
             <span class="workflow-step-num">3</span>
             <div class="workflow-step-content">
               <div class="workflow-step-title">Account created with language</div>
-              <div class="workflow-step-desc">Saved to <code>users.language</code> in PostgreSQL. Overrides localStorage for all logged-in screens.</div>
+              <div class="workflow-step-desc">Saved to <code>users.ui_locale</code> + <code>users.content_locale</code> in PostgreSQL. Overrides localStorage for all logged-in screens.</div>
             </div>
           </div>
           <div class="workflow-step">
@@ -1157,7 +1151,7 @@
         </div>
         <div class="link-card-text">
           <div class="link-card-title">Full Data Model Reference</div>
-          <div class="link-card-desc">See all 39 tables, the users table schema, and entity relationships.</div>
+          <div class="link-card-desc">See all 46 tables, domain explorer, and entity relationships.</div>
         </div>
         <svg class="link-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
       </a>
@@ -1388,97 +1382,121 @@
               <td><code>users</code></td>
               <td><code>language</code></td>
               <td><code>string(5)</code></td>
-              <td>User's selected language — controls UI + content. Default: <code>"de"</code></td>
+              <td>Legacy/primary language preference. Default: <code>"de"</code></td>
+            </tr>
+            <tr>
+              <td><code>users</code></td>
+              <td><code>ui_locale</code></td>
+              <td><code>string(10)</code></td>
+              <td>Controls UI labels, menus, errors (i18n). Default: <code>"de"</code></td>
+            </tr>
+            <tr>
+              <td><code>users</code></td>
+              <td><code>content_locale</code></td>
+              <td><code>string(10)</code></td>
+              <td>Controls lesson translations, instructions. Default: <code>"de"</code></td>
+            </tr>
+            <tr>
+              <td><code>users</code></td>
+              <td><code>translations_visible</code></td>
+              <td><code>boolean</code></td>
+              <td>false = immersion mode (Kurdish only, no translation hints)</td>
             </tr>
             <tr>
               <td><code>app_settings</code></td>
-              <td><code>default_language</code></td>
-              <td><code>string(5)</code></td>
-              <td>App-wide default for new registrations. <code>"de"</code></td>
+              <td><code>source_locale</code></td>
+              <td><code>string(10)</code></td>
+              <td>Language being taught — <code>"ku"</code></td>
             </tr>
             <tr>
               <td><code>app_settings</code></td>
-              <td><code>supported_languages</code></td>
-              <td><code>JSON</code></td>
-              <td>Array of enabled language codes: <code>["de","en","sv","da","it","tr","fa","ar"]</code></td>
+              <td><code>default_locale</code></td>
+              <td><code>string(10)</code></td>
+              <td>Fallback for new users. <code>"de"</code></td>
+            </tr>
+            <tr>
+              <td><code>supported_locales</code></td>
+              <td colspan="2"><em>(separate table)</em></td>
+              <td>Per-locale config: display name, RTL direction, UI chip color, is_source, is_default, is_active, order</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="ml-card">
-        <h3>Content Translation Fields</h3>
-        <p>These fields use inline multi-lang JSON objects (not separate columns per language):</p>
+        <h3>Content Translation — Hybrid C+D</h3>
+        <p>Flat fields (name, description) use <strong>Pattern C</strong> — separate <code>*_translations</code> tables. Nested/variable content uses <strong>Pattern D</strong> — inline JSONB.</p>
         <table class="ml-table">
           <thead>
-            <tr><th>Table</th><th>Field</th><th>Storage</th><th>Example</th></tr>
+            <tr><th>Table</th><th>Field</th><th>Pattern</th><th>How</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>activities</code></td>
-              <td><code>content</code> (JSON)</td>
-              <td>Translatable subfields</td>
-              <td><code>content.translation.de</code>, <code>.en</code>, ...</td>
+              <td><code>courses</code></td>
+              <td>name, description</td>
+              <td><strong>C</strong> — translation table</td>
+              <td><code>course_translations</code> (per locale row)</td>
             </tr>
             <tr>
-              <td><code>lessons</code></td>
-              <td><code>metadata</code> (JSON)</td>
-              <td>Translatable subfields</td>
-              <td><code>metadata.subtitle.de</code>, <code>.en</code>, ...</td>
-            </tr>
-            <tr>
-              <td><code>lessons</code></td>
-              <td><code>learning_objective</code></td>
-              <td>JSON multi-lang</td>
-              <td><code>{"de": "...", "en": "..."}</code></td>
+              <td><code>modules</code></td>
+              <td>name, description</td>
+              <td><strong>C</strong> — translation table</td>
+              <td><code>module_translations</code> (per locale row)</td>
             </tr>
             <tr>
               <td><code>units</code></td>
-              <td><code>metadata</code> (JSON)</td>
-              <td>Translatable subfields</td>
-              <td><code>metadata.subtitle.de</code>, <code>.en</code>, ...</td>
+              <td>name, description</td>
+              <td><strong>C</strong> — translation table</td>
+              <td><code>unit_translations</code> (per locale row)</td>
+            </tr>
+            <tr>
+              <td><code>lessons</code></td>
+              <td>name, description, objective</td>
+              <td><strong>C</strong> — translation table</td>
+              <td><code>lesson_translations</code> (per locale row)</td>
+            </tr>
+            <tr>
+              <td><code>activities</code></td>
+              <td><code>content</code> (JSON)</td>
+              <td><strong>D</strong> — inline JSONB</td>
+              <td><code>content.translation.de</code>, <code>.en</code>, ...</td>
             </tr>
             <tr>
               <td><code>materials</code></td>
               <td><code>metadata</code> (JSON)</td>
-              <td>Translations, alt text</td>
+              <td><strong>D</strong> — inline JSONB</td>
               <td><code>metadata.translations.de</code>, <code>.en</code>, ...</td>
-            </tr>
-            <tr>
-              <td><code>badges</code></td>
-              <td><code>name</code>, <code>description</code></td>
-              <td>JSON multi-lang</td>
-              <td><code>{"de": "Erste Lektion", "en": "First Lesson"}</code></td>
-            </tr>
-            <tr>
-              <td><code>notifications</code></td>
-              <td><code>title</code>, <code>message</code></td>
-              <td>JSON multi-lang</td>
-              <td>Generated in user's language at send time</td>
             </tr>
           </tbody>
         </table>
+        <div class="ml-callout" style="margin-top:12px;">
+          <strong>Translation metadata:</strong> All <code>*_translations</code> tables include <code>translation_source</code> (human/machine/machine_edited), <code>source_locale</code>, <code>translated_by</code>, and <code>reviewed_at</code> — enabling teacher review workflows and translation quality tracking.
+        </div>
       </div>
 
       <div class="ml-card">
         <h3>Entity Relationship — Language Flow</h3>
         <div class="dm-diagram"><span class="hl-table">users</span>
-<span class="hl-dim">│</span>  <span class="hl-field">.language</span> = <span class="hl-type">"de"</span>
+<span class="hl-dim">│</span>  <span class="hl-field">.ui_locale</span> = <span class="hl-type">"de"</span>      <span class="hl-dim">// UI language</span>
+<span class="hl-dim">│</span>  <span class="hl-field">.content_locale</span> = <span class="hl-type">"de"</span> <span class="hl-dim">// lesson translations</span>
+<span class="hl-dim">│</span>  <span class="hl-field">.translations_visible</span> = <span class="hl-type">true</span>
 <span class="hl-dim">│</span>
-<span class="hl-dim">├──&gt;</span> <span class="hl-table">UI Rendering</span>
+<span class="hl-dim">├──&gt;</span> <span class="hl-table">UI Rendering</span> (via <span class="hl-field">ui_locale</span>)
 <span class="hl-dim">│</span>     Buttons, labels, nav, errors
 <span class="hl-dim">│</span>     Source: <span class="hl-field">i18n locale files</span>
 <span class="hl-dim">│</span>
-<span class="hl-dim">├──&gt;</span> <span class="hl-table">Lesson Content</span>
+<span class="hl-dim">├──&gt;</span> <span class="hl-table">Flat Content</span> (via <span class="hl-field">content_locale</span>) — <span class="hl-dim">Pattern C</span>
+<span class="hl-dim">│</span>     <span class="hl-field">course_translations</span> WHERE locale = <span class="hl-type">"de"</span>
+<span class="hl-dim">│</span>     <span class="hl-field">lesson_translations</span> WHERE locale = <span class="hl-type">"de"</span>
+<span class="hl-dim">│</span>
+<span class="hl-dim">├──&gt;</span> <span class="hl-table">Activity Content</span> (via <span class="hl-field">content_locale</span>) — <span class="hl-dim">Pattern D</span>
 <span class="hl-dim">│</span>     <span class="hl-field">t(activity.content.translation)</span> &rarr; picks <span class="hl-type">"de"</span>
-<span class="hl-dim">│</span>     <span class="hl-field">t(lesson.metadata.subtitle)</span>     &rarr; picks <span class="hl-type">"de"</span>
-<span class="hl-dim">│</span>     <span class="hl-field">t(lesson.learningObjective)</span>     &rarr; picks <span class="hl-type">"de"</span>
 <span class="hl-dim">│</span>
 <span class="hl-dim">├──&gt;</span> <span class="hl-table">Notifications</span>
-<span class="hl-dim">│</span>     Generated in user's <span class="hl-type">"de"</span> at send time
+<span class="hl-dim">│</span>     Generated in user's <span class="hl-field">ui_locale</span> at send time
 <span class="hl-dim">│</span>
 <span class="hl-dim">└──&gt;</span> <span class="hl-table">AI Recommendations</span>
-      Reason text in user's <span class="hl-type">"de"</span></div>
+      Reason text in user's <span class="hl-field">ui_locale</span></div>
       </div>
 
       <a href="data-model.html" class="link-card">
@@ -1520,8 +1538,14 @@
               <td><code>"de"</code></td>
             </tr>
             <tr>
-              <td>Logged-in <span class="ml-badge ml-badge-db">DB</span></td>
-              <td><code>users.language</code></td>
+              <td>Logged-in UI <span class="ml-badge ml-badge-db">DB</span></td>
+              <td><code>users.ui_locale</code></td>
+              <td>API response / JWT payload</td>
+              <td><code>"de"</code></td>
+            </tr>
+            <tr>
+              <td>Logged-in Content <span class="ml-badge ml-badge-db">DB</span></td>
+              <td><code>users.content_locale</code></td>
               <td>API response / JWT payload</td>
               <td><code>"de"</code></td>
             </tr>
@@ -1550,12 +1574,12 @@
       </div>
 
       <div class="ml-card">
-        <h3>Architecture Decision: Why Inline Objects</h3>
+        <h3>Architecture Decision: Hybrid C+D</h3>
         <ul>
-          <li><strong>Single source of truth</strong> — One JSON file per unit, all languages together</li>
-          <li><strong>No sync issues</strong> — Adding a new activity auto-includes all languages</li>
-          <li><strong>Teacher-friendly</strong> — Mamoste sees all translations in one edit form</li>
-          <li><strong>Whitelabel-safe</strong> — Boilerplate buyers can add/remove languages without restructuring</li>
+          <li><strong>Pattern C for flat fields</strong> — Separate <code>*_translations</code> tables for courses, modules, units, lessons. Queryable, indexable, industry standard (Moodle, Canvas, Strapi).</li>
+          <li><strong>Pattern D for activities</strong> — Inline JSONB for nested, variable content (MCQ options, gap fill blanks, etc.). Structure varies per activity type.</li>
+          <li><strong>Translation metadata</strong> — Every translation row tracks source (human/machine/machine_edited), who translated, when reviewed. Enables teacher review workflows.</li>
+          <li><strong>Whitelabel-safe</strong> — <code>supported_locales</code> table per deployment. Add/remove languages without schema changes.</li>
         </ul>
       </div>
 
