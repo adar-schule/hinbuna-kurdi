@@ -1,136 +1,150 @@
 {
-  "id": "kurmanji-a1",
+  "id": "47f55280-82f9-54b2-9cf0-1ca4a3907e82",
   "name": "Kurmancî A1",
   "slug": "kurmanci-a1",
   "description": "Beginner Kurmanji Kurdish — from first greetings to basic conversation.",
-  "level": "A1",
-  "totalLessons": 25,
-  "isPublished": true,
+  "category": "language",
+  "is_published": true,
+  "is_free": false,
+  "image_url": null,
   "metadata": {},
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-01T00:00:00Z",
   "modules": [
     {
-      "id": "a1-destpek",
+      "id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+      "course_id": "47f55280-82f9-54b2-9cf0-1ca4a3907e82",
       "name": "A1: Destpêk",
       "slug": "a1-destpek",
       "description": "Foundation module covering greetings, basic vocabulary, pronouns, verbs, and simple sentences.",
-      "level": "A1",
-      "orderIndex": 0,
-      "isPublished": true,
-      "metadata": {}
-    }
-  ],
-  "units": [
-    {
-      "id": 1,
-      "name": "Silav û Reng",
-      "description": "Learn basic greetings, introductions, farewells, and colors in Kurmanji Kurdish.",
-      "slug": "silav-u-reng",
-      "orderIndex": 0,
-      "isFree": true,
-      "isPublished": true,
-      "lessonCount": 3,
-      "dataFile": "unit-1.json",
-      "metadata": {
-        "subtitle": "Greetings & Colors"
-      }
-    },
-    {
-      "id": 2,
-      "name": "Ev Çi Ye?",
-      "description": "Learn to identify everyday objects, ask 'What is this?', and build basic noun vocabulary.",
-      "slug": "ev-ci-ye",
-      "orderIndex": 1,
-      "isFree": true,
-      "isPublished": true,
-      "lessonCount": 2,
-      "dataFile": "unit-2.json",
-      "metadata": {
-        "subtitle": "What Is This?"
-      }
-    },
-    {
-      "id": 3,
-      "name": "Cînav û Bûn",
-      "description": "Master Kurdish personal pronouns and the verb 'bûn' (to be) in present tense.",
-      "slug": "cinav-u-bun",
-      "orderIndex": 2,
-      "isFree": true,
-      "isPublished": true,
-      "lessonCount": 4,
-      "dataFile": "unit-3.json",
-      "metadata": {
-        "subtitle": "Pronouns & To Be"
-      }
-    },
-    {
-      "id": 4,
-      "name": "Danasîn û Hevok",
-      "description": "Describe people and things using adjectives, and form simple Kurdish sentences.",
-      "slug": "danasin-u-hevok",
-      "orderIndex": 3,
-      "isFree": false,
-      "isPublished": true,
-      "lessonCount": 3,
-      "dataFile": "unit-4.json",
-      "metadata": {
-        "subtitle": "Descriptions & Sentences"
-      }
-    },
-    {
-      "id": 5,
-      "name": "Kesandina Lêkeran",
-      "description": "Learn how Kurdish verbs change based on the subject — present tense conjugation patterns.",
-      "slug": "kesandina-lekeran",
-      "orderIndex": 4,
-      "isFree": false,
-      "isPublished": true,
-      "lessonCount": 4,
-      "dataFile": "unit-5.json",
-      "metadata": {
-        "subtitle": "Verb Conjugation"
-      }
-    },
-    {
-      "id": 6,
-      "name": "Lêker û Hevok",
-      "description": "Combine verbs with nouns and adjectives to form complete everyday sentences.",
-      "slug": "leker-u-hevok",
-      "orderIndex": 5,
-      "isFree": false,
-      "isPublished": true,
-      "lessonCount": 3,
-      "dataFile": "unit-6.json",
-      "metadata": {
-        "subtitle": "Verbs & Sentences"
-      }
-    },
-    {
-      "id": 7,
-      "name": "Têgihîştin û Axaftin",
-      "description": "Practice listening comprehension and spoken Kurdish through dialogues and exercises.",
-      "slug": "tegihistin-u-axaftin",
-      "orderIndex": 6,
-      "isFree": false,
-      "isPublished": true,
-      "lessonCount": 2,
-      "dataFile": "unit-7.json",
-      "metadata": {
-        "subtitle": "Understanding & Speaking"
-      }
-    },
-    {
-      "id": 8,
-      "name": "Peyvên Pirsê û Malbat",
-      "description": "Learn question words (who, what, where, when, why) and family vocabulary.",
-      "slug": "peyven-pirse-u-malbat",
-      "orderIndex": 7,
-      "isFree": false,
-      "isPublished": true,
-      "lessonCount": 2,
-      "dataFile": "unit-8.json",
-      "metadata": {
-        "subtitle": "Question Words & Family"
-      }
+      "order_index": 0,
+      "is_published": true,
+      "image_url": null,
+      "metadata": {},
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
+      "units": [
+        {
+          "id": "8b999b03-f2d1-5a8e-a89a-7d69f16b62a9",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Silav û Reng",
+          "slug": "silav-u-reng",
+          "description": "Learn basic greetings, introductions, farewells, and colors in Kurmanji Kurdish.",
+          "order_index": 0,
+          "is_free": true,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "Greetings & Colors" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        },
+        {
+          "id": "6ee3789f-4777-51b6-a625-fc0dc1cb3a52",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Ev Çi Ye?",
+          "slug": "ev-ci-ye",
+          "description": "Learn to identify everyday objects, ask 'What is this?', and build basic noun vocabulary.",
+          "order_index": 1,
+          "is_free": true,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "What Is This?" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        },
+        {
+          "id": "87207f39-528a-5455-b4c6-36be8fe1c424",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Cînav û Bûn",
+          "slug": "cinav-u-bun",
+          "description": "Master Kurdish personal pronouns and the verb 'bûn' (to be) in present tense.",
+          "order_index": 2,
+          "is_free": true,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "Pronouns & To Be" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        },
+        {
+          "id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Danasîn û Hevok",
+          "slug": "danasin-u-hevok",
+          "description": "Describe people and things using adjectives, and form simple Kurdish sentences.",
+          "order_index": 3,
+          "is_free": false,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "Descriptions & Sentences" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        },
+        {
+          "id": "3cea1a50-9e46-5ef5-959e-77b29305f63b",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Kesandina Lêkeran",
+          "slug": "kesandina-lekeran",
+          "description": "Learn how Kurdish verbs change based on the subject — present tense conjugation patterns.",
+          "order_index": 4,
+          "is_free": false,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "Verb Conjugation" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        },
+        {
+          "id": "ce37cb2e-43b9-5eef-a903-f46699915380",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Lêker û Hevok",
+          "slug": "leker-u-hevok",
+          "description": "Combine verbs with nouns and adjectives to form complete everyday sentences.",
+          "order_index": 5,
+          "is_free": false,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "Verbs & Sentences" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        },
+        {
+          "id": "6fa24359-87fa-59b7-8064-a45e0a41e4b8",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Têgihîştin û Axaftin",
+          "slug": "tegihistin-u-axaftin",
+          "description": "Practice listening comprehension and spoken Kurdish through dialogues and exercises.",
+          "order_index": 6,
+          "is_free": false,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "Understanding & Speaking" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        },
+        {
+          "id": "629db35f-e2d5-5cfa-bdda-9133c577f58e",
+          "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
+          "name": "Peyvên Pirsê û Malbat",
+          "slug": "peyven-pirse-u-malbat",
+          "description": "Learn question words (who, what, where, when, why) and family vocabulary.",
+          "order_index": 7,
+          "is_free": false,
+          "is_published": true,
+          "image_url": null,
+          "category": null,
+          "metadata": { "subtitle": "Question Words & Family" },
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
+        }
+      ]
     }
   ]
 }

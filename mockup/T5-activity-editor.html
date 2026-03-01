@@ -737,7 +737,7 @@
       var acts = lesson.activities || [];
       var types = {};
       acts.forEach(function (a) { types[a.type] = true; });
-      var isPublished = lesson.isPublished !== false;
+      var isPublished = lesson.is_published !== false;
 
       var f = document.createDocumentFragment();
 
@@ -751,8 +751,8 @@
       top.appendChild(el('span', { className: 'status-pill ' + (isPublished ? 'published' : 'draft'), style: 'align-self:flex-start;margin-top:2px;', textContent: isPublished ? 'Published' : 'Draft' }));
       f.appendChild(top);
 
-      if (lesson.learningObjective) {
-        f.appendChild(el('div', { className: 'lesson-header-objective', textContent: t(lesson.learningObjective) }));
+      if (lesson.learning_objective) {
+        f.appendChild(el('div', { className: 'lesson-header-objective', textContent: lesson.learning_objective }));
       }
 
       var stats = el('div', { className: 'lesson-header-stats' });
@@ -767,7 +767,7 @@
       addDiv();
       addStat(Object.keys(types).length, 'Types');
       addDiv();
-      addStat(lesson.durationMinutes || 0, 'Minutes');
+      addStat(lesson.duration_minutes || 0, 'Minutes');
       f.appendChild(stats);
 
       card.textContent = '';
@@ -780,13 +780,13 @@
     function getActivityQuestion(act) {
       var c = act.content || {};
       switch (act.type) {
-        case 'flashcard': return c.word ? c.word + ' \u2192 ' + t(c.translation || '') : t(act.instruction) || 'Flashcard';
-        case 'reading': return t(c.title) || t(act.instruction) || 'Dialogue';
-        case 'mcq': return t(act.instruction) || 'Multiple choice';
-        case 'gap_fill': return c.display || t(act.instruction) || 'Gap fill';
-        case 'matching': return t(act.instruction) || 'Match the pairs';
-        case 'listening': return t(act.instruction) || 'Listening activity';
-        default: return t(act.instruction) || act.type;
+        case 'flashcard': return c.word ? c.word + ' \u2192 ' + t(c.translation || '') : t(c.instruction) || 'Flashcard';
+        case 'reading': return t(c.title) || t(c.instruction) || 'Dialogue';
+        case 'mcq': return t(c.instruction) || 'Multiple choice';
+        case 'gap_fill': return c.display || t(c.instruction) || 'Gap fill';
+        case 'matching': return t(c.instruction) || 'Match the pairs';
+        case 'listening': return t(c.instruction) || 'Listening activity';
+        default: return t(c.instruction) || act.type;
       }
     }
 
@@ -811,7 +811,7 @@
       var inner = el('div', { className: 'activity-detail-inner' });
 
       // Instruction field (all types) — chip-row multi-lang
-      addChipRowField(inner, 'Instruction', act.instruction, { kuField: false });
+      addChipRowField(inner, 'Instruction', c.instruction, { kuField: false });
 
       // Type-specific fields
       switch (act.type) {
@@ -819,7 +819,7 @@
           addField(inner, 'Word (Kurdî)', c.word || '');
           addChipRowField(inner, 'Translation', c.translation, { kuField: false });
           addField(inner, 'Example Sentence (Kurdî)', c.example || '');
-          addChipRowField(inner, 'Example Translation', c.exampleTranslation, { kuField: false });
+          addChipRowField(inner, 'Example Translation', c.example_translation, { kuField: false });
           break;
 
         case 'reading':
@@ -884,7 +884,7 @@
             inner.appendChild(prevGroup);
           }
           addField(inner, 'Correct Answer', c.gap || '');
-          if (c.wordBank) addField(inner, 'Word Bank (comma-separated)', c.wordBank.join(', '));
+          if (c.word_bank) addField(inner, 'Word Bank (comma-separated)', c.word_bank.join(', '));
           if (c.explanation) addChipRowField(inner, 'Explanation', c.explanation, { kuField: false, textarea: true });
           break;
 
@@ -949,7 +949,7 @@
       toggleRow.appendChild(labelG);
       var sw = el('label', { className: 'toggle-switch' });
       var cb = el('input', { type: 'checkbox' });
-      if (act.isPublished !== false) cb.checked = true;
+      if (act.is_published !== false) cb.checked = true;
       sw.appendChild(cb);
       sw.appendChild(el('span', { className: 'toggle-track' }));
       toggleRow.appendChild(sw);
@@ -1169,7 +1169,7 @@
       var type = act.type || 'mcq';
       var cssType = TYPE_CSS[type] || type;
       var animDelay = 'anim-d' + Math.min(index + 4, 8);
-      var isPublished = act.isPublished !== false;
+      var isPublished = act.is_published !== false;
       var expanded = (expandFirst && index === 0) ? ' expanded' : '';
 
       var card = el('div', { className: 'activity-card' + expanded + ' anim ' + animDelay, id: cardId });

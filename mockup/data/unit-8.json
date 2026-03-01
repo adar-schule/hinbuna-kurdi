@@ -1,436 +1,1120 @@
 {
-  "unitId": 8,
+  "id": "629db35f-e2d5-5cfa-bdda-9133c577f58e",
+  "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Peyvên Pirsê û Malbat",
   "slug": "peyven-pirse-u-malbat",
   "description": "Learn the 8 Kurdish question words, cardinal directions, family vocabulary with maternal/paternal distinctions, and singular-to-plural possessives.",
+  "order_index": 7,
+  "is_free": false,
+  "is_published": true,
+  "image_url": null,
+  "category": null,
   "metadata": {
-    "subtitle": { "en": "Question Words & Family", "de": "Fragewörter & Familie" }
+    "subtitle": {
+      "en": "Question Words & Family",
+      "de": "Fragewörter & Familie"
+    }
   },
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
     {
-      "id": "8-1",
+      "id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
+      "unit_id": "629db35f-e2d5-5cfa-bdda-9133c577f58e",
       "name": "Peyvên Pirsê",
-      "description": "Learn the 8 Kurdish question words: çi, çawa, çend, çima, kî, kê, li ku, ji ku — and cardinal directions.",
       "slug": "peyven-pirse",
-      "orderIndex": 0,
-      "learningObjective": { "en": "Learn the 8 Kurdish question words: çi, çawa, çend, çima, kî, kê, li ku, ji ku — and cardinal directions", "de": "Lerne die 8 kurdischen Fragewörter: çi, çawa, çend, çima, kî, kê, li ku, ji ku — und die Himmelsrichtungen" },
-      "durationMinutes": 12,
-      "isPublished": true,
+      "description": "Learn the 8 Kurdish question words: çi, çawa, çend, çima, kî, kê, li ku, ji ku — and cardinal directions.",
+      "order_index": 0,
+      "learning_objective": "Learn the 8 Kurdish question words: çi, çawa, çend, çima, kî, kê, li ku, ji ku — and cardinal directions",
+      "duration_minutes": 12,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Question Words", "de": "Fragewörter" },
-        "vocabPreview": ["çi", "çawa", "çend", "çima", "kî", "kê"],
-        "wordsLearned": [
-          { "ku": "çi", "en": "what", "de": "was" },
-          { "ku": "çawa", "en": "how", "de": "wie" },
-          { "ku": "çend", "en": "how many / how much", "de": "wie viele / wie viel" },
-          { "ku": "çima", "en": "why", "de": "warum" },
-          { "ku": "kî", "en": "who (nominative / subject)", "de": "wer (Nominativ / Subjekt)" },
-          { "ku": "kê", "en": "whom (accusative / object)", "de": "wen (Akkusativ / Objekt)" },
-          { "ku": "li ku (derê)", "en": "where (location)", "de": "wo (Ort)" },
-          { "ku": "ji ku (derê)", "en": "where from (origin)", "de": "woher (Herkunft)" },
-          { "ku": "bakur", "en": "north", "de": "Norden" },
-          { "ku": "başûr", "en": "south", "de": "Süden" },
-          { "ku": "rojava", "en": "west", "de": "Westen" },
-          { "ku": "rojhilat", "en": "east", "de": "Osten" }
+        "subtitle": {
+          "en": "Question Words",
+          "de": "Fragewörter"
+        },
+        "vocab_preview": [
+          "çi",
+          "çawa",
+          "çend",
+          "çima",
+          "kî",
+          "kê"
+        ],
+        "words_learned": [
+          {
+            "ku": "çi",
+            "en": "what",
+            "de": "was"
+          },
+          {
+            "ku": "çawa",
+            "en": "how",
+            "de": "wie"
+          },
+          {
+            "ku": "çend",
+            "en": "how many / how much",
+            "de": "wie viele / wie viel"
+          },
+          {
+            "ku": "çima",
+            "en": "why",
+            "de": "warum"
+          },
+          {
+            "ku": "kî",
+            "en": "who (nominative / subject)",
+            "de": "wer (Nominativ / Subjekt)"
+          },
+          {
+            "ku": "kê",
+            "en": "whom (accusative / object)",
+            "de": "wen (Akkusativ / Objekt)"
+          },
+          {
+            "ku": "li ku (derê)",
+            "en": "where (location)",
+            "de": "wo (Ort)"
+          },
+          {
+            "ku": "ji ku (derê)",
+            "en": "where from (origin)",
+            "de": "woher (Herkunft)"
+          },
+          {
+            "ku": "bakur",
+            "en": "north",
+            "de": "Norden"
+          },
+          {
+            "ku": "başûr",
+            "en": "south",
+            "de": "Süden"
+          },
+          {
+            "ku": "rojava",
+            "en": "west",
+            "de": "Westen"
+          },
+          {
+            "ku": "rojhilat",
+            "en": "east",
+            "de": "Osten"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "8-1-01",
+          "id": "84a23cf5-ecbd-5f5b-88c3-64be41e72863",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this question word", "de": "Lerne dieses Fragewort" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "çi",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "what", "de": "was" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "what",
+              "de": "was"
+            },
             "example": "Ev çi ye? — Ev av e.",
-            "exampleTranslation": { "en": "What is this? — This is water.", "de": "Was ist das? — Das ist Wasser." }
-          }
+            "instruction": {
+              "en": "Learn this question word",
+              "de": "Lerne dieses Fragewort"
+            },
+            "example_translation": {
+              "en": "What is this? — This is water.",
+              "de": "Was ist das? — Das ist Wasser."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-02",
+          "id": "c9b4e21a-6cfa-5ad2-868e-ad7f481929d7",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this question word", "de": "Lerne dieses Fragewort" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "çawa",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "how", "de": "wie" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "how",
+              "de": "wie"
+            },
             "example": "Tu çawa yî? — Ez baş im.",
-            "exampleTranslation": { "en": "How are you? — I am good.", "de": "Wie geht es dir? — Mir geht es gut." }
-          }
+            "instruction": {
+              "en": "Learn this question word",
+              "de": "Lerne dieses Fragewort"
+            },
+            "example_translation": {
+              "en": "How are you? — I am good.",
+              "de": "Wie geht es dir? — Mir geht es gut."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-03",
+          "id": "ce4c2ff2-3fab-518c-afe0-105432e2c3e1",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this question word", "de": "Lerne dieses Fragewort" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "çima",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "why", "de": "warum" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "why",
+              "de": "warum"
+            },
             "example": "Tu çima digirî? — Ez nexweş im, loma digirîm.",
-            "exampleTranslation": { "en": "Why are you crying? — I am sick, therefore I am crying.", "de": "Warum weinst du? — Ich bin krank, deshalb weine ich." }
-          }
+            "instruction": {
+              "en": "Learn this question word",
+              "de": "Lerne dieses Fragewort"
+            },
+            "example_translation": {
+              "en": "Why are you crying? — I am sick, therefore I am crying.",
+              "de": "Warum weinst du? — Ich bin krank, deshalb weine ich."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-04",
+          "id": "4e6c1c74-d5db-5939-a98a-0d6edef0debe",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "flashcard",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Learn the difference: kî vs. kê", "de": "Lerne den Unterschied: kî vs. kê" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
             "word": "kî (who) vs. kê (whom)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "kî = subject (who), kê = object (whom)", "de": "kî = Subjekt (wer), kê = Objekt (wen)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "kî = subject (who), kê = object (whom)",
+              "de": "kî = Subjekt (wer), kê = Objekt (wen)"
+            },
             "example": "Tu kî yî? — Tu kê dibînî?",
-            "exampleTranslation": { "en": "Who are you? — Whom do you see?", "de": "Wer bist du? — Wen siehst du?" }
-          }
+            "instruction": {
+              "en": "Learn the difference: kî vs. kê",
+              "de": "Lerne den Unterschied: kî vs. kê"
+            },
+            "example_translation": {
+              "en": "Who are you? — Whom do you see?",
+              "de": "Wer bist du? — Wen siehst du?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-05",
+          "id": "483fb2fa-7624-5318-8dea-ad54008cd493",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "reading",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "Read the question word examples", "de": "Lies die Fragewort-Beispiele" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
-            "title": { "en": "Peyvên Pirsê — Question Words", "de": "Peyvên Pirsê — Fragewörter" },
+            "title": {
+              "en": "Peyvên Pirsê — Question Words",
+              "de": "Peyvên Pirsê — Fragewörter"
+            },
             "lines": [
-              { "speaker": "", "ku": "Ev çi ye? — Ev jîrfon e.", "en": "What is this? — This is a smartphone.", "de": "Was ist das? — Das ist ein Smartphone." },
-              { "speaker": "", "ku": "Tu çawa yî? — Ez baş im.", "en": "How are you? — I am good.", "de": "Wie geht es dir? — Mir geht es gut." },
-              { "speaker": "", "ku": "Tu çend salî yî? — Ez bîst û yek salî me.", "en": "How old are you? — I am 21 years old.", "de": "Wie alt bist du? — Ich bin 21 Jahre alt." },
-              { "speaker": "", "ku": "Tu çima digirî? — Ez nexweş im, loma digirîm.", "en": "Why are you crying? — I am sick, therefore I cry.", "de": "Warum weinst du? — Ich bin krank, deshalb weine ich." },
-              { "speaker": "", "ku": "Tu kî yî? — Ez Hêlîn im.", "en": "Who are you? — I am Hêlîn.", "de": "Wer bist du? — Ich bin Hêlîn." },
-              { "speaker": "", "ku": "Tu kê dibînî? — Ez keçê dibînim.", "en": "Whom do you see? — I see the girl.", "de": "Wen siehst du? — Ich sehe das Mädchen." },
-              { "speaker": "", "ku": "Li ku bi almanî çi ye? — Li ku bi almanî wo ye.", "en": "What is 'li ku' in German? — 'Li ku' in German is 'wo' (where).", "de": "Was heißt 'li ku' auf Deutsch? — 'Li ku' ist auf Deutsch 'wo'." },
-              { "speaker": "", "ku": "Ji ku bi almanî çi ye? — Ji ku bi almanî woher ye.", "en": "What is 'ji ku' in German? — 'Ji ku' in German is 'woher' (where from).", "de": "Was heißt 'ji ku' auf Deutsch? — 'Ji ku' ist auf Deutsch 'woher'." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Ev çi ye? — Ev jîrfon e.",
+                "en": "What is this? — This is a smartphone.",
+                "de": "Was ist das? — Das ist ein Smartphone."
+              },
+              {
+                "speaker": "",
+                "ku": "Tu çawa yî? — Ez baş im.",
+                "en": "How are you? — I am good.",
+                "de": "Wie geht es dir? — Mir geht es gut."
+              },
+              {
+                "speaker": "",
+                "ku": "Tu çend salî yî? — Ez bîst û yek salî me.",
+                "en": "How old are you? — I am 21 years old.",
+                "de": "Wie alt bist du? — Ich bin 21 Jahre alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Tu çima digirî? — Ez nexweş im, loma digirîm.",
+                "en": "Why are you crying? — I am sick, therefore I cry.",
+                "de": "Warum weinst du? — Ich bin krank, deshalb weine ich."
+              },
+              {
+                "speaker": "",
+                "ku": "Tu kî yî? — Ez Hêlîn im.",
+                "en": "Who are you? — I am Hêlîn.",
+                "de": "Wer bist du? — Ich bin Hêlîn."
+              },
+              {
+                "speaker": "",
+                "ku": "Tu kê dibînî? — Ez keçê dibînim.",
+                "en": "Whom do you see? — I see the girl.",
+                "de": "Wen siehst du? — Ich sehe das Mädchen."
+              },
+              {
+                "speaker": "",
+                "ku": "Li ku bi almanî çi ye? — Li ku bi almanî wo ye.",
+                "en": "What is 'li ku' in German? — 'Li ku' in German is 'wo' (where).",
+                "de": "Was heißt 'li ku' auf Deutsch? — 'Li ku' ist auf Deutsch 'wo'."
+              },
+              {
+                "speaker": "",
+                "ku": "Ji ku bi almanî çi ye? — Ji ku bi almanî woher ye.",
+                "en": "What is 'ji ku' in German? — 'Ji ku' in German is 'woher' (where from).",
+                "de": "Was heißt 'ji ku' auf Deutsch? — 'Ji ku' ist auf Deutsch 'woher'."
+              }
+            ],
+            "instruction": {
+              "en": "Read the question word examples",
+              "de": "Lies die Fragewort-Beispiele"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-06",
+          "id": "88a926ce-2c7b-5d29-8e2e-87f56110eec1",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "\"Tu kê dibînî?\" — What does 'kê' mean here?", "de": "\"Tu kê dibînî?\" — Was bedeutet 'kê' hier?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "who (subject)", "de": "wer (Subjekt)" },
-              { "en": "whom (object)", "de": "wen (Objekt)" },
-              { "en": "where", "de": "wo" },
-              { "en": "what", "de": "was" }
+              {
+                "en": "who (subject)",
+                "de": "wer (Subjekt)"
+              },
+              {
+                "en": "whom (object)",
+                "de": "wen (Objekt)"
+              },
+              {
+                "en": "where",
+                "de": "wo"
+              },
+              {
+                "en": "what",
+                "de": "was"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "kê = whom (accusative/object). It asks about the person being seen. Compare: kî = who (subject), kê = whom (object). \"Tu kê dibînî?\" = Whom do you see?", "de": "kê = wen (Akkusativ/Objekt). Es fragt nach der Person, die gesehen wird. Vergleich: kî = wer (Subjekt), kê = wen (Objekt). \"Tu kê dibînî?\" = Wen siehst du?" }
-          }
+            "explanation": {
+              "en": "kê = whom (accusative/object). It asks about the person being seen. Compare: kî = who (subject), kê = whom (object). \"Tu kê dibînî?\" = Whom do you see?",
+              "de": "kê = wen (Akkusativ/Objekt). Es fragt nach der Person, die gesehen wird. Vergleich: kî = wer (Subjekt), kê = wen (Objekt). \"Tu kê dibînî?\" = Wen siehst du?"
+            },
+            "instruction": {
+              "en": "\"Tu kê dibînî?\" — What does 'kê' mean here?",
+              "de": "\"Tu kê dibînî?\" — Was bedeutet 'kê' hier?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-07",
+          "id": "f7347c58-da45-5aca-8f2b-34e1bf94bedd",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "mcq",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "\"Tu ji ku derê Kurdistanê yî?\" — \"Ez ji bakurê Kurdistanê me.\" What is bakur?", "de": "\"Tu ji ku derê Kurdistanê yî?\" — \"Ez ji bakurê Kurdistanê me.\" Was ist bakur?" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "south", "de": "Süden" },
-              { "en": "east", "de": "Osten" },
-              { "en": "north", "de": "Norden" },
-              { "en": "west", "de": "Westen" }
+              {
+                "en": "south",
+                "de": "Süden"
+              },
+              {
+                "en": "east",
+                "de": "Osten"
+              },
+              {
+                "en": "north",
+                "de": "Norden"
+              },
+              {
+                "en": "west",
+                "de": "Westen"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "bakur = north. The four directions: bakur (north), başûr (south), rojava (west), rojhilat (east). \"Ez ji bakurê Kurdistanê me\" = I am from northern Kurdistan.", "de": "bakur = Norden. Die vier Himmelsrichtungen: bakur (Norden), başûr (Süden), rojava (Westen), rojhilat (Osten). \"Ez ji bakurê Kurdistanê me\" = Ich komme aus Nordkurdistan." }
-          }
+            "explanation": {
+              "en": "bakur = north. The four directions: bakur (north), başûr (south), rojava (west), rojhilat (east). \"Ez ji bakurê Kurdistanê me\" = I am from northern Kurdistan.",
+              "de": "bakur = Norden. Die vier Himmelsrichtungen: bakur (Norden), başûr (Süden), rojava (Westen), rojhilat (Osten). \"Ez ji bakurê Kurdistanê me\" = Ich komme aus Nordkurdistan."
+            },
+            "instruction": {
+              "en": "\"Tu ji ku derê Kurdistanê yî?\" — \"Ez ji bakurê Kurdistanê me.\" What is bakur?",
+              "de": "\"Tu ji ku derê Kurdistanê yî?\" — \"Ez ji bakurê Kurdistanê me.\" Was ist bakur?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-08",
+          "id": "82bcafae-4b6c-5536-aacd-5f67332f0eca",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "gap_fill",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Tu ___ salî yî?", "de": "Vervollständige: Tu ___ salî yî?" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "before": "Tu ",
             "gap": "çend",
             "after": " salî yî?",
             "display": "Tu ___ salî yî?",
-            "wordBank": ["çi", "çawa", "çend", "çima"],
-            "explanation": { "en": "çend = how many. \"Tu çend salî yî?\" = How old are you? (Literally: You how-many years-old are?)", "de": "çend = wie viele. \"Tu çend salî yî?\" = Wie alt bist du? (Wörtlich: Du wie-viele Jahre-alt bist?)" }
-          }
+            "explanation": {
+              "en": "çend = how many. \"Tu çend salî yî?\" = How old are you? (Literally: You how-many years-old are?)",
+              "de": "çend = wie viele. \"Tu çend salî yî?\" = Wie alt bist du? (Wörtlich: Du wie-viele Jahre-alt bist?)"
+            },
+            "instruction": {
+              "en": "Complete: Tu ___ salî yî?",
+              "de": "Vervollständige: Tu ___ salî yî?"
+            },
+            "word_bank": [
+              "çi",
+              "çawa",
+              "çend",
+              "çima"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-09",
+          "id": "a58aa3e7-42e2-5a36-bf4f-2c84dd4cf5b1",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "gap_fill",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Tu ji ___ yî?", "de": "Vervollständige: Tu ji ___ yî?" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "before": "Tu ji ",
             "gap": "ku",
             "after": " yî?",
             "display": "Tu ji ___ yî?",
-            "wordBank": ["ku", "çi", "kî", "çawa"],
-            "explanation": { "en": "ji ku = where from. \"Tu ji ku yî?\" = Where are you from?", "de": "ji ku = woher. \"Tu ji ku yî?\" = Woher kommst du?" }
-          }
+            "explanation": {
+              "en": "ji ku = where from. \"Tu ji ku yî?\" = Where are you from?",
+              "de": "ji ku = woher. \"Tu ji ku yî?\" = Woher kommst du?"
+            },
+            "instruction": {
+              "en": "Complete: Tu ji ___ yî?",
+              "de": "Vervollständige: Tu ji ___ yî?"
+            },
+            "word_bank": [
+              "ku",
+              "çi",
+              "kî",
+              "çawa"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-10",
+          "id": "44b36594-b957-5cb5-914d-dc8e6b8e1670",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "matching",
-          "orderIndex": 9,
-          "isPublished": true,
-          "instruction": { "en": "Match the question words", "de": "Ordne die Fragewörter zu" },
+          "order_index": 9,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "çi", "en": "what", "de": "was" },
-              { "ku": "çawa", "en": "how", "de": "wie" },
-              { "ku": "çima", "en": "why", "de": "warum" },
-              { "ku": "çend", "en": "how many", "de": "wie viele" },
-              { "ku": "kî", "en": "who", "de": "wer" },
-              { "ku": "kê", "en": "whom", "de": "wen" }
-            ]
-          }
+              {
+                "ku": "çi",
+                "en": "what",
+                "de": "was"
+              },
+              {
+                "ku": "çawa",
+                "en": "how",
+                "de": "wie"
+              },
+              {
+                "ku": "çima",
+                "en": "why",
+                "de": "warum"
+              },
+              {
+                "ku": "çend",
+                "en": "how many",
+                "de": "wie viele"
+              },
+              {
+                "ku": "kî",
+                "en": "who",
+                "de": "wer"
+              },
+              {
+                "ku": "kê",
+                "en": "whom",
+                "de": "wen"
+              }
+            ],
+            "instruction": {
+              "en": "Match the question words",
+              "de": "Ordne die Fragewörter zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-1-11",
+          "id": "12e61fe3-a621-5308-9a26-9bbe503d8a6b",
+          "lesson_id": "194a136e-96df-5e43-8429-43e61e0e0ce6",
           "type": "matching",
-          "orderIndex": 10,
-          "isPublished": true,
-          "instruction": { "en": "Match the cardinal directions", "de": "Ordne die Himmelsrichtungen zu" },
+          "order_index": 10,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "bakur", "en": "north", "de": "Norden" },
-              { "ku": "başûr", "en": "south", "de": "Süden" },
-              { "ku": "rojava", "en": "west", "de": "Westen" },
-              { "ku": "rojhilat", "en": "east", "de": "Osten" }
-            ]
-          }
+              {
+                "ku": "bakur",
+                "en": "north",
+                "de": "Norden"
+              },
+              {
+                "ku": "başûr",
+                "en": "south",
+                "de": "Süden"
+              },
+              {
+                "ku": "rojava",
+                "en": "west",
+                "de": "Westen"
+              },
+              {
+                "ku": "rojhilat",
+                "en": "east",
+                "de": "Osten"
+              }
+            ],
+            "instruction": {
+              "en": "Match the cardinal directions",
+              "de": "Ordne die Himmelsrichtungen zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     },
     {
-      "id": "8-2",
+      "id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
+      "unit_id": "629db35f-e2d5-5cfa-bdda-9133c577f58e",
       "name": "Malbat û Diyalog",
-      "description": "Learn 10+ family terms with maternal/paternal distinctions, singular-to-plural possessives, and the verb hatin (to come).",
       "slug": "malbat-u-diyalog",
-      "orderIndex": 1,
-      "learningObjective": { "en": "Learn 10+ family terms, singular-to-plural possessives, and the verb hatin (to come)", "de": "Lerne 10+ Familienbegriffe, Singular-zu-Plural-Possessivformen und das Verb hatin (kommen)" },
-      "durationMinutes": 12,
-      "isPublished": true,
+      "description": "Learn 10+ family terms with maternal/paternal distinctions, singular-to-plural possessives, and the verb hatin (to come).",
+      "order_index": 1,
+      "learning_objective": "Learn 10+ family terms, singular-to-plural possessives, and the verb hatin (to come)",
+      "duration_minutes": 12,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Family & Dialogue", "de": "Familie & Dialog" },
-        "vocabPreview": ["xatî", "xal", "ap", "dapîr", "bapîr", "hatin"],
-        "wordsLearned": [
-          { "ku": "xatî", "en": "aunt (mother's side)", "de": "Tante (mütterlicherseits)" },
-          { "ku": "met", "en": "aunt (father's side)", "de": "Tante (väterlicherseits)" },
-          { "ku": "xal", "en": "uncle (mother's side)", "de": "Onkel (mütterlicherseits)" },
-          { "ku": "ap", "en": "uncle (father's side)", "de": "Onkel (väterlicherseits)" },
-          { "ku": "dapîr", "en": "grandmother", "de": "Großmutter" },
-          { "ku": "bapîr", "en": "grandfather", "de": "Großvater" },
-          { "ku": "pismam", "en": "cousin (father's side, male)", "de": "Cousin (väterlicherseits)" },
-          { "ku": "kurxal", "en": "cousin (mother's side, male)", "de": "Cousin (mütterlicherseits)" },
-          { "ku": "dotmam", "en": "cousin (father's side, female)", "de": "Cousine (väterlicherseits)" },
-          { "ku": "keçxal", "en": "cousin (mother's side, female)", "de": "Cousine (mütterlicherseits)" },
-          { "ku": "hatin — bihê", "en": "to come — come!", "de": "kommen — komm!" },
-          { "ku": "diya min → diyên me", "en": "my mother → our mothers", "de": "meine Mutter → unsere Mütter" }
+        "subtitle": {
+          "en": "Family & Dialogue",
+          "de": "Familie & Dialog"
+        },
+        "vocab_preview": [
+          "xatî",
+          "xal",
+          "ap",
+          "dapîr",
+          "bapîr",
+          "hatin"
+        ],
+        "words_learned": [
+          {
+            "ku": "xatî",
+            "en": "aunt (mother's side)",
+            "de": "Tante (mütterlicherseits)"
+          },
+          {
+            "ku": "met",
+            "en": "aunt (father's side)",
+            "de": "Tante (väterlicherseits)"
+          },
+          {
+            "ku": "xal",
+            "en": "uncle (mother's side)",
+            "de": "Onkel (mütterlicherseits)"
+          },
+          {
+            "ku": "ap",
+            "en": "uncle (father's side)",
+            "de": "Onkel (väterlicherseits)"
+          },
+          {
+            "ku": "dapîr",
+            "en": "grandmother",
+            "de": "Großmutter"
+          },
+          {
+            "ku": "bapîr",
+            "en": "grandfather",
+            "de": "Großvater"
+          },
+          {
+            "ku": "pismam",
+            "en": "cousin (father's side, male)",
+            "de": "Cousin (väterlicherseits)"
+          },
+          {
+            "ku": "kurxal",
+            "en": "cousin (mother's side, male)",
+            "de": "Cousin (mütterlicherseits)"
+          },
+          {
+            "ku": "dotmam",
+            "en": "cousin (father's side, female)",
+            "de": "Cousine (väterlicherseits)"
+          },
+          {
+            "ku": "keçxal",
+            "en": "cousin (mother's side, female)",
+            "de": "Cousine (mütterlicherseits)"
+          },
+          {
+            "ku": "hatin — bihê",
+            "en": "to come — come!",
+            "de": "kommen — komm!"
+          },
+          {
+            "ku": "diya min → diyên me",
+            "en": "my mother → our mothers",
+            "de": "meine Mutter → unsere Mütter"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "8-2-01",
+          "id": "8596748c-6f36-5919-940f-3aa86bf03d45",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this family word", "de": "Lerne dieses Familienwort" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "xatî",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "aunt (mother's side)", "de": "Tante (mütterlicherseits)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "aunt (mother's side)",
+              "de": "Tante (mütterlicherseits)"
+            },
             "example": "Xatiya min çil salî ye.",
-            "exampleTranslation": { "en": "My aunt (maternal) is 40 years old.", "de": "Meine Tante (mütterlicherseits) ist 40 Jahre alt." }
-          }
+            "instruction": {
+              "en": "Learn this family word",
+              "de": "Lerne dieses Familienwort"
+            },
+            "example_translation": {
+              "en": "My aunt (maternal) is 40 years old.",
+              "de": "Meine Tante (mütterlicherseits) ist 40 Jahre alt."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-02",
+          "id": "d3915e35-255f-5644-ae33-295fe08f8d61",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this family word", "de": "Lerne dieses Familienwort" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "xal / ap",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "uncle: xal (mother's side), ap (father's side)", "de": "Onkel: xal (mütterlicherseits), ap (väterlicherseits)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "uncle: xal (mother's side), ap (father's side)",
+              "de": "Onkel: xal (mütterlicherseits), ap (väterlicherseits)"
+            },
             "example": "Xalê min pêjgîrê difroşe.",
-            "exampleTranslation": { "en": "My uncle (maternal) sells pots.", "de": "Mein Onkel (mütterlicherseits) verkauft Töpfe." }
-          }
+            "instruction": {
+              "en": "Learn this family word",
+              "de": "Lerne dieses Familienwort"
+            },
+            "example_translation": {
+              "en": "My uncle (maternal) sells pots.",
+              "de": "Mein Onkel (mütterlicherseits) verkauft Töpfe."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-03",
+          "id": "dce0edde-b8d1-52c8-aaef-bfdbf9765279",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this family word", "de": "Lerne dieses Familienwort" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "dapîr / bapîr",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "grandmother / grandfather", "de": "Großmutter / Großvater" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "grandmother / grandfather",
+              "de": "Großmutter / Großvater"
+            },
             "example": "Bapîrê min pir dikene.",
-            "exampleTranslation": { "en": "My grandfather laughs a lot.", "de": "Mein Großvater lacht viel." }
-          }
+            "instruction": {
+              "en": "Learn this family word",
+              "de": "Lerne dieses Familienwort"
+            },
+            "example_translation": {
+              "en": "My grandfather laughs a lot.",
+              "de": "Mein Großvater lacht viel."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-04",
+          "id": "9b7bdf08-6f10-5a22-944e-b5b56b774632",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "flashcard",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Learn the verb hatin", "de": "Lerne das Verb hatin" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
             "word": "hatin (to come)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "ez têm, tu tê, ew tê, em/hûn/ew tên", "de": "ich komme, du kommst, er/sie kommt, wir/ihr/sie kommen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "ez têm, tu tê, ew tê, em/hûn/ew tên",
+              "de": "ich komme, du kommst, er/sie kommt, wir/ihr/sie kommen"
+            },
             "example": "Pismamê min ji zanîngehê tê.",
-            "exampleTranslation": { "en": "My cousin comes from the university.", "de": "Mein Cousin kommt von der Universität." }
-          }
+            "instruction": {
+              "en": "Learn the verb hatin",
+              "de": "Lerne das Verb hatin"
+            },
+            "example_translation": {
+              "en": "My cousin comes from the university.",
+              "de": "Mein Cousin kommt von der Universität."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-05",
+          "id": "6b7fef48-2c6f-5143-b0fa-ce2b03d8ae76",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "reading",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "Read the family dialogue", "de": "Lies den Familiendialog" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
-            "title": { "en": "Malbat — Family", "de": "Malbat — Familie" },
+            "title": {
+              "en": "Malbat — Family",
+              "de": "Malbat — Familie"
+            },
             "lines": [
-              { "speaker": "A", "ku": "Xatiya te çend salî ye?", "en": "How old is your aunt (maternal)?", "de": "Wie alt ist deine Tante (mütterlicherseits)?" },
-              { "speaker": "B", "ku": "Xatiya min çil salî ye.", "en": "My aunt is 40 years old.", "de": "Meine Tante ist 40 Jahre alt." },
-              { "speaker": "A", "ku": "Ew çi karî dike?", "en": "What is her job?", "de": "Was ist ihr Beruf?" },
-              { "speaker": "B", "ku": "Ew mamoste ye.", "en": "She is a teacher.", "de": "Sie ist Lehrerin." },
-              { "speaker": "A", "ku": "Ew kê dibîne?", "en": "Whom does she see?", "de": "Wen sieht sie?" },
-              { "speaker": "B", "ku": "Xatiya min xalê xwe dibîne.", "en": "My aunt sees her (own) uncle.", "de": "Meine Tante sieht ihren (eigenen) Onkel." },
-              { "speaker": "A", "ku": "Navê kurxalê te çi ye?", "en": "What is your cousin's (maternal, male) name?", "de": "Wie heißt dein Cousin (mütterlicherseits)?" },
-              { "speaker": "B", "ku": "Navê kurxalê min Alan e. Ew panzdeh salî ye.", "en": "My cousin's name is Alan. He is 15 years old.", "de": "Mein Cousin heißt Alan. Er ist 15 Jahre alt." },
-              { "speaker": "A", "ku": "Bapîrê te baş e?", "en": "Is your grandfather well?", "de": "Geht es deinem Großvater gut?" },
-              { "speaker": "B", "ku": "Erê, bapîrê min baş e. Ew pir dikene.", "en": "Yes, my grandfather is well. He laughs a lot.", "de": "Ja, meinem Großvater geht es gut. Er lacht viel." },
-              { "speaker": "A", "ku": "Ew ji ku ye?", "en": "Where is he from?", "de": "Woher kommt er?" },
-              { "speaker": "B", "ku": "Ew ji Îngilistanê ye.", "en": "He is from England.", "de": "Er kommt aus England." },
-              { "speaker": "A", "ku": "Pismamê te ji ku tê?", "en": "Where does your cousin (paternal, male) come from?", "de": "Woher kommt dein Cousin (väterlicherseits)?" },
-              { "speaker": "B", "ku": "Pismamê min ji zanîngehê tê. Ew dibe endezyar.", "en": "My cousin comes from the university. He will become an engineer.", "de": "Mein Cousin kommt von der Universität. Er wird Ingenieur." }
-            ]
-          }
+              {
+                "speaker": "A",
+                "ku": "Xatiya te çend salî ye?",
+                "en": "How old is your aunt (maternal)?",
+                "de": "Wie alt ist deine Tante (mütterlicherseits)?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Xatiya min çil salî ye.",
+                "en": "My aunt is 40 years old.",
+                "de": "Meine Tante ist 40 Jahre alt."
+              },
+              {
+                "speaker": "A",
+                "ku": "Ew çi karî dike?",
+                "en": "What is her job?",
+                "de": "Was ist ihr Beruf?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Ew mamoste ye.",
+                "en": "She is a teacher.",
+                "de": "Sie ist Lehrerin."
+              },
+              {
+                "speaker": "A",
+                "ku": "Ew kê dibîne?",
+                "en": "Whom does she see?",
+                "de": "Wen sieht sie?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Xatiya min xalê xwe dibîne.",
+                "en": "My aunt sees her (own) uncle.",
+                "de": "Meine Tante sieht ihren (eigenen) Onkel."
+              },
+              {
+                "speaker": "A",
+                "ku": "Navê kurxalê te çi ye?",
+                "en": "What is your cousin's (maternal, male) name?",
+                "de": "Wie heißt dein Cousin (mütterlicherseits)?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Navê kurxalê min Alan e. Ew panzdeh salî ye.",
+                "en": "My cousin's name is Alan. He is 15 years old.",
+                "de": "Mein Cousin heißt Alan. Er ist 15 Jahre alt."
+              },
+              {
+                "speaker": "A",
+                "ku": "Bapîrê te baş e?",
+                "en": "Is your grandfather well?",
+                "de": "Geht es deinem Großvater gut?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Erê, bapîrê min baş e. Ew pir dikene.",
+                "en": "Yes, my grandfather is well. He laughs a lot.",
+                "de": "Ja, meinem Großvater geht es gut. Er lacht viel."
+              },
+              {
+                "speaker": "A",
+                "ku": "Ew ji ku ye?",
+                "en": "Where is he from?",
+                "de": "Woher kommt er?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Ew ji Îngilistanê ye.",
+                "en": "He is from England.",
+                "de": "Er kommt aus England."
+              },
+              {
+                "speaker": "A",
+                "ku": "Pismamê te ji ku tê?",
+                "en": "Where does your cousin (paternal, male) come from?",
+                "de": "Woher kommt dein Cousin (väterlicherseits)?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Pismamê min ji zanîngehê tê. Ew dibe endezyar.",
+                "en": "My cousin comes from the university. He will become an engineer.",
+                "de": "Mein Cousin kommt von der Universität. Er wird Ingenieur."
+              }
+            ],
+            "instruction": {
+              "en": "Read the family dialogue",
+              "de": "Lies den Familiendialog"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-06",
+          "id": "4b82c37c-045f-5e7f-8dbf-114edd9fb61b",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "What is the difference between xal and ap?", "de": "Was ist der Unterschied zwischen xal und ap?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "xal = father, ap = mother", "de": "xal = Vater, ap = Mutter" },
-              { "en": "xal = uncle (mother's side), ap = uncle (father's side)", "de": "xal = Onkel (mütterlicherseits), ap = Onkel (väterlicherseits)" },
-              { "en": "xal = grandfather, ap = grandmother", "de": "xal = Großvater, ap = Großmutter" },
-              { "en": "They mean the same thing", "de": "Sie bedeuten dasselbe" }
+              {
+                "en": "xal = father, ap = mother",
+                "de": "xal = Vater, ap = Mutter"
+              },
+              {
+                "en": "xal = uncle (mother's side), ap = uncle (father's side)",
+                "de": "xal = Onkel (mütterlicherseits), ap = Onkel (väterlicherseits)"
+              },
+              {
+                "en": "xal = grandfather, ap = grandmother",
+                "de": "xal = Großvater, ap = Großmutter"
+              },
+              {
+                "en": "They mean the same thing",
+                "de": "Sie bedeuten dasselbe"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "Kurdish distinguishes maternal and paternal relatives: xal = uncle (mother's brother), ap = uncle (father's brother). Similarly: xatî = aunt (mother's side), met = aunt (father's side).", "de": "Kurdisch unterscheidet mütterliche und väterliche Verwandte: xal = Onkel (Bruder der Mutter), ap = Onkel (Bruder des Vaters). Ebenso: xatî = Tante (mütterlicherseits), met = Tante (väterlicherseits)." }
-          }
+            "explanation": {
+              "en": "Kurdish distinguishes maternal and paternal relatives: xal = uncle (mother's brother), ap = uncle (father's brother). Similarly: xatî = aunt (mother's side), met = aunt (father's side).",
+              "de": "Kurdisch unterscheidet mütterliche und väterliche Verwandte: xal = Onkel (Bruder der Mutter), ap = Onkel (Bruder des Vaters). Ebenso: xatî = Tante (mütterlicherseits), met = Tante (väterlicherseits)."
+            },
+            "instruction": {
+              "en": "What is the difference between xal and ap?",
+              "de": "Was ist der Unterschied zwischen xal und ap?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-07",
+          "id": "72016820-aace-5644-ab0d-2f00b8fc5a0d",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "mcq",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "\"Bapîrê min baş e. Ew pir dikene.\" — What does bapîr do?", "de": "\"Bapîrê min baş e. Ew pir dikene.\" — Was macht der Großvater?" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "He cries a lot", "de": "Er weint viel" },
-              { "en": "He laughs a lot", "de": "Er lacht viel" },
-              { "en": "He reads a lot", "de": "Er liest viel" },
-              { "en": "He eats a lot", "de": "Er isst viel" }
+              {
+                "en": "He cries a lot",
+                "de": "Er weint viel"
+              },
+              {
+                "en": "He laughs a lot",
+                "de": "Er lacht viel"
+              },
+              {
+                "en": "He reads a lot",
+                "de": "Er liest viel"
+              },
+              {
+                "en": "He eats a lot",
+                "de": "Er isst viel"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "dikene = laughs (from kenîn). pir = a lot. \"Ew pir dikene\" = He laughs a lot.", "de": "dikene = lacht (von kenîn). pir = viel. \"Ew pir dikene\" = Er lacht viel." }
-          }
+            "explanation": {
+              "en": "dikene = laughs (from kenîn). pir = a lot. \"Ew pir dikene\" = He laughs a lot.",
+              "de": "dikene = lacht (von kenîn). pir = viel. \"Ew pir dikene\" = Er lacht viel."
+            },
+            "instruction": {
+              "en": "\"Bapîrê min baş e. Ew pir dikene.\" — What does bapîr do?",
+              "de": "\"Bapîrê min baş e. Ew pir dikene.\" — Was macht der Großvater?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-08",
+          "id": "ef5f66cd-49d8-5f1a-a55d-551ed056ce1c",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "reading",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Study singular to plural possessive changes", "de": "Lerne die Singular-zu-Plural-Possessivänderungen" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
-            "title": { "en": "Singular → Plural", "de": "Singular → Plural" },
+            "title": {
+              "en": "Singular → Plural",
+              "de": "Singular → Plural"
+            },
             "lines": [
-              { "speaker": "", "ku": "Diya min çiya dibîne. → Diyên me çiya dibînin.", "en": "My mother sees the mountain. → Our mothers see the mountain.", "de": "Meine Mutter sieht den Berg. → Unsere Mütter sehen den Berg." },
-              { "speaker": "", "ku": "Xalê min pêjgîrê difroşe. → Xalên me pêjgîrê difroşin.", "en": "My uncle sells pots. → Our uncles sell pots.", "de": "Mein Onkel verkauft Töpfe. → Unsere Onkel verkaufen Töpfe." },
-              { "speaker": "", "ku": "Bapîrê te sîrê dixwe. → Bapîrên we sîrê dixwin.", "en": "Your grandfather eats garlic. → Your grandfathers eat garlic.", "de": "Dein Großvater isst Knoblauch. → Eure Großväter essen Knoblauch." },
-              { "speaker": "", "ku": "Birayê min solê dişo. → Birayên we solê dişon.", "en": "My brother washes shoes. → Your brothers wash shoes.", "de": "Mein Bruder wäscht Schuhe. → Eure Brüder waschen Schuhe." },
-              { "speaker": "", "ku": "Hevala wî şa ye. → Hevalên wî şa ne.", "en": "His friend (f) is happy. → His friends are happy.", "de": "Seine Freundin ist glücklich. → Seine Freunde sind glücklich." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Diya min çiya dibîne. → Diyên me çiya dibînin.",
+                "en": "My mother sees the mountain. → Our mothers see the mountain.",
+                "de": "Meine Mutter sieht den Berg. → Unsere Mütter sehen den Berg."
+              },
+              {
+                "speaker": "",
+                "ku": "Xalê min pêjgîrê difroşe. → Xalên me pêjgîrê difroşin.",
+                "en": "My uncle sells pots. → Our uncles sell pots.",
+                "de": "Mein Onkel verkauft Töpfe. → Unsere Onkel verkaufen Töpfe."
+              },
+              {
+                "speaker": "",
+                "ku": "Bapîrê te sîrê dixwe. → Bapîrên we sîrê dixwin.",
+                "en": "Your grandfather eats garlic. → Your grandfathers eat garlic.",
+                "de": "Dein Großvater isst Knoblauch. → Eure Großväter essen Knoblauch."
+              },
+              {
+                "speaker": "",
+                "ku": "Birayê min solê dişo. → Birayên we solê dişon.",
+                "en": "My brother washes shoes. → Your brothers wash shoes.",
+                "de": "Mein Bruder wäscht Schuhe. → Eure Brüder waschen Schuhe."
+              },
+              {
+                "speaker": "",
+                "ku": "Hevala wî şa ye. → Hevalên wî şa ne.",
+                "en": "His friend (f) is happy. → His friends are happy.",
+                "de": "Seine Freundin ist glücklich. → Seine Freunde sind glücklich."
+              }
+            ],
+            "instruction": {
+              "en": "Study singular to plural possessive changes",
+              "de": "Lerne die Singular-zu-Plural-Possessivänderungen"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-09",
+          "id": "d4ae6456-8945-5062-937e-8540a6ad22b8",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "gap_fill",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Make it plural: Xalê min difroşe. → ___ me difroşin.", "de": "Bilde den Plural: Xalê min difroşe. → ___ me difroşin." },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "before": "",
             "gap": "Xalên",
             "after": " me difroşin.",
             "display": "___ me difroşin.",
-            "wordBank": ["Xalên", "Xalê", "Xalan", "Xalî"],
-            "explanation": { "en": "Singular: Xalê min (my uncle). Plural: Xalên me (our uncles). The -ê changes to -ên, and min changes to me.", "de": "Singular: Xalê min (mein Onkel). Plural: Xalên me (unsere Onkel). Das -ê wird zu -ên, und min wird zu me." }
-          }
+            "explanation": {
+              "en": "Singular: Xalê min (my uncle). Plural: Xalên me (our uncles). The -ê changes to -ên, and min changes to me.",
+              "de": "Singular: Xalê min (mein Onkel). Plural: Xalên me (unsere Onkel). Das -ê wird zu -ên, und min wird zu me."
+            },
+            "instruction": {
+              "en": "Make it plural: Xalê min difroşe. → ___ me difroşin.",
+              "de": "Bilde den Plural: Xalê min difroşe. → ___ me difroşin."
+            },
+            "word_bank": [
+              "Xalên",
+              "Xalê",
+              "Xalan",
+              "Xalî"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-10",
+          "id": "8a896baa-8dae-5a5a-9cb1-4dca16c059a9",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "gap_fill",
-          "orderIndex": 9,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Pismamê min ji zanîngehê ___.", "de": "Vervollständige: Pismamê min ji zanîngehê ___." },
+          "order_index": 9,
+          "is_published": true,
           "content": {
             "before": "Pismamê min ji zanîngehê ",
             "gap": "tê",
             "after": ".",
             "display": "Pismamê min ji zanîngehê ___.",
-            "wordBank": ["tê", "têm", "tên", "diçe"],
-            "explanation": { "en": "hatin (to come): ew tê (he/she comes). My cousin comes from the university. Note: hatin has irregular conjugation: ez têm, tu tê, ew tê, em/hûn/ew tên.", "de": "hatin (kommen): ew tê (er/sie kommt). Mein Cousin kommt von der Universität. Hinweis: hatin hat eine unregelmäßige Konjugation: ez têm, tu tê, ew tê, em/hûn/ew tên." }
-          }
+            "explanation": {
+              "en": "hatin (to come): ew tê (he/she comes). My cousin comes from the university. Note: hatin has irregular conjugation: ez têm, tu tê, ew tê, em/hûn/ew tên.",
+              "de": "hatin (kommen): ew tê (er/sie kommt). Mein Cousin kommt von der Universität. Hinweis: hatin hat eine unregelmäßige Konjugation: ez têm, tu tê, ew tê, em/hûn/ew tên."
+            },
+            "instruction": {
+              "en": "Complete: Pismamê min ji zanîngehê ___.",
+              "de": "Vervollständige: Pismamê min ji zanîngehê ___."
+            },
+            "word_bank": [
+              "tê",
+              "têm",
+              "tên",
+              "diçe"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-11",
+          "id": "56a14f7b-76a2-5aef-b785-7b9e336e32f0",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "matching",
-          "orderIndex": 10,
-          "isPublished": true,
-          "instruction": { "en": "Match the family terms", "de": "Ordne die Familienbegriffe zu" },
+          "order_index": 10,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "xatî", "en": "aunt (mother's side)", "de": "Tante (mütterlicherseits)" },
-              { "ku": "met", "en": "aunt (father's side)", "de": "Tante (väterlicherseits)" },
-              { "ku": "xal", "en": "uncle (mother's side)", "de": "Onkel (mütterlicherseits)" },
-              { "ku": "ap", "en": "uncle (father's side)", "de": "Onkel (väterlicherseits)" },
-              { "ku": "dapîr", "en": "grandmother", "de": "Großmutter" },
-              { "ku": "bapîr", "en": "grandfather", "de": "Großvater" }
-            ]
-          }
+              {
+                "ku": "xatî",
+                "en": "aunt (mother's side)",
+                "de": "Tante (mütterlicherseits)"
+              },
+              {
+                "ku": "met",
+                "en": "aunt (father's side)",
+                "de": "Tante (väterlicherseits)"
+              },
+              {
+                "ku": "xal",
+                "en": "uncle (mother's side)",
+                "de": "Onkel (mütterlicherseits)"
+              },
+              {
+                "ku": "ap",
+                "en": "uncle (father's side)",
+                "de": "Onkel (väterlicherseits)"
+              },
+              {
+                "ku": "dapîr",
+                "en": "grandmother",
+                "de": "Großmutter"
+              },
+              {
+                "ku": "bapîr",
+                "en": "grandfather",
+                "de": "Großvater"
+              }
+            ],
+            "instruction": {
+              "en": "Match the family terms",
+              "de": "Ordne die Familienbegriffe zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "8-2-12",
+          "id": "a43c44fd-186a-5180-b4bb-5e8ee4c5d0c5",
+          "lesson_id": "063e20fd-2f50-5e11-9b17-5fc7e9328033",
           "type": "matching",
-          "orderIndex": 11,
-          "isPublished": true,
-          "instruction": { "en": "Match the cousin terms", "de": "Ordne die Cousin-Begriffe zu" },
+          "order_index": 11,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "pismam", "en": "cousin (father's side, male)", "de": "Cousin (väterlicherseits)" },
-              { "ku": "dotmam", "en": "cousin (father's side, female)", "de": "Cousine (väterlicherseits)" },
-              { "ku": "kurxal", "en": "cousin (mother's side, male)", "de": "Cousin (mütterlicherseits)" },
-              { "ku": "keçxal", "en": "cousin (mother's side, female)", "de": "Cousine (mütterlicherseits)" }
-            ]
-          }
+              {
+                "ku": "pismam",
+                "en": "cousin (father's side, male)",
+                "de": "Cousin (väterlicherseits)"
+              },
+              {
+                "ku": "dotmam",
+                "en": "cousin (father's side, female)",
+                "de": "Cousine (väterlicherseits)"
+              },
+              {
+                "ku": "kurxal",
+                "en": "cousin (mother's side, male)",
+                "de": "Cousin (mütterlicherseits)"
+              },
+              {
+                "ku": "keçxal",
+                "en": "cousin (mother's side, female)",
+                "de": "Cousine (mütterlicherseits)"
+              }
+            ],
+            "instruction": {
+              "en": "Match the cousin terms",
+              "de": "Ordne die Cousin-Begriffe zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     }

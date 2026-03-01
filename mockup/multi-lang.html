@@ -1197,14 +1197,14 @@
             <tr><th>Content Type</th><th>Translated Fields</th></tr>
           </thead>
           <tbody>
-            <tr><td>Flashcard</td><td><code>instruction</code>, <code>translation</code>, <code>hint</code>, <code>exampleTranslation</code></td></tr>
-            <tr><td>MCQ</td><td><code>instruction</code>, <code>options[]</code>, <code>explanation</code></td></tr>
-            <tr><td>Gap Fill</td><td><code>instruction</code>, <code>explanation</code></td></tr>
-            <tr><td>Matching</td><td><code>instruction</code>, <code>pairs[].{lang}</code></td></tr>
-            <tr><td>Reading</td><td><code>instruction</code>, <code>title</code>, <code>lines[].{lang}</code></td></tr>
-            <tr><td>Listening</td><td><code>instruction</code></td></tr>
+            <tr><td>Flashcard</td><td><code>content.instruction</code>, <code>translation</code>, <code>hint</code>, <code>example_translation</code></td></tr>
+            <tr><td>MCQ</td><td><code>content.instruction</code>, <code>options[]</code>, <code>explanation</code></td></tr>
+            <tr><td>Gap Fill</td><td><code>content.instruction</code>, <code>explanation</code></td></tr>
+            <tr><td>Matching</td><td><code>content.instruction</code>, <code>pairs[].{lang}</code></td></tr>
+            <tr><td>Reading</td><td><code>content.instruction</code>, <code>title</code>, <code>lines[].{lang}</code></td></tr>
+            <tr><td>Listening</td><td><code>content.instruction</code></td></tr>
             <tr><td>Unit metadata</td><td><code>metadata.subtitle</code></td></tr>
-            <tr><td>Lesson metadata</td><td><code>metadata.subtitle</code>, <code>learningObjective</code>, <code>wordsLearned[].{lang}</code></td></tr>
+            <tr><td>Lesson metadata</td><td><code>metadata.subtitle</code>, <code>learning_objective</code>, <code>words_learned[].{lang}</code></td></tr>
           </tbody>
         </table>
       </div>
@@ -1213,7 +1213,7 @@
         <h3>What Does NOT Get Translated</h3>
         <ul>
           <li><strong>Kurdish content</strong> — <code>word</code>, <code>sentence</code>, <code>ku</code> fields are the teaching language</li>
-          <li><strong>Structural fields</strong> — <code>id</code>, <code>slug</code>, <code>orderIndex</code>, <code>type</code></li>
+          <li><strong>Structural fields</strong> — <code>id</code>, <code>slug</code>, <code>order_index</code>, <code>type</code></li>
           <li><strong>Unit/Lesson names</strong> — The parent table keeps the Kurdish name (e.g., "Silav û Reng"), but <code>unit_translations</code> and <code>lesson_translations</code> tables store translated names for other locales</li>
           <li><strong>Audio/Image URLs</strong> — Language-agnostic resources</li>
         </ul>
@@ -1250,11 +1250,11 @@
       <span class="key">"de"</span>: <span class="str">"Erster Dialog"</span>,
       <span class="key">"en"</span>: <span class="str">"First Dialogue"</span>
     },
-    <span class="key">"wordsLearned"</span>: [
+    <span class="key">"words_learned"</span>: [
       { <span class="key">"ku"</span>: <span class="str">"Roj baş"</span>, <span class="key">"de"</span>: <span class="str">"Guten Tag"</span>, <span class="key">"en"</span>: <span class="str">"Good day"</span> }
     ]
   },
-  <span class="key">"learningObjective"</span>: {
+  <span class="key">"learning_objective"</span>: {
     <span class="key">"de"</span>: <span class="str">"Grundlegende kurdische Begrüßungen lernen"</span>,
     <span class="key">"en"</span>: <span class="str">"Learn basic Kurdish greetings"</span>
   }
@@ -1602,7 +1602,7 @@
       <div class="ml-status-grid">
         <div class="ml-status-card">
           <h4>S5 — Lesson View <span class="ml-badge ml-badge-teaching">Done</span></h4>
-          <p>Uses <code>t()</code> for <code>metadata.subtitle</code> and <code>learningObjective</code>. Locale from <code>HK.getLang()</code>.</p>
+          <p>Uses <code>t()</code> for <code>metadata.subtitle</code> and <code>learning_objective</code>. Locale from <code>HK.getLang()</code>.</p>
         </div>
         <div class="ml-status-card">
           <h4>S6 — Lesson Player <span class="ml-badge ml-badge-teaching">Done</span></h4>

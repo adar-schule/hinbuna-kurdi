@@ -254,13 +254,13 @@ Default presets (unchanged)
 
 ### Workflow (as of 2026-02-11)
 ```
-Screen prompt (_docs/prompts/[screen].md) → Read brand system (00-base-template.md)
+Design decisions (this file) → Claude Code + frontend-design skill
     ↓
-Claude Code + frontend-design skill → Generate pure HTML/CSS
+Generate pure HTML/CSS → Browser preview (375px)
     ↓
-Browser preview (375px) → Review & iterate in Claude Code
+Review & iterate in Claude Code
     ↓
-_designs/ folder → Version controlled HTML files (light + dark)
+mockup/ folder → Version controlled HTML files (light + dark)
     ↓
 React + Tailwind + shadcn/ui → Code implementation (later)
 ```
@@ -278,10 +278,10 @@ Export → Screenshots for team / Figma for Gule
 
 ## Reference Screenshots
 
-Saved in `Desktop/Design/01/` — 6 approved screens from Stitch early iterations:
+6 approved screens from Stitch early iterations (used during initial design, now superseded by mockup screens):
 
-| File | Type | Use as |
-|------|------|--------|
+| Screen | Type | Use as |
+|--------|------|--------|
 | Iter 1: friendly light (mobile) | Landing, light | PRIMARY light reference |
 | Iter 1: friendly dark (mobile) | Landing, dark | PRIMARY dark reference |
 | Iter 1: desktop light | Landing, desktop | Desktop expansion ref |

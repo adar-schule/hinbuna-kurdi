@@ -46,7 +46,7 @@ Hinbuna Kurdi <-> Ferheng (Dictionary) <-> Quiz App (Practice)
 | **Admin** | Mamoste Ciwan (lead) | Create content, assign teachers, manage users, system settings |
 | **Teacher** | Other teachers | Edit assigned content only, view own students |
 
-**Access:** Same login as student, but with `role: teacher` or `role: admin`
+**Access:** Same login as student, but with `teacher` or `admin` role assigned via `user_roles` join table (many-to-many with `roles`)
 
 ---
 

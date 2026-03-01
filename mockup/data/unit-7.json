@@ -1,380 +1,1001 @@
 {
-  "unitId": 7,
+  "id": "6fa24359-87fa-59b7-8064-a45e0a41e4b8",
+  "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Têgihîştin û Axaftin",
   "slug": "tegihistin-u-axaftin",
   "description": "Develop reading comprehension and speaking skills through stories, dialogues, and verb identification exercises.",
+  "order_index": 6,
+  "is_free": false,
+  "is_published": true,
+  "image_url": null,
+  "category": null,
   "metadata": {
-    "subtitle": { "en": "Understanding & Speaking", "de": "Verstehen & Sprechen" }
+    "subtitle": {
+      "en": "Understanding & Speaking",
+      "de": "Verstehen & Sprechen"
+    }
   },
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
     {
-      "id": "7-1",
+      "id": "0df2983f-7365-545e-93dc-a231b25560ad",
+      "unit_id": "6fa24359-87fa-59b7-8064-a45e0a41e4b8",
       "name": "Pirsên Pêkan",
-      "description": "Read the Sosîn & Delal story and answer comprehension questions identifying verbs and meaning.",
       "slug": "pirsen-pekan",
-      "orderIndex": 0,
-      "learningObjective": { "en": "Read the Sosîn & Delal story and answer comprehension questions identifying verbs and meaning", "de": "Lies die Geschichte von Sosîn & Delal und beantworte Verständnisfragen zu Verben und Bedeutung" },
-      "durationMinutes": 12,
-      "isPublished": true,
+      "description": "Read the Sosîn & Delal story and answer comprehension questions identifying verbs and meaning.",
+      "order_index": 0,
+      "learning_objective": "Read the Sosîn & Delal story and answer comprehension questions identifying verbs and meaning",
+      "duration_minutes": 12,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Comprehension Questions", "de": "Verständnisfragen" },
-        "vocabPreview": ["dibîne", "davêje", "digire", "dikene", "dipeyivin"],
-        "wordsLearned": [
-          { "ku": "heval", "en": "friend", "de": "Freund/in" },
-          { "ku": "cem", "en": "at / to (someone's place)", "de": "bei / zu (jemandem)" },
-          { "ku": "birçî", "en": "hungry", "de": "hungrig" },
-          { "ku": "bizin", "en": "goat", "de": "Ziege" },
-          { "ku": "peyivîn — bipeyive", "en": "to speak — speak!", "de": "sprechen — sprich!" },
-          { "ku": "hatin — bihê", "en": "to come — come!", "de": "kommen — komm!" },
-          { "ku": "zazakî", "en": "Zazaki (Kurdish dialect)", "de": "Zazaki (kurdischer Dialekt)" },
-          { "ku": "hunermend", "en": "artist", "de": "Künstler/in" },
-          { "ku": "kar", "en": "work / job", "de": "Arbeit / Beruf" }
+        "subtitle": {
+          "en": "Comprehension Questions",
+          "de": "Verständnisfragen"
+        },
+        "vocab_preview": [
+          "dibîne",
+          "davêje",
+          "digire",
+          "dikene",
+          "dipeyivin"
+        ],
+        "words_learned": [
+          {
+            "ku": "heval",
+            "en": "friend",
+            "de": "Freund/in"
+          },
+          {
+            "ku": "cem",
+            "en": "at / to (someone's place)",
+            "de": "bei / zu (jemandem)"
+          },
+          {
+            "ku": "birçî",
+            "en": "hungry",
+            "de": "hungrig"
+          },
+          {
+            "ku": "bizin",
+            "en": "goat",
+            "de": "Ziege"
+          },
+          {
+            "ku": "peyivîn — bipeyive",
+            "en": "to speak — speak!",
+            "de": "sprechen — sprich!"
+          },
+          {
+            "ku": "hatin — bihê",
+            "en": "to come — come!",
+            "de": "kommen — komm!"
+          },
+          {
+            "ku": "zazakî",
+            "en": "Zazaki (Kurdish dialect)",
+            "de": "Zazaki (kurdischer Dialekt)"
+          },
+          {
+            "ku": "hunermend",
+            "en": "artist",
+            "de": "Künstler/in"
+          },
+          {
+            "ku": "kar",
+            "en": "work / job",
+            "de": "Arbeit / Beruf"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "7-1-01",
+          "id": "4a20b009-86e3-58fa-bc58-8771bf4325bf",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb", "de": "Lerne dieses Verb" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "peyivîn (to speak)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "dipeyivim, dipeyivî, dipeyive, dipeyivin", "de": "ich spreche, du sprichst, er/sie spricht, wir/sie sprechen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "dipeyivim, dipeyivî, dipeyive, dipeyivin",
+              "de": "ich spreche, du sprichst, er/sie spricht, wir/sie sprechen"
+            },
             "example": "Em li malê bi kurdî dipeyivin.",
-            "exampleTranslation": { "en": "We speak Kurdish at home.", "de": "Wir sprechen zu Hause Kurdisch." }
-          }
+            "instruction": {
+              "en": "Learn this verb",
+              "de": "Lerne dieses Verb"
+            },
+            "example_translation": {
+              "en": "We speak Kurdish at home.",
+              "de": "Wir sprechen zu Hause Kurdisch."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-02",
+          "id": "b8e4b6b6-7801-5f13-88bc-646551a28055",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb", "de": "Lerne dieses Verb" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "hatin (to come)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "têm, tê, tê, tên", "de": "ich komme, du kommst, er/sie kommt, wir/sie kommen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "têm, tê, tê, tên",
+              "de": "ich komme, du kommst, er/sie kommt, wir/sie kommen"
+            },
             "example": "Ez ji zanîngehê têm.",
-            "exampleTranslation": { "en": "I come from the university.", "de": "Ich komme von der Universität." }
-          }
+            "instruction": {
+              "en": "Learn this verb",
+              "de": "Lerne dieses Verb"
+            },
+            "example_translation": {
+              "en": "I come from the university.",
+              "de": "Ich komme von der Universität."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-03",
+          "id": "2aaed5b4-986c-5d46-b757-6f3b03479b6a",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this word", "de": "Lerne dieses Wort" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "birçî",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "hungry", "de": "hungrig" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "hungry",
+              "de": "hungrig"
+            },
             "example": "Ez birçî me.",
-            "exampleTranslation": { "en": "I am hungry.", "de": "Ich bin hungrig." }
-          }
+            "instruction": {
+              "en": "Learn this word",
+              "de": "Lerne dieses Wort"
+            },
+            "example_translation": {
+              "en": "I am hungry.",
+              "de": "Ich bin hungrig."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-04",
+          "id": "20bcd7ed-77b0-5929-b905-10934e1f2649",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "reading",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Read the story of Sosîn and Delal", "de": "Lies die Geschichte von Sosîn und Delal" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
-            "title": { "en": "Sosîn û Delal", "de": "Sosîn und Delal" },
+            "title": {
+              "en": "Sosîn û Delal",
+              "de": "Sosîn und Delal"
+            },
             "lines": [
-              { "speaker": "", "ku": "Navê wê Sosîn e. Navê hevala wê Delal e.", "en": "Her name is Sosîn. Her friend's name is Delal.", "de": "Ihr Name ist Sosîn. Ihre Freundin heißt Delal." },
-              { "speaker": "", "ku": "Ew deh salî ne.", "en": "They are 10 years old.", "de": "Sie sind 10 Jahre alt." },
-              { "speaker": "", "ku": "Sosîn sêvê dibîne.", "en": "Sosîn sees the apple.", "de": "Sosîn sieht den Apfel." },
-              { "speaker": "", "ku": "Ew diçin cem Alan.", "en": "They go to Alan's place.", "de": "Sie gehen zu Alan." },
-              { "speaker": "", "ku": "Sosîn sêvê davêje. Delal sêvê digire.", "en": "Sosîn throws the apple. Delal catches the apple.", "de": "Sosîn wirft den Apfel. Delal fängt den Apfel." },
-              { "speaker": "Sosîn", "ku": "Em sêvê dixwin?", "en": "Do we eat the apple?", "de": "Essen wir den Apfel?" },
-              { "speaker": "", "ku": "Delal dikene.", "en": "Delal laughs.", "de": "Delal lacht." },
-              { "speaker": "Delal", "ku": "Na, ez sêvê dixwim. Ez birçî me.", "en": "No, I eat the apple. I am hungry.", "de": "Nein, ich esse den Apfel. Ich bin hungrig." },
-              { "speaker": "Sosîn", "ku": "Tu bizin î!", "en": "You are a goat!", "de": "Du bist eine Ziege!" },
-              { "speaker": "", "ku": "Sosîn diçe malê.", "en": "Sosîn goes home.", "de": "Sosîn geht nach Hause." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Navê wê Sosîn e. Navê hevala wê Delal e.",
+                "en": "Her name is Sosîn. Her friend's name is Delal.",
+                "de": "Ihr Name ist Sosîn. Ihre Freundin heißt Delal."
+              },
+              {
+                "speaker": "",
+                "ku": "Ew deh salî ne.",
+                "en": "They are 10 years old.",
+                "de": "Sie sind 10 Jahre alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Sosîn sêvê dibîne.",
+                "en": "Sosîn sees the apple.",
+                "de": "Sosîn sieht den Apfel."
+              },
+              {
+                "speaker": "",
+                "ku": "Ew diçin cem Alan.",
+                "en": "They go to Alan's place.",
+                "de": "Sie gehen zu Alan."
+              },
+              {
+                "speaker": "",
+                "ku": "Sosîn sêvê davêje. Delal sêvê digire.",
+                "en": "Sosîn throws the apple. Delal catches the apple.",
+                "de": "Sosîn wirft den Apfel. Delal fängt den Apfel."
+              },
+              {
+                "speaker": "Sosîn",
+                "ku": "Em sêvê dixwin?",
+                "en": "Do we eat the apple?",
+                "de": "Essen wir den Apfel?"
+              },
+              {
+                "speaker": "",
+                "ku": "Delal dikene.",
+                "en": "Delal laughs.",
+                "de": "Delal lacht."
+              },
+              {
+                "speaker": "Delal",
+                "ku": "Na, ez sêvê dixwim. Ez birçî me.",
+                "en": "No, I eat the apple. I am hungry.",
+                "de": "Nein, ich esse den Apfel. Ich bin hungrig."
+              },
+              {
+                "speaker": "Sosîn",
+                "ku": "Tu bizin î!",
+                "en": "You are a goat!",
+                "de": "Du bist eine Ziege!"
+              },
+              {
+                "speaker": "",
+                "ku": "Sosîn diçe malê.",
+                "en": "Sosîn goes home.",
+                "de": "Sosîn geht nach Hause."
+              }
+            ],
+            "instruction": {
+              "en": "Read the story of Sosîn and Delal",
+              "de": "Lies die Geschichte von Sosîn und Delal"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-05",
+          "id": "681f7a9f-2d3b-588c-aaeb-451d91cc8785",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "mcq",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "Sosîn çi davêje?", "de": "Was wirft Sosîn?" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "gulê", "de": "die Rose" },
-              { "en": "sêvê", "de": "den Apfel" },
-              { "en": "kevir", "de": "einen Stein" },
-              { "en": "topê", "de": "den Ball" }
+              {
+                "en": "gulê",
+                "de": "die Rose"
+              },
+              {
+                "en": "sêvê",
+                "de": "den Apfel"
+              },
+              {
+                "en": "kevir",
+                "de": "einen Stein"
+              },
+              {
+                "en": "topê",
+                "de": "den Ball"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "\"Sosîn sêvê davêje\" = Sosîn throws the apple. davêje = throws (from avêtin).", "de": "\"Sosîn sêvê davêje\" = Sosîn wirft den Apfel. davêje = wirft (von avêtin)." }
-          }
+            "explanation": {
+              "en": "\"Sosîn sêvê davêje\" = Sosîn throws the apple. davêje = throws (from avêtin).",
+              "de": "\"Sosîn sêvê davêje\" = Sosîn wirft den Apfel. davêje = wirft (von avêtin)."
+            },
+            "instruction": {
+              "en": "Sosîn çi davêje?",
+              "de": "Was wirft Sosîn?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-06",
+          "id": "0ef5a4cf-acbc-5a3a-a4a9-7ba298b6cad3",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "Kî dikene?", "de": "Wer lacht?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Sosîn", "de": "Sosîn" },
-              { "en": "Alan", "de": "Alan" },
-              { "en": "Delal", "de": "Delal" },
-              { "en": "Azad", "de": "Azad" }
+              {
+                "en": "Sosîn",
+                "de": "Sosîn"
+              },
+              {
+                "en": "Alan",
+                "de": "Alan"
+              },
+              {
+                "en": "Delal",
+                "de": "Delal"
+              },
+              {
+                "en": "Azad",
+                "de": "Azad"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "\"Delal dikene\" = Delal laughs. dikene = laughs (from kenîn).", "de": "\"Delal dikene\" = Delal lacht. dikene = lacht (von kenîn)." }
-          }
+            "explanation": {
+              "en": "\"Delal dikene\" = Delal laughs. dikene = laughs (from kenîn).",
+              "de": "\"Delal dikene\" = Delal lacht. dikene = lacht (von kenîn)."
+            },
+            "instruction": {
+              "en": "Kî dikene?",
+              "de": "Wer lacht?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-07",
+          "id": "06a529a6-5aa0-5de2-9b78-8f81c69b4571",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "mcq",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Delal çima sêvê dixwe?", "de": "Warum isst Delal den Apfel?" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Ew şa ye.", "de": "Sie ist glücklich." },
-              { "en": "Ew nexweş e.", "de": "Sie ist krank." },
-              { "en": "Ew birçî ye.", "de": "Sie ist hungrig." },
-              { "en": "Ew tî ye.", "de": "Sie ist durstig." }
+              {
+                "en": "Ew şa ye.",
+                "de": "Sie ist glücklich."
+              },
+              {
+                "en": "Ew nexweş e.",
+                "de": "Sie ist krank."
+              },
+              {
+                "en": "Ew birçî ye.",
+                "de": "Sie ist hungrig."
+              },
+              {
+                "en": "Ew tî ye.",
+                "de": "Sie ist durstig."
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "Delal says \"Ez birçî me\" = I am hungry. That's why she eats the apple. birçî = hungry.", "de": "Delal sagt \"Ez birçî me\" = Ich bin hungrig. Deshalb isst sie den Apfel. birçî = hungrig." }
-          }
+            "explanation": {
+              "en": "Delal says \"Ez birçî me\" = I am hungry. That's why she eats the apple. birçî = hungry.",
+              "de": "Delal sagt \"Ez birçî me\" = Ich bin hungrig. Deshalb isst sie den Apfel. birçî = hungrig."
+            },
+            "instruction": {
+              "en": "Delal çima sêvê dixwe?",
+              "de": "Warum isst Delal den Apfel?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-08",
+          "id": "89b25269-1409-5bc6-9638-2ba41f28f9ee",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "reading",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Read the second dialogue about origins and occupations", "de": "Lies den zweiten Dialog über Herkunft und Berufe" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
-            "title": { "en": "Ji ku yî? — Where are you from?", "de": "Ji ku yî? — Woher kommst du?" },
+            "title": {
+              "en": "Ji ku yî? — Where are you from?",
+              "de": "Ji ku yî? — Woher kommst du?"
+            },
             "lines": [
-              { "speaker": "A", "ku": "Roj baş, tu ji ku yî?", "en": "Good day, where are you from?", "de": "Guten Tag, woher kommst du?" },
-              { "speaker": "B", "ku": "Roj baş, ez ji Amedê me. Û tu?", "en": "Good day, I am from Amed (Diyarbakir). And you?", "de": "Guten Tag, ich komme aus Amed (Diyarbakir). Und du?" },
-              { "speaker": "A", "ku": "Ez ji Dêrsimê me. Tu kurd î?", "en": "I am from Dersim. Are you Kurdish?", "de": "Ich komme aus Dersim. Bist du Kurde/Kurdin?" },
-              { "speaker": "B", "ku": "Erê, ez kurd im. Hûn li malê bi kurdî dipeyivin?", "en": "Yes, I am Kurdish. Do you speak Kurdish at home?", "de": "Ja, ich bin Kurde. Sprecht ihr zu Hause Kurdisch?" },
-              { "speaker": "A", "ku": "Em zazakî dipeyivin. Ez kurdî nizanim.", "en": "We speak Zazaki. I don't know Kurdish (Kurmanji).", "de": "Wir sprechen Zazaki. Ich kann kein Kurdisch (Kurmandschi)." },
-              { "speaker": "C", "ku": "Roj baş! Ez ji kar têm. Hûn ji ku tên?", "en": "Good day! I come from work. Where do you (pl.) come from?", "de": "Guten Tag! Ich komme von der Arbeit. Woher kommt ihr?" },
-              { "speaker": "A", "ku": "Em ji zanîngehê tên. Tu çi karî dikî?", "en": "We come from the university. What is your job?", "de": "Wir kommen von der Universität. Was ist dein Beruf?" },
-              { "speaker": "C", "ku": "Ez doktor im. Hûn çi karî dikin?", "en": "I am a doctor. What are your jobs?", "de": "Ich bin Arzt. Was sind eure Berufe?" },
-              { "speaker": "A", "ku": "Ez mamoste me.", "en": "I am a teacher.", "de": "Ich bin Lehrer/in." },
-              { "speaker": "B", "ku": "Ez hunermend im.", "en": "I am an artist.", "de": "Ich bin Künstler/in." }
-            ]
-          }
+              {
+                "speaker": "A",
+                "ku": "Roj baş, tu ji ku yî?",
+                "en": "Good day, where are you from?",
+                "de": "Guten Tag, woher kommst du?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Roj baş, ez ji Amedê me. Û tu?",
+                "en": "Good day, I am from Amed (Diyarbakir). And you?",
+                "de": "Guten Tag, ich komme aus Amed (Diyarbakir). Und du?"
+              },
+              {
+                "speaker": "A",
+                "ku": "Ez ji Dêrsimê me. Tu kurd î?",
+                "en": "I am from Dersim. Are you Kurdish?",
+                "de": "Ich komme aus Dersim. Bist du Kurde/Kurdin?"
+              },
+              {
+                "speaker": "B",
+                "ku": "Erê, ez kurd im. Hûn li malê bi kurdî dipeyivin?",
+                "en": "Yes, I am Kurdish. Do you speak Kurdish at home?",
+                "de": "Ja, ich bin Kurde. Sprecht ihr zu Hause Kurdisch?"
+              },
+              {
+                "speaker": "A",
+                "ku": "Em zazakî dipeyivin. Ez kurdî nizanim.",
+                "en": "We speak Zazaki. I don't know Kurdish (Kurmanji).",
+                "de": "Wir sprechen Zazaki. Ich kann kein Kurdisch (Kurmandschi)."
+              },
+              {
+                "speaker": "C",
+                "ku": "Roj baş! Ez ji kar têm. Hûn ji ku tên?",
+                "en": "Good day! I come from work. Where do you (pl.) come from?",
+                "de": "Guten Tag! Ich komme von der Arbeit. Woher kommt ihr?"
+              },
+              {
+                "speaker": "A",
+                "ku": "Em ji zanîngehê tên. Tu çi karî dikî?",
+                "en": "We come from the university. What is your job?",
+                "de": "Wir kommen von der Universität. Was ist dein Beruf?"
+              },
+              {
+                "speaker": "C",
+                "ku": "Ez doktor im. Hûn çi karî dikin?",
+                "en": "I am a doctor. What are your jobs?",
+                "de": "Ich bin Arzt. Was sind eure Berufe?"
+              },
+              {
+                "speaker": "A",
+                "ku": "Ez mamoste me.",
+                "en": "I am a teacher.",
+                "de": "Ich bin Lehrer/in."
+              },
+              {
+                "speaker": "B",
+                "ku": "Ez hunermend im.",
+                "en": "I am an artist.",
+                "de": "Ich bin Künstler/in."
+              }
+            ],
+            "instruction": {
+              "en": "Read the second dialogue about origins and occupations",
+              "de": "Lies den zweiten Dialog über Herkunft und Berufe"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-09",
+          "id": "1eeb0fdf-3171-5e89-9e36-2d87d55b9de6",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "gap_fill",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Em li malê bi kurdî ___.", "de": "Vervollständige: Em li malê bi kurdî ___." },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "before": "Em li malê bi kurdî ",
             "gap": "dipeyivin",
             "after": ".",
             "display": "Em li malê bi kurdî ___.",
-            "wordBank": ["dipeyivin", "dipeyivim", "dipeyivî", "napeyivin"],
-            "explanation": { "en": "For \"em\" (we), the verb peyivîn → dipeyivin. We speak Kurdish at home.", "de": "Für \"em\" (wir) wird das Verb peyivîn → dipeyivin. Wir sprechen zu Hause Kurdisch." }
-          }
+            "explanation": {
+              "en": "For \"em\" (we), the verb peyivîn → dipeyivin. We speak Kurdish at home.",
+              "de": "Für \"em\" (wir) wird das Verb peyivîn → dipeyivin. Wir sprechen zu Hause Kurdisch."
+            },
+            "instruction": {
+              "en": "Complete: Em li malê bi kurdî ___.",
+              "de": "Vervollständige: Em li malê bi kurdî ___."
+            },
+            "word_bank": [
+              "dipeyivin",
+              "dipeyivim",
+              "dipeyivî",
+              "napeyivin"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-1-10",
+          "id": "b93dbc29-3b8b-50d5-8b8a-61e810b88a57",
+          "lesson_id": "0df2983f-7365-545e-93dc-a231b25560ad",
           "type": "matching",
-          "orderIndex": 9,
-          "isPublished": true,
-          "instruction": { "en": "Match each person with their occupation", "de": "Ordne jeder Person ihren Beruf zu" },
+          "order_index": 9,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "A", "en": "mamoste (teacher)", "de": "mamoste (Lehrer/in)" },
-              { "ku": "B", "en": "hunermend (artist)", "de": "hunermend (Künstler/in)" },
-              { "ku": "C", "en": "doktor (doctor)", "de": "doktor (Arzt/Ärztin)" }
-            ]
-          }
+              {
+                "ku": "A",
+                "en": "mamoste (teacher)",
+                "de": "mamoste (Lehrer/in)"
+              },
+              {
+                "ku": "B",
+                "en": "hunermend (artist)",
+                "de": "hunermend (Künstler/in)"
+              },
+              {
+                "ku": "C",
+                "en": "doktor (doctor)",
+                "de": "doktor (Arzt/Ärztin)"
+              }
+            ],
+            "instruction": {
+              "en": "Match each person with their occupation",
+              "de": "Ordne jeder Person ihren Beruf zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     },
     {
-      "id": "7-2",
+      "id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
+      "unit_id": "6fa24359-87fa-59b7-8064-a45e0a41e4b8",
       "name": "Diyalog û Lêker",
-      "description": "Read an annotated dialogue identifying which verb is used in each line, and learn new verbs: jenîn, hez kirin, firotin.",
       "slug": "diyalog-u-leker",
-      "orderIndex": 1,
-      "learningObjective": { "en": "Read an annotated dialogue identifying which verb is used in each line, and learn new verbs: jenîn, hez kirin, firotin", "de": "Lies einen kommentierten Dialog, identifiziere das verwendete Verb in jeder Zeile und lerne neue Verben: jenîn, hez kirin, firotin" },
-      "durationMinutes": 10,
-      "isPublished": true,
+      "description": "Read an annotated dialogue identifying which verb is used in each line, and learn new verbs: jenîn, hez kirin, firotin.",
+      "order_index": 1,
+      "learning_objective": "Read an annotated dialogue identifying which verb is used in each line, and learn new verbs: jenîn, hez kirin, firotin",
+      "duration_minutes": 10,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Dialogue with Verb Identification", "de": "Dialog mit Verb-Erkennung" },
-        "vocabPreview": ["jenîn", "hez kirin", "amûr", "gîtar", "tembûr"],
-        "wordsLearned": [
-          { "ku": "jenîn — bijene", "en": "to play (music) — play!", "de": "spielen (Musik) — spiel!" },
-          { "ku": "hez kirin (ji) — hez bike", "en": "to like — like!", "de": "mögen — mag!" },
-          { "ku": "amûr", "en": "instrument", "de": "Instrument" },
-          { "ku": "gîtar", "en": "guitar", "de": "Gitarre" },
-          { "ku": "tembûr", "en": "tembur (Kurdish lute)", "de": "Tembur (kurdische Laute)" },
-          { "ku": "muzîk", "en": "music", "de": "Musik" },
-          { "ku": "muzîka kurdî", "en": "Kurdish music", "de": "kurdische Musik" },
-          { "ku": "najenim", "en": "I don't play (music)", "de": "ich spiele nicht (Musik)" },
-          { "ku": "nizanim", "en": "I don't know", "de": "ich weiß nicht" }
+        "subtitle": {
+          "en": "Dialogue with Verb Identification",
+          "de": "Dialog mit Verb-Erkennung"
+        },
+        "vocab_preview": [
+          "jenîn",
+          "hez kirin",
+          "amûr",
+          "gîtar",
+          "tembûr"
+        ],
+        "words_learned": [
+          {
+            "ku": "jenîn — bijene",
+            "en": "to play (music) — play!",
+            "de": "spielen (Musik) — spiel!"
+          },
+          {
+            "ku": "hez kirin (ji) — hez bike",
+            "en": "to like — like!",
+            "de": "mögen — mag!"
+          },
+          {
+            "ku": "amûr",
+            "en": "instrument",
+            "de": "Instrument"
+          },
+          {
+            "ku": "gîtar",
+            "en": "guitar",
+            "de": "Gitarre"
+          },
+          {
+            "ku": "tembûr",
+            "en": "tembur (Kurdish lute)",
+            "de": "Tembur (kurdische Laute)"
+          },
+          {
+            "ku": "muzîk",
+            "en": "music",
+            "de": "Musik"
+          },
+          {
+            "ku": "muzîka kurdî",
+            "en": "Kurdish music",
+            "de": "kurdische Musik"
+          },
+          {
+            "ku": "najenim",
+            "en": "I don't play (music)",
+            "de": "ich spiele nicht (Musik)"
+          },
+          {
+            "ku": "nizanim",
+            "en": "I don't know",
+            "de": "ich weiß nicht"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "7-2-01",
+          "id": "c4daa6e6-9cb6-5101-826f-80bacfe7a8ac",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb", "de": "Lerne dieses Verb" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "jenîn (to play music)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "dijenim, dijenî, dijene, dijenin", "de": "ich spiele, du spielst, er/sie spielt, wir/sie spielen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "dijenim, dijenî, dijene, dijenin",
+              "de": "ich spiele, du spielst, er/sie spielt, wir/sie spielen"
+            },
             "example": "Tu tembûrê dijenî?",
-            "exampleTranslation": { "en": "Do you play the tembur?", "de": "Spielst du die Tembur?" }
-          }
+            "instruction": {
+              "en": "Learn this verb",
+              "de": "Lerne dieses Verb"
+            },
+            "example_translation": {
+              "en": "Do you play the tembur?",
+              "de": "Spielst du die Tembur?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-02",
+          "id": "e66ec339-848b-5866-9d4d-1e49c55040a7",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb", "de": "Lerne dieses Verb" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "hez kirin (ji)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "to like (something)", "de": "etwas mögen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "to like (something)",
+              "de": "etwas mögen"
+            },
             "example": "Ez ji muzîka kurdî hez dikim.",
-            "exampleTranslation": { "en": "I like Kurdish music.", "de": "Ich mag kurdische Musik." }
-          }
+            "instruction": {
+              "en": "Learn this verb",
+              "de": "Lerne dieses Verb"
+            },
+            "example_translation": {
+              "en": "I like Kurdish music.",
+              "de": "Ich mag kurdische Musik."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-03",
+          "id": "0716c00f-aa3a-589f-bd79-e588f3c05095",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this word", "de": "Lerne dieses Wort" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "tembûr",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "tembur — a traditional Kurdish long-necked lute", "de": "Tembur — eine traditionelle kurdische Langhalslaute" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "tembur — a traditional Kurdish long-necked lute",
+              "de": "Tembur — eine traditionelle kurdische Langhalslaute"
+            },
             "example": "Ez gîtar û tembûrê difroşim.",
-            "exampleTranslation": { "en": "I sell guitars and temburs.", "de": "Ich verkaufe Gitarren und Tembure." }
-          }
+            "instruction": {
+              "en": "Learn this word",
+              "de": "Lerne dieses Wort"
+            },
+            "example_translation": {
+              "en": "I sell guitars and temburs.",
+              "de": "Ich verkaufe Gitarren und Tembure."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-04",
+          "id": "fb5c42e5-fd16-5f1b-a379-b7fac1f565b2",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "reading",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Read the dialogue — notice which verb is used in each line", "de": "Lies den Dialog — achte darauf, welches Verb in jeder Zeile verwendet wird" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
-            "title": { "en": "Amûr û Muzîk — Instruments & Music", "de": "Amûr û Muzîk — Instrumente & Musik" },
+            "title": {
+              "en": "Amûr û Muzîk — Instruments & Music",
+              "de": "Amûr û Muzîk — Instrumente & Musik"
+            },
             "lines": [
-              { "speaker": "A", "ku": "Roj baş, tu çawa yî?", "en": "Good day, how are you? [bûn]", "de": "Guten Tag, wie geht es dir? [bûn]" },
-              { "speaker": "B", "ku": "Roj baş, ez baş im, spas. Û tu?", "en": "Good day, I am good, thanks. And you? [bûn]", "de": "Guten Tag, mir geht es gut, danke. Und dir? [bûn]" },
-              { "speaker": "A", "ku": "Ez jî baş im, spas. Tu çi dikî?", "en": "I am also good, thanks. What do you do? [kirin]", "de": "Mir geht es auch gut, danke. Was machst du? [kirin]" },
-              { "speaker": "B", "ku": "Ez amûran difroşim.", "en": "I sell instruments. [firotin]", "de": "Ich verkaufe Instrumente. [firotin]" },
-              { "speaker": "A", "ku": "Tu kîjan amûran difroşî?", "en": "Which instruments do you sell? [firotin]", "de": "Welche Instrumente verkaufst du? [firotin]" },
-              { "speaker": "B", "ku": "Ez gîtar û tembûrê difroşim.", "en": "I sell guitars and temburs. [firotin]", "de": "Ich verkaufe Gitarren und Tembure. [firotin]" },
-              { "speaker": "A", "ku": "Tu tembûrê dijenî?", "en": "Do you play the tembur? [jenîn]", "de": "Spielst du die Tembur? [jenîn]" },
-              { "speaker": "B", "ku": "Na, ez najenim.", "en": "No, I don't play. [jenîn - negative]", "de": "Nein, ich spiele nicht. [jenîn - verneint]" },
-              { "speaker": "A", "ku": "Tu ji muzîka kurdî hez dikî?", "en": "Do you like Kurdish music? [hez kirin]", "de": "Magst du kurdische Musik? [hez kirin]" },
-              { "speaker": "B", "ku": "Ez ji muzîka kurdî hez dikim.", "en": "I like Kurdish music. [hez kirin]", "de": "Ich mag kurdische Musik. [hez kirin]" },
-              { "speaker": "A", "ku": "Tu nan dixwî?", "en": "Do you eat bread? [xwarin]", "de": "Isst du Brot? [xwarin]" },
-              { "speaker": "B", "ku": "Na, nan naxwim. Ez sêvê dixwim.", "en": "No, I don't eat bread. I eat the apple. [xwarin]", "de": "Nein, ich esse kein Brot. Ich esse den Apfel. [xwarin]" },
-              { "speaker": "A", "ku": "Ev çi ye?", "en": "What is this? [bûn]", "de": "Was ist das? [bûn]" },
-              { "speaker": "B", "ku": "Ev pirtûk e. Tu pirtûkê dixwînî?", "en": "This is a book. Do you read the book? [xwendin]", "de": "Das ist ein Buch. Liest du das Buch? [xwendin]" },
-              { "speaker": "A", "ku": "Ez nizanim. Ez diçim malê.", "en": "I don't know. I go home. [zanîn, çûn]", "de": "Ich weiß nicht. Ich gehe nach Hause. [zanîn, çûn]" },
-              { "speaker": "B", "ku": "Bi xatirê te.", "en": "Goodbye (said by the one staying).", "de": "Auf Wiedersehen (vom Bleibenden gesagt)." },
-              { "speaker": "A", "ku": "Oxir be.", "en": "Goodbye (said by the one leaving).", "de": "Auf Wiedersehen (vom Gehenden gesagt)." }
-            ]
-          }
+              {
+                "speaker": "A",
+                "ku": "Roj baş, tu çawa yî?",
+                "en": "Good day, how are you? [bûn]",
+                "de": "Guten Tag, wie geht es dir? [bûn]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Roj baş, ez baş im, spas. Û tu?",
+                "en": "Good day, I am good, thanks. And you? [bûn]",
+                "de": "Guten Tag, mir geht es gut, danke. Und dir? [bûn]"
+              },
+              {
+                "speaker": "A",
+                "ku": "Ez jî baş im, spas. Tu çi dikî?",
+                "en": "I am also good, thanks. What do you do? [kirin]",
+                "de": "Mir geht es auch gut, danke. Was machst du? [kirin]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Ez amûran difroşim.",
+                "en": "I sell instruments. [firotin]",
+                "de": "Ich verkaufe Instrumente. [firotin]"
+              },
+              {
+                "speaker": "A",
+                "ku": "Tu kîjan amûran difroşî?",
+                "en": "Which instruments do you sell? [firotin]",
+                "de": "Welche Instrumente verkaufst du? [firotin]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Ez gîtar û tembûrê difroşim.",
+                "en": "I sell guitars and temburs. [firotin]",
+                "de": "Ich verkaufe Gitarren und Tembure. [firotin]"
+              },
+              {
+                "speaker": "A",
+                "ku": "Tu tembûrê dijenî?",
+                "en": "Do you play the tembur? [jenîn]",
+                "de": "Spielst du die Tembur? [jenîn]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Na, ez najenim.",
+                "en": "No, I don't play. [jenîn - negative]",
+                "de": "Nein, ich spiele nicht. [jenîn - verneint]"
+              },
+              {
+                "speaker": "A",
+                "ku": "Tu ji muzîka kurdî hez dikî?",
+                "en": "Do you like Kurdish music? [hez kirin]",
+                "de": "Magst du kurdische Musik? [hez kirin]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Ez ji muzîka kurdî hez dikim.",
+                "en": "I like Kurdish music. [hez kirin]",
+                "de": "Ich mag kurdische Musik. [hez kirin]"
+              },
+              {
+                "speaker": "A",
+                "ku": "Tu nan dixwî?",
+                "en": "Do you eat bread? [xwarin]",
+                "de": "Isst du Brot? [xwarin]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Na, nan naxwim. Ez sêvê dixwim.",
+                "en": "No, I don't eat bread. I eat the apple. [xwarin]",
+                "de": "Nein, ich esse kein Brot. Ich esse den Apfel. [xwarin]"
+              },
+              {
+                "speaker": "A",
+                "ku": "Ev çi ye?",
+                "en": "What is this? [bûn]",
+                "de": "Was ist das? [bûn]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Ev pirtûk e. Tu pirtûkê dixwînî?",
+                "en": "This is a book. Do you read the book? [xwendin]",
+                "de": "Das ist ein Buch. Liest du das Buch? [xwendin]"
+              },
+              {
+                "speaker": "A",
+                "ku": "Ez nizanim. Ez diçim malê.",
+                "en": "I don't know. I go home. [zanîn, çûn]",
+                "de": "Ich weiß nicht. Ich gehe nach Hause. [zanîn, çûn]"
+              },
+              {
+                "speaker": "B",
+                "ku": "Bi xatirê te.",
+                "en": "Goodbye (said by the one staying).",
+                "de": "Auf Wiedersehen (vom Bleibenden gesagt)."
+              },
+              {
+                "speaker": "A",
+                "ku": "Oxir be.",
+                "en": "Goodbye (said by the one leaving).",
+                "de": "Auf Wiedersehen (vom Gehenden gesagt)."
+              }
+            ],
+            "instruction": {
+              "en": "Read the dialogue — notice which verb is used in each line",
+              "de": "Lies den Dialog — achte darauf, welches Verb in jeder Zeile verwendet wird"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-05",
+          "id": "9743fd38-3e3e-5169-86f5-17bfdb1de624",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "mcq",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "B çi difroşe?", "de": "Was verkauft B?" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "pirtûk", "de": "Bücher" },
-              { "en": "sêv", "de": "Äpfel" },
-              { "en": "amûr (gîtar û tembûr)", "de": "Instrumente (Gitarre und Tembur)" },
-              { "en": "nan", "de": "Brot" }
+              {
+                "en": "pirtûk",
+                "de": "Bücher"
+              },
+              {
+                "en": "sêv",
+                "de": "Äpfel"
+              },
+              {
+                "en": "amûr (gîtar û tembûr)",
+                "de": "Instrumente (Gitarre und Tembur)"
+              },
+              {
+                "en": "nan",
+                "de": "Brot"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "B says \"Ez amûran difroşim\" and specifies \"gîtar û tembûrê difroşim\" — I sell guitars and temburs.", "de": "B sagt \"Ez amûran difroşim\" und präzisiert \"gîtar û tembûrê difroşim\" — Ich verkaufe Gitarren und Tembure." }
-          }
+            "explanation": {
+              "en": "B says \"Ez amûran difroşim\" and specifies \"gîtar û tembûrê difroşim\" — I sell guitars and temburs.",
+              "de": "B sagt \"Ez amûran difroşim\" und präzisiert \"gîtar û tembûrê difroşim\" — Ich verkaufe Gitarren und Tembure."
+            },
+            "instruction": {
+              "en": "B çi difroşe?",
+              "de": "Was verkauft B?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-06",
+          "id": "458f40b6-d2a6-5550-817c-85c2563fad7f",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "B tembûrê dijene?", "de": "Spielt B die Tembur?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Erê, ew tembûrê dijene.", "de": "Ja, er/sie spielt die Tembur." },
-              { "en": "Na, ew najene.", "de": "Nein, er/sie spielt nicht." },
-              { "en": "Ew gîtar dijene.", "de": "Er/sie spielt Gitarre." },
-              { "en": "Ew nizane.", "de": "Er/sie weiß es nicht." }
+              {
+                "en": "Erê, ew tembûrê dijene.",
+                "de": "Ja, er/sie spielt die Tembur."
+              },
+              {
+                "en": "Na, ew najene.",
+                "de": "Nein, er/sie spielt nicht."
+              },
+              {
+                "en": "Ew gîtar dijene.",
+                "de": "Er/sie spielt Gitarre."
+              },
+              {
+                "en": "Ew nizane.",
+                "de": "Er/sie weiß es nicht."
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "B says \"Na, ez najenim\" — No, I don't play. Even though B sells temburs, B does not play them.", "de": "B sagt \"Na, ez najenim\" — Nein, ich spiele nicht. Obwohl B Tembure verkauft, spielt B sie nicht." }
-          }
+            "explanation": {
+              "en": "B says \"Na, ez najenim\" — No, I don't play. Even though B sells temburs, B does not play them.",
+              "de": "B sagt \"Na, ez najenim\" — Nein, ich spiele nicht. Obwohl B Tembure verkauft, spielt B sie nicht."
+            },
+            "instruction": {
+              "en": "B tembûrê dijene?",
+              "de": "Spielt B die Tembur?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-07",
+          "id": "91cc4205-da5a-5a77-9d7c-0ae97c9d7b1d",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "gap_fill",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Ez ji muzîka kurdî hez ___.", "de": "Vervollständige: Ez ji muzîka kurdî hez ___." },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "before": "Ez ji muzîka kurdî hez ",
             "gap": "dikim",
             "after": ".",
             "display": "Ez ji muzîka kurdî hez ___.",
-            "wordBank": ["dikim", "dikî", "dike", "dikin"],
-            "explanation": { "en": "\"hez kirin\" = to like. For \"ez\" (I): hez dikim. The phrase uses \"ji\" before the thing you like: Ez ji ... hez dikim.", "de": "\"hez kirin\" = mögen. Für \"ez\" (ich): hez dikim. Die Wendung verwendet \"ji\" vor dem, was man mag: Ez ji ... hez dikim." }
-          }
+            "explanation": {
+              "en": "\"hez kirin\" = to like. For \"ez\" (I): hez dikim. The phrase uses \"ji\" before the thing you like: Ez ji ... hez dikim.",
+              "de": "\"hez kirin\" = mögen. Für \"ez\" (ich): hez dikim. Die Wendung verwendet \"ji\" vor dem, was man mag: Ez ji ... hez dikim."
+            },
+            "instruction": {
+              "en": "Complete: Ez ji muzîka kurdî hez ___.",
+              "de": "Vervollständige: Ez ji muzîka kurdî hez ___."
+            },
+            "word_bank": [
+              "dikim",
+              "dikî",
+              "dike",
+              "dikin"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-08",
+          "id": "ac34d479-68fd-5fb8-9bfc-68fa53276c35",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "gap_fill",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Tu tembûrê ___? (jenîn, tu)", "de": "Vervollständige: Tu tembûrê ___? (jenîn, tu)" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "before": "Tu tembûrê ",
             "gap": "dijenî",
             "after": "?",
             "display": "Tu tembûrê ___?",
-            "wordBank": ["dijenî", "dijenim", "dijene", "dijenin"],
-            "explanation": { "en": "jenîn (to play music) → for \"tu\": dijenî. Tu tembûrê dijenî? = Do you play the tembur?", "de": "jenîn (Musik spielen) → für \"tu\": dijenî. Tu tembûrê dijenî? = Spielst du die Tembur?" }
-          }
+            "explanation": {
+              "en": "jenîn (to play music) → for \"tu\": dijenî. Tu tembûrê dijenî? = Do you play the tembur?",
+              "de": "jenîn (Musik spielen) → für \"tu\": dijenî. Tu tembûrê dijenî? = Spielst du die Tembur?"
+            },
+            "instruction": {
+              "en": "Complete: Tu tembûrê ___? (jenîn, tu)",
+              "de": "Vervollständige: Tu tembûrê ___? (jenîn, tu)"
+            },
+            "word_bank": [
+              "dijenî",
+              "dijenim",
+              "dijene",
+              "dijenin"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "7-2-09",
+          "id": "7f0b5379-e177-5128-896f-ef7c2995a30c",
+          "lesson_id": "859e1e12-8a87-541c-89d7-a07a7fe2f4eb",
           "type": "matching",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Match the verb to what it means in this dialogue", "de": "Ordne das Verb seiner Bedeutung in diesem Dialog zu" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "difroşim", "en": "I sell", "de": "ich verkaufe" },
-              { "ku": "najenim", "en": "I don't play (music)", "de": "ich spiele nicht (Musik)" },
-              { "ku": "hez dikim", "en": "I like", "de": "ich mag" },
-              { "ku": "nizanim", "en": "I don't know", "de": "ich weiß nicht" },
-              { "ku": "dixwînim", "en": "I read", "de": "ich lese" }
-            ]
-          }
+              {
+                "ku": "difroşim",
+                "en": "I sell",
+                "de": "ich verkaufe"
+              },
+              {
+                "ku": "najenim",
+                "en": "I don't play (music)",
+                "de": "ich spiele nicht (Musik)"
+              },
+              {
+                "ku": "hez dikim",
+                "en": "I like",
+                "de": "ich mag"
+              },
+              {
+                "ku": "nizanim",
+                "en": "I don't know",
+                "de": "ich weiß nicht"
+              },
+              {
+                "ku": "dixwînim",
+                "en": "I read",
+                "de": "ich lese"
+              }
+            ],
+            "instruction": {
+              "en": "Match the verb to what it means in this dialogue",
+              "de": "Ordne das Verb seiner Bedeutung in diesem Dialog zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     }

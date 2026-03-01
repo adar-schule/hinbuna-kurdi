@@ -1,6 +1,7 @@
-# AI Coding Standards (Draft)
+# AI Development Workflow
 
-**Target Repo**: https://github.com/adar-schule (private)
+How we use AI (Claude Code) for development — workflow rules, coding patterns, and quality standards.
+
 **Applies To**: HinbunaKurdi + future B2B boilerplate projects
 **Tech Stack**: NestJS + React + Tailwind + PostgreSQL + AWS
 
@@ -515,5 +516,4 @@ git push -u origin hk-123-feature-name
 
 ---
 
-**Status**: DRAFT - Review and confirm before creating repo
-**Next**: Create private repo at github.com/adar-schule, add as CLAUDE.md or similar
+**Status**: Active — evolves as the project grows

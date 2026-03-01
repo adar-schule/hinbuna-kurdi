@@ -429,7 +429,7 @@
         gap: 'baş',
         after: ' im.',
         display: 'Ez ___ im.',
-        wordBank: ['nexweş', 'baş', 'çawa', 'spas'],
+        word_bank: ['nexweş', 'baş', 'çawa', 'spas'],
         explanation: '"Ez baş im" means "I am good."'
       },
       {
@@ -616,8 +616,8 @@
       exampleRow.appendChild(el('div', { className: 'flashcard-example', textContent: act.example }));
       exampleRow.appendChild(createListenBtn('listen-sm listen-light'));
       back.appendChild(exampleRow);
-      if (act.exampleTranslation) {
-        back.appendChild(el('div', { className: 'flashcard-example', style: 'font-size:12px;opacity:0.7;', textContent: t(act.exampleTranslation) }));
+      if (act.example_translation) {
+        back.appendChild(el('div', { className: 'flashcard-example', style: 'font-size:12px;opacity:0.7;', textContent: t(act.example_translation) }));
       }
 
       card.appendChild(front);
@@ -762,7 +762,7 @@
       wordBank.style.animationDelay = '0.15s';
 
       // Shuffle word bank
-      var shuffled = act.wordBank.slice().sort(function () { return Math.random() - 0.5; });
+      var shuffled = act.word_bank.slice().sort(function () { return Math.random() - 0.5; });
 
       for (var i = 0; i < shuffled.length; i++) {
         (function (word) {
@@ -1195,7 +1195,7 @@
           ACTIVITIES = lesson.activities.map(function (act) {
             var flat = {
               type: act.type,
-              instruction: act.instruction || ''
+              instruction: (act.content && act.content.instruction) || ''
             };
             if (act.content) {
               for (var key in act.content) {
@@ -1206,7 +1206,7 @@
             }
             return flat;
           });
-          WORDS_LEARNED = (lesson.metadata && lesson.metadata.wordsLearned) || FALLBACK_WORDS;
+          WORDS_LEARNED = (lesson.metadata && lesson.metadata.words_learned) || FALLBACK_WORDS;
           lessonName = lesson.name || '';
 
           initWithData();

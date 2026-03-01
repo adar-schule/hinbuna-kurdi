@@ -37,7 +37,7 @@ HinbunaKurdi/                     (start Claude here)
         ├── CLAUDE.md             # Tech stack, commands, structure
         ├── _docs/                # All project documentation
         │   ├── 07-design-decisions.md   # Colors, typography, components
-        │   └── prompts/          # Screen generation templates
+        │   └── archive/prompts/  # Screen generation templates (archived)
         └── mockup/               # HTML/CSS screens (current MVP)
 ```
 
@@ -74,7 +74,7 @@ These are locked. Follow them, don't redesign:
 | Component patterns (cards, buttons, nav) | `_docs/07-design-decisions.md` |
 | Page tree (all screens mapped) | `mockup/index.html` (dev gallery at localhost:8080) |
 | Brand vibe (calm + SaaS, NOT gamified) | `../../_rules/DESIGN-RULES.md` |
-| Prompt templates for screen generation | `_docs/prompts/` |
+| Prompt templates for screen generation | `_docs/archive/prompts/` (archived) |
 | Shared theme system (light/dark) | Already in `mockup/shared/` |
 
 ### 6. Screen Ownership

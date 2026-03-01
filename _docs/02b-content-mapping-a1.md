@@ -48,7 +48,7 @@
 
 ## Course Structure: Kurmancî A1
 
-**8 units, 25 lessons, ~220 activities**
+**8 units, 23 lessons, ~223 activities**
 
 **JSON implementation:** `mockup/data/course.json` + `mockup/data/unit-{1-8}.json`
 
@@ -166,8 +166,8 @@
 | Kurmancî A1 | `courses` | One course row |
 | A1: Destpêk | `modules` | One module (CEFR A1) |
 | Beş 1-8 | `units` (8 rows) | Each file group = one unit |
-| 25 lessons | `lessons` (25 rows) | Each file = one lesson |
-| ~220 activities | `activities` | Types: mcq, gap_fill, matching, flashcard, word_order, reading, listening |
+| 23 lessons | `lessons` (23 rows) | Each file = one lesson |
+| ~223 activities | `activities` | Types: mcq, gap_fill, matching, flashcard, word_order, reading, listening |
 | Audio | `materials` (type: audio) | Future — TTS via kurdishtts.com |
 | Text content | `activities.content` (JSON) | Stores question/options/correct_answer/hints |
 

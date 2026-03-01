@@ -1210,8 +1210,8 @@
 
         lessons.forEach(function (lesson) {
           totalActivities += (lesson.activities ? lesson.activities.length : 0);
-          totalMinutes += (lesson.durationMinutes || 0);
-          if (lesson.isPublished === false) allPublished = false;
+          totalMinutes += (lesson.duration_minutes || 0);
+          if (lesson.is_published === false) allPublished = false;
         });
 
         var statusClass = allPublished ? 'published' : 'draft';
@@ -1221,7 +1221,7 @@
 
         // Top row
         var topRow = createElement('div', { className: 'unit-header-top' });
-        var numIcon = createElement('div', { className: 'unit-number-icon', textContent: 'U' + unitData.unitId });
+        var numIcon = createElement('div', { className: 'unit-number-icon', textContent: 'U' + unitData.id });
         topRow.appendChild(numIcon);
 
         var infoDiv = createElement('div', { className: 'unit-header-info' });
@@ -1297,7 +1297,7 @@
         var orderNum = index + 1;
         var cardId = 'lesson-' + orderNum;
         var activityCount = lesson.activities ? lesson.activities.length : 0;
-        var isPublished = lesson.isPublished !== false;
+        var isPublished = lesson.is_published !== false;
         var statusClass = isPublished ? 'published' : 'draft';
         var statusLabel = isPublished ? 'Published' : 'Draft';
         var animDelay = 'anim-d' + Math.min(orderNum + 3, 6);
@@ -1326,7 +1326,7 @@
 
         var clockItem = createElement('span', { className: 'lesson-meta-item' });
         clockItem.appendChild(svgElement(SVG_CLOCK));
-        clockItem.appendChild(document.createTextNode(' ' + (lesson.durationMinutes || 0) + ' min'));
+        clockItem.appendChild(document.createTextNode(' ' + (lesson.duration_minutes || 0) + ' min'));
         metaDiv.appendChild(clockItem);
 
         var actItem = createElement('span', { className: 'lesson-meta-item' });
@@ -1379,7 +1379,7 @@
         var durGroup = createElement('div', { className: 'form-group' });
         durGroup.appendChild(createElement('label', { className: 'form-label', textContent: 'Duration' }));
         var durWrapper = createElement('div', { className: 'form-duration' });
-        durWrapper.appendChild(createElement('input', { type: 'number', className: 'form-input', value: String(lesson.durationMinutes || 0), min: '1', max: '120' }));
+        durWrapper.appendChild(createElement('input', { type: 'number', className: 'form-input', value: String(lesson.duration_minutes || 0), min: '1', max: '120' }));
         durWrapper.appendChild(createElement('span', { className: 'form-duration-suffix', textContent: 'minutes' }));
         durGroup.appendChild(durWrapper);
         formRow.appendChild(durGroup);
@@ -1389,7 +1389,7 @@
         // Learning Objective field
         var objGroup = createElement('div', { className: 'form-group' });
         objGroup.appendChild(createElement('label', { className: 'form-label', textContent: 'Learning Objective' }));
-        var objTA = createElement('textarea', { className: 'form-input', rows: '2', placeholder: 'What students will be able to do after completing this lesson...', textContent: lesson.learningObjective || '' });
+        var objTA = createElement('textarea', { className: 'form-input', rows: '2', placeholder: 'What students will be able to do after completing this lesson...', textContent: lesson.learning_objective || '' });
         objGroup.appendChild(objTA);
         detailInner.appendChild(objGroup);
 

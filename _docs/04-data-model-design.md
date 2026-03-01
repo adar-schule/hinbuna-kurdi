@@ -325,17 +325,23 @@ Defines available roles per deployment. Ships with system defaults, B2B clients 
 
 ```mermaid
 erDiagram
+    users ||--o{ user_roles : has
+    roles ||--o{ user_roles : "assigned as"
     users ||--o{ invites : "invited by"
+    roles ||--o{ invites : "assigned role"
 
     users {
         uuid id PK
         string email UK
         string password_hash
-        enum role
         string first_name
         string last_name
         string display_name
         string avatar_url
+        string language
+        string ui_locale
+        string content_locale
+        boolean translations_visible
         boolean email_verified
         boolean is_active
         json metadata
@@ -344,11 +350,30 @@ erDiagram
         timestamp updated_at
     }
 
+    roles {
+        uuid id PK
+        string name
+        string slug UK
+        enum base_type
+        json permissions
+        boolean is_default
+        boolean is_system
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    user_roles {
+        uuid user_id PK,FK
+        uuid role_id PK,FK
+        uuid assigned_by FK
+        timestamp created_at
+    }
+
     invites {
         uuid id PK
         string email
         uuid invited_by FK
-        enum role
+        uuid role_id FK
         string token UK
         timestamp used_at
         timestamp expires_at
@@ -360,6 +385,9 @@ erDiagram
         enum signup_mode
         json allowed_domains
         boolean subscriptions_enabled
+        boolean translations_enabled
+        string source_locale
+        string default_locale
         json settings
     }
 ```

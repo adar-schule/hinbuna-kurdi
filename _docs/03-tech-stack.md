@@ -13,7 +13,7 @@
 | **Frontend** | React + Tailwind CSS | Standard, mobile-first, React Native later |
 | **Backend** | NestJS (Node.js + TypeScript) | Structured, enterprise-friendly, good APIs |
 | **Database** | PostgreSQL (AWS RDS) | Relational, industry standard, portable |
-| **Auth** | Custom JWT + Passport.js (or KeyCloak) | Multi-app SSO, no vendor lock-in |
+| **Auth** | Custom JWT + Passport.js | Multi-app SSO, no vendor lock-in |
 | **Hosting** | AWS (ECS/EC2 + RDS) | Scalable, professional |
 | **File Storage** | AWS S3 | Audio, images, materials |
 | **TTS/STT** | [kurdishtts.com](https://www.kurdishtts.com) | Kurdish-native AI voices |
@@ -100,7 +100,7 @@
               └─────────────┘
 ```
 
-- Custom JWT + Passport.js (or KeyCloak)
+- Custom JWT + Passport.js
 - Roles & permissions system → See [04-data-model-design.md](./04-data-model-design.md#users--auth-5-tables)
 - Shared user DB across all side apps
 

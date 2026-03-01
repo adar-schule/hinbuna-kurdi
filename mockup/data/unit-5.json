@@ -1,718 +1,1778 @@
 {
-  "unitId": 5,
+  "id": "3cea1a50-9e46-5ef5-959e-77b29305f63b",
+  "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Kesandina Lêkeran",
   "slug": "kesandina-lekeran",
   "description": "Learn present tense verb conjugation, accusative case, and practice with character dialogues.",
+  "order_index": 4,
+  "is_free": false,
+  "is_published": true,
+  "image_url": null,
+  "category": null,
   "metadata": {
-    "subtitle": { "en": "Verb Conjugation", "de": "Verbkonjugation" }
+    "subtitle": {
+      "en": "Verb Conjugation",
+      "de": "Verbkonjugation"
+    }
   },
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
     {
-      "id": "5-1",
+      "id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
+      "unit_id": "3cea1a50-9e46-5ef5-959e-77b29305f63b",
       "name": "Alan, Delal, Sosîn, Azad",
-      "description": "Read short character descriptions in present tense and answer comprehension questions about four characters.",
       "slug": "alan-delal-sosin-azad",
-      "orderIndex": 0,
-      "learningObjective": { "en": "Read short character descriptions in present tense and answer comprehension questions", "de": "Lies kurze Charakterbeschreibungen im Präsens und beantworte Verständnisfragen" },
-      "durationMinutes": 10,
-      "isPublished": true,
+      "description": "Read short character descriptions in present tense and answer comprehension questions about four characters.",
+      "order_index": 0,
+      "learning_objective": "Read short character descriptions in present tense and answer comprehension questions",
+      "duration_minutes": 10,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Character Profiles", "de": "Charakterprofile" },
-        "vocabPreview": ["diçim", "dixwim", "difroşim", "dimînim"],
-        "wordsLearned": [
-          { "ku": "diçim malê", "en": "I go home", "de": "Ich gehe nach Hause" },
-          { "ku": "dixwim", "en": "I eat", "de": "Ich esse" },
-          { "ku": "difroşim", "en": "I sell", "de": "Ich verkaufe" },
-          { "ku": "dikirim", "en": "I buy", "de": "Ich kaufe" },
-          { "ku": "dimînim", "en": "I live / I stay", "de": "Ich lebe / Ich bleibe" },
-          { "ku": "dixwîne", "en": "he/she reads", "de": "er/sie liest" },
-          { "ku": "dibînim", "en": "I see", "de": "Ich sehe" },
-          { "ku": "dişom", "en": "I wash", "de": "Ich wasche" },
-          { "ku": "xwendegeh", "en": "school", "de": "Schule" },
-          { "ku": "şagirt", "en": "student / pupil", "de": "Schüler/in" },
-          { "ku": "endezyar", "en": "engineer", "de": "Ingenieur/in" }
+        "subtitle": {
+          "en": "Character Profiles",
+          "de": "Charakterprofile"
+        },
+        "vocab_preview": [
+          "diçim",
+          "dixwim",
+          "difroşim",
+          "dimînim"
+        ],
+        "words_learned": [
+          {
+            "ku": "diçim malê",
+            "en": "I go home",
+            "de": "Ich gehe nach Hause"
+          },
+          {
+            "ku": "dixwim",
+            "en": "I eat",
+            "de": "Ich esse"
+          },
+          {
+            "ku": "difroşim",
+            "en": "I sell",
+            "de": "Ich verkaufe"
+          },
+          {
+            "ku": "dikirim",
+            "en": "I buy",
+            "de": "Ich kaufe"
+          },
+          {
+            "ku": "dimînim",
+            "en": "I live / I stay",
+            "de": "Ich lebe / Ich bleibe"
+          },
+          {
+            "ku": "dixwîne",
+            "en": "he/she reads",
+            "de": "er/sie liest"
+          },
+          {
+            "ku": "dibînim",
+            "en": "I see",
+            "de": "Ich sehe"
+          },
+          {
+            "ku": "dişom",
+            "en": "I wash",
+            "de": "Ich wasche"
+          },
+          {
+            "ku": "xwendegeh",
+            "en": "school",
+            "de": "Schule"
+          },
+          {
+            "ku": "şagirt",
+            "en": "student / pupil",
+            "de": "Schüler/in"
+          },
+          {
+            "ku": "endezyar",
+            "en": "engineer",
+            "de": "Ingenieur/in"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "5-1-01",
+          "id": "2ab5e215-4645-5272-bd6c-bd5b3a0eba2d",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb", "de": "Lerne dieses Verb" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "diçim",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "I go", "de": "Ich gehe" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "I go",
+              "de": "Ich gehe"
+            },
             "example": "Ez diçim malê.",
-            "exampleTranslation": { "en": "I go home.", "de": "Ich gehe nach Hause." }
-          }
+            "instruction": {
+              "en": "Learn this verb",
+              "de": "Lerne dieses Verb"
+            },
+            "example_translation": {
+              "en": "I go home.",
+              "de": "Ich gehe nach Hause."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-02",
+          "id": "6197f6f8-d6b8-503c-aeeb-c82e0bd89a09",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb", "de": "Lerne dieses Verb" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "dixwim",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "I eat", "de": "Ich esse" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "I eat",
+              "de": "Ich esse"
+            },
             "example": "Ez sêvê dixwim.",
-            "exampleTranslation": { "en": "I eat the apple.", "de": "Ich esse den Apfel." }
-          }
+            "instruction": {
+              "en": "Learn this verb",
+              "de": "Lerne dieses Verb"
+            },
+            "example_translation": {
+              "en": "I eat the apple.",
+              "de": "Ich esse den Apfel."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-03",
+          "id": "26199661-b8b2-519d-942e-3283211fa060",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb", "de": "Lerne dieses Verb" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "dimînim",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "I live / I stay", "de": "Ich lebe / Ich bleibe" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "I live / I stay",
+              "de": "Ich lebe / Ich bleibe"
+            },
             "example": "Ez li Wanê dimînim.",
-            "exampleTranslation": { "en": "I live in Van.", "de": "Ich lebe in Van." }
-          }
+            "instruction": {
+              "en": "Learn this verb",
+              "de": "Lerne dieses Verb"
+            },
+            "example_translation": {
+              "en": "I live in Van.",
+              "de": "Ich lebe in Van."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-04",
+          "id": "f91aafc1-fdfe-5b64-b4b7-f7e628a048d9",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "reading",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Read about Alan", "de": "Lies über Alan" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
-            "title": { "en": "Alan", "de": "Alan" },
+            "title": {
+              "en": "Alan",
+              "de": "Alan"
+            },
             "lines": [
-              { "speaker": "", "ku": "Navê min Alan e.", "en": "My name is Alan.", "de": "Mein Name ist Alan." },
-              { "speaker": "", "ku": "Ez deh salî me.", "en": "I am 10 years old.", "de": "Ich bin 10 Jahre alt." },
-              { "speaker": "", "ku": "Ez diçim malê.", "en": "I go home.", "de": "Ich gehe nach Hause." },
-              { "speaker": "", "ku": "Ez sêvê dixwim, lê goşt naxwim.", "en": "I eat the apple, but I don't eat meat.", "de": "Ich esse den Apfel, aber ich esse kein Fleisch." },
-              { "speaker": "", "ku": "Ez li Wanê dimînim.", "en": "I live in Van.", "de": "Ich lebe in Van." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Navê min Alan e.",
+                "en": "My name is Alan.",
+                "de": "Mein Name ist Alan."
+              },
+              {
+                "speaker": "",
+                "ku": "Ez deh salî me.",
+                "en": "I am 10 years old.",
+                "de": "Ich bin 10 Jahre alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Ez diçim malê.",
+                "en": "I go home.",
+                "de": "Ich gehe nach Hause."
+              },
+              {
+                "speaker": "",
+                "ku": "Ez sêvê dixwim, lê goşt naxwim.",
+                "en": "I eat the apple, but I don't eat meat.",
+                "de": "Ich esse den Apfel, aber ich esse kein Fleisch."
+              },
+              {
+                "speaker": "",
+                "ku": "Ez li Wanê dimînim.",
+                "en": "I live in Van.",
+                "de": "Ich lebe in Van."
+              }
+            ],
+            "instruction": {
+              "en": "Read about Alan",
+              "de": "Lies über Alan"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-05",
+          "id": "cb240128-a8fd-5bf0-aaf1-56baa70b3f40",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "reading",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "Read about Delal and Sosîn", "de": "Lies über Delal und Sosîn" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
-            "title": { "en": "Delal û Sosîn", "de": "Delal und Sosîn" },
+            "title": {
+              "en": "Delal û Sosîn",
+              "de": "Delal und Sosîn"
+            },
             "lines": [
-              { "speaker": "", "ku": "Navê min Delal e. Ez bîst salî me.", "en": "My name is Delal. I am 20 years old.", "de": "Mein Name ist Delal. Ich bin 20 Jahre alt." },
-              { "speaker": "", "ku": "Ez masî difroşim, lê lîmonê dikirim.", "en": "I sell fish, but I buy lemons.", "de": "Ich verkaufe Fisch, aber ich kaufe Zitronen." },
-              { "speaker": "", "ku": "Ez li Mêrdînê dimînim.", "en": "I live in Mardin.", "de": "Ich lebe in Mardin." },
-              { "speaker": "", "ku": "Navê wê Sosîn e. Ew yanzdeh salî ye.", "en": "Her name is Sosîn. She is 11 years old.", "de": "Ihr Name ist Sosîn. Sie ist 11 Jahre alt." },
-              { "speaker": "", "ku": "Ew şagirt e. Ew diçe xwendegehê.", "en": "She is a student. She goes to school.", "de": "Sie ist eine Schülerin. Sie geht zur Schule." },
-              { "speaker": "", "ku": "Ew pirtûkê dixwîne.", "en": "She reads the book.", "de": "Sie liest das Buch." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Navê min Delal e. Ez bîst salî me.",
+                "en": "My name is Delal. I am 20 years old.",
+                "de": "Mein Name ist Delal. Ich bin 20 Jahre alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Ez masî difroşim, lê lîmonê dikirim.",
+                "en": "I sell fish, but I buy lemons.",
+                "de": "Ich verkaufe Fisch, aber ich kaufe Zitronen."
+              },
+              {
+                "speaker": "",
+                "ku": "Ez li Mêrdînê dimînim.",
+                "en": "I live in Mardin.",
+                "de": "Ich lebe in Mardin."
+              },
+              {
+                "speaker": "",
+                "ku": "Navê wê Sosîn e. Ew yanzdeh salî ye.",
+                "en": "Her name is Sosîn. She is 11 years old.",
+                "de": "Ihr Name ist Sosîn. Sie ist 11 Jahre alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Ew şagirt e. Ew diçe xwendegehê.",
+                "en": "She is a student. She goes to school.",
+                "de": "Sie ist eine Schülerin. Sie geht zur Schule."
+              },
+              {
+                "speaker": "",
+                "ku": "Ew pirtûkê dixwîne.",
+                "en": "She reads the book.",
+                "de": "Sie liest das Buch."
+              }
+            ],
+            "instruction": {
+              "en": "Read about Delal and Sosîn",
+              "de": "Lies über Delal und Sosîn"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-06",
+          "id": "ca3c162a-c457-586c-a60e-19e7ea03d186",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "Alan goşt dixwe?", "de": "Isst Alan Fleisch?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Erê, ew goşt dixwe.", "de": "Ja, er isst Fleisch." },
-              { "en": "Na, ew goşt naxwe.", "de": "Nein, er isst kein Fleisch." },
-              { "en": "Ew masî dixwe.", "de": "Er isst Fisch." },
-              { "en": "Ew nan dixwe.", "de": "Er isst Brot." }
+              {
+                "en": "Erê, ew goşt dixwe.",
+                "de": "Ja, er isst Fleisch."
+              },
+              {
+                "en": "Na, ew goşt naxwe.",
+                "de": "Nein, er isst kein Fleisch."
+              },
+              {
+                "en": "Ew masî dixwe.",
+                "de": "Er isst Fisch."
+              },
+              {
+                "en": "Ew nan dixwe.",
+                "de": "Er isst Brot."
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "Alan says \"goşt naxwim\" — he does NOT eat meat. \"na-\" before the verb stem makes it negative.", "de": "Alan sagt \"goşt naxwim\" — er isst KEIN Fleisch. \"na-\" vor dem Verbstamm macht es negativ." }
-          }
+            "explanation": {
+              "en": "Alan says \"goşt naxwim\" — he does NOT eat meat. \"na-\" before the verb stem makes it negative.",
+              "de": "Alan sagt \"goşt naxwim\" — er isst KEIN Fleisch. \"na-\" vor dem Verbstamm macht es negativ."
+            },
+            "instruction": {
+              "en": "Alan goşt dixwe?",
+              "de": "Isst Alan Fleisch?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-07",
+          "id": "577fb964-d5c9-5c55-8619-598cfab6e4ec",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "mcq",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Sosîn çi dike?", "de": "Was macht Sosîn?" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Ew masî difroşe.", "de": "Sie verkauft Fisch." },
-              { "en": "Ew diçe malê.", "de": "Sie geht nach Hause." },
-              { "en": "Ew diçe xwendegehê.", "de": "Sie geht zur Schule." },
-              { "en": "Ew li Wanê dimîne.", "de": "Sie lebt in Van." }
+              {
+                "en": "Ew masî difroşe.",
+                "de": "Sie verkauft Fisch."
+              },
+              {
+                "en": "Ew diçe malê.",
+                "de": "Sie geht nach Hause."
+              },
+              {
+                "en": "Ew diçe xwendegehê.",
+                "de": "Sie geht zur Schule."
+              },
+              {
+                "en": "Ew li Wanê dimîne.",
+                "de": "Sie lebt in Van."
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "Sosîn is a student (şagirt) and goes to school (diçe xwendegehê). She also reads books (pirtûkê dixwîne).", "de": "Sosîn ist eine Schülerin (şagirt) und geht zur Schule (diçe xwendegehê). Sie liest auch Bücher (pirtûkê dixwîne)." }
-          }
+            "explanation": {
+              "en": "Sosîn is a student (şagirt) and goes to school (diçe xwendegehê). She also reads books (pirtûkê dixwîne).",
+              "de": "Sosîn ist eine Schülerin (şagirt) und geht zur Schule (diçe xwendegehê). Sie liest auch Bücher (pirtûkê dixwîne)."
+            },
+            "instruction": {
+              "en": "Sosîn çi dike?",
+              "de": "Was macht Sosîn?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-08",
+          "id": "b774eb77-4155-51be-964d-37333911c5ea",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "mcq",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Delal li ku dimîne?", "de": "Wo lebt Delal?" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Li Wanê", "de": "In Van" },
-              { "en": "Li Bochumê", "de": "In Bochum" },
-              { "en": "Li Mêrdînê", "de": "In Mardin" },
-              { "en": "Li Amedê", "de": "In Amed" }
+              {
+                "en": "Li Wanê",
+                "de": "In Van"
+              },
+              {
+                "en": "Li Bochumê",
+                "de": "In Bochum"
+              },
+              {
+                "en": "Li Mêrdînê",
+                "de": "In Mardin"
+              },
+              {
+                "en": "Li Amedê",
+                "de": "In Amed"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "Delal says \"Ez li Mêrdînê dimînim\" — I live in Mardin.", "de": "Delal sagt \"Ez li Mêrdînê dimînim\" — Ich lebe in Mardin." }
-          }
+            "explanation": {
+              "en": "Delal says \"Ez li Mêrdînê dimînim\" — I live in Mardin.",
+              "de": "Delal sagt \"Ez li Mêrdînê dimînim\" — Ich lebe in Mardin."
+            },
+            "instruction": {
+              "en": "Delal li ku dimîne?",
+              "de": "Wo lebt Delal?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-09",
+          "id": "fc7a9b26-32a7-58a4-90bb-de75b3b5d287",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "gap_fill",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Alan sêvê ..., lê goşt naxwe.", "de": "Vervollständige: Alan sêvê ..., lê goşt naxwe." },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "before": "Alan sêvê ",
             "gap": "dixwe",
             "after": ", lê goşt naxwe.",
             "display": "Alan sêvê ___, lê goşt naxwe.",
-            "wordBank": ["dixwe", "dixwîne", "dibîne", "dikire"],
-            "explanation": { "en": "\"dixwe\" = eats. The verb xwarin (to eat) -> dixwe (he/she eats). Don't confuse with dixwîne (reads) from xwendin.", "de": "\"dixwe\" = isst. Das Verb xwarin (essen) -> dixwe (er/sie isst). Nicht verwechseln mit dixwîne (liest) von xwendin." }
-          }
+            "explanation": {
+              "en": "\"dixwe\" = eats. The verb xwarin (to eat) -> dixwe (he/she eats). Don't confuse with dixwîne (reads) from xwendin.",
+              "de": "\"dixwe\" = isst. Das Verb xwarin (essen) -> dixwe (er/sie isst). Nicht verwechseln mit dixwîne (liest) von xwendin."
+            },
+            "instruction": {
+              "en": "Complete: Alan sêvê ..., lê goşt naxwe.",
+              "de": "Vervollständige: Alan sêvê ..., lê goşt naxwe."
+            },
+            "word_bank": [
+              "dixwe",
+              "dixwîne",
+              "dibîne",
+              "dikire"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-1-10",
+          "id": "b77a7997-2e1f-5b2d-92f0-83cf959fbf6a",
+          "lesson_id": "293107a9-20c2-5725-8a5b-0cf0ca487897",
           "type": "matching",
-          "orderIndex": 9,
-          "isPublished": true,
-          "instruction": { "en": "Match each character with what they do", "de": "Ordne jeder Figur zu, was sie tut" },
+          "order_index": 9,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "Alan — sêvê dixwe", "en": "eats the apple", "de": "isst den Apfel" },
-              { "ku": "Delal — masî difroşe", "en": "sells fish", "de": "verkauft Fisch" },
-              { "ku": "Sosîn — pirtûkê dixwîne", "en": "reads the book", "de": "liest das Buch" },
-              { "ku": "Azad — dest û rû dişo", "en": "washes hands and face", "de": "wäscht Hände und Gesicht" }
-            ]
-          }
+              {
+                "ku": "Alan — sêvê dixwe",
+                "en": "eats the apple",
+                "de": "isst den Apfel"
+              },
+              {
+                "ku": "Delal — masî difroşe",
+                "en": "sells fish",
+                "de": "verkauft Fisch"
+              },
+              {
+                "ku": "Sosîn — pirtûkê dixwîne",
+                "en": "reads the book",
+                "de": "liest das Buch"
+              },
+              {
+                "ku": "Azad — dest û rû dişo",
+                "en": "washes hands and face",
+                "de": "wäscht Hände und Gesicht"
+              }
+            ],
+            "instruction": {
+              "en": "Match each character with what they do",
+              "de": "Ordne jeder Figur zu, was sie tut"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     },
     {
-      "id": "5-2",
+      "id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
+      "unit_id": "3cea1a50-9e46-5ef5-959e-77b29305f63b",
       "name": "Kesandina Lêkeran",
-      "description": "Learn present tense conjugation of key Kurdish verbs using the di-[stem]-[ending] pattern.",
       "slug": "kesandina-lekeran",
-      "orderIndex": 1,
-      "learningObjective": { "en": "Learn present tense conjugation of key Kurdish verbs using the di-[stem]-[ending] pattern", "de": "Lerne die Präsenskonjugation wichtiger kurdischer Verben mit dem di-[Stamm]-[Endung]-Muster" },
-      "durationMinutes": 15,
-      "isPublished": true,
+      "description": "Learn present tense conjugation of key Kurdish verbs using the di-[stem]-[ending] pattern.",
+      "order_index": 1,
+      "learning_objective": "Learn present tense conjugation of key Kurdish verbs using the di-[stem]-[ending] pattern",
+      "duration_minutes": 15,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Verb Conjugation", "de": "Verbkonjugation" },
-        "vocabPreview": ["çûn", "xwarin", "dîtin", "gotin", "zanîn", "kirin"],
-        "wordsLearned": [
-          { "ku": "çûn — biçe", "en": "to go — go!", "de": "gehen — geh!" },
-          { "ku": "xwarin — bixwe", "en": "to eat — eat!", "de": "essen — iss!" },
-          { "ku": "xwendin — bixwîne", "en": "to read — read!", "de": "lesen — lies!" },
-          { "ku": "dîtin — bibîne", "en": "to see — see!", "de": "sehen — sieh!" },
-          { "ku": "kirin — bike", "en": "to do/make — do!", "de": "tun/machen — tu!/mach!" },
-          { "ku": "gotin — bibêje", "en": "to say — say!", "de": "sagen — sag!" },
-          { "ku": "zanîn — bizane", "en": "to know — know!", "de": "wissen — wisse!" },
-          { "ku": "firotin — bifroşe", "en": "to sell — sell!", "de": "verkaufen — verkauf!" },
-          { "ku": "kirîn — bikire", "en": "to buy — buy!", "de": "kaufen — kauf!" },
-          { "ku": "nivîsîn — binivîse", "en": "to write — write!", "de": "schreiben — schreib!" },
-          { "ku": "lîstin — bilîze", "en": "to play — play!", "de": "spielen — spiel!" },
-          { "ku": "kenîn — bikene", "en": "to laugh — laugh!", "de": "lachen — lach!" }
+        "subtitle": {
+          "en": "Verb Conjugation",
+          "de": "Verbkonjugation"
+        },
+        "vocab_preview": [
+          "çûn",
+          "xwarin",
+          "dîtin",
+          "gotin",
+          "zanîn",
+          "kirin"
+        ],
+        "words_learned": [
+          {
+            "ku": "çûn — biçe",
+            "en": "to go — go!",
+            "de": "gehen — geh!"
+          },
+          {
+            "ku": "xwarin — bixwe",
+            "en": "to eat — eat!",
+            "de": "essen — iss!"
+          },
+          {
+            "ku": "xwendin — bixwîne",
+            "en": "to read — read!",
+            "de": "lesen — lies!"
+          },
+          {
+            "ku": "dîtin — bibîne",
+            "en": "to see — see!",
+            "de": "sehen — sieh!"
+          },
+          {
+            "ku": "kirin — bike",
+            "en": "to do/make — do!",
+            "de": "tun/machen — tu!/mach!"
+          },
+          {
+            "ku": "gotin — bibêje",
+            "en": "to say — say!",
+            "de": "sagen — sag!"
+          },
+          {
+            "ku": "zanîn — bizane",
+            "en": "to know — know!",
+            "de": "wissen — wisse!"
+          },
+          {
+            "ku": "firotin — bifroşe",
+            "en": "to sell — sell!",
+            "de": "verkaufen — verkauf!"
+          },
+          {
+            "ku": "kirîn — bikire",
+            "en": "to buy — buy!",
+            "de": "kaufen — kauf!"
+          },
+          {
+            "ku": "nivîsîn — binivîse",
+            "en": "to write — write!",
+            "de": "schreiben — schreib!"
+          },
+          {
+            "ku": "lîstin — bilîze",
+            "en": "to play — play!",
+            "de": "spielen — spiel!"
+          },
+          {
+            "ku": "kenîn — bikene",
+            "en": "to laugh — laugh!",
+            "de": "lachen — lach!"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "5-2-01",
+          "id": "c985c19e-2ac2-51e4-bdec-212a78f83996",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb conjugation", "de": "Lerne diese Verbkonjugation" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "çûn (to go)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "diçim, diçî, diçe, diçin", "de": "ich gehe, du gehst, er/sie geht, wir/sie gehen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "diçim, diçî, diçe, diçin",
+              "de": "ich gehe, du gehst, er/sie geht, wir/sie gehen"
+            },
             "example": "Ez diçim malê. Tu diçî ku?",
-            "exampleTranslation": { "en": "I go home. Where do you go?", "de": "Ich gehe nach Hause. Wohin gehst du?" }
-          }
+            "instruction": {
+              "en": "Learn this verb conjugation",
+              "de": "Lerne diese Verbkonjugation"
+            },
+            "example_translation": {
+              "en": "I go home. Where do you go?",
+              "de": "Ich gehe nach Hause. Wohin gehst du?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-02",
+          "id": "efa771d6-f79b-5840-ae8b-0eac82f44894",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb conjugation", "de": "Lerne diese Verbkonjugation" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "xwarin (to eat)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "dixwim, dixwî, dixwe, dixwin", "de": "ich esse, du isst, er/sie isst, wir/sie essen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "dixwim, dixwî, dixwe, dixwin",
+              "de": "ich esse, du isst, er/sie isst, wir/sie essen"
+            },
             "example": "Ez sêvê dixwim. Ew goşt dixwe.",
-            "exampleTranslation": { "en": "I eat the apple. He/she eats meat.", "de": "Ich esse den Apfel. Er/sie isst Fleisch." }
-          }
+            "instruction": {
+              "en": "Learn this verb conjugation",
+              "de": "Lerne diese Verbkonjugation"
+            },
+            "example_translation": {
+              "en": "I eat the apple. He/she eats meat.",
+              "de": "Ich esse den Apfel. Er/sie isst Fleisch."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-03",
+          "id": "e64d15da-3dde-53a0-865c-2717d8cafcdd",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this verb conjugation", "de": "Lerne diese Verbkonjugation" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "gotin (to say)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "dibêjim, dibêjî, dibêje, dibêjin", "de": "ich sage, du sagst, er/sie sagt, wir/sie sagen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "dibêjim, dibêjî, dibêje, dibêjin",
+              "de": "ich sage, du sagst, er/sie sagt, wir/sie sagen"
+            },
             "example": "Ez dibêjim. Tu çi dibêjî?",
-            "exampleTranslation": { "en": "I say. What do you say?", "de": "Ich sage. Was sagst du?" }
-          }
+            "instruction": {
+              "en": "Learn this verb conjugation",
+              "de": "Lerne diese Verbkonjugation"
+            },
+            "example_translation": {
+              "en": "I say. What do you say?",
+              "de": "Ich sage. Was sagst du?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-04",
+          "id": "b5a5d6db-3d1f-5392-a237-1f98fbb88c56",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "reading",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Study the conjugation pattern", "de": "Lerne das Konjugationsmuster" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
-            "title": { "en": "Di-[stem]-[ending] Pattern", "de": "Di-[Stamm]-[Endung]-Muster" },
+            "title": {
+              "en": "Di-[stem]-[ending] Pattern",
+              "de": "Di-[Stamm]-[Endung]-Muster"
+            },
             "lines": [
-              { "speaker": "", "ku": "ez diçim / tu diçî / ew diçe", "en": "I go / you go / he-she goes", "de": "ich gehe / du gehst / er-sie geht" },
-              { "speaker": "", "ku": "em diçin / hûn diçin / ew diçin", "en": "we go / you (pl.) go / they go", "de": "wir gehen / ihr geht / sie gehen" },
-              { "speaker": "", "ku": "ez dixwim / tu dixwî / ew dixwe", "en": "I eat / you eat / he-she eats", "de": "ich esse / du isst / er-sie isst" },
-              { "speaker": "", "ku": "ez dibînim / tu dibînî / ew dibîne", "en": "I see / you see / he-she sees", "de": "ich sehe / du siehst / er-sie sieht" },
-              { "speaker": "", "ku": "ez dizanim / tu dizanî / ew dizane", "en": "I know / you know / he-she knows", "de": "ich weiß / du weißt / er-sie weiß" }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "ez diçim / tu diçî / ew diçe",
+                "en": "I go / you go / he-she goes",
+                "de": "ich gehe / du gehst / er-sie geht"
+              },
+              {
+                "speaker": "",
+                "ku": "em diçin / hûn diçin / ew diçin",
+                "en": "we go / you (pl.) go / they go",
+                "de": "wir gehen / ihr geht / sie gehen"
+              },
+              {
+                "speaker": "",
+                "ku": "ez dixwim / tu dixwî / ew dixwe",
+                "en": "I eat / you eat / he-she eats",
+                "de": "ich esse / du isst / er-sie isst"
+              },
+              {
+                "speaker": "",
+                "ku": "ez dibînim / tu dibînî / ew dibîne",
+                "en": "I see / you see / he-she sees",
+                "de": "ich sehe / du siehst / er-sie sieht"
+              },
+              {
+                "speaker": "",
+                "ku": "ez dizanim / tu dizanî / ew dizane",
+                "en": "I know / you know / he-she knows",
+                "de": "ich weiß / du weißt / er-sie weiß"
+              }
+            ],
+            "instruction": {
+              "en": "Study the conjugation pattern",
+              "de": "Lerne das Konjugationsmuster"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-05",
+          "id": "605771b7-31b2-5922-bd90-73b0230a3673",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "gap_fill",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "Conjugate: Ez sêvê ___ (xwarin, ez)", "de": "Konjugiere: Ez sêvê ___ (xwarin, ez)" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
             "before": "Ez sêvê ",
             "gap": "dixwim",
             "after": ".",
             "display": "Ez sêvê ___.",
-            "wordBank": ["dixwim", "dixwî", "dixwe", "dixwin"],
-            "explanation": { "en": "For \"ez\" (I), the present tense ending is -im: di-xw-im -> dixwim.", "de": "Für \"ez\" (ich) ist die Präsensendung -im: di-xw-im -> dixwim." }
-          }
+            "explanation": {
+              "en": "For \"ez\" (I), the present tense ending is -im: di-xw-im -> dixwim.",
+              "de": "Für \"ez\" (ich) ist die Präsensendung -im: di-xw-im -> dixwim."
+            },
+            "instruction": {
+              "en": "Conjugate: Ez sêvê ___ (xwarin, ez)",
+              "de": "Konjugiere: Ez sêvê ___ (xwarin, ez)"
+            },
+            "word_bank": [
+              "dixwim",
+              "dixwî",
+              "dixwe",
+              "dixwin"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-06",
+          "id": "9b9eebc2-24b9-5ad9-a498-f6fd8c8686b7",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "gap_fill",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "Conjugate: Tu çi ___ ? (gotin, tu)", "de": "Konjugiere: Tu çi ___ ? (gotin, tu)" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "before": "Tu çi ",
             "gap": "dibêjî",
             "after": "?",
             "display": "Tu çi ___?",
-            "wordBank": ["dibêjim", "dibêjî", "dibêje", "dibêjin"],
-            "explanation": { "en": "For \"tu\" (you), the ending is -î: di-bêj-î -> dibêjî. The verb gotin changes its stem to bêj- in present tense.", "de": "Für \"tu\" (du) ist die Endung -î: di-bêj-î -> dibêjî. Das Verb gotin ändert seinen Stamm zu bêj- im Präsens." }
-          }
+            "explanation": {
+              "en": "For \"tu\" (you), the ending is -î: di-bêj-î -> dibêjî. The verb gotin changes its stem to bêj- in present tense.",
+              "de": "Für \"tu\" (du) ist die Endung -î: di-bêj-î -> dibêjî. Das Verb gotin ändert seinen Stamm zu bêj- im Präsens."
+            },
+            "instruction": {
+              "en": "Conjugate: Tu çi ___ ? (gotin, tu)",
+              "de": "Konjugiere: Tu çi ___ ? (gotin, tu)"
+            },
+            "word_bank": [
+              "dibêjim",
+              "dibêjî",
+              "dibêje",
+              "dibêjin"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-07",
+          "id": "ae528283-53a2-5aa4-9706-c1f1fb128db2",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "gap_fill",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Conjugate: Ew pirtûkê ___ (xwendin, ew)", "de": "Konjugiere: Ew pirtûkê ___ (xwendin, ew)" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "before": "Ew pirtûkê ",
             "gap": "dixwîne",
             "after": ".",
             "display": "Ew pirtûkê ___.",
-            "wordBank": ["dixwînim", "dixwînî", "dixwîne", "dixwînin"],
-            "explanation": { "en": "For \"ew\" (he/she), the ending is -e: di-xwîn-e -> dixwîne.", "de": "Für \"ew\" (er/sie) ist die Endung -e: di-xwîn-e -> dixwîne." }
-          }
+            "explanation": {
+              "en": "For \"ew\" (he/she), the ending is -e: di-xwîn-e -> dixwîne.",
+              "de": "Für \"ew\" (er/sie) ist die Endung -e: di-xwîn-e -> dixwîne."
+            },
+            "instruction": {
+              "en": "Conjugate: Ew pirtûkê ___ (xwendin, ew)",
+              "de": "Konjugiere: Ew pirtûkê ___ (xwendin, ew)"
+            },
+            "word_bank": [
+              "dixwînim",
+              "dixwînî",
+              "dixwîne",
+              "dixwînin"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-08",
+          "id": "0f97a94c-7a89-5aeb-9f9d-eab86bee26be",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "matching",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Match the infinitive to its imperative form", "de": "Ordne den Infinitiv seiner Imperativform zu" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "çûn", "en": "biçe!", "de": "geh!" },
-              { "ku": "xwarin", "en": "bixwe!", "de": "iss!" },
-              { "ku": "gotin", "en": "bibêje!", "de": "sag!" },
-              { "ku": "dîtin", "en": "bibîne!", "de": "sieh!" },
-              { "ku": "zanîn", "en": "bizane!", "de": "wisse!" }
-            ]
-          }
+              {
+                "ku": "çûn",
+                "en": "biçe!",
+                "de": "geh!"
+              },
+              {
+                "ku": "xwarin",
+                "en": "bixwe!",
+                "de": "iss!"
+              },
+              {
+                "ku": "gotin",
+                "en": "bibêje!",
+                "de": "sag!"
+              },
+              {
+                "ku": "dîtin",
+                "en": "bibîne!",
+                "de": "sieh!"
+              },
+              {
+                "ku": "zanîn",
+                "en": "bizane!",
+                "de": "wisse!"
+              }
+            ],
+            "instruction": {
+              "en": "Match the infinitive to its imperative form",
+              "de": "Ordne den Infinitiv seiner Imperativform zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-09",
+          "id": "9a15e5f1-19f5-5eef-aff4-f11158e4d71b",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "matching",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Match the verb to its meaning", "de": "Ordne das Verb seiner Bedeutung zu" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "nivîsîn", "en": "to write", "de": "schreiben" },
-              { "ku": "lîstin", "en": "to play", "de": "spielen" },
-              { "ku": "kenîn", "en": "to laugh", "de": "lachen" },
-              { "ku": "firotin", "en": "to sell", "de": "verkaufen" },
-              { "ku": "kirîn", "en": "to buy", "de": "kaufen" }
-            ]
-          }
+              {
+                "ku": "nivîsîn",
+                "en": "to write",
+                "de": "schreiben"
+              },
+              {
+                "ku": "lîstin",
+                "en": "to play",
+                "de": "spielen"
+              },
+              {
+                "ku": "kenîn",
+                "en": "to laugh",
+                "de": "lachen"
+              },
+              {
+                "ku": "firotin",
+                "en": "to sell",
+                "de": "verkaufen"
+              },
+              {
+                "ku": "kirîn",
+                "en": "to buy",
+                "de": "kaufen"
+              }
+            ],
+            "instruction": {
+              "en": "Match the verb to its meaning",
+              "de": "Ordne das Verb seiner Bedeutung zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-2-10",
+          "id": "7033306b-4944-524a-ac8d-336ae6d398c8",
+          "lesson_id": "1ade11f5-a03b-5308-b830-8f2b6ab4553f",
           "type": "mcq",
-          "orderIndex": 9,
-          "isPublished": true,
-          "instruction": { "en": "What is the present tense pattern for Kurdish verbs?", "de": "Wie lautet das Präsensmuster für kurdische Verben?" },
+          "order_index": 9,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "bi-[stem]-[ending]", "de": "bi-[Stamm]-[Endung]" },
-              { "en": "di-[stem]-[ending]", "de": "di-[Stamm]-[Endung]" },
-              { "en": "na-[stem]-[ending]", "de": "na-[Stamm]-[Endung]" },
-              { "en": "[stem]-[ending]", "de": "[Stamm]-[Endung]" }
+              {
+                "en": "bi-[stem]-[ending]",
+                "de": "bi-[Stamm]-[Endung]"
+              },
+              {
+                "en": "di-[stem]-[ending]",
+                "de": "di-[Stamm]-[Endung]"
+              },
+              {
+                "en": "na-[stem]-[ending]",
+                "de": "na-[Stamm]-[Endung]"
+              },
+              {
+                "en": "[stem]-[ending]",
+                "de": "[Stamm]-[Endung]"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "Kurdish present tense uses di- prefix + stem + personal ending: di-ç-im (I go), di-xw-î (you eat), di-bîn-e (he/she sees). The bi- prefix is for imperative (commands).", "de": "Das kurdische Präsens verwendet das Präfix di- + Stamm + Personalendung: di-ç-im (ich gehe), di-xw-î (du isst), di-bîn-e (er/sie sieht). Das Präfix bi- steht für den Imperativ (Befehle)." }
-          }
+            "explanation": {
+              "en": "Kurdish present tense uses di- prefix + stem + personal ending: di-ç-im (I go), di-xw-î (you eat), di-bîn-e (he/she sees). The bi- prefix is for imperative (commands).",
+              "de": "Das kurdische Präsens verwendet das Präfix di- + Stamm + Personalendung: di-ç-im (ich gehe), di-xw-î (du isst), di-bîn-e (er/sie sieht). Das Präfix bi- steht für den Imperativ (Befehle)."
+            },
+            "instruction": {
+              "en": "What is the present tense pattern for Kurdish verbs?",
+              "de": "Wie lautet das Präsensmuster für kurdische Verben?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     },
     {
-      "id": "5-3",
+      "id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
+      "unit_id": "3cea1a50-9e46-5ef5-959e-77b29305f63b",
       "name": "Tewandîn",
-      "description": "Learn the accusative case in Kurdish: feminine nouns add -e, masculine nouns stay the same.",
       "slug": "tewandin",
-      "orderIndex": 2,
-      "learningObjective": { "en": "Learn the accusative case: feminine nouns add -ê, masculine nouns stay the same", "de": "Lerne den Akkusativ: Feminine Nomen erhalten -ê, maskuline Nomen bleiben gleich" },
-      "durationMinutes": 10,
-      "isPublished": true,
+      "description": "Learn the accusative case in Kurdish: feminine nouns add -e, masculine nouns stay the same.",
+      "order_index": 2,
+      "learning_objective": "Learn the accusative case: feminine nouns add -ê, masculine nouns stay the same",
+      "duration_minutes": 10,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Accusative Case", "de": "Akkusativ" },
-        "vocabPreview": ["sêvê", "jinê", "nan", "pirtûkê"],
-        "wordsLearned": [
-          { "ku": "sêv -> sêvê", "en": "apple -> the apple (acc.)", "de": "Apfel -> den Apfel (Akk.)" },
-          { "ku": "jin -> jinê", "en": "woman -> the woman (acc.)", "de": "Frau -> die Frau (Akk.)" },
-          { "ku": "pirtûk -> pirtûkê", "en": "book -> the book (acc.)", "de": "Buch -> das Buch (Akk.)" },
-          { "ku": "nan -> nan", "en": "bread -> bread (acc., masc. = no change)", "de": "Brot -> Brot (Akk., mask. = keine Änderung)" },
-          { "ku": "mêr -> mêr", "en": "man -> man (acc., masc. = no change)", "de": "Mann -> Mann (Akk., mask. = keine Änderung)" },
-          { "ku": "xanî -> xanî", "en": "house -> house (acc., masc. = no change)", "de": "Haus -> Haus (Akk., mask. = keine Änderung)" },
-          { "ku": "jîrfon -> jîrfonê", "en": "smartphone -> the smartphone (acc.)", "de": "Smartphone -> das Smartphone (Akk.)" },
-          { "ku": "porteqal -> porteqalê", "en": "orange -> the orange (acc.)", "de": "Orange -> die Orange (Akk.)" },
-          { "ku": "pênûs -> pênûsê", "en": "pen -> the pen (acc.)", "de": "Stift -> den Stift (Akk.)" }
+        "subtitle": {
+          "en": "Accusative Case",
+          "de": "Akkusativ"
+        },
+        "vocab_preview": [
+          "sêvê",
+          "jinê",
+          "nan",
+          "pirtûkê"
+        ],
+        "words_learned": [
+          {
+            "ku": "sêv -> sêvê",
+            "en": "apple -> the apple (acc.)",
+            "de": "Apfel -> den Apfel (Akk.)"
+          },
+          {
+            "ku": "jin -> jinê",
+            "en": "woman -> the woman (acc.)",
+            "de": "Frau -> die Frau (Akk.)"
+          },
+          {
+            "ku": "pirtûk -> pirtûkê",
+            "en": "book -> the book (acc.)",
+            "de": "Buch -> das Buch (Akk.)"
+          },
+          {
+            "ku": "nan -> nan",
+            "en": "bread -> bread (acc., masc. = no change)",
+            "de": "Brot -> Brot (Akk., mask. = keine Änderung)"
+          },
+          {
+            "ku": "mêr -> mêr",
+            "en": "man -> man (acc., masc. = no change)",
+            "de": "Mann -> Mann (Akk., mask. = keine Änderung)"
+          },
+          {
+            "ku": "xanî -> xanî",
+            "en": "house -> house (acc., masc. = no change)",
+            "de": "Haus -> Haus (Akk., mask. = keine Änderung)"
+          },
+          {
+            "ku": "jîrfon -> jîrfonê",
+            "en": "smartphone -> the smartphone (acc.)",
+            "de": "Smartphone -> das Smartphone (Akk.)"
+          },
+          {
+            "ku": "porteqal -> porteqalê",
+            "en": "orange -> the orange (acc.)",
+            "de": "Orange -> die Orange (Akk.)"
+          },
+          {
+            "ku": "pênûs -> pênûsê",
+            "en": "pen -> the pen (acc.)",
+            "de": "Stift -> den Stift (Akk.)"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "5-3-01",
+          "id": "e845e2c7-aa55-5428-861c-f1163b105126",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn the accusative rule", "de": "Lerne die Akkusativregel" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "Tewandîn (Accusative)",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "Feminine nouns add -ê, masculine nouns stay the same", "de": "Feminine Nomen erhalten -ê, maskuline Nomen bleiben gleich" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "Feminine nouns add -ê, masculine nouns stay the same",
+              "de": "Feminine Nomen erhalten -ê, maskuline Nomen bleiben gleich"
+            },
             "example": "Ez jinê dibînim. Ez mêr dibînim.",
-            "exampleTranslation": { "en": "I see the woman (fem->-ê). I see the man (masc->no change).", "de": "Ich sehe die Frau (fem->-ê). Ich sehe den Mann (mask.->keine Änderung)." }
-          }
+            "instruction": {
+              "en": "Learn the accusative rule",
+              "de": "Lerne die Akkusativregel"
+            },
+            "example_translation": {
+              "en": "I see the woman (fem->-ê). I see the man (masc->no change).",
+              "de": "Ich sehe die Frau (fem->-ê). Ich sehe den Mann (mask.->keine Änderung)."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-02",
+          "id": "25839700-60c1-566d-9455-af4c2bb29765",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this example", "de": "Lerne dieses Beispiel" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "sêv (f) -> sêvê",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "apple -> the apple (accusative)", "de": "Apfel -> den Apfel (Akkusativ)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "apple -> the apple (accusative)",
+              "de": "Apfel -> den Apfel (Akkusativ)"
+            },
             "example": "Sêv sor e. Ez sêvê dixwim.",
-            "exampleTranslation": { "en": "The apple is red. I eat the apple.", "de": "Der Apfel ist rot. Ich esse den Apfel." }
-          }
+            "instruction": {
+              "en": "Learn this example",
+              "de": "Lerne dieses Beispiel"
+            },
+            "example_translation": {
+              "en": "The apple is red. I eat the apple.",
+              "de": "Der Apfel ist rot. Ich esse den Apfel."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-03",
+          "id": "03ae497c-715d-5c7c-922e-06522cc001a8",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this example", "de": "Lerne dieses Beispiel" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "nan (m) -> nan",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "bread -> bread (no change, masculine)", "de": "Brot -> Brot (keine Änderung, maskulin)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "bread -> bread (no change, masculine)",
+              "de": "Brot -> Brot (keine Änderung, maskulin)"
+            },
             "example": "Nan erzan e. Tu nan dixwî.",
-            "exampleTranslation": { "en": "Bread is cheap. You eat bread.", "de": "Brot ist günstig. Du isst Brot." }
-          }
+            "instruction": {
+              "en": "Learn this example",
+              "de": "Lerne dieses Beispiel"
+            },
+            "example_translation": {
+              "en": "Bread is cheap. You eat bread.",
+              "de": "Brot ist günstig. Du isst Brot."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-04",
+          "id": "0455316a-cd8f-5486-86d4-474e71be2ebf",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "reading",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Compare nominative and accusative", "de": "Vergleiche Nominativ und Akkusativ" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
-            "title": { "en": "Tewandîn — Nominative vs. Accusative", "de": "Tewandîn — Nominativ vs. Akkusativ" },
+            "title": {
+              "en": "Tewandîn — Nominative vs. Accusative",
+              "de": "Tewandîn — Nominativ vs. Akkusativ"
+            },
             "lines": [
-              { "speaker": "", "ku": "Mêr dîn e. -> Ez mêr dibînim.", "en": "The man is crazy. -> I see the man. (masc: no change)", "de": "Der Mann ist verrückt. -> Ich sehe den Mann. (mask.: keine Änderung)" },
-              { "speaker": "", "ku": "Jin dîn e. -> Ez jinê dibînim.", "en": "The woman is crazy. -> I see the woman. (fem: +ê)", "de": "Die Frau ist verrückt. -> Ich sehe die Frau. (fem.: +ê)" },
-              { "speaker": "", "ku": "Sêv sor e. -> Ez sêvê dixwim.", "en": "The apple is red. -> I eat the apple. (fem: +ê)", "de": "Der Apfel ist rot. -> Ich esse den Apfel. (fem.: +ê)" },
-              { "speaker": "", "ku": "Nan erzan e. -> Tu nan dixwî.", "en": "Bread is cheap. -> You eat bread. (masc: no change)", "de": "Brot ist günstig. -> Du isst Brot. (mask.: keine Änderung)" },
-              { "speaker": "", "ku": "Pirtûk nû ye. -> Ez pirtûkê dixwînim.", "en": "The book is new. -> I read the book. (fem: +ê)", "de": "Das Buch ist neu. -> Ich lese das Buch. (fem.: +ê)" },
-              { "speaker": "", "ku": "Xanî sor e. -> Ez xanî dibînim.", "en": "The house is red. -> I see the house. (masc: no change)", "de": "Das Haus ist rot. -> Ich sehe das Haus. (mask.: keine Änderung)" }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Mêr dîn e. -> Ez mêr dibînim.",
+                "en": "The man is crazy. -> I see the man. (masc: no change)",
+                "de": "Der Mann ist verrückt. -> Ich sehe den Mann. (mask.: keine Änderung)"
+              },
+              {
+                "speaker": "",
+                "ku": "Jin dîn e. -> Ez jinê dibînim.",
+                "en": "The woman is crazy. -> I see the woman. (fem: +ê)",
+                "de": "Die Frau ist verrückt. -> Ich sehe die Frau. (fem.: +ê)"
+              },
+              {
+                "speaker": "",
+                "ku": "Sêv sor e. -> Ez sêvê dixwim.",
+                "en": "The apple is red. -> I eat the apple. (fem: +ê)",
+                "de": "Der Apfel ist rot. -> Ich esse den Apfel. (fem.: +ê)"
+              },
+              {
+                "speaker": "",
+                "ku": "Nan erzan e. -> Tu nan dixwî.",
+                "en": "Bread is cheap. -> You eat bread. (masc: no change)",
+                "de": "Brot ist günstig. -> Du isst Brot. (mask.: keine Änderung)"
+              },
+              {
+                "speaker": "",
+                "ku": "Pirtûk nû ye. -> Ez pirtûkê dixwînim.",
+                "en": "The book is new. -> I read the book. (fem: +ê)",
+                "de": "Das Buch ist neu. -> Ich lese das Buch. (fem.: +ê)"
+              },
+              {
+                "speaker": "",
+                "ku": "Xanî sor e. -> Ez xanî dibînim.",
+                "en": "The house is red. -> I see the house. (masc: no change)",
+                "de": "Das Haus ist rot. -> Ich sehe das Haus. (mask.: keine Änderung)"
+              }
+            ],
+            "instruction": {
+              "en": "Compare nominative and accusative",
+              "de": "Vergleiche Nominativ und Akkusativ"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-05",
+          "id": "ba169ef1-f619-56f0-9fe8-5a342c773a6e",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "mcq",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "\"Ez ___ dixwim.\" Which is correct for sêv (feminine)?", "de": "\"Ez ___ dixwim.\" Was ist richtig für sêv (feminin)?" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "sêv", "de": "sêv" },
-              { "en": "sêvê", "de": "sêvê" },
-              { "en": "sêvî", "de": "sêvî" },
-              { "en": "sêvan", "de": "sêvan" }
+              {
+                "en": "sêv",
+                "de": "sêv"
+              },
+              {
+                "en": "sêvê",
+                "de": "sêvê"
+              },
+              {
+                "en": "sêvî",
+                "de": "sêvî"
+              },
+              {
+                "en": "sêvan",
+                "de": "sêvan"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "Sêv is feminine. In the accusative case, feminine nouns add -ê: sêv -> sêvê. \"Ez sêvê dixwim\" = I eat the apple.", "de": "Sêv ist feminin. Im Akkusativ erhalten feminine Nomen -ê: sêv -> sêvê. \"Ez sêvê dixwim\" = Ich esse den Apfel." }
-          }
+            "explanation": {
+              "en": "Sêv is feminine. In the accusative case, feminine nouns add -ê: sêv -> sêvê. \"Ez sêvê dixwim\" = I eat the apple.",
+              "de": "Sêv ist feminin. Im Akkusativ erhalten feminine Nomen -ê: sêv -> sêvê. \"Ez sêvê dixwim\" = Ich esse den Apfel."
+            },
+            "instruction": {
+              "en": "\"Ez ___ dixwim.\" Which is correct for sêv (feminine)?",
+              "de": "\"Ez ___ dixwim.\" Was ist richtig für sêv (feminin)?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-06",
+          "id": "750ef93f-ffd4-561b-9c9b-f8b49a4a1035",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "\"Tu ___ dixwî.\" Which is correct for nan (masculine)?", "de": "\"Tu ___ dixwî.\" Was ist richtig für nan (maskulin)?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "nanê", "de": "nanê" },
-              { "en": "nanî", "de": "nanî" },
-              { "en": "nan", "de": "nan" },
-              { "en": "nanên", "de": "nanên" }
+              {
+                "en": "nanê",
+                "de": "nanê"
+              },
+              {
+                "en": "nanî",
+                "de": "nanî"
+              },
+              {
+                "en": "nan",
+                "de": "nan"
+              },
+              {
+                "en": "nanên",
+                "de": "nanên"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "Nan is masculine. Masculine nouns do NOT change in the accusative case. \"Tu nan dixwî\" = You eat bread.", "de": "Nan ist maskulin. Maskuline Nomen ändern sich NICHT im Akkusativ. \"Tu nan dixwî\" = Du isst Brot." }
-          }
+            "explanation": {
+              "en": "Nan is masculine. Masculine nouns do NOT change in the accusative case. \"Tu nan dixwî\" = You eat bread.",
+              "de": "Nan ist maskulin. Maskuline Nomen ändern sich NICHT im Akkusativ. \"Tu nan dixwî\" = Du isst Brot."
+            },
+            "instruction": {
+              "en": "\"Tu ___ dixwî.\" Which is correct for nan (masculine)?",
+              "de": "\"Tu ___ dixwî.\" Was ist richtig für nan (maskulin)?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-07",
+          "id": "831b1190-c456-501a-8e76-7dd889965226",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "gap_fill",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Tu ___ dikirî. (jîrfon, feminine)", "de": "Vervollständige: Tu ___ dikirî. (jîrfon, feminin)" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "before": "Tu ",
             "gap": "jîrfonê",
             "after": " dikirî.",
             "display": "Tu ___ dikirî.",
-            "wordBank": ["jîrfon", "jîrfonê", "jîrfonî", "jîrfonan"],
-            "explanation": { "en": "Jîrfon (smartphone) is feminine. In the accusative: jîrfon -> jîrfonê. \"Tu jîrfonê dikirî\" = You buy the smartphone.", "de": "Jîrfon (Smartphone) ist feminin. Im Akkusativ: jîrfon -> jîrfonê. \"Tu jîrfonê dikirî\" = Du kaufst das Smartphone." }
-          }
+            "explanation": {
+              "en": "Jîrfon (smartphone) is feminine. In the accusative: jîrfon -> jîrfonê. \"Tu jîrfonê dikirî\" = You buy the smartphone.",
+              "de": "Jîrfon (Smartphone) ist feminin. Im Akkusativ: jîrfon -> jîrfonê. \"Tu jîrfonê dikirî\" = Du kaufst das Smartphone."
+            },
+            "instruction": {
+              "en": "Complete: Tu ___ dikirî. (jîrfon, feminine)",
+              "de": "Vervollständige: Tu ___ dikirî. (jîrfon, feminin)"
+            },
+            "word_bank": [
+              "jîrfon",
+              "jîrfonê",
+              "jîrfonî",
+              "jîrfonan"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-08",
+          "id": "f023685a-deaa-58e3-be16-e2471aef4741",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "gap_fill",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Ez ___ dibînim. (xanî, masculine)", "de": "Vervollständige: Ez ___ dibînim. (xanî, maskulin)" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "before": "Ez ",
             "gap": "xanî",
             "after": " dibînim.",
             "display": "Ez ___ dibînim.",
-            "wordBank": ["xanî", "xanîyê", "xanîyî", "xanîyan"],
-            "explanation": { "en": "Xanî (house) is masculine. Masculine nouns stay the same in accusative. \"Ez xanî dibînim\" = I see the house.", "de": "Xanî (Haus) ist maskulin. Maskuline Nomen bleiben im Akkusativ gleich. \"Ez xanî dibînim\" = Ich sehe das Haus." }
-          }
+            "explanation": {
+              "en": "Xanî (house) is masculine. Masculine nouns stay the same in accusative. \"Ez xanî dibînim\" = I see the house.",
+              "de": "Xanî (Haus) ist maskulin. Maskuline Nomen bleiben im Akkusativ gleich. \"Ez xanî dibînim\" = Ich sehe das Haus."
+            },
+            "instruction": {
+              "en": "Complete: Ez ___ dibînim. (xanî, masculine)",
+              "de": "Vervollständige: Ez ___ dibînim. (xanî, maskulin)"
+            },
+            "word_bank": [
+              "xanî",
+              "xanîyê",
+              "xanîyî",
+              "xanîyan"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-3-09",
+          "id": "66fe8a3b-f14c-5856-a701-a76f4c0ad62a",
+          "lesson_id": "e9bd795e-a5d1-50ba-91e3-6e51b30f6825",
           "type": "matching",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Match the noun to its accusative form", "de": "Ordne das Nomen seiner Akkusativform zu" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "sêv (f)", "en": "sêvê", "de": "sêvê" },
-              { "ku": "nan (m)", "en": "nan", "de": "nan" },
-              { "ku": "pirtûk (f)", "en": "pirtûkê", "de": "pirtûkê" },
-              { "ku": "xanî (m)", "en": "xanî", "de": "xanî" },
-              { "ku": "porteqal (f)", "en": "porteqalê", "de": "porteqalê" }
-            ]
-          }
+              {
+                "ku": "sêv (f)",
+                "en": "sêvê",
+                "de": "sêvê"
+              },
+              {
+                "ku": "nan (m)",
+                "en": "nan",
+                "de": "nan"
+              },
+              {
+                "ku": "pirtûk (f)",
+                "en": "pirtûkê",
+                "de": "pirtûkê"
+              },
+              {
+                "ku": "xanî (m)",
+                "en": "xanî",
+                "de": "xanî"
+              },
+              {
+                "ku": "porteqal (f)",
+                "en": "porteqalê",
+                "de": "porteqalê"
+              }
+            ],
+            "instruction": {
+              "en": "Match the noun to its accusative form",
+              "de": "Ordne das Nomen seiner Akkusativform zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     },
     {
-      "id": "5-4",
+      "id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
+      "unit_id": "3cea1a50-9e46-5ef5-959e-77b29305f63b",
       "name": "Diyalog",
-      "description": "Practice a meeting dialogue covering origin, occupation, age, and language questions.",
       "slug": "diyalog",
-      "orderIndex": 3,
-      "learningObjective": { "en": "Practice a meeting dialogue — asking about origin, occupation, age, and languages", "de": "Übe einen Begegnungsdialog — Fragen nach Herkunft, Beruf, Alter und Sprachen" },
-      "durationMinutes": 10,
-      "isPublished": true,
+      "description": "Practice a meeting dialogue covering origin, occupation, age, and language questions.",
+      "order_index": 3,
+      "learning_objective": "Practice a meeting dialogue — asking about origin, occupation, age, and languages",
+      "duration_minutes": 10,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Meeting Dialogue", "de": "Begegnungsdialog" },
-        "vocabPreview": ["Ji ku yî?", "Tu çi dikî?", "Tu çend salî yî?", "dizanî"],
-        "wordsLearned": [
-          { "ku": "Tu ji ku yî?", "en": "Where are you from?", "de": "Woher kommst du?" },
-          { "ku": "Ez ji ... me.", "en": "I am from ...", "de": "Ich komme aus ..." },
-          { "ku": "Tu çi dikî?", "en": "What do you do?", "de": "Was machst du?" },
-          { "ku": "xwendekar", "en": "university student", "de": "Student/in" },
-          { "ku": "zanîngeh", "en": "university", "de": "Universität" },
-          { "ku": "Tu farsî dizanî?", "en": "Do you know Farsi?", "de": "Kannst du Persisch?" },
-          { "ku": "Tu çend salî yî?", "en": "How old are you?", "de": "Wie alt bist du?" },
-          { "ku": "Ez bîst û pênc salî me.", "en": "I am 25 years old.", "de": "Ich bin 25 Jahre alt." },
-          { "ku": "Navê kurdî ye.", "en": "It is a Kurdish name.", "de": "Es ist ein kurdischer Name." }
+        "subtitle": {
+          "en": "Meeting Dialogue",
+          "de": "Begegnungsdialog"
+        },
+        "vocab_preview": [
+          "Ji ku yî?",
+          "Tu çi dikî?",
+          "Tu çend salî yî?",
+          "dizanî"
+        ],
+        "words_learned": [
+          {
+            "ku": "Tu ji ku yî?",
+            "en": "Where are you from?",
+            "de": "Woher kommst du?"
+          },
+          {
+            "ku": "Ez ji ... me.",
+            "en": "I am from ...",
+            "de": "Ich komme aus ..."
+          },
+          {
+            "ku": "Tu çi dikî?",
+            "en": "What do you do?",
+            "de": "Was machst du?"
+          },
+          {
+            "ku": "xwendekar",
+            "en": "university student",
+            "de": "Student/in"
+          },
+          {
+            "ku": "zanîngeh",
+            "en": "university",
+            "de": "Universität"
+          },
+          {
+            "ku": "Tu farsî dizanî?",
+            "en": "Do you know Farsi?",
+            "de": "Kannst du Persisch?"
+          },
+          {
+            "ku": "Tu çend salî yî?",
+            "en": "How old are you?",
+            "de": "Wie alt bist du?"
+          },
+          {
+            "ku": "Ez bîst û pênc salî me.",
+            "en": "I am 25 years old.",
+            "de": "Ich bin 25 Jahre alt."
+          },
+          {
+            "ku": "Navê kurdî ye.",
+            "en": "It is a Kurdish name.",
+            "de": "Es ist ein kurdischer Name."
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "5-4-01",
+          "id": "748bdf53-261f-5217-b384-f367684d7b53",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this question", "de": "Lerne diese Frage" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "Tu ji ku yî?",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "Where are you from?", "de": "Woher kommst du?" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "Where are you from?",
+              "de": "Woher kommst du?"
+            },
             "example": "Tu ji ku yî? — Ez ji Wanê me.",
-            "exampleTranslation": { "en": "Where are you from? — I am from Van.", "de": "Woher kommst du? — Ich komme aus Van." }
-          }
+            "instruction": {
+              "en": "Learn this question",
+              "de": "Lerne diese Frage"
+            },
+            "example_translation": {
+              "en": "Where are you from? — I am from Van.",
+              "de": "Woher kommst du? — Ich komme aus Van."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-02",
+          "id": "ab2079c3-9f82-599d-8e67-864bec8c8c60",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this question", "de": "Lerne diese Frage" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "Tu çi dikî?",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "What do you do?", "de": "Was machst du?" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "What do you do?",
+              "de": "Was machst du?"
+            },
             "example": "Tu çi dikî? — Ez xwendekar im.",
-            "exampleTranslation": { "en": "What do you do? — I am a student.", "de": "Was machst du? — Ich bin Student." }
-          }
+            "instruction": {
+              "en": "Learn this question",
+              "de": "Lerne diese Frage"
+            },
+            "example_translation": {
+              "en": "What do you do? — I am a student.",
+              "de": "Was machst du? — Ich bin Student."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-03",
+          "id": "6362396b-e8a6-5d8e-a51d-c52c3b2da373",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this question", "de": "Lerne diese Frage" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "Tu çend salî yî?",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "How old are you?", "de": "Wie alt bist du?" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "How old are you?",
+              "de": "Wie alt bist du?"
+            },
             "example": "Tu çend salî yî? — Ez nozdeh salî me.",
-            "exampleTranslation": { "en": "How old are you? — I am 19 years old.", "de": "Wie alt bist du? — Ich bin 19 Jahre alt." }
-          }
+            "instruction": {
+              "en": "Learn this question",
+              "de": "Lerne diese Frage"
+            },
+            "example_translation": {
+              "en": "How old are you? — I am 19 years old.",
+              "de": "Wie alt bist du? — Ich bin 19 Jahre alt."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-04",
+          "id": "a10bd9c3-d20f-53bd-b7bb-6ecc402eabdb",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "reading",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Read the dialogue", "de": "Lies den Dialog" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
-            "title": { "en": "Hevdîtin — Meeting", "de": "Hevdîtin — Begegnung" },
+            "title": {
+              "en": "Hevdîtin — Meeting",
+              "de": "Hevdîtin — Begegnung"
+            },
             "lines": [
-              { "speaker": "Berfîn", "ku": "Silav! Tu çawa yî?", "en": "Hello! How are you?", "de": "Hallo! Wie geht es dir?" },
-              { "speaker": "Dîlan", "ku": "Silav! Ez baş im. Tu çawa yî?", "en": "Hello! I am good. How are you?", "de": "Hallo! Mir geht es gut. Wie geht es dir?" },
-              { "speaker": "Berfîn", "ku": "Ez baş im. Tu ji ku tê?", "en": "I am good. Where are you coming from?", "de": "Mir geht es gut. Woher kommst du gerade?" },
-              { "speaker": "Dîlan", "ku": "Ez ji zanîngehê têm.", "en": "I am coming from the university.", "de": "Ich komme von der Universität." },
-              { "speaker": "Berfîn", "ku": "Tu çi dikî?", "en": "What do you do?", "de": "Was machst du?" },
-              { "speaker": "Dîlan", "ku": "Ez xwendekar im.", "en": "I am a university student.", "de": "Ich bin Studentin." },
-              { "speaker": "Berfîn", "ku": "Gelo tu ji ku yî?", "en": "So, where are you from?", "de": "Und woher kommst du?" },
-              { "speaker": "Dîlan", "ku": "Ez ji Iranê me. Tu farsî dizanî?", "en": "I am from Iran. Do you know Farsi?", "de": "Ich komme aus dem Iran. Kannst du Persisch?" },
-              { "speaker": "Berfîn", "ku": "Na, ez farsî nizanim. Ez kurd im, ez ji Wanê me.", "en": "No, I don't know Farsi. I am Kurdish, I am from Van.", "de": "Nein, ich kann kein Persisch. Ich bin Kurdin, ich komme aus Van." },
-              { "speaker": "Dîlan", "ku": "Berfîn navê kurdî ye. Tu çend salî yî?", "en": "Berfîn is a Kurdish name. How old are you?", "de": "Berfîn ist ein kurdischer Name. Wie alt bist du?" },
-              { "speaker": "Berfîn", "ku": "Ez bîst û pênc salî me. Tu çend salî yî?", "en": "I am 25 years old. How old are you?", "de": "Ich bin 25 Jahre alt. Wie alt bist du?" },
-              { "speaker": "Dîlan", "ku": "Ez nozdeh salî me.", "en": "I am 19 years old.", "de": "Ich bin 19 Jahre alt." }
-            ]
-          }
+              {
+                "speaker": "Berfîn",
+                "ku": "Silav! Tu çawa yî?",
+                "en": "Hello! How are you?",
+                "de": "Hallo! Wie geht es dir?"
+              },
+              {
+                "speaker": "Dîlan",
+                "ku": "Silav! Ez baş im. Tu çawa yî?",
+                "en": "Hello! I am good. How are you?",
+                "de": "Hallo! Mir geht es gut. Wie geht es dir?"
+              },
+              {
+                "speaker": "Berfîn",
+                "ku": "Ez baş im. Tu ji ku tê?",
+                "en": "I am good. Where are you coming from?",
+                "de": "Mir geht es gut. Woher kommst du gerade?"
+              },
+              {
+                "speaker": "Dîlan",
+                "ku": "Ez ji zanîngehê têm.",
+                "en": "I am coming from the university.",
+                "de": "Ich komme von der Universität."
+              },
+              {
+                "speaker": "Berfîn",
+                "ku": "Tu çi dikî?",
+                "en": "What do you do?",
+                "de": "Was machst du?"
+              },
+              {
+                "speaker": "Dîlan",
+                "ku": "Ez xwendekar im.",
+                "en": "I am a university student.",
+                "de": "Ich bin Studentin."
+              },
+              {
+                "speaker": "Berfîn",
+                "ku": "Gelo tu ji ku yî?",
+                "en": "So, where are you from?",
+                "de": "Und woher kommst du?"
+              },
+              {
+                "speaker": "Dîlan",
+                "ku": "Ez ji Iranê me. Tu farsî dizanî?",
+                "en": "I am from Iran. Do you know Farsi?",
+                "de": "Ich komme aus dem Iran. Kannst du Persisch?"
+              },
+              {
+                "speaker": "Berfîn",
+                "ku": "Na, ez farsî nizanim. Ez kurd im, ez ji Wanê me.",
+                "en": "No, I don't know Farsi. I am Kurdish, I am from Van.",
+                "de": "Nein, ich kann kein Persisch. Ich bin Kurdin, ich komme aus Van."
+              },
+              {
+                "speaker": "Dîlan",
+                "ku": "Berfîn navê kurdî ye. Tu çend salî yî?",
+                "en": "Berfîn is a Kurdish name. How old are you?",
+                "de": "Berfîn ist ein kurdischer Name. Wie alt bist du?"
+              },
+              {
+                "speaker": "Berfîn",
+                "ku": "Ez bîst û pênc salî me. Tu çend salî yî?",
+                "en": "I am 25 years old. How old are you?",
+                "de": "Ich bin 25 Jahre alt. Wie alt bist du?"
+              },
+              {
+                "speaker": "Dîlan",
+                "ku": "Ez nozdeh salî me.",
+                "en": "I am 19 years old.",
+                "de": "Ich bin 19 Jahre alt."
+              }
+            ],
+            "instruction": {
+              "en": "Read the dialogue",
+              "de": "Lies den Dialog"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-05",
+          "id": "40dbd9af-5989-50af-8652-73cd499419a1",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "mcq",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "Dîlan ji ku tê?", "de": "Woher kommt Dîlan gerade?" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Ji malê", "de": "Von zu Hause" },
-              { "en": "Ji zanîngehê", "de": "Von der Universität" },
-              { "en": "Ji xwendegehê", "de": "Von der Schule" },
-              { "en": "Ji Wanê", "de": "Aus Van" }
+              {
+                "en": "Ji malê",
+                "de": "Von zu Hause"
+              },
+              {
+                "en": "Ji zanîngehê",
+                "de": "Von der Universität"
+              },
+              {
+                "en": "Ji xwendegehê",
+                "de": "Von der Schule"
+              },
+              {
+                "en": "Ji Wanê",
+                "de": "Aus Van"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "Dîlan says \"Ez ji zanîngehê têm\" — I am coming from the university. zanîngeh = university.", "de": "Dîlan sagt \"Ez ji zanîngehê têm\" — Ich komme von der Universität. zanîngeh = Universität." }
-          }
+            "explanation": {
+              "en": "Dîlan says \"Ez ji zanîngehê têm\" — I am coming from the university. zanîngeh = university.",
+              "de": "Dîlan sagt \"Ez ji zanîngehê têm\" — Ich komme von der Universität. zanîngeh = Universität."
+            },
+            "instruction": {
+              "en": "Dîlan ji ku tê?",
+              "de": "Woher kommt Dîlan gerade?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-06",
+          "id": "7a051387-bb98-57f3-95bc-4dab8da52e3f",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "Berfîn farsî dizane?", "de": "Kann Berfîn Persisch?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Erê, ew farsî dizane.", "de": "Ja, sie kann Persisch." },
-              { "en": "Na, ew farsî nizane.", "de": "Nein, sie kann kein Persisch." },
-              { "en": "Ew farsî dixwîne.", "de": "Sie liest Persisch." },
-              { "en": "Ew îngilîzî dizane.", "de": "Sie kann Englisch." }
+              {
+                "en": "Erê, ew farsî dizane.",
+                "de": "Ja, sie kann Persisch."
+              },
+              {
+                "en": "Na, ew farsî nizane.",
+                "de": "Nein, sie kann kein Persisch."
+              },
+              {
+                "en": "Ew farsî dixwîne.",
+                "de": "Sie liest Persisch."
+              },
+              {
+                "en": "Ew îngilîzî dizane.",
+                "de": "Sie kann Englisch."
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "Berfîn says \"Na, ez farsî nizanim\" — No, I don't know Farsi. Note the negation: dizanim -> nizanim (zanîn uses ni- for negation).", "de": "Berfîn sagt \"Na, ez farsî nizanim\" — Nein, ich kann kein Persisch. Beachte die Verneinung: dizanim -> nizanim (zanîn verwendet ni- zur Verneinung)." }
-          }
+            "explanation": {
+              "en": "Berfîn says \"Na, ez farsî nizanim\" — No, I don't know Farsi. Note the negation: dizanim -> nizanim (zanîn uses ni- for negation).",
+              "de": "Berfîn sagt \"Na, ez farsî nizanim\" — Nein, ich kann kein Persisch. Beachte die Verneinung: dizanim -> nizanim (zanîn verwendet ni- zur Verneinung)."
+            },
+            "instruction": {
+              "en": "Berfîn farsî dizane?",
+              "de": "Kann Berfîn Persisch?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-07",
+          "id": "a59c00c9-f7af-5ade-b111-ab53e93505de",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "gap_fill",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Ez ji ___ me.", "de": "Vervollständige: Ez ji ___ me." },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "before": "Tu ji ku yî? — Ez ji ",
             "gap": "Wanê",
             "after": " me.",
             "display": "Tu ji ku yî? — Ez ji ___ me.",
-            "wordBank": ["Wanê", "wan", "Wanî", "malê"],
-            "explanation": { "en": "City names in Kurdish take -ê in the oblique case: Wan -> Wanê. \"Ez ji Wanê me\" = I am from Van.", "de": "Städtenamen im Kurdischen erhalten -ê im Obliquus: Wan -> Wanê. \"Ez ji Wanê me\" = Ich komme aus Van." }
-          }
+            "explanation": {
+              "en": "City names in Kurdish take -ê in the oblique case: Wan -> Wanê. \"Ez ji Wanê me\" = I am from Van.",
+              "de": "Städtenamen im Kurdischen erhalten -ê im Obliquus: Wan -> Wanê. \"Ez ji Wanê me\" = Ich komme aus Van."
+            },
+            "instruction": {
+              "en": "Complete: Ez ji ___ me.",
+              "de": "Vervollständige: Ez ji ___ me."
+            },
+            "word_bank": [
+              "Wanê",
+              "wan",
+              "Wanî",
+              "malê"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-08",
+          "id": "243e2d98-21f2-5ed3-985b-5eb8c80c55cf",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "gap_fill",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Complete: Tu çend ___ yî?", "de": "Vervollständige: Tu çend ___ yî?" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "before": "Tu çend ",
             "gap": "salî",
             "after": " yî?",
             "display": "Tu çend ___ yî?",
-            "wordBank": ["salî", "sal", "salê", "salan"],
-            "explanation": { "en": "\"Tu çend salî yî?\" = How old are you? Literally: You how many years-old are? salî = years old.", "de": "\"Tu çend salî yî?\" = Wie alt bist du? Wörtlich: Du wie viele Jahre-alt bist? salî = Jahre alt." }
-          }
+            "explanation": {
+              "en": "\"Tu çend salî yî?\" = How old are you? Literally: You how many years-old are? salî = years old.",
+              "de": "\"Tu çend salî yî?\" = Wie alt bist du? Wörtlich: Du wie viele Jahre-alt bist? salî = Jahre alt."
+            },
+            "instruction": {
+              "en": "Complete: Tu çend ___ yî?",
+              "de": "Vervollständige: Tu çend ___ yî?"
+            },
+            "word_bank": [
+              "salî",
+              "sal",
+              "salê",
+              "salan"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "5-4-09",
+          "id": "c6389a60-0132-52d0-9e93-c9fafc77cc6d",
+          "lesson_id": "8b7567a6-23d2-57f9-b184-531c7fab8922",
           "type": "matching",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Match the questions with answers", "de": "Ordne die Fragen den Antworten zu" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "Tu ji ku yî?", "en": "Ez ji Iranê me.", "de": "Ich komme aus dem Iran." },
-              { "ku": "Tu çi dikî?", "en": "Ez xwendekar im.", "de": "Ich bin Student/in." },
-              { "ku": "Tu çend salî yî?", "en": "Ez nozdeh salî me.", "de": "Ich bin 19 Jahre alt." },
-              { "ku": "Tu farsî dizanî?", "en": "Erê, ez farsî dizanim.", "de": "Ja, ich kann Persisch." }
-            ]
-          }
+              {
+                "ku": "Tu ji ku yî?",
+                "en": "Ez ji Iranê me.",
+                "de": "Ich komme aus dem Iran."
+              },
+              {
+                "ku": "Tu çi dikî?",
+                "en": "Ez xwendekar im.",
+                "de": "Ich bin Student/in."
+              },
+              {
+                "ku": "Tu çend salî yî?",
+                "en": "Ez nozdeh salî me.",
+                "de": "Ich bin 19 Jahre alt."
+              },
+              {
+                "ku": "Tu farsî dizanî?",
+                "en": "Erê, ez farsî dizanim.",
+                "de": "Ja, ich kann Persisch."
+              }
+            ],
+            "instruction": {
+              "en": "Match the questions with answers",
+              "de": "Ordne die Fragen den Antworten zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     }

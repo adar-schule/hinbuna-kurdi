@@ -1094,10 +1094,10 @@
         var freeCount = 0;
         units.forEach(function (u) {
           totalLessons += (u.lessonCount || 0);
-          if (u.isFree) freeCount++;
+          if (u.is_free) freeCount++;
         });
 
-        var isPublished = moduleData.isPublished !== false;
+        var isPublished = moduleData.is_published !== false;
         var statusClass = isPublished ? 'published' : 'draft';
         var statusLabel = isPublished ? 'Published' : 'Draft';
 
@@ -1142,11 +1142,11 @@
       // Build a single unit card using safe DOM methods
       // ============================================================
       function buildUnitCardDOM(unit, index, isFirst) {
-        var orderNum = unit.orderIndex + 1;
+        var orderNum = unit.order_index + 1;
         var cardId = 'unit-' + unit.id;
         var lessonCount = unit.lessonCount || 0;
-        var isFree = unit.isFree === true;
-        var isPublished = unit.isPublished !== false;
+        var isFree = unit.is_free === true;
+        var isPublished = unit.is_published !== false;
         var statusClass = isPublished ? 'published' : 'draft';
         var statusLabel = isPublished ? 'Published' : 'Draft';
         var accessClass = isFree ? 'free' : 'paid';

@@ -13,7 +13,7 @@
 - **What:** Comparing `mockup/multi-lang.html` with `04-data-model-design.md` revealed fundamental disagreements.
 - **Action:** Must resolve each before table-by-table work begins.
 
-### Decision 1: Translation Storage — PENDING
+### Decision 1: Translation Storage — DECIDED
 - **Context:** How to store translated content (course names, lesson descriptions, activity content).
 - **Options:**
   - **A) Pattern D only (pure JSONB)** — `multi-lang.html` approach. All translations inline as `{ku: "...", de: "...", en: "..."}` in JSON columns.
@@ -23,7 +23,7 @@
 - **Decided:** B) Hybrid C+D. Translation tables for flat fields, JSONB for activities. Add translation metadata columns.
 - **Impact:** Doc 04 is already correct. `multi-lang.html` needs updating in Phase 3.
 
-### Decision 2: User language fields — PENDING
+### Decision 2: User language fields — DECIDED
 - **Context:** How many locale-related fields does the `users` table need?
 - **Options:**
   - **A) 1 field** — `multi-lang.html` has only `users.language` (single string).
@@ -32,7 +32,7 @@
 - **Decided:** B) 4 fields. Supports immersion mode and per-role locale needs.
 - **Impact:** Doc 04 is already correct. `multi-lang.html` needs updating in Phase 3.
 
-### Decision 3: Locale configuration — PENDING
+### Decision 3: Locale configuration — DECIDED
 - **Context:** How to define which languages a deployment supports.
 - **Options:**
   - **A) JSON array** — `multi-lang.html` stores `supported_languages` as a JSON array inside `app_settings`.
@@ -41,7 +41,7 @@
 - **Decided:** B) Separate `supported_locales` table. SaaS-ready, queryable, RTL-aware.
 - **Impact:** Doc 04 is already correct. `multi-lang.html` needs updating in Phase 3.
 
-### Decision 4: personalized_feed — PENDING
+### Decision 4: personalized_feed — DECIDED
 - **Context:** Old `data-model.html` listed `personalized_feed` in AI Layer 4. Not in doc 04.
 - **Options:**
   - **A) Add to doc 04** — as a real AI Premium table for curated dashboard feeds.

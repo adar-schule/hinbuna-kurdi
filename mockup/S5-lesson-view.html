@@ -245,14 +245,14 @@
 
         // Update objective
         var objText = document.getElementById('lesson-objective-text');
-        if (objText) objText.textContent = t(lesson.learningObjective);
+        if (objText) objText.textContent = lesson.learning_objective || '';
 
         // Update meta
         var activityCount = lesson.activities ? lesson.activities.length : 0;
         var metaAct = document.getElementById('meta-activities');
         if (metaAct) metaAct.textContent = activityCount + ' activit' + (activityCount !== 1 ? 'ies' : 'y');
         var metaDur = document.getElementById('meta-duration');
-        if (metaDur) metaDur.textContent = '~' + (lesson.durationMinutes || 5) + ' min';
+        if (metaDur) metaDur.textContent = '~' + (lesson.duration_minutes || 5) + ' min';
 
         // Update start button href
         var startBtn = document.getElementById('start-btn');
@@ -260,7 +260,7 @@
 
         // Update vocab tags
         var vocabTags = document.getElementById('vocab-tags');
-        var vocabList = (lesson.metadata && lesson.metadata.vocabPreview) || lesson.vocabPreview || [];
+        var vocabList = (lesson.metadata && lesson.metadata.vocab_preview) || lesson.vocab_preview || [];
         if (vocabTags && vocabList.length > 0) {
           vocabTags.textContent = '';
           var fragment = document.createDocumentFragment();

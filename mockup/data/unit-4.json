@@ -1,549 +1,1348 @@
 {
-  "unitId": 4,
+  "id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
+  "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Danasîn û Hevok",
   "slug": "danasin-u-hevok",
   "description": "Learn descriptions, classification of 'old' words, and complex sentence structures with conjunctions.",
+  "order_index": 3,
+  "is_free": false,
+  "is_published": true,
+  "image_url": null,
+  "category": null,
   "metadata": {
-    "subtitle": { "en": "Descriptions & Sentences", "de": "Beschreibungen & Sätze" }
+    "subtitle": {
+      "en": "Descriptions & Sentences",
+      "de": "Beschreibungen & Sätze"
+    }
   },
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
     {
-      "id": "4-1",
+      "id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
+      "unit_id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
       "name": "Kal, Pîr, Kevn",
-      "description": "Learn the 4 different Kurdish words for 'old' and their opposites, based on gender and noun type.",
       "slug": "kal-pir-kevn",
-      "orderIndex": 0,
-      "learningObjective": { "en": "Learn the 4 different Kurdish words for 'old' — kal (old man), pîr (old woman), kevn (old object), kartû (stale food) — and their opposites", "de": "Lerne die 4 verschiedenen kurdischen Wörter für ‚alt' — kal (alter Mann), pîr (alte Frau), kevn (altes Objekt), kartû (abgestandenes Essen) — und ihre Gegenteile" },
-      "durationMinutes": 12,
-      "isPublished": true,
+      "description": "Learn the 4 different Kurdish words for 'old' and their opposites, based on gender and noun type.",
+      "order_index": 0,
+      "learning_objective": "Learn the 4 different Kurdish words for 'old' — kal (old man), pîr (old woman), kevn (old object), kartû (stale food) — and their opposites",
+      "duration_minutes": 12,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Four Words for 'Old'", "de": "Vier Wörter für ‚alt'" },
-        "vocabPreview": ["kal", "pîr", "kevn", "kartû", "ciwan", "nû"],
-        "wordsLearned": [
-          { "ku": "kal", "en": "old (man / male animal)", "de": "alt (Mann / männliches Tier)" },
-          { "ku": "pîr", "en": "old (woman / female animal)", "de": "alt (Frau / weibliches Tier)" },
-          { "ku": "kevn", "en": "old (object / thing)", "de": "alt (Gegenstand / Sache)" },
-          { "ku": "kartû", "en": "old / stale (food)", "de": "alt / abgestanden (Essen)" },
-          { "ku": "ciwan", "en": "young", "de": "jung" },
-          { "ku": "nû", "en": "new", "de": "neu" },
-          { "ku": "teze", "en": "fresh", "de": "frisch" },
-          { "ku": "ga", "en": "ox / bull", "de": "Ochse / Stier" },
-          { "ku": "çêlek", "en": "cow", "de": "Kuh" },
-          { "ku": "mey", "en": "wine", "de": "Wein" },
-          { "ku": "heval", "en": "friend", "de": "Freund" }
+        "subtitle": {
+          "en": "Four Words for 'Old'",
+          "de": "Vier Wörter für ‚alt'"
+        },
+        "vocab_preview": [
+          "kal",
+          "pîr",
+          "kevn",
+          "kartû",
+          "ciwan",
+          "nû"
+        ],
+        "words_learned": [
+          {
+            "ku": "kal",
+            "en": "old (man / male animal)",
+            "de": "alt (Mann / männliches Tier)"
+          },
+          {
+            "ku": "pîr",
+            "en": "old (woman / female animal)",
+            "de": "alt (Frau / weibliches Tier)"
+          },
+          {
+            "ku": "kevn",
+            "en": "old (object / thing)",
+            "de": "alt (Gegenstand / Sache)"
+          },
+          {
+            "ku": "kartû",
+            "en": "old / stale (food)",
+            "de": "alt / abgestanden (Essen)"
+          },
+          {
+            "ku": "ciwan",
+            "en": "young",
+            "de": "jung"
+          },
+          {
+            "ku": "nû",
+            "en": "new",
+            "de": "neu"
+          },
+          {
+            "ku": "teze",
+            "en": "fresh",
+            "de": "frisch"
+          },
+          {
+            "ku": "ga",
+            "en": "ox / bull",
+            "de": "Ochse / Stier"
+          },
+          {
+            "ku": "çêlek",
+            "en": "cow",
+            "de": "Kuh"
+          },
+          {
+            "ku": "mey",
+            "en": "wine",
+            "de": "Wein"
+          },
+          {
+            "ku": "heval",
+            "en": "friend",
+            "de": "Freund"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "4-1-01",
+          "id": "5bf9bd20-fd73-574a-bc31-fa8067cd96cb",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn: 'old' for men", "de": "Lerne: ‚alt' für Männer" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "kal",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "old (for men / male beings)", "de": "alt (für Männer / männliche Wesen)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "old (for men / male beings)",
+              "de": "alt (für Männer / männliche Wesen)"
+            },
             "example": "Bapîr kal e. Ga kal e.",
-            "exampleTranslation": { "en": "Grandfather is old. The ox is old.", "de": "Der Großvater ist alt. Der Ochse ist alt." }
-          }
+            "instruction": {
+              "en": "Learn: 'old' for men",
+              "de": "Lerne: ‚alt' für Männer"
+            },
+            "example_translation": {
+              "en": "Grandfather is old. The ox is old.",
+              "de": "Der Großvater ist alt. Der Ochse ist alt."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-02",
+          "id": "c9ac684b-1a4d-56d9-acc0-51bdbfd144c1",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn: 'old' for women", "de": "Lerne: ‚alt' für Frauen" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "pîr",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "old (for women / female beings)", "de": "alt (für Frauen / weibliche Wesen)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "old (for women / female beings)",
+              "de": "alt (für Frauen / weibliche Wesen)"
+            },
             "example": "Dapîr pîr e. Çêlek pîr e.",
-            "exampleTranslation": { "en": "Grandmother is old. The cow is old.", "de": "Die Großmutter ist alt. Die Kuh ist alt." }
-          }
+            "instruction": {
+              "en": "Learn: 'old' for women",
+              "de": "Lerne: ‚alt' für Frauen"
+            },
+            "example_translation": {
+              "en": "Grandmother is old. The cow is old.",
+              "de": "Die Großmutter ist alt. Die Kuh ist alt."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-03",
+          "id": "cd6731ba-e3b1-5105-89d7-bf63d77e140e",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn: 'old' for objects", "de": "Lerne: ‚alt' für Gegenstände" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "kevn",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "old (for objects / things)", "de": "alt (für Gegenstände / Sachen)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "old (for objects / things)",
+              "de": "alt (für Gegenstände / Sachen)"
+            },
             "example": "Mase kevn e. Mey kevn e.",
-            "exampleTranslation": { "en": "The table is old. The wine is old.", "de": "Der Tisch ist alt. Der Wein ist alt." }
-          }
+            "instruction": {
+              "en": "Learn: 'old' for objects",
+              "de": "Lerne: ‚alt' für Gegenstände"
+            },
+            "example_translation": {
+              "en": "The table is old. The wine is old.",
+              "de": "Der Tisch ist alt. Der Wein ist alt."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-04",
+          "id": "b6076249-58f6-5ccf-af3d-a1eae4a04865",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "flashcard",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Learn: 'old/stale' for food", "de": "Lerne: ‚alt/abgestanden' für Essen" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
             "word": "kartû",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "old / stale (for food)", "de": "alt / abgestanden (für Essen)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "old / stale (for food)",
+              "de": "alt / abgestanden (für Essen)"
+            },
             "example": "Nan kartû ye.",
-            "exampleTranslation": { "en": "The bread is stale.", "de": "Das Brot ist abgestanden." }
-          }
+            "instruction": {
+              "en": "Learn: 'old/stale' for food",
+              "de": "Lerne: ‚alt/abgestanden' für Essen"
+            },
+            "example_translation": {
+              "en": "The bread is stale.",
+              "de": "Das Brot ist abgestanden."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-05",
+          "id": "8481debb-8cd6-522a-b446-11a3617ce5db",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "reading",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "Read the examples", "de": "Lies die Beispiele" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
-            "title": { "en": "Çar peyvên 'kevn' — Four words for 'old'", "de": "Çar peyvên 'kevn' — Vier Wörter für ‚alt'" },
+            "title": {
+              "en": "Çar peyvên 'kevn' — Four words for 'old'",
+              "de": "Çar peyvên 'kevn' — Vier Wörter für ‚alt'"
+            },
             "lines": [
-              { "speaker": "", "ku": "Mêr: Ez kal im. (masculine)", "en": "Man: I am old.", "de": "Mann: Ich bin alt." },
-              { "speaker": "", "ku": "Jin: Ez pîr im. (feminine)", "en": "Woman: I am old.", "de": "Frau: Ich bin alt." },
-              { "speaker": "", "ku": "Mase kevn e. (object)", "en": "The table is old.", "de": "Der Tisch ist alt." },
-              { "speaker": "", "ku": "Nan kartû ye. (food)", "en": "The bread is stale.", "de": "Das Brot ist abgestanden." },
-              { "speaker": "", "ku": "Heval kal e. (male friend)", "en": "The (male) friend is old.", "de": "Der Freund ist alt." },
-              { "speaker": "", "ku": "Heval pîr e. (female friend)", "en": "The (female) friend is old.", "de": "Die Freundin ist alt." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Mêr: Ez kal im. (masculine)",
+                "en": "Man: I am old.",
+                "de": "Mann: Ich bin alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Jin: Ez pîr im. (feminine)",
+                "en": "Woman: I am old.",
+                "de": "Frau: Ich bin alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Mase kevn e. (object)",
+                "en": "The table is old.",
+                "de": "Der Tisch ist alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Nan kartû ye. (food)",
+                "en": "The bread is stale.",
+                "de": "Das Brot ist abgestanden."
+              },
+              {
+                "speaker": "",
+                "ku": "Heval kal e. (male friend)",
+                "en": "The (male) friend is old.",
+                "de": "Der Freund ist alt."
+              },
+              {
+                "speaker": "",
+                "ku": "Heval pîr e. (female friend)",
+                "en": "The (female) friend is old.",
+                "de": "Die Freundin ist alt."
+              }
+            ],
+            "instruction": {
+              "en": "Read the examples",
+              "de": "Lies die Beispiele"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-06",
+          "id": "e5abee2f-5aa7-5aef-bdc8-10132fe6e7cf",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "mcq",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "\"Çêlek pîr e.\" Why 'pîr' and not 'kal'?", "de": "\"Çêlek pîr e.\" Warum ‚pîr' und nicht ‚kal'?" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Because çêlek (cow) is an animal", "de": "Weil çêlek (Kuh) ein Tier ist" },
-              { "en": "Because çêlek (cow) is female", "de": "Weil çêlek (Kuh) weiblich ist" },
-              { "en": "Because çêlek (cow) is an object", "de": "Weil çêlek (Kuh) ein Gegenstand ist" },
-              { "en": "Because çêlek (cow) is food", "de": "Weil çêlek (Kuh) Essen ist" }
+              {
+                "en": "Because çêlek (cow) is an animal",
+                "de": "Weil çêlek (Kuh) ein Tier ist"
+              },
+              {
+                "en": "Because çêlek (cow) is female",
+                "de": "Weil çêlek (Kuh) weiblich ist"
+              },
+              {
+                "en": "Because çêlek (cow) is an object",
+                "de": "Weil çêlek (Kuh) ein Gegenstand ist"
+              },
+              {
+                "en": "Because çêlek (cow) is food",
+                "de": "Weil çêlek (Kuh) Essen ist"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "'pîr' is used for female beings. A cow (çêlek) is female, so we say 'pîr'. A bull (ga) is male, so we say 'kal'.", "de": "‚pîr' wird für weibliche Wesen verwendet. Eine Kuh (çêlek) ist weiblich, deshalb sagen wir ‚pîr'. Ein Stier (ga) ist männlich, deshalb sagen wir ‚kal'." }
-          }
+            "explanation": {
+              "en": "'pîr' is used for female beings. A cow (çêlek) is female, so we say 'pîr'. A bull (ga) is male, so we say 'kal'.",
+              "de": "‚pîr' wird für weibliche Wesen verwendet. Eine Kuh (çêlek) ist weiblich, deshalb sagen wir ‚pîr'. Ein Stier (ga) ist männlich, deshalb sagen wir ‚kal'."
+            },
+            "instruction": {
+              "en": "\"Çêlek pîr e.\" Why 'pîr' and not 'kal'?",
+              "de": "\"Çêlek pîr e.\" Warum ‚pîr' und nicht ‚kal'?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-07",
+          "id": "07037da5-90db-5950-8e30-d9444937ddc7",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "matching",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Match the correct 'old' word to each noun", "de": "Ordne das richtige Wort für ‚alt' jedem Nomen zu" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "Bapîr (grandfather)", "en": "kal", "de": "kal" },
-              { "ku": "Dapîr (grandmother)", "en": "pîr", "de": "pîr" },
-              { "ku": "Mase (table)", "en": "kevn", "de": "kevn" },
-              { "ku": "Nan (bread)", "en": "kartû", "de": "kartû" }
-            ]
-          }
+              {
+                "ku": "Bapîr (grandfather)",
+                "en": "kal",
+                "de": "kal"
+              },
+              {
+                "ku": "Dapîr (grandmother)",
+                "en": "pîr",
+                "de": "pîr"
+              },
+              {
+                "ku": "Mase (table)",
+                "en": "kevn",
+                "de": "kevn"
+              },
+              {
+                "ku": "Nan (bread)",
+                "en": "kartû",
+                "de": "kartû"
+              }
+            ],
+            "instruction": {
+              "en": "Match the correct 'old' word to each noun",
+              "de": "Ordne das richtige Wort für ‚alt' jedem Nomen zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-08",
+          "id": "3ee69ae9-f3e2-5bdb-8da2-5c2a592252c5",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "gap_fill",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Complete with the correct 'old' word", "de": "Vervollständige mit dem richtigen Wort für ‚alt'" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "before": "Mey ",
             "gap": "kevn",
             "after": " e.",
             "display": "Mey ___ e.",
-            "wordBank": ["kevn", "kal", "pîr", "kartû"],
-            "explanation": { "en": "Wine (mey) is an object, so we use 'kevn'. Mey kevn e = The wine is old.", "de": "Wein (mey) ist ein Gegenstand, deshalb benutzen wir ‚kevn'. Mey kevn e = Der Wein ist alt." }
-          }
+            "explanation": {
+              "en": "Wine (mey) is an object, so we use 'kevn'. Mey kevn e = The wine is old.",
+              "de": "Wein (mey) ist ein Gegenstand, deshalb benutzen wir ‚kevn'. Mey kevn e = Der Wein ist alt."
+            },
+            "instruction": {
+              "en": "Complete with the correct 'old' word",
+              "de": "Vervollständige mit dem richtigen Wort für ‚alt'"
+            },
+            "word_bank": [
+              "kevn",
+              "kal",
+              "pîr",
+              "kartû"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-09",
+          "id": "a41b66b4-679d-5228-a489-ffef820de451",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "mcq",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "What is the opposite of 'kal' (old man)?", "de": "Was ist das Gegenteil von ‚kal' (alter Mann)?" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "nû", "de": "nû" },
-              { "en": "teze", "de": "teze" },
-              { "en": "ciwan", "de": "ciwan" },
-              { "en": "pîr", "de": "pîr" }
+              {
+                "en": "nû",
+                "de": "nû"
+              },
+              {
+                "en": "teze",
+                "de": "teze"
+              },
+              {
+                "en": "ciwan",
+                "de": "ciwan"
+              },
+              {
+                "en": "pîr",
+                "de": "pîr"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "'ciwan' = young. Kal <-> ciwan (old man <-> young man). Also: pîr <-> ciwan (old woman <-> young woman), nû <-> kevn (new <-> old object).", "de": "‚ciwan' = jung. Kal <-> ciwan (alter Mann <-> junger Mann). Außerdem: pîr <-> ciwan (alte Frau <-> junge Frau), nû <-> kevn (neu <-> alter Gegenstand)." }
-          }
+            "explanation": {
+              "en": "'ciwan' = young. Kal <-> ciwan (old man <-> young man). Also: pîr <-> ciwan (old woman <-> young woman), nû <-> kevn (new <-> old object).",
+              "de": "‚ciwan' = jung. Kal <-> ciwan (alter Mann <-> junger Mann). Außerdem: pîr <-> ciwan (alte Frau <-> junge Frau), nû <-> kevn (neu <-> alter Gegenstand)."
+            },
+            "instruction": {
+              "en": "What is the opposite of 'kal' (old man)?",
+              "de": "Was ist das Gegenteil von ‚kal' (alter Mann)?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-1-10",
+          "id": "f73cc8fa-99a0-5c63-b73f-8cd44a20ce2d",
+          "lesson_id": "7eb69ca1-b1cd-5c12-8a7c-5598423bc34f",
           "type": "matching",
-          "orderIndex": 9,
-          "isPublished": true,
-          "instruction": { "en": "Match the opposites", "de": "Ordne die Gegenteile zu" },
+          "order_index": 9,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "kal (old man)", "en": "ciwan (young)", "de": "ciwan (jung)" },
-              { "ku": "pîr (old woman)", "en": "ciwan (young)", "de": "ciwan (jung)" },
-              { "ku": "kevn (old object)", "en": "nû (new)", "de": "nû (neu)" },
-              { "ku": "kartû (stale food)", "en": "teze (fresh)", "de": "teze (frisch)" }
-            ]
-          }
+              {
+                "ku": "kal (old man)",
+                "en": "ciwan (young)",
+                "de": "ciwan (jung)"
+              },
+              {
+                "ku": "pîr (old woman)",
+                "en": "ciwan (young)",
+                "de": "ciwan (jung)"
+              },
+              {
+                "ku": "kevn (old object)",
+                "en": "nû (new)",
+                "de": "nû (neu)"
+              },
+              {
+                "ku": "kartû (stale food)",
+                "en": "teze (fresh)",
+                "de": "teze (frisch)"
+              }
+            ],
+            "instruction": {
+              "en": "Match the opposites",
+              "de": "Ordne die Gegenteile zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     },
     {
-      "id": "4-2",
+      "id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
+      "unit_id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
       "name": "Hevokên Pêreyî",
-      "description": "Learn to build complex sentences with conjunctions: 'ji ber ku' (because), 'loma' (therefore), and 'lê' (but).",
       "slug": "hevoken-pereyi",
-      "orderIndex": 1,
-      "learningObjective": { "en": "Learn to build complex sentences with 'ji ber ku' (because), 'loma' (therefore), and 'lê' (but)", "de": "Lerne, komplexe Sätze mit ‚ji ber ku' (weil), ‚loma' (deshalb) und ‚lê' (aber) zu bilden" },
-      "durationMinutes": 12,
-      "isPublished": true,
+      "description": "Learn to build complex sentences with conjunctions: 'ji ber ku' (because), 'loma' (therefore), and 'lê' (but).",
+      "order_index": 1,
+      "learning_objective": "Learn to build complex sentences with 'ji ber ku' (because), 'loma' (therefore), and 'lê' (but)",
+      "duration_minutes": 12,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "Subordinate Clauses", "de": "Nebensätze" },
-        "vocabPreview": ["ji ber ku", "loma", "lê", "germ"],
-        "wordsLearned": [
-          { "ku": "ji ber ku", "en": "because", "de": "weil" },
-          { "ku": "loma", "en": "therefore / so", "de": "deshalb / also" },
-          { "ku": "lê", "en": "but", "de": "aber" },
-          { "ku": "germ", "en": "warm", "de": "warm" },
-          { "ku": "têr", "en": "full / satisfied", "de": "satt" },
-          { "ku": "hêdî", "en": "slow", "de": "langsam" },
-          { "ku": "fireh", "en": "wide / large", "de": "breit / groß" },
-          { "ku": "dûr", "en": "far", "de": "weit / fern" },
-          { "ku": "gul", "en": "rose", "de": "Rose" },
-          { "ku": "tivir", "en": "grape", "de": "Traube" }
+        "subtitle": {
+          "en": "Subordinate Clauses",
+          "de": "Nebensätze"
+        },
+        "vocab_preview": [
+          "ji ber ku",
+          "loma",
+          "lê",
+          "germ"
+        ],
+        "words_learned": [
+          {
+            "ku": "ji ber ku",
+            "en": "because",
+            "de": "weil"
+          },
+          {
+            "ku": "loma",
+            "en": "therefore / so",
+            "de": "deshalb / also"
+          },
+          {
+            "ku": "lê",
+            "en": "but",
+            "de": "aber"
+          },
+          {
+            "ku": "germ",
+            "en": "warm",
+            "de": "warm"
+          },
+          {
+            "ku": "têr",
+            "en": "full / satisfied",
+            "de": "satt"
+          },
+          {
+            "ku": "hêdî",
+            "en": "slow",
+            "de": "langsam"
+          },
+          {
+            "ku": "fireh",
+            "en": "wide / large",
+            "de": "breit / groß"
+          },
+          {
+            "ku": "dûr",
+            "en": "far",
+            "de": "weit / fern"
+          },
+          {
+            "ku": "gul",
+            "en": "rose",
+            "de": "Rose"
+          },
+          {
+            "ku": "tivir",
+            "en": "grape",
+            "de": "Traube"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "4-2-01",
+          "id": "e51f3e7b-8924-51d6-815e-f8b50ba337ec",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Learn this conjunction", "de": "Lerne diese Konjunktion" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "ji ber ku",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "because", "de": "weil" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "because",
+              "de": "weil"
+            },
             "example": "Şêr şa ye, ji ber ku têr e.",
-            "exampleTranslation": { "en": "The lion is happy because it is full.", "de": "Der Löwe ist glücklich, weil er satt ist." }
-          }
+            "instruction": {
+              "en": "Learn this conjunction",
+              "de": "Lerne diese Konjunktion"
+            },
+            "example_translation": {
+              "en": "The lion is happy because it is full.",
+              "de": "Der Löwe ist glücklich, weil er satt ist."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-02",
+          "id": "3b9db8a0-4b7d-5c24-aca2-dd33d2820dce",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Learn this conjunction", "de": "Lerne diese Konjunktion" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "loma",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "therefore / so", "de": "deshalb / also" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "therefore / so",
+              "de": "deshalb / also"
+            },
             "example": "Dîkê sor ne westî ye, loma pir bang dike.",
-            "exampleTranslation": { "en": "The red rooster is not tired, therefore it crows a lot.", "de": "Der rote Hahn ist nicht müde, deshalb kräht er viel." }
-          }
+            "instruction": {
+              "en": "Learn this conjunction",
+              "de": "Lerne diese Konjunktion"
+            },
+            "example_translation": {
+              "en": "The red rooster is not tired, therefore it crows a lot.",
+              "de": "Der rote Hahn ist nicht müde, deshalb kräht er viel."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-03",
+          "id": "863e8514-4ff9-5662-aa67-d4195f5b0f2b",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "flashcard",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Learn this conjunction", "de": "Lerne diese Konjunktion" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
             "word": "lê",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "but", "de": "aber" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "but",
+              "de": "aber"
+            },
             "example": "Ev ne gulên sor, lê tivirên spî ne.",
-            "exampleTranslation": { "en": "These are not red roses, but white grapes.", "de": "Das sind keine roten Rosen, sondern weiße Trauben." }
-          }
+            "instruction": {
+              "en": "Learn this conjunction",
+              "de": "Lerne diese Konjunktion"
+            },
+            "example_translation": {
+              "en": "These are not red roses, but white grapes.",
+              "de": "Das sind keine roten Rosen, sondern weiße Trauben."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-04",
+          "id": "1a0676e9-463b-5b27-896c-fbc431e73b37",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "reading",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Read the complex sentences from Mamoste's materials", "de": "Lies die komplexen Sätze aus Mamostes Materialien" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
-            "title": { "en": "Hevokên Pêreyî — Subordinate Clauses", "de": "Hevokên Pêreyî — Nebensätze" },
+            "title": {
+              "en": "Hevokên Pêreyî — Subordinate Clauses",
+              "de": "Hevokên Pêreyî — Nebensätze"
+            },
             "lines": [
-              { "speaker": "", "ku": "Şêr şa ye, ji ber ku têr e.", "en": "The lion is happy because it is full.", "de": "Der Löwe ist glücklich, weil er satt ist." },
-              { "speaker": "", "ku": "Jin ne şa ye, ji ber ku hevala baş dûr e.", "en": "The woman is not happy because her good friend is far away.", "de": "Die Frau ist nicht glücklich, weil ihre gute Freundin weit weg ist." },
-              { "speaker": "", "ku": "Eyloyê qehweyî zû ye, ji ber ku birçî ye.", "en": "The brown gazelle is fast because it is hungry.", "de": "Die braune Gazelle ist schnell, weil sie hungrig ist." },
-              { "speaker": "", "ku": "Piling hêdî ne, ji ber ku têr in.", "en": "The leopards are slow because they are full.", "de": "Die Leoparden sind langsam, weil sie satt sind." },
-              { "speaker": "", "ku": "Xanî germ e, ji ber ku pencere fireh e.", "en": "The house is warm because the window is wide.", "de": "Das Haus ist warm, weil das Fenster breit ist." },
-              { "speaker": "", "ku": "Dîkê sor ne westî ye, loma pir bang dike.", "en": "The red rooster is not tired, therefore it crows a lot.", "de": "Der rote Hahn ist nicht müde, deshalb kräht er viel." },
-              { "speaker": "", "ku": "Ev ne gulên sor, lê tivirên spî ne.", "en": "These are not red roses, but white grapes.", "de": "Das sind keine roten Rosen, sondern weiße Trauben." },
-              { "speaker": "", "ku": "Ev zeytûna piçûk e, lê dendikê mezin e.", "en": "This olive is small, but its seed is big.", "de": "Diese Olive ist klein, aber ihr Kern ist groß." },
-              { "speaker": "", "ku": "Dayika te pîr û porspî ye.", "en": "Your mother is old and white-haired.", "de": "Deine Mutter ist alt und weißhaarig." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Şêr şa ye, ji ber ku têr e.",
+                "en": "The lion is happy because it is full.",
+                "de": "Der Löwe ist glücklich, weil er satt ist."
+              },
+              {
+                "speaker": "",
+                "ku": "Jin ne şa ye, ji ber ku hevala baş dûr e.",
+                "en": "The woman is not happy because her good friend is far away.",
+                "de": "Die Frau ist nicht glücklich, weil ihre gute Freundin weit weg ist."
+              },
+              {
+                "speaker": "",
+                "ku": "Eyloyê qehweyî zû ye, ji ber ku birçî ye.",
+                "en": "The brown gazelle is fast because it is hungry.",
+                "de": "Die braune Gazelle ist schnell, weil sie hungrig ist."
+              },
+              {
+                "speaker": "",
+                "ku": "Piling hêdî ne, ji ber ku têr in.",
+                "en": "The leopards are slow because they are full.",
+                "de": "Die Leoparden sind langsam, weil sie satt sind."
+              },
+              {
+                "speaker": "",
+                "ku": "Xanî germ e, ji ber ku pencere fireh e.",
+                "en": "The house is warm because the window is wide.",
+                "de": "Das Haus ist warm, weil das Fenster breit ist."
+              },
+              {
+                "speaker": "",
+                "ku": "Dîkê sor ne westî ye, loma pir bang dike.",
+                "en": "The red rooster is not tired, therefore it crows a lot.",
+                "de": "Der rote Hahn ist nicht müde, deshalb kräht er viel."
+              },
+              {
+                "speaker": "",
+                "ku": "Ev ne gulên sor, lê tivirên spî ne.",
+                "en": "These are not red roses, but white grapes.",
+                "de": "Das sind keine roten Rosen, sondern weiße Trauben."
+              },
+              {
+                "speaker": "",
+                "ku": "Ev zeytûna piçûk e, lê dendikê mezin e.",
+                "en": "This olive is small, but its seed is big.",
+                "de": "Diese Olive ist klein, aber ihr Kern ist groß."
+              },
+              {
+                "speaker": "",
+                "ku": "Dayika te pîr û porspî ye.",
+                "en": "Your mother is old and white-haired.",
+                "de": "Deine Mutter ist alt und weißhaarig."
+              }
+            ],
+            "instruction": {
+              "en": "Read the complex sentences from Mamoste's materials",
+              "de": "Lies die komplexen Sätze aus Mamostes Materialien"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-05",
+          "id": "5f256413-17b9-560e-b9e3-fc18c44e6fa0",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "mcq",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "\"Şêr şa ye, ji ber ku têr e.\" What does 'ji ber ku' mean?", "de": "\"Şêr şa ye, ji ber ku têr e.\" Was bedeutet ‚ji ber ku'?" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "therefore", "de": "deshalb" },
-              { "en": "but", "de": "aber" },
-              { "en": "because", "de": "weil" },
-              { "en": "and", "de": "und" }
+              {
+                "en": "therefore",
+                "de": "deshalb"
+              },
+              {
+                "en": "but",
+                "de": "aber"
+              },
+              {
+                "en": "because",
+                "de": "weil"
+              },
+              {
+                "en": "and",
+                "de": "und"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "'ji ber ku' = because. The lion is happy BECAUSE it is full (têr).", "de": "‚ji ber ku' = weil. Der Löwe ist glücklich, WEIL er satt (têr) ist." }
-          }
+            "explanation": {
+              "en": "'ji ber ku' = because. The lion is happy BECAUSE it is full (têr).",
+              "de": "‚ji ber ku' = weil. Der Löwe ist glücklich, WEIL er satt (têr) ist."
+            },
+            "instruction": {
+              "en": "\"Şêr şa ye, ji ber ku têr e.\" What does 'ji ber ku' mean?",
+              "de": "\"Şêr şa ye, ji ber ku têr e.\" Was bedeutet ‚ji ber ku'?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-06",
+          "id": "382051c8-b9e9-50c8-a7c8-b5b5215df9c0",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "gap_fill",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "Complete the sentence with the correct conjunction", "de": "Vervollständige den Satz mit der richtigen Konjunktion" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "before": "Jin ne şa ye, ",
             "gap": "ji ber ku",
             "after": " hevala baş dûr e.",
             "display": "Jin ne şa ye, ___ hevala baş dûr e.",
-            "wordBank": ["ji ber ku", "loma", "lê", "û"],
-            "explanation": { "en": "'ji ber ku' = because. The woman is not happy BECAUSE her good friend is far away.", "de": "‚ji ber ku' = weil. Die Frau ist nicht glücklich, WEIL ihre gute Freundin weit weg ist." }
-          }
+            "explanation": {
+              "en": "'ji ber ku' = because. The woman is not happy BECAUSE her good friend is far away.",
+              "de": "‚ji ber ku' = weil. Die Frau ist nicht glücklich, WEIL ihre gute Freundin weit weg ist."
+            },
+            "instruction": {
+              "en": "Complete the sentence with the correct conjunction",
+              "de": "Vervollständige den Satz mit der richtigen Konjunktion"
+            },
+            "word_bank": [
+              "ji ber ku",
+              "loma",
+              "lê",
+              "û"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-07",
+          "id": "25d6f816-73db-57ee-9a24-3fe9190ebfb8",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "mcq",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "\"Ev ne gulên sor, lê tivirên spî ne.\" What does 'lê' mean?", "de": "\"Ev ne gulên sor, lê tivirên spî ne.\" Was bedeutet ‚lê'?" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "because", "de": "weil" },
-              { "en": "therefore", "de": "deshalb" },
-              { "en": "and", "de": "und" },
-              { "en": "but", "de": "aber" }
+              {
+                "en": "because",
+                "de": "weil"
+              },
+              {
+                "en": "therefore",
+                "de": "deshalb"
+              },
+              {
+                "en": "and",
+                "de": "und"
+              },
+              {
+                "en": "but",
+                "de": "aber"
+              }
             ],
             "correct": 3,
-            "explanation": { "en": "'lê' = but. These are NOT red roses, BUT white grapes. 'lê' introduces a contrast.", "de": "‚lê' = aber. Das sind KEINE roten Rosen, SONDERN weiße Trauben. ‚lê' leitet einen Gegensatz ein." }
-          }
+            "explanation": {
+              "en": "'lê' = but. These are NOT red roses, BUT white grapes. 'lê' introduces a contrast.",
+              "de": "‚lê' = aber. Das sind KEINE roten Rosen, SONDERN weiße Trauben. ‚lê' leitet einen Gegensatz ein."
+            },
+            "instruction": {
+              "en": "\"Ev ne gulên sor, lê tivirên spî ne.\" What does 'lê' mean?",
+              "de": "\"Ev ne gulên sor, lê tivirên spî ne.\" Was bedeutet ‚lê'?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-08",
+          "id": "72e4b7ac-effc-5f34-81e2-0333f998941f",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "gap_fill",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Complete the sentence", "de": "Vervollständige den Satz" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "before": "Piling hêdî ne, ",
             "gap": "ji ber ku",
             "after": " têr in.",
             "display": "Piling hêdî ne, ___ têr in.",
-            "wordBank": ["ji ber ku", "loma", "lê", "û"],
-            "explanation": { "en": "The leopards are slow BECAUSE (ji ber ku) they are full (têr).", "de": "Die Leoparden sind langsam, WEIL (ji ber ku) sie satt (têr) sind." }
-          }
+            "explanation": {
+              "en": "The leopards are slow BECAUSE (ji ber ku) they are full (têr).",
+              "de": "Die Leoparden sind langsam, WEIL (ji ber ku) sie satt (têr) sind."
+            },
+            "instruction": {
+              "en": "Complete the sentence",
+              "de": "Vervollständige den Satz"
+            },
+            "word_bank": [
+              "ji ber ku",
+              "loma",
+              "lê",
+              "û"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-2-09",
+          "id": "f23f6f50-1278-5c51-a038-03ef37b5a60c",
+          "lesson_id": "0416291b-fad6-5259-a03c-857e9a6d9df6",
           "type": "matching",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "Match the conjunctions to their meanings", "de": "Ordne die Konjunktionen ihren Bedeutungen zu" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "ji ber ku", "en": "because", "de": "weil" },
-              { "ku": "loma", "en": "therefore", "de": "deshalb" },
-              { "ku": "lê", "en": "but", "de": "aber" },
-              { "ku": "û", "en": "and", "de": "und" }
-            ]
-          }
+              {
+                "ku": "ji ber ku",
+                "en": "because",
+                "de": "weil"
+              },
+              {
+                "ku": "loma",
+                "en": "therefore",
+                "de": "deshalb"
+              },
+              {
+                "ku": "lê",
+                "en": "but",
+                "de": "aber"
+              },
+              {
+                "ku": "û",
+                "en": "and",
+                "de": "und"
+              }
+            ],
+            "instruction": {
+              "en": "Match the conjunctions to their meanings",
+              "de": "Ordne die Konjunktionen ihren Bedeutungen zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     },
     {
-      "id": "4-3",
+      "id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
+      "unit_id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
       "name": "Nû û Kevn",
-      "description": "Practice classifying nouns by which 'old' word applies, sorting people, objects, and food correctly.",
       "slug": "nu-u-kevn",
-      "orderIndex": 2,
-      "learningObjective": { "en": "Practice classifying nouns by which 'old' word applies — sorting people, objects, and food correctly", "de": "Übe die Zuordnung von Nomen zum richtigen Wort für ‚alt' — sortiere Personen, Gegenstände und Essen korrekt" },
-      "durationMinutes": 10,
-      "isPublished": true,
+      "description": "Practice classifying nouns by which 'old' word applies, sorting people, objects, and food correctly.",
+      "order_index": 2,
+      "learning_objective": "Practice classifying nouns by which 'old' word applies — sorting people, objects, and food correctly",
+      "duration_minutes": 10,
+      "is_published": true,
+      "image_url": null,
       "metadata": {
-        "subtitle": { "en": "New & Old — Classification", "de": "Neu & Alt — Zuordnung" },
-        "vocabPreview": ["nû", "kevn", "teze", "ciwan"],
-        "wordsLearned": [
-          { "ku": "mase", "en": "table", "de": "Tisch" },
-          { "ku": "xwişk", "en": "sister", "de": "Schwester" },
-          { "ku": "bapîr", "en": "grandfather", "de": "Großvater" },
-          { "ku": "bira", "en": "brother", "de": "Bruder" },
-          { "ku": "dayik", "en": "mother", "de": "Mutter" },
-          { "ku": "bav", "en": "father", "de": "Vater" },
-          { "ku": "dapîr", "en": "grandmother", "de": "Großmutter" },
-          { "ku": "pênûs", "en": "pen / pencil", "de": "Stift / Bleistift" },
-          { "ku": "çente", "en": "bag", "de": "Tasche" },
-          { "ku": "masî", "en": "fish", "de": "Fisch" }
+        "subtitle": {
+          "en": "New & Old — Classification",
+          "de": "Neu & Alt — Zuordnung"
+        },
+        "vocab_preview": [
+          "nû",
+          "kevn",
+          "teze",
+          "ciwan"
+        ],
+        "words_learned": [
+          {
+            "ku": "mase",
+            "en": "table",
+            "de": "Tisch"
+          },
+          {
+            "ku": "xwişk",
+            "en": "sister",
+            "de": "Schwester"
+          },
+          {
+            "ku": "bapîr",
+            "en": "grandfather",
+            "de": "Großvater"
+          },
+          {
+            "ku": "bira",
+            "en": "brother",
+            "de": "Bruder"
+          },
+          {
+            "ku": "dayik",
+            "en": "mother",
+            "de": "Mutter"
+          },
+          {
+            "ku": "bav",
+            "en": "father",
+            "de": "Vater"
+          },
+          {
+            "ku": "dapîr",
+            "en": "grandmother",
+            "de": "Großmutter"
+          },
+          {
+            "ku": "pênûs",
+            "en": "pen / pencil",
+            "de": "Stift / Bleistift"
+          },
+          {
+            "ku": "çente",
+            "en": "bag",
+            "de": "Tasche"
+          },
+          {
+            "ku": "masî",
+            "en": "fish",
+            "de": "Fisch"
+          }
         ]
       },
+      "created_at": "2026-02-01T00:00:00Z",
+      "updated_at": "2026-02-01T00:00:00Z",
       "activities": [
         {
-          "id": "4-3-01",
+          "id": "522c861c-dc6f-50e8-86b2-867a389b0670",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "flashcard",
-          "orderIndex": 0,
-          "isPublished": true,
-          "instruction": { "en": "Review the classification rule", "de": "Wiederhole die Zuordnungsregel" },
+          "order_index": 0,
+          "is_published": true,
           "content": {
             "word": "4 words for 'old'",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "kal = old man, pîr = old woman, kevn = old thing, kartû = stale food", "de": "kal = alter Mann, pîr = alte Frau, kevn = alter Gegenstand, kartû = abgestandenes Essen" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "kal = old man, pîr = old woman, kevn = old thing, kartû = stale food",
+              "de": "kal = alter Mann, pîr = alte Frau, kevn = alter Gegenstand, kartû = abgestandenes Essen"
+            },
             "example": "Bav kal e. Dayik pîr e. Mase kevn e. Nan kartû ye.",
-            "exampleTranslation": { "en": "Father is old. Mother is old. Table is old. Bread is stale.", "de": "Der Vater ist alt. Die Mutter ist alt. Der Tisch ist alt. Das Brot ist abgestanden." }
-          }
+            "instruction": {
+              "en": "Review the classification rule",
+              "de": "Wiederhole die Zuordnungsregel"
+            },
+            "example_translation": {
+              "en": "Father is old. Mother is old. Table is old. Bread is stale.",
+              "de": "Der Vater ist alt. Die Mutter ist alt. Der Tisch ist alt. Das Brot ist abgestanden."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-02",
+          "id": "75f3a1f0-0e50-50d6-8abe-8f280813a95f",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "flashcard",
-          "orderIndex": 1,
-          "isPublished": true,
-          "instruction": { "en": "Review the classification rule", "de": "Wiederhole die Zuordnungsregel" },
+          "order_index": 1,
+          "is_published": true,
           "content": {
             "word": "4 opposites",
-            "hint": { "en": "Tap to flip", "de": "Tippen zum Umdrehen" },
-            "translation": { "en": "ciwan = young (person), nû = new (object), teze = fresh (food)", "de": "ciwan = jung (Person), nû = neu (Gegenstand), teze = frisch (Essen)" },
+            "hint": {
+              "en": "Tap to flip",
+              "de": "Tippen zum Umdrehen"
+            },
+            "translation": {
+              "en": "ciwan = young (person), nû = new (object), teze = fresh (food)",
+              "de": "ciwan = jung (Person), nû = neu (Gegenstand), teze = frisch (Essen)"
+            },
             "example": "Bira ciwan e. Pênûs nû ye. Sêv teze ye.",
-            "exampleTranslation": { "en": "Brother is young. Pen is new. Apple is fresh.", "de": "Der Bruder ist jung. Der Stift ist neu. Der Apfel ist frisch." }
-          }
+            "instruction": {
+              "en": "Review the classification rule",
+              "de": "Wiederhole die Zuordnungsregel"
+            },
+            "example_translation": {
+              "en": "Brother is young. Pen is new. Apple is fresh.",
+              "de": "Der Bruder ist jung. Der Stift ist neu. Der Apfel ist frisch."
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-03",
+          "id": "a4a68c26-0330-5d44-a72e-8c85d000a8c0",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "reading",
-          "orderIndex": 2,
-          "isPublished": true,
-          "instruction": { "en": "Read the classification examples", "de": "Lies die Zuordnungsbeispiele" },
+          "order_index": 2,
+          "is_published": true,
           "content": {
-            "title": { "en": "Kî / Çi — Who / What gets which word?", "de": "Kî / Çi — Wer / Was bekommt welches Wort?" },
+            "title": {
+              "en": "Kî / Çi — Who / What gets which word?",
+              "de": "Kî / Çi — Wer / Was bekommt welches Wort?"
+            },
             "lines": [
-              { "speaker": "", "ku": "Xanî, pirtûk, pênûs, mase -> kevn", "en": "House, book, pen, table -> old (objects)", "de": "Haus, Buch, Stift, Tisch -> alt (Gegenstände)" },
-              { "speaker": "", "ku": "Bapîr, bav, bira, tu -> kal", "en": "Grandfather, father, brother, you -> old (male)", "de": "Großvater, Vater, Bruder, du -> alt (männlich)" },
-              { "speaker": "", "ku": "Dapîr, dayik, xwişk, tu -> pîr", "en": "Grandmother, mother, sister, you -> old (female)", "de": "Großmutter, Mutter, Schwester, du -> alt (weiblich)" },
-              { "speaker": "", "ku": "Bira, dayik, bav, ez, tu -> ciwan", "en": "Brother, mother, father, I, you -> young", "de": "Bruder, Mutter, Vater, ich, du -> jung" },
-              { "speaker": "", "ku": "Sêv, îsot, çay, nan, masî -> teze", "en": "Apple, pepper, tea, bread, fish -> fresh", "de": "Apfel, Pfeffer, Tee, Brot, Fisch -> frisch" },
-              { "speaker": "", "ku": "Sêv teze ye. Mase kevn e. Bapîr kal e.", "en": "The apple is fresh. The table is old. Grandfather is old.", "de": "Der Apfel ist frisch. Der Tisch ist alt. Der Großvater ist alt." }
-            ]
-          }
+              {
+                "speaker": "",
+                "ku": "Xanî, pirtûk, pênûs, mase -> kevn",
+                "en": "House, book, pen, table -> old (objects)",
+                "de": "Haus, Buch, Stift, Tisch -> alt (Gegenstände)"
+              },
+              {
+                "speaker": "",
+                "ku": "Bapîr, bav, bira, tu -> kal",
+                "en": "Grandfather, father, brother, you -> old (male)",
+                "de": "Großvater, Vater, Bruder, du -> alt (männlich)"
+              },
+              {
+                "speaker": "",
+                "ku": "Dapîr, dayik, xwişk, tu -> pîr",
+                "en": "Grandmother, mother, sister, you -> old (female)",
+                "de": "Großmutter, Mutter, Schwester, du -> alt (weiblich)"
+              },
+              {
+                "speaker": "",
+                "ku": "Bira, dayik, bav, ez, tu -> ciwan",
+                "en": "Brother, mother, father, I, you -> young",
+                "de": "Bruder, Mutter, Vater, ich, du -> jung"
+              },
+              {
+                "speaker": "",
+                "ku": "Sêv, îsot, çay, nan, masî -> teze",
+                "en": "Apple, pepper, tea, bread, fish -> fresh",
+                "de": "Apfel, Pfeffer, Tee, Brot, Fisch -> frisch"
+              },
+              {
+                "speaker": "",
+                "ku": "Sêv teze ye. Mase kevn e. Bapîr kal e.",
+                "en": "The apple is fresh. The table is old. Grandfather is old.",
+                "de": "Der Apfel ist frisch. Der Tisch ist alt. Der Großvater ist alt."
+              }
+            ],
+            "instruction": {
+              "en": "Read the classification examples",
+              "de": "Lies die Zuordnungsbeispiele"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-04",
+          "id": "b9a6ab9e-1fb5-5d9a-a8f0-bc14c343ce89",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "mcq",
-          "orderIndex": 3,
-          "isPublished": true,
-          "instruction": { "en": "Which word do you use for an old table?", "de": "Welches Wort benutzt du für einen alten Tisch?" },
+          "order_index": 3,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "kal", "de": "kal" },
-              { "en": "pîr", "de": "pîr" },
-              { "en": "kevn", "de": "kevn" },
-              { "en": "kartû", "de": "kartû" }
+              {
+                "en": "kal",
+                "de": "kal"
+              },
+              {
+                "en": "pîr",
+                "de": "pîr"
+              },
+              {
+                "en": "kevn",
+                "de": "kevn"
+              },
+              {
+                "en": "kartû",
+                "de": "kartû"
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "A table (mase) is an object, so we use 'kevn'. Mase kevn e = The table is old.", "de": "Ein Tisch (mase) ist ein Gegenstand, deshalb benutzen wir ‚kevn'. Mase kevn e = Der Tisch ist alt." }
-          }
+            "explanation": {
+              "en": "A table (mase) is an object, so we use 'kevn'. Mase kevn e = The table is old.",
+              "de": "Ein Tisch (mase) ist ein Gegenstand, deshalb benutzen wir ‚kevn'. Mase kevn e = Der Tisch ist alt."
+            },
+            "instruction": {
+              "en": "Which word do you use for an old table?",
+              "de": "Welches Wort benutzt du für einen alten Tisch?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-05",
+          "id": "b949ea05-0d54-5998-a974-eb823c34780a",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "mcq",
-          "orderIndex": 4,
-          "isPublished": true,
-          "instruction": { "en": "\"Rojîn, tu pîr î?\" — \"Na, ez ciwan im.\" Who is Rojîn?", "de": "\"Rojîn, tu pîr î?\" — \"Na, ez ciwan im.\" Wer ist Rojîn?" },
+          "order_index": 4,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "A man", "de": "Ein Mann" },
-              { "en": "A woman", "de": "Eine Frau" },
-              { "en": "An object", "de": "Ein Gegenstand" },
-              { "en": "Food", "de": "Essen" }
+              {
+                "en": "A man",
+                "de": "Ein Mann"
+              },
+              {
+                "en": "A woman",
+                "de": "Eine Frau"
+              },
+              {
+                "en": "An object",
+                "de": "Ein Gegenstand"
+              },
+              {
+                "en": "Food",
+                "de": "Essen"
+              }
             ],
             "correct": 1,
-            "explanation": { "en": "We know Rojîn is a woman because the question uses 'pîr' (old, for women). Rojîn answers 'ciwan' (young).", "de": "Wir wissen, dass Rojîn eine Frau ist, weil die Frage ‚pîr' (alt, für Frauen) verwendet. Rojîn antwortet ‚ciwan' (jung)." }
-          }
+            "explanation": {
+              "en": "We know Rojîn is a woman because the question uses 'pîr' (old, for women). Rojîn answers 'ciwan' (young).",
+              "de": "Wir wissen, dass Rojîn eine Frau ist, weil die Frage ‚pîr' (alt, für Frauen) verwendet. Rojîn antwortet ‚ciwan' (jung)."
+            },
+            "instruction": {
+              "en": "\"Rojîn, tu pîr î?\" — \"Na, ez ciwan im.\" Who is Rojîn?",
+              "de": "\"Rojîn, tu pîr î?\" — \"Na, ez ciwan im.\" Wer ist Rojîn?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-06",
+          "id": "9ad76107-bed7-51aa-ae1a-8519194e5876",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "gap_fill",
-          "orderIndex": 5,
-          "isPublished": true,
-          "instruction": { "en": "Complete with the correct word", "de": "Vervollständige mit dem richtigen Wort" },
+          "order_index": 5,
+          "is_published": true,
           "content": {
             "before": "Çente ",
             "gap": "kevn",
             "after": " e.",
             "display": "Çente ___ e. (The bag is old.)",
-            "wordBank": ["kevn", "kal", "pîr", "kartû"],
-            "explanation": { "en": "A bag (çente) is an object, so we use 'kevn'. Çente kevn e = The bag is old.", "de": "Eine Tasche (çente) ist ein Gegenstand, deshalb benutzen wir ‚kevn'. Çente kevn e = Die Tasche ist alt." }
-          }
+            "explanation": {
+              "en": "A bag (çente) is an object, so we use 'kevn'. Çente kevn e = The bag is old.",
+              "de": "Eine Tasche (çente) ist ein Gegenstand, deshalb benutzen wir ‚kevn'. Çente kevn e = Die Tasche ist alt."
+            },
+            "instruction": {
+              "en": "Complete with the correct word",
+              "de": "Vervollständige mit dem richtigen Wort"
+            },
+            "word_bank": [
+              "kevn",
+              "kal",
+              "pîr",
+              "kartû"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-07",
+          "id": "91fca792-03c2-5f92-90f1-57b4dfb2d18a",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "gap_fill",
-          "orderIndex": 6,
-          "isPublished": true,
-          "instruction": { "en": "Complete with the correct word", "de": "Vervollständige mit dem richtigen Wort" },
+          "order_index": 6,
+          "is_published": true,
           "content": {
             "before": "Masî ",
             "gap": "teze",
             "after": " ye.",
             "display": "Masî ___ ye. (The fish is fresh.)",
-            "wordBank": ["teze", "nû", "ciwan", "kevn"],
-            "explanation": { "en": "Fish (masî) is food, so we use 'teze' (fresh). Masî teze ye = The fish is fresh.", "de": "Fisch (masî) ist Essen, deshalb benutzen wir ‚teze' (frisch). Masî teze ye = Der Fisch ist frisch." }
-          }
+            "explanation": {
+              "en": "Fish (masî) is food, so we use 'teze' (fresh). Masî teze ye = The fish is fresh.",
+              "de": "Fisch (masî) ist Essen, deshalb benutzen wir ‚teze' (frisch). Masî teze ye = Der Fisch ist frisch."
+            },
+            "instruction": {
+              "en": "Complete with the correct word",
+              "de": "Vervollständige mit dem richtigen Wort"
+            },
+            "word_bank": [
+              "teze",
+              "nû",
+              "ciwan",
+              "kevn"
+            ]
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-08",
+          "id": "ce39487e-e60a-5b79-b208-4d183380475d",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "matching",
-          "orderIndex": 7,
-          "isPublished": true,
-          "instruction": { "en": "Match each noun with the correct 'old' or 'young/new/fresh' word", "de": "Ordne jedes Nomen dem richtigen Wort für ‚alt' oder ‚jung/neu/frisch' zu" },
+          "order_index": 7,
+          "is_published": true,
           "content": {
             "pairs": [
-              { "ku": "pirtûk (book)", "en": "nû / kevn", "de": "nû / kevn" },
-              { "ku": "bav (father)", "en": "ciwan / kal", "de": "ciwan / kal" },
-              { "ku": "dayik (mother)", "en": "ciwan / pîr", "de": "ciwan / pîr" },
-              { "ku": "nan (bread)", "en": "teze / kartû", "de": "teze / kartû" },
-              { "ku": "xanî (house)", "en": "nû / kevn", "de": "nû / kevn" }
-            ]
-          }
+              {
+                "ku": "pirtûk (book)",
+                "en": "nû / kevn",
+                "de": "nû / kevn"
+              },
+              {
+                "ku": "bav (father)",
+                "en": "ciwan / kal",
+                "de": "ciwan / kal"
+              },
+              {
+                "ku": "dayik (mother)",
+                "en": "ciwan / pîr",
+                "de": "ciwan / pîr"
+              },
+              {
+                "ku": "nan (bread)",
+                "en": "teze / kartû",
+                "de": "teze / kartû"
+              },
+              {
+                "ku": "xanî (house)",
+                "en": "nû / kevn",
+                "de": "nû / kevn"
+              }
+            ],
+            "instruction": {
+              "en": "Match each noun with the correct 'old' or 'young/new/fresh' word",
+              "de": "Ordne jedes Nomen dem richtigen Wort für ‚alt' oder ‚jung/neu/frisch' zu"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-09",
+          "id": "8563849c-d688-57a9-ab31-e6186a792bbf",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "mcq",
-          "orderIndex": 8,
-          "isPublished": true,
-          "instruction": { "en": "\"Çi kevn e?\" — Which answer fits this question?", "de": "\"Çi kevn e?\" — Welche Antwort passt zu dieser Frage?" },
+          "order_index": 8,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Bapîr kevn e.", "de": "Bapîr kevn e." },
-              { "en": "Nan kevn e.", "de": "Nan kevn e." },
-              { "en": "Pirtûk kevn e.", "de": "Pirtûk kevn e." },
-              { "en": "Dayik kevn e.", "de": "Dayik kevn e." }
+              {
+                "en": "Bapîr kevn e.",
+                "de": "Bapîr kevn e."
+              },
+              {
+                "en": "Nan kevn e.",
+                "de": "Nan kevn e."
+              },
+              {
+                "en": "Pirtûk kevn e.",
+                "de": "Pirtûk kevn e."
+              },
+              {
+                "en": "Dayik kevn e.",
+                "de": "Dayik kevn e."
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "'Çi kevn e?' = 'What is old?' Only objects use 'kevn'. Pirtûk (book) is an object. People use kal/pîr, food uses kartû.", "de": "‚Çi kevn e?' = ‚Was ist alt?' Nur Gegenstände verwenden ‚kevn'. Pirtûk (Buch) ist ein Gegenstand. Personen verwenden kal/pîr, Essen verwendet kartû." }
-          }
+            "explanation": {
+              "en": "'Çi kevn e?' = 'What is old?' Only objects use 'kevn'. Pirtûk (book) is an object. People use kal/pîr, food uses kartû.",
+              "de": "‚Çi kevn e?' = ‚Was ist alt?' Nur Gegenstände verwenden ‚kevn'. Pirtûk (Buch) ist ein Gegenstand. Personen verwenden kal/pîr, Essen verwendet kartû."
+            },
+            "instruction": {
+              "en": "\"Çi kevn e?\" — Which answer fits this question?",
+              "de": "\"Çi kevn e?\" — Welche Antwort passt zu dieser Frage?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         },
         {
-          "id": "4-3-10",
+          "id": "db4931cd-dff5-5c69-b1fe-e36aef1ecfdc",
+          "lesson_id": "706a4bf4-ff61-59bd-ac7f-24bebae800d8",
           "type": "mcq",
-          "orderIndex": 9,
-          "isPublished": true,
-          "instruction": { "en": "\"Kî ciwan e?\" — Which answer fits?", "de": "\"Kî ciwan e?\" — Welche Antwort passt?" },
+          "order_index": 9,
+          "is_published": true,
           "content": {
             "options": [
-              { "en": "Mase ciwan e.", "de": "Mase ciwan e." },
-              { "en": "Sêv ciwan e.", "de": "Sêv ciwan e." },
-              { "en": "Bêrîvan ciwan e.", "de": "Bêrîvan ciwan e." },
-              { "en": "Nan ciwan e.", "de": "Nan ciwan e." }
+              {
+                "en": "Mase ciwan e.",
+                "de": "Mase ciwan e."
+              },
+              {
+                "en": "Sêv ciwan e.",
+                "de": "Sêv ciwan e."
+              },
+              {
+                "en": "Bêrîvan ciwan e.",
+                "de": "Bêrîvan ciwan e."
+              },
+              {
+                "en": "Nan ciwan e.",
+                "de": "Nan ciwan e."
+              }
             ],
             "correct": 2,
-            "explanation": { "en": "'Kî ciwan e?' = 'Who is young?' 'Kî' asks about people, not things. Bêrîvan (a person) ciwan e = Bêrîvan is young.", "de": "‚Kî ciwan e?' = ‚Wer ist jung?' ‚Kî' fragt nach Personen, nicht nach Sachen. Bêrîvan (eine Person) ciwan e = Bêrîvan ist jung." }
-          }
+            "explanation": {
+              "en": "'Kî ciwan e?' = 'Who is young?' 'Kî' asks about people, not things. Bêrîvan (a person) ciwan e = Bêrîvan is young.",
+              "de": "‚Kî ciwan e?' = ‚Wer ist jung?' ‚Kî' fragt nach Personen, nicht nach Sachen. Bêrîvan (eine Person) ciwan e = Bêrîvan ist jung."
+            },
+            "instruction": {
+              "en": "\"Kî ciwan e?\" — Which answer fits?",
+              "de": "\"Kî ciwan e?\" — Welche Antwort passt?"
+            }
+          },
+          "metadata": {},
+          "created_at": "2026-02-01T00:00:00Z",
+          "updated_at": "2026-02-01T00:00:00Z"
         }
       ]
     }

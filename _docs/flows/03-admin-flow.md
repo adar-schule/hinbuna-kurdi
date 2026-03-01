@@ -53,7 +53,7 @@ Hinbuna Kurdi <-> Ferheng (Dictionary) <-> Quiz App (Practice)
 | Manage subscriptions | Yes | No | No |
 | System settings | Yes | No | No |
 
-**Access:** `role: admin` in users table
+**Access:** User has `admin` role assigned via `user_roles` join table (many-to-many with `roles`)
 
 ---
 
