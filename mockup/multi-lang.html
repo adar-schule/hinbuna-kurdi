@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Multi-Lang — Hinbûna Kurdî</title>
-  <meta name="description" content="Multi-language system for Hinbuna Kurdi. Two contexts (public & logged-in), data model, AI translation pipeline, teacher workflow.">
+  <!-- Kurdish Sun Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
+  <meta name="description" content="Multi-language system for Hinbuna Kurdi. Two contexts (public & logged-in), data model, AI translation pipeline, teacher workflow.">
   <link rel="stylesheet" href="shared/fonts.css">
-  <script src="shared/ecosystem-apps.js"></script>
-  <script src="shared/theme.js"></script>
   <link rel="stylesheet" href="shared/header.css">
   <link rel="stylesheet" href="shared/footer.css">
   <link rel="stylesheet" href="shared/settings.css">
+  <script src="shared/ecosystem-apps.js"></script>
+  <script src="shared/theme.js"></script>
 
   <style>
     /* ============================================
@@ -852,7 +853,7 @@
 <body>
 
 <!-- Shared Header -->
-<div id="shared-header" data-page-type="multi-lang" data-show-lang="false" data-show-login="false" data-show-theme="true"></div>
+<div id="shared-header" data-page-type="multi-lang" data-show-lang="false" data-show-login="false"></div>
 
 <!-- Page Content -->
 <div class="ml-container">
@@ -1072,8 +1073,8 @@
     <div class="ml-section-body">
 
       <div class="ml-card">
-        <h3>One Language, Two Purposes</h3>
-        <p>When a user registers (student or teacher), they pick their language. This <strong>single setting</strong> controls both the UI language and the support language for educational content. No split — one pick, everything follows.</p>
+        <h3>One Pick at Registration, Two Independent Settings</h3>
+        <p>When a user registers (student or teacher), they pick their language. This <strong>single pick sets both <code>ui_locale</code> and <code>content_locale</code></strong> to the same value initially. However, users can change them <strong>independently</strong> later in Settings — for example, keeping the UI in German while viewing lesson translations in English.</p>
       </div>
 
       <div class="role-grid">
@@ -1151,7 +1152,7 @@
         </div>
         <div class="link-card-text">
           <div class="link-card-title">Full Data Model Reference</div>
-          <div class="link-card-desc">See all 46 tables, domain explorer, and entity relationships.</div>
+          <div class="link-card-desc">See all 47 tables, domain explorer, and entity relationships.</div>
         </div>
         <svg class="link-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
       </a>
@@ -1171,13 +1172,15 @@
     <div class="ml-section-body">
 
       <div class="ml-card">
-        <h3>Inline Multi-Lang Objects</h3>
-        <p>All translatable fields use JSON objects with language codes as keys. This keeps everything in one place — no separate translation files, no sync headaches.</p>
+        <h3>Hybrid Translation Storage (Pattern C + D)</h3>
+        <p>Translation storage uses a <strong>hybrid approach</strong> decided in Phase 2:</p>
+        <ul>
+          <li><strong>Pattern C — Translation tables</strong> for flat fields (names, descriptions) on courses, modules, units, and lessons. Each parent table has a corresponding <code>*_translations</code> table with columns for <code>locale</code>, translated text, <code>translation_source</code>, <code>source_locale</code>, <code>translated_by</code>, and <code>reviewed_at</code>.</li>
+          <li><strong>Pattern D — JSONB with locale keys</strong> for activity content only. Activities have deeply nested, type-specific content where translation tables would be impractical. Locale keys (<code>"de"</code>, <code>"en"</code>, etc.) are embedded directly in the JSON fields.</li>
+        </ul>
+        <p style="margin-top:8px;">See <strong>Section 6</strong> below for the full <code>*_translations</code> table definitions. The JSONB examples below apply <strong>only to activities</strong>:</p>
         <div class="ml-code">
-<span class="comment">// Single-language (old approach)</span>
-{ <span class="key">"translation"</span>: <span class="str">"Guten Tag / Hallo"</span> }
-
-<span class="comment">// Multi-lang (current approach)</span>
+<span class="comment">// Activity content uses JSONB with locale keys (Pattern D)</span>
 { <span class="key">"translation"</span>: {
     <span class="key">"de"</span>: <span class="str">"Guten Tag / Hallo"</span>,
     <span class="key">"en"</span>: <span class="str">"Good day / Hello"</span>,
@@ -1211,7 +1214,7 @@
         <ul>
           <li><strong>Kurdish content</strong> — <code>word</code>, <code>sentence</code>, <code>ku</code> fields are the teaching language</li>
           <li><strong>Structural fields</strong> — <code>id</code>, <code>slug</code>, <code>orderIndex</code>, <code>type</code></li>
-          <li><strong>Unit/Lesson names</strong> — Kurdish names (e.g., "Silav û Reng") stay as-is</li>
+          <li><strong>Unit/Lesson names</strong> — The parent table keeps the Kurdish name (e.g., "Silav û Reng"), but <code>unit_translations</code> and <code>lesson_translations</code> tables store translated names for other locales</li>
           <li><strong>Audio/Image URLs</strong> — Language-agnostic resources</li>
         </ul>
       </div>
@@ -1640,8 +1643,10 @@
 
 </div>
 
-<!-- Shared Footer -->
+<div id="shared-footer"></div>
 <script src="shared/header.js"></script>
+<script src="shared/settings.js"></script>
+<script src="shared/footer.js"></script>
 <script>
   function toggleSection(btn) {
     btn.classList.toggle('collapsed');

@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Model — Hinbûna Kurdî</title>
-  <meta name="description" content="Interactive data model explorer for Hinbuna Kurdi. 46 tables across 12 domains.">
+  <!-- Kurdish Sun Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none'/%3E%3Cpolygon points='50.0,5.0 53.0,30.2 63.3,7.0 58.7,32.0 75.3,12.8 63.6,35.3 85.2,21.9 67.3,40.0 91.9,33.6 69.5,45.6 94.9,46.6 69.9,51.5 93.9,60.0 68.6,57.3 89.0,72.5 65.6,62.5 80.6,83.0 61.3,66.5 69.5,90.5 55.9,69.1 56.7,94.5 50.0,70.0 43.3,94.5 44.1,69.1 30.5,90.5 38.7,66.5 19.4,83.0 34.4,62.5 11.0,72.5 31.4,57.3 6.1,60.0 30.1,51.5 5.1,46.6 30.5,45.6 8.1,33.6 32.7,40.0 14.8,21.9 36.4,35.3 24.7,12.8 41.3,32.0 36.7,7.0 47.0,30.2' fill='%23D4A843'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23D4A843'/%3E%3C/svg%3E">
+  <meta name="description" content="Interactive data model explorer for Hinbuna Kurdi. 47 tables across 12 domains.">
   <link rel="stylesheet" href="shared/fonts.css">
-  <script src="shared/ecosystem-apps.js"></script>
-  <script src="shared/theme.js"></script>
   <link rel="stylesheet" href="shared/header.css">
   <link rel="stylesheet" href="shared/footer.css">
   <link rel="stylesheet" href="shared/settings.css">
+  <script src="shared/ecosystem-apps.js"></script>
+  <script src="shared/theme.js"></script>
 
   <style>
     :root {
@@ -114,14 +115,14 @@
 </head>
 <body>
 
-  <div id="shared-header" data-page-type="data-model"></div>
+  <div id="shared-header" data-page-type="data-model" data-show-lang="false" data-show-login="false"></div>
 
   <main class="dm-container">
     <section class="dm-intro">
       <h1>Data Model</h1>
       <p>Click a domain to explore its tables. Click a table to see its schema.</p>
       <div class="stats">
-        <div class="stat"><div class="stat-num" id="total-tables">46</div><div class="stat-label">Tables</div></div>
+        <div class="stat"><div class="stat-num" id="total-tables">47</div><div class="stat-label">Tables</div></div>
         <div class="stat"><div class="stat-num" id="total-domains">12</div><div class="stat-label">Domains</div></div>
         <div class="stat"><div class="stat-num" id="total-columns">0</div><div class="stat-label">Columns</div></div>
       </div>
@@ -278,7 +279,7 @@
     {d:'Content',b:'core',t:'modules',desc:'Groups of units within a course',cols:[['id','UUID','PK'],['course_id','UUID','FK → courses'],['name','string',''],['description','text',''],['slug','string',''],['level','string','Beginner, A1, Week 1'],['order_index','int',''],['image_url','string','nullable'],['metadata','JSON',''],['is_published','boolean',''],['created_at','timestamp',''],['updated_at','timestamp','']],rels:['courses (N:1)','units (1:N)','module_translations (1:N)']},
     {d:'Content',b:'core',t:'units',desc:'Thematic groups of lessons (access-gated)',cols:[['id','UUID','PK'],['module_id','UUID','FK → modules'],['name','string',''],['description','text',''],['slug','string',''],['order_index','int',''],['image_url','string','nullable'],['metadata','JSON',''],['is_free','boolean','ACCESS GATE'],['is_published','boolean',''],['created_at','timestamp',''],['updated_at','timestamp','']],rels:['modules (N:1)','lessons (1:N)','unit_translations (1:N)']},
     {d:'Content',b:'core',t:'lessons',desc:'Individual learning sessions with activities',cols:[['id','UUID','PK'],['unit_id','UUID','FK → units'],['name','string',''],['description','text',''],['slug','string',''],['order_index','int',''],['duration_minutes','int','nullable — estimated'],['learning_objective','text','nullable'],['metadata','JSON',''],['is_published','boolean',''],['created_at','timestamp',''],['updated_at','timestamp','']],rels:['units (N:1)','activities (1:N)','lesson_translations (1:N)']},
-    {d:'Content',b:'core',t:'activities',desc:'Exercises: MCQ, gap fill, matching, flashcard, etc.',cols:[['id','UUID','PK'],['lesson_id','UUID','FK → lessons'],['type','enum','mcq, gap_fill, matching, flashcard, word_order, reading, listening'],['order_index','int',''],['content','JSON','Multi-lang JSONB (Pattern D)'],['metadata','JSON',''],['is_published','boolean',''],['created_at','timestamp',''],['updated_at','timestamp','']],rels:['lessons (N:1)','activity_materials (1:N)','activity_skills (1:N)','activity_attempts (1:N)']},
+    {d:'Content',b:'core',t:'activities',desc:'Exercises: MCQ, gap fill, matching, flashcard, etc.',cols:[['id','UUID','PK'],['lesson_id','UUID','FK → lessons'],['type','enum','mcq, gap_fill, matching, flashcard, word_order, reading, listening, dictation, speaking'],['order_index','int',''],['content','JSON','Multi-lang JSONB (Pattern D)'],['metadata','JSON',''],['is_published','boolean',''],['created_at','timestamp',''],['updated_at','timestamp','']],rels:['lessons (N:1)','activity_materials (1:N)','activity_skills (1:N)','activity_attempts (1:N)']},
     {d:'Content',b:'core',t:'materials',desc:'Reusable media: text, audio, image, video',cols:[['id','UUID','PK'],['type','enum','text, audio, image, video, document'],['content','text','text content OR S3 URL'],['metadata','JSON','translations, alt_text, duration'],['created_at','timestamp',''],['updated_at','timestamp','']],rels:['activity_materials (1:N)']},
     {d:'Content',b:'core',t:'activity_materials',desc:'Join: activities ↔ materials',cols:[['activity_id','UUID','FK → activities, PK'],['material_id','UUID','FK → materials, PK'],['order_index','int','']],rels:['activities (N:1)','materials (N:1)']},
 

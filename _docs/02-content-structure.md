@@ -79,10 +79,14 @@ Source materials live in the wrapper folder `_material/`. The `von Mamoste/` sub
 | **Matching** | Connect pairs | Match Kurdish to German |
 | **Word Order** | Arrange words correctly | Build a sentence |
 | **Flashcard** | Memorize vocabulary | Show word, flip for meaning |
+| **Dictation** | Write what you hear | Listen to audio, type the sentence |
+| **Speaking** | Record and compare | Say the word/sentence, compare with native audio |
 
 ---
 
 ## How to Prepare Content
+
+> **Draft:** This section describes the planned content preparation workflow. It will be updated once teacher screens (T3-T5) are implemented and the content entry format is finalized.
 
 ### For each Lesson, provide:
 
@@ -108,6 +112,8 @@ Source materials live in the wrapper folder `_material/`. The `von Mamoste/` sub
 ---
 
 ## Template for New Lesson
+
+> **Draft:** This template is provisional. It will be updated once teacher screens (T3-T5) are implemented and the content entry format is finalized.
 
 ```
 LESSON: [Number and Title]

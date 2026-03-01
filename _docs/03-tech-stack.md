@@ -66,12 +66,12 @@
 
 ## Database
 
-→ **Full schema (46 tables) + ERD diagrams:** See [04-data-model-design.md](./04-data-model-design.md)
+→ **Full schema (47 tables) + ERD diagrams:** See [04-data-model-design.md](./04-data-model-design.md)
 → **Multi-language architecture:** See [multi-lang.html](../mockup/multi-lang.html) (visual overview) and multi-lang tables in [04-data-model-design.md](./04-data-model-design.md)
 
 **Key facts:**
 - PostgreSQL with UUID primary keys
-- 46 tables across 12 domains (Content, Users, Subscriptions, Progress, Teacher, Notifications, Badges, Comments, Audit, AI Core, AI Premium, Multi-Language)
+- 47 tables across 12 domains (Content, Users, Subscriptions, Progress, Teacher, Notifications, Badges, Comments, Audit, AI Core, AI Premium, Multi-Language)
 - Roles & permissions via `roles` + `user_roles` tables (not a column on users)
 - Content hierarchy: Course → Module → Unit → Lesson → Activity → Material
 

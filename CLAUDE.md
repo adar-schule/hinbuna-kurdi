@@ -205,13 +205,13 @@ npm run seed
 
 ## Resources
 
-- **Data model**: `_docs/04-data-model-design.md` (46 tables across 12 domains, includes ERD diagrams)
+- **Data model**: `_docs/04-data-model-design.md` (47 tables across 12 domains, includes ERD diagrams)
 - **Content structure**: Course → Module → Unit → Lesson → Activity → Material
 - **Design decisions**: `_docs/07-design-decisions.md`
 - **Page tree**: `mockup/index.html` (dev gallery at localhost:8080)
 - **Locales**: Kurdish (ku), German (de), English (en)
 
-### Data Model Overview (46 tables)
+### Data Model Overview (47 tables)
 
 | Domain | Tables | MVP |
 |--------|--------|-----|

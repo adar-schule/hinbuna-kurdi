@@ -68,7 +68,7 @@ Our goal is to create a professional, scalable learning platform that can be:
 
 ## MVP Scope
 
-- Content: Kurmancî A1 (8 units, 25 lessons from Mamoste's materials)
+- Content: Kurmancî A1 (8 units, 23 lessons from Mamoste's materials)
 - Core learning flow (lessons, exercises, progress tracking)
 - Basic user management (auth, profile, dashboard)
 - Teacher dashboard (content management, student overview)
@@ -86,23 +86,25 @@ Our goal is to create a professional, scalable learning platform that can be:
 
 ## App Ecosystem
 
-Hinbuna Kurdi is part of a broader ecosystem of Kurdish language tools sharing a single user identity.
+Hinbuna Kurdî is part of a broader ecosystem of Kurdish language tools sharing a single user identity. One account, ten tools — everything you need to learn, practice, and live in Kurdish.
 
-### Main Platform
+> Canonical app list: `mockup/shared/ecosystem-apps.js` — single source of truth for all app names, icons, and descriptions. P7-products.html renders from it.
 
-- **Hinbuna Kurdi** -- the core learning app
-- Starting with **Kurmanji dialect** (A1-B1)
-- **Sorani dialect** expansion planned after Kurmanji succeeds
+### Apps
 
-### Side Apps (Companion Apps)
-
-- Ezmuna Asta Kurdi -- test your Kurdish level across multiple dialects
-- Dictionary
-- Short Stories
-- Grammar Exercises
-- Grammar Puzzles
-- TTS (Text-to-Speech tool)
-- Kurdish Corpus (expert-curated language dataset)
+| # | App | Kurdish Name | Description |
+|---|-----|-------------|-------------|
+| 1 | **Hinbûna Kurdî** | Hinbûna Kurdî | Your structured path to fluency *(main platform, active)* |
+| 2 | **Level Test** | Ezmûna Asta Kurdî | Test your Kurdish level in any dialect |
+| 3 | **Dictionary** | Ferheng | Your words, always with you |
+| 4 | **Short Stories** | Çîrokên Kurt | Stories written just for you |
+| 5 | **Practice** | Lîstika Kurdî | Practice that knows your weak spots |
+| 6 | **Kurdish Corpus** | Korpûsa Kurdî | Shape the future of Kurdish AI |
+| 7 | **TTS** | TTS Kurdî | Hear any Kurdish text come alive |
+| 8 | **Community** | Civat | Learn together, grow together |
+| 9 | **Certificates** | Belge | Prove what you know |
+| 10 | **Encyclopedia** | Kurdînama | The Kurdish encyclopedia |
+| 11 | **AI Companion** | Hevalê AI | Your AI friend who speaks Kurdish |
 
 ### Shared Infrastructure
 
@@ -116,6 +118,7 @@ Hinbuna Kurdi is part of a broader ecosystem of Kurdish language tools sharing a
 - Main app first, then add side apps one by one
 - Each app is standalone but benefits from shared user data
 - White-label / B2B: the whole ecosystem can be licensed
+- Starting with **Kurmanji dialect** (A1-B1), **Sorani** expansion planned after Kurmanji succeeds
 
 ---
 

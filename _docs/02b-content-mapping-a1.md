@@ -3,7 +3,7 @@
 **Source:** `_material/von Mamoste/` (24 docx files, 23 unique + 1 duplicate)
 **Last Updated:** February 2026
 
-> **TODO:** Adapt for multi-lang architecture (→ See [multi-lang.html](../mockup/multi-lang.html)) and SaaS/white-label reusability.
+> **Multi-lang:** Content translations use Hybrid C+D pattern — see [04-data-model-design.md](./04-data-model-design.md) § Multi-Language.
 
 ---
 
@@ -28,7 +28,7 @@
 | 3c | `3.bûn-neyînî.docx` | Verb "bûn" — full negative conjugation | Drill exercises | No |
 | 3d | `3.reng û mijar-r.29-34.docx` | Colors by category (body, clothing, fruit, etc.) | Themed vocab | Yes |
 | 4a | `4.alt.docx` | Adjectives for "old" (kal/pîr/kevn/kartu) | Grammar + examples | Yes |
-| 4b | `4.bûn bi hevoka pêreyî.docx` | "bûn" with subordinate clauses (ji ber ku, loma) | Complex sentences | Yes |
+| 4b | `4.bûn bi hevoka pêreyî-sein mit nebensatz.docx` | "bûn" with subordinate clauses (ji ber ku, loma) | Complex sentences | Yes |
 | 4c | `4.nû-kevn-kal-pîr.docx` | New/old/young classification | Exercise | Minimal |
 | 5a | `5.Alan,Delal,Sosîn,Azad.docx` | Character profiles in present tense | Reading passages | No |
 | 5b | `5.Kesandina lêkeran.docx` | 18 verbs conjugation table | Reference table | Yes |
@@ -39,7 +39,7 @@
 | 6b | `6.Verben Sätze bilden.docx` | Building sentences with verbs | Q&A drills | Yes |
 | 6c | `6.lêker-erênî-neyînî.docx` | Affirmative/negative patterns + negation rules | Grammar + exercises | Yes |
 | 7a | `7.Pirsên pêkan û kîjan lêker.docx` | Comprehension questions + verb identification | Reading + Q&A | Yes |
-| 7b | `7.diyalog-kîjan lêker-r.fermanî.docx` | Dialogue with verb ID + imperative forms | Annotated dialogue | Yes |
+| 7b | `7.diyalog-kîjan lêker- r.fermanî.docx` | Dialogue with verb ID + imperative forms | Annotated dialogue | Yes |
 | 8a | `8.Fragewörter.docx` | Question words (çi, çawa, çend, çima, kî, kê, li ku, ji ku) | Systematic grammar | Yes |
 | 8b | `8.hevok-neyînî-yj-pj-diyalog.docx` | Sentences, negation, family vocab, verb "hatin" | Mixed content | Yes |
 | -- | `Diyaloga yekem.docx` | DUPLICATE of 1a | — | — |

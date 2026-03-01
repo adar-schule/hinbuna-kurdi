@@ -96,7 +96,7 @@ Generic LMS data model designed to support:
 |--------|------|-------|
 | id | UUID | PK |
 | lesson_id | UUID | FK → lessons |
-| type | enum | mcq, gap_fill, matching, flashcard, word_order, reading, listening |
+| type | enum | mcq, gap_fill, matching, flashcard, word_order, reading, listening, dictation, speaking |
 | order_index | int | |
 | content | JSON | question, options, correct_answer, hints — uses `{locale: value}` keys for translations (Pattern D) |
 | metadata | JSON | |
@@ -1361,7 +1361,7 @@ erDiagram
 | **AI Premium** | **3** | **Optional (advanced AI features)** |
 | **Multi-Language / Translations** | **5** | **Yes** |
 
-**Total: 46 tables**
+**Total: 47 tables**
 
 ---
 
@@ -1414,28 +1414,6 @@ users (1) ──< ai_generated_content (N)
 users (1) ──< user_characters (N)
 user_characters (1) ──< ai_conversations (N)
 ```
-
----
-
-## Leftovers from HTML (to decide)
-
-Items from `data-model.html` that don't yet have a schema definition in this doc:
-
-### personalized_feed
-
-- Referenced in HTML AI Layer 4 (Act) as "Personalized content feed for each user" with badge "core"
-- **Status:** Needs schema definition or decision to remove
-- **Question:** Is this a real table or a computed view? What columns? If it's a materialized view built from `ai_recommendations` + `spaced_repetition_items` + `user_skills`, it might not need its own table. If it stores persistent per-user feed state (e.g., dismissed items, position), it needs a schema.
-
-### HTML overview counts are stale
-
-- The HTML page header says "39 tables across 11 domains" — this doc now has **46 tables across 12 domains** (after adding Multi-Language/Translations domain with 5 tables and expanding Users & Auth from 3 to 5 tables).
-- **Action:** Update `data-model.html` to match current counts (46 tables, 12 domains), and add the Multi-Language domain card to the overview grid.
-
-### AI Feature Tiers section (HTML Section 4)
-
-- The HTML has a dedicated "AI Feature Tiers" section with two cards: Core AI (6 bullet points) and Premium AI (4 bullet points). This content is a useful summary but is not duplicated in this doc — it's derived from the AI Core (11 tables) and AI Premium (3 tables) sections above.
-- **Status:** No action needed in this doc. The HTML serves as the visual overview. But `personalized_feed` should either get a schema here or be removed from the HTML.
 
 ---
 

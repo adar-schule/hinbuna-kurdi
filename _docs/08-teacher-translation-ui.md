@@ -115,7 +115,28 @@ At the top of the lesson editor (T5-activity-editor), a lesson-level button:
 
 ## Data Model
 
-Translation fields in JSON remain the same i18n object format:
+Translation storage uses the **Hybrid C+D** pattern decided in Phase 2:
+
+### Flat fields (Pattern C — translation tables)
+
+Course, module, unit, and lesson names/descriptions are stored in dedicated `*_translations` tables. Each row includes translation metadata columns:
+
+| Column | Type | Notes |
+|--------|------|-------|
+| `locale` | string | Language code (e.g., "de", "en", "tr") |
+| `name` / `description` | string | Translated text |
+| `translation_source` | enum | `human`, `machine`, `machine_edited` |
+| `source_locale` | string | Which locale this was translated from (e.g., "de") |
+| `translated_by` | UUID | FK → users (who created/edited the translation) |
+| `reviewed_at` | timestamp | When a human last reviewed this translation |
+
+- `translation_source = machine` → shows ✨ chip
+- `translation_source = human` or `machine_edited` → shows ● chip
+- On human edit → set `translation_source` to `machine_edited` (or `human` if written from scratch)
+
+### Activity content (Pattern D — JSONB with locale keys)
+
+Activity content is deeply nested and type-specific, so translations are stored inline as JSONB with locale keys:
 
 ```json
 {
@@ -128,7 +149,7 @@ Translation fields in JSON remain the same i18n object format:
 }
 ```
 
-Add `autoTranslated` metadata per field per language:
+Translation metadata for activity fields is tracked via `_meta` within the JSONB:
 
 ```json
 {
@@ -152,21 +173,27 @@ Add `autoTranslated` metadata per field per language:
 
 ## Language Configuration
 
-Languages are configured in a shared config (e.g. `data/languages.json`):
+Languages are configured via the `supported_locales` database table (not a static JSON file). This table is queryable, supports RTL flags, and is SaaS/white-label ready.
 
-```json
-[
-  { "code": "de", "label": "Deutsch", "color": "#D4A860", "primary": true },
-  { "code": "en", "label": "English", "color": "#4D9AAE", "primary": false },
-  { "code": "tr", "label": "Türkçe", "color": "#C75B5B", "primary": false },
-  { "code": "ar", "label": "العربية", "color": "#7B68AE", "rtl": true, "primary": false },
-  { "code": "fa", "label": "فارسی", "color": "#5BA37B", "rtl": true, "primary": false }
-]
-```
+**`supported_locales` table columns:**
 
-- `primary: true` → always shown as full input (German)
-- Kurdish is always the source field (not in this list — it's the content language)
-- RTL support flagged per language
+| Column | Type | Notes |
+|--------|------|-------|
+| `id` | UUID | PK |
+| `locale` | string | Language code (e.g., "de", "en", "tr") |
+| `display_name` | string | Human-readable name (e.g., "Deutsch", "English") |
+| `direction` | string | `ltr` or `rtl` |
+| `color` | string | Hex color for UI chips (e.g., "#D4A860") |
+| `is_source` | boolean | Source language for translations (German) |
+| `is_default` | boolean | Default locale for new users |
+| `is_active` | boolean | Whether this locale is currently available |
+| `order_index` | int | Display order in language pickers |
+| `created_at` | timestamp | |
+
+- `is_source = true` → always shown as full input (German)
+- Kurdish is always the content/teaching language (not in this table — it's the subject being taught)
+- `direction = 'rtl'` → enables RTL layout for Arabic, Farsi, etc.
+- This table drives all language pickers: registration, settings, header switcher, teacher editor
 
 ## CSS Token Reference
 
