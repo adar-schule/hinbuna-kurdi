@@ -1269,7 +1269,7 @@
         var actions = createElement('div', { className: 'unit-actions' });
 
         var lessonsBtn = createElement('a', {
-          href: 'T4-lesson-editor.html?unit=' + unit.id,
+          href: 'T4-lesson-editor.html?unit=' + (unit.order_index + 1),
           className: 'btn-lessons'
         });
         lessonsBtn.appendChild(svgElement(SVG_LESSON_LINES));
@@ -1315,8 +1315,8 @@
           return r.json();
         })
         .then(function (course) {
-          var units = course.units || [];
           var moduleData = (course.modules && course.modules[0]) || {};
+          var units = (moduleData.units) || course.units || [];
 
           // Render module header card
           renderModuleHeader(course, moduleData, units);

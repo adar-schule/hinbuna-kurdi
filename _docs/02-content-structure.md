@@ -1,8 +1,8 @@
 # Content Structure Guide
 
+> **Doc:** 02 · **Status:** Active · **Updated:** 2026-03-01
+
 **For:** Content creators, teachers, curriculum designers
-**Version:** 1.0
-**Last Updated:** February 2026
 
 ---
 
@@ -62,7 +62,7 @@ COURSE = The whole book
 
 Each course level has its own detailed mapping document that traces source materials to units, lessons, and activities:
 
-→ **Kurmancî A1:** See [02b-content-mapping-a1.md](./02b-content-mapping-a1.md) — 8 units, 25 lessons, ~220 activities mapped from `_material/von Mamoste/`
+→ **Kurmancî A1:** See [03-content-mapping-a1.md](./03-content-mapping-a1.md) — 8 units, 25 lessons, ~220 activities mapped from `_material/von Mamoste/`
 
 Source materials live in the wrapper folder `_material/`. The `von Mamoste/` subfolder is the primary entry point — Mamoste's teaching files shape how content is structured in the app.
 

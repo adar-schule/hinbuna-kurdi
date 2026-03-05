@@ -1212,7 +1212,7 @@
     // Fetch data and render
     // ============================================================
     var unitId = paramUnit ? parseInt(paramUnit, 10) : 1;
-    var lessonId = paramLesson || '1-1';
+    var lessonId = paramLesson || '';
 
     Promise.all([
       fetch('data/unit-' + unitId + '.json').then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }),

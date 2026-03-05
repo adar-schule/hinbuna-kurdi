@@ -1,8 +1,6 @@
 # Teacher Flow (Mamoste Journey)
 
-**App:** Hinbuna Kurdi (MVP)
-**Target:** Mobile-first (375px base)
-**Last Updated:** 2026-02-04
+> **Doc:** F2 · **Status:** Active · **Updated:** 2026-03-01
 
 ---
 

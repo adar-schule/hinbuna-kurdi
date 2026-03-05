@@ -1,11 +1,12 @@
 # Content Mapping: Kurmancî A1 Course
 
-**Source:** `_material/von Mamoste/` (24 docx files, 23 unique + 1 duplicate)
-**Last Updated:** February 2026
-
-> **Multi-lang:** Content translations use Hybrid C+D pattern — see [04-data-model-design.md](./04-data-model-design.md) § Multi-Language.
+> **Doc:** 03 · **Status:** Active · **Updated:** 2026-03-01
 
 ---
+
+**Source:** `_material/von Mamoste/` (24 docx files, 23 unique + 1 duplicate)
+
+> **Multi-lang:** Content translations use Hybrid C+D pattern — see [05-data-model-design.md](./05-data-model-design.md) § Multi-Language.
 
 ## Source Materials
 
@@ -159,7 +160,7 @@
 
 ## Data Model Alignment
 
-→ Full schema: See [04-data-model-design.md](./04-data-model-design.md)
+→ Full schema: See [05-data-model-design.md](./05-data-model-design.md)
 
 | App Concept | Data Table | Notes |
 |-------------|-----------|-------|

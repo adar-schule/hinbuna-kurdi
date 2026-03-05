@@ -272,10 +272,12 @@
         infoEl.className = 'unit-info';
         var nameEl = document.createElement('div');
         nameEl.className = 'unit-name';
-        nameEl.textContent = 'Be\u015f ' + unit.id + ': ' + unit.name;
+        nameEl.textContent = 'Be\u015f ' + (unit.order_index + 1) + ': ' + unit.name;
         var subEl = document.createElement('div');
         subEl.className = 'unit-sub';
-        subEl.textContent = unit.subtitle + ' \u00B7 ' + unit.lessonCount + ' lesson' + (unit.lessonCount !== 1 ? 's' : '');
+        var subtitle = (unit.metadata && unit.metadata.subtitle) || '';
+        if (typeof subtitle === 'object') subtitle = subtitle.en || '';
+        subEl.textContent = subtitle;
         infoEl.appendChild(nameEl);
         infoEl.appendChild(subEl);
 
@@ -283,7 +285,7 @@
         var card;
         if (isClickable) {
           card = document.createElement('a');
-          card.href = 'S4-unit-view.html?unit=' + unit.id;
+          card.href = 'S4-unit-view.html?unit=' + (unit.order_index + 1);
         } else {
           card = document.createElement('div');
         }
@@ -305,14 +307,16 @@
 
       function renderUnits(course) {
         var unitList = document.getElementById('unit-list');
-        if (!unitList || !course || !course.units) return;
+        if (!unitList || !course) return;
+        var moduleData = (course.modules && course.modules[0]) || {};
+        var units = moduleData.units || course.units || [];
+        if (!units.length) return;
 
         // Update course header subtitle from JSON
         var courseSub = document.getElementById('course-sub');
         if (courseSub) {
           courseSub.textContent = course.description + ' \u2014 '
-            + course.units.length + ' units \u00B7 '
-            + course.totalLessons + ' lessons';
+            + units.length + ' units';
         }
 
         // Update page title
@@ -323,7 +327,7 @@
 
         // Clear fallback and build unit cards via DOM
         var fragment = document.createDocumentFragment();
-        course.units.forEach(function (unit, i) {
+        units.forEach(function (unit, i) {
           fragment.appendChild(buildUnitCard(unit, i));
         });
 

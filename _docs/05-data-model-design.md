@@ -1,8 +1,6 @@
 # Data Model Design - HinbunaKurdi LMS
 
-**Status:** Approved
-**Date:** 2026-02-01
-**Author:** Nuri Armanç Engin + Claude
+> **Doc:** 05 · **Status:** Active · **Updated:** 2026-03-01
 
 ---
 
@@ -65,6 +63,7 @@ Generic LMS data model designed to support:
 | name | string | |
 | description | text | |
 | slug | string | |
+| subtitle | string | nullable — short display label (translated via unit_translations) |
 | order_index | int | |
 | image_url | string | nullable |
 | metadata | JSON | |
@@ -80,6 +79,7 @@ Generic LMS data model designed to support:
 | id | UUID | PK |
 | unit_id | UUID | FK → units |
 | name | string | |
+| subtitle | string | nullable — short display label (translated via lesson_translations) |
 | description | text | |
 | slug | string | |
 | order_index | int | |
@@ -1273,6 +1273,7 @@ Language registry for the deployment. Controls which languages are available.
 | unit_id | UUID | FK → units, ON DELETE CASCADE |
 | locale | string(10) | |
 | name | string(500) | |
+| subtitle | string(500) | nullable |
 | description | text | nullable |
 | translation_source | enum | human, machine, machine_edited |
 | source_locale | string(10) | nullable |
@@ -1289,6 +1290,7 @@ Language registry for the deployment. Controls which languages are available.
 | lesson_id | UUID | FK → lessons, ON DELETE CASCADE |
 | locale | string(10) | |
 | name | string(500) | |
+| subtitle | string(500) | nullable |
 | description | text | nullable |
 | learning_objective | text | nullable |
 | translation_source | enum | human, machine, machine_edited |

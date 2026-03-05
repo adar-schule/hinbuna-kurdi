@@ -1,8 +1,6 @@
 # Admin Flow (Mamoste Ciwan Journey)
 
-**App:** Hinbuna Kurdi (MVP)
-**Target:** Mobile-first (375px base)
-**Last Updated:** 2026-02-04
+> **Doc:** F3 · **Status:** Active · **Updated:** 2026-03-01
 
 ---
 

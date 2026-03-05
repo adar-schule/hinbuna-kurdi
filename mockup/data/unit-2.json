@@ -3,18 +3,13 @@
   "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Ev Çi Ye?",
   "slug": "ev-ci-ye",
+  "subtitle": "What Is This?",
   "description": "Learn to ask 'What is this?' in Kurdish, identify everyday objects, and master personal pronouns.",
   "order_index": 1,
   "is_free": true,
   "is_published": true,
   "image_url": null,
-  "category": null,
-  "metadata": {
-    "subtitle": {
-      "en": "What Is This?",
-      "de": "Was ist das?"
-    }
-  },
+  "metadata": {},
   "created_at": "2026-02-01T00:00:00Z",
   "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
@@ -23,17 +18,13 @@
       "unit_id": "6ee3789f-4777-51b6-a625-fc0dc1cb3a52",
       "name": "Bi Kurdî Çi Ye?",
       "slug": "bi-kurdi-ci-ye",
+      "subtitle": "What Is It in Kurdish?",
       "description": "Learn the preposition 'bi' and how to ask 'What is this in Kurdish/German?' with basic vocabulary.",
       "order_index": 0,
       "learning_objective": "Learn the preposition 'bi' and how to ask 'What is this in Kurdish/German?' with basic vocabulary",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "What Is It in Kurdish?",
-          "de": "Was heißt es auf Kurdisch?"
-        },
         "vocab_preview": [
           "bi kurdî",
           "Ev çi ye?",
@@ -484,17 +475,13 @@
       "unit_id": "6ee3789f-4777-51b6-a625-fc0dc1cb3a52",
       "name": "Cînavên Kesîn",
       "slug": "cinavin-kesin",
+      "subtitle": "Personal Pronouns",
       "description": "Learn all Kurdish personal pronouns (subject and object forms) and common everyday phrases.",
       "order_index": 1,
       "learning_objective": "Learn all Kurdish personal pronouns (subject and object forms) and common everyday phrases",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Personal Pronouns",
-          "de": "Personalpronomen"
-        },
         "vocab_preview": [
           "ez / min",
           "tu / te",

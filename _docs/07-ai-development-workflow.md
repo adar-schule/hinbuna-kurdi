@@ -1,11 +1,13 @@
 # AI Development Workflow
 
+> **Doc:** 07 · **Status:** Active · **Updated:** 2026-03-01
+
+---
+
 How we use AI (Claude Code) for development — workflow rules, coding patterns, and quality standards.
 
 **Applies To**: HinbunaKurdi + future B2B boilerplate projects
 **Tech Stack**: NestJS + React + Tailwind + PostgreSQL + AWS
-
----
 
 ## 1. AI/Claude Workflow Rules
 
@@ -515,5 +517,3 @@ git push -u origin hk-123-feature-name
 ```
 
 ---
-
-**Status**: Active — evolves as the project grows

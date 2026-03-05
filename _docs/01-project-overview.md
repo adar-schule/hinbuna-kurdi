@@ -1,7 +1,6 @@
 # Hinbuna Kurdî - Project Overview
 
-**Version:** 1.0
-**Last Updated:** February 2026
+> **Doc:** 01 · **Status:** Active · **Updated:** 2026-03-01
 
 ---
 
@@ -111,7 +110,7 @@ Hinbuna Kurdî is part of a broader ecosystem of Kurdish language tools sharing 
 - Single SSO across all apps (shared Auth API + Users DB)
 - Shared user settings and personalization
 - Accessible via header dropdown in any app
-- See [03-tech-stack.md](./03-tech-stack.md) for SSO architecture details
+- See [04-tech-stack.md](./04-tech-stack.md) for SSO architecture details
 
 ### Strategy
 
@@ -124,7 +123,7 @@ Hinbuna Kurdî is part of a broader ecosystem of Kurdish language tools sharing 
 
 ## Technology
 
-→ See [03-tech-stack.md](./03-tech-stack.md) for full architecture details.
+→ See [04-tech-stack.md](./04-tech-stack.md) for full architecture details.
 
 - **Stack:** NestJS + React + PostgreSQL on AWS
 - **Mobile-first** web application

@@ -1,16 +1,49 @@
 # Data Model — Decision Log
 
+> **Doc:** 06 · **Status:** Reference · **Updated:** 2026-03-01
+
+---
+
 **Purpose:** Track every decision made during Phase 2 (Data Model Perfection).
-**NOT a source of truth** — `04-data-model-design.md` is. This is the changelog/history.
+**NOT a source of truth** — `05-data-model-design.md` is. This is the changelog/history.
 
 **Format:** Newest entries on top. Each entry captures what was discussed, what was decided, and why.
 
----
+## 2026-03-01 — JSON ↔ Schema Alignment (session 5)
+
+### Decision 5: `is_free` on course object — DECIDED
+- **Context:** `course.json` had `is_free: false` on the course object, but `courses` table has no such column.
+- **Decided:** Remove. Access control is unit-level only (`units.is_free` = ACCESS GATE). Course-level gating is not needed.
+- **Impact:** Removed from `course.json`. Schema unchanged.
+
+### Decision 6: `subtitle` — promote from metadata to column — DECIDED
+- **Context:** `metadata.subtitle` existed as i18n objects `{en, de}` in unit/lesson JSON files, and as plain strings in `course.json`. Not in any schema table or translation table.
+- **Options:**
+  - A) Keep in metadata as Pattern D (i18n objects) — two translation workflows per entity
+  - B) Promote to proper column + add to translation tables (Pattern C) — one workflow
+- **Decided:** B) Promote to column. Added `subtitle` to `units`, `lessons`, `unit_translations`, `lesson_translations` in doc 05. JSON files updated to plain strings (source language). Translations handled via Pattern C.
+- **Why:** Same implementation pattern as `name`/`description` — one JOIN, one teacher form, easy translation completeness tracking.
+- **Impact:** Doc 05 updated (4 tables). All JSON data files updated.
+
+### Decision 7: Remove `category` from units — DECIDED
+- **Context:** `course.json` and all `unit-*.json` files had `"category": null` on unit objects. But `units` table has no `category` column — only `courses` has it.
+- **Decided:** Remove from all JSON files. Units are already scoped inside module→course, no category needed.
+- **Impact:** JSON files only. Schema unchanged.
+
+### Decision 8: Remove `image_url` from lessons — DECIDED
+- **Context:** All lesson objects in `unit-*.json` had `"image_url": null`. But `lessons` table has no `image_url` column — only `units` has it.
+- **Decided:** Remove from all JSON files. Lessons don't carry images per schema.
+- **Impact:** JSON files only. Schema unchanged.
+
+### Decision 9: Add `level` to modules in JSON — DECIDED
+- **Context:** `modules` table in doc 05 already has `level` column (`string — "Beginner", "A1", "Week 1", etc.`), but `course.json` was missing it on the module object.
+- **Decided:** Add `"level": "A1"` to module in `course.json` to match schema.
+- **Impact:** JSON file only. Schema already correct.
 
 ## 2026-02-28 — Architecture Conflicts (multi-lang.html vs doc 04)
 
 ### Finding: 4 conflicts between multi-lang.html and doc 04
-- **What:** Comparing `mockup/multi-lang.html` with `04-data-model-design.md` revealed fundamental disagreements.
+- **What:** Comparing `mockup/multi-lang.html` with `05-data-model-design.md` revealed fundamental disagreements.
 - **Action:** Must resolve each before table-by-table work begins.
 
 ### Decision 1: Translation Storage — DECIDED
@@ -55,11 +88,11 @@
 
 ### Decision: Create this decision log
 - **Context:** Phase 2 will span many sessions. Need a way to recall past decisions without re-reading everything.
-- **Decided:** Add `04a-data-model-decisions.md` as a git-tracked decision history alongside 04.
+- **Decided:** Add `06-data-model-decisions.md` as a git-tracked decision history alongside 04.
 - **Rule:** 04 = source of truth (always current). 04a = changelog (what changed and why).
 
 ### Finding: HTML ↔ MD drift identified
-- **What:** `data-model.html` shows 39 tables / 11 domains. `04-data-model-design.md` has 46 tables / 12 domains.
+- **What:** `data-model.html` shows 39 tables / 11 domains. `05-data-model-design.md` has 46 tables / 12 domains.
 - **Missing from HTML:** `roles`, `user_roles` (Users & Auth), entire Multi-Language domain (5 tables).
 - **Extra in HTML:** `personalized_feed` listed in AI Layer 4 — not defined in doc 04.
 - **Internal issues:** HTML domain cards sum to 40 but header says 39. Doc says 46 but actual count is 47.

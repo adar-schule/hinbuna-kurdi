@@ -262,8 +262,8 @@ Both team members expected to use AI tools (Claude, Cursor, etc.):
 
 | Resource | Location |
 |----------|----------|
-| Data Model | `_docs/04-data-model-design.md` |
-| Tech Stack | `_docs/03-tech-stack.md` |
+| Data Model | `_docs/05-data-model-design.md` |
+| Tech Stack | `_docs/04-tech-stack.md` |
 | Coding Standards | `~/.adar-schule/coding-standards/` |
 | Status Tracking | `_claude-files/status-brainstorming.md` |
 | Repo CLAUDE.md | `_REPOS/hinbuna-kurdi/CLAUDE.md` |

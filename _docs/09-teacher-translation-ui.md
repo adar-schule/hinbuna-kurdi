@@ -1,4 +1,8 @@
-# 08 — Teacher Translation UI
+# Teacher Translation UI
+
+> **Doc:** 09 · **Status:** Active · **Updated:** 2026-03-01
+
+---
 
 > Design for scalable multi-language editing in teacher CMS screens.
 > Replaces the current stacked-per-language layout (which breaks at 8+ languages).

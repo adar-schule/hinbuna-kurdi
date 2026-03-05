@@ -3,18 +3,13 @@
   "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Silav û Reng",
   "slug": "silav-u-reng",
+  "subtitle": "Greetings & Colors",
   "description": "Learn basic greetings, introductions, farewells, and colors in Kurmanji Kurdish.",
   "order_index": 0,
   "is_free": true,
   "is_published": true,
   "image_url": null,
-  "category": null,
-  "metadata": {
-    "subtitle": {
-      "en": "Greetings & Colors",
-      "de": "Begrüßungen & Farben"
-    }
-  },
+  "metadata": {},
   "created_at": "2026-02-01T00:00:00Z",
   "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
@@ -23,17 +18,13 @@
       "unit_id": "8b999b03-f2d1-5a8e-a89a-7d69f16b62a9",
       "name": "Diyaloga Yekem",
       "slug": "diyaloga-yekem",
+      "subtitle": "First Dialogue",
       "description": "Learn basic Kurdish greetings, introductions, and farewells through a guided dialogue between Armanc and Bêrîvan.",
       "order_index": 0,
       "learning_objective": "Learn basic Kurdish greetings, introductions, and farewells",
       "duration_minutes": 10,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "First Dialogue",
-          "de": "Erster Dialog"
-        },
         "vocab_preview": [
           "Roj baş",
           "Silav",
@@ -460,17 +451,13 @@
       "unit_id": "8b999b03-f2d1-5a8e-a89a-7d69f16b62a9",
       "name": "Reng û Hevok",
       "slug": "reng-u-hevok",
+      "subtitle": "Colors & Sentences",
       "description": "Learn 14 Kurdish colors and practice using them in simple sentences and descriptions.",
       "order_index": 1,
       "learning_objective": "Learn 14 Kurdish colors and use them in simple sentences",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Colors & Sentences",
-          "de": "Farben & Sätze"
-        },
         "vocab_preview": [
           "sor",
           "zer",
@@ -906,17 +893,13 @@
       "unit_id": "8b999b03-f2d1-5a8e-a89a-7d69f16b62a9",
       "name": "Heft û Hefte",
       "slug": "heft-u-hefte",
+      "subtitle": "Numbers & Days of the Week",
       "description": "Learn numbers 1-7 and the days of the week in Kurdish, discovering how numbers connect to day names.",
       "order_index": 2,
       "learning_objective": "Learn numbers 1-7 and the days of the week in Kurdish",
       "duration_minutes": 10,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Numbers & Days of the Week",
-          "de": "Zahlen & Wochentage"
-        },
         "vocab_preview": [
           "yek",
           "du",

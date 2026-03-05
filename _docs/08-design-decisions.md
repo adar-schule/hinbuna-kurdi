@@ -1,6 +1,6 @@
 # Design Decisions — Hinbûna Kurdî
 
-**Last Updated:** 2026-02-09
+> **Doc:** 08 · **Status:** Living · **Updated:** 2026-03-01
 
 ---
 

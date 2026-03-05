@@ -3,18 +3,13 @@
   "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Peyvên Pirsê û Malbat",
   "slug": "peyven-pirse-u-malbat",
+  "subtitle": "Question Words & Family",
   "description": "Learn the 8 Kurdish question words, cardinal directions, family vocabulary with maternal/paternal distinctions, and singular-to-plural possessives.",
   "order_index": 7,
   "is_free": false,
   "is_published": true,
   "image_url": null,
-  "category": null,
-  "metadata": {
-    "subtitle": {
-      "en": "Question Words & Family",
-      "de": "Fragewörter & Familie"
-    }
-  },
+  "metadata": {},
   "created_at": "2026-02-01T00:00:00Z",
   "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
@@ -23,17 +18,13 @@
       "unit_id": "629db35f-e2d5-5cfa-bdda-9133c577f58e",
       "name": "Peyvên Pirsê",
       "slug": "peyven-pirse",
+      "subtitle": "Question Words",
       "description": "Learn the 8 Kurdish question words: çi, çawa, çend, çima, kî, kê, li ku, ji ku — and cardinal directions.",
       "order_index": 0,
       "learning_objective": "Learn the 8 Kurdish question words: çi, çawa, çend, çima, kî, kê, li ku, ji ku — and cardinal directions",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Question Words",
-          "de": "Fragewörter"
-        },
         "vocab_preview": [
           "çi",
           "çawa",
@@ -529,17 +520,13 @@
       "unit_id": "629db35f-e2d5-5cfa-bdda-9133c577f58e",
       "name": "Malbat û Diyalog",
       "slug": "malbat-u-diyalog",
+      "subtitle": "Family & Dialogue",
       "description": "Learn 10+ family terms with maternal/paternal distinctions, singular-to-plural possessives, and the verb hatin (to come).",
       "order_index": 1,
       "learning_objective": "Learn 10+ family terms, singular-to-plural possessives, and the verb hatin (to come)",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Family & Dialogue",
-          "de": "Familie & Dialog"
-        },
         "vocab_preview": [
           "xatî",
           "xal",

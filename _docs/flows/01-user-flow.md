@@ -1,8 +1,6 @@
 # User Flow (Student Journey)
 
-**App:** Hinbûna Kurdî (MVP)
-**Target:** Mobile-first (375px base)
-**Last Updated:** 2026-02-04
+> **Doc:** F1 · **Status:** Active · **Updated:** 2026-03-01
 
 ---
 
@@ -69,7 +67,7 @@ Hinbûna Kurdî ←→ Ferheng (Dictionary) ←→ Quiz App (Practice)
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         NAVIGATION (Mobile)                                 │
 │                                                                             │
-│   Top Header + Hamburger (→ see 07-design-decisions.md for full spec)      │
+│   Top Header + Hamburger (→ see 08-design-decisions.md for full spec)      │
 │   ┌─────────────────────────────────────────┐                              │
 │   │  [Logo] Hinbûna Kurdî           [☰]    │                              │
 │   └─────────────────────────────────────────┘                              │

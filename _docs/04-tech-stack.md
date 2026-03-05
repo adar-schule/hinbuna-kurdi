@@ -1,8 +1,6 @@
 # Technical Architecture
 
-**For:** Developers
-**Version:** 1.0
-**Last Updated:** February 2026
+> **Doc:** 04 · **Status:** Active · **Updated:** 2026-03-01
 
 ---
 
@@ -66,8 +64,8 @@
 
 ## Database
 
-→ **Full schema (47 tables) + ERD diagrams:** See [04-data-model-design.md](./04-data-model-design.md)
-→ **Multi-language architecture:** See [multi-lang.html](../mockup/multi-lang.html) (visual overview) and multi-lang tables in [04-data-model-design.md](./04-data-model-design.md)
+→ **Full schema (47 tables) + ERD diagrams:** See [05-data-model-design.md](./05-data-model-design.md)
+→ **Multi-language architecture:** See [multi-lang.html](../mockup/multi-lang.html) (visual overview) and multi-lang tables in [05-data-model-design.md](./05-data-model-design.md)
 
 **Key facts:**
 - PostgreSQL with UUID primary keys
@@ -101,7 +99,7 @@
 ```
 
 - Custom JWT + Passport.js
-- Roles & permissions system → See [04-data-model-design.md](./04-data-model-design.md#users--auth-5-tables)
+- Roles & permissions system → See [05-data-model-design.md](./05-data-model-design.md#users--auth-5-tables)
 - Shared user DB across all side apps
 
 ---

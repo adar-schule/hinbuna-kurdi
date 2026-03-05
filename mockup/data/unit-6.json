@@ -3,18 +3,13 @@
   "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Lêker û Hevok",
   "slug": "leker-u-hevok",
+  "subtitle": "Verbs & Sentences",
   "description": "Learn essential Kurdish verbs in affirmative and negative forms, build sentences with question-answer patterns, and master four negation rules.",
   "order_index": 5,
   "is_free": false,
   "is_published": true,
   "image_url": null,
-  "category": null,
-  "metadata": {
-    "subtitle": {
-      "en": "Verbs & Sentences",
-      "de": "Verben & Sätze"
-    }
-  },
+  "metadata": {},
   "created_at": "2026-02-01T00:00:00Z",
   "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
@@ -23,17 +18,13 @@
       "unit_id": "ce37cb2e-43b9-5eef-a903-f46699915380",
       "name": "Deh Lêker",
       "slug": "deh-leker",
+      "subtitle": "Ten Verbs — Affirmative & Negative",
       "description": "Learn 10 verbs in both affirmative and negative forms with real sentence examples.",
       "order_index": 0,
       "learning_objective": "Learn 10 verbs in both affirmative and negative forms with real sentence examples",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Ten Verbs — Affirmative & Negative",
-          "de": "Zehn Verben — Bejahung & Verneinung"
-        },
         "vocab_preview": [
           "firotin",
           "girtin",
@@ -483,17 +474,13 @@
       "unit_id": "ce37cb2e-43b9-5eef-a903-f46699915380",
       "name": "Hevok Çêkirin",
       "slug": "hevok-cekirin",
+      "subtitle": "Building Sentences",
       "description": "Build questions and answers using verbs: avêtin, çûn, dan, dîtin with real Kurdish sentence patterns.",
       "order_index": 1,
       "learning_objective": "Build questions and answers using verbs: avêtin, çûn, dan, dîtin — with real Kurdish sentence patterns",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Building Sentences",
-          "de": "Sätze bilden"
-        },
         "vocab_preview": [
           "davêjim",
           "diçim",
@@ -952,17 +939,13 @@
       "unit_id": "ce37cb2e-43b9-5eef-a903-f46699915380",
       "name": "Erênî û Neyînî",
       "slug": "ereni-u-neyini",
+      "subtitle": "Affirmative & Negative — Four Rules",
       "description": "Master the four negation patterns in Kurdish: bûn→ne, verbs→na-, zanîn/karîn→ni-, hebûn→tune.",
       "order_index": 2,
       "learning_objective": "Master the four negation patterns in Kurdish: bûn→ne, verbs→na-, zanîn/karîn→ni-, hebûn→tune",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Affirmative & Negative — Four Rules",
-          "de": "Bejahung & Verneinung — Vier Regeln"
-        },
         "vocab_preview": [
           "ne",
           "na-",

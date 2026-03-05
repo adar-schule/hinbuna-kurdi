@@ -148,7 +148,7 @@
       </span>
     </div>
 
-    <a href="S6-lesson-player.html?unit=1&lesson=1-1" class="start-btn anim-up d4" id="start-btn">
+    <a href="S6-lesson-player.html?unit=1&lesson=e93ecbe2-7aa2-5152-959c-b6c2411cc027" class="start-btn anim-up d4" id="start-btn">
       Start Lesson
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </a>
@@ -294,14 +294,14 @@
               return r2.json();
             })
             .then(function (course) {
-              // Find unit metadata
+              // Find unit metadata (units nested in modules)
               var unitMeta = null;
-              if (course && course.units) {
-                for (var i = 0; i < course.units.length; i++) {
-                  if (course.units[i].id === unitId) {
-                    unitMeta = course.units[i];
-                    break;
-                  }
+              var allUnits = (course && course.modules && course.modules[0] && course.modules[0].units) || (course && course.units) || [];
+              var unitNum = parseInt(unitId, 10);
+              for (var i = 0; i < allUnits.length; i++) {
+                if (allUnits[i].order_index === unitNum - 1) {
+                  unitMeta = allUnits[i];
+                  break;
                 }
               }
 

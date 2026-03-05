@@ -1069,13 +1069,13 @@
       <button class="collapsible-toggle theme-section-header collapsed-indicator" onclick="toggleCollapse(this)">
         <div>
           <h2 class="theme-section-title">Page Tree</h2>
-          <p class="theme-section-subtitle">How public + student pages connect to each other</p>
+          <p class="theme-section-subtitle">How public, student + teacher pages connect to each other</p>
         </div>
         <svg class="collapse-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="collapsible-body collapsed">
         <div class="page-tree">
-          <svg viewBox="0 0 440 560" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 440 760" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <marker id="arr" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
                 <polygon points="0 0, 7 2.5, 0 5" fill="#D4A843"/>
@@ -1216,6 +1216,54 @@
             <rect x="302" y="514" width="130" height="40" rx="8" fill="#1565c0" opacity="0.9"/>
             <text x="367" y="533" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="700" font-family="Nunito, sans-serif">S6 Player</text>
             <text x="367" y="546" text-anchor="middle" font-size="8" fill="#90caf9" font-family="Inter, sans-serif">incl. S7 + S8</text>
+
+            <!-- ══════ TEACHER DIVIDER ══════ -->
+            <line x1="0" y1="580" x2="440" y2="580" stroke="#2F3B3E" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+            <text x="10" y="600" font-size="10" fill="#c0813e" font-weight="700" font-family="Inter, sans-serif" letter-spacing="1.5">TEACHER</text>
+
+            <!-- Arrow marker for teacher -->
+            <marker id="arr-teacher" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+              <polygon points="0 0, 7 2.5, 0 5" fill="#c0813e"/>
+            </marker>
+
+            <!-- ── Teacher flow lines ── -->
+            <!-- T1 → T2 -->
+            <path d="M90 650 L90 670" stroke="#c0813e" stroke-width="1.5" fill="none" marker-end="url(#arr-teacher)" opacity="0.7"/>
+            <!-- T2 → T3 -->
+            <path d="M90 700 L90 720" stroke="#c0813e" stroke-width="1.5" fill="none" marker-end="url(#arr-teacher)" opacity="0.7"/>
+            <!-- T3 → T4 -->
+            <path d="M148 738 L175 738" stroke="#c0813e" stroke-width="1.5" fill="none" marker-end="url(#arr-teacher)" opacity="0.7"/>
+            <!-- T4 → T5 -->
+            <path d="M275 738 L302 738" stroke="#c0813e" stroke-width="1.5" fill="none" marker-end="url(#arr-teacher)" opacity="0.7"/>
+
+            <!-- T1 → T-Settings (hamburger) -->
+            <path d="M148 635 L250 635" stroke="#8a7a5e" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-dim)" opacity="0.4"/>
+            <text x="170" y="630" font-size="7" fill="#8a7a5e" font-family="Inter, sans-serif" opacity="0.6">menu</text>
+
+            <!-- ── Teacher boxes ── -->
+            <!-- T1 Dashboard -->
+            <rect x="30" y="615" width="118" height="36" rx="8" fill="#c0813e" opacity="0.9"/>
+            <text x="89" y="638" text-anchor="middle" font-size="12" fill="#FDF8F3" font-weight="700" font-family="Nunito, sans-serif">T1 Dashboard</text>
+
+            <!-- T-Settings -->
+            <rect x="255" y="620" width="85" height="30" rx="7" fill="#c0813e" opacity="0.55"/>
+            <text x="297" y="640" text-anchor="middle" font-size="9" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">T-Settings</text>
+
+            <!-- T2 Course/Module -->
+            <rect x="30" y="670" width="118" height="30" rx="7" fill="#c0813e" opacity="0.8"/>
+            <text x="89" y="690" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="700" font-family="Nunito, sans-serif">T2 Course</text>
+
+            <!-- T3 Unit Editor -->
+            <rect x="30" y="720" width="118" height="30" rx="7" fill="#c0813e" opacity="0.7"/>
+            <text x="89" y="740" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">T3 Unit</text>
+
+            <!-- T4 Lesson Editor -->
+            <rect x="175" y="722" width="100" height="30" rx="7" fill="#c0813e" opacity="0.7"/>
+            <text x="225" y="742" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">T4 Lesson</text>
+
+            <!-- T5 Activity Editor -->
+            <rect x="302" y="722" width="110" height="30" rx="7" fill="#c0813e" opacity="0.7"/>
+            <text x="357" y="742" text-anchor="middle" font-size="11" fill="#FDF8F3" font-weight="600" font-family="Nunito, sans-serif">T5 Activity</text>
 
           </svg>
         </div>

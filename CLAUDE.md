@@ -36,7 +36,7 @@ HinbunaKurdi/                     (start Claude here)
     └── hinbuna-kurdi/            # The actual codebase
         ├── CLAUDE.md             # Tech stack, commands, structure
         ├── _docs/                # All project documentation
-        │   ├── 07-design-decisions.md   # Colors, typography, components
+        │   ├── 08-design-decisions.md   # Colors, typography, components
         │   └── archive/prompts/  # Screen generation templates (archived)
         └── mockup/               # HTML/CSS screens (current MVP)
 ```
@@ -56,7 +56,7 @@ Open `http://localhost:8080` in your browser to preview screens.
 All design standards are already decided. Adding a screen follows this workflow:
 
 1. **Tell Claude which screen** — e.g. "Create the student dashboard screen"
-2. **Claude reads the standards** — design decisions, color palette, typography, components are all documented in `_docs/07-design-decisions.md`
+2. **Claude reads the standards** — design decisions, color palette, typography, components are all documented in `_docs/08-design-decisions.md`
 3. **Claude generates the HTML/CSS** — following the established patterns from existing screens
 4. **You preview in browser** — check `localhost:8080`, give feedback
 5. **Iterate** — "make the sidebar narrower", "change the card layout", etc.
@@ -69,9 +69,9 @@ These are locked. Follow them, don't redesign:
 
 | Standard | Where |
 |----------|-------|
-| Color palette & tokens | `_docs/07-design-decisions.md` |
-| Typography (font, sizes, weights) | `_docs/07-design-decisions.md` |
-| Component patterns (cards, buttons, nav) | `_docs/07-design-decisions.md` |
+| Color palette & tokens | `_docs/08-design-decisions.md` |
+| Typography (font, sizes, weights) | `_docs/08-design-decisions.md` |
+| Component patterns (cards, buttons, nav) | `_docs/08-design-decisions.md` |
 | Page tree (all screens mapped) | `mockup/index.html` (dev gallery at localhost:8080) |
 | Brand vibe (calm + SaaS, NOT gamified) | `../../_rules/DESIGN-RULES.md` |
 | Prompt templates for screen generation | `_docs/archive/prompts/` (archived) |
@@ -113,7 +113,7 @@ Each team member owns a set of screens. Check with Armanc before starting:
 
 1. **`_docs/*.md` is always the source of truth.** If it's not in a doc, it doesn't exist.
 2. **Dev pages (`mockup/*.html`) visualize, never duplicate.** They reference docs, show overviews, link back — but never hardcode details that belong in a doc.
-3. **No cross-doc duplication.** Each topic has ONE home doc. Other docs that need that info must **reference** it (`→ See [04-data-model-design.md]`), never copy it.
+3. **No cross-doc duplication.** Each topic has ONE home doc. Other docs that need that info must **reference** it (`→ See [05-data-model-design.md]`), never copy it.
 4. **When something changes, update ONE place.** If you have to update two files for the same change, the structure is wrong.
 
 ---
@@ -205,9 +205,9 @@ npm run seed
 
 ## Resources
 
-- **Data model**: `_docs/04-data-model-design.md` (47 tables across 12 domains, includes ERD diagrams)
+- **Data model**: `_docs/05-data-model-design.md` (47 tables across 12 domains, includes ERD diagrams)
 - **Content structure**: Course → Module → Unit → Lesson → Activity → Material
-- **Design decisions**: `_docs/07-design-decisions.md`
+- **Design decisions**: `_docs/08-design-decisions.md`
 - **Page tree**: `mockup/index.html` (dev gallery at localhost:8080)
 - **Locales**: Kurdish (ku), German (de), English (en)
 

@@ -3,18 +3,13 @@
   "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Danasîn û Hevok",
   "slug": "danasin-u-hevok",
+  "subtitle": "Descriptions & Sentences",
   "description": "Learn descriptions, classification of 'old' words, and complex sentence structures with conjunctions.",
   "order_index": 3,
   "is_free": false,
   "is_published": true,
   "image_url": null,
-  "category": null,
-  "metadata": {
-    "subtitle": {
-      "en": "Descriptions & Sentences",
-      "de": "Beschreibungen & Sätze"
-    }
-  },
+  "metadata": {},
   "created_at": "2026-02-01T00:00:00Z",
   "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
@@ -23,17 +18,13 @@
       "unit_id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
       "name": "Kal, Pîr, Kevn",
       "slug": "kal-pir-kevn",
+      "subtitle": "Four Words for 'Old'",
       "description": "Learn the 4 different Kurdish words for 'old' and their opposites, based on gender and noun type.",
       "order_index": 0,
       "learning_objective": "Learn the 4 different Kurdish words for 'old' — kal (old man), pîr (old woman), kevn (old object), kartû (stale food) — and their opposites",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Four Words for 'Old'",
-          "de": "Vier Wörter für ‚alt'"
-        },
         "vocab_preview": [
           "kal",
           "pîr",
@@ -472,17 +463,13 @@
       "unit_id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
       "name": "Hevokên Pêreyî",
       "slug": "hevoken-pereyi",
+      "subtitle": "Subordinate Clauses",
       "description": "Learn to build complex sentences with conjunctions: 'ji ber ku' (because), 'loma' (therefore), and 'lê' (but).",
       "order_index": 1,
       "learning_objective": "Learn to build complex sentences with 'ji ber ku' (because), 'loma' (therefore), and 'lê' (but)",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Subordinate Clauses",
-          "de": "Nebensätze"
-        },
         "vocab_preview": [
           "ji ber ku",
           "loma",
@@ -894,17 +881,13 @@
       "unit_id": "db3d9d04-735c-570e-9e9a-34eba4adc351",
       "name": "Nû û Kevn",
       "slug": "nu-u-kevn",
+      "subtitle": "New & Old — Classification",
       "description": "Practice classifying nouns by which 'old' word applies, sorting people, objects, and food correctly.",
       "order_index": 2,
       "learning_objective": "Practice classifying nouns by which 'old' word applies — sorting people, objects, and food correctly",
       "duration_minutes": 10,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "New & Old — Classification",
-          "de": "Neu & Alt — Zuordnung"
-        },
         "vocab_preview": [
           "nû",
           "kevn",

@@ -115,7 +115,7 @@
     <div class="lesson-list" id="lesson-list">
       <!-- Fallback static content shown while loading / on error -->
       <!-- Lesson 1 — Completed -->
-      <a href="S5-lesson-view.html?unit=1&lesson=1-1" class="lesson-card anim anim-d2">
+      <a href="S5-lesson-view.html?unit=1&lesson=e93ecbe2-7aa2-5152-959c-b6c2411cc027" class="lesson-card anim anim-d2">
         <div class="lesson-number done">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
@@ -130,7 +130,7 @@
       </a>
 
       <!-- Lesson 2 — Current / Unlocked -->
-      <a href="S5-lesson-view.html?unit=1&lesson=1-2" class="lesson-card anim anim-d3">
+      <a href="S5-lesson-view.html?unit=1&lesson=58e92808-88b5-5034-8eb2-fa5e13248721" class="lesson-card anim anim-d3">
         <div class="lesson-number current">2</div>
         <div class="lesson-info">
           <div class="lesson-name">Tu çawa yî?</div>
@@ -209,7 +209,8 @@
         nameEl.textContent = lesson.name;
         var descEl = document.createElement('div');
         descEl.className = 'lesson-desc';
-        descEl.textContent = (lesson.metadata && lesson.metadata.subtitle) || lesson.subtitle || '';
+        var lSub = (lesson.metadata && lesson.metadata.subtitle) || '';
+        descEl.textContent = (typeof lSub === 'object') ? (lSub.en || '') : lSub;
         infoEl.appendChild(nameEl);
         infoEl.appendChild(descEl);
 
@@ -248,7 +249,8 @@
         if (!lessonList || !unitData || !unitData.lessons) return;
 
         var unitName = unitMeta ? unitMeta.name : unitData.name;
-        var unitSubtitle = unitMeta ? ((unitMeta.metadata && unitMeta.metadata.subtitle) || unitMeta.subtitle || '') : ((unitData.metadata && unitData.metadata.subtitle) || unitData.subtitle || '');
+        var rawSubtitle = unitMeta ? ((unitMeta.metadata && unitMeta.metadata.subtitle) || '') : ((unitData.metadata && unitData.metadata.subtitle) || '');
+        var unitSubtitle = (typeof rawSubtitle === 'object') ? (rawSubtitle.en || '') : rawSubtitle;
         var lessonCount = unitData.lessons.length;
 
         // Update header title
@@ -300,14 +302,13 @@
           var course = results[0];
           var unitData = results[1];
 
-          // Find unit metadata from course.json
+          // Find unit metadata from course.json (units nested in modules)
           var unitMeta = null;
-          if (course && course.units) {
-            for (var i = 0; i < course.units.length; i++) {
-              if (course.units[i].id === unitId) {
-                unitMeta = course.units[i];
-                break;
-              }
+          var allUnits = (course && course.modules && course.modules[0] && course.modules[0].units) || (course && course.units) || [];
+          for (var i = 0; i < allUnits.length; i++) {
+            if (allUnits[i].order_index === unitId - 1) {
+              unitMeta = allUnits[i];
+              break;
             }
           }
 

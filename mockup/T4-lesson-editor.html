@@ -1221,7 +1221,7 @@
 
         // Top row
         var topRow = createElement('div', { className: 'unit-header-top' });
-        var numIcon = createElement('div', { className: 'unit-number-icon', textContent: 'U' + unitData.id });
+        var numIcon = createElement('div', { className: 'unit-number-icon', textContent: 'U' + (unitData.order_index + 1) });
         topRow.appendChild(numIcon);
 
         var infoDiv = createElement('div', { className: 'unit-header-info' });
@@ -1237,7 +1237,8 @@
         frag.appendChild(topRow);
 
         // Description
-        var descP = createElement('p', { className: 'unit-header-desc', textContent: (unitData.metadata && unitData.metadata.subtitle) || unitData.subtitle || unitData.description || '' });
+        var rawSub = (unitData.metadata && unitData.metadata.subtitle) || '';
+        var descP = createElement('p', { className: 'unit-header-desc', textContent: (typeof rawSub === 'object') ? (rawSub.en || '') : (rawSub || unitData.description || '') });
         frag.appendChild(descP);
 
         // Stats
@@ -1319,7 +1320,8 @@
         // Lesson info
         var infoDiv = createElement('div', { className: 'lesson-info' });
         var nameDiv = createElement('div', { className: 'lesson-name' });
-        nameDiv.textContent = lesson.name + ' \u2014 ' + ((lesson.metadata && lesson.metadata.subtitle) || lesson.subtitle || '');
+        var lSub = (lesson.metadata && lesson.metadata.subtitle) || '';
+        nameDiv.textContent = lesson.name + ' \u2014 ' + ((typeof lSub === 'object') ? (lSub.en || '') : lSub);
         infoDiv.appendChild(nameDiv);
 
         var metaDiv = createElement('div', { className: 'lesson-meta' });
@@ -1413,7 +1415,7 @@
         var actions = createElement('div', { className: 'lesson-actions' });
 
         var actBtn = createElement('a', {
-          href: 'T5-activity-editor.html?unit=' + (lesson.id ? lesson.id.split('-')[0] : '1') + '&lesson=' + (lesson.id || ''),
+          href: 'T5-activity-editor.html?unit=' + unitId + '&lesson=' + (lesson.id || ''),
           className: 'btn-activities'
         });
         actBtn.appendChild(svgElement(SVG_ACTIVITY));

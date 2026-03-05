@@ -64,7 +64,7 @@ interface AppHeaderProps {
 
 ### Future State
 
-- **Tailwind CSS** with a custom theme config derived from `_docs/07-design-decisions.md`
+- **Tailwind CSS** with a custom theme config derived from `_docs/08-design-decisions.md`
 - All CSS variables become Tailwind theme tokens:
 
 ```js

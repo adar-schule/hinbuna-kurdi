@@ -1,6 +1,6 @@
 # Multi-Language Architecture
 
-> Schema changes from this research have been merged into [04-data-model-design.md](./04-data-model-design.md).
+> Schema changes from this research have been merged into [05-data-model-design.md](./05-data-model-design.md).
 
 **Status:** Research complete, schema merged into 04
 **Date:** 2026-02-24
@@ -186,7 +186,7 @@ For `activities.content` and `materials` — deeply nested, variable structure p
 
 `ui_locale`, `content_locale`, `translations_visible` fields on the `users` table.
 
-> **Full table definitions:** See [04-data-model-design.md](./04-data-model-design.md) — "Multi-Language / Translations" section.
+> **Full table definitions:** See [05-data-model-design.md](./05-data-model-design.md) — "Multi-Language / Translations" section.
 
 ---
 

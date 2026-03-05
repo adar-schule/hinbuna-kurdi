@@ -3,18 +3,13 @@
   "module_id": "0af6472b-76c5-5624-a138-07bd8cc7c652",
   "name": "Têgihîştin û Axaftin",
   "slug": "tegihistin-u-axaftin",
+  "subtitle": "Understanding & Speaking",
   "description": "Develop reading comprehension and speaking skills through stories, dialogues, and verb identification exercises.",
   "order_index": 6,
   "is_free": false,
   "is_published": true,
   "image_url": null,
-  "category": null,
-  "metadata": {
-    "subtitle": {
-      "en": "Understanding & Speaking",
-      "de": "Verstehen & Sprechen"
-    }
-  },
+  "metadata": {},
   "created_at": "2026-02-01T00:00:00Z",
   "updated_at": "2026-02-01T00:00:00Z",
   "lessons": [
@@ -23,17 +18,13 @@
       "unit_id": "6fa24359-87fa-59b7-8064-a45e0a41e4b8",
       "name": "Pirsên Pêkan",
       "slug": "pirsen-pekan",
+      "subtitle": "Comprehension Questions",
       "description": "Read the Sosîn & Delal story and answer comprehension questions identifying verbs and meaning.",
       "order_index": 0,
       "learning_objective": "Read the Sosîn & Delal story and answer comprehension questions identifying verbs and meaning",
       "duration_minutes": 12,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Comprehension Questions",
-          "de": "Verständnisfragen"
-        },
         "vocab_preview": [
           "dibîne",
           "davêje",
@@ -533,17 +524,13 @@
       "unit_id": "6fa24359-87fa-59b7-8064-a45e0a41e4b8",
       "name": "Diyalog û Lêker",
       "slug": "diyalog-u-leker",
+      "subtitle": "Dialogue with Verb Identification",
       "description": "Read an annotated dialogue identifying which verb is used in each line, and learn new verbs: jenîn, hez kirin, firotin.",
       "order_index": 1,
       "learning_objective": "Read an annotated dialogue identifying which verb is used in each line, and learn new verbs: jenîn, hez kirin, firotin",
       "duration_minutes": 10,
       "is_published": true,
-      "image_url": null,
       "metadata": {
-        "subtitle": {
-          "en": "Dialogue with Verb Identification",
-          "de": "Dialog mit Verb-Erkennung"
-        },
         "vocab_preview": [
           "jenîn",
           "hez kirin",
