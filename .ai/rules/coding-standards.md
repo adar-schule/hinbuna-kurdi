@@ -1,5 +1,9 @@
 # Coding Standards
 
+> **Rule:** coding-standards · **Status:** Active · **Updated:** 2026-03-07
+
+---
+
 ## Git Conventions
 
 **Commit format:**

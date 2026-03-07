@@ -1,5 +1,7 @@
 # .ai — LLM Workspace
 
+> **Type:** Guide · **Status:** Active · **Updated:** 2026-03-07
+
 This folder is the shared brain for any LLM working on this project. It is **LLM-agnostic** — Claude, Cursor, Copilot, or any other tool should use this as their entry point.
 
 Each LLM has its own config file that points here:
@@ -30,7 +32,8 @@ When starting a session, follow this order:
 .ai/
 ├── README.md              <- You are here
 ├── rules/                 # Way of working (shared across repos in future)
-│   ├── _enums.md          #   Shared enums (status, type, priority)
+│   ├── _enums.md          #   Shared enums (status, type, priority, doc status)
+│   ├── markdown-style.md  #   How to write markdown files in this repo
 │   ├── workflow.md        #   Three-phase workflow, context rule, ownership
 │   └── coding-standards.md #  Git, linting, code limits
 ├── sessions/              # Kanban-style session tracking

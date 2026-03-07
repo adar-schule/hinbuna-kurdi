@@ -1,6 +1,19 @@
 # Shared Enums
 
+> **Rule:** _enums · **Status:** Active · **Updated:** 2026-03-07
+
 All enums used across `.ai/` files. Single source of truth — reference this file, never redefine.
+
+---
+
+## Document Status
+
+| Value | Meaning |
+|-------|---------|
+| `Active` | Living document, regularly updated |
+| `Draft` | Work in progress, not yet approved |
+| `Reference` | Historical record, not actively maintained |
+| `Archived` | Superseded, kept for history |
 
 ---
 

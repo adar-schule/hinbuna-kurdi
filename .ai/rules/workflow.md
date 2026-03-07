@@ -1,5 +1,9 @@
 # Workflow
 
+> **Rule:** workflow · **Status:** Active · **Updated:** 2026-03-07
+
+---
+
 ## Three-Phase Workflow
 
 Every task follows this order. No shortcuts.
