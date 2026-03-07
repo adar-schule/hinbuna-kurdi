@@ -4,7 +4,7 @@
 
 ---
 
-Kurdish language learning platform — Kurmanji dialect, A1-B1 level.
+Kurdish language learning platform — starting with Kurmanji (A1-B1), more dialects planned.
 
 ## Quick Start
 

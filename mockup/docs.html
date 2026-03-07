@@ -431,6 +431,18 @@
       border-radius: 4px;
     }
 
+    /* Color swatch dot — injected next to hex codes in tables */
+    .hex-swatch {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(128,128,128,0.3);
+      vertical-align: middle;
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+
     /* Blockquotes */
     .md-content blockquote {
       margin: 14px 0;
@@ -679,6 +691,18 @@
         wrapper.className = 'table-wrap';
         table.parentNode.insertBefore(wrapper, table);
         wrapper.appendChild(table);
+      });
+
+      // Inject color swatches next to hex codes in table cells
+      var hexPattern = /^#[0-9A-Fa-f]{6}$/;
+      mdDiv.querySelectorAll('td code').forEach(function(codeEl) {
+        var text = codeEl.textContent.trim();
+        if (hexPattern.test(text)) {
+          var swatch = document.createElement('span');
+          swatch.className = 'hex-swatch';
+          swatch.style.backgroundColor = text;
+          codeEl.parentNode.insertBefore(swatch, codeEl);
+        }
       });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });

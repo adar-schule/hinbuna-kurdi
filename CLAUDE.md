@@ -2,7 +2,7 @@
 
 GIT_SCOPE: personal
 
-Kurdish language learning platform (Kurmanji A1-B1).
+Kurdish language learning platform — starting with Kurmanji (A1-B1), more dialects planned.
 
 > **Note**: This repo is being rebuilt from vanilla HTML/CSS/JS to NestJS + React + Tailwind.
 

@@ -2,7 +2,7 @@
 
 - **Created:** 2026-03-07
 - **Updated:** 2026-03-07
-- **Status:** in_progress
+- **Status:** done
 - **Type:** refactor
 - **Priority:** high
 - **User:** Armanc
@@ -28,9 +28,10 @@ Move all LLM-related structure from the wrapper folder (`HinbunaKurdi/`) into th
 - [x] Fixed `_docs/08` status `Living` -> `Active`
 - [x] Rewrote `README.md` with proper header and content
 - [x] Session files exempt from blockquote header (use metadata block instead)
-- [ ] Review remaining wrapper files (anything else to migrate or clean up?)
-- [ ] Verify `.ai/` boot sequence works in a fresh session
-- [ ] Consider: should `_docs/` content reference style guide? Or is it implicit via rules?
+- [x] Review remaining wrapper files — removed wrapper `CLAUDE.md` + `.claude/`; `_material/` stays
+- [x] Verify `.ai/` boot sequence works in a fresh session — confirmed in 2026-03-07 session
+- [x] Added Session Auto-Save rule to `workflow.md` (4 triggers: decision, 5-min, 70% context, user override)
+- [x] Style guide reference in `_docs/` — not needed, implicit via boot sequence + `.ai/rules/`
 
 ## Decisions
 - `.ai/` is LLM-agnostic; each LLM has its own entry file pointing to `.ai/`
@@ -44,8 +45,37 @@ Move all LLM-related structure from the wrapper folder (`HinbunaKurdi/`) into th
 - Personal materials (`_support-invest/`, book scans) stay in wrapper
 - All repo MDs follow `markdown-style.md` — CLAUDE.md and `frontend/README.md` are exceptions
 - Doc status enum: `Active`, `Draft`, `Reference`, `Archived` (no `Living`)
+- Wrapper `CLAUDE.md` + `.claude/` no longer needed — removed (repo has its own)
+- Session Auto-Save: 4 triggers (decision, ~5 min, context ≥ 70%, user override), background agent, non-blocking
+- Dark mode default palette: `#1A2024`/`#232D31` (Dark Slate) is the actual default used across all screens. Doc 08 was wrong (had `#1A2F23`/`#243D30` which is the Forest Green alt theme). Fixed.
+- Onboarding §6: made LLM-agnostic per Armanc — team members may use any AI coding tool, not just Claude
 
 ## Next Steps
-- Fresh session: test the boot sequence end-to-end
-- Review wrapper for any remaining files to migrate
-- Decide if `_docs/` needs explicit reference to markdown style guide
+- Onboarding page cleanup — go through sections 4-9, compare each against `_docs/`, decide keep/remove/link
+- Sections already decided:
+  - **TL (Timeline):** Keep, update data (outdated dates/phases)
+  - **1 (Project Overview):** Remove — dup of `_docs/01`
+  - **2 (Clone & Setup):** Keep — update wrapper refs to repo
+  - **3 (Using Claude Code):** Remove — dup of `_docs/07`, update doc 07 with new `.ai/` setup info
+  - **4 (Design Workflow):** Remove content — link to `_docs/08` (workflow now in doc 08)
+  - **5 (Brand Rules):** Remove content — link to `_docs/08`
+  - **6 (Tools & Plugins):** Keep, made LLM-agnostic (not Claude-specific)
+  - **7 (Screen Priority):** Keep as-is (unique content)
+  - **8 (Git Workflow):** Remove content — link to `_docs/07`
+  - **9 (Quality Checklist):** Keep interactive version, added source ref to `_docs/08`
+- [x] Compared sections 4-9 against `_docs/`
+- [x] Updated `_docs/08` — fixed dark mode colors (`#1A2024`/`#232D31`), added workflow + checklist sections
+- [x] Implemented onboarding §4, §5, §8 → replaced with doc links
+- [x] Made §6 LLM-agnostic
+- [x] Added source ref to §9
+- [x] §1 Project Overview — replaced with link to `_docs/01`
+- [x] §2 Clone & Setup — updated folder structure (removed wrapper refs, added `.ai/`)
+- [x] §3 Using Claude Code — renamed "AI Development Workflow", replaced with link to `_docs/07` + `.ai/` overview, LLM-agnostic
+- [x] Sidebar nav label updated for §3
+- [x] Updated "Last updated" meta to Mar 2026
+- [x] Added hash-based accordion: URL `#section-X` auto-expands that section, collapses others
+- [x] Fixed onboarding sidebar: scroll-margin-top for hidden titles, getBoundingClientRect for active state
+- [x] Updated project description — "starting with Kurmanji, more dialects planned"
+- [x] Removed outdated sections from `_docs/08`: Visily Theme Configuration, Reference Screenshots
+- [x] Renamed "Gallery" → "Overview" in header nav, index.html title/h1, back-button tooltip
+- Deferred to future session: Timeline dates/phases update, `_docs/07` `.ai/` setup info

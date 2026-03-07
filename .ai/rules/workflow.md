@@ -47,6 +47,34 @@ When approaching 40-60%:
 
 ---
 
+## Session Auto-Save
+
+When a session file is active (`in_progress`), keep it updated automatically using a **background save agent** (parallel, non-blocking). No user confirmation needed.
+
+**Triggers:**
+
+| Trigger | When | How |
+|---------|------|-----|
+| Decision detected | A decision is made or confirmed | Dispatch save agent immediately |
+| Time-based | ~5 mins since last save | Check on each response, dispatch if overdue |
+| Context threshold | Context ≥ 70% | Emergency full save (blocks) |
+| User override | User says "save session" or similar | Dispatch immediately, continue work |
+
+**Save agent responsibilities:**
+- Update `## Progress` with new completed/added items
+- Update `## Decisions` with new decisions
+- Update `## Next Steps` to reflect current state
+- Update metadata `Updated` date
+- Keep existing content intact — append, don't rewrite
+
+**Rules:**
+- Save agent runs in parallel — never block the main conversation
+- No confirmation prompt — just save silently
+- Track `last_saved` internally to avoid redundant writes
+- On context ≥ 70%, save is mandatory before continuing
+
+---
+
 ## Ownership Split
 
 | Human (Armanc) | AI |

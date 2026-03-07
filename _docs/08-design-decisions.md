@@ -27,18 +27,20 @@
 | **Text Secondary** | `#5A6B5E` | Subtitles, hints — muted green-gray |
 | **Border** | `#E5DDD3` | Card borders, dividers — warm tan |
 
-### Dark Mode
+### Dark Mode (Default — Dark Slate)
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| **Background** | `#1A2F23` | Page background — deep forest (NOT black) |
-| **Surface / Card** | `#243D30` | Card backgrounds, inputs — slightly lighter green |
+| **Background** | `#1A2024` | Page background — deep teal-forest (NOT black) |
+| **Surface / Card** | `#232D31` | Card backgrounds, inputs — slightly lighter |
 | **Primary** | `#2D5A3D` | Buttons, links — forest green |
 | **Secondary / Accent** | `#D4A843` | Badges, CTAs, brightest element — warm gold |
 | **Tan** | `#E3C79D` | Secondary accents |
 | **Text Primary** | `#F5EEE6` | Body text — warm off-white |
-| **Text Secondary** | `#A8B5AC` | Subtitles, hints — soft sage |
-| **Border** | `#2F4F3A` | Card borders, dividers — subtle green |
+| **Text Secondary** | `#9CADA8` | Subtitles, hints — soft sage |
+| **Border** | `#2F3B3E` | Card borders, dividers — subtle green |
+
+> Alternative color themes (Forest Green, Midnight Green, Warm Charcoal) are defined in `mockup/shared/theme.js` and can be selected in Settings.
 
 ### Semantic Colors
 
@@ -154,9 +156,9 @@ It is a **dev-only** shortcut — NOT repeated on every page.
 
 | DON'T | DO INSTEAD |
 |-------|------------|
-| Pure black backgrounds | Deep forest green `#1A2F23` |
+| Pure black backgrounds | Deep teal-forest `#1A2024` |
 | Neon/electric green text or accents | Forest green `#2D5A3D` |
-| Bright white text on dark | Warm cream `#FDF8F3` |
+| Bright white text on dark | Warm cream `#F5EEE6` |
 | High-contrast card borders | Subtle shade difference |
 | Cold blue-gray neutrals | Green-tinted warm grays |
 
@@ -205,44 +207,6 @@ It is a **dev-only** shortcut — NOT repeated on every page.
 
 ---
 
-## Visily Theme Configuration
-
-Applied to board **"HinbunaKurdi-01"** on 2026-02-08.
-
-### Main Colors
-| # | Name | Hex |
-|---|------|-----|
-| 1 | Primary | `#2D5A3D` |
-| 2 | Secondary | `#D4A843` |
-| 3 | Cream | `#FDF8F3` |
-| 4 | Tan | `#E3C79D` |
-| 5 | Dark BG | `#1A2F23` |
-| 6 | Dark Surface | `#243D30` |
-| 7 | Beige | `#F5EEE6` |
-
-### Semantic Colors
-| Slot | Hex |
-|------|-----|
-| Danger | `#DC4545` |
-| Warning | `#EFB034` |
-| Success | `#2D8A4E` |
-| Info | `#3B7A8A` |
-
-### Gray Set
-Base: `#5A6B5E` (green-tinted, auto-generated scale)
-
-### Fonts
-- Primary: **Nunito**
-- Secondary: **Inter**
-
-### Radius
-XS: 4, S: 8, M: 12, L: 16, XL: 24
-
-### Shadows
-Default presets (unchanged)
-
----
-
 ## Design Tools
 
 | Tool | Role | Cost |
@@ -276,18 +240,44 @@ Export → Screenshots for team / Figma for Gule
 
 ---
 
-## Reference Screenshots
+## Screen Creation Workflow
 
-6 approved screens from Stitch early iterations (used during initial design, now superseded by mockup screens):
+Follow these steps for every new screen to ensure consistency across all 32 screens.
 
-| Screen | Type | Use as |
-|--------|------|--------|
-| Iter 1: friendly light (mobile) | Landing, light | PRIMARY light reference |
-| Iter 1: friendly dark (mobile) | Landing, dark | PRIMARY dark reference |
-| Iter 1: desktop light | Landing, desktop | Desktop expansion ref |
-| Iter 1: desktop dark | Landing, desktop | Desktop expansion ref |
-| Iter 2: landing light (mobile) | Landing v2, light | Botanical illustration ref |
-| Iter 2: landing dark (mobile) | Landing v2, dark | Dark layout ref |
+1. **Check the Design Gallery** — open `mockup/index.html`, find the next "Pending" screen. Work in priority order (P0 > P1 > P2).
+2. **Read the Screen's Prompt File** — `_docs/prompts/[screen].md` (layout sections, content structure, screen-specific notes).
+3. **Read the Base Template** — `_docs/archive/prompts/00-base-template.md` (complete brand system reference).
+4. **Invoke a design skill** (if using an AI coding tool) — ensures production-grade quality and spatial composition.
+5. **Generate LIGHT MODE first** — save as `mockup/[screen].html` (single file with theme toggle).
+6. **Review in browser at 375px** — check colors, typography, spacing, visual rhythm.
+7. **Add DARK MODE** — same layout, only colors change. Use CSS variables so `theme.js` overrides work.
+8. **Run quality checklist** (below) — all items must pass before committing.
+9. **Update the Gallery** — in `mockup/index.html`, change status from "Pending" to "Done".
+10. **Commit & push** — follow git workflow in [07-ai-development-workflow.md](./07-ai-development-workflow.md).
+
+> Every HTML file must be self-contained. Single file, all CSS in a `<style>` block. Only external dependencies: Google Fonts (Nunito + Inter) and `mockup/shared/` scripts.
+
+---
+
+## Quality Checklist (Per Screen)
+
+Run through after every screen, before committing.
+
+- [ ] Background color correct? Light: cream `#FDF8F3` / Dark: deep forest `#1A2024`
+- [ ] NOT matrix green? Dark mode = warm forest at night, not hacker terminal
+- [ ] Gold accents present? At least one gold element `#D4A843` on the screen
+- [ ] Text readable? Sufficient contrast between text and background
+- [ ] Buttons correct? Green + cream (light) / Gold + dark (dark)
+- [ ] Cards have subtle separation? Shade difference, not harsh borders
+- [ ] Typography correct? Nunito for headings, Inter for body text
+- [ ] Kurdish text correct? Characters `e`, `i`, `u`, `c`, `s` display properly
+- [ ] Mobile width? 375px base, responsive to wider screens
+- [ ] Header consistent? Logo left, globe + toggle + action right
+- [ ] No flag icons? Language picker uses text labels, monochrome
+- [ ] Sections flow naturally? Visual rhythm, not stacked blocks with equal gaps
+- [ ] Touch targets 44px+? All interactive elements large enough to tap
+- [ ] CSS animations present? Hover states, fade-ins, smooth transitions
+- [ ] Self-contained? Single HTML file, only Google Fonts + shared scripts as external deps
 
 ---
 

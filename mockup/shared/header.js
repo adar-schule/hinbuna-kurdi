@@ -169,7 +169,7 @@
 
     // Back to gallery (dev utility — only on main screens)
     if (showGallery) {
-      html += '<a href="index.html" class="header-back-btn" title="Back to Gallery">';
+      html += '<a href="index.html" class="header-back-btn" title="Back to Overview">';
       html += BACK_ARROW_SVG;
       html += '</a>';
     }
@@ -181,7 +181,7 @@
     // Dev page controls (play button, nav links, hamburger)
     if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes' || pageType === 'data-model' || pageType === 'multi-lang' || pageType === 'docs') {
       var navItems = [
-        { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Gallery',       title: 'Design Gallery',             inline: true },
+        { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Overview',      title: 'Screen Overview',            inline: true },
         { id: 'onboarding',           href: 'onboarding.html',           icon: NAV_ICON_ONBOARDING,  label: 'Onboarding',    title: 'Developer Onboarding Guide', inline: false },
         { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components',    title: 'Component Library',          inline: false },
         { id: 'data-model',          href: 'data-model.html',           icon: NAV_ICON_DATAMODEL,   label: 'Data',          title: 'Data Model Overview',        inline: true },

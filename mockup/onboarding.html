@@ -372,6 +372,7 @@
       border-radius: var(--radius);
       overflow: hidden;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      scroll-margin-top: 80px;
     }
 
     .accordion-item:hover {
@@ -969,6 +970,7 @@
     .timeline-section {
       margin-bottom: 48px;
       padding-bottom: 0;
+      scroll-margin-top: 80px;
     }
 
     .timeline-header {
@@ -1707,7 +1709,7 @@
         <li class="sidebar-nav-item">
           <a href="#section-3" class="sidebar-nav-link" onclick="closeSidebarMobile()">
             <span class="nav-number">3</span>
-            Using Claude Code
+            AI Development Workflow
           </a>
         </li>
         <li class="sidebar-nav-item">
@@ -1766,7 +1768,7 @@
           <div class="intro-meta">
             <span class="intro-meta-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Last updated: Feb 2026
+              Last updated: Mar 2026
             </span>
             <span class="intro-meta-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -2079,37 +2081,16 @@
             </button>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p><strong>Hinbuna Kurdi</strong> (Hinb&ucirc;na Kurd&icirc;) is a Kurdish language learning platform teaching the <strong>Kurmanji dialect</strong> at A1 through B1 proficiency levels. It targets the Kurdish diaspora and anyone interested in learning Kurdish through a structured, curriculum-based approach.</p>
+                <p><strong>Hinbuna Kurdi</strong> (Hinb&ucirc;na Kurd&icirc;) is a Kurdish language learning platform &mdash; starting with Kurmanji at A1&ndash;B1 levels, with more dialects planned. Full project overview, tech stack, team, and scope are in the project docs.</p>
 
-                <h3>Tech Stack</h3>
-                <ul>
-                  <li><strong>Backend:</strong> NestJS (Node.js + TypeScript)</li>
-                  <li><strong>Frontend:</strong> React + Tailwind CSS</li>
-                  <li><strong>Database:</strong> PostgreSQL (AWS RDS)</li>
-                  <li><strong>Auth:</strong> JWT + Passport.js</li>
-                  <li><strong>Hosting:</strong> AWS (ECS + RDS + S3)</li>
-                  <li><strong>TTS/STT:</strong> <a href="https://www.kurdishtts.com" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">kurdishtts.com</a> API</li>
-                </ul>
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Source of truth:</strong> <a href="docs.html#01-project-overview" style="color: var(--primary); text-decoration: underline;"><code>_docs/01-project-overview.md</code></a> &mdash; Project overview, tech stack, team, scope, and 32-screen breakdown.</p>
+                  </div>
+                </div>
 
-                <h3>Current Phase</h3>
-                <p>We are in the <strong>Design Phase</strong> &mdash; creating screen mockups as pure, self-contained HTML/CSS files. These will later become the blueprint for the React + Tailwind implementation. No backend or frontend code is needed right now.</p>
-
-                <h3>Team</h3>
-                <ul>
-                  <li><strong>Armanc</strong> (Lead) &mdash; Backend, DevOps, Architecture, Design decisions</li>
-                  <li><strong>Gule</strong> (Frontend) &mdash; UI/UX, React implementation</li>
-                  <li><strong>Mamoste</strong> (Content) &mdash; Kurdish curriculum, lessons, activities</li>
-                </ul>
-
-                <h3>Scope</h3>
-                <p>There are <strong>32 screens</strong> total, across 4 user roles:</p>
-                <ul>
-                  <li><strong>Public (P1&ndash;P6)</strong> &mdash; Landing, Pricing, Login, Register, Forgot Password, About</li>
-                  <li><strong>Student (S1&ndash;S12)</strong> &mdash; Dashboard, Courses, Modules, Lessons, Activities, Results, Profile, etc.</li>
-                  <li><strong>Teacher (T1&ndash;T8)</strong> &mdash; Content Dashboard, Editors, Materials, Student management</li>
-                  <li><strong>Admin (A1&ndash;A6)</strong> &mdash; Platform Dashboard, User Mgmt, Subscriptions, Settings</li>
-                </ul>
-                <p>Check the <a href="index.html" style="color: var(--primary); text-decoration: underline;">Design Gallery</a> for the full list with current status.</p>
+                <p>Check the <a href="index.html" style="color: var(--primary); text-decoration: underline;">Design Gallery</a> for the full screen list with current status.</p>
               </div>
             </div>
           </div>
@@ -2143,21 +2124,21 @@ cd hinbuna-kurdi</code></pre>
                     <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
                   </div>
                   <pre><code>hinbuna-kurdi/
+├── .ai/                   <span class="cm">← LLM workspace (rules, sessions)</span>
+│   ├── README.md          <span class="cm">← Boot sequence for AI assistants</span>
+│   ├── rules/             <span class="cm">← Shared standards (workflow, coding)</span>
+│   └── sessions/          <span class="cm">← Session tracking (kanban-style)</span>
 ├── mockup/                <span class="cm">← HTML design files (THIS IS WHERE YOU WORK)</span>
 │   ├── index.html         <span class="cm">← Design gallery entry point</span>
 │   ├── onboarding.html    <span class="cm">← This guide</span>
-│   ├── P1-landing-light.html
-│   ├── P1-landing-dark.html
+│   ├── shared/            <span class="cm">← Theme system (light/dark, colors)</span>
 │   └── ...
-├── _docs/                 <span class="cm">← Project documentation</span>
-│   ├── prompts/           <span class="cm">← Screen prompt files (layout decisions)</span>
-│   │   ├── 00-base-template.md  <span class="cm">← Full brand system reference</span>
-│   │   ├── P1-landing-page.md
-│   │   └── ...
-│   ├── 08-design-decisions.md   <span class="cm">← Color, typography, component rules</span>
+├── _docs/                 <span class="cm">← Project documentation (source of truth)</span>
+│   ├── 08-design-decisions.md   <span class="cm">← Colors, typography, workflow, checklist</span>
 │   └── ...
+├── _material/             <span class="cm">← Learning materials (von Mamoste curriculum)</span>
 ├── frontend/              <span class="cm">← React app (later phase, don't touch yet)</span>
-├── CLAUDE.md              <span class="cm">← AI assistant rules &amp; project config</span>
+├── CLAUDE.md              <span class="cm">← AI assistant entry point &amp; project config</span>
 └── .github/workflows/     <span class="cm">← Auto-deploys mockup/ to GitHub Pages</span></code></pre>
                 </div>
 
@@ -2189,192 +2170,34 @@ cd hinbuna-kurdi</code></pre>
           <div class="accordion-item" id="section-3">
             <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
               <span class="accordion-number">3</span>
-              <span class="accordion-title">Using Claude Code</span>
+              <span class="accordion-title">AI Development Workflow</span>
               <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="accordion-content">
               <div class="accordion-body">
 
-                <p>Claude Code is our <strong>primary development tool</strong> for this project. All screen designs, code, and documentation are created through Claude Code in the terminal.</p>
+                <p>We use AI coding assistants for development. The workflow rules, coding standards, git conventions, and session management are all documented in the AI development workflow doc.</p>
+
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Source of truth:</strong> <a href="docs.html#07-ai-development-workflow" style="color: var(--primary); text-decoration: underline;"><code>_docs/07-ai-development-workflow.md</code></a> &mdash; Three-phase workflow, context management, coding standards, and git conventions.</p>
+                  </div>
+                </div>
+
+                <h4>Getting Started with AI Tools</h4>
+                <p>This project includes an <code>.ai/</code> folder with LLM-agnostic workspace configuration:</p>
+                <ul>
+                  <li><code>.ai/README.md</code> &mdash; Boot sequence for any AI assistant</li>
+                  <li><code>.ai/rules/</code> &mdash; Shared standards (workflow, coding)</li>
+                  <li><code>.ai/sessions/</code> &mdash; Session tracking so AI picks up where you left off</li>
+                  <li><code>CLAUDE.md</code> &mdash; Entry point for Claude Code (other tools may use their own config)</li>
+                </ul>
 
                 <div class="callout callout-warning">
                   <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                   <div class="callout-content">
-                    <p><strong>Before your first session:</strong> Read the project's <code>CLAUDE.md</code> files. Claude Code reads these automatically and follows the rules inside. They are critical for consistency.</p>
-                  </div>
-                </div>
-
-                <h4>Install Claude Code</h4>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># Install Claude Code (requires Node.js 18+)</span>
-npm install -g @anthropic-ai/claude-code
-
-<span class="cmt"># Navigate to the WRAPPER folder (not the repo!)</span>
-<span class="kw">cd</span> path/to/HinbunaKurdi
-
-<span class="cmt"># Start Claude Code</span>
-claude</code></pre>
-                </div>
-
-                <div class="callout callout-info">
-                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                  <div class="callout-content">
-                    <p><strong>Always start from the wrapper folder <code>HinbunaKurdi/</code></strong>, not from <code>REPOS/hinbuna-kurdi/</code>. The wrapper has the main CLAUDE.md with all rules, design standards, and workflow references.</p>
-                  </div>
-                </div>
-
-                <h4>Wrapper Folder Structure</h4>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code>HinbunaKurdi/                     <span class="cmt"># Start Claude here</span>
-├── CLAUDE.md                     <span class="cmt"># Main entry &mdash; Claude reads this first</span>
-├── _rules/                       <span class="cmt"># Workflow, design, coding standards</span>
-│   ├── WORKFLOW.md               <span class="cmt"># Three-phase workflow, context rules</span>
-│   ├── DESIGN-RULES.md           <span class="cmt"># Brand identity, anti-patterns</span>
-│   ├── CODING-STANDARDS.md       <span class="cmt"># Git, linting, code limits</span>
-│   └── SESSION-CHECKLIST.md      <span class="cmt"># Session start/end routines</span>
-├── _claude-files/                <span class="cmt"># Current work status</span>
-├── _screenshots/                 <span class="cmt"># Visual references</span>
-└── REPOS/
-    └── hinbuna-kurdi/            <span class="cmt"># This repo</span>
-        ├── CLAUDE.md             <span class="cmt"># Tech stack, commands</span>
-        ├── _docs/                <span class="cmt"># Project docs &amp; prompts</span>
-        └── mockup/               <span class="cmt"># HTML/CSS screens</span></code></pre>
-                </div>
-
-                <h4>Install Required Plugins</h4>
-                <p>Run these <strong>inside Claude Code</strong> (after starting <code>claude</code>):</p>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># Design quality — ensures professional output</span>
-/plugin install frontend-design@claude-code-plugins
-
-<span class="cmt"># Browser testing</span>
-/plugin install playwright@claude-plugins-official
-
-<span class="cmt"># Up-to-date library docs</span>
-/plugin install context7@claude-plugins-official
-
-<span class="cmt"># Security scanning</span>
-/plugin install security-guidance@claude-plugins-official
-
-<span class="cmt"># Git workflow helpers</span>
-/plugin install commit-commands@claude-plugins-official</code></pre>
-                </div>
-
-                <h4>Install MCP Servers</h4>
-                <p>Run these in your <strong>regular terminal</strong> (outside Claude Code):</p>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># shadcn/ui component library</span>
-claude mcp add --transport http shadcn https://www.shadcn.io/api/mcp
-
-<span class="cmt"># SVG icons (200k+ icons, no API key needed)</span>
-claude mcp add iconify -- npx -y iconify-mcp-server@latest
-
-<span class="cmt"># Chrome DevTools debugging</span>
-claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
-
-<span class="cmt"># HTML to image conversion</span>
-claude mcp add --transport http hcti https://mcp.hcti.io</code></pre>
-                </div>
-
-                <h4>CLAUDE.md Rules (Critical)</h4>
-                <p>The project has multiple <code>CLAUDE.md</code> files that Claude reads automatically:</p>
-
-                <table class="feature-table">
-                  <thead>
-                    <tr>
-                      <th>File</th>
-                      <th>Purpose</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>HinbunaKurdi/CLAUDE.md</code></td>
-                      <td>Main router &mdash; links to all rules, status files, and repo docs</td>
-                    </tr>
-                    <tr>
-                      <td><code>HinbunaKurdi/_rules/*.md</code></td>
-                      <td>Workflow, design rules, coding standards, session checklist</td>
-                    </tr>
-                    <tr>
-                      <td><code>REPOS/hinbuna-kurdi/CLAUDE.md</code></td>
-                      <td>Tech stack, commands, project structure</td>
-                    </tr>
-                    <tr>
-                      <td><code>~/.claude/CLAUDE.md</code></td>
-                      <td>Personal preferences &mdash; git account, never push without confirmation</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <h4>Key Rules Claude Follows</h4>
-                <ul>
-                  <li><strong>Never push without confirmation</strong> &mdash; Claude will always ask before committing or pushing</li>
-                  <li><strong>Never reference Duolingo</strong> &mdash; in any prompts, designs, code, or descriptions</li>
-                  <li><strong>Brand system enforced</strong> &mdash; colors, fonts, components from <code>_docs/prompts/00-base-template.md</code></li>
-                  <li><strong>frontend-design skill</strong> &mdash; invoke before generating any screen HTML for designer-quality output</li>
-                  <li><strong>Mobile-first always</strong> &mdash; 375px base width for all designs</li>
-                  <li><strong>Status tracking</strong> &mdash; Claude reads <code>_claude-files/status-mvp-screens-design.md</code> each session to know where we are</li>
-                </ul>
-
-                <h4>How to Start a Design Session</h4>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                  <pre><code><span class="cmt"># Start Claude Code from the wrapper</span>
-<span class="kw">cd</span> path/to/HinbunaKurdi
-claude
-
-<span class="cmt"># Then tell Claude what to do:</span>
-<span class="str">"Read the status file and let's continue designing screens"</span>
-
-<span class="cmt"># Claude will:</span>
-<span class="cmt"># 1. Read _claude-files/status-mvp-screens-design.md</span>
-<span class="cmt"># 2. Read the brand system (00-base-template.md)</span>
-<span class="cmt"># 3. Read the next screen's prompt file</span>
-<span class="cmt"># 4. Invoke frontend-design skill</span>
-<span class="cmt"># 5. Generate the HTML</span>
-<span class="cmt"># 6. Wait for your review before committing</span></code></pre>
-                </div>
-
-                <h4>Useful Commands During Sessions</h4>
-                <table class="feature-table">
-                  <thead>
-                    <tr>
-                      <th>Command</th>
-                      <th>What it does</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>/plugin</code></td>
-                      <td>View and manage installed plugins</td>
-                    </tr>
-                    <tr>
-                      <td><code>/mcp</code></td>
-                      <td>Check MCP server status</td>
-                    </tr>
-                    <tr>
-                      <td><code>/clear</code></td>
-                      <td>Clear conversation (start fresh, keeps context files)</td>
-                    </tr>
-                    <tr>
-                      <td><code>/help</code></td>
-                      <td>General help and keyboard shortcuts</td>
-                    </tr>
-                    <tr>
-                      <td><code>open mockup/index.html</code></td>
-                      <td>Preview the design gallery in browser</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <div class="callout callout-info">
-                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                  <div class="callout-content">
-                    <p><strong>Context limit:</strong> Claude Code sessions have a context window. When it reaches ~70%, save your work and start a new session. Claude will read the status files and pick up where you left off.</p>
+                    <p><strong>Before your first session:</strong> Read the project's entry file (<code>CLAUDE.md</code> or equivalent) and follow the boot sequence in <code>.ai/README.md</code>. This ensures your AI assistant understands the project rules.</p>
                   </div>
                 </div>
 
@@ -2394,78 +2217,12 @@ claude
             <div class="accordion-content">
               <div class="accordion-body">
 
-                <p>Follow these steps for every new screen. This ensures consistency across all 32 screens.</p>
+                <p>The full 10-step screen creation workflow and quality checklist live in the design decisions doc.</p>
 
-                <ol class="steps">
-                  <li class="step">
-                    <span class="step-number">1</span>
-                    <div class="step-content">
-                      <p><strong>Check the Design Gallery</strong></p>
-                      <p>Open <a href="index.html" style="color: var(--primary); text-decoration: underline;">index.html</a> and find the next screen with <strong>"Pending"</strong> status. Work in priority order (P0 first, then P1, then P2).</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">2</span>
-                    <div class="step-content">
-                      <p><strong>Read the Screen's Prompt File</strong></p>
-                      <p>Open <code>_docs/prompts/[screen].md</code> &mdash; for example, <code>_docs/prompts/P2-pricing.md</code>. This contains the agreed-upon layout sections, content structure, and screen-specific notes.</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">3</span>
-                    <div class="step-content">
-                      <p><strong>Read the Base Template</strong></p>
-                      <p>Open <code>_docs/prompts/00-base-template.md</code>. This is the complete brand system reference: colors, fonts, component patterns, anti-patterns, and quality checklist. Every screen must follow this.</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">4</span>
-                    <div class="step-content">
-                      <p><strong>Invoke the <code>frontend-design</code> Skill</strong> (if using Claude Code)</p>
-                      <p>Before generating, invoke the <code>frontend-design</code> skill. This ensures production-grade quality, intentional spatial composition, and meaningful micro-interactions.</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">5</span>
-                    <div class="step-content">
-                      <p><strong>Generate LIGHT MODE HTML First</strong></p>
-                      <p>Create the light mode version and save it as <code>mockup/[screen]-light.html</code>. For example: <code>mockup/P2-pricing-light.html</code>.</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">6</span>
-                    <div class="step-content">
-                      <p><strong>Review in Browser at 375px</strong></p>
-                      <p>Open in Chrome at 375px width. Check colors, typography, spacing, visual rhythm. Iterate until it meets the quality bar. Refer to the checklist in Section 8.</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">7</span>
-                    <div class="step-content">
-                      <p><strong>Generate DARK MODE HTML</strong></p>
-                      <p>Create the dark mode version: <strong>same layout, same content, only colors change</strong>. Save as <code>mockup/[screen]-dark.html</code>. See Section 4 for the exact dark mode color mapping.</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">8</span>
-                    <div class="step-content">
-                      <p><strong>Update the Gallery</strong></p>
-                      <p>In <code>mockup/index.html</code>, find the screen card and change its status from "Pending" to "Done". Remove the <code>disabled</code> class from the Light/Dark links so they become clickable.</p>
-                    </div>
-                  </li>
-                  <li class="step">
-                    <span class="step-number">9</span>
-                    <div class="step-content">
-                      <p><strong>Commit &amp; Push</strong></p>
-                      <p>Follow the Git workflow in Section 7. Once pushed, the GitHub Actions workflow auto-deploys the <code>mockup/</code> folder to GitHub Pages.</p>
-                    </div>
-                  </li>
-                </ol>
-
-                <div class="callout callout-warning">
-                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                   <div class="callout-content">
-                    <p><strong>Every HTML file must be self-contained.</strong> Single file, all CSS in a <code>&lt;style&gt;</code> block. The only external dependency allowed is Google Fonts (Nunito + Inter).</p>
+                    <p><strong>Source of truth:</strong> <a href="docs.html#08-design-decisions" style="color: var(--primary); text-decoration: underline;"><code>_docs/08-design-decisions.md</code></a> &mdash; Screen Creation Workflow &amp; Quality Checklist sections.</p>
                   </div>
                 </div>
               </div>
@@ -2484,6 +2241,8 @@ claude
             <div class="accordion-content">
               <div class="accordion-body">
 
+                <p>All brand rules &mdash; color system (light + dark), typography, component patterns, and anti-patterns &mdash; are maintained in the design decisions doc.</p>
+
                 <div class="callout callout-danger">
                   <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                   <div class="callout-content">
@@ -2491,220 +2250,12 @@ claude
                   </div>
                 </div>
 
-                <h3>Brand Vibe</h3>
-                <p><strong>Calm + SaaS</strong> &mdash; think Headspace meets Notion. Premium, sophisticated, warm botanical.</p>
-                <ul>
-                  <li><strong>YES:</strong> Professional hierarchy, trust signals, structured curriculum feel, clean typography, warm tones</li>
-                  <li><strong>NO:</strong> Gamified elements, playful animations, cartoon mascots, childish iconography, neon colors</li>
-                </ul>
-
-                <hr class="section-divider">
-
-                <h3>Color System &mdash; Light Mode</h3>
-                <table class="color-table">
-                  <thead>
-                    <tr>
-                      <th>Token</th>
-                      <th>Hex</th>
-                      <th>Usage</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="token-name">Background</td>
-                      <td><span class="color-swatch" style="background:#FDF8F3"></span><span class="color-hex">#FDF8F3</span></td>
-                      <td>Page background &mdash; warm cream</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Surface</td>
-                      <td><span class="color-swatch" style="background:#F5EEE6"></span><span class="color-hex">#F5EEE6</span></td>
-                      <td>Card backgrounds, inputs &mdash; soft beige</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Primary</td>
-                      <td><span class="color-swatch" style="background:#2D5A3D"></span><span class="color-hex">#2D5A3D</span></td>
-                      <td>Buttons, links, headings &mdash; forest green</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Accent</td>
-                      <td><span class="color-swatch" style="background:#D4A843"></span><span class="color-hex">#D4A843</span></td>
-                      <td>Badges, highlights, CTAs &mdash; warm gold</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Tan</td>
-                      <td><span class="color-swatch" style="background:#E3C79D"></span><span class="color-hex">#E3C79D</span></td>
-                      <td>Secondary surface, subtle accents</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Text</td>
-                      <td><span class="color-swatch" style="background:#1A2A1F"></span><span class="color-hex">#1A2A1F</span></td>
-                      <td>Body text &mdash; dark green-black</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Text Secondary</td>
-                      <td><span class="color-swatch" style="background:#5A6B5E"></span><span class="color-hex">#5A6B5E</span></td>
-                      <td>Subtitles, hints &mdash; muted green-gray</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Border</td>
-                      <td><span class="color-swatch" style="background:#E5DDD3"></span><span class="color-hex">#E5DDD3</span></td>
-                      <td>Card borders, dividers &mdash; warm tan</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Success</td>
-                      <td><span class="color-swatch" style="background:#2D8A4E"></span><span class="color-hex">#2D8A4E</span></td>
-                      <td>Correct answers, completed items</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Error</td>
-                      <td><span class="color-swatch" style="background:#DC4545"></span><span class="color-hex">#DC4545</span></td>
-                      <td>Validation errors, wrong answers</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Warning</td>
-                      <td><span class="color-swatch" style="background:#EFB034"></span><span class="color-hex">#EFB034</span></td>
-                      <td>Caution states, expiring items</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Info</td>
-                      <td><span class="color-swatch" style="background:#3B7A8A"></span><span class="color-hex">#3B7A8A</span></td>
-                      <td>Informational banners, hints</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <h3>Color System &mdash; Dark Mode</h3>
-                <table class="color-table">
-                  <thead>
-                    <tr>
-                      <th>Token</th>
-                      <th>Hex</th>
-                      <th>Usage</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="token-name">Background</td>
-                      <td><span class="color-swatch" style="background:#1A2024"></span><span class="color-hex">#1A2024</span></td>
-                      <td>Page background &mdash; deep forest green (<strong>NEVER pure black</strong>)</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Surface</td>
-                      <td><span class="color-swatch" style="background:#232D31"></span><span class="color-hex">#232D31</span></td>
-                      <td>Card backgrounds, inputs &mdash; slightly lighter green</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Primary</td>
-                      <td><span class="color-swatch" style="background:#2D5A3D"></span><span class="color-hex">#2D5A3D</span></td>
-                      <td>Links, structural elements &mdash; forest green</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Accent</td>
-                      <td><span class="color-swatch" style="background:#D4A843"></span><span class="color-hex">#D4A843</span></td>
-                      <td>Primary CTAs, badges &mdash; warm gold (brightest element)</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Text</td>
-                      <td><span class="color-swatch" style="background:#F5EEE6; border-color: rgba(0,0,0,0.2)"></span><span class="color-hex">#F5EEE6</span></td>
-                      <td>Body text &mdash; warm off-white</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Text Secondary</td>
-                      <td><span class="color-swatch" style="background:#9CADA8"></span><span class="color-hex">#9CADA8</span></td>
-                      <td>Subtitles, hints &mdash; soft sage</td>
-                    </tr>
-                    <tr>
-                      <td class="token-name">Border</td>
-                      <td><span class="color-swatch" style="background:#2F3B3E"></span><span class="color-hex">#2F3B3E</span></td>
-                      <td>Card borders, dividers &mdash; subtle green</td>
-                    </tr>
-                  </tbody>
-                </table>
-
                 <div class="callout callout-info">
                   <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                   <div class="callout-content">
-                    <p><strong>Dark mode rule:</strong> Same layout as light, only colors change. Dark background = <code>#1A2024</code> (deep forest green). The feeling is "warm forest at night" &mdash; NOT matrix, NOT neon, NOT hacker terminal. Gold accents glow like candlelight against deep green.</p>
+                    <p><strong>Source of truth:</strong> <a href="docs.html#08-design-decisions" style="color: var(--primary); text-decoration: underline;"><code>_docs/08-design-decisions.md</code></a> &mdash; Colors, typography, components, anti-patterns, and dark/light mode rules.</p>
                   </div>
                 </div>
-
-                <hr class="section-divider">
-
-                <h3>Typography</h3>
-                <div class="typo-row">
-                  <span class="typo-label">Hero / H1</span>
-                  <span class="typo-sample-nunito" style="font-size: 28px; font-weight: 700; color: var(--text);">Hinb&ucirc;na Kurd&icirc;</span>
-                  <span class="typo-spec">Nunito 700 / 28&ndash;32px</span>
-                </div>
-                <div class="typo-row">
-                  <span class="typo-label">Heading / H2</span>
-                  <span class="typo-sample-nunito" style="font-size: 22px; font-weight: 600; color: var(--text);">Section Title</span>
-                  <span class="typo-spec">Nunito 600 / 22&ndash;24px</span>
-                </div>
-                <div class="typo-row">
-                  <span class="typo-label">Subhead / H3</span>
-                  <span class="typo-sample-nunito" style="font-size: 17px; font-weight: 600; color: var(--text);">Card Heading</span>
-                  <span class="typo-spec">Nunito 600 / 16&ndash;18px</span>
-                </div>
-                <div class="typo-row">
-                  <span class="typo-label">Body</span>
-                  <span class="typo-sample-inter" style="font-size: 15px; font-weight: 400; color: var(--text-secondary);">Regular body paragraph text</span>
-                  <span class="typo-spec">Inter 400 / 14&ndash;16px</span>
-                </div>
-                <div class="typo-row">
-                  <span class="typo-label">Link</span>
-                  <span class="typo-sample-inter" style="font-size: 15px; font-weight: 500; color: var(--primary); text-decoration: underline;">Clickable link text</span>
-                  <span class="typo-spec">Inter 500 / 14&ndash;16px</span>
-                </div>
-                <div class="typo-row">
-                  <span class="typo-label">Caption</span>
-                  <span class="typo-sample-inter" style="font-size: 13px; font-weight: 400; color: var(--text-secondary);">Helper text, labels, small print</span>
-                  <span class="typo-spec">Inter 400 / 12&ndash;13px</span>
-                </div>
-                <div class="typo-row">
-                  <span class="typo-label">Overline</span>
-                  <span class="typo-sample-inter" style="font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.5px;">CATEGORY LABEL</span>
-                  <span class="typo-spec">Inter 600 / 11&ndash;12px uppercase</span>
-                </div>
-
-                <hr class="section-divider">
-
-                <h3>Component Patterns</h3>
-
-                <p><strong>Buttons:</strong></p>
-                <ul>
-                  <li>Rounded corners (12px), full-width on mobile, 44&ndash;48px height</li>
-                  <li>Light mode: forest green <code>#2D5A3D</code> bg + cream text</li>
-                  <li>Dark mode: gold <code>#D4A843</code> bg + dark text</li>
-                  <li>Secondary: outlined with matching border color</li>
-                </ul>
-
-                <p><strong>Cards:</strong></p>
-                <ul>
-                  <li>Rounded corners (12&ndash;16px), subtle shadow</li>
-                  <li>1&ndash;2 shade difference from background &mdash; not harsh borders</li>
-                  <li>Light: beige <code>#F5EEE6</code> on cream / Dark: <code>#232D31</code> on dark bg</li>
-                </ul>
-
-                <p><strong>Inputs:</strong></p>
-                <ul>
-                  <li>Rounded (8&ndash;12px), icon on the left side</li>
-                  <li>Light: beige fill, green border on focus</li>
-                  <li>Dark: dark surface fill, cream border on focus</li>
-                </ul>
-
-                <hr class="section-divider">
-
-                <h3>Anti-Patterns &mdash; NEVER Do These</h3>
-                <ul>
-                  <li><strong>No pure black backgrounds</strong> &mdash; use deep forest green <code>#1A2024</code></li>
-                  <li><strong>No neon or electric green</strong> &mdash; use forest green <code>#2D5A3D</code></li>
-                  <li><strong>No bright white text on dark</strong> &mdash; use warm cream <code>#F5EEE6</code></li>
-                  <li><strong>No harsh card borders</strong> &mdash; use subtle shade difference</li>
-                  <li><strong>No cold blue-gray neutrals</strong> &mdash; use green-tinted warm grays</li>
-                  <li><strong>No flag icons for languages</strong> &mdash; use monochrome text labels</li>
-                  <li><strong>No gamified or cartoon elements</strong> &mdash; keep professional and calm</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -2721,15 +2272,16 @@ claude
             <div class="accordion-content">
               <div class="accordion-body">
 
-                <h3>Primary Tool: Claude Code</h3>
-                <p>We use <strong>Claude Code</strong> (Anthropic's CLI) with the <code>frontend-design</code> plugin to generate production-grade HTML screen designs. This is the main workflow tool.</p>
+                <h3>Primary Tool: AI Coding Assistant</h3>
+                <p>We use an <strong>AI coding assistant</strong> (e.g. Claude Code, Cursor, Copilot) to generate production-grade HTML screen designs. Any tool that can read project files and generate code works.</p>
                 <ul>
-                  <li>Invoke the <code>frontend-design</code> skill before generating any screen &mdash; it ensures design quality, intentional spatial composition, and meaningful micro-interactions</li>
+                  <li>Read the design decisions doc (<code>_docs/08-design-decisions.md</code>) before generating any screen</li>
                   <li>Reference the prompt file and base template for each screen</li>
-                  <li>Iterate directly in the terminal &mdash; review in browser &mdash; refine</li>
+                  <li>Iterate in the editor &mdash; review in browser &mdash; refine</li>
                 </ul>
 
                 <h3>Available MCP Integrations</h3>
+                <p>These optional integrations can speed up the workflow (setup depends on which AI tool you use):</p>
                 <ul>
                   <li><strong>Google Stitch MCP</strong> &mdash; Generate quick visual inspiration or reference screens. Useful if you are stuck on a layout.</li>
                   <li><strong>Playwright MCP</strong> &mdash; Browser testing and screenshot automation</li>
@@ -2824,63 +2376,13 @@ claude
             <div class="accordion-content">
               <div class="accordion-body">
 
-                <h3>Branch Naming</h3>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <span class="code-block-lang">format</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
+                <p>Full git workflow &mdash; branch naming, commit format, PR titles, and workflow rules &mdash; is documented in the AI development workflow doc.</p>
+
+                <div class="callout callout-info">
+                  <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="callout-content">
+                    <p><strong>Source of truth:</strong> <a href="docs.html#07-ai-development-workflow" style="color: var(--primary); text-decoration: underline;"><code>_docs/07-ai-development-workflow.md</code></a> &mdash; Section 2: Git &amp; Commit Conventions.</p>
                   </div>
-                  <pre><code>hk-XXX-feature-description
-
-<span class="cm"># Examples:</span>
-hk-001-landing-page-design
-hk-012-pricing-light-dark
-hk-045-student-dashboard-screens</code></pre>
-                </div>
-
-                <h3>Commit Format</h3>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <span class="code-block-lang">format</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
-                  </div>
-                  <pre><code>type(scope): description
-
-<span class="cm"># Types: feat, fix, docs, style, refactor, test, chore</span>
-<span class="cm"># Examples:</span>
-<span class="kw">feat</span>(design): add P2 pricing light mode
-<span class="kw">feat</span>(design): add P2 pricing dark mode
-<span class="kw">fix</span>(design): correct P1 landing header alignment
-<span class="kw">docs</span>(onboarding): update quality checklist
-<span class="kw">chore</span>(gallery): update P2 status to done</code></pre>
-                </div>
-
-                <h3>PR Title Format</h3>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <span class="code-block-lang">format</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
-                  </div>
-                  <pre><code>HK-XXX: feat(design): add P2 pricing screens</code></pre>
-                </div>
-
-                <h3>Workflow Rules</h3>
-                <ul>
-                  <li><strong>Always rebase, never merge</strong> &mdash; keeps history linear and clean</li>
-                  <li><strong>NEVER force push to main</strong> &mdash; this is a shared branch</li>
-                  <li>Create a feature branch for each screen or group of related screens</li>
-                  <li>Open a PR when ready &mdash; Armanc reviews before merge</li>
-                </ul>
-
-                <h3>Git Config</h3>
-                <p>This is a personal project. Use the following git identity:</p>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <span class="code-block-lang">bash</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
-                  </div>
-                  <pre><code>git config user.name "Nuri Armanç Engin"
-git config user.email "dev.nuriengin@gmail.com"</code></pre>
                 </div>
 
                 <div class="callout callout-warning">
@@ -2888,29 +2390,6 @@ git config user.email "dev.nuriengin@gmail.com"</code></pre>
                   <div class="callout-content">
                     <p><strong>Ask Armanc first</strong> before pushing to remote or creating PRs, especially if you are new to the project. Never commit directly to <code>main</code>.</p>
                   </div>
-                </div>
-
-                <h3>Typical Git Flow</h3>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <span class="code-block-lang">bash</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copy</button>
-                  </div>
-                  <pre><code><span class="cm"># Start from an updated main</span>
-git checkout main
-git pull --rebase origin main
-
-<span class="cm"># Create your feature branch</span>
-git checkout -b hk-012-pricing-screens
-
-<span class="cm"># ... do your work in mockup/ ...</span>
-
-<span class="cm"># Stage and commit</span>
-git add mockup/P2-pricing-light.html mockup/P2-pricing-dark.html mockup/index.html
-git commit -m "<span class="kw">feat</span>(design): add P2 pricing light and dark screens"
-
-<span class="cm"># Push and create PR</span>
-git push -u origin hk-012-pricing-screens</code></pre>
                 </div>
               </div>
             </div>
@@ -2928,7 +2407,7 @@ git push -u origin hk-012-pricing-screens</code></pre>
             <div class="accordion-content">
               <div class="accordion-body">
 
-                <p>Run through this checklist after <strong>every screen</strong> before committing. Click each item to mark it checked (for your own tracking &mdash; state is not saved).</p>
+                <p>Run through this checklist after <strong>every screen</strong> before committing. Click each item to mark it checked (for your own tracking &mdash; state is not saved). Source: <a href="docs.html#08-design-decisions" style="color: var(--primary); text-decoration: underline;"><code>_docs/08-design-decisions.md</code></a></p>
 
                 <ul class="checklist">
                   <li class="checklist-item" onclick="toggleCheck(this)">
@@ -3094,14 +2573,18 @@ git push -u origin hk-012-pricing-screens</code></pre>
       const sections = document.querySelectorAll('.accordion-item[id], .timeline-section[id]');
       const navLinks = document.querySelectorAll('.sidebar-nav-link');
 
-      const scrollPos = window.scrollY + 120;
-
+      // Find the section closest to (but above) the top of the viewport
+      const threshold = 140; // header height + some buffer
       let activeId = 'section-timeline';
-      sections.forEach(section => {
-        if (section.offsetTop <= scrollPos) {
+
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= threshold) {
           activeId = section.id;
+        } else {
+          break;
         }
-      });
+      }
 
       navLinks.forEach(link => {
         link.classList.remove('active');
@@ -3157,7 +2640,34 @@ git push -u origin hk-012-pricing-screens</code></pre>
       });
     }
 
+    // --- Hash-based accordion open ---
+    function openSectionFromHash() {
+      var hash = window.location.hash.replace('#', '');
+      if (!hash || !hash.startsWith('section-')) return;
+      var target = document.getElementById(hash);
+      if (!target || !target.classList.contains('accordion-item')) return;
+
+      // Collapse all, then open the target
+      document.querySelectorAll('.accordion-item').forEach(function (item) {
+        item.classList.remove('open');
+        var btn = item.querySelector('.accordion-trigger');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+      target.classList.add('open');
+      var trigger = target.querySelector('.accordion-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+
+      // Scroll into view after a short delay (let accordion open)
+      setTimeout(function () {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      updateSidebarActive();
+    }
+
+    window.addEventListener('hashchange', openSectionFromHash);
+
     // Initialize
+    openSectionFromHash();
     updateSidebarActive();
   </script>
   <script src="shared/header.js"></script>
