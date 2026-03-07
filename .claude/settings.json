@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git mv:*)",
+      "Bash(git config:*)",
+      "Bash(git -C:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run format:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run migration:*)",
+      "Bash(npm run seed:*)",
+      "Bash(npm run start:*)",
+      "Bash(npm create:*)",
+      "Bash(npx:*)",
+      "Bash(python3 -m http.server:*)",
+      "WebFetch(domain:www.kurdishtts.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:adar-schule.github.io)",
+      "WebFetch(domain:localhost)",
+      "WebSearch"
+    ]
+  }
+}
