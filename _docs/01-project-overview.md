@@ -1,6 +1,6 @@
 # Hinbuna Kurdî - Project Overview
 
-> **Doc:** 01 · **Status:** Active · **Updated:** 2026-03-01
+> **Doc:** 01 · **Status:** Active · **Updated:** 2026-03-07
 
 ---
 
@@ -118,6 +118,23 @@ Hinbuna Kurdî is part of a broader ecosystem of Kurdish language tools sharing 
 - Each app is standalone but benefits from shared user data
 - White-label / B2B: the whole ecosystem can be licensed
 - Starting with **Kurmanji dialect** (A1-B1), **Sorani** expansion planned after Kurmanji succeeds
+
+---
+
+## Screen Groups
+
+The application has 4 screen groups, each targeting a different audience and auth state.
+
+| Group | Prefix | Screens | Auth | Description |
+|-------|--------|---------|------|-------------|
+| **Public** | P1-P8 + Onboarding | 9 | No | Landing, Pricing, Login, Register, Forgot Password, About, Products, Support & Invest, Onboarding |
+| **Student** | S1-S12 | 12 | Yes | Dashboard, Course List, Module/Unit/Lesson View, Lesson Player, Activity Result, Lesson Complete, Profile, Settings, Achievements, Leaderboard |
+| **Teacher** | T1-T8 + T.Settings | 9 | Yes | Content Dashboard, Course/Module List, Unit/Lesson/Activity Editor, Materials Manager, Students Overview, Student Detail, Settings |
+| **Admin** | A1-A6 | 6 | Yes | Admin Dashboard, User Management, Content Moderation, Analytics, System Settings, Audit Log |
+
+**Total: 36 screens**
+
+> Visual overview with status and links: `mockup/index.html` (Screen Overview page)
 
 ---
 

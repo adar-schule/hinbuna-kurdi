@@ -182,11 +182,11 @@
     if (pageType === 'gallery' || pageType === 'onboarding' || pageType === 'components' || pageType === 'implementation-notes' || pageType === 'data-model' || pageType === 'multi-lang' || pageType === 'docs') {
       var navItems = [
         { id: 'gallery',              href: 'index.html',                icon: NAV_ICON_GALLERY,     label: 'Overview',      title: 'Screen Overview',            inline: true },
-        { id: 'onboarding',           href: 'onboarding.html',           icon: NAV_ICON_ONBOARDING,  label: 'Onboarding',    title: 'Developer Onboarding Guide', inline: false },
-        { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components',    title: 'Component Library',          inline: false },
-        { id: 'data-model',          href: 'data-model.html',           icon: NAV_ICON_DATAMODEL,   label: 'Data',          title: 'Data Model Overview',        inline: true },
-        { id: 'multi-lang',          href: 'multi-lang.html',           icon: NAV_ICON_MULTILANG,   label: 'Multi-Lang',    title: 'Multi-Language System',      inline: true },
+        { id: 'onboarding',           href: 'onboarding.html',           icon: NAV_ICON_ONBOARDING,  label: 'Onboarding',    title: 'Developer Onboarding Guide', inline: true },
         { id: 'docs',                href: 'docs.html',                icon: NAV_ICON_DOCS,        label: 'Docs',          title: 'Project Documentation',      inline: true },
+        { id: 'data-model',          href: 'data-model.html',           icon: NAV_ICON_DATAMODEL,   label: 'Data',          title: 'Data Model Overview',        inline: true },
+        { id: 'multi-lang',          href: 'multi-lang.html',           icon: NAV_ICON_MULTILANG,   label: 'Multi-Lang',    title: 'Multi-Language System',      inline: false },
+        { id: 'components',           href: 'components.html',            icon: NAV_ICON_COMPONENTS,  label: 'Components',    title: 'Component Library',          inline: false },
         { id: 'implementation-notes', href: 'implementation-notes.html',  icon: NAV_ICON_NOTES,       label: 'Future Notes', title: 'Implementation Notes',       inline: false }
       ];
 
