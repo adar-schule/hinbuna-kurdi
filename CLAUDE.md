@@ -5,96 +5,44 @@ GIT_SCOPE: personal
 Kurdish language learning platform (Kurmanji A1-B1).
 
 > **Note**: This repo is being rebuilt from vanilla HTML/CSS/JS to NestJS + React + Tailwind.
-> Legacy prototype code in root. New stack coming soon.
 
-## Getting Started with Claude Code
+## LLM Onboarding
 
-### 1. Install Claude Code
-
-```bash
-# Install Claude Code CLI
-npm install -g @anthropic-ai/claude-code
-
-# Navigate to the wrapper folder (NOT the repo)
-cd path/to/HinbunaKurdi
-
-# Start Claude
-claude
-```
-
-> **Important:** Always start Claude from the `HinbunaKurdi/` wrapper folder, not from `REPOS/hinbuna-kurdi/`. The wrapper has the main CLAUDE.md with all rules and references.
-
-### 2. Understand the Setup
+**Start here, then follow the boot sequence in `.ai/README.md`.**
 
 ```
-HinbunaKurdi/                     (start Claude here)
-├── CLAUDE.md                     # Main entry — Claude reads this first
-├── _rules/                       # Workflow, design, coding standards
-├── _claude-files/                # Current work status (read at session start)
-├── _screenshots/                 # Visual references
-└── REPOS/
-    └── hinbuna-kurdi/            # The actual codebase
-        ├── CLAUDE.md             # Tech stack, commands, structure
-        ├── _docs/                # All project documentation
-        │   ├── 08-design-decisions.md   # Colors, typography, components
-        │   └── archive/prompts/  # Screen generation templates (archived)
-        └── mockup/               # HTML/CSS screens (current MVP)
+1. This file                            -> project overview
+2. .ai/README.md                        -> how to work (boot sequence)
+3. .ai/rules/*                          -> shared way-of-working standards
+4. .ai/sessions/_tracker.md             -> where we left off
+5. Active session files (in_progress)   -> pick up current work
+6. _docs/* (as needed)                  -> repo specifications
 ```
 
-Claude automatically reads the CLAUDE.md files and follows the rules. You don't need to explain the project — it already knows.
+---
 
-### 3. Start the Dev Server
+## Project Structure
 
-```bash
-cd REPOS/hinbuna-kurdi/mockup && python3 -m http.server 8080 &
 ```
-
-Open `http://localhost:8080` in your browser to preview screens.
-
-### 4. How We Work — Adding a New Screen
-
-All design standards are already decided. Adding a screen follows this workflow:
-
-1. **Tell Claude which screen** — e.g. "Create the student dashboard screen"
-2. **Claude reads the standards** — design decisions, color palette, typography, components are all documented in `_docs/08-design-decisions.md`
-3. **Claude generates the HTML/CSS** — following the established patterns from existing screens
-4. **You preview in browser** — check `localhost:8080`, give feedback
-5. **Iterate** — "make the sidebar narrower", "change the card layout", etc.
-
-That's it. The standards do the heavy lifting.
-
-### 5. What's Already Decided (Don't Reinvent)
-
-These are locked. Follow them, don't redesign:
-
-| Standard | Where |
-|----------|-------|
-| Color palette & tokens | `_docs/08-design-decisions.md` |
-| Typography (font, sizes, weights) | `_docs/08-design-decisions.md` |
-| Component patterns (cards, buttons, nav) | `_docs/08-design-decisions.md` |
-| Page tree (all screens mapped) | `mockup/index.html` (dev gallery at localhost:8080) |
-| Brand vibe (calm + SaaS, NOT gamified) | `../../_rules/DESIGN-RULES.md` |
-| Prompt templates for screen generation | `_docs/archive/prompts/` (archived) |
-| Shared theme system (light/dark) | Already in `mockup/shared/` |
-
-### 6. Screen Ownership
-
-Each team member owns a set of screens. Check with Armanc before starting:
-
-| Screen Group | Owner | Status |
-|--------------|-------|--------|
-| Public pages (landing, pricing, about, etc.) | Armanc | Done |
-| Student screens (dashboard, lessons, progress) | TBD | Standards first, then build |
-| Mamoste screens (content management, analytics) | TBD | After student screens |
-| Admin screens (user management, system) | TBD | After mamoste screens |
-
-### 7. Rules for Everyone
-
-- **Never redesign existing components** — reuse what's in `mockup/shared/`
-- **Never change color tokens** — they're locked in design decisions
-- **Always preview before committing** — `localhost:8080`
-- **Always rebase, never merge** — see `../../_rules/CODING-STANDARDS.md`
-- **Ask Claude, don't guess** — it knows the project standards
+hinbuna-kurdi/
+├── .ai/                 # LLM workspace (rules, sessions) — see .ai/README.md
+├── _docs/               # Project documentation (source of truth)
+│   ├── 01-project-overview.md
+│   ├── 02-content-structure.md
+│   ├── 03-content-mapping-a1.md
+│   ├── 04-tech-stack.md
+│   ├── 05-data-model-design.md    # 47 tables, 12 domains
+│   ├── 06-data-model-decisions.md # Decision changelog
+│   ├── 07-ai-development-workflow.md
+│   ├── 08-design-decisions.md     # Colors, typography, components
+│   ├── 09-teacher-translation-ui.md
+│   └── flows/                     # User journeys
+├── _material/           # Learning materials (von Mamoste curriculum source)
+├── mockup/              # HTML/CSS screens (current MVP)
+│   ├── index.html       # Page tree / dev gallery (localhost:8080)
+│   └── shared/          # Theme system (light/dark)
+└── frontend/            # React app (future)
+```
 
 ---
 
@@ -102,19 +50,18 @@ Each team member owns a set of screens. Check with Armanc before starting:
 
 **Single source of truth — never duplicate information across files.**
 
-### Two layers of documentation
+| Layer | Location | Purpose |
+|-------|----------|---------|
+| **Detailed docs** | `_docs/*.md` | Full specifications, schemas, decisions |
+| **Visual overviews** | `mockup/*.html` (dev pages) | Interactive summaries at `localhost:8080` |
+| **Way of working** | `.ai/rules/` | Shared standards (workflow, coding) |
+| **Session tracking** | `.ai/sessions/` | Current work state, kanban-style |
 
-| Layer | Location | Purpose | Audience |
-|-------|----------|---------|----------|
-| **Detailed docs** | `_docs/*.md` | Full specifications, schemas, decisions | Developers, AI, content creators |
-| **Visual overviews** | `mockup/*.html` (dev pages) | Interactive summaries, diagrams, tables | Team — browse at `localhost:8080` |
-
-### Rules
-
-1. **`_docs/*.md` is always the source of truth.** If it's not in a doc, it doesn't exist.
-2. **Dev pages (`mockup/*.html`) visualize, never duplicate.** They reference docs, show overviews, link back — but never hardcode details that belong in a doc.
-3. **No cross-doc duplication.** Each topic has ONE home doc. Other docs that need that info must **reference** it (`→ See [05-data-model-design.md]`), never copy it.
-4. **When something changes, update ONE place.** If you have to update two files for the same change, the structure is wrong.
+Rules:
+1. `_docs/*.md` is always the source of truth for project specs
+2. Dev pages visualize, never duplicate
+3. No cross-doc duplication — each topic has ONE home
+4. `.ai/rules/` is for shared standards (will become separate repo)
 
 ---
 
@@ -134,6 +81,9 @@ Each team member owns a set of screens. Check with Armanc before starting:
 ## Quick Start
 
 ```bash
+# Dev server (mockup preview)
+cd mockup && python3 -m http.server 8080
+
 # Install dependencies
 npm install
 
@@ -148,45 +98,29 @@ npm run seed
 
 ---
 
-## Project Structure
+## Team
 
-### Backend (NestJS)
-```
-src/
-├── core/                # Shared (NO domain dependencies)
-├── modules/
-│   ├── auth/           # controller/ service/ dto/ entities/
-│   ├── users/
-│   ├── courses/
-│   ├── progress/
-│   └── subscriptions/
-├── database/
-│   ├── migrations/
-│   └── seeds/
-└── main.ts
-```
+| Role | Person | Focus |
+|------|--------|-------|
+| Lead | **Armanc** (Nuri Armanc Engin) | Backend, DevOps, Architecture |
+| Frontend | Gule | UI/UX, React |
+| Content | Mamoste | Kurdish curriculum |
 
-### Frontend (React)
-```
-src/
-├── components/
-│   ├── ui/             # Design system (Button, Input, Card)
-│   ├── forms/
-│   ├── layout/
-│   └── features/       # auth/, lessons/, dashboard/
-├── hooks/
-├── services/           # API calls
-├── stores/
-├── utils/
-└── pages/
-```
+---
+
+## Design Standards
+
+All design decisions are locked in `_docs/08-design-decisions.md`:
+- Color palette, typography, spacing, components
+- Brand: Calm + SaaS (Headspace meets Notion) — **NEVER reference Duolingo**
+- Mobile-first (375px), both light + dark modes required
+- Always invoke `frontend-design` skill before any screen HTML/CSS work
 
 ---
 
 ## Commands Reference
 
 ```bash
-# Development
 npm run start:dev     # Backend
 npm run dev           # Frontend
 npm run lint          # Check
@@ -194,50 +128,7 @@ npm run lint:fix      # Fix
 npm run format        # Prettier
 npm run test          # Tests
 npm run test:cov      # Coverage
-
-# Database
 npm run migration:generate
 npm run migration:run
 npm run seed
 ```
-
----
-
-## Resources
-
-- **Data model**: `_docs/05-data-model-design.md` (47 tables across 12 domains, includes ERD diagrams)
-- **Content structure**: Course → Module → Unit → Lesson → Activity → Material
-- **Design decisions**: `_docs/08-design-decisions.md`
-- **Page tree**: `mockup/index.html` (dev gallery at localhost:8080)
-- **Locales**: Kurdish (ku), German (de), English (en)
-
-### Data Model Overview (47 tables)
-
-| Domain | Tables | MVP |
-|--------|--------|-----|
-| Content | 7 | Yes |
-| Users & Auth | 5 | Yes |
-| Subscriptions | 2 | Optional |
-| Progress | 3 | Yes |
-| Teacher | 4 | Yes |
-| Notifications | 2 | Optional |
-| Badges | 2 | Optional |
-| Comments | 2 | Optional |
-| Audit | 1 | Optional |
-| AI Core | 11 | Yes (basic intelligence) |
-| AI Premium | 3 | Optional |
-| Multi-Language / Translations | 5 | Yes |
-
-### AI Features
-
-| Feature | Priority | Notes |
-|---------|----------|-------|
-| TTS (Text-to-Speech) | MVP | Via kurdishtts.com API |
-| Personalized Learning | Phase 2 | Adaptive based on user mistakes |
-| AI Content Generation | Future | Generate exercises targeting weak areas |
-| Kurdish Corpus | Side App | Expert-curated language dataset |
-
-### Side Apps Ecosystem
-
-Apps share SSO, accessible via header dropdown:
-- Ezmuna Asta Kurdi (Level Test), Dictionary, Short Stories, Grammar Exercises, Grammar Puzzles, TTS, Kurdish Corpus
