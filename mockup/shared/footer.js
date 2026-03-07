@@ -44,18 +44,18 @@
     html += LOGO_SVG;
     html += '<span class="shared-footer-logo-text">Hinb\u00fbna Kurd\u00ee</span>';
     html += '</div>';
-    html += '<p class="shared-footer-tagline">F\u00earb\u00fbna ziman\u00ea kurd\u00ee</p>';
+    html += '<p class="shared-footer-tagline">Learn Kurdish</p>';
     html += '</div>';
 
     // Nav links
     html += '<nav class="shared-footer-links">';
-    html += '<a href="P6-about.html" class="shared-footer-link">Derbar\u00ea</a>';
+    html += '<a href="P6-about.html" class="shared-footer-link">About</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="P6-about.html#niheni" class="shared-footer-link">Pol\u00eet\u00eekaya Nih\u00ean\u00eey\u00ea</a>';
+    html += '<a href="P6-about.html#niheni" class="shared-footer-link">Privacy Policy</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="P6-about.html#sert" class="shared-footer-link">\u015eert \u00fb Mercan</a>';
+    html += '<a href="P6-about.html#sert" class="shared-footer-link">Terms &amp; Conditions</a>';
     html += '<span class="shared-footer-dot">\u00b7</span>';
-    html += '<a href="P6-about.html#tekili" class="shared-footer-link">T\u00eakil\u00ee</a>';
+    html += '<a href="P6-about.html#tekili" class="shared-footer-link">Contact</a>';
     html += '</nav>';
 
     // Copyright row with gear
@@ -64,7 +64,7 @@
     html += '<p class="shared-footer-copyright">\u00a9 2026 <a href="#" class="shared-footer-org">Adar Schule</a></p>';
     html += '<a href="#" class="shared-footer-craftlab">Built by <span>N\u00fbcraft Labs</span></a>';
     html += '</div>';
-    html += '<button class="shared-footer-gear" id="footer-settings-gear" aria-label="Settings" title="M\u00eeheng">';
+    html += '<button class="shared-footer-gear" id="footer-settings-gear" aria-label="Settings" title="Settings">';
     html += GEAR_SVG;
     html += '</button>';
     html += '</div>';

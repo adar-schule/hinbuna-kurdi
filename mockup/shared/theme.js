@@ -360,7 +360,7 @@
 
     // Title row with "learn more" link
     html += '<div class="app-switcher-dropdown-header">';
-    html += '<div class="app-switcher-dropdown-title">Ekos\u00ees\u0074em</div>';
+    html += '<div class="app-switcher-dropdown-title">Ecosystem</div>';
     html += '<a href="P7-products.html" class="app-switcher-learn-more">';
     html += INFO_ICON_SVG;
     html += '<span>Learn More</span>';
@@ -379,7 +379,7 @@
       html += '<div class="app-switcher-tagline">' + app.tagline + '</div>';
       html += '</div>';
       if (!app.active) {
-        html += '<span class="app-switcher-badge">N\u00eaz\u00eek e</span>';
+        html += '<span class="app-switcher-badge">Coming Soon</span>';
       }
       html += '</' + tag + '>';
     }

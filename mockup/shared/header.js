@@ -254,7 +254,7 @@
 
     // Login button (last on public)
     if (showLogin && pageType === 'public') {
-      html += '<a href="P3-login.html" class="header-login">T\u00eakeve</a>';
+      html += '<a href="P3-login.html" class="header-login">Sign In</a>';
     }
 
     html += '</div>'; // .header-actions
